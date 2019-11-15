@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>liteide on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/liteide/</link>
+    <link>http://blog.justwe.site/tags/liteide/</link>
     <description>Recent content in liteide on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 07 Mar 2017 05:49:56 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/liteide/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/liteide/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>安装LiteIde配置</title>
-      <link>http://localhost:1313/post/go-liteide/</link>
+      <link>http://blog.justwe.site/post/go-liteide/</link>
       <pubDate>Tue, 07 Mar 2017 05:49:56 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/go-liteide/</guid>
+      <guid>http://blog.justwe.site/post/go-liteide/</guid>
       <description>这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是</description>
     </item>
     

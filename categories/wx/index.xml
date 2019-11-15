@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>wx on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/categories/wx/</link>
+    <link>http://blog.justwe.site/categories/wx/</link>
     <description>Recent content in wx on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 07 Nov 2016 15:55:22 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/wx/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/categories/wx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>小程序(2)</title>
-      <link>http://localhost:1313/post/wxcx-2/</link>
+      <link>http://blog.justwe.site/post/wxcx-2/</link>
       <pubDate>Mon, 07 Nov 2016 15:55:22 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/wxcx-2/</guid>
+      <guid>http://blog.justwe.site/post/wxcx-2/</guid>
       <description>由上篇博客可以了解小程序运行的一个大体过程,首先app.json进行配置路由和基本的样式调整,其次可以在对应的路由指向的目录下添加 .wxml .wxss .js 这三</description>
     </item>
     

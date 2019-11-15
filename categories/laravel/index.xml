@@ -2,120 +2,120 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>laravel on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/categories/laravel/</link>
+    <link>http://blog.justwe.site/categories/laravel/</link>
     <description>Recent content in laravel on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 01 Apr 2017 20:57:12 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>laravel-auth</title>
-      <link>http://localhost:1313/post/laravel-auth/</link>
+      <link>http://blog.justwe.site/post/laravel-auth/</link>
       <pubDate>Sat, 01 Apr 2017 20:57:12 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-auth/</guid>
+      <guid>http://blog.justwe.site/post/laravel-auth/</guid>
       <description>原文出处 auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：） 本着松</description>
     </item>
     
     <item>
       <title>laravel-error-log</title>
-      <link>http://localhost:1313/post/laravel-error-log/</link>
+      <link>http://blog.justwe.site/post/laravel-error-log/</link>
       <pubDate>Sat, 01 Apr 2017 20:51:06 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-error-log/</guid>
+      <guid>http://blog.justwe.site/post/laravel-error-log/</guid>
       <description>laravel有一套方便的错误采集和报错机制，如果是开发api的时候我们不需要报错页面显示的那么详细，只想返回一些错误信息，而不用把所有的响</description>
     </item>
     
     <item>
       <title>laravel事务</title>
-      <link>http://localhost:1313/post/laravel-trancate/</link>
+      <link>http://blog.justwe.site/post/laravel-trancate/</link>
       <pubDate>Tue, 21 Mar 2017 09:01:02 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-trancate/</guid>
+      <guid>http://blog.justwe.site/post/laravel-trancate/</guid>
       <description>laravel 事务的使用会忽略的地方 laravel开启事物有两种方法： 一种是闭包 1 2 3 4 5 DB::transaction(function() { DB::table(&amp;#39;user&amp;#39;)-&amp;gt;insert([&amp;#39;username&amp;#39;=&amp;gt;&amp;#39;xxx&amp;#39;]); DB::table(&amp;#39;comment&amp;#39;)-&amp;gt;insert([&amp;#39;content&amp;#39;=&amp;gt;&amp;#39;zzz&amp;#39;]); }); 当闭包内发生错误就会自动回滚 另一种比较灵活 1 2 3 4 5</description>
     </item>
     
     <item>
       <title>laravel服务容器延迟加载</title>
-      <link>http://localhost:1313/post/laravel-lazy-load/</link>
+      <link>http://blog.justwe.site/post/laravel-lazy-load/</link>
       <pubDate>Mon, 26 Dec 2016 07:45:35 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-lazy-load/</guid>
+      <guid>http://blog.justwe.site/post/laravel-lazy-load/</guid>
       <description>laravel 注册的服务是可以延时加载的 很简单，在provider文件夹下指定的服务当中这样写 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29</description>
     </item>
     
     <item>
       <title>再来个facade吧</title>
-      <link>http://localhost:1313/post/laravel-facade/</link>
+      <link>http://blog.justwe.site/post/laravel-facade/</link>
       <pubDate>Mon, 19 Dec 2016 15:48:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-facade/</guid>
+      <guid>http://blog.justwe.site/post/laravel-facade/</guid>
       <description>参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor</description>
     </item>
     
     <item>
       <title>lumen5.3正常使用dd()函数</title>
-      <link>http://localhost:1313/post/lumen-dd/</link>
+      <link>http://blog.justwe.site/post/lumen-dd/</link>
       <pubDate>Tue, 15 Nov 2016 06:58:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/lumen-dd/</guid>
+      <guid>http://blog.justwe.site/post/lumen-dd/</guid>
       <description>主用laravel的已经习惯了dd函数的方便， 但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码 1 2 3 4 5 6 7 8 9 10</description>
     </item>
     
     <item>
       <title>七牛云javascriptSDK的demo</title>
-      <link>http://localhost:1313/post/qiniujs-demo/</link>
+      <link>http://blog.justwe.site/post/qiniujs-demo/</link>
       <pubDate>Sat, 12 Nov 2016 04:28:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/qiniujs-demo/</guid>
+      <guid>http://blog.justwe.site/post/qiniujs-demo/</guid>
       <description>使用oss的话碰到用户上传的场景建议优先使用的js上传到oss，不需要经过服务端，也算减轻了服务器的压力，缺点就是有的sdk不支持文件类型的</description>
     </item>
     
     <item>
       <title>laravel的定时任务</title>
-      <link>http://localhost:1313/post/laravel-cron/</link>
+      <link>http://blog.justwe.site/post/laravel-cron/</link>
       <pubDate>Sun, 09 Oct 2016 15:22:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-cron/</guid>
+      <guid>http://blog.justwe.site/post/laravel-cron/</guid>
       <description>了解下 laravel 定时任务是怎么使用的 首先在linux上创建一个crontab命令. crontab -e 第一次用的时候会选择编辑器,默认nano 然后在crontab文</description>
     </item>
     
     <item>
       <title>laravel的报错处理</title>
-      <link>http://localhost:1313/post/laravel-error/</link>
+      <link>http://blog.justwe.site/post/laravel-error/</link>
       <pubDate>Sun, 09 Oct 2016 15:10:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-error/</guid>
+      <guid>http://blog.justwe.site/post/laravel-error/</guid>
       <description>有很多时候我们需要有404 500 这类的错误页面,在逻辑层里写这些又有些太繁琐,干脆从上游去搞一下 在 app/exceptions/handler.</description>
     </item>
     
     <item>
       <title>laravel5.1使用stmp邮箱服务</title>
-      <link>http://localhost:1313/post/laravel-stmp/</link>
+      <link>http://blog.justwe.site/post/laravel-stmp/</link>
       <pubDate>Sun, 09 Oct 2016 14:51:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-stmp/</guid>
+      <guid>http://blog.justwe.site/post/laravel-stmp/</guid>
       <description>这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&amp;gt;进入账户设置-&amp;gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5</description>
     </item>
     
     <item>
       <title>laravel-session</title>
-      <link>http://localhost:1313/post/laravel-session/</link>
+      <link>http://blog.justwe.site/post/laravel-session/</link>
       <pubDate>Wed, 01 Jun 2016 20:56:16 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-session/</guid>
+      <guid>http://blog.justwe.site/post/laravel-session/</guid>
       <description>前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &amp;#39;redis&amp;#39; =&amp;gt;</description>
     </item>
     
     <item>
       <title>laravel-repository</title>
-      <link>http://localhost:1313/post/laravel-repository/</link>
+      <link>http://blog.justwe.site/post/laravel-repository/</link>
       <pubDate>Fri, 01 Apr 2016 20:53:01 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/laravel-repository/</guid>
+      <guid>http://blog.justwe.site/post/laravel-repository/</guid>
       <description>laravel版本5.1+ 首先创建测试文件 1 php artisan make:controller TestController 修改路由文件route.php或者routes/web.php 1 Route::get(&amp;#39;test&amp;#39;, &amp;#39;TestController@index&amp;#39;); 创建服务提供者文件,</description>
     </item>
     

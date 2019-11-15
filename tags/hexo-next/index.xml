@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hexo-next on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/hexo-next/</link>
+    <link>http://blog.justwe.site/tags/hexo-next/</link>
     <description>Recent content in hexo-next on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 07 Apr 2017 15:04:39 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/hexo-next/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/hexo-next/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hexo-next-title</title>
-      <link>http://localhost:1313/post/hexo-next-title/</link>
+      <link>http://blog.justwe.site/post/hexo-next-title/</link>
       <pubDate>Fri, 07 Apr 2017 15:04:39 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/hexo-next-title/</guid>
+      <guid>http://blog.justwe.site/post/hexo-next-title/</guid>
       <description>hexo-next 是一个很完美的组合,这次我碰到的问题就是 title 不能显示&amp;lt;hello-world/&amp;gt; 这样的文本 比如你的网站配置文件_config.y</description>
     </item>
     
     <item>
       <title>hexo-next 的一些配置</title>
-      <link>http://localhost:1313/post/webconfig/</link>
+      <link>http://blog.justwe.site/post/webconfig/</link>
       <pubDate>Thu, 30 Mar 2017 21:06:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/webconfig/</guid>
+      <guid>http://blog.justwe.site/post/webconfig/</guid>
       <description>目前对 hexo-next 添加的功能 搜索 1 $ npm install hexo-generator-searchdb --save 站点配置文件 1 2 3 4 5 search: path: search.xml field: post format: html limit: 10000 next主题配置文件 1 2 3 # Local search local_search: enable: true 生成 sitemap 1 2 $ npm install hexo-generator-sitemap --save $ npm install hexo-generator-baidu-sitemap</description>
     </item>
     

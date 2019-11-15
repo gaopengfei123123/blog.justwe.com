@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>csv on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/csv/</link>
+    <link>http://blog.justwe.site/tags/csv/</link>
     <description>Recent content in csv on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 11 Nov 2019 16:28:55 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/csv/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/csv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>是用脚本分割csv文件</title>
-      <link>http://localhost:1313/post/python-csv-split/</link>
+      <link>http://blog.justwe.site/post/python-csv-split/</link>
       <pubDate>Mon, 11 Nov 2019 16:28:55 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/python-csv-split/</guid>
+      <guid>http://blog.justwe.site/post/python-csv-split/</guid>
       <description>首先安装panda 1 pip install pandas 创建脚本: 1 2 3 4 import pandas as pd rows = pd.read_csv(&amp;#34;csvfile.csv&amp;#34;, chunksize=5000000) # 每个文件的尺寸, 以及导入文件名 for i, chuck in enumerate(rows): chuck.to_csv(&amp;#39;out{}.csv&amp;#39;.format(i)) # 输出文件名 运行 1 python demo.py py挽救了我半</description>
     </item>
     

@@ -2,210 +2,210 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tools on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/categories/tools/</link>
+    <link>http://blog.justwe.site/categories/tools/</link>
     <description>Recent content in tools on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 14 Nov 2019 16:44:42 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>github-webhook 小工具</title>
-      <link>http://localhost:1313/post/tool-github-webhook/</link>
+      <link>http://blog.justwe.site/post/tool-github-webhook/</link>
       <pubDate>Thu, 14 Nov 2019 16:44:42 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/tool-github-webhook/</guid>
+      <guid>http://blog.justwe.site/post/tool-github-webhook/</guid>
       <description>最近写了一个小工具, 用来接收github webhook消息, 以在服务器上自动执行脚本 gaopengfei123123/hook github hook server 一个用来接收webhook的server 环境 golang v1.11+</description>
     </item>
     
     <item>
       <title>是用脚本分割csv文件</title>
-      <link>http://localhost:1313/post/python-csv-split/</link>
+      <link>http://blog.justwe.site/post/python-csv-split/</link>
       <pubDate>Mon, 11 Nov 2019 16:28:55 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/python-csv-split/</guid>
+      <guid>http://blog.justwe.site/post/python-csv-split/</guid>
       <description>首先安装panda 1 pip install pandas 创建脚本: 1 2 3 4 import pandas as pd rows = pd.read_csv(&amp;#34;csvfile.csv&amp;#34;, chunksize=5000000) # 每个文件的尺寸, 以及导入文件名 for i, chuck in enumerate(rows): chuck.to_csv(&amp;#39;out{}.csv&amp;#39;.format(i)) # 输出文件名 运行 1 python demo.py py挽救了我半</description>
     </item>
     
     <item>
       <title>jmeter 对tcp进行压测</title>
-      <link>http://localhost:1313/post/tools-jmeter/</link>
+      <link>http://blog.justwe.site/post/tools-jmeter/</link>
       <pubDate>Tue, 30 Apr 2019 17:45:59 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/tools-jmeter/</guid>
+      <guid>http://blog.justwe.site/post/tools-jmeter/</guid>
       <description>jmeter是个好工具, 跨平台, 有GUI, 简单易用, 扩展多 安装 本地环境为macOS Mojave 10.14.4 本地需要安装java8 jmeter官方下载地址 jmet</description>
     </item>
     
     <item>
       <title>转 mac上一些好玩的命令行工具</title>
-      <link>http://localhost:1313/post/tool-mac-terminal-awesome/</link>
+      <link>http://blog.justwe.site/post/tool-mac-terminal-awesome/</link>
       <pubDate>Fri, 18 Jan 2019 18:26:42 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/tool-mac-terminal-awesome/</guid>
+      <guid>http://blog.justwe.site/post/tool-mac-terminal-awesome/</guid>
       <description>mac上一些有意思的命令行小工具 asciinema 和 svg-term assiiname 是用来命令行录屏的, svg-term 将文件转换成svg动图, 这个做截屏很方便 安装: 1 2 brew install asciinema npm install -g svg-term 使用方式: 1 2</description>
     </item>
     
     <item>
       <title>crontab 设置一小时执行一次</title>
-      <link>http://localhost:1313/post/linux-crontab/</link>
+      <link>http://blog.justwe.site/post/linux-crontab/</link>
       <pubDate>Tue, 11 Dec 2018 10:55:47 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/linux-crontab/</guid>
+      <guid>http://blog.justwe.site/post/linux-crontab/</guid>
       <description>如果主管给你个任务, 让你每小时执行一次脚本, 是不是就是这样: 1 * */1 * * * xxxxx.bash 这样就错了呦~ 以上产生的结果是每分钟执行一次, 因为从匹配角度来看每</description>
     </item>
     
     <item>
       <title>转 vscode 设置终端字体</title>
-      <link>http://localhost:1313/post/vscode-terminal-font-macos/</link>
+      <link>http://blog.justwe.site/post/vscode-terminal-font-macos/</link>
       <pubDate>Tue, 16 Oct 2018 15:50:28 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/vscode-terminal-font-macos/</guid>
+      <guid>http://blog.justwe.site/post/vscode-terminal-font-macos/</guid>
       <description>mac 上设置vscode终端样式(尤其是想用 powershell 主题的) Mac下配置vscode终端字体： 在Mac 10.13.6下的解决方案（亲测可用），其他版本</description>
     </item>
     
     <item>
       <title>git调整 ssh 登录参数</title>
-      <link>http://localhost:1313/post/git-sshcommand/</link>
+      <link>http://blog.justwe.site/post/git-sshcommand/</link>
       <pubDate>Sat, 23 Jun 2018 23:39:17 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/git-sshcommand/</guid>
+      <guid>http://blog.justwe.site/post/git-sshcommand/</guid>
       <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true #</description>
     </item>
     
     <item>
       <title>关于 chrome 浏览器会强制跳转到 https 的问题</title>
-      <link>http://localhost:1313/post/chrome-redirection-https/</link>
+      <link>http://blog.justwe.site/post/chrome-redirection-https/</link>
       <pubDate>Tue, 19 Dec 2017 10:34:25 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/chrome-redirection-https/</guid>
+      <guid>http://blog.justwe.site/post/chrome-redirection-https/</guid>
       <description>我在本地使用的是 *.app 的域名开发的,某一天发现使用谷歌的时候会强制跳转到 https,改成http都不管用 询问了一下万能的404网站,查询的结果大</description>
     </item>
     
     <item>
       <title>sense-HAT api 文档</title>
-      <link>http://localhost:1313/post/raspberry-pi3-sense-hat-api/</link>
+      <link>http://blog.justwe.site/post/raspberry-pi3-sense-hat-api/</link>
       <pubDate>Thu, 30 Nov 2017 13:57:18 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/raspberry-pi3-sense-hat-api/</guid>
+      <guid>http://blog.justwe.site/post/raspberry-pi3-sense-hat-api/</guid>
       <description>从官方给的 api 文档中硬翻的&amp;hellip; LED 模型 set_rotation 设置翻转角度 这个函数可以设置 led 的旋转角度 参数 类型 可选参数 描述 r Integer 0,90,180,270 0指的是树莓派 HDMI 接口向下的</description>
     </item>
     
     <item>
       <title>树莓派3安装 sense HAT</title>
-      <link>http://localhost:1313/post/raspberry-pi3-install-sense-hat/</link>
+      <link>http://blog.justwe.site/post/raspberry-pi3-install-sense-hat/</link>
       <pubDate>Wed, 29 Nov 2017 13:21:26 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/raspberry-pi3-install-sense-hat/</guid>
+      <guid>http://blog.justwe.site/post/raspberry-pi3-install-sense-hat/</guid>
       <description>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: &amp;gt;官方提供的</description>
     </item>
     
     <item>
       <title>树莓派的一些报错问题</title>
-      <link>http://localhost:1313/post/raspberry-pi3-local-lang/</link>
+      <link>http://blog.justwe.site/post/raspberry-pi3-local-lang/</link>
       <pubDate>Tue, 28 Nov 2017 14:50:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/raspberry-pi3-local-lang/</guid>
+      <guid>http://blog.justwe.site/post/raspberry-pi3-local-lang/</guid>
       <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set LC_CTYPE</description>
     </item>
     
     <item>
       <title>树莓派上安装 golang</title>
-      <link>http://localhost:1313/post/raspberry-pi3-golang-env/</link>
+      <link>http://blog.justwe.site/post/raspberry-pi3-golang-env/</link>
       <pubDate>Wed, 22 Nov 2017 10:30:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/raspberry-pi3-golang-env/</guid>
+      <guid>http://blog.justwe.site/post/raspberry-pi3-golang-env/</guid>
       <description>树莓派上需要进行编译安装,不过很简单,而且 golang 官方也有 arm 平台的编译包, 在树莓派上一定要选linux-armv61这个版本啊 &amp;gt; golang 各版本的下载列表</description>
     </item>
     
     <item>
       <title>用树莓派3搞一个信号灯输出</title>
-      <link>http://localhost:1313/post/raspberry-pi3-traffic-light/</link>
+      <link>http://blog.justwe.site/post/raspberry-pi3-traffic-light/</link>
       <pubDate>Tue, 21 Nov 2017 14:26:24 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/raspberry-pi3-traffic-light/</guid>
+      <guid>http://blog.justwe.site/post/raspberry-pi3-traffic-light/</guid>
       <description>通过一个python脚本跑一个监控 cpu 的交通信号灯,运行环境是官方的系统 Raspbian 执行脚本 有编程基础的同学就直接上手好了: 1 2 3 4 5 6 7 8 9 10 11 12 13 14</description>
     </item>
     
     <item>
       <title>使用vultr来搭建梯子</title>
-      <link>http://localhost:1313/post/vultr-shadowsocks/</link>
+      <link>http://blog.justwe.site/post/vultr-shadowsocks/</link>
       <pubDate>Wed, 20 Sep 2017 14:16:47 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/vultr-shadowsocks/</guid>
+      <guid>http://blog.justwe.site/post/vultr-shadowsocks/</guid>
       <description>因为坑爹的GFW某些问题,导致一些浏览器的默认搜索长期404,为了解决这个问题之前试过lantern 也试过一些 vpn,但是都不好用啊,vpn</description>
     </item>
     
     <item>
       <title>&lt;转&gt; 关于 ssh 的 25 条实用命令</title>
-      <link>http://localhost:1313/post/ssh-command/</link>
+      <link>http://blog.justwe.site/post/ssh-command/</link>
       <pubDate>Fri, 28 Apr 2017 10:02:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/ssh-command/</guid>
+      <guid>http://blog.justwe.site/post/ssh-command/</guid>
       <description>OpenSSH是SSH连接工具的免费版本。telnet，rlogin和ftp用户可能还没意识到他们在互联网上传输的密码是未加密的，但SSH是</description>
     </item>
     
     <item>
       <title>npm-DTrace</title>
-      <link>http://localhost:1313/post/npm-dtrace/</link>
+      <link>http://blog.justwe.site/post/npm-dtrace/</link>
       <pubDate>Mon, 10 Apr 2017 22:21:13 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/npm-dtrace/</guid>
+      <guid>http://blog.justwe.site/post/npm-dtrace/</guid>
       <description>安装npm模块的时候有时候会提示Error: Cannot find module &#39;./build/Release/DTraceProviderBindings 虽然会正常运行但是总是报这个错也是很不爽的,查了下相关的 issues 比较直接的解决方法是 1 sudo npm install dtrace-provider</description>
     </item>
     
     <item>
       <title>brew-update</title>
-      <link>http://localhost:1313/post/brew-update/</link>
+      <link>http://blog.justwe.site/post/brew-update/</link>
       <pubDate>Sun, 09 Apr 2017 23:36:54 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/brew-update/</guid>
+      <guid>http://blog.justwe.site/post/brew-update/</guid>
       <description>brew更新软件时常用的操作 安装 brew ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/Go/install)&amp;quot; 搜索 brew search MySQL 查看程序具体信息 brew info mysql 更新 brew brew update 更新软件 brew upgrade mysql 如果不指定更新哪个则会更新所有可以更新的</description>
     </item>
     
     <item>
       <title>brew权限问题</title>
-      <link>http://localhost:1313/post/brew-install/</link>
+      <link>http://blog.justwe.site/post/brew-install/</link>
       <pubDate>Fri, 31 Mar 2017 14:38:36 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/brew-install/</guid>
+      <guid>http://blog.justwe.site/post/brew-install/</guid>
       <description>在一个新的环境下安装 homebrew 新装系统时难免会遇到权限的问题，在老版系统下（osx 10.10.* )需要一些权限设置，方式如下: 1 2 3 4 5 sudo chown -R $(whoami):admin /usr/local sudo chown -R $(whoami) /Library/Caches/Homebrew brew doctor</description>
     </item>
     
     <item>
       <title>使用redis—geo api实现搜索附近的人，自己写的一个composer包</title>
-      <link>http://localhost:1313/post/composer-redis-lbs/</link>
+      <link>http://blog.justwe.site/post/composer-redis-lbs/</link>
       <pubDate>Sat, 11 Mar 2017 12:11:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/composer-redis-lbs/</guid>
+      <guid>http://blog.justwe.site/post/composer-redis-lbs/</guid>
       <description>git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos</description>
     </item>
     
     <item>
       <title>go安装godoc</title>
-      <link>http://localhost:1313/post/go-doc/</link>
+      <link>http://blog.justwe.site/post/go-doc/</link>
       <pubDate>Tue, 07 Mar 2017 11:07:54 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/go-doc/</guid>
+      <guid>http://blog.justwe.site/post/go-doc/</guid>
       <description>现在的版本(go version 1.8)下，go的开发工具已经都在git上上线了，可以直接安装 1 2 3 git clone https://github.com/golang/tools $GOPATH/src/golang.org/x/tools go build golang.org/x/tools 就能生成 godoc 的二进制包了，注意需要把第三方</description>
     </item>
     
     <item>
       <title>centos65安装docker遇到的坑</title>
-      <link>http://localhost:1313/post/contentos-docker/</link>
+      <link>http://blog.justwe.site/post/contentos-docker/</link>
       <pubDate>Wed, 01 Mar 2017 05:55:27 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/contentos-docker/</guid>
+      <guid>http://blog.justwe.site/post/contentos-docker/</guid>
       <description>在国内的云服务商提供的镜像内核都是2.6.*的，不能满足docker需要的3.1.*，因此首先需要升级一下内核 1 2 3 4 5 6 7 8 #导入publ</description>
     </item>
     
     <item>
       <title>windows构建node,npm,gulp工具(测试可用)</title>
-      <link>http://localhost:1313/post/win-node-npm/</link>
+      <link>http://blog.justwe.site/post/win-node-npm/</link>
       <pubDate>Tue, 13 Dec 2016 10:04:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/win-node-npm/</guid>
+      <guid>http://blog.justwe.site/post/win-node-npm/</guid>
       <description>windows 安装 node 其实很简单 原文地址 第一步 到官网下载页下载nodejs，并默认安装，安装成功后打开cmd， 运行node -v即可查看当前node.js版</description>
     </item>
     

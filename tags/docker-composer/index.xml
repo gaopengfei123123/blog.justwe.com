@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker-composer on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/docker-composer/</link>
+    <link>http://blog.justwe.site/tags/docker-composer/</link>
     <description>Recent content in docker-composer on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 28 Jun 2018 17:55:59 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/docker-composer/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/docker-composer/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>docker中 arg 和 env 的区别</title>
-      <link>http://localhost:1313/post/docker-arg-env/</link>
+      <link>http://blog.justwe.site/post/docker-arg-env/</link>
       <pubDate>Thu, 28 Jun 2018 17:55:59 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker-arg-env/</guid>
+      <guid>http://blog.justwe.site/post/docker-arg-env/</guid>
       <description>在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用</description>
     </item>
     
     <item>
       <title>docker-compose.yml 常用命令</title>
-      <link>http://localhost:1313/post/docker-compose-yml/</link>
+      <link>http://blog.justwe.site/post/docker-compose-yml/</link>
       <pubDate>Mon, 12 Feb 2018 10:36:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker-compose-yml/</guid>
+      <guid>http://blog.justwe.site/post/docker-compose-yml/</guid>
       <description>常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up</description>
     </item>
     

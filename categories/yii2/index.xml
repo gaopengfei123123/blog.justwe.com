@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yii2 on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/categories/yii2/</link>
+    <link>http://blog.justwe.site/categories/yii2/</link>
     <description>Recent content in Yii2 on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 19 Dec 2018 11:31:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/yii2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/categories/yii2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>转 yii2 断线重连问题</title>
-      <link>http://localhost:1313/post/yii-mysql/</link>
+      <link>http://blog.justwe.site/post/yii-mysql/</link>
       <pubDate>Wed, 19 Dec 2018 11:31:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-mysql/</guid>
+      <guid>http://blog.justwe.site/post/yii-mysql/</guid>
       <description>yii2 + swoole 的模式下因为使用swoole做的常驻内存服务, 那么之前的设计思路会有一点偏差, 不是第一眼能看到的就是 mysql has gone away的问题 目前解决思路就</description>
     </item>
     
     <item>
       <title>自定义 gii 模板</title>
-      <link>http://localhost:1313/post/yii-gii/</link>
+      <link>http://blog.justwe.site/post/yii-gii/</link>
       <pubDate>Wed, 23 May 2018 14:15:12 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-gii/</guid>
+      <guid>http://blog.justwe.site/post/yii-gii/</guid>
       <description>开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造 这里先拿 basic 版举例, advance版同理 1.修改配置文件 web.php 1 2</description>
     </item>
     
     <item>
       <title>yii-multi-database</title>
-      <link>http://localhost:1313/post/yii-multi-database/</link>
+      <link>http://blog.justwe.site/post/yii-multi-database/</link>
       <pubDate>Sat, 08 Apr 2017 17:31:31 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-multi-database/</guid>
+      <guid>http://blog.justwe.site/post/yii-multi-database/</guid>
       <description>在项目中经常会碰到多个数据库的情况,在 yii 中也是可以快速设置的 演示的版本是 basic 版,但是原理很好理解 编辑配置文件 @app/config/web.php 1 2 3 4 ...... &amp;#39;db&amp;#39; =&amp;gt; require(__DIR__ . &amp;#39;/db.php&amp;#39;), //框架提供</description>
     </item>
     
     <item>
       <title>beforeAction的一个示例</title>
-      <link>http://localhost:1313/post/yii-beforeaction/</link>
+      <link>http://blog.justwe.site/post/yii-beforeaction/</link>
       <pubDate>Tue, 28 Feb 2017 07:42:34 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-beforeaction/</guid>
+      <guid>http://blog.justwe.site/post/yii-beforeaction/</guid>
       <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 public function beforeAction($action) { if(condition){ Yii::$app-&amp;gt;response-&amp;gt;format = Response::FORMAT_JSON; Yii::$app-&amp;gt;response-&amp;gt;data = array( &amp;#39;status&amp;#39; =&amp;gt; -1, &amp;#39;message&amp;#39; =&amp;gt; &amp;#39;请先登录&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; \Yii::$app-&amp;gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响应</description>
     </item>
     
     <item>
       <title>局部关闭csrf验证</title>
-      <link>http://localhost:1313/post/yii-csrf/</link>
+      <link>http://blog.justwe.site/post/yii-csrf/</link>
       <pubDate>Tue, 28 Feb 2017 07:40:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-csrf/</guid>
+      <guid>http://blog.justwe.site/post/yii-csrf/</guid>
       <description>简单理解 yii的 hehavior 就是代码实现了php54的 trait 特性 创建一个hehavior 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 &amp;lt;?php use Yii; use yii\base\ActionEvent; use yii\base\Behavior; use yii\web\Controller; class</description>
     </item>
     
     <item>
       <title>yii2路由重写方案</title>
-      <link>http://localhost:1313/post/yii-rewrite/</link>
+      <link>http://blog.justwe.site/post/yii-rewrite/</link>
       <pubDate>Thu, 27 Oct 2016 15:49:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-rewrite/</guid>
+      <guid>http://blog.justwe.site/post/yii-rewrite/</guid>
       <description>yii2 关于 apache 和 nginx 的路由重写配置 apache路由重写 1 2 3 4 5 6 7 8 9 10 Options +FollowSymLinks IndexIgnore */* RewriteEngine on # if a directory or a file exists, use it directly RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d # otherwise forward it to index.php RewriteRule . index.php 从yiic</description>
     </item>
     

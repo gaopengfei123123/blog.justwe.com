@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>js on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/js/</link>
+    <link>http://blog.justwe.site/tags/js/</link>
     <description>Recent content in js on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 16 Jan 2018 17:29:54 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/js/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/js/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于跨域请求的二三事</title>
-      <link>http://localhost:1313/post/http-cross-domain-etc/</link>
+      <link>http://blog.justwe.site/post/http-cross-domain-etc/</link>
       <pubDate>Tue, 16 Jan 2018 17:29:54 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/http-cross-domain-etc/</guid>
+      <guid>http://blog.justwe.site/post/http-cross-domain-etc/</guid>
       <description>在前后端分离开发时跨域经常是一个不可回避的问题,这里介绍一个比较简单的办法,前端 vue.js,后端 go 首先要区分简单请求和复杂请求 这里阮一峰</description>
     </item>
     
     <item>
       <title>转 在 vue-cli 中使用 svg 做 icon</title>
-      <link>http://localhost:1313/post/vue-svg-icon/</link>
+      <link>http://blog.justwe.site/post/vue-svg-icon/</link>
       <pubDate>Tue, 26 Dec 2017 17:03:55 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/vue-svg-icon/</guid>
+      <guid>http://blog.justwe.site/post/vue-svg-icon/</guid>
       <description>之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9+),可以玩点新鲜的东西了</description>
     </item>
     
     <item>
       <title>js promise 对象</title>
-      <link>http://localhost:1313/post/js-promise/</link>
+      <link>http://blog.justwe.site/post/js-promise/</link>
       <pubDate>Tue, 31 Oct 2017 23:11:45 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/js-promise/</guid>
+      <guid>http://blog.justwe.site/post/js-promise/</guid>
       <description>我们本次要了解一下 es6 中的 Promise 对象 then() 在 ES6 中函数有一个很明显的区别就是一些异步函数中不再是使用回调函数callback(),而是then() 方法来</description>
     </item>
     
     <item>
       <title>js生成笛卡尔积数组</title>
-      <link>http://localhost:1313/post/js-decartes/</link>
+      <link>http://blog.justwe.site/post/js-decartes/</link>
       <pubDate>Tue, 18 Jul 2017 10:36:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/js-decartes/</guid>
+      <guid>http://blog.justwe.site/post/js-decartes/</guid>
       <description>以下转载了来自 segmentfault的一个回答 第一种 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; var data = new Array(new Array(1, 2, 3), new Array(4, 5, 6)); var result = []; console.log(data); function descartes(arrIndex, aresult){ if (arrIndex</description>
     </item>
     
     <item>
       <title>转 跨域请求时两次发送请求的问题</title>
-      <link>http://localhost:1313/post/axios-cors/</link>
+      <link>http://blog.justwe.site/post/axios-cors/</link>
       <pubDate>Fri, 23 Jun 2017 16:42:38 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/axios-cors/</guid>
+      <guid>http://blog.justwe.site/post/axios-cors/</guid>
       <description>跨域的时候总会碰上各种各样的问题,这就是其中一种情况 检查一下，两次请求分别的 Request Method: 因为是跨域请求，客户端发先发送一个OPTIONS 请求 Preflighted Req</description>
     </item>
     
     <item>
       <title>vue-transition</title>
-      <link>http://localhost:1313/post/vue-transition/</link>
+      <link>http://blog.justwe.site/post/vue-transition/</link>
       <pubDate>Sat, 06 May 2017 13:24:23 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/vue-transition/</guid>
+      <guid>http://blog.justwe.site/post/vue-transition/</guid>
       <description>对 vue 的渐变效果的简单使用 单个节点的渐变效果 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;tit</description>
     </item>
     
     <item>
       <title>jquery 中$(this) 和 this 的区别</title>
-      <link>http://localhost:1313/post/jquery-this/</link>
+      <link>http://blog.justwe.site/post/jquery-this/</link>
       <pubDate>Tue, 02 May 2017 11:39:31 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/jquery-this/</guid>
+      <guid>http://blog.justwe.site/post/jquery-this/</guid>
       <description>说一个常识性的东西,帮助自己回忆一下 一句话, $(this)是 jquery 的对象,而 this 是 html 元素对象 什么意思呢? $(this) 可以调用jquery 中的方法 1 2 $(this).val() $(this).addClass() 而 this</description>
     </item>
     

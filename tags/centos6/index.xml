@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>centos6 on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/centos6/</link>
+    <link>http://blog.justwe.site/tags/centos6/</link>
     <description>Recent content in centos6 on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 06 Jul 2018 10:36:50 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/centos6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/centos6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>在 centOS65 环境下安装 docker</title>
-      <link>http://localhost:1313/post/docker-install-centos65/</link>
+      <link>http://blog.justwe.site/post/docker-install-centos65/</link>
       <pubDate>Fri, 06 Jul 2018 10:36:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker-install-centos65/</guid>
+      <guid>http://blog.justwe.site/post/docker-install-centos65/</guid>
       <description>早期的 docker 对稍微老点的系统支持都不是很友好, 也是因为操作系统的一些新特性才能让 docker 运行起来 在国内的云服务商提供的 CentOS65 镜像内核都是2.6.*的，不能</description>
     </item>
     

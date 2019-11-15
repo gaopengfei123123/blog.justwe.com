@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>yii2 on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/yii2/</link>
+    <link>http://blog.justwe.site/tags/yii2/</link>
     <description>Recent content in yii2 on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 19 Dec 2018 11:31:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/yii2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/yii2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>转 yii2 断线重连问题</title>
-      <link>http://localhost:1313/post/yii-mysql/</link>
+      <link>http://blog.justwe.site/post/yii-mysql/</link>
       <pubDate>Wed, 19 Dec 2018 11:31:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-mysql/</guid>
+      <guid>http://blog.justwe.site/post/yii-mysql/</guid>
       <description>yii2 + swoole 的模式下因为使用swoole做的常驻内存服务, 那么之前的设计思路会有一点偏差, 不是第一眼能看到的就是 mysql has gone away的问题 目前解决思路就</description>
     </item>
     
     <item>
       <title>yii-multi-database</title>
-      <link>http://localhost:1313/post/yii-multi-database/</link>
+      <link>http://blog.justwe.site/post/yii-multi-database/</link>
       <pubDate>Sat, 08 Apr 2017 17:31:31 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-multi-database/</guid>
+      <guid>http://blog.justwe.site/post/yii-multi-database/</guid>
       <description>在项目中经常会碰到多个数据库的情况,在 yii 中也是可以快速设置的 演示的版本是 basic 版,但是原理很好理解 编辑配置文件 @app/config/web.php 1 2 3 4 ...... &amp;#39;db&amp;#39; =&amp;gt; require(__DIR__ . &amp;#39;/db.php&amp;#39;), //框架提供</description>
     </item>
     
     <item>
       <title>yii2路由重写方案</title>
-      <link>http://localhost:1313/post/yii-rewrite/</link>
+      <link>http://blog.justwe.site/post/yii-rewrite/</link>
       <pubDate>Thu, 27 Oct 2016 15:49:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/yii-rewrite/</guid>
+      <guid>http://blog.justwe.site/post/yii-rewrite/</guid>
       <description>yii2 关于 apache 和 nginx 的路由重写配置 apache路由重写 1 2 3 4 5 6 7 8 9 10 Options +FollowSymLinks IndexIgnore */* RewriteEngine on # if a directory or a file exists, use it directly RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d # otherwise forward it to index.php RewriteRule . index.php 从yiic</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>webserver on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/webserver/</link>
+    <link>http://blog.justwe.site/tags/webserver/</link>
     <description>Recent content in webserver on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 18 Apr 2017 23:25:04 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/webserver/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/webserver/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>go-simple-webserver-demo</title>
-      <link>http://localhost:1313/post/go-simple-webserver-demo/</link>
+      <link>http://blog.justwe.site/post/go-simple-webserver-demo/</link>
       <pubDate>Tue, 18 Apr 2017 23:25:04 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/go-simple-webserver-demo/</guid>
+      <guid>http://blog.justwe.site/post/go-simple-webserver-demo/</guid>
       <description>用 go 写的一个简单的 http 服务 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;log&amp;#34; ) func sayhelloName(w http.ResponseWriter, r *http.Request) { r.ParseForm() //解析参数,默认不解析</description>
     </item>
     

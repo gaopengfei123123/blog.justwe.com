@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hook on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/hook/</link>
+    <link>http://blog.justwe.site/tags/hook/</link>
     <description>Recent content in hook on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 14 Nov 2019 16:44:42 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/hook/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/hook/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>github-webhook 小工具</title>
-      <link>http://localhost:1313/post/tool-github-webhook/</link>
+      <link>http://blog.justwe.site/post/tool-github-webhook/</link>
       <pubDate>Thu, 14 Nov 2019 16:44:42 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/tool-github-webhook/</guid>
+      <guid>http://blog.justwe.site/post/tool-github-webhook/</guid>
       <description>最近写了一个小工具, 用来接收github webhook消息, 以在服务器上自动执行脚本 gaopengfei123123/hook github hook server 一个用来接收webhook的server 环境 golang v1.11+</description>
     </item>
     

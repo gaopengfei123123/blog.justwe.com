@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>websocket on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/websocket/</link>
+    <link>http://blog.justwe.site/tags/websocket/</link>
     <description>Recent content in websocket on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 15 Jan 2019 11:27:36 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/websocket/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/websocket/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>用gorilla websocket 搞一个聊天室</title>
-      <link>http://localhost:1313/post/go-chat/</link>
+      <link>http://blog.justwe.site/post/go-chat/</link>
       <pubDate>Tue, 15 Jan 2019 11:27:36 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/go-chat/</guid>
+      <guid>http://blog.justwe.site/post/go-chat/</guid>
       <description>这个demo实现了: 1. 消息广播 2. 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息</description>
     </item>
     

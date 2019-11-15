@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>xcx on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/xcx/</link>
+    <link>http://blog.justwe.site/tags/xcx/</link>
     <description>Recent content in xcx on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 24 Oct 2016 15:28:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/xcx/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/xcx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>小程序初次接触(1)</title>
-      <link>http://localhost:1313/post/wxcx/</link>
+      <link>http://blog.justwe.site/post/wxcx/</link>
       <pubDate>Mon, 24 Oct 2016 15:28:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/wxcx/</guid>
+      <guid>http://blog.justwe.site/post/wxcx/</guid>
       <description>刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i</description>
     </item>
     

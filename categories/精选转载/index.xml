@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>精选转载 on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/</link>
+    <link>http://blog.justwe.site/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/</link>
     <description>Recent content in 精选转载 on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 31 Jan 2019 10:18:33 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>转 Golang 需要避免踩的 50 个坑</title>
-      <link>http://localhost:1313/post/go-50-tips/</link>
+      <link>http://blog.justwe.site/post/go-50-tips/</link>
       <pubDate>Thu, 31 Jan 2019 10:18:33 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/go-50-tips/</guid>
+      <guid>http://blog.justwe.site/post/go-50-tips/</guid>
       <description>Golang 需要避免踩的 50 个坑</description>
     </item>
     
     <item>
       <title>转 在 vue-cli 中使用 svg 做 icon</title>
-      <link>http://localhost:1313/post/vue-svg-icon/</link>
+      <link>http://blog.justwe.site/post/vue-svg-icon/</link>
       <pubDate>Tue, 26 Dec 2017 17:03:55 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/vue-svg-icon/</guid>
+      <guid>http://blog.justwe.site/post/vue-svg-icon/</guid>
       <description>之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9+),可以玩点新鲜的东西了</description>
     </item>
     
     <item>
       <title>转 烧录树莓派系统(新手版)</title>
-      <link>http://localhost:1313/post/raspberry-pi3-install/</link>
+      <link>http://blog.justwe.site/post/raspberry-pi3-install/</link>
       <pubDate>Tue, 21 Nov 2017 14:24:29 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/raspberry-pi3-install/</guid>
+      <guid>http://blog.justwe.site/post/raspberry-pi3-install/</guid>
       <description>怎么在 mac 上给 TF 卡烧录一个树莓派系统(为什么没有 win 的?因为 win 上的烧录软件很好用啊!混蛋!) 下载树莓派镜像 首先需要下载个系统镜像 &amp;gt; 官方镜像列表 RASPBIAN</description>
     </item>
     
     <item>
       <title>转 json移除非法 utf8字符串</title>
-      <link>http://localhost:1313/post/php-json-error/</link>
+      <link>http://blog.justwe.site/post/php-json-error/</link>
       <pubDate>Wed, 08 Nov 2017 11:17:21 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/php-json-error/</guid>
+      <guid>http://blog.justwe.site/post/php-json-error/</guid>
       <description>当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判</description>
     </item>
     
     <item>
       <title>转 做一枚全栈工程师</title>
-      <link>http://localhost:1313/post/be-a-fullstack-engineer/</link>
+      <link>http://blog.justwe.site/post/be-a-fullstack-engineer/</link>
       <pubDate>Tue, 22 Aug 2017 11:57:09 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/be-a-fullstack-engineer/</guid>
+      <guid>http://blog.justwe.site/post/be-a-fullstack-engineer/</guid>
       <description>这篇热门文章在 2017 年 6 月更新过，引入了更多新技术。 如果一个全栈工程师能够根据原型实现一个完整的MVP（minimum viable product，至少可行</description>
     </item>
     

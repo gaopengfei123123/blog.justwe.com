@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>flame-graph on Even - A super concise theme for Hugo</title>
-    <link>http://localhost:1313/tags/flame-graph/</link>
+    <link>http://blog.justwe.site/tags/flame-graph/</link>
     <description>Recent content in flame-graph on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 01 Nov 2018 17:03:33 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/flame-graph/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/tags/flame-graph/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>go 火焰图分析</title>
-      <link>http://localhost:1313/post/go-flame-graph/</link>
+      <link>http://blog.justwe.site/post/go-flame-graph/</link>
       <pubDate>Thu, 01 Nov 2018 17:03:33 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/go-flame-graph/</guid>
+      <guid>http://blog.justwe.site/post/go-flame-graph/</guid>
       <description>go version go1.11.1 darwin/amd64 安装: 1 2 3 $ go get github.com/uber/go-torch $ cd $GOPATH/src/github.com/uber/go-torch $ git clone https://github.com/brendangregg/FlameGraph.git 安装测试工具 1 2 3 $ go get github.com/Masterminds/glide $ cd $GOPATH/src/github.com/uber/go-torch $ glide install 性能分析工具 glide install如果出现 Update failed for golang.org/x/sys: Cannot detect VCS 这种报错,</description>
     </item>
     

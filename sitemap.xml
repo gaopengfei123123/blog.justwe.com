@@ -1,1751 +1,1751 @@
-<?xml-stylesheet type="text/xsl" href="http://localhost:1313/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="http://blog.justwe.site/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://blog.justwe.site/about/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://blog.justwe.site/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <loc>http://blog.justwe.site/posts/my-first-post/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://blog.justwe.site/posts/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://blog.justwe.site/categories/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/github/</loc>
+    <loc>http://blog.justwe.site/tags/github/</loc>
     <lastmod>2019-11-14T16:44:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/tool-github-webhook/</loc>
+    <loc>http://blog.justwe.site/post/tool-github-webhook/</loc>
     <lastmod>2019-11-14T16:44:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/hook/</loc>
+    <loc>http://blog.justwe.site/tags/hook/</loc>
     <lastmod>2019-11-14T16:44:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>http://blog.justwe.site/post/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://blog.justwe.site/tags/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/tools/</loc>
+    <loc>http://blog.justwe.site/categories/tools/</loc>
     <lastmod>2019-11-14T16:44:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/tools/</loc>
+    <loc>http://blog.justwe.site/tags/tools/</loc>
     <lastmod>2019-11-14T16:44:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/go/</loc>
+    <loc>http://blog.justwe.site/tags/go/</loc>
     <lastmod>2019-11-14T11:29:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/go/</loc>
+    <loc>http://blog.justwe.site/categories/go/</loc>
     <lastmod>2019-11-14T11:29:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/pipe/</loc>
+    <loc>http://blog.justwe.site/tags/pipe/</loc>
     <lastmod>2019-11-14T11:29:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-pipe-pattern/</loc>
+    <loc>http://blog.justwe.site/post/go-pipe-pattern/</loc>
     <lastmod>2019-11-14T11:29:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/csv/</loc>
+    <loc>http://blog.justwe.site/tags/csv/</loc>
     <lastmod>2019-11-11T16:28:55+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/python-csv-split/</loc>
+    <loc>http://blog.justwe.site/post/python-csv-split/</loc>
     <lastmod>2019-11-11T16:28:55+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/grace/</loc>
+    <loc>http://blog.justwe.site/tags/grace/</loc>
     <lastmod>2019-11-04T17:11:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/http/</loc>
+    <loc>http://blog.justwe.site/tags/http/</loc>
     <lastmod>2019-11-04T17:11:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-http-grace-restart/</loc>
+    <loc>http://blog.justwe.site/post/go-http-grace-restart/</loc>
     <lastmod>2019-11-04T17:11:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/context/</loc>
+    <loc>http://blog.justwe.site/tags/context/</loc>
     <lastmod>2019-10-25T14:13:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-context/</loc>
+    <loc>http://blog.justwe.site/post/go-context/</loc>
     <lastmod>2019-10-25T14:13:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/k8s-install-centos7/</loc>
+    <loc>http://blog.justwe.site/post/k8s-install-centos7/</loc>
     <lastmod>2019-06-17T11:59:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/k8s/</loc>
+    <loc>http://blog.justwe.site/categories/k8s/</loc>
     <lastmod>2019-06-17T11:59:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/k8s/</loc>
+    <loc>http://blog.justwe.site/tags/k8s/</loc>
     <lastmod>2019-06-17T11:59:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/k8s-minikube/</loc>
+    <loc>http://blog.justwe.site/post/k8s-minikube/</loc>
     <lastmod>2019-05-14T11:04:46+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/k8s-install-docker/</loc>
+    <loc>http://blog.justwe.site/post/k8s-install-docker/</loc>
     <lastmod>2019-05-06T15:58:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/jmeter/</loc>
+    <loc>http://blog.justwe.site/tags/jmeter/</loc>
     <lastmod>2019-04-30T17:45:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/tools-jmeter/</loc>
+    <loc>http://blog.justwe.site/post/tools-jmeter/</loc>
     <lastmod>2019-04-30T17:45:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/debug/</loc>
+    <loc>http://blog.justwe.site/tags/debug/</loc>
     <lastmod>2019-02-28T10:30:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/php/</loc>
+    <loc>http://blog.justwe.site/categories/php/</loc>
     <lastmod>2019-02-28T10:30:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/php/</loc>
+    <loc>http://blog.justwe.site/tags/php/</loc>
     <lastmod>2019-02-28T10:30:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-unsual-mistakes/</loc>
+    <loc>http://blog.justwe.site/post/php-unsual-mistakes/</loc>
     <lastmod>2019-02-28T10:30:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/</loc>
+    <loc>http://blog.justwe.site/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/</loc>
     <lastmod>2019-01-31T10:18:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-50-tips/</loc>
+    <loc>http://blog.justwe.site/post/go-50-tips/</loc>
     <lastmod>2019-01-31T10:18:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/range/</loc>
+    <loc>http://blog.justwe.site/tags/range/</loc>
     <lastmod>2019-01-30T16:22:57+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-for-range-error/</loc>
+    <loc>http://blog.justwe.site/post/go-for-range-error/</loc>
     <lastmod>2019-01-30T16:22:57+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/mac/</loc>
+    <loc>http://blog.justwe.site/tags/mac/</loc>
     <lastmod>2019-01-18T18:26:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/terminal/</loc>
+    <loc>http://blog.justwe.site/tags/terminal/</loc>
     <lastmod>2019-01-18T18:26:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/tool-mac-terminal-awesome/</loc>
+    <loc>http://blog.justwe.site/post/tool-mac-terminal-awesome/</loc>
     <lastmod>2019-01-18T18:26:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/websocket/</loc>
+    <loc>http://blog.justwe.site/tags/websocket/</loc>
     <lastmod>2019-01-15T11:27:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-chat/</loc>
+    <loc>http://blog.justwe.site/post/go-chat/</loc>
     <lastmod>2019-01-15T11:27:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/yii2/</loc>
+    <loc>http://blog.justwe.site/categories/yii2/</loc>
     <lastmod>2018-12-19T11:31:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/yii2/</loc>
+    <loc>http://blog.justwe.site/tags/yii2/</loc>
     <lastmod>2018-12-19T11:31:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/yii-mysql/</loc>
+    <loc>http://blog.justwe.site/post/yii-mysql/</loc>
     <lastmod>2018-12-19T11:31:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-mysql-pool/</loc>
+    <loc>http://blog.justwe.site/post/go-mysql-pool/</loc>
     <lastmod>2018-12-17T14:48:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/mysql/</loc>
+    <loc>http://blog.justwe.site/tags/mysql/</loc>
     <lastmod>2018-12-17T14:48:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-dotdotdot/</loc>
+    <loc>http://blog.justwe.site/post/go-dotdotdot/</loc>
     <lastmod>2018-12-14T10:37:32+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/linux-crontab/</loc>
+    <loc>http://blog.justwe.site/post/linux-crontab/</loc>
     <lastmod>2018-12-11T10:55:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/linux/</loc>
+    <loc>http://blog.justwe.site/tags/linux/</loc>
     <lastmod>2018-12-11T10:55:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-channel-waitgroup/</loc>
+    <loc>http://blog.justwe.site/post/go-channel-waitgroup/</loc>
     <lastmod>2018-12-04T14:14:30+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/docker/</loc>
+    <loc>http://blog.justwe.site/tags/docker/</loc>
     <lastmod>2018-11-25T15:39:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/nginx/</loc>
+    <loc>http://blog.justwe.site/tags/nginx/</loc>
     <lastmod>2018-11-25T15:39:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-nginx-docker/</loc>
+    <loc>http://blog.justwe.site/post/go-nginx-docker/</loc>
     <lastmod>2018-11-25T15:39:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/flame-graph/</loc>
+    <loc>http://blog.justwe.site/tags/flame-graph/</loc>
     <lastmod>2018-11-01T17:03:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-flame-graph/</loc>
+    <loc>http://blog.justwe.site/post/go-flame-graph/</loc>
     <lastmod>2018-11-01T17:03:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/git/</loc>
+    <loc>http://blog.justwe.site/categories/git/</loc>
     <lastmod>2018-10-26T15:01:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/git/</loc>
+    <loc>http://blog.justwe.site/tags/git/</loc>
     <lastmod>2018-10-26T15:01:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-diff/</loc>
+    <loc>http://blog.justwe.site/post/git-diff/</loc>
     <lastmod>2018-10-26T15:01:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-revert/</loc>
+    <loc>http://blog.justwe.site/post/git-revert/</loc>
     <lastmod>2018-10-25T16:27:06+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vscode-terminal-font-macos/</loc>
+    <loc>http://blog.justwe.site/post/vscode-terminal-font-macos/</loc>
     <lastmod>2018-10-16T15:50:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-complex-interface/</loc>
+    <loc>http://blog.justwe.site/post/go-complex-interface/</loc>
     <lastmod>2018-09-28T16:58:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/json/</loc>
+    <loc>http://blog.justwe.site/tags/json/</loc>
     <lastmod>2018-09-28T16:58:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/switch/</loc>
+    <loc>http://blog.justwe.site/tags/switch/</loc>
     <lastmod>2018-09-28T16:58:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-primary-mistakes/</loc>
+    <loc>http://blog.justwe.site/post/go-primary-mistakes/</loc>
     <lastmod>2018-09-25T10:57:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-test/</loc>
+    <loc>http://blog.justwe.site/post/go-test/</loc>
     <lastmod>2018-09-20T10:45:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-interface-tip/</loc>
+    <loc>http://blog.justwe.site/post/go-interface-tip/</loc>
     <lastmod>2018-09-12T14:53:03+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/interface/</loc>
+    <loc>http://blog.justwe.site/tags/interface/</loc>
     <lastmod>2018-09-12T14:53:03+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-why/</loc>
+    <loc>http://blog.justwe.site/post/go-why/</loc>
     <lastmod>2018-09-12T14:45:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/docker/</loc>
+    <loc>http://blog.justwe.site/categories/docker/</loc>
     <lastmod>2018-08-20T14:57:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/elk/</loc>
+    <loc>http://blog.justwe.site/tags/elk/</loc>
     <lastmod>2018-08-20T14:57:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-elk/</loc>
+    <loc>http://blog.justwe.site/post/docker-elk/</loc>
     <lastmod>2018-08-20T14:57:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/merge-conflict/</loc>
+    <loc>http://blog.justwe.site/tags/merge-conflict/</loc>
     <lastmod>2018-08-03T18:40:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-merge-conflict/</loc>
+    <loc>http://blog.justwe.site/post/git-merge-conflict/</loc>
     <lastmod>2018-08-03T18:40:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/docker%E5%85%A5%E9%97%A8/</loc>
+    <loc>http://blog.justwe.site/tags/docker%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2018-07-20T11:11:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-step-3/</loc>
+    <loc>http://blog.justwe.site/post/docker-step-3/</loc>
     <lastmod>2018-07-20T11:11:07+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-step-2/</loc>
+    <loc>http://blog.justwe.site/post/docker-step-2/</loc>
     <lastmod>2018-07-08T22:54:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-step-1/</loc>
+    <loc>http://blog.justwe.site/post/docker-step-1/</loc>
     <lastmod>2018-07-06T18:25:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/centos6/</loc>
+    <loc>http://blog.justwe.site/tags/centos6/</loc>
     <lastmod>2018-07-06T10:36:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-install-centos65/</loc>
+    <loc>http://blog.justwe.site/post/docker-install-centos65/</loc>
     <lastmod>2018-07-06T10:36:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/docker-composer/</loc>
+    <loc>http://blog.justwe.site/tags/docker-composer/</loc>
     <lastmod>2018-06-28T17:55:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-arg-env/</loc>
+    <loc>http://blog.justwe.site/post/docker-arg-env/</loc>
     <lastmod>2018-06-28T17:55:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-sshcommand/</loc>
+    <loc>http://blog.justwe.site/post/git-sshcommand/</loc>
     <lastmod>2018-06-23T23:39:17+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/gii/</loc>
+    <loc>http://blog.justwe.site/tags/gii/</loc>
     <lastmod>2018-05-23T14:15:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/yii/</loc>
+    <loc>http://blog.justwe.site/tags/yii/</loc>
     <lastmod>2018-05-23T14:15:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/yii-gii/</loc>
+    <loc>http://blog.justwe.site/post/yii-gii/</loc>
     <lastmod>2018-05-23T14:15:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/binary/</loc>
+    <loc>http://blog.justwe.site/tags/binary/</loc>
     <lastmod>2018-05-23T10:58:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/default/</loc>
+    <loc>http://blog.justwe.site/categories/default/</loc>
     <lastmod>2018-05-23T10:58:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/conversion-calculation/</loc>
+    <loc>http://blog.justwe.site/post/conversion-calculation/</loc>
     <lastmod>2018-05-23T10:58:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/rabbitmq/</loc>
+    <loc>http://blog.justwe.site/tags/rabbitmq/</loc>
     <lastmod>2018-05-14T21:37:40+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-rabbitmq-delay-queue/</loc>
+    <loc>http://blog.justwe.site/post/go-rabbitmq-delay-queue/</loc>
     <lastmod>2018-05-14T21:37:40+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-restful/</loc>
+    <loc>http://blog.justwe.site/post/php-restful/</loc>
     <lastmod>2018-05-09T10:47:39+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/golang-awesome-tools/</loc>
+    <loc>http://blog.justwe.site/post/golang-awesome-tools/</loc>
     <lastmod>2018-03-26T20:20:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-volume/</loc>
+    <loc>http://blog.justwe.site/post/docker-volume/</loc>
     <lastmod>2018-02-13T13:24:30+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/volume/</loc>
+    <loc>http://blog.justwe.site/tags/volume/</loc>
     <lastmod>2018-02-13T13:24:30+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-compose-yml/</loc>
+    <loc>http://blog.justwe.site/post/docker-compose-yml/</loc>
     <lastmod>2018-02-12T10:36:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/jwt/</loc>
+    <loc>http://blog.justwe.site/tags/jwt/</loc>
     <lastmod>2018-01-22T14:04:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-jwt/</loc>
+    <loc>http://blog.justwe.site/post/go-jwt/</loc>
     <lastmod>2018-01-22T14:04:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/js/</loc>
+    <loc>http://blog.justwe.site/tags/js/</loc>
     <lastmod>2018-01-16T17:29:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/http-cross-domain-etc/</loc>
+    <loc>http://blog.justwe.site/post/http-cross-domain-etc/</loc>
     <lastmod>2018-01-16T17:29:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/vue/</loc>
+    <loc>http://blog.justwe.site/tags/vue/</loc>
     <lastmod>2017-12-26T17:03:55+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vue-svg-icon/</loc>
+    <loc>http://blog.justwe.site/post/vue-svg-icon/</loc>
     <lastmod>2017-12-26T17:03:55+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/chrome-redirection-https/</loc>
+    <loc>http://blog.justwe.site/post/chrome-redirection-https/</loc>
     <lastmod>2017-12-19T10:34:25+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/macos/</loc>
+    <loc>http://blog.justwe.site/tags/macos/</loc>
     <lastmod>2017-11-30T13:57:18+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/raspberry/</loc>
+    <loc>http://blog.justwe.site/tags/raspberry/</loc>
     <lastmod>2017-11-30T13:57:18+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/raspberry-pi3-sense-hat-api/</loc>
+    <loc>http://blog.justwe.site/post/raspberry-pi3-sense-hat-api/</loc>
     <lastmod>2017-11-30T13:57:18+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/raspberry-pi3-install-sense-hat/</loc>
+    <loc>http://blog.justwe.site/post/raspberry-pi3-install-sense-hat/</loc>
     <lastmod>2017-11-29T13:21:26+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/raspberry-pi3-local-lang/</loc>
+    <loc>http://blog.justwe.site/post/raspberry-pi3-local-lang/</loc>
     <lastmod>2017-11-28T14:50:49+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/raspberry-pi3-golang-env/</loc>
+    <loc>http://blog.justwe.site/post/raspberry-pi3-golang-env/</loc>
     <lastmod>2017-11-22T10:30:03+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/raspberry-pi3-traffic-light/</loc>
+    <loc>http://blog.justwe.site/post/raspberry-pi3-traffic-light/</loc>
     <lastmod>2017-11-21T14:26:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/raspberry-pi3-install/</loc>
+    <loc>http://blog.justwe.site/post/raspberry-pi3-install/</loc>
     <lastmod>2017-11-21T14:24:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-json-error/</loc>
+    <loc>http://blog.justwe.site/post/php-json-error/</loc>
     <lastmod>2017-11-08T11:17:21+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/es6/</loc>
+    <loc>http://blog.justwe.site/tags/es6/</loc>
     <lastmod>2017-10-31T23:11:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/js/</loc>
+    <loc>http://blog.justwe.site/categories/js/</loc>
     <lastmod>2017-10-31T23:11:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js-promise/</loc>
+    <loc>http://blog.justwe.site/post/js-promise/</loc>
     <lastmod>2017-10-31T23:11:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/shadowsocks/</loc>
+    <loc>http://blog.justwe.site/tags/shadowsocks/</loc>
     <lastmod>2017-09-20T14:16:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vultr-shadowsocks/</loc>
+    <loc>http://blog.justwe.site/post/vultr-shadowsocks/</loc>
     <lastmod>2017-09-20T14:16:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/elementui/</loc>
+    <loc>http://blog.justwe.site/categories/elementui/</loc>
     <lastmod>2017-09-15T11:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/elementui/</loc>
+    <loc>http://blog.justwe.site/tags/elementui/</loc>
     <lastmod>2017-09-15T11:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/elementui-form-event/</loc>
+    <loc>http://blog.justwe.site/post/elementui-form-event/</loc>
     <lastmod>2017-09-15T11:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/chinese-preview/</loc>
+    <loc>http://blog.justwe.site/post/chinese-preview/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/preview/</loc>
+    <loc>http://blog.justwe.site/tags/preview/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/tag-1/</loc>
+    <loc>http://blog.justwe.site/tags/tag-1/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/%E4%B8%AD%E6%96%87/</loc>
+    <loc>http://blog.justwe.site/categories/%E4%B8%AD%E6%96%87/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/%E4%B8%AD%E6%96%87/</loc>
+    <loc>http://blog.justwe.site/tags/%E4%B8%AD%E6%96%87/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/be-a-fullstack-engineer/</loc>
+    <loc>http://blog.justwe.site/post/be-a-fullstack-engineer/</loc>
     <lastmod>2017-08-22T11:57:09+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vue-dnd/</loc>
+    <loc>http://blog.justwe.site/post/vue-dnd/</loc>
     <lastmod>2017-08-21T17:11:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/i-am-alive/</loc>
+    <loc>http://blog.justwe.site/post/i-am-alive/</loc>
     <lastmod>2017-08-14T09:42:55+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/decartes/</loc>
+    <loc>http://blog.justwe.site/tags/decartes/</loc>
     <lastmod>2017-07-18T10:36:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js-decartes/</loc>
+    <loc>http://blog.justwe.site/post/js-decartes/</loc>
     <lastmod>2017-07-18T10:36:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/element-dialog/</loc>
+    <loc>http://blog.justwe.site/post/element-dialog/</loc>
     <lastmod>2017-07-11T19:50:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/element-ui/</loc>
+    <loc>http://blog.justwe.site/tags/element-ui/</loc>
     <lastmod>2017-07-11T19:50:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/vuejs/</loc>
+    <loc>http://blog.justwe.site/tags/vuejs/</loc>
     <lastmod>2017-07-11T19:50:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/error/</loc>
+    <loc>http://blog.justwe.site/tags/error/</loc>
     <lastmod>2017-06-29T15:49:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/hexo/</loc>
+    <loc>http://blog.justwe.site/tags/hexo/</loc>
     <lastmod>2017-06-29T15:49:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hexo-error-reinstall/</loc>
+    <loc>http://blog.justwe.site/post/hexo-error-reinstall/</loc>
     <lastmod>2017-06-29T15:49:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/mysql-config/</loc>
+    <loc>http://blog.justwe.site/post/mysql-config/</loc>
     <lastmod>2017-06-29T15:17:52+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/php-spl/</loc>
+    <loc>http://blog.justwe.site/categories/php-spl/</loc>
     <lastmod>2017-06-27T11:35:37+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-spl-iterator/</loc>
+    <loc>http://blog.justwe.site/post/php-spl-iterator/</loc>
     <lastmod>2017-06-27T11:35:37+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/spl/</loc>
+    <loc>http://blog.justwe.site/tags/spl/</loc>
     <lastmod>2017-06-27T11:35:37+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-spl-arrayaccess/</loc>
+    <loc>http://blog.justwe.site/post/php-spl-arrayaccess/</loc>
     <lastmod>2017-06-26T17:22:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-callstatic/</loc>
+    <loc>http://blog.justwe.site/post/php-callstatic/</loc>
     <lastmod>2017-06-23T16:50:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/laravel/</loc>
+    <loc>http://blog.justwe.site/tags/laravel/</loc>
     <lastmod>2017-06-23T16:50:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-error-permission/</loc>
+    <loc>http://blog.justwe.site/post/git-error-permission/</loc>
     <lastmod>2017-06-23T16:46:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/axios/</loc>
+    <loc>http://blog.justwe.site/tags/axios/</loc>
     <lastmod>2017-06-23T16:42:38+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/axios-cors/</loc>
+    <loc>http://blog.justwe.site/post/axios-cors/</loc>
     <lastmod>2017-06-23T16:42:38+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/fork/</loc>
+    <loc>http://blog.justwe.site/tags/fork/</loc>
     <lastmod>2017-06-17T14:36:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-fork-upstream/</loc>
+    <loc>http://blog.justwe.site/post/git-fork-upstream/</loc>
     <lastmod>2017-06-17T14:36:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-json/</loc>
+    <loc>http://blog.justwe.site/post/go-json/</loc>
     <lastmod>2017-06-05T22:18:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/workflow/</loc>
+    <loc>http://blog.justwe.site/tags/workflow/</loc>
     <lastmod>2017-05-27T13:24:32+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-workflow/</loc>
+    <loc>http://blog.justwe.site/post/git-workflow/</loc>
     <lastmod>2017-05-27T13:24:32+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel54-migrate-error/</loc>
+    <loc>http://blog.justwe.site/post/laravel54-migrate-error/</loc>
     <lastmod>2017-05-24T11:55:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-mysql/</loc>
+    <loc>http://blog.justwe.site/post/go-mysql/</loc>
     <lastmod>2017-05-17T23:32:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/callback/</loc>
+    <loc>http://blog.justwe.site/tags/callback/</loc>
     <lastmod>2017-05-11T18:31:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-callback-func/</loc>
+    <loc>http://blog.justwe.site/post/php-callback-func/</loc>
     <lastmod>2017-05-11T18:31:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/askpass/</loc>
+    <loc>http://blog.justwe.site/tags/askpass/</loc>
     <lastmod>2017-05-08T22:31:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-askpass-error/</loc>
+    <loc>http://blog.justwe.site/post/git-askpass-error/</loc>
     <lastmod>2017-05-08T22:31:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/animate/</loc>
+    <loc>http://blog.justwe.site/tags/animate/</loc>
     <lastmod>2017-05-06T13:24:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vue-transition/</loc>
+    <loc>http://blog.justwe.site/post/vue-transition/</loc>
     <lastmod>2017-05-06T13:24:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vue-axios-post/</loc>
+    <loc>http://blog.justwe.site/post/vue-axios-post/</loc>
     <lastmod>2017-05-02T16:45:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/jquery/</loc>
+    <loc>http://blog.justwe.site/categories/jquery/</loc>
     <lastmod>2017-05-02T11:39:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/jquery/</loc>
+    <loc>http://blog.justwe.site/tags/jquery/</loc>
     <lastmod>2017-05-02T11:39:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/jquery-this/</loc>
+    <loc>http://blog.justwe.site/post/jquery-this/</loc>
     <lastmod>2017-05-02T11:39:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/ssh-command/</loc>
+    <loc>http://blog.justwe.site/post/ssh-command/</loc>
     <lastmod>2017-04-28T10:02:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-http/</loc>
+    <loc>http://blog.justwe.site/post/go-http/</loc>
     <lastmod>2017-04-26T23:11:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/comma-ok/</loc>
+    <loc>http://blog.justwe.site/tags/comma-ok/</loc>
     <lastmod>2017-04-24T22:52:37+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-comma-switch/</loc>
+    <loc>http://blog.justwe.site/post/go-comma-switch/</loc>
     <lastmod>2017-04-24T22:52:37+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-interface/</loc>
+    <loc>http://blog.justwe.site/post/go-interface/</loc>
     <lastmod>2017-04-19T23:43:41+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-simple-webserver-demo/</loc>
+    <loc>http://blog.justwe.site/post/go-simple-webserver-demo/</loc>
     <lastmod>2017-04-18T23:25:04+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/webserver/</loc>
+    <loc>http://blog.justwe.site/tags/webserver/</loc>
     <lastmod>2017-04-18T23:25:04+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-submodule/</loc>
+    <loc>http://blog.justwe.site/post/git-submodule/</loc>
     <lastmod>2017-04-11T14:34:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/npm-dtrace/</loc>
+    <loc>http://blog.justwe.site/post/npm-dtrace/</loc>
     <lastmod>2017-04-10T22:21:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/docker-compose/</loc>
+    <loc>http://blog.justwe.site/tags/docker-compose/</loc>
     <lastmod>2017-04-10T22:14:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-composer-install/</loc>
+    <loc>http://blog.justwe.site/post/docker-composer-install/</loc>
     <lastmod>2017-04-10T22:14:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/brew/</loc>
+    <loc>http://blog.justwe.site/tags/brew/</loc>
     <lastmod>2017-04-09T23:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/brew-update/</loc>
+    <loc>http://blog.justwe.site/post/brew-update/</loc>
     <lastmod>2017-04-09T23:36:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/yii-multi-database/</loc>
+    <loc>http://blog.justwe.site/post/yii-multi-database/</loc>
     <lastmod>2017-04-08T17:31:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/json-format/</loc>
+    <loc>http://blog.justwe.site/post/json-format/</loc>
     <lastmod>2017-04-08T11:01:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/hexo-next/</loc>
+    <loc>http://blog.justwe.site/tags/hexo-next/</loc>
     <lastmod>2017-04-07T15:04:39+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hexo-next-title/</loc>
+    <loc>http://blog.justwe.site/post/hexo-next-title/</loc>
     <lastmod>2017-04-07T15:04:39+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/laravel/</loc>
+    <loc>http://blog.justwe.site/categories/laravel/</loc>
     <lastmod>2017-04-01T20:57:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-auth/</loc>
+    <loc>http://blog.justwe.site/post/laravel-auth/</loc>
     <lastmod>2017-04-01T20:57:12+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-error-log/</loc>
+    <loc>http://blog.justwe.site/post/laravel-error-log/</loc>
     <lastmod>2017-04-01T20:51:06+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/pip/</loc>
+    <loc>http://blog.justwe.site/post/pip/</loc>
     <lastmod>2017-04-01T20:32:13+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/brew-install/</loc>
+    <loc>http://blog.justwe.site/post/brew-install/</loc>
     <lastmod>2017-03-31T14:38:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/homebrew/</loc>
+    <loc>http://blog.justwe.site/tags/homebrew/</loc>
     <lastmod>2017-03-31T14:38:36+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/config/</loc>
+    <loc>http://blog.justwe.site/tags/config/</loc>
     <lastmod>2017-03-30T21:06:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/webconfig/</loc>
+    <loc>http://blog.justwe.site/post/webconfig/</loc>
     <lastmod>2017-03-30T21:06:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/caipiao/</loc>
+    <loc>http://blog.justwe.site/post/caipiao/</loc>
     <lastmod>2017-03-24T06:01:17+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/symfony-router/</loc>
+    <loc>http://blog.justwe.site/post/symfony-router/</loc>
     <lastmod>2017-03-23T11:25:49+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/install/</loc>
+    <loc>http://blog.justwe.site/post/install/</loc>
     <lastmod>2017-03-22T15:31:55+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hexo-blog/</loc>
+    <loc>http://blog.justwe.site/post/hexo-blog/</loc>
     <lastmod>2017-03-22T10:18:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-trancate/</loc>
+    <loc>http://blog.justwe.site/post/laravel-trancate/</loc>
     <lastmod>2017-03-21T09:01:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-workflow/</loc>
+    <loc>http://blog.justwe.site/post/go-workflow/</loc>
     <lastmod>2017-03-19T15:58:05+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-slice/</loc>
+    <loc>http://blog.justwe.site/post/go-slice/</loc>
     <lastmod>2017-03-14T10:12:03+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-tag/</loc>
+    <loc>http://blog.justwe.site/post/git-tag/</loc>
     <lastmod>2017-03-13T07:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/composer-redis-lbs/</loc>
+    <loc>http://blog.justwe.site/post/composer-redis-lbs/</loc>
     <lastmod>2017-03-11T12:11:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/redis-geohash-lbs/</loc>
+    <loc>http://blog.justwe.site/post/redis-geohash-lbs/</loc>
     <lastmod>2017-03-10T10:53:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-dockerfile/</loc>
+    <loc>http://blog.justwe.site/post/docker-dockerfile/</loc>
     <lastmod>2017-03-08T06:48:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-info/</loc>
+    <loc>http://blog.justwe.site/post/go-info/</loc>
     <lastmod>2017-03-08T06:42:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-doc/</loc>
+    <loc>http://blog.justwe.site/post/go-doc/</loc>
     <lastmod>2017-03-07T11:07:54+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/liteide/</loc>
+    <loc>http://blog.justwe.site/tags/liteide/</loc>
     <lastmod>2017-03-07T05:49:56+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/go-liteide/</loc>
+    <loc>http://blog.justwe.site/post/go-liteide/</loc>
     <lastmod>2017-03-07T05:49:56+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/front-end/</loc>
+    <loc>http://blog.justwe.site/categories/front-end/</loc>
     <lastmod>2017-03-06T03:02:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/html5-ajax-process/</loc>
+    <loc>http://blog.justwe.site/post/html5-ajax-process/</loc>
     <lastmod>2017-03-06T03:02:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/contentos-docker/</loc>
+    <loc>http://blog.justwe.site/post/contentos-docker/</loc>
     <lastmod>2017-03-01T05:55:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/yii-beforeaction/</loc>
+    <loc>http://blog.justwe.site/post/yii-beforeaction/</loc>
     <lastmod>2017-02-28T07:42:34+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/yii-csrf/</loc>
+    <loc>http://blog.justwe.site/post/yii-csrf/</loc>
     <lastmod>2017-02-28T07:40:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-repo/</loc>
+    <loc>http://blog.justwe.site/post/docker-repo/</loc>
     <lastmod>2017-02-19T09:48:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/docker-info/</loc>
+    <loc>http://blog.justwe.site/post/docker-info/</loc>
     <lastmod>2017-02-16T15:46:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/composer-debug/</loc>
+    <loc>http://blog.justwe.site/post/composer-debug/</loc>
     <lastmod>2017-02-13T15:15:24+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/shadowssocks/</loc>
+    <loc>http://blog.justwe.site/post/shadowssocks/</loc>
     <lastmod>2017-02-09T07:56:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-error/</loc>
+    <loc>http://blog.justwe.site/post/git-error/</loc>
     <lastmod>2017-01-11T06:41:43+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/composer/</loc>
+    <loc>http://blog.justwe.site/tags/composer/</loc>
     <lastmod>2017-01-11T06:40:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/composer-package/</loc>
+    <loc>http://blog.justwe.site/post/composer-package/</loc>
     <lastmod>2017-01-11T06:40:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-push-force/</loc>
+    <loc>http://blog.justwe.site/post/git-push-force/</loc>
     <lastmod>2017-01-06T06:18:22+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-lazy-load/</loc>
+    <loc>http://blog.justwe.site/post/laravel-lazy-load/</loc>
     <lastmod>2016-12-26T07:45:35+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-rebase/</loc>
+    <loc>http://blog.justwe.site/post/git-rebase/</loc>
     <lastmod>2016-12-25T15:43:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-facade/</loc>
+    <loc>http://blog.justwe.site/post/laravel-facade/</loc>
     <lastmod>2016-12-19T15:48:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/win-node-npm/</loc>
+    <loc>http://blog.justwe.site/post/win-node-npm/</loc>
     <lastmod>2016-12-13T10:04:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/websocket-demo/</loc>
+    <loc>http://blog.justwe.site/post/websocket-demo/</loc>
     <lastmod>2016-12-10T11:40:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-swoole/</loc>
+    <loc>http://blog.justwe.site/post/php-swoole/</loc>
     <lastmod>2016-12-10T05:43:14+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/centos-install-git/</loc>
+    <loc>http://blog.justwe.site/post/centos-install-git/</loc>
     <lastmod>2016-12-03T14:24:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-rm-cache/</loc>
+    <loc>http://blog.justwe.site/post/git-rm-cache/</loc>
     <lastmod>2016-11-29T03:07:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-remote/</loc>
+    <loc>http://blog.justwe.site/post/git-remote/</loc>
     <lastmod>2016-11-29T03:06:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-push/</loc>
+    <loc>http://blog.justwe.site/post/git-push/</loc>
     <lastmod>2016-11-29T03:04:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/mysql57-config/</loc>
+    <loc>http://blog.justwe.site/post/mysql57-config/</loc>
     <lastmod>2016-11-15T09:45:06+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/lumen-dd/</loc>
+    <loc>http://blog.justwe.site/post/lumen-dd/</loc>
     <lastmod>2016-11-15T06:58:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/qiniujs-demo/</loc>
+    <loc>http://blog.justwe.site/post/qiniujs-demo/</loc>
     <lastmod>2016-11-12T04:28:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/wx/</loc>
+    <loc>http://blog.justwe.site/categories/wx/</loc>
     <lastmod>2016-11-07T15:55:22+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/wxcx-2/</loc>
+    <loc>http://blog.justwe.site/post/wxcx-2/</loc>
     <lastmod>2016-11-07T15:55:22+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/php-array-1/</loc>
+    <loc>http://blog.justwe.site/post/php-array-1/</loc>
     <lastmod>2016-11-03T09:32:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/git-pull/</loc>
+    <loc>http://blog.justwe.site/post/git-pull/</loc>
     <lastmod>2016-10-28T11:44:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/rewrite/</loc>
+    <loc>http://blog.justwe.site/tags/rewrite/</loc>
     <lastmod>2016-10-27T15:49:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/yii-rewrite/</loc>
+    <loc>http://blog.justwe.site/post/yii-rewrite/</loc>
     <lastmod>2016-10-27T15:49:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/xcx/</loc>
+    <loc>http://blog.justwe.site/tags/xcx/</loc>
     <lastmod>2016-10-24T15:28:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/wxcx/</loc>
+    <loc>http://blog.justwe.site/post/wxcx/</loc>
     <lastmod>2016-10-24T15:28:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-orm/</loc>
+    <loc>http://blog.justwe.site/post/laravel-orm/</loc>
     <lastmod>2016-10-21T12:02:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/webupload-demo/</loc>
+    <loc>http://blog.justwe.site/post/webupload-demo/</loc>
     <lastmod>2016-10-12T15:24:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/js-href/</loc>
+    <loc>http://blog.justwe.site/post/js-href/</loc>
     <lastmod>2016-10-10T13:43:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-cron/</loc>
+    <loc>http://blog.justwe.site/post/laravel-cron/</loc>
     <lastmod>2016-10-09T15:22:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-error/</loc>
+    <loc>http://blog.justwe.site/post/laravel-error/</loc>
     <lastmod>2016-10-09T15:10:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/vue-1/</loc>
+    <loc>http://blog.justwe.site/post/vue-1/</loc>
     <lastmod>2016-10-09T15:02:46+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-stmp/</loc>
+    <loc>http://blog.justwe.site/post/laravel-stmp/</loc>
     <lastmod>2016-10-09T14:51:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/fuck-ie/</loc>
+    <loc>http://blog.justwe.site/post/fuck-ie/</loc>
     <lastmod>2016-10-08T14:39:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hello-world-2/</loc>
+    <loc>http://blog.justwe.site/post/hello-world-2/</loc>
     <lastmod>2016-10-07T11:37:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-session/</loc>
+    <loc>http://blog.justwe.site/post/laravel-session/</loc>
     <lastmod>2016-06-01T20:56:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/laravel-repository/</loc>
+    <loc>http://blog.justwe.site/post/laravel-repository/</loc>
     <lastmod>2016-04-01T20:53:01+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/hello-world/</loc>
+    <loc>http://blog.justwe.site/post/hello-world/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
