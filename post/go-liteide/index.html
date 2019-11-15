@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>安装LiteIde配置 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/go-liteide/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="安装LiteIde配置" />
+<meta property="og:description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/go-liteide/" />
+<meta property="article:published_time" content="2017-03-07T05:49:56+00:00" />
+<meta property="article:modified_time" content="2017-03-07T05:49:56+00:00" />
+<meta itemprop="name" content="安装LiteIde配置">
+<meta itemprop="description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是">
+
+
+<meta itemprop="datePublished" content="2017-03-07T05:49:56&#43;00:00" />
+<meta itemprop="dateModified" content="2017-03-07T05:49:56&#43;00:00" />
+<meta itemprop="wordCount" content="571">
+
+
+
+<meta itemprop="keywords" content="liteide," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安装LiteIde配置"/>
+<meta name="twitter:description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">安装LiteIde配置</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-07 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>这里设置 Liteide 的配置(环境macOS)</p>
+
+<blockquote>
+<p>Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是不少go的开发者在推荐的一款ide</p>
+</blockquote>
+
+<!-- more -->
+
+<p>1.安装go</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">brew install go</pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>下载Liteide
+&gt;<a href="http://golangtc.com/download/liteide">下载地址</a></li>
+</ol>
+
+<p>选择一个适合系统的版本，推荐qt5的，版本高的不容易过时</p>
+
+<ol>
+<li>打开编辑器 <code>查看-&gt;编辑当前环境</code></li>
+</ol>
+
+<p>列出我现在的环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># native compiler darwin amd64
+
+GOROOT=/usr/local/Cellar/go/1.8/libexec
+GOPATH=$HOME/Documents/go
+GOBIN=
+GOARCH=amd64
+GOOS=darwin
+CGO_ENABLED=1
+
+PATH=$GOROOT/bin:$PATH
+
+LITEIDE_GDB=/usr/local/bin/gdb
+LITEIDE_MAKE=make
+LITEIDE_TERM=/usr/bin/open
+LITEIDE_TERMARGS=-a Terminal
+LITEIDE_EXEC=/usr/X11R6/bin/xterm
+LITEIDE_EXECOPT=-e</pre></td></tr></table>
+</div>
+</div>
+<p>上面这一块刚开始是注释掉的，需要我们自己填写，这个是每次运行编辑器的适合才会用到的配置，和安装时的系统配置不冲突</p>
+
+<p>需要注意区分的就是 <code>GOROOT</code> 和 <code>GOPATH</code> 这两个变量</p>
+
+<p><code>GOROOT</code> 是go的执行目录，说白了就是go源码的安装目录，
+比如 <code>import “fmt”</code>这条命令就是从 <code>GOROOT</code> 给的路径中找加载的包</p>
+
+<p><code>GOPATH</code> 是工作目录，类似apache的www目录，你的项目代码都是放到 <code>$GOPATH/src</code> 目录下的
+同时我们通过 <code>go get</code> 获取的第三方package也是放在这里的为了能执行package里的文件也是需要把这个路径添加到环境变量当中，
+因此才会出现 <code>PATH=$GOROOT/bin:$PATH</code> 这样的配置</p>
+
+<ol>
+<li><p>配置完成后运行个文件试一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd $HOME/Documents/go/src
+mkdir hello &amp;&amp; cd hello</pre></td></tr></table>
+</div>
+</div>
+<p>通过liteide编辑器打开目录，创建一个文件  main.go</p></li>
+</ol>
+
+<p>文件内容如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello world!&#34;</span><span class="p">)</span>
+<span class="p">}</span></pre></td></tr></table>
+</div>
+</div>
+<p>然后点击编辑器右上角的 <code>BR(build and run)</code> 就能在编辑器下面的信息框中看到输出内容了</p>
+
+<p>ready go！</p>
+
+<p><a href="https://segmentfault.com/a/1190000004008942">参考1</a></p>
+
+<p><a href="http://www.jianshu.com/p/4e699ff478a5">参考2</a></p>
+
+<blockquote>
+<p>ps:
+因为颜值我最后还是采用了 atom 的 go-plus 插件 :)</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/liteide/">liteide</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/go-doc/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">go安装godoc</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/html5-ajax-process/">
+            <span class="next-text nav-default">转 HTML5上传文件显示进度</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

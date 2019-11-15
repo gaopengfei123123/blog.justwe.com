@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>context on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/context/</link>
+    <description>Recent content in context on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Oct 2019 14:13:43 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/context/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>golang 通过 context 控制并发的应用场景</title>
+      <link>http://localhost:1313/post/go-context/</link>
+      <pubDate>Fri, 25 Oct 2019 14:13:43 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go-context/</guid>
+      <description>golang 里出现多 goroutine 的场景很常见, 最常用的两种方式就是 WaitGroup 和 Context, 今天我们了解一下 Context 的应用场景 使用场景 场景一: 多goroutine执行超时通知 并发执行的业</description>
+    </item>
+    
+  </channel>
+</rss>

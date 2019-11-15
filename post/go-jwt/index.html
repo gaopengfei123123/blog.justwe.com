@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用 go 进行 jwt 验证 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/go-jwt/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用 go 进行 jwt 验证" />
+<meta property="og:description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/go-jwt/" />
+<meta property="article:published_time" content="2018-01-22T14:04:26+00:00" />
+<meta property="article:modified_time" content="2018-01-22T14:04:26+00:00" />
+<meta itemprop="name" content="使用 go 进行 jwt 验证">
+<meta itemprop="description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这">
+
+
+<meta itemprop="datePublished" content="2018-01-22T14:04:26&#43;00:00" />
+<meta itemprop="dateModified" content="2018-01-22T14:04:26&#43;00:00" />
+<meta itemprop="wordCount" content="852">
+
+
+
+<meta itemprop="keywords" content="go,json,jwt," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 go 进行 jwt 验证"/>
+<meta name="twitter:description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用 go 进行 jwt 验证</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-22 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#使用-jwt-的场景">使用 JWT 的场景</a></li>
+<li><a href="#jwt-的结构">JWT 的结构</a></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到
+这一台服务器上,这和负载均衡的初衷不一致啊,而 jwt 就解决了这类的痛点
+<!-- more --></p>
+
+<h2 id="使用-jwt-的场景">使用 JWT 的场景</h2>
+
+<ul>
+<li>身份验证 用户在登录过后服务器会用 jwt 返回用户可访问的资源,比如权限什么的</li>
+<li>传递信息 通过 jwt 的<code>header</code>和<code>signature</code>可以保证<code>payload</code>没有被篡改,保证信息的安全</li>
+</ul>
+
+<h2 id="jwt-的结构">JWT 的结构</h2>
+
+<p>JWT 是由<code>header,payload,signature</code>三部分组成的,咱们先用例子说话
+- header</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;HS256&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;JWT&#34;</span>
+<span class="p">}</span>
+<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJhbGciOiJIUzI</span><span class="mi">1</span><span class="err">NiIsInR</span><span class="mi">5</span><span class="err">cCI</span><span class="mi">6</span><span class="err">IkpXVCJ</span><span class="mi">9</span><span class="err">`</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这里规定了加密算法,hash256</p>
+
+<ul>
+<li><p>payload</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+<span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;1234567890&#34;</span><span class="p">,</span>
+<span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span><span class="p">,</span>
+<span class="nt">&#34;admin&#34;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJzdWIiOiIxMjM</span><span class="mi">0</span><span class="err">NTY</span><span class="mi">3</span><span class="err">ODkwIiwibmFtZSI</span><span class="mi">6</span><span class="err">IkpvaG</span><span class="mi">4</span><span class="err">gRG</span><span class="mi">9</span><span class="err">lIiwiYWRtaW</span><span class="mi">4</span><span class="err">iOnRydWV</span><span class="mi">9</span><span class="err">`</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这里的内容没有强制要求,因为 paylaod 就是为了承载内容而存在的,不过想用规范的话也可以参考下面的</p>
+
+<ul>
+<li>iss: jwt签发者</li>
+<li>sub: jwt所面向的用户</li>
+<li>aud: 接收jwt的一方</li>
+<li>exp: jwt的过期时间，这个过期时间必须要大于签发时间</li>
+<li>nbf: 定义在什么时间之前，该jwt都是不可用的.</li>
+<li>iat: jwt的签发时间</li>
+<li>jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。</li>
+</ul></li>
+
+<li><p>signature
+是用 <code>header + payload + secret</code>组合起来加密的,公式是:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">HMACSHA256(
+base64UrlEncode(header) + &#34;.&#34; +
+base64UrlEncode(payload),
+secret)</pre></td></tr></table>
+</div>
+</div>
+<p>这里 <code>secret</code>就是自己定义的一个随机字符串,这一个过程只能发生在 server 端,会随机生成一个 hash 值</p></li>
+</ul>
+
+<p>这样组合起来之后就是一个完整的 jwt 了:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.4c9540f793ab33b13670169bdf444c1eb1c37047f18e861981e14e34587b1e04</pre></td></tr></table>
+</div>
+</div>
+<p>这里有一个<a href="https://github.com/gaopengfei123123/go_study/tree/master/code/jwt">用 go 加密和验证 jwt 的 demo</a></p>
+
+<h2 id="总结">总结</h2>
+
+<p>选择 jwt 最大的理由:
+1. 内容有公钥私钥,可以保证内容的合法性
+2. token 中可以包含很多信息</p>
+
+<p>不过 jwt 不保证的安全问题:
+1. 因为<code>header,paylaod</code>是 base64编码,相当于明文可见的,因此不能在<code>payload</code>中放入敏感信息
+2. 并不能保证数据传输时会不会被盗用,这一点和 sessionID 一样,因此不要迷信它有多高的安全性..</p>
+
+<p><strong>为了安全还是要上 https</strong></p>
+
+<blockquote>
+<p>相关推荐:
+<a href="https://jwt.io/introduction/">jwt.io</a></p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-01-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/json/">json</a>
+          <a href="/tags/jwt/">jwt</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/docker-compose-yml/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">docker-compose.yml 常用命令</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/http-cross-domain-etc/">
+            <span class="next-text nav-default">关于跨域请求的二三事</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

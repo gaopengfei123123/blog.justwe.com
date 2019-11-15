@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fork on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/fork/</link>
+    <description>Recent content in fork on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Jun 2017 14:36:23 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/fork/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git同步所 fork 的库代码</title>
+      <link>http://localhost:1313/post/git-fork-upstream/</link>
+      <pubDate>Sat, 17 Jun 2017 14:36:23 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/git-fork-upstream/</guid>
+      <description>有时候我们 fork 了一个库进行开发,但是时间长了那个库已经添加了一些新的东西,这要怎么处理呢? 先添加你 fork 的库的地址 1 2 git remote add FORK-sync https://github.com/xxx/yyy.git git remote -v 能看到类似的</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>jmeter 对tcp进行压测 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="jmeter是个好工具, 跨平台, 有GUI, 简单易用, 扩展多 安装 本地环境为macOS Mojave 10.14.4 本地需要安装java8 jmeter官方下载地址 jmet" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/tools-jmeter/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="jmeter 对tcp进行压测" />
+<meta property="og:description" content="jmeter是个好工具, 跨平台, 有GUI, 简单易用, 扩展多 安装 本地环境为macOS Mojave 10.14.4 本地需要安装java8 jmeter官方下载地址 jmet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/tools-jmeter/" />
+<meta property="article:published_time" content="2019-04-30T17:45:59+00:00" />
+<meta property="article:modified_time" content="2019-04-30T17:45:59+00:00" />
+<meta itemprop="name" content="jmeter 对tcp进行压测">
+<meta itemprop="description" content="jmeter是个好工具, 跨平台, 有GUI, 简单易用, 扩展多 安装 本地环境为macOS Mojave 10.14.4 本地需要安装java8 jmeter官方下载地址 jmet">
+
+
+<meta itemprop="datePublished" content="2019-04-30T17:45:59&#43;00:00" />
+<meta itemprop="dateModified" content="2019-04-30T17:45:59&#43;00:00" />
+<meta itemprop="wordCount" content="622">
+
+
+
+<meta itemprop="keywords" content="jmeter," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="jmeter 对tcp进行压测"/>
+<meta name="twitter:description" content="jmeter是个好工具, 跨平台, 有GUI, 简单易用, 扩展多 安装 本地环境为macOS Mojave 10.14.4 本地需要安装java8 jmeter官方下载地址 jmet"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">jmeter 对tcp进行压测</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-30 </span>
+        <div class="post-category">
+            <a href="/categories/tools/"> tools </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#进行tcp压测">进行tcp压测</a>
+<ul>
+<li><a href="#首先创建thread-group">首先创建Thread Group</a></li>
+<li><a href="#创建tcp-sampler">创建tcp Sampler</a></li>
+</ul></li>
+<li><a href="#创建-summary-report">创建 summary report</a></li>
+<li><a href="#创建-view-results-tree">创建 view results tree</a></li>
+<li><a href="#安装cpu-内存监控插件">安装cpu/内存监控插件</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>jmeter是个好工具, 跨平台, 有GUI, 简单易用, 扩展多</p>
+
+<!-- more -->
+
+<h4 id="安装">安装</h4>
+
+<p>本地环境为macOS Mojave 10.14.4</p>
+
+<p><strong>本地需要安装java8</strong>
+<a href="https://jmeter.apache.org/download_jmeter.cgi">jmeter官方下载地址</a>
+<a href="https://jmeter-plugins.org/install/Install/">jmeter插件下载</a></p>
+
+<p>当前下载的jmeter版本为 5.1.1
+解压下载之后, 运行命令:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sh ~/Downloads/apache-jmeter-5.1.1/bin/jmeter</code></pre></td></tr></table>
+</div>
+</div>
+<p>就运行起来了</p>
+
+<h4 id="进行tcp压测">进行tcp压测</h4>
+
+<h5 id="首先创建thread-group">首先创建Thread Group</h5>
+
+<p><img src="/images/jmeter/jmeter_1.jpg" alt="img" /></p>
+
+<p>注意几个关键点:
+* Number of Threads (users)     创建进程组, 相当于多少并发
+* Ramp-Up Period (in seconds)   设定的并发值在多少秒内到达预期, 模拟自然流量
+* Loop Count   每个进程组循环多少次</p>
+
+<p><code>Loop Count</code> * <code>Number of Threads</code> 就是整体请求数量了</p>
+
+<h5 id="创建tcp-sampler">创建tcp Sampler</h5>
+
+<p><img src="/images/jmeter/jmeter_2.jpg" alt="img" /></p>
+
+<p>这篇文章是使用最基本的文字tcp传输</p>
+
+<p><img src="/images/jmeter/jmeter_3.jpg" alt="img" /></p>
+
+<p>看图说话, TCP classname默认为: <code>org.apache.jmeter.protocol.tcp.sampler.TCPClientImpl</code>, 可以直接从 <code>Text to send</code> 中传入文本
+传文本的时候<strong>一定</strong>要输入之后加一个回车,写<code>\n</code>都不管用, <strong>必须</strong> 是回车, 它是自动转换的, 不然会造成数据找不到终止断点</p>
+
+<p>如果使用 <code>org.apache.jmeter.protocol.tcp.sampler.BinaryTCPClientImpl</code> 则需要在 <code>End of line byte value</code> 里面传值, 通常是<code>10</code>
+且  <code>Text to send</code> 传的是16进制数据</p>
+
+<h4 id="创建-summary-report">创建 summary report</h4>
+
+<p><img src="/images/jmeter/jmeter_4.jpg" alt="img" /></p>
+
+<p>用于做统计表格</p>
+
+<h4 id="创建-view-results-tree">创建 view results tree</h4>
+
+<p><img src="/images/jmeter/jmeter_5.jpg" alt="img" /></p>
+
+<p>用于查看请求数据返回数据</p>
+
+<h4 id="安装cpu-内存监控插件">安装cpu/内存监控插件</h4>
+
+<p>5.1.1 版本的和之前搜的有些不一样, 现在有了一个内置的扩展商店</p>
+
+<p><a href="https://jmeter-plugins.org/install/Install/">扩展下载地址</a></p>
+
+<p><code>Download plugins-manager.jar and put it into lib/ext directory, then restart JMeter.</code></p>
+
+<p>看到这句话没?  点就行了, 然后把它放到jmeter目录 <code>lib/ext</code>下,重启jmeter就能看到了</p>
+
+<p><img src="/images/jmeter/jmeter_6.jpg" alt="img" /></p>
+
+<ol>
+<li>点进去搜索 <code>PerfMon</code> ,就是我们要找的了, 点击安装 , 从插件简介里也能看到<a href="https://jmeter-plugins.org/wiki/PerfMon/">文档地址</a></li>
+<li>在文档中找到 <code>Server Agent</code>的<a href="https://github.com/undera/perfmon-agent/blob/master/README.md">下载地址</a></li>
+<li>在被测服务器中安装 Server Agent , linux 直接运行 <code>serverAgent.sh</code> 默认端口为 4444</li>
+</ol>
+
+<p>添加监控:
+<img src="/images/jmeter/jmeter_7.jpg" alt="img" />
+点 <code>Add Row</code> 添加目标服务器的ip和端口就行, 端口默认4444</p>
+
+<p>以上就是一套简单的tcp压测测试了</p>
+
+<p><a href="/2019/04/30/tools-jmeter/">原文地址</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-04-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/jmeter/">jmeter</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/k8s-install-docker/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">docker for mac 部署 kubernetes</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/php-unsual-mistakes/">
+            <span class="next-text nav-default">php开发过程中不常碰到的error (2.28更新)</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

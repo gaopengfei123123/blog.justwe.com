@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php-SPL on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/categories/php-spl/</link>
+    <description>Recent content in php-SPL on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 27 Jun 2017 11:35:37 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/php-spl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PHP标准类库系列 Iterator</title>
+      <link>http://localhost:1313/post/php-spl-iterator/</link>
+      <pubDate>Tue, 27 Jun 2017 11:35:37 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-spl-iterator/</guid>
+      <description>迭代器,让对象可用 foreach,for,while方法 啥是 Iterator 是一种 php 提供的接口标准,可以将不同的类迭代调用统一成一样的方法,打个比方(话说</description>
+    </item>
+    
+    <item>
+      <title>PHP标准类库系列 arrayAccess</title>
+      <link>http://localhost:1313/post/php-spl-arrayaccess/</link>
+      <pubDate>Mon, 26 Jun 2017 17:22:53 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-spl-arrayaccess/</guid>
+      <description>现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p</description>
+    </item>
+    
+  </channel>
+</rss>

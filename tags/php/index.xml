@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>php on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/php/</link>
+    <description>Recent content in php on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 Feb 2019 10:30:23 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>php开发过程中不常碰到的error (2.28更新)</title>
+      <link>http://localhost:1313/post/php-unsual-mistakes/</link>
+      <pubDate>Thu, 28 Feb 2019 10:30:23 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-unsual-mistakes/</guid>
+      <description>这里做一些备注,以防再次碰到 url 当中的参数有 &amp;amp;timestamp=1234567890这样的字段会被转义成xtamp=12345678</description>
+    </item>
+    
+    <item>
+      <title>自定义 gii 模板</title>
+      <link>http://localhost:1313/post/yii-gii/</link>
+      <pubDate>Wed, 23 May 2018 14:15:12 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/yii-gii/</guid>
+      <description>开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造 这里先拿 basic 版举例, advance版同理 1.修改配置文件 web.php 1 2</description>
+    </item>
+    
+    <item>
+      <title>转 json移除非法 utf8字符串</title>
+      <link>http://localhost:1313/post/php-json-error/</link>
+      <pubDate>Wed, 08 Nov 2017 11:17:21 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-json-error/</guid>
+      <description>当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判</description>
+    </item>
+    
+    <item>
+      <title>PHP标准类库系列 Iterator</title>
+      <link>http://localhost:1313/post/php-spl-iterator/</link>
+      <pubDate>Tue, 27 Jun 2017 11:35:37 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-spl-iterator/</guid>
+      <description>迭代器,让对象可用 foreach,for,while方法 啥是 Iterator 是一种 php 提供的接口标准,可以将不同的类迭代调用统一成一样的方法,打个比方(话说</description>
+    </item>
+    
+    <item>
+      <title>PHP标准类库系列 arrayAccess</title>
+      <link>http://localhost:1313/post/php-spl-arrayaccess/</link>
+      <pubDate>Mon, 26 Jun 2017 17:22:53 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-spl-arrayaccess/</guid>
+      <description>现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p</description>
+    </item>
+    
+    <item>
+      <title>__callstatic</title>
+      <link>http://localhost:1313/post/php-callstatic/</link>
+      <pubDate>Fri, 23 Jun 2017 16:50:15 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-callstatic/</guid>
+      <description>现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分</description>
+    </item>
+    
+    <item>
+      <title>转 跨域请求时两次发送请求的问题</title>
+      <link>http://localhost:1313/post/axios-cors/</link>
+      <pubDate>Fri, 23 Jun 2017 16:42:38 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/axios-cors/</guid>
+      <description>跨域的时候总会碰上各种各样的问题,这就是其中一种情况 检查一下，两次请求分别的 Request Method: 因为是跨域请求，客户端发先发送一个OPTIONS 请求 Preflighted Req</description>
+    </item>
+    
+    <item>
+      <title>laravel54初始化迁移失败</title>
+      <link>http://localhost:1313/post/laravel54-migrate-error/</link>
+      <pubDate>Wed, 24 May 2017 11:55:45 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/laravel54-migrate-error/</guid>
+      <description>在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: 1. laravel 版本 5.4.23 2. 配置好数</description>
+    </item>
+    
+    <item>
+      <title>php-callback-func</title>
+      <link>http://localhost:1313/post/php-callback-func/</link>
+      <pubDate>Thu, 11 May 2017 18:31:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-callback-func/</guid>
+      <description>你知道茴香的茴有四种写法,那你知道 php 的回调也有四种写法吗? 匿名函数 1 2 3 4 var $array = [1,2,3]; array_map(function($item){ return $item; },$array); 类静态调用 1 2 3 4 5 6 7 8 9 10 class A { static function test($req) { echo &amp;#34;hello world&amp;#34;;</description>
+    </item>
+    
+  </channel>
+</rss>

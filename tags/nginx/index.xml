@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/nginx/</link>
+    <description>Recent content in nginx on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Nov 2018 15:39:36 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>nginx转发到go服务当中</title>
+      <link>http://localhost:1313/post/go-nginx-docker/</link>
+      <pubDate>Sun, 25 Nov 2018 15:39:36 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go-nginx-docker/</guid>
+      <description>通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go</description>
+    </item>
+    
+  </channel>
+</rss>

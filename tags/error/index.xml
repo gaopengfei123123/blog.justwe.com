@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>error on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/error/</link>
+    <description>Recent content in error on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Jun 2017 15:49:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/error/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>记一次 hexo 报错经历</title>
+      <link>http://localhost:1313/post/hexo-error-reinstall/</link>
+      <pubDate>Thu, 29 Jun 2017 15:49:58 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/hexo-error-reinstall/</guid>
+      <description>就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&amp;hellip;. 报错信息如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</description>
+    </item>
+    
+  </channel>
+</rss>

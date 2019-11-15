@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>k8s 安装 minikube - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/k8s-minikube/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="k8s 安装 minikube" />
+<meta property="og:description" content="本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/k8s-minikube/" />
+<meta property="article:published_time" content="2019-05-14T11:04:46+00:00" />
+<meta property="article:modified_time" content="2019-05-14T11:04:46+00:00" />
+<meta itemprop="name" content="k8s 安装 minikube">
+<meta itemprop="description" content="本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作">
+
+
+<meta itemprop="datePublished" content="2019-05-14T11:04:46&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-14T11:04:46&#43;00:00" />
+<meta itemprop="wordCount" content="2110">
+
+
+
+<meta itemprop="keywords" content="k8s," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="k8s 安装 minikube"/>
+<meta name="twitter:description" content="本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">k8s 安装 minikube</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-14 </span>
+        <div class="post-category">
+            <a href="/categories/k8s/"> k8s </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#mac-本地安装minikube环境">mac 本地安装minikube环境</a></li>
+<li><a href="#部署第一个应用">部署第一个应用</a>
+<ul>
+<li><a href="#命令行部署">命令行部署</a>
+<ul>
+<li><a href="#创建node-js-应用">创建node.js 应用</a></li>
+<li><a href="#创建docker镜像">创建docker镜像</a></li>
+<li><a href="#创建-deployment">创建 deployment</a></li>
+<li><a href="#创建service">创建service</a></li>
+<li><a href="#扩展示例">扩展示例</a></li>
+<li><a href="#更新应用">更新应用</a></li>
+<li><a href="#清除资源">清除资源</a></li>
+</ul></li>
+<li><a href="#通过-yaml-启动">通过 yaml 启动</a></li>
+</ul></li>
+<li><a href="#相关资料">相关资料</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂?</p>
+
+<!-- more -->
+
+<h4 id="mac-本地安装minikube环境">mac 本地安装minikube环境</h4>
+
+<p>环境需求:
+* kubectl       本地做命令行控制用, 所有的命令操作都是通过它
+* vittualBox    v5.1 +  更新到最新版本就对了
+* minikube      在本地搭建测试环境</p>
+
+<p>翻墙有困难的可以参考一下这个 <a href="https://yq.aliyun.com/articles/221687">https://yq.aliyun.com/articles/221687</a></p>
+
+<p>安装 <code>kubectl</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜   <span class="n">brew</span> <span class="n">install</span> <span class="n">kubectl</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>下载最新 <code>minikube</code> 不建议使用brew安装,  首先版本不会是最新, 再者会出现莫名其妙的问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜   <span class="n">curl</span> <span class="o">-</span><span class="n">Lo</span> <span class="n">minikube</span> <span class="n">https</span><span class="o">://</span><span class="n">storage.googleapis.com</span><span class="o">/</span><span class="n">minikube</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">minikube</span><span class="o">-</span><span class="n">darwin</span><span class="o">-</span><span class="n">amd64</span> <span class="o">&amp;&amp;</span> <span class="n">\</span>
+  <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">minikube</span> <span class="o">&amp;&amp;</span> <span class="n">\</span>
+  <span class="n">sudo</span> <span class="n">mv</span> <span class="n">minikube</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>默认 start 时运行的virtualBox 去官网下个最新的就行</p>
+
+<p>启动, 最好把docker镜像指定到国内</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜  <span class="o">~</span> <span class="n">minikube</span> <span class="n">start</span> <span class="o">--</span><span class="n">registry</span><span class="o">-</span><span class="n">mirror</span><span class="o">=</span><span class="n">https</span><span class="o">://</span><span class="n">registry.docker</span><span class="o">-</span><span class="n">cn.com</span>
+😄  <span class="n">minikube</span> <span class="n">v1.0.1</span> <span class="n">on</span> <span class="nf">darwin </span><span class="p">(</span><span class="n">amd64</span><span class="p">)</span>
+💿  <span class="n">Downloading</span> <span class="n">Minikube</span> <span class="n">ISO</span> <span class="kc">...</span>
+ <span class="m">142.88</span> <span class="n">MB</span> <span class="o">/</span> <span class="m">142.88</span> <span class="n">MB</span> <span class="n">[</span><span class="o">============================================</span><span class="n">]</span> <span class="m">100.00</span>% <span class="m">0</span><span class="n">s</span>
+🤹  <span class="n">Downloading</span> <span class="n">Kubernetes</span> <span class="n">v1.14.1</span> <span class="n">images</span> <span class="n">in</span> <span class="n">the</span> <span class="n">background</span> <span class="kc">...</span>
+🔥  <span class="n">Creating</span> <span class="n">virtualbox</span> <span class="nf">VM </span><span class="p">(</span><span class="n">CPUs</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">Memory</span><span class="o">=</span><span class="m">2048</span><span class="n">MB</span><span class="p">,</span> <span class="n">Disk</span><span class="o">=</span><span class="m">20000</span><span class="n">MB</span><span class="p">)</span> <span class="kc">...</span>
+📶  <span class="s">&#34;minikube&#34;</span> <span class="n">IP</span> <span class="n">address</span> <span class="n">is</span> <span class="m">192.168.99.103</span>
+🐳  <span class="n">Configuring</span> <span class="n">Docker</span> <span class="n">as</span> <span class="n">the</span> <span class="n">container</span> <span class="n">runtime</span> <span class="kc">...</span>
+🐳  <span class="n">Version</span> <span class="n">of</span> <span class="n">container</span> <span class="n">runtime</span> <span class="n">is</span> <span class="m">18.06.3</span><span class="o">-</span><span class="n">ce</span>
+⌛  <span class="n">Waiting</span> <span class="n">for</span> <span class="n">image</span> <span class="n">downloads</span> <span class="n">to</span> <span class="n">complete</span> <span class="kc">...</span>
+✨  <span class="n">Preparing</span> <span class="n">Kubernetes</span> <span class="n">environment</span> <span class="kc">...</span>
+💾  <span class="n">Downloading</span> <span class="n">kubeadm</span> <span class="n">v1.14.1</span>
+💾  <span class="n">Downloading</span> <span class="n">kubelet</span> <span class="n">v1.14.1</span>
+🚜  <span class="n">Pulling</span> <span class="n">images</span> <span class="n">required</span> <span class="n">by</span> <span class="n">Kubernetes</span> <span class="n">v1.14.1</span> <span class="kc">...</span>
+🚀  <span class="n">Launching</span> <span class="n">Kubernetes</span> <span class="n">v1.14.1</span> <span class="n">using</span> <span class="n">kubeadm</span> <span class="kc">...</span>
+⌛  <span class="n">Waiting</span> <span class="n">for</span> <span class="n">pods</span><span class="o">:</span> <span class="n">apiserver</span> <span class="n">proxy</span> <span class="n">etcd</span> <span class="n">scheduler</span> <span class="n">controller</span> <span class="n">dns</span>
+🔑  <span class="n">Configuring</span> <span class="n">cluster</span> <span class="n">permissions</span> <span class="kc">...</span>
+🤔  <span class="n">Verifying</span> <span class="n">component</span> <span class="n">health</span> <span class="n">.....</span>
+💗  <span class="n">kubectl</span> <span class="n">is</span> <span class="n">now</span> <span class="n">configured</span> <span class="n">to</span> <span class="n">use</span> <span class="s">&#34;minikube&#34;</span>
+🏄  <span class="n">Done</span><span class="o">!</span> <span class="n">Thank</span> <span class="n">you</span> <span class="n">for</span> <span class="n">using</span> <span class="n">minikube</span><span class="o">!</span>
+➜  <span class="o">~</span> <span class="n">kubectl</span> <span class="n">cluster</span><span class="o">-</span><span class="n">info</span>
+<span class="n">Kubernetes</span> <span class="n">master</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">https</span><span class="o">://</span><span class="m">192.168.99.103</span><span class="o">:</span><span class="m">8443</span>
+<span class="n">KubeDNS</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">https</span><span class="o">://</span><span class="m">192.168.99.103</span><span class="o">:</span><span class="m">8443</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">namespaces</span><span class="o">/</span><span class="n">kube</span><span class="o">-</span><span class="n">system</span><span class="o">/</span><span class="n">services</span><span class="o">/</span><span class="n">kube</span><span class="o">-</span><span class="n">dns</span><span class="o">:</span><span class="n">dns</span><span class="o">/</span><span class="n">proxy</span>
+
+<span class="n">To</span> <span class="n">further</span> <span class="n">debug</span> <span class="n">and</span> <span class="n">diagnose</span> <span class="n">cluster</span> <span class="n">problems</span><span class="p">,</span> <span class="n">use</span> <span class="s">&#39;kubectl cluster-info dump&#39;</span><span class="m">.</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果<code>Minikube ISO</code>存在墙的问题, 就把iso下载后放到 <code>~/.minikube/cache/iso/</code>下</p>
+
+<p>这时Mac上的docker不能用docker for Mac提供的了, 而是宿主机里面的docker, 切换命令为:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜   <span class="n">eval</span> <span class="o">$</span><span class="p">(</span><span class="n">minikube</span> <span class="n">docker</span><span class="o">-</span><span class="n">env</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>撤销更改</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜   <span class="n">eval</span> <span class="o">$</span><span class="p">(</span><span class="n">minikube</span> <span class="n">docker</span><span class="o">-</span><span class="n">env</span> <span class="o">-</span><span class="n">u</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>加载后台控制面板, 稍等一会, 自动打卡后台界面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜   <span class="n">minikube</span> <span class="n">dashboard</span></code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="部署第一个应用">部署第一个应用</h4>
+
+<h5 id="命令行部署">命令行部署</h5>
+
+<h6 id="创建node-js-应用">创建node.js 应用</h6>
+
+<p>创建文件 <code>server.js</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">handleRequest</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Received request for URL: &#39;</span> <span class="o">+</span> <span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Hello World! V1&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">www</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">);</span>
+<span class="nx">www</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="n">node</span> <span class="n">server.js</span>   <span class="o">//</span> 访问地址  <span class="n">http</span><span class="o">://</span><span class="n">localhost</span><span class="o">:</span><span class="m">3000</span></code></pre></td></tr></table>
+</div>
+</div>
+<h6 id="创建docker镜像">创建docker镜像</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> node:8.10.0</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 3000</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> server.js .<span class="err">
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;node&#34;</span><span class="p">,</span> <span class="s2">&#34;server.js&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>构建镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="o">:</span><span class="n">v1</span> <span class="m">.</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>如果出现<code>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</code> 说明你忘了执行 <code>eval $(minikube docker-env)</code>
+<strong>kube用的 docker 和你本地用的 docker 是两个位置, kube的在虚拟机里运行</strong></p>
+
+<h6 id="创建-deployment">创建 deployment</h6>
+
+<p>有了镜像就具备创建pod的条件, 通常来说不用直接创建 <code>pod</code>, 而是创建 <code>deployment</code> 或者 <code>replication controller</code>, 由他们来负责管理服务的运行, 规模缩放, 自动重启等等这些操作, 就单个<code>pod</code>来说是可以随时被销毁的, 不能作为稳定服务的保证</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">run</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span> <span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="o">:</span><span class="n">v1</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="m">3000</span>
+或
+➜ <span class="n">kubectl</span> <span class="n">create</span> <span class="n">deployment</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span> <span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="o">:</span><span class="n">v1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>查看当前<code>deployment</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">get</span> <span class="n">deployments</span> 
+<span class="n">NAME</span>           <span class="n">READY</span>   <span class="n">UP</span><span class="o">-</span><span class="n">TO</span><span class="o">-</span><span class="n">DATE</span>   <span class="n">AVAILABLE</span>   <span class="n">AGE</span>
+<span class="n">hello</span><span class="o">-</span><span class="n">node</span>     <span class="m">1</span><span class="o">/</span><span class="m">1</span>     <span class="m">1</span>            <span class="m">1</span>           <span class="m">8</span><span class="n">m8s</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>ready 1/1</code> 说明已经准备就绪了</p>
+
+<p>查看 <code>pod</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜  <span class="n">hellonode</span> <span class="n">git</span><span class="o">:</span><span class="p">(</span><span class="n">master</span><span class="p">)</span> ✗ <span class="n">kubectl</span> <span class="n">get</span> <span class="n">pods</span>
+<span class="n">NAME</span>                            <span class="n">READY</span>   <span class="n">STATUS</span>    <span class="n">RESTARTS</span>   <span class="n">AGE</span>
+<span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="m">-5</span><span class="n">c58cb6dd4</span><span class="o">-</span><span class="n">h65fx</span>     <span class="m">1</span><span class="o">/</span><span class="m">1</span>     <span class="n">Running</span>   <span class="m">0</span>          <span class="m">8</span><span class="n">m40s</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>从这两条信息就能看出来, 每个pod都是带随机字符串的, 并不打算给人去操作, 我们主要专注在<code>deployment</code>和 <code>service</code> 的搭建</p>
+
+<p>查看 <code>deployment</code> 描述</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">➜ kubectl describe deployments/hello-node
+
+Name:                   hello-node
+Namespace:              default
+CreationTimestamp:      Mon, 13 May 2019 14:17:03 +0800
+Labels:                 run=hello-node
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               run=hello-node
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  run=hello-node
+  Containers:
+   hello-node:
+    Image:        hello-node:v1
+    Port:         3000/TCP
+    Host Port:    0/TCP
+    Environment:  &lt;none&gt;
+    Mounts:       &lt;none&gt;
+  Volumes:        &lt;none&gt;
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  &lt;none&gt;
+NewReplicaSet:   hello-node-5c58cb6dd4 (1/1 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  11m   deployment-controller  Scaled up replica set hello-node-5c58cb6dd4 to 1</pre></td></tr></table>
+</div>
+</div>
+<p>这里是对<code>deployment</code>的概览, <code>Pod Template:</code> 下就是每个pods的配置, 之后对部署的扩容都是基于这个去复制</p>
+
+<p>到目前为止我们创建了<code>deployment</code> 而且也自动生成<code>pod</code>了, 可是服务并不能被访问到, 为什么? 因为端口没有对外暴露出来, 所以有了下一步</p>
+
+<h6 id="创建service">创建service</h6>
+
+<p><code>service</code> 就是用来对我暴露服务的东西, 所有的 <code>pod</code> 都是在内网通信, 外部访问就得让 <code>service</code> 这层代理去转发过去, <code>--type=LoadBalancer</code> 就是指定转发为负载均衡模式, <code>kubectl create service -h</code> 查看更多, 这里不细讲</p>
+
+<p>创建service</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">expose</span> <span class="n">deployment</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span> <span class="o">--</span><span class="n">type</span><span class="o">=</span><span class="n">LoadBalancer</span>
+或
+➜ <span class="n">kubectl</span> <span class="n">expose</span> <span class="n">deployment</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span> <span class="o">--</span><span class="n">type</span><span class="o">=</span><span class="n">LoadBalancer</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="m">3000</span> <span class="o">//</span> 这里指定端口</code></pre></td></tr></table>
+</div>
+</div>
+<p>查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">get</span> <span class="n">service</span>                                     
+<span class="n">NAME</span>         <span class="n">TYPE</span>           <span class="n">CLUSTER</span><span class="o">-</span><span class="n">IP</span>      <span class="n">EXTERNAL</span><span class="o">-</span><span class="n">IP</span>   <span class="nf">PORT</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>          <span class="n">AGE</span>
+<span class="n">hello</span><span class="o">-</span><span class="n">node</span>   <span class="n">LoadBalancer</span>   <span class="m">10.111.18.151</span>   <span class="o">&lt;</span><span class="n">pending</span><span class="o">&gt;</span>     <span class="m">3000</span><span class="o">:</span><span class="m">31349</span><span class="o">/</span><span class="n">TCP</span>   <span class="m">3</span><span class="n">s</span>
+<span class="n">kubernetes</span>   <span class="n">ClusterIP</span>      <span class="m">10.96.0.1</span>       <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>        <span class="m">443</span><span class="o">/</span><span class="n">TCP</span>          <span class="m">3</span><span class="n">d</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>详细信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">describe</span> <span class="n">services</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span> 
+<span class="n">Name</span><span class="o">:</span>                     <span class="n">hello</span><span class="o">-</span><span class="n">node</span>
+<span class="n">Namespace</span><span class="o">:</span>                <span class="n">default</span>
+<span class="n">Labels</span><span class="o">:</span>                   <span class="n">run</span><span class="o">=</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span>
+<span class="n">Annotations</span><span class="o">:</span>              <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>
+<span class="n">Selector</span><span class="o">:</span>                 <span class="n">run</span><span class="o">=</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span>
+<span class="n">Type</span><span class="o">:</span>                     <span class="n">LoadBalancer</span>
+<span class="n">IP</span><span class="o">:</span>                       <span class="m">10.111.18.151</span>
+<span class="n">Port</span><span class="o">:</span>                     <span class="o">&lt;</span><span class="n">unset</span><span class="o">&gt;</span>  <span class="m">3000</span><span class="o">/</span><span class="n">TCP</span>
+<span class="n">TargetPort</span><span class="o">:</span>               <span class="m">3000</span><span class="o">/</span><span class="n">TCP</span>
+<span class="n">NodePort</span><span class="o">:</span>                 <span class="o">&lt;</span><span class="n">unset</span><span class="o">&gt;</span>  <span class="m">31349</span><span class="o">/</span><span class="n">TCP</span>
+<span class="n">Endpoints</span><span class="o">:</span>                <span class="m">172.17.0.7</span><span class="o">:</span><span class="m">3000</span>
+<span class="n">Session</span> <span class="n">Affinity</span><span class="o">:</span>         <span class="n">None</span>
+<span class="n">External</span> <span class="n">Traffic</span> <span class="n">Policy</span><span class="o">:</span>  <span class="n">Cluster</span>
+<span class="n">Events</span><span class="o">:</span>                   <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>NodePort</code> 就是绑定在节点的那个端口上, 直接访问节点ip就行, 也可以用minikube命令 <code>minikube service hello-node</code> 自动帮你打开本地地址</p>
+
+<h6 id="扩展示例">扩展示例</h6>
+
+<p>线上肯定是有这种动态扩容的情况, 而且多实例之间滚动升级也不会停止服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">scale</span> <span class="n">deployments</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span> <span class="o">--</span><span class="n">replicas</span><span class="o">=</span><span class="m">4</span>
+<span class="n">deployment.extensions</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span> <span class="n">scaled</span>
+➜  <span class="n">hellonode</span> <span class="n">git</span><span class="o">:</span><span class="p">(</span><span class="n">master</span><span class="p">)</span> ✗ <span class="n">kubectl</span> <span class="n">get</span> <span class="n">pods</span>
+<span class="n">NAME</span>                          <span class="n">READY</span>   <span class="n">STATUS</span>    <span class="n">RESTARTS</span>   <span class="n">AGE</span>
+<span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="m">-5</span><span class="n">c58cb6dd4</span><span class="o">-</span><span class="n">d2qq9</span>   <span class="m">1</span><span class="o">/</span><span class="m">1</span>     <span class="n">Running</span>   <span class="m">0</span>          <span class="m">18</span><span class="n">s</span>
+<span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="m">-5</span><span class="n">c58cb6dd4</span><span class="o">-</span><span class="n">h65fx</span>   <span class="m">1</span><span class="o">/</span><span class="m">1</span>     <span class="n">Running</span>   <span class="m">0</span>          <span class="m">51</span><span class="n">m</span>
+<span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="m">-5</span><span class="n">c58cb6dd4</span><span class="o">-</span><span class="n">jlzjw</span>   <span class="m">1</span><span class="o">/</span><span class="m">1</span>     <span class="n">Running</span>   <span class="m">0</span>          <span class="m">18</span><span class="n">s</span>
+<span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="m">-5</span><span class="n">c58cb6dd4</span><span class="o">-</span><span class="n">vmx4f</span>   <span class="m">1</span><span class="o">/</span><span class="m">1</span>     <span class="n">Running</span>   <span class="m">0</span>          <span class="m">18</span><span class="n">s</span></code></pre></td></tr></table>
+</div>
+</div>
+<h6 id="更新应用">更新应用</h6>
+
+<p>重新构建一个node的镜像
+service.js</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">handleRequest</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Received request for URL: &#39;</span> <span class="o">+</span> <span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Hello World! V2&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">www</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">handleRequest</span><span class="p">);</span>
+<span class="nx">www</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="o">:</span><span class="n">v2</span> <span class="m">.</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>设置 <code>deployment</code> 使用新镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">set</span> <span class="n">image</span> <span class="n">deployment</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="o">=</span><span class="n">hello</span><span class="o">-</span><span class="n">node</span><span class="o">:</span><span class="n">v2</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>查看每个pod的具体情况</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">describe</span> <span class="n">pods</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>再访问刚才的地址就能看到改变了</p>
+
+<h6 id="清除资源">清除资源</h6>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">delete</span> <span class="n">service</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span>
+➜ <span class="n">kubectl</span> <span class="n">delete</span> <span class="n">deployments</span> <span class="n">hello</span><span class="o">-</span><span class="n">node</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>经过上面一套操作下来, 应该也对k8s有了一个大致的印象了, 毕竟光看实践才是检验真理的唯一标准, 但是如果部署一个服务这样一个命令一个命令的敲是很要命的, 而且服务器这玩意, 轻易不会动, 时间一长就容易忘, 因此用配置文件去启动更加合理</p>
+
+<h5 id="通过-yaml-启动">通过 yaml 启动</h5>
+
+<p>如下: test-service.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml">apiVersion<span class="p">:</span><span class="w"> </span>v1<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>Service<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w"> 
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>test-service<span class="w">
+</span><span class="w">  </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">    </span>version<span class="p">:</span><span class="w"> </span>v2<span class="w">
+</span><span class="w">    </span>run<span class="p">:</span><span class="w"> </span>hello-node<span class="w">
+</span><span class="w">    </span>app<span class="p">:</span><span class="w"> </span>test-service<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>type<span class="p">:</span><span class="w"> </span>LoadBalancer<span class="w">
+</span><span class="w">  </span>ports<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>port<span class="p">:</span><span class="w"> </span><span class="m">3001</span><span class="w">
+</span><span class="w">    </span>targetPort<span class="p">:</span><span class="w"> </span><span class="m">3000</span><span class="w">
+</span><span class="w">    </span>protocol<span class="p">:</span><span class="w"> </span>TCP<span class="w">
+</span><span class="w">  </span>selector<span class="p">:</span><span class="w">
+</span><span class="w">    </span>app<span class="p">:</span><span class="w"> </span>test-service<span class="w">
+</span><span class="w"></span>---<span class="w">
+</span><span class="w"></span>apiVersion<span class="p">:</span><span class="w"> </span>apps/v1<span class="w">
+</span><span class="w"></span>kind<span class="p">:</span><span class="w"> </span>Deployment<span class="w">
+</span><span class="w"></span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>test-service<span class="w">
+</span><span class="w">  </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">    </span>app<span class="p">:</span><span class="w"> </span>test-service<span class="w">
+</span><span class="w"></span>spec<span class="p">:</span><span class="w">
+</span><span class="w">  </span>replicas<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">  </span>selector<span class="p">:</span><span class="w">
+</span><span class="w">    </span>matchLabels<span class="p">:</span><span class="w">
+</span><span class="w">      </span>app<span class="p">:</span><span class="w"> </span>test-service<span class="w">
+</span><span class="w">  </span>template<span class="p">:</span><span class="w">
+</span><span class="w">    </span>metadata<span class="p">:</span><span class="w">
+</span><span class="w">      </span>labels<span class="p">:</span><span class="w">
+</span><span class="w">        </span>app<span class="p">:</span><span class="w"> </span>test-service<span class="w">
+</span><span class="w">    </span>spec<span class="p">:</span><span class="w">
+</span><span class="w">      </span>containers<span class="p">:</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>node-pod<span class="w">
+</span><span class="w">        </span>image<span class="p">:</span><span class="w"> </span>hello-node<span class="p">:</span>v2<span class="w">
+</span><span class="w">        </span>imagePullPolicy<span class="p">:</span><span class="w"> </span>IfNotPresent<span class="w">
+</span><span class="w">        </span>ports<span class="p">:</span><span class="w"> 
+</span><span class="w">        </span>-<span class="w"> </span>containerPort<span class="p">:</span><span class="w"> </span><span class="m">3000</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-s" data-lang="s">➜ <span class="n">kubectl</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">test</span><span class="o">-</span><span class="n">service.yaml</span>
+➜ <span class="n">minikube</span> <span class="n">service</span> <span class="n">test</span><span class="o">-</span><span class="n">service</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这样通过配置文件就能启动了, 配置文件里里的字段后续我们再详细的讲一下</p>
+
+<p>删除<code>kubectl delete -f test-service.yaml</code></p>
+
+<p><a href="https://github.com/gaopengfei123123/k8s_study/tree/master/demo/hellonode">代码地址</a></p>
+
+<h4 id="相关资料">相关资料</h4>
+
+<p><a href="https://segmentfault.com/a/1190000014116698#articleHeader16">带你理解Kubernetes，部署一个Node应用</a>
+<a href="http://dockone.io/article/4884">Kubernetes的三种外部访问方式：NodePort、LoadBalancer 和 Ingress</a>
+<a href="https://yq.aliyun.com/articles/221687">Minikube - Kubernetes本地实验环境</a>
+<a href="https://blog.csdn.net/cc1949/article/details/78842291">Kubernetes之kubectl常用命令</a>
+<a href="https://www.cnblogs.com/boshen-hzb/p/7097811.html">replication controller与deployment的区别</a>
+<a href="https://blog.csdn.net/weixin_33979203/article/details/89613400">Kubenetes里pod和service绑定的实现方式</a>
+<a href="https://www.jianshu.com/p/bf3fb3a6e688">Kubernetes创建资源对象yaml文件例子</a>
+<a href="https://github.com/kubernetes/minikube">kubernetes/minikube github</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-05-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/k8s/">k8s</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/k8s-install-centos7/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">centos7 部署 k8s</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/k8s-install-docker/">
+            <span class="next-text nav-default">docker for mac 部署 kubernetes</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

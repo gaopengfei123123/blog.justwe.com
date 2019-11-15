@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker-compose on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/docker-compose/</link>
+    <description>Recent content in docker-compose on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Apr 2017 22:14:01 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>docker-composer-install</title>
+      <link>http://localhost:1313/post/docker-composer-install/</link>
+      <pubDate>Mon, 10 Apr 2017 22:14:01 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-composer-install/</guid>
+      <description>安装 docker-composer 1 2 3 curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` &amp;gt; /usr/local/bin/docker-compose chmod +x /usr/local/bin/docker-compose 可能会有被墙的情况,可以找一下国内的云服务商,比如 DaoCloud</description>
+    </item>
+    
+  </channel>
+</rss>

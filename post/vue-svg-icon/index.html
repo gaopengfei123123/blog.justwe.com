@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>转 在 vue-cli 中使用 svg 做 icon - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/vue-svg-icon/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="转 在 vue-cli 中使用 svg 做 icon" />
+<meta property="og:description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/vue-svg-icon/" />
+<meta property="article:published_time" content="2017-12-26T17:03:55+00:00" />
+<meta property="article:modified_time" content="2017-12-26T17:03:55+00:00" />
+<meta itemprop="name" content="转 在 vue-cli 中使用 svg 做 icon">
+<meta itemprop="description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了">
+
+
+<meta itemprop="datePublished" content="2017-12-26T17:03:55&#43;00:00" />
+<meta itemprop="dateModified" content="2017-12-26T17:03:55&#43;00:00" />
+<meta itemprop="wordCount" content="1077">
+
+
+
+<meta itemprop="keywords" content="vue,js," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="转 在 vue-cli 中使用 svg 做 icon"/>
+<meta name="twitter:description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">转 在 vue-cli 中使用 svg 做 icon</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-26 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/"> 精选转载 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#做一个-svg-icon-组件">做一个 svg-icon 组件</a></li>
+<li><a href="#使用-svg-sprite-loader">使用 svg-sprite-loader</a></li>
+<li><a href="#压缩-svg-内容">压缩 svg 内容</a></li>
+<li><a href="#最后">最后</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>之前都是用的<code>image sprite</code>或者使用的 <a href="http://fontawesome.io/">Font Awesome</a>这类的开源库
+现在咱们已经走进了现代浏览器的年代(ie9+),可以玩点新鲜的东西了,svg</p>
+
+<!-- more -->
+
+<p>svg 有几个好处:
+* 矢量图,不失真
+* 可以受CSS样式影响,就像一个文本
+* http请求低了</p>
+
+<blockquote>
+<p>相关阅读: <a href="http://www.zhangxinxu.com/wordpress/2014/07/introduce-svg-sprite-technology/?spm=a313x.7781069.1998910419.50">未来必热：SVG Sprite技术介绍</a></p>
+</blockquote>
+
+<p>而对我来说最直观的好处就是可以让设计师给你出一个 svg,而不是自己眼都挑花了去找一个合适的图标:)</p>
+
+<h2 id="做一个-svg-icon-组件">做一个 svg-icon 组件</h2>
+
+<p>在 vue-cli 生成的 vue 脚手架中添加组件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// path: @/components/SvgIcon/index.vue
+</span><span class="c1"></span><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;svg-icon&#34;</span> <span class="nx">aria</span><span class="o">-</span><span class="nx">hidden</span><span class="o">=</span><span class="s2">&#34;true&#34;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">use</span> <span class="o">:</span><span class="nx">xlink</span><span class="o">:</span><span class="nx">href</span><span class="o">=</span><span class="s2">&#34;iconName&#34;</span><span class="o">&gt;&lt;</span><span class="err">/use&gt;</span>
+  <span class="o">&lt;</span><span class="err">/svg&gt;</span>
+<span class="o">&lt;</span><span class="err">/template&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;icon-svg&#39;</span><span class="p">,</span>
+  <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">iconClass</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">iconName</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="sb">`#icon-</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">iconClass</span><span class="si">}</span><span class="sb">`</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+<span class="p">.</span><span class="nx">svg</span><span class="o">-</span><span class="nx">icon</span> <span class="p">{</span>
+  <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span><span class="nx">em</span><span class="p">;</span>
+  <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="nx">em</span><span class="p">;</span>
+  <span class="nx">vertical</span><span class="o">-</span><span class="nx">align</span><span class="o">:</span> <span class="o">-</span><span class="mf">0.15</span><span class="nx">em</span><span class="p">;</span>
+  <span class="nx">fill</span><span class="o">:</span> <span class="nx">currentColor</span><span class="p">;</span>
+  <span class="nx">overflow</span><span class="o">:</span> <span class="nx">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/style&gt;</span>
+
+<span class="nx">作者</span><span class="err">：</span><span class="nx">花裤衩</span>
+<span class="nx">链接</span><span class="err">：</span><span class="nx">https</span><span class="o">:</span><span class="c1">//juejin.im/post/59bb864b5188257e7a427c09
+</span><span class="c1"></span><span class="nx">来源</span><span class="err">：</span><span class="nx">掘金</span>
+<span class="nx">著作权归作者所有</span><span class="err">。</span><span class="nx">商业转载请联系作者获得授权</span><span class="err">，</span><span class="nx">非商业转载请注明出处</span><span class="err">。</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>使用:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//引入svg组件
+import IconSvg from &#39;@/components/IconSvg&#39;
+
+//全局注册icon-svg
+Vue.component(&#39;icon-svg&#39;, IconSvg)
+
+//在代码中使用
+&lt;icon-svg icon-class=&#34;password&#34; /&gt;
+
+作者：花裤衩
+链接：https://juejin.im/post/59bb864b5188257e7a427c09
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</pre></td></tr></table>
+</div>
+</div>
+<p>现在组件有了,svg 去哪里搞?</p>
+
+<h2 id="使用-svg-sprite-loader">使用 svg-sprite-loader</h2>
+
+<p>这个工具可以把多个 svg 打包成 svg-sprite</p>
+
+<p>为了把 icon 使用的 svg 和其他地方使用的 svg 区分开,我们需要对<code>webpack.base.conf.js</code>中的内容
+重新设置一下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//path: app-project/build/webpack.base.conf.js
+</span><span class="c1"></span>     <span class="p">...</span>
+     <span class="c1">// [新增]当引用图标 svg 的时候引入指定目录下的文件
+</span><span class="c1"></span>     <span class="p">{</span>
+       <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.svg$/</span><span class="p">,</span>
+       <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;svg-sprite-loader&#39;</span><span class="p">,</span>
+       <span class="nx">include</span><span class="o">:</span> <span class="p">[</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;src/icons&#39;</span><span class="p">)],</span>
+       <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+         <span class="nx">symbolId</span><span class="o">:</span> <span class="s1">&#39;icon-[name]&#39;</span>
+       <span class="p">}</span>
+     <span class="p">},</span>
+     <span class="c1">// [修改]这里 exclude 来忽略常规的 svg 引入
+</span><span class="c1"></span>     <span class="p">{</span>
+       <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span><span class="p">,</span>
+       <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;url-loader&#39;</span><span class="p">,</span>
+       <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;src/icons&#39;</span><span class="p">)],</span>   <span class="c1">// 这一步必不可少
+</span><span class="c1"></span>       <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+         <span class="nx">limit</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+         <span class="nx">name</span><span class="o">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">assetsPath</span><span class="p">(</span><span class="s1">&#39;img/[name].[hash:7].[ext]&#39;</span><span class="p">)</span>
+       <span class="p">}</span>
+     <span class="p">},</span>
+     <span class="p">...</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>接下来需要使用 webpack 的<code>require.context</code>函数
+&gt;require.context(&ldquo;./test&rdquo;, false, /.test.js$/);这行代码就会去 test 文件夹（不包含子目录）下面的找所有文件名以 .test.js 结尾的文件能被 require 的文件。更直白的说就是 我们可以通过正则匹配引入相应的文件模块。</p>
+
+<p>为了拆卸方便就把这些都放在了<code>icons</code>目录下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// path: app-project/src/icons.index.js
+</span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+<span class="kr">import</span> <span class="nx">SvgIcon</span> <span class="nx">from</span> <span class="s1">&#39;@/components/SvgIcon&#39;</span><span class="c1">// svg组件
+</span><span class="c1"></span>
+<span class="c1">// 全局注册组件
+</span><span class="c1"></span><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;svg-icon&#39;</span><span class="p">,</span> <span class="nx">SvgIcon</span><span class="p">)</span>
+
+<span class="c1">// 定义一个加载目录的函数
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">requireAll</span> <span class="o">=</span> <span class="nx">requireContext</span> <span class="p">=&gt;</span> <span class="nx">requireContext</span><span class="p">.</span><span class="nx">keys</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="nx">requireContext</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">require</span><span class="p">.</span><span class="nx">context</span><span class="p">(</span><span class="s1">&#39;./svg&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="sr">/\.svg$/</span><span class="p">)</span>
+<span class="c1">// 加载目录下的所有 svg 文件
+</span><span class="c1"></span><span class="nx">requireAll</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>然后只需要在 <code>main.js</code> 文件中引入这个组件就可以了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// path: app-project/src/main.js
+</span><span class="c1"></span><span class="p">...</span>
+<span class="kr">import</span> <span class="s1">&#39;./icons&#39;</span> <span class="c1">// 引入图标文件
+</span><span class="c1"></span><span class="p">...</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>具体代码可以参考 <a href="https://github.com/gaopengfei123123/tadmin/commit/32735b2998290ca7558a1bfe0ec8b9c368893703">这个地址链接</a></p>
+
+<h2 id="压缩-svg-内容">压缩 svg 内容</h2>
+
+<p>这里推荐一个比较好用的工具: <a href="https://github.com/svg/svgo">svgo</a> <a href="http://www.zhangxinxu.com/wordpress/2016/02/svg-compress-tool-svgo-experience/">SVG精简压缩工具svgo简介和初体验</a></p>
+
+<h2 id="最后">最后</h2>
+
+<p>这是我抄的 花裤衩的 <a href="https://juejin.im/post/59bb864b5188257e7a427c09">手摸手，带你优雅的使用 icon</a>,观摩别人的代码给自己带来了很多收获</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-12-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/vue/">vue</a>
+          <a href="/tags/js/">js</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/http-cross-domain-etc/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">关于跨域请求的二三事</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/chrome-redirection-https/">
+            <span class="next-text nav-default">关于 chrome 浏览器会强制跳转到 https 的问题</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

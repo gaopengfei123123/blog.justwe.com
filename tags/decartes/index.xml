@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>decartes on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/decartes/</link>
+    <description>Recent content in decartes on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 18 Jul 2017 10:36:50 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/decartes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>js生成笛卡尔积数组</title>
+      <link>http://localhost:1313/post/js-decartes/</link>
+      <pubDate>Tue, 18 Jul 2017 10:36:50 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/js-decartes/</guid>
+      <description>以下转载了来自 segmentfault的一个回答 第一种 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; var data = new Array(new Array(1, 2, 3), new Array(4, 5, 6)); var result = []; console.log(data); function descartes(arrIndex, aresult){ if (arrIndex</description>
+    </item>
+    
+  </channel>
+</rss>

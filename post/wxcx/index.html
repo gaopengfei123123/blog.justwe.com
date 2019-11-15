@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>小程序初次接触(1) - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/wxcx/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="小程序初次接触(1)" />
+<meta property="og:description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/wxcx/" />
+<meta property="article:published_time" content="2016-10-24T15:28:00+00:00" />
+<meta property="article:modified_time" content="2016-10-24T15:28:00+00:00" />
+<meta itemprop="name" content="小程序初次接触(1)">
+<meta itemprop="description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i">
+
+
+<meta itemprop="datePublished" content="2016-10-24T15:28:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-10-24T15:28:00&#43;00:00" />
+<meta itemprop="wordCount" content="750">
+
+
+
+<meta itemprop="keywords" content="xcx," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="小程序初次接触(1)"/>
+<meta name="twitter:description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">小程序初次接触(1)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-10-24 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了</p>
+
+<!-- more -->
+
+<p>首先安装小程序的开发工具,虽然我们没有邀请id但是我们可以通过熟悉操作来达到快速上手,更多的功能体验可以等到正式发布的时候去进行拓展</p>
+
+<p>安装微信开发工具
+<a href="http://www.helloxcx.com">下载网址</a></p>
+
+<p>目录结构</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">app-
+---image
+---utils
+---pages
+---app.json</pre></td></tr></table>
+</div>
+</div>
+<p>首先必备的就是<code>app.json</code>文件,这是小程序的配置文件,里面配置了路由,底部菜单,窗口标题等等一些最重要的东西</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">{
+  &#34;pages&#34;:[
+    &#34;pages/index/index&#34;,
+    &#34;pages/logs/logs&#34;
+  ],
+  &#34;window&#34;:{
+    &#34;backgroundTextStyle&#34;:&#34;light&#34;,
+    &#34;navigationBarBackgroundColor&#34;: &#34;#fff&#34;,
+    &#34;navigationBarTitleText&#34;: &#34;微信小练习&#34;,
+    &#34;navigationBarTextStyle&#34;:&#34;black&#34;
+  },
+  &#34;tabBar&#34;: {
+    &#34;backgroundColor&#34;:&#34;#000000&#34;,
+    &#34;list&#34;: [{
+      &#34;iconPath&#34;:&#34;image/wechat.png&#34;,
+      &#34;selectedIconPath&#34;:&#34;image/wechatHL.png&#34;,
+      &#34;pagePath&#34;: &#34;pages/index/index&#34;,
+      &#34;text&#34;: &#34;首页&#34;
+    }, {
+      &#34;iconPath&#34;:&#34;image/record.png&#34;,
+      &#34;selectedIconPath&#34;:&#34;image/play.png&#34;,
+      &#34;pagePath&#34;: &#34;pages/about/about&#34;,
+      &#34;text&#34;: &#34;我的&#34;
+    }]
+  },
+  &#34;debug&#34; : true
+}</pre></td></tr></table>
+</div>
+</div>
+<p>这个文件的内容可读性也是很不错,各个项目是做什么的让人一目了然, <code>pages</code>块的就是注册前端路由了,比如<code>pages/index/index</code>就是需要引用 pages/index 目录下的 index.wxml index.js index.wxss <strong>我们不需要指定后缀,这都是自动完成的</strong></p>
+
+<p>其他的关于引入文件路径的问题都和这个是一类的</p>
+
+<p>接下来就是关于页面的布局
+在 <code>pages/index</code>目录下创建 <code>index.wxml</code>文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;!--文章列表模板 begin--&gt;
+&lt;template name=&#34;itmes&#34;&gt;
+    &lt;view class=&#34;imgs&#34;&gt;&lt;image src=&#34;{{imgURL}}&#34; class=&#34;in-img&#34; background-size=&#34;cover&#34; model=&#34;scaleToFill&#34;&gt;&lt;/image&gt;&lt;/view&gt;
+    &lt;view class=&#34;infos&#34;&gt;
+        &lt;view class=&#34;title&#34;&gt;{{title}}&lt;/view&gt;
+        &lt;view class=&#34;date&#34;&gt;{{time}}&lt;/view&gt;
+        &lt;view class=&#34;classification&#34;&gt;{{classification}}&lt;/view&gt;
+    &lt;/view&gt;
+    &lt;view&gt;hello world&lt;/view&gt;
+&lt;/template&gt;
+&lt;!--文章列表模板 begin--&gt;
+
+
+&lt;block wx:for=&#34;{{newList}}&#34;&gt;
+    &lt;template is=&#34;itmes&#34; data=&#34;{{...item}}&#34; /&gt;
+&lt;/block&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>在这里, <code>&lt;template&gt;</code>这标签块内的东西只是一个模板,而不会实际显示出来,真正显示的是下面 <code>&lt;block&gt;</code>这个标签对里的东西,他在这里调用了上面的 template 模板, 当然此时是没有东西的,因为我们指定的变量还没有建立</p>
+
+<p>赶紧在<strong>同级目录</strong>下创建 index.js</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//获取应用实例
+var app = getApp()
+Page({
+    data: {
+        newList:[{url:&#34;baidu.com&#34;,title:&#34;111&#34;,classification:&#34;ss&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;222&#34;,classification:&#34;ss&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;333&#34;,classification:&#34;12&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;444&#34;,classification:&#34;333&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;555&#34;,classification:&#34;44&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;666&#34;,classification:&#34;44&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;777&#34;,classification:&#34;32&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;888&#34;,classification:&#34;123&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;999&#34;,classification:&#34;456&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+            {url:&#34;baidu.com&#34;,title:&#34;000&#34;,classification:&#34;454&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;}
+        ]
+    },
+})</pre></td></tr></table>
+</div>
+</div>
+<p>这个时候重新解析一下调试界面就能看到效果了,这个时候我们还没用到 .wxss 的文件,所以样式还是裸奔状态</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-10-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/xcx/">xcx</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/yii-rewrite/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">yii2路由重写方案</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/laravel-orm/">
+            <span class="next-text nav-default">larvel ORM模型中的一些方法和变量的作用</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

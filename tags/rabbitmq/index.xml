@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rabbitmq on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/rabbitmq/</link>
+    <description>Recent content in rabbitmq on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 May 2018 21:37:40 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>基于rabbitmq实现的延时队列(golang版)</title>
+      <link>http://localhost:1313/post/go-rabbitmq-delay-queue/</link>
+      <pubDate>Mon, 14 May 2018 21:37:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go-rabbitmq-delay-queue/</guid>
+      <description>虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发</description>
+    </item>
+    
+  </channel>
+</rss>

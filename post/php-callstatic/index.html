@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>__callstatic - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/php-callstatic/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="__callstatic" />
+<meta property="og:description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/php-callstatic/" />
+<meta property="article:published_time" content="2017-06-23T16:50:15+00:00" />
+<meta property="article:modified_time" content="2017-06-23T16:50:15+00:00" />
+<meta itemprop="name" content="__callstatic">
+<meta itemprop="description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分">
+
+
+<meta itemprop="datePublished" content="2017-06-23T16:50:15&#43;00:00" />
+<meta itemprop="dateModified" content="2017-06-23T16:50:15&#43;00:00" />
+<meta itemprop="wordCount" content="705">
+
+
+
+<meta itemprop="keywords" content="php,laravel," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="__callstatic"/>
+<meta name="twitter:description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">__callstatic</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-06-23 </span>
+        <div class="post-category">
+            <a href="/categories/php/"> php </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>现在很多框架中调用方法都是<code>Foo::bar()</code>这种格式的,但是他们真的是静态方法吗?
+<!-- more --></p>
+
+<p>这种情况在 <code>larave</code> 中尤其常见,但是开发过程中很明显这些有一部分不是静态的,比如你使用一个模型<code>User</code>,那么你每次实例化出来他都是一个全新的,互不影响,这里就用到了一个魔术方法<code>__callStatic</code></p>
+
+<p>举个栗子:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">class</span> <span class="nc">Test</span><span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;this is __call&#39;</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;this is __callStatic:&#39;</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
+<span class="nv">$test</span><span class="o">-&gt;</span><span class="na">hello</span><span class="p">();</span>
+<span class="nv">$test</span><span class="o">::</span><span class="na">hi</span><span class="p">();</span>
+<span class="c1">//this is __call:hello
+</span><span class="c1">//this is __callStatic:hi
+</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>当然魔术方法也是很耗性能的一种方式,每次调用的时候后回先扫一遍<code>class</code>没找到方法时才会调用它,而为了代码的整洁和抽象这个方法也能给很大的帮助,在这之间去要有个权衡</p>
+
+<p>下面实现的 <code>log</code> 类,采用的就是这种方法,将方法解耦出来,只要符合规定的接口就能调用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">{</span>
+    <span class="c1">//获取 logger 的实体
+</span><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$logger</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getLogger</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span><span class="o">?:</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">createLogger</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">createLogger</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">setLogger</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">){</span>
+        <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">call_user_func_array</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">getLogger</span><span class="p">(),</span><span class="nv">$name</span><span class="p">],</span><span class="nv">$arguments</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">forward_static_call_array</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">getLogger</span><span class="p">(),</span><span class="nv">$name</span><span class="p">],</span><span class="nv">$arguments</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">interface</span> <span class="nx">LoggerInterface</span><span class="p">{</span>
+    <span class="k">function</span> <span class="nf">info</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span><span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[]);</span>
+    <span class="k">function</span> <span class="nf">alert</span><span class="p">(</span><span class="nv">$messge</span><span class="p">,</span><span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[]);</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Logger</span> <span class="k">implements</span> <span class="nx">LoggerInterface</span> <span class="p">{</span>
+    <span class="k">function</span> <span class="nf">info</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;this is Log method info&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="nx">var_dump</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">function</span> <span class="nf">alert</span><span class="p">(</span><span class="nv">$messge</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">&#39;this is Log method alert: &#39;</span><span class="o">.</span> <span class="nv">$messge</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="nx">Test</span><span class="o">::</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;喊个口号:&#39;</span><span class="p">,[</span><span class="s1">&#39;好好&#39;</span><span class="p">,</span><span class="s1">&#39;学习&#39;</span><span class="p">,</span><span class="s1">&#39;天天&#39;</span><span class="p">,</span><span class="s1">&#39;向上&#39;</span><span class="p">]);</span>
+<span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
+<span class="nv">$test</span><span class="o">-&gt;</span><span class="na">alert</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>输出:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">this is Log method info
+array(4) {
+  [0]=&gt;
+  string(6) &#34;好好&#34;
+  [1]=&gt;
+  string(6) &#34;学习&#34;
+  [2]=&gt;
+  string(6) &#34;天天&#34;
+  [3]=&gt;
+  string(6) &#34;向上&#34;
+}
+this is Log method alert: hello</pre></td></tr></table>
+</div>
+</div>
+<p>也许有的小伙伴已经看出来了,没错!这段代码就是仿照(抄)的 <code>EasyWechat</code>的日志部分,<a href="https://github.com/overtrue/wechat/blob/master/src/Support/Log.php">代码片段</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-06-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/php/">php</a>
+          <a href="/tags/laravel/">laravel</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/php-spl-arrayaccess/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">PHP标准类库系列 arrayAccess</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/git-error-permission/">
+            <span class="next-text nav-default">git-error-permission</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

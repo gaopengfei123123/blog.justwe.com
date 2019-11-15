@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>自己封装一个composer包玩玩 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/composer-package/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="自己封装一个composer包玩玩" />
+<meta property="og:description" content="how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/composer-package/" />
+<meta property="article:published_time" content="2017-01-11T06:40:00+00:00" />
+<meta property="article:modified_time" content="2017-01-11T06:40:00+00:00" />
+<meta itemprop="name" content="自己封装一个composer包玩玩">
+<meta itemprop="description" content="how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用">
+
+
+<meta itemprop="datePublished" content="2017-01-11T06:40:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-01-11T06:40:00&#43;00:00" />
+<meta itemprop="wordCount" content="453">
+
+
+
+<meta itemprop="keywords" content="composer," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自己封装一个composer包玩玩"/>
+<meta name="twitter:description" content="how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">自己封装一个composer包玩玩</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-01-11 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>how to build a composer package</p>
+
+<!-- more -->
+
+<p><a href="http://docs.phpcomposer.com/04-schema.html#minimum-stability">参考文档</a></p>
+
+<p>首先是完善 <code>composer.json</code> 这个是composer需要抓去的的东西，相当于这个composer包的名片</p>
+
+<p>实现步骤是
+1. 创建一个git库 （不用说自己查）
+2. 初始化composer包
+命令 <code>composer init</code> 然后一路回车，生成的 composer.json 的样本如下（重点在这里）
+3. <a href="https://packagist.org">https://packagist.org</a> 上注册
+顺着网站提示一路下去就行
+4. 库中引用<br />
+在你想要使用库的项目中的 composer.json 的 <code>require</code> 中添加 <code>&quot;gaopengfei/born&quot;:&quot;dev-master&quot;</code></p>
+
+<p>然后运行 <code>composer update</code> ，你的包就出现在该项目中的依赖当中了，注意：require的时候一定要指明版本，不然会报错</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//composer.json
+{
+    &#34;name&#34;: &#34;gaopengfei/born&#34;,
+    &#34;description&#34;: &#34;how to build a composer package&#34;,
+    &#34;license&#34;: &#34;MIT&#34;,
+    &#34;authors&#34;: [
+        {
+            &#34;name&#34;: &#34;gaofeifiy&#34;,
+            &#34;email&#34;: &#34;5173180@qq.com&#34;
+        }
+    ],
+   &#34;minimum-stability&#34;: &#34;dev&#34;,
+   &#34;require&#34;: {
+       &#34;php&#34;: &#34;&gt;=5.3.0&#34;
+   },
+   &#34;autoload&#34;: {
+       &#34;psr-4&#34;: {
+           &#34;Body\\Arm\\&#34;: &#34;src/Body/Arm&#34;,
+           &#34;Body\\Leg\\&#34;: &#34;src/Body/Leg&#34;
+       }
+   },
+   &#34;files&#34;: [
+    &#34;path/to/file.php&#34;
+  ]
+
+}</pre></td></tr></table>
+</div>
+</div>
+<p>files 是用于引入全局使用的帮助函数</p>
+
+<p>想让文件能自动加载就靠 <code>autoload</code> 这块的配置了，这里选用了 <code>psr-4</code> 格式的命名规范，这里设置了你的命名空间生效的文件夹在哪里， 当我 <code>use Body\Arm\**</code> 的时候，composer 知道是从 <code>./src/Body/Arm</code> 这个径下找对应的类名， <code>psr-4</code>规范的大体思想就是命名空间就是文件路径，类名就是文件名，这样设置完之后 运行 <code>composer install</code> 生成了 <code>vendor／autoload.php</code> 文件就能自动加载了</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-01-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/composer/">composer</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/git-error/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">git推送远程失败</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/git-push-force/">
+            <span class="next-text nav-default">git强制将远程版本覆盖本地</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

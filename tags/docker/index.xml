@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/docker/</link>
+    <description>Recent content in docker on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Nov 2018 15:39:36 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>nginx转发到go服务当中</title>
+      <link>http://localhost:1313/post/go-nginx-docker/</link>
+      <pubDate>Sun, 25 Nov 2018 15:39:36 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go-nginx-docker/</guid>
+      <description>通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go</description>
+    </item>
+    
+    <item>
+      <title>通过 docker-compose 搭建一个 elk</title>
+      <link>http://localhost:1313/post/docker-elk/</link>
+      <pubDate>Mon, 20 Aug 2018 14:57:47 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-elk/</guid>
+      <description>找了不少使用 docker-elk 搭建的博客, 英文的阅读吃力不说, 镜像源也是慢的让人头皮发麻, 因此重新编排了一个docker-compose,源都是从 https://hub.docker.com/ 上找的,</description>
+    </item>
+    
+    <item>
+      <title>在 centOS65 环境下安装 docker</title>
+      <link>http://localhost:1313/post/docker-install-centos65/</link>
+      <pubDate>Fri, 06 Jul 2018 10:36:50 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-install-centos65/</guid>
+      <description>早期的 docker 对稍微老点的系统支持都不是很友好, 也是因为操作系统的一些新特性才能让 docker 运行起来 在国内的云服务商提供的 CentOS65 镜像内核都是2.6.*的，不能</description>
+    </item>
+    
+    <item>
+      <title>docker中 arg 和 env 的区别</title>
+      <link>http://localhost:1313/post/docker-arg-env/</link>
+      <pubDate>Thu, 28 Jun 2018 17:55:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-arg-env/</guid>
+      <description>在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用</description>
+    </item>
+    
+    <item>
+      <title>docker-volume</title>
+      <link>http://localhost:1313/post/docker-volume/</link>
+      <pubDate>Tue, 13 Feb 2018 13:24:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-volume/</guid>
+      <description>这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&amp;#39;3&amp;#39;services:db:image:mysql:5.7volumes:-db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:-33060:3306wordpress:depends_on:-dbimage:wordpress:latestports:-&amp;#34;8080:80&amp;#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点奇怪的地</description>
+    </item>
+    
+    <item>
+      <title>docker-compose.yml 常用命令</title>
+      <link>http://localhost:1313/post/docker-compose-yml/</link>
+      <pubDate>Mon, 12 Feb 2018 10:36:50 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-compose-yml/</guid>
+      <description>常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up</description>
+    </item>
+    
+    <item>
+      <title>docker-composer-install</title>
+      <link>http://localhost:1313/post/docker-composer-install/</link>
+      <pubDate>Mon, 10 Apr 2017 22:14:01 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-composer-install/</guid>
+      <description>安装 docker-composer 1 2 3 curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` &amp;gt; /usr/local/bin/docker-compose chmod +x /usr/local/bin/docker-compose 可能会有被墙的情况,可以找一下国内的云服务商,比如 DaoCloud</description>
+    </item>
+    
+    <item>
+      <title>docker(1)入门</title>
+      <link>http://localhost:1313/post/docker-info/</link>
+      <pubDate>Thu, 16 Feb 2017 15:46:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-info/</guid>
+      <description>开始 首先在docker官网或者国内的daoCloud来下载工具，不推荐新手在直接通过brew来安装 docker-machine 根据安装导航安装好就行 刚接触一个新玩具最</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>PHP标准类库系列 arrayAccess - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/php-spl-arrayaccess/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="PHP标准类库系列 arrayAccess" />
+<meta property="og:description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/php-spl-arrayaccess/" />
+<meta property="article:published_time" content="2017-06-26T17:22:53+00:00" />
+<meta property="article:modified_time" content="2017-06-26T17:22:53+00:00" />
+<meta itemprop="name" content="PHP标准类库系列 arrayAccess">
+<meta itemprop="description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p">
+
+
+<meta itemprop="datePublished" content="2017-06-26T17:22:53&#43;00:00" />
+<meta itemprop="dateModified" content="2017-06-26T17:22:53&#43;00:00" />
+<meta itemprop="wordCount" content="535">
+
+
+
+<meta itemprop="keywords" content="php,SPL," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PHP标准类库系列 arrayAccess"/>
+<meta name="twitter:description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">PHP标准类库系列 arrayAccess</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-06-26 </span>
+        <div class="post-category">
+            <a href="/categories/php-spl/"> php-SPL </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#什么是-spl">什么是 SPL?</a></li>
+<li><a href="#如何使用arrayaccess-接口">如何使用arrayAccess 接口</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了<code>arrayAccess</code>这个接口
+<!-- more --></p>
+
+<h2 id="什么是-spl">什么是 SPL?</h2>
+
+<p>SPL 是 Standard PHP Library 的缩写,是官方在 php5之后提供的一个标准类库,为 php 面向对象开发
+提供了良好的支持</p>
+
+<h2 id="如何使用arrayaccess-接口">如何使用arrayAccess 接口</h2>
+
+<p>最好的学习就是使用啊,这是我写的一个 demo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">Demo</span> <span class="k">implements</span> <span class="nx">\ArrayAccess</span><span class="p">{</span>
+
+    <span class="k">public</span> <span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;demo&#39;</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * Demo constructor.
+</span><span class="sd">     * @param array $attribute
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$attribute</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span> <span class="o">=</span> <span class="nv">$attribute</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * @param mixed $offset
+</span><span class="sd">     * @return bool
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetExists</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * @param mixed $offset
+</span><span class="sd">     * @return mixed
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetGet</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * @param mixed $offset
+</span><span class="sd">     * @param mixed $value
+</span><span class="sd">     * @return mixed
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetSet</span><span class="p">(</span><span class="nv">$offset</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * @param mixed $offset
+</span><span class="sd">     * @return bool
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetUnset</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$offset</span><span class="p">){</span>
+          <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$offset</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+          <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+          <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * @param $name
+</span><span class="sd">     * @param $value
+</span><span class="sd">     * @return mixed
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="sd">/**
+</span><span class="sd">     * @param $name
+</span><span class="sd">     * @return mixed|null
+</span><span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">array_key_exists</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">)</span><span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;height&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;180cm&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$demo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$demo</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+<span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+<span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+<span class="c1">//删除
+</span><span class="c1"></span><span class="nx">unset</span><span class="p">(</span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]);</span>
+<span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]);</span>
+<span class="c1">//新增
+</span><span class="c1"></span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;man&#39;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$demo</span><span class="o">-&gt;</span><span class="na">sex</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="c1">//修改
+</span><span class="c1"></span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2333cm&#39;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+<span class="c1">//打印这个类
+</span><span class="c1"></span><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>输出:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">demo
+demo
+180cm
+NULL
+man
+2333cm
+object(Demo)#1 (2) {
+  [&#34;name&#34;]=&gt;
+  string(4) &#34;demo&#34;
+  [&#34;attributes&#34;:protected]=&gt;
+  array(2) {
+    [&#34;height&#34;]=&gt;
+    string(6) &#34;2333cm&#34;
+    [&#34;sex&#34;]=&gt;
+    string(3) &#34;man&#34;
+  }
+}</pre></td></tr></table>
+</div>
+</div>
+<p>这里还用了<code>__set</code>和<code>__get</code>,现在一些框架的关于数据模型的类也是类似的实现思路</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-06-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/php/">php</a>
+          <a href="/tags/spl/">SPL</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/php-spl-iterator/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">PHP标准类库系列 Iterator</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/php-callstatic/">
+            <span class="next-text nav-default">__callstatic</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

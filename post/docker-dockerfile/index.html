@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>docker(3) 构建dockerfile - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="上一章我们用的是 docker commit 命令创建的自己的库，虽然简单但是定制性比较差，因此我们采用另一种且更广泛的做法就是 docker build命令，先上手做个demo 1" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/docker-dockerfile/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="docker(3) 构建dockerfile" />
+<meta property="og:description" content="上一章我们用的是 docker commit 命令创建的自己的库，虽然简单但是定制性比较差，因此我们采用另一种且更广泛的做法就是 docker build命令，先上手做个demo 1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/docker-dockerfile/" />
+<meta property="article:published_time" content="2017-03-08T06:48:00+00:00" />
+<meta property="article:modified_time" content="2017-03-08T06:48:00+00:00" />
+<meta itemprop="name" content="docker(3) 构建dockerfile">
+<meta itemprop="description" content="上一章我们用的是 docker commit 命令创建的自己的库，虽然简单但是定制性比较差，因此我们采用另一种且更广泛的做法就是 docker build命令，先上手做个demo 1">
+
+
+<meta itemprop="datePublished" content="2017-03-08T06:48:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-03-08T06:48:00&#43;00:00" />
+<meta itemprop="wordCount" content="1002">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker(3) 构建dockerfile"/>
+<meta name="twitter:description" content="上一章我们用的是 docker commit 命令创建的自己的库，虽然简单但是定制性比较差，因此我们采用另一种且更广泛的做法就是 docker build命令，先上手做个demo 1"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">docker(3) 构建dockerfile</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-08 </span>
+        <div class="post-category">
+            <a href="/categories/docker/"> docker </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>上一章我们用的是 <code>docker commit</code> 命令创建的自己的库，虽然简单但是定制性比较差，因此我们采用另一种且更广泛的做法就是 <code>docker build</code>命令，先上手做个demo</p>
+
+<!-- more -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">cd $HOME/document/www
+mkdir build_demo
+cd build_demo
+vi Dockerfile</pre></td></tr></table>
+</div>
+</div>
+<p>下面是 <code>Dockerfile</code> 中的代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma"># Version 0.0.1
+FROM gaofeifiy/ubuntu-last
+MAINTAINER GPF “5173180@qq.com”
+RUN touch /ReadMe.txt
+RUN echo &#39;hey your contain build success!&#39; &gt; /ReadMe.txt
+EXPOSE 80</pre></td></tr></table>
+</div>
+</div>
+<p>然后在 <code>$HOME/document/www/build_demo</code> 目录下运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">➜  lnmp_docker docker build -t=&#34;gaofeifiy/lnmp_server&#34; .
+# 下面是显示的
+Sending build context to Docker daemon 2.048 kB
+Step 1 : FROM gaofeifiy/ubuntu-last
+ ---&gt; 6f8cfa1871b0
+Step 2 : MAINTAINER GPF
+ ---&gt; Running in 3e442a5807f3
+ ---&gt; 8d0efc1cf9f7
+Removing intermediate container 3e442a5807f3
+Step 3 : RUN touch /ReadMe.txt
+ ---&gt; Running in 91a7a049d18c
+ ---&gt; b98309a7d5a4
+Removing intermediate container 91a7a049d18c
+Step 4 : RUN echo &#39;hey your contain build success!&#39; &gt; /ReadMe.txt
+ ---&gt; Running in 0158f49fef8f
+ ---&gt; 6416fe72ff4c
+Removing intermediate container 0158f49fef8f
+Step 5 : EXPOSE 80
+ ---&gt; Running in 26e1d7df6ab7
+ ---&gt; c994cb02df6e
+Removing intermediate container 26e1d7df6ab7
+Successfully built c994cb02df6e</pre></td></tr></table>
+</div>
+</div>
+<p>-t 就是我们新建镜像的标签</p>
+
+<p>接下来我们查看一下本地的镜像列表里出现了什么</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">➜  lnmp_docker docker images
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+gaofeifiy/lnmp_server   latest              c994cb02df6e        40 hours ago        227 MB
+gaofeifiy/ubuntu-last   latest              6f8cfa1871b0        2 days ago          227 MB</pre></td></tr></table>
+</div>
+</div>
+<p>我们刚刚创建的镜像已经出现到本地的列表里面了 输入 <code>docker history c994cb02df6e</code> 查看镜像的构建流程</p>
+
+<p>我们回顾一下整个流程：刚才所有的操作都是在 <code>Dockerfile</code> 这个文件中进行的，我们用到以下命令</p>
+
+<p>. FROM gaofeifiy/ubuntu-last 新建的库采用 gaofeifiy/ubuntu-last 这个镜像构建的(就是上一章我们建的那个，因为写这个的时候电脑没网&hellip; 其实应该是 ubuntu:16.04 这类的基础镜像)
+. MAINTAINER GPF “5173180@qq.com”   指定了该镜像的作者和邮箱
+. RUN touch /ReadMe.txt 运行系统命令，创建一个ReadMe.txt 文件 其他的RUN命令欧式同样的道理
+. EXPOSE 80 指定镜像对外端口是80</p>
+
+<p>下面介绍一下更多的Dockerfile相关的指令</p>
+
+<p>. ENV 设置镜像中的环境变量 比如 <code>ENV REFRESHED_AT 2017-02-22</code> 设置缓存更新时间
+. CMD  和<code>docker run</code> 命令类似，是等容器启动后执行的命令，会被<code>docker run</code>指令干扰 例<code>CMD [&quot;/bin/bash&quot;,&quot;-l&quot;]</code> 这里推荐使用数组形式，防止出现-c参数的干扰
+. ENTRYPOINT  和CMD命令类似，但是不会被<code>docker run</code>的命令干扰，而且会把<code>docker run</code>后的指令当作 <code>ENTRYPOINT</code>的参数来用 例如：<code>ENTRYPOINT [&quot;/usr/sbin/nginx&quot;,&quot;-g&quot;,&quot;demon off&quot;]</code> 这条命令和 <code>ENTRYPOINT [&quot;/usr/sbin/nginx&quot;]</code> 加上 <code>docker run -t -i xxx镜像 -g &quot;demon off&quot;</code> 两条语句产生的作用相同
+. USER 指定镜像以什么用户去运行，默认是root 也可以<code>docker run -u</code> 来指定用户
+. VOLUME 创建一个容器的共享卷，这样的话多个镜像容器公用一套内容，相当于类中的静态变量
+. ADD   将本地文件添加到镜像当中，会解压 <em>仅限在以Dockerfile文件为根目录的目录下</em>
+. COPY 将本地文件拷贝到镜像当中，不会解压 <em>仅限在以Dockerfile文件为根目录的目录下</em>
+. ONBUILD 当其他镜像使用本镜像的时候触发的命令 例如<code>ONBUILD RUN echo 'hello world'</code> 当别的镜像引用到这个镜像的时候就会执行这条命令</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/redis-geohash-lbs/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">LBS使用redis的解决方案--GEOHASH</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/go-info/">
+            <span class="next-text nav-default">go语言了解(1)</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>askpass on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/askpass/</link>
+    <description>Recent content in askpass on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 08 May 2017 22:31:42 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/askpass/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git-askpass-error</title>
+      <link>http://localhost:1313/post/git-askpass-error/</link>
+      <pubDate>Mon, 08 May 2017 22:31:42 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/git-askpass-error/</guid>
+      <description>git 的账号密码错误情况 error 前段时间使用 phpstrom 中的 git 出现了一个错误 1 2 3 4 Fetch failed error: unable to read askpass response from &amp;#39;..\tmp\intellij-git-askpass.bat&amp;#39; error: failed to execute prompt script (exit code 1) fatal: could not read Username for &amp;#39;http://xxx:3000&amp;#39;: No error 大体情况就是某一次操</description>
+    </item>
+    
+  </channel>
+</rss>

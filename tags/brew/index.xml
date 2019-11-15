@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>brew on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/brew/</link>
+    <description>Recent content in brew on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 09 Apr 2017 23:36:54 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/brew/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>brew-update</title>
+      <link>http://localhost:1313/post/brew-update/</link>
+      <pubDate>Sun, 09 Apr 2017 23:36:54 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/brew-update/</guid>
+      <description>brew更新软件时常用的操作 安装 brew ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/Go/install)&amp;quot; 搜索 brew search MySQL 查看程序具体信息 brew info mysql 更新 brew brew update 更新软件 brew upgrade mysql 如果不指定更新哪个则会更新所有可以更新的</description>
+    </item>
+    
+  </channel>
+</rss>

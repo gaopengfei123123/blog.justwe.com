@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>用树莓派3搞一个信号灯输出 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="通过一个python脚本跑一个监控 cpu 的交通信号灯,运行环境是官方的系统 Raspbian 执行脚本 有编程基础的同学就直接上手好了: 1 2 3 4 5 6 7 8 9 10 11 12 13 14" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/raspberry-pi3-traffic-light/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="用树莓派3搞一个信号灯输出" />
+<meta property="og:description" content="通过一个python脚本跑一个监控 cpu 的交通信号灯,运行环境是官方的系统 Raspbian 执行脚本 有编程基础的同学就直接上手好了: 1 2 3 4 5 6 7 8 9 10 11 12 13 14" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/raspberry-pi3-traffic-light/" />
+<meta property="article:published_time" content="2017-11-21T14:26:24+00:00" />
+<meta property="article:modified_time" content="2017-11-21T14:26:24+00:00" />
+<meta itemprop="name" content="用树莓派3搞一个信号灯输出">
+<meta itemprop="description" content="通过一个python脚本跑一个监控 cpu 的交通信号灯,运行环境是官方的系统 Raspbian 执行脚本 有编程基础的同学就直接上手好了: 1 2 3 4 5 6 7 8 9 10 11 12 13 14">
+
+
+<meta itemprop="datePublished" content="2017-11-21T14:26:24&#43;00:00" />
+<meta itemprop="dateModified" content="2017-11-21T14:26:24&#43;00:00" />
+<meta itemprop="wordCount" content="971">
+
+
+
+<meta itemprop="keywords" content="Raspberry,MacOS," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="用树莓派3搞一个信号灯输出"/>
+<meta name="twitter:description" content="通过一个python脚本跑一个监控 cpu 的交通信号灯,运行环境是官方的系统 Raspbian 执行脚本 有编程基础的同学就直接上手好了: 1 2 3 4 5 6 7 8 9 10 11 12 13 14"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">用树莓派3搞一个信号灯输出</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-11-21 </span>
+        <div class="post-category">
+            <a href="/categories/tools/"> tools </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#执行脚本">执行脚本</a></li>
+<li><a href="#针脚怎么插">针脚怎么插?</a></li>
+<li><a href="#代码都做了什么">代码都做了什么?</a></li>
+<li><a href="#总结">总结</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>通过一个<code>python</code>脚本跑一个监控 cpu 的交通信号灯,运行环境是官方的系统 <code>Raspbian</code></p>
+
+<!-- more -->
+
+<h1 id="执行脚本">执行脚本</h1>
+
+<p>有编程基础的同学就直接上手好了:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#! /usr/bin/env python</span>
+<span class="c1"># to use with Pi Traffic Light</span>
+
+<span class="kn">import</span> <span class="nn">RPi.GPIO</span> <span class="kn">as</span> <span class="nn">GPIO</span>
+<span class="kn">import</span> <span class="nn">psutil</span>
+
+<span class="n">GREEN</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">YELLOW</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">RED</span> <span class="o">=</span> <span class="mi">26</span>
+
+<span class="c1"># Pin Setup:</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>   <span class="c1"># Broadcom pin-numbering scheme.</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setwarnings</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+   <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+      <span class="n">cpu_pc</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+      <span class="k">print</span> <span class="s1">&#39;CPU: </span><span class="si">%d%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cpu_pc</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">cpu_pc</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+      <span class="k">if</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="n">cpu_pc</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">:</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">cpu_pc</span> <span class="o">&gt;=</span><span class="mi">90</span> <span class="p">:</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+         <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&#34;Good bye&#34;</span>
+    <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><p>如果出现提示<code>****line 5, in &lt;module&gt; import psutil*****</code> 提示缺少<code>psutil</code>模块,就按照下面的
+方法安装:
+&gt; <a href="http://m.blog.csdn.net/ronsarah/article/details/74629950">代码原文</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">wget https://pypi.python.org/packages/source/p/psutil/psutil-3.2.2.tar.gz
+cd psutil-3.2.2
+python setup.py install</pre></td></tr></table>
+</div>
+</div>
+<p>如果报错检查 gcc,python-devel 是否安装(官方系统的话会把这些环境默认安装好,不用管的)</p></li>
+</ul>
+
+<h1 id="针脚怎么插">针脚怎么插?</h1>
+
+<p>软件方面的搞定了,接下来需要搞明白怎么配置硬件了,这是树莓派系列的针脚图(咱们这是3代,最右边的那个):
+<img src="http://blog-image.onlyoneip.com/20160807030334648" alt="树莓派针脚" />
+我又从网上找的一张实物图
+<img src="http://blog-image.onlyoneip.com/WX20171121-153100@2x.png" alt="树莓派实物图" />
+这是我淘来的信号灯
+<img src="http://blog-image.onlyoneip.com/WechatIMG567.jpeg" alt="信号灯" />
+这两个都是针脚型的,但是我有一个40针脚的扁平线可以用来对接,按照信号灯指定的端口插就行</p>
+
+<p>插好以后就直接运行脚本就行比如这个脚本叫做 <code>traffic.py</code>,就运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">$ python ./traffic.py</pre></td></tr></table>
+</div>
+</div>
+<p>就能看到效果</p>
+
+<h1 id="代码都做了什么">代码都做了什么?</h1>
+
+<ol>
+<li><p>引入需要用到的模块, <code>RPi.GPIO</code>针脚输出,<code>psutil</code>用于系统监控</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#! /usr/bin/env python</span>
+<span class="c1"># to use with Pi Traffic Light</span>
+
+<span class="kn">import</span> <span class="nn">RPi.GPIO</span> <span class="kn">as</span> <span class="nn">GPIO</span>
+<span class="kn">import</span> <span class="nn">psutil</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>定义三个灯输出的针脚</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">GREEN</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">YELLOW</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">RED</span> <span class="o">=</span> <span class="mi">26</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>对指定的针脚进行设置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Pin Setup:</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setmode</span><span class="p">(</span><span class="n">GPIO</span><span class="o">.</span><span class="n">BCM</span><span class="p">)</span>   
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setwarnings</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="n">GPIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>这里的 <code>GPIO.setmode(GPIO.BCM)</code>就是指定了输出模式为按照信道编号,就是上图中的<code>GPIO2,GPIO3...</code>这类
+如果<code>GPIO.setmode(GPIO.BOARD)</code>就是<code>Pin No.1 =&gt; GPIO1</code>,使用物理针脚的编号作为输出信道</li>
+<li><code>GPIO.setwarnings(False)</code> 关闭warning 提示</li>
+<li><code>GPIO.setup(GREEN, GPIO.OUT)</code> 将对应的信道设置为输出信道</li>
+</ul></li>
+
+<li><p>通过 while 循环检索 cpu 的使用情况并输出,且根据所占百分比显示相应的灯</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+<span class="n">cpu_pc</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span> <span class="s1">&#39;CPU: </span><span class="si">%d%%</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cpu_pc</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">cpu_pc</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="mi">50</span> <span class="o">&lt;</span> <span class="n">cpu_pc</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">:</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">cpu_pc</span> <span class="o">&gt;=</span><span class="mi">90</span> <span class="p">:</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+  <span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><code>GPIO.output(GREEN, False)</code>和<code>GPIO.output(GREEN, True)</code>猜都能猜到是控制输出的啦</li>
+</ul></li>
+
+<li><p>对于程序退出的操作:把灯全关了,再调用<code>GPIO.cleanup()</code>释放资源</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">try</span><span class="p">:</span>
+
+<span class="o">//</span> <span class="n">some</span> <span class="n">code</span><span class="o">....</span>
+
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+<span class="k">print</span> <span class="s2">&#34;Good bye&#34;</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">YELLOW</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="n">RED</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">GPIO</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h1 id="总结">总结</h1>
+
+<p>这个 demo 只是对 GPIO 的输出进行展示,还没涉及到信号输入,接下来<strong>如果有空</strong>的话我会做一个输入的 demo</p>
+
+<p><a href="http://itindex.net/detail/55339-%E6%9E%81%E5%AE%A2-%E6%89%8B%E6%8A%8A-%E6%A0%91%E8%8E%93%E6%B4%BE">相关-极客大讲堂：手把手教你用树莓派控制红绿灯</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-11-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/raspberry/">Raspberry</a>
+          <a href="/tags/macos/">MacOS</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/raspberry-pi3-golang-env/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">树莓派上安装 golang</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/raspberry-pi3-install/">
+            <span class="next-text nav-default">转 烧录树莓派系统(新手版)</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

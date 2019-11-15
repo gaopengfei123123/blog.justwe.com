@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>k8s on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/k8s/</link>
+    <description>Recent content in k8s on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 17 Jun 2019 11:59:54 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>centos7 部署 k8s</title>
+      <link>http://localhost:1313/post/k8s-install-centos7/</link>
+      <pubDate>Mon, 17 Jun 2019 11:59:54 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/k8s-install-centos7/</guid>
+      <description>都是走的国内镜像源 关闭 selinux 1 2 setenforce 0 #实时动态关闭 selinux sed -i &amp;#39;s/SELINUX=enforcing/SELINUX=disabled/&amp;#39; /etc/selinux/config #禁止重启后自动开启 关闭交换分区 1 2 swapoff -a #实时动态关闭交换分区 sed -i &amp;#39;/ swap / s/^/#/&amp;#39; /etc/fstab #禁止重</description>
+    </item>
+    
+    <item>
+      <title>k8s 安装 minikube</title>
+      <link>http://localhost:1313/post/k8s-minikube/</link>
+      <pubDate>Tue, 14 May 2019 11:04:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/k8s-minikube/</guid>
+      <description>本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作</description>
+    </item>
+    
+    <item>
+      <title>docker for mac 部署 kubernetes</title>
+      <link>http://localhost:1313/post/k8s-install-docker/</link>
+      <pubDate>Mon, 06 May 2019 15:58:16 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/k8s-install-docker/</guid>
+      <description>docker for mac 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 gcr.io 这个域被墙了&amp;hellip; 目前来看前辈们已经把坑给淌的差不多了</description>
+    </item>
+    
+  </channel>
+</rss>

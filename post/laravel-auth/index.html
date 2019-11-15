@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>laravel-auth - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="原文出处 auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：） 本着松" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/laravel-auth/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="laravel-auth" />
+<meta property="og:description" content="原文出处 auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：） 本着松" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/laravel-auth/" />
+<meta property="article:published_time" content="2017-04-01T20:57:12+00:00" />
+<meta property="article:modified_time" content="2017-04-01T20:57:12+00:00" />
+<meta itemprop="name" content="laravel-auth">
+<meta itemprop="description" content="原文出处 auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：） 本着松">
+
+
+<meta itemprop="datePublished" content="2017-04-01T20:57:12&#43;00:00" />
+<meta itemprop="dateModified" content="2017-04-01T20:57:12&#43;00:00" />
+<meta itemprop="wordCount" content="2311">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="laravel-auth"/>
+<meta name="twitter:description" content="原文出处 auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：） 本着松"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">laravel-auth</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-04-01 </span>
+        <div class="post-category">
+            <a href="/categories/laravel/"> laravel </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p><a href="https://laravel-china.org/topics/2777">原文出处</a></p>
+
+<p>auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：）</p>
+
+<p>本着松鼠过冬的原则，自己是能写一点是一点，以后忘记的话也能立即捡起来</p>
+
+<!-- more -->
+
+<p>安装auth系统</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">php artisan make:auth</pre></td></tr></table>
+</div>
+</div>
+<p>默认会安装基于user表的登录验证，现在我们需要增加另一个表的登录验证（比如后台的数据表）
+编辑<code>config/auth.php</code>,我们需要指定的就是<code>guards</code>和<code>providers</code>这两个数组，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php
+
+return [
+
+   /*
+   |--------------------------------------------------------------------------
+   | Authentication Defaults
+   |--------------------------------------------------------------------------
+   |
+   | This option controls the default authentication &#34;guard&#34; and password
+   | reset options for your application. You may change these defaults
+   | as required, but they&#39;re a perfect start for most applications.
+   |
+   */
+
+   &#39;defaults&#39; =&gt; [
+       &#39;guard&#39; =&gt; &#39;web&#39;,
+       &#39;passwords&#39; =&gt; &#39;users&#39;,
+   ],
+
+   /*
+   |--------------------------------------------------------------------------
+   | Authentication Guards
+   |--------------------------------------------------------------------------
+   |
+   | Next, you may define every authentication guard for your application.
+   | Of course, a great default configuration has been defined for you
+   | here which uses session storage and the Eloquent user provider.
+   |
+   | All authentication drivers have a user provider. This defines how the
+   | users are actually retrieved out of your database or other storage
+   | mechanisms used by this application to persist your user&#39;s data.
+   |
+   | Supported: &#34;session&#34;, &#34;token&#34;
+   |
+   */
+
+   &#39;guards&#39; =&gt; [
+       //......//
+       //这里新加的一组配置，provider的配置在下面有
+       &#39;admin&#39; =&gt; [
+           &#39;driver&#39; =&gt; &#39;session&#39;,
+           &#39;provider&#39; =&gt; &#39;admin&#39;,
+       ],
+       //.......//
+   ],
+
+   /*
+   |--------------------------------------------------------------------------
+   | User Providers
+   |--------------------------------------------------------------------------
+   |
+   | All authentication drivers have a user provider. This defines how the
+   | users are actually retrieved out of your database or other storage
+   | mechanisms used by this application to persist your user&#39;s data.
+   |
+   | If you have multiple user tables or models you may configure multiple
+   | sources which represent each model / table. These sources may then
+   | be assigned to any extra authentication guards you have defined.
+   |
+   | Supported: &#34;database&#34;, &#34;eloquent&#34;
+   |
+   */
+
+   &#39;providers&#39; =&gt; [
+       //.............//
+
+       //这就是新加的配置，我们指定了 Admin 这个模型
+       &#39;admin&#39; =&gt; [
+           &#39;driver&#39; =&gt; &#39;eloquent&#39;,
+           &#39;model&#39; =&gt; App\Models\Admin::class,
+       ],
+
+       //.............//
+   ],
+
+   /*
+   |--------------------------------------------------------------------------
+   | Resetting Passwords
+   |--------------------------------------------------------------------------
+   |
+   | You may specify multiple password reset configurations if you have more
+   | than one user table or model in the application and you want to have
+   | separate password reset settings based on the specific user types.
+   |
+   | The expire time is the number of minutes that the reset token should be
+   | considered valid. This security feature keeps tokens short-lived so
+   | they have less time to be guessed. You may change this as needed.
+   |
+   */
+
+   &#39;passwords&#39; =&gt; [
+       &#39;users&#39; =&gt; [
+           &#39;provider&#39; =&gt; &#39;users&#39;,
+           &#39;table&#39; =&gt; &#39;password_resets&#39;,
+           &#39;expire&#39; =&gt; 60,
+       ],
+   ],
+
+];</pre></td></tr></table>
+</div>
+</div>
+<p>新建模型 <code>App/Models/Admin</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">php artisan make:model Models/Admin -m</pre></td></tr></table>
+</div>
+</div>
+<p>编辑模型</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+
+//这里继承了auth的验证模型 其实和User的一样
+class Admin extends Authenticatable
+{
+   use Notifiable;
+   protected $table=&#39;admin&#39;;
+   public $timestamps = false;
+   protected $primaryKey = &#39;id&#39;;
+
+   protected $fillable = [
+       &#39;name&#39;, &#39;email&#39;, &#39;password&#39;,
+   ];
+
+   protected $hidden = [
+       &#39;password&#39;, &#39;remember_token&#39;,
+   ];
+}</pre></td></tr></table>
+</div>
+</div>
+<p>编辑数据迁移文件 <code>database/migrations/xxxx_admin_table.php</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+/**
+* Migration auto-generated by Sequel Pro Laravel Export
+* @see https://github.com/cviebrock/sequel-pro-laravel-export
+*/
+class CreateAdminTable extends Migration
+{
+   /**
+    * Run the migrations.
+    *
+    * @return void
+    */
+   public function up()
+   {
+       Schema::create(&#39;admin&#39;, function (Blueprint $table) {
+           $table-&gt;increments(&#39;id&#39;);
+           $table-&gt;string(&#39;name&#39;);
+           $table-&gt;string(&#39;email&#39;)-&gt;unique();
+           $table-&gt;string(&#39;password&#39;);
+           $table-&gt;rememberToken();
+           $table-&gt;timestamps();
+       });
+   }
+
+   /**
+    * Reverse the migrations.
+    *
+    * @return void
+    */
+   public function down()
+   {
+       Schema::dropIfExists(&#39;admin&#39;);
+   }
+}</pre></td></tr></table>
+</div>
+</div>
+<p>编辑数据填充文件，这一步懒得折腾可以直接手动添加数据</p>
+
+<p>编辑 <code>Faker</code> 这个数据模拟的类 <code>database/factories/ModelFactory.php</code> 添加一下内容,是根据我们刚创建的<code>Models/Admin</code>模型而填充的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//other code...........
+
+$factory-&gt;define(App\Models\Admin::class, function (Faker\Generator $faker) {
+   static $password;
+
+   return [
+       &#39;name&#39; =&gt; $faker-&gt;name,
+       &#39;email&#39; =&gt; $faker-&gt;safeEmail,
+       &#39;password&#39; =&gt; $password ?: $password = bcrypt(&#39;secret&#39;),
+       &#39;remember_token&#39; =&gt; str_random(10),
+   ];
+});</pre></td></tr></table>
+</div>
+</div>
+<p>编辑<code>database/seeds/AdminTableSeeder.php</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php
+
+use Illuminate\Database\Seeder;
+
+class AdminsTableSeeder extends Seeder
+{
+   /**
+    * Run the database seeds.
+    *
+    * @return void
+    */
+   public function run()
+   {
+       factory(&#39;App\Models\Admin&#39;,3)-&gt;create([
+           &#39;password&#39; =&gt; bcrypt(&#39;123456&#39;)
+       ]);
+   }
+}</pre></td></tr></table>
+</div>
+</div>
+<p>将自动填充文件写入总的Seeder文件当中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">//in database/seeds/DatabaseSeeder.php
+
+class DatabaseSeeder extends Seeder
+{
+   /**
+    * Run the database seeds.
+    *
+    * @return void
+    */
+   public function run()
+   {
+       // $this-&gt;call(UsersTableSeeder::class);
+       $this-&gt;call(AdminsTableSeeder::class);
+   }
+}</pre></td></tr></table>
+</div>
+</div>
+<p>执行数据库迁移操作 <code>--seed</code> 顺便执行数据填充操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">php artisan migrate --seed</pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>好了,到这一步数据库就已经有了<code>admin</code> 这个表,而且里面出现了三条测试数据,我们接着看看控制器里是怎么操作的:</p>
+</blockquote>
+
+<p>首先创建相应的控制器:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">php artisan make:controller Admin/LoginController
+php artisan make:controller Admin/HomeController</pre></td></tr></table>
+</div>
+</div>
+<p>Admin/LoginController.php</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+class LoginController extends Controller
+{
+   /*
+   |--------------------------------------------------------------------------
+   | Login Controller
+   |--------------------------------------------------------------------------
+   |
+   | This controller handles authenticating users for the application and
+   | redirecting them to your home screen. The controller uses a trait
+   | to conveniently provide its functionality to your applications.
+   |
+   */
+
+   use AuthenticatesUsers;
+
+   /**
+    * Where to redirect users after login / registration.
+    *
+    * @var string
+    */
+   protected $redirectTo = &#39;/admin/dash&#39;;
+   protected $username;
+
+   /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+   public function __construct()
+   {
+       $this-&gt;middleware(&#39;guest:admin&#39;, [&#39;except&#39; =&gt; &#39;logout&#39;]);
+       $this-&gt;username = config(&#39;admin.global.username&#39;);
+   }
+   /**
+    * 重写登录视图页面
+    */
+   public function showLoginForm()
+   {
+       return view(&#39;admin.login.index&#39;);
+   }
+   /**
+    * 自定义认证驱动
+    */
+   protected function guard()
+   {
+       return auth()-&gt;guard(&#39;admin&#39;);
+   }
+
+   /**
+    * 重写方法，让验证字段改成name 而不是默认的email
+    */
+//    protected function username(){
+//        return &#39;name&#39;;
+//    }
+}</pre></td></tr></table>
+</div>
+</div>
+<p>Admin/HomeController.php</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Auth;
+
+class HomeController extends Controller
+{
+   /**
+    * Create a new controller instance.
+    *
+    * @return void
+    */
+   public function __construct()
+   {
+       $this-&gt;middleware(&#39;auth.admin:admin&#39;);
+   }
+
+   /**
+    * Show the application dashboard.
+    *
+    * @return \Illuminate\Http\Response
+    */
+   public function index()
+   {
+       dd(&#39;后台首页，当前用户名：&#39;.auth(&#39;admin&#39;)-&gt;user()-&gt;name);
+   }
+}</pre></td></tr></table>
+</div>
+</div>
+<p>因为在LoginController中也使用了 <code>guest</code>这个中间件,而系统自带的那个也使用了它,因此需要在这个中间件里面做一下区分</p>
+
+<p>编辑 <code>app/Http/Kernel.php</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">public function handle($request, Closure $next, $guard = null)
+   {
+       if (Auth::guard($guard)-&gt;check()) {
+//            return redirect(&#39;/home&#39;);
+           $url = $guard ? &#39;admin/dash&#39;:&#39;/home&#39;;
+           return redirect($url);
+       }
+
+       return $next($request);
+   }</pre></td></tr></table>
+</div>
+</div>
+<p>而在 <code>Admin/HomeController</code>这里,因为验证需要登录才能进入,我们给他也加了一个验证中间件 <code>AdminAuthMiddlware</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">php artisan make:middleware AdminAuthMiddlware</pre></td></tr></table>
+</div>
+</div>
+<p>编辑<code>AdminAuthMiddlware</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;?php
+
+namespace App\Http\Middleware;
+use Closure;
+use Illuminate\Support\Facades\Auth;
+class AdminAuthMiddleware
+{
+   /**
+    * Handle an incoming request.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  \Closure  $next
+    * @return mixed
+    */
+   public function handle($request, Closure $next,$guard = null)
+   {
+       //判定是否已经登录，如果没由登录则跳转到登录界面
+       if (Auth::guard($guard)-&gt;guest()) {
+           if ($request-&gt;ajax() || $request-&gt;wantsJson()) {
+               return response(&#39;Unauthorized.&#39;, 401);
+           } else {
+               return redirect()-&gt;guest(&#39;admin/login&#39;);
+           }
+       }
+       return $next($request);
+   }
+}</pre></td></tr></table>
+</div>
+</div>
+<p>在路由文件里添加对应的路由</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">// in routes/web.php
+//后台登录部分
+Route::group([&#39;prefix&#39; =&gt; &#39;admin&#39;,&#39;namespace&#39; =&gt; &#39;Admin&#39;],function ($router)
+{
+   $router-&gt;get(&#39;login&#39;, &#39;LoginController@showLoginForm&#39;)-&gt;name(&#39;admin.login&#39;);
+   $router-&gt;post(&#39;login&#39;, &#39;LoginController@login&#39;);
+   $router-&gt;any(&#39;logout&#39;, &#39;LoginController@logout&#39;);
+
+   $router-&gt;get(&#39;dash&#39;, &#39;HomeController@index&#39;);
+});</pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>做到这一步其实就已经算是完成了,剩下的视图部分可以按照<code>resources/views/auth</code>中的内容创建一个<code>resource/views/admin</code>目录,<code>resource/views/admin/login/index.blade.php</code>就是后台登录界面,注意这里的表单提交地址要按刚才路由文件中写的指向后台的登录控制器中,<code>route('admin.login')</code></p>
+</blockquote>
+
+<p>这一段是我按照原文操作一遍后自己写了一遍,算是了解了auth的大致运行过程,其后就是翻一下源码进行解析了,为了controller中的代码好看一点其后的运作并不少,但是解耦做的非常不错</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-04-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/hexo-next-title/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">hexo-next-title</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/laravel-error-log/">
+            <span class="next-text nav-default">laravel-error-log</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

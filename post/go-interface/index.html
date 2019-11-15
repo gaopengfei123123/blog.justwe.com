@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>go-interface - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/go-interface/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="go-interface" />
+<meta property="og:description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/go-interface/" />
+<meta property="article:published_time" content="2017-04-19T23:43:41+00:00" />
+<meta property="article:modified_time" content="2017-04-19T23:43:41+00:00" />
+<meta itemprop="name" content="go-interface">
+<meta itemprop="description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得">
+
+
+<meta itemprop="datePublished" content="2017-04-19T23:43:41&#43;00:00" />
+<meta itemprop="dateModified" content="2017-04-19T23:43:41&#43;00:00" />
+<meta itemprop="wordCount" content="945">
+
+
+
+<meta itemprop="keywords" content="go,interface," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="go-interface"/>
+<meta name="twitter:description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">go-interface</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-04-19 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#什么是接口">什么是接口?</a></li>
+<li><a href="#接口类型">接口类型</a></li>
+<li><a href="#再举一个接口的例子">再举一个接口的例子</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>关于 go 语言接口的简单介绍
+<!-- more -->
+接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息,
+但是相关的方法将会变得非常麻烦</p>
+
+<h2 id="什么是接口">什么是接口?</h2>
+
+<p>接口就是制定一个通用的规范,只要符合这个规范就能使用这个借口(听起来像是车轱辘话)</p>
+
+<h2 id="接口类型">接口类型</h2>
+
+<p>比如我定义了一个接口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">example</span> <span class="kd">interface</span><span class="p">{</span>
+  <span class="nf">a</span><span class="p">()</span>
+  <span class="nf">b</span><span class="p">()</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>他定义了两个方法,只要有结构体中含有 <code>a()</code>,<code>b()</code>两个方法就能实现这个接口,通过接口来统一调用,
+如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//package main
+</span><span class="c1">//import &#34;fmt&#34;
+</span><span class="c1"></span>
+<span class="c1">//定义一个基本的类
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Human</span> <span class="kd">struct</span><span class="p">{</span>
+  <span class="nx">name</span>  <span class="kt">string</span>
+  <span class="nx">age</span>   <span class="kt">int</span>
+  <span class="nx">phone</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">Student</span> <span class="kd">struct</span><span class="p">{</span>
+  <span class="nx">Human</span> <span class="c1">//继承 human 中的字段
+</span><span class="c1"></span>  <span class="nx">school</span> <span class="kt">string</span>
+  <span class="nx">loan</span>   <span class="kt">float32</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">Employee</span> <span class="kd">struct</span><span class="p">{</span>
+  <span class="nx">Human</span>
+  <span class="nx">company</span> <span class="kt">string</span>
+  <span class="nx">money</span>   <span class="kt">float32</span>
+<span class="p">}</span>
+
+<span class="c1">//Human 实现 Sayhi 方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">Sayhi</span><span class="p">(){</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hi my name is %s and my phone is %s \n&#34;</span><span class="p">,</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="nx">h</span><span class="p">.</span><span class="nx">phone</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//Human 实现 Sing 方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">Sing</span><span class="p">(</span><span class="nx">lyrics</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;galigaygay galigaygay ...&#34;</span><span class="p">,</span><span class="nx">lyrics</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//student 复写 Sayhi 方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">sdt</span> <span class="nx">Student</span><span class="p">)</span> <span class="nf">Sayhi</span><span class="p">()</span>  <span class="p">{</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;my name is %s and my school is %s \n&#34;</span><span class="p">,</span> <span class="nx">sdt</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="nx">sdt</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">//定义一个通用的接口
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Men</span> <span class="kd">interface</span><span class="p">{</span>
+  <span class="nf">Sayhi</span><span class="p">()</span>
+  <span class="nf">Sing</span><span class="p">(</span><span class="nx">lyrics</span> <span class="kt">string</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">//实例化两种类
+</span><span class="c1"></span>  <span class="nx">mike</span> <span class="o">:=</span> <span class="nx">Student</span><span class="p">{</span><span class="nx">Human</span><span class="p">{</span><span class="s">&#34;mike&#34;</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="s">&#34;18333636999&#34;</span><span class="p">},</span><span class="s">&#34;MIT&#34;</span><span class="p">,</span><span class="mf">3.14</span><span class="p">}</span>
+  <span class="nx">jack</span> <span class="o">:=</span> <span class="nx">Employee</span><span class="p">{</span><span class="nx">Human</span><span class="p">{</span><span class="s">&#34;jack&#34;</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s">&#34;18333636998&#34;</span><span class="p">},</span><span class="s">&#34;hotcast&#34;</span><span class="p">,</span><span class="mi">20000</span><span class="p">}</span>
+
+  <span class="c1">//定义一个接口变量
+</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">i</span> <span class="nx">Men</span>
+
+  <span class="c1">//接口实现了 Student 类的方法
+</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;下面有请 mike 开始他的表演:&#34;</span><span class="p">)</span>
+  <span class="nx">i</span> <span class="p">=</span> <span class="nx">mike</span>
+  <span class="nx">i</span><span class="p">.</span><span class="nf">Sayhi</span><span class="p">();</span>
+  <span class="nx">i</span><span class="p">.</span><span class="nf">Sing</span><span class="p">(</span><span class="s">&#34;dongci daci&#34;</span><span class="p">)</span>
+
+
+  <span class="c1">//接口实现了 Employee 类的方法
+</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;下面有请 mike 开始他的表演:&#34;</span><span class="p">)</span>
+  <span class="nx">i</span> <span class="p">=</span> <span class="nx">jack</span>
+  <span class="nx">i</span><span class="p">.</span><span class="nf">Sayhi</span><span class="p">();</span>
+  <span class="nx">i</span><span class="p">.</span><span class="nf">Sing</span><span class="p">(</span><span class="s">&#34;haha haha haha&#34;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这里的 <code>Men</code> 接口被所有继承了<code>Human</code>的结构体的方法所实现,所以这些实例化的结构体可以赋值给
+<code>Men</code>的接口变量上,我们在 go 语言中的面向对象开发可以说就是面向接口在开发,由接口来组成一个个的
+变量,
+这和 php 的接口有所不同,在 php 中,接口是需要被 class 来继承,然后class 中去实现 interface 中
+指定的方法,比如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">interface Human{
+  function sayHi();
+  function sing();
+}
+
+class Student implements Human{
+  public function sayHi(){
+    // TODO:
+  }
+  public function sing(){
+    // TODO:
+  }
+}</code></pre></td></tr></table>
+</div>
+</div>
+<p>这样子的, 每个类需要指定继承哪些接口才可以去实现接口,而 go 和 php 正好相反,是谁实现了我的规范
+谁就可以用我的接口,实现顺序正好倒过来了</p>
+
+<h2 id="再举一个接口的例子">再举一个接口的例子</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;strconv&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Human</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">name</span>  <span class="kt">string</span>
+	<span class="nx">age</span>   <span class="kt">int</span>
+	<span class="nx">phone</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="c1">// 这里需要把 int 类型转换成字符串,否则使用 + 来连接字符的时候报数据类型不匹配的错误
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s">&#34;&lt;&#34;</span> <span class="o">+</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34;years old ,phone is &#34;</span> <span class="o">+</span> <span class="nx">h</span><span class="p">.</span><span class="nx">phone</span> <span class="o">+</span> <span class="s">&#34;/&gt;&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">Duck</span> <span class="o">:=</span> <span class="nx">Human</span><span class="p">{</span><span class="s">&#34;duck&#34;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="s">&#34;110-120-119&#34;</span><span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;this human is :&#34;</span><span class="p">,</span> <span class="nx">Duck</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>上述例子当中我们实现了 <code>fmt.Println</code> 中的一个接口
+```go
+type Stringer interface {
+  String() string
+}</p>
+
+<p>这样之后,调用 <code>Human</code> 的 String() 函数就能被 <code>fmt.Println()</code> 所用了</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-04-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/interface/">interface</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/go-comma-switch/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">go-comma-switch</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/go-simple-webserver-demo/">
+            <span class="next-text nav-default">go-simple-webserver-demo</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

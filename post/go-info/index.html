@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>go语言了解(1) - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/go-info/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="go语言了解(1)" />
+<meta property="og:description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/go-info/" />
+<meta property="article:published_time" content="2017-03-08T06:42:24+00:00" />
+<meta property="article:modified_time" content="2017-03-08T06:42:24+00:00" />
+<meta itemprop="name" content="go语言了解(1)">
+<meta itemprop="description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但">
+
+
+<meta itemprop="datePublished" content="2017-03-08T06:42:24&#43;00:00" />
+<meta itemprop="dateModified" content="2017-03-08T06:42:24&#43;00:00" />
+<meta itemprop="wordCount" content="782">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="go语言了解(1)"/>
+<meta name="twitter:description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">go语言了解(1)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-08 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#声明变量">声明变量</a></li>
+<li><a href="#声明常量">声明常量</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了</p>
+
+<!-- more -->
+
+<h2 id="声明变量">声明变量</h2>
+
+<p>go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但是以下几种形式还是可以的</p>
+
+<ol>
+<li>var ValueName type   //直接声明一个，<em>声明了就要用啊，不然编译的时候就会报错</em></li>
+<li>var name1,name2,name3 type  //类型就近原则，直接声明三个相同类型的变量</li>
+<li>var ValueName type = value   //声明了变量顺便赋值</li>
+<li>var name1,name2,name3 type = value1,value2,value3   //批量赋值也可以，注意他们的类型是一样的</li>
+<li>name1,name2,name3  := value1,value2,value3   //这才是常用的写法，用 <code>:</code> 来自动判断类型，单个的也是这个用法
+还有个特殊的变量名， <code>_</code> 这代表占个位置但是赋给他的值会被丢弃，比如  <code>_,a := 1,2</code> a的值为2 但是1就给丢了 这时的使用情景碰到再说</li>
+</ol>
+
+<h2 id="声明常量">声明常量</h2>
+
+<p>常量的关键词就不是 <code>var</code> 了 而是 <code>const</code>，和变量的区别是一旦定义就不能改了
+1. const ValueName = value  //直接赋值
+2. const Pi float32 = 3.1415926  //也可以声明常量的类型</p>
+
+<p>###分组赋值
+在多个包里用到再赋值有的时候不利于debug，可以直接把要赋值的都放到一起 比如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">const{
+      ENV := true
+      LOCAL := &#39;dev&#39;
+      DATE := 20170307
+}
+
+var{
+    i int
+    pi float32
+    name string
+}</pre></td></tr></table>
+</div>
+</div>
+<p>##boolean类型
+<code>true</code> or <code>false</code> 默认为false</p>
+
+<p>##数值类型
+go支持 <code>int</code>,<code>uint</code>可以定义的类型有<code>rune,int8,int16,int32,int64,byte,uint8,uint16,uint16,uint32,uint64</code></p>
+
+<p>其中 rune是int32的别称，byte是uint8的别称</p>
+
+<p>不同类型的数不能相互赋值和操作  二进制的数不能和八进制的相加减</p>
+
+<p>浮点型也有<code>float32,float64</code>两种，没有 <code>float</code>这个类型，默认 <code>float64</code></p>
+
+<p>##字符串
+字符串的赋值方式遵循着上面的 声明变量 那一块说的。</p>
+
+<p>Value1 := &lsquo;string&rsquo;    和    Value1 := &ldquo;string&rdquo; 一个效果  <code>&quot;&quot;</code>代表的是一个空字符串也是占着内存的</p>
+
+<p>字符串之间的拼接用 <code>+</code> 比如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">a,b :=&#34;hello&#34;,&#34;world&#34;  
+
+c := a + b
+
+Printf(&#34;%s\n&#34;,c)  //输出 helloworld</pre></td></tr></table>
+</div>
+</div>
+<p>字符串的修改不能直接修改，可以用切片的方式实现例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">a := &#39;hello&#39;
+b := &#39;w&#39; + a[1:]
+//b 的值为 wello</pre></td></tr></table>
+</div>
+</div>
+<p>什么是切片我们一会儿就会说到</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/docker-dockerfile/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">docker(3) 构建dockerfile</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/go-doc/">
+            <span class="next-text nav-default">go安装godoc</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

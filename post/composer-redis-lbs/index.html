@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用redis—geo api实现搜索附近的人，自己写的一个composer包 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/composer-redis-lbs/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用redis—geo api实现搜索附近的人，自己写的一个composer包" />
+<meta property="og:description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/composer-redis-lbs/" />
+<meta property="article:published_time" content="2017-03-11T12:11:00+00:00" />
+<meta property="article:modified_time" content="2017-03-11T12:11:00+00:00" />
+<meta itemprop="name" content="使用redis—geo api实现搜索附近的人，自己写的一个composer包">
+<meta itemprop="description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos">
+
+
+<meta itemprop="datePublished" content="2017-03-11T12:11:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-03-11T12:11:00&#43;00:00" />
+<meta itemprop="wordCount" content="957">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用redis—geo api实现搜索附近的人，自己写的一个composer包"/>
+<meta name="twitter:description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用redis—geo api实现搜索附近的人，自己写的一个composer包</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-11 </span>
+        <div class="post-category">
+            <a href="/categories/tools/"> tools </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#安装">安装</a>
+<ul>
+<li><a href="#初始化">初始化</a></li>
+<li><a href="#添加">添加</a></li>
+<li><a href="#删除">删除</a></li>
+<li><a href="#用坐标查询附近的单位">用坐标查询附近的单位</a></li>
+<li><a href="#根据已有的位置查询">根据已有的位置查询</a></li>
+<li><a href="#列出集合的所有值-其实就是-zrange">列出集合的所有值（其实就是 zrange)</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><a href="https://github.com/gaopengfei123123/redis_lbs">git地址</a></p>
+
+<!-- more -->
+
+<h1 id="安装">安装</h1>
+
+<p>需要使用composer，<a href="https://getcomposer.org/download/">安装composer</a>, <a href="http://www.phpcomposer.com/">composer中国镜像</a></p>
+
+<p>如果是应用在项目当中的话找到根目录，需要和 <code>composer.json</code>同级</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">composer require gaopengfei/redis_lbs</pre></td></tr></table>
+</div>
+</div>
+<p>#基本操作</p>
+
+<h2 id="初始化">初始化</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">require_once __DIR__.&#39;/vendor/autoload.php&#39;;
+$lbs = new \LBS\Services\LBSService();</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="添加">添加</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">$add_params = [
+    [
+        &#39;name&#39; =&gt; &#39;yabao_road&#39;,
+        &#39;long&#39; =&gt; &#39;116.43620200729366&#39;,
+        &#39;lat&#39; =&gt; &#39;39.916880160714435&#39;
+    ],
+    [
+        &#39;name&#39; =&gt; &#39;jianguomen&#39;,
+        &#39;long&#39; =&gt; &#39;116.4356870231628&#39;,
+        &#39;lat&#39; =&gt; &#39;39.908560377800676&#39;
+    ],
+    [
+        &#39;name&#39; =&gt; &#39;chaoyangmen&#39;,
+        &#39;long&#39; =&gt; &#39;116.4345336732864&#39;,
+        &#39;lat&#39; =&gt; &#39;39.924466658329585&#39;
+    ],
+    [
+        &#39;name&#39; =&gt; &#39;galaxy_soho&#39;,
+        &#39;long&#39; =&gt; &#39;116.4335788068771&#39;,
+        &#39;lat&#39; =&gt; &#39;39.921372916981106&#39;
+    ],
+    [
+        &#39;name&#39; =&gt; &#39;cofco&#39;,
+        &#39;long&#39; =&gt; &#39;116.43564410781856&#39;,
+        &#39;lat&#39; =&gt; &#39;39.92024564137184&#39;
+    ],
+    [
+        &#39;name&#39; =&gt; &#39;fesco&#39;,
+        &#39;long&#39; =&gt; &#39;116.435182767868&#39;,
+        &#39;lat&#39; =&gt; &#39;39.91811857809279&#39;
+    ],
+
+
+];
+/**
+ * 在集合中新加一个坐标
+ * @param array $params
+ *  结构是 [&#39;name&#39;=&gt;&#39;xxx&#39;,&#39;long&#39;=&gt;&#39;1.2321&#39;,&#39;lat&#39;=&gt;&#39;1.3112&#39;]或者[[&#39;name&#39;=&gt;&#39;xxx&#39;,&#39;long&#39;=&gt;&#39;1.2321&#39;,&#39;lat&#39;=&gt;&#39;1.3112&#39;]]
+ * @param null $key
+ * @return int
+ */
+$res = $lbs-&gt;add($add_params);
+
+返回
+int 6</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="删除">删除</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">/**
+ * 删除集合中指定元素
+ * @param $name
+ * @param null $key  默认存在集合，可以指定
+ * @return int
+ */
+$res = $lbs-&gt;del(&#39;gao1&#39;);
+
+返回
+int 0 或 1
+
+
+如果是指定的集合名就
+$res = $lbs-&gt;del(&#39;gao1&#39;,&#39;set-name&#39;);</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="用坐标查询附近的单位">用坐标查询附近的单位</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">/**
+ * 查询范围内元素，如果不转 key就用默认的
+ * @param $long     经度
+ * @param $lat      纬度
+ * @param $radius   范围
+ * @param $unit     单位  (仅支持 m,km,ft,mi)
+ * @param null $key 集合名
+ * @return mixed
+ */
+$search = $lbs-&gt;search(&#39;116.435182767868&#39;,&#39;39.91811857809279&#39;,500,&#39;m&#39;);
+
+返回数组
+array:4 [▼
+  0 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;fesco&#34;
+    &#34;dist&#34; =&gt; &#34;0.1250&#34;
+  ]
+  1 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;yabao_road&#34;
+    &#34;dist&#34; =&gt; &#34;162.8454&#34;
+  ]
+  2 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;cofco&#34;
+    &#34;dist&#34; =&gt; &#34;239.7758&#34;
+  ]
+  3 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;galaxy_soho&#34;
+    &#34;dist&#34; =&gt; &#34;386.9165&#34;
+  ]
+]</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="根据已有的位置查询">根据已有的位置查询</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">/**
+ * 根据集合中的元素查询范围内元素，如果不转 key就用默认的
+ * @param $name         集合中的元素名
+ * @param $radius       范围
+ * @param $unit         单位
+ * @param null $key     集合名
+ * @return mixed
+ */
+$search = $lbs-&gt;-&gt;searchByMembers(&#39;fesco&#39;,500,&#39;m&#39;);
+
+返回数组
+array:4 [▼
+  0 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;fesco&#34;
+    &#34;dist&#34; =&gt; &#34;0.1250&#34;
+  ]
+  1 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;yabao_road&#34;
+    &#34;dist&#34; =&gt; &#34;162.8454&#34;
+  ]
+  2 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;cofco&#34;
+    &#34;dist&#34; =&gt; &#34;239.7758&#34;
+  ]
+  3 =&gt; array:2 [▼
+    &#34;name&#34; =&gt; &#34;galaxy_soho&#34;
+    &#34;dist&#34; =&gt; &#34;386.9165&#34;
+  ]
+]</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="列出集合的所有值-其实就是-zrange">列出集合的所有值（其实就是 zrange)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">/**
+ * 列出集合中的内容
+ * @param $key          集合的key
+ * @param int $start    起始位置
+ * @param int $end      结束位置 -1 为直到末尾
+ * @return array
+ */
+$list = $lbs-&gt;list($test-&gt;geoset_name,2,-1);
+
+返回数组
+array:6 [▼
+  0 =&gt; &#34;jianguomen&#34;
+  1 =&gt; &#34;yabao_road&#34;
+  2 =&gt; &#34;fesco&#34;
+  3 =&gt; &#34;cofco&#34;
+  4 =&gt; &#34;galaxy_soho&#34;
+  5 =&gt; &#34;chaoyangmen&#34;
+]</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/git-tag/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">git标签操作</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/redis-geohash-lbs/">
+            <span class="next-text nav-default">LBS使用redis的解决方案--GEOHASH</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

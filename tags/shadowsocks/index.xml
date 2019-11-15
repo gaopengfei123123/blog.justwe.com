@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shadowsocks on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/shadowsocks/</link>
+    <description>Recent content in shadowsocks on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 20 Sep 2017 14:16:47 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/shadowsocks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用vultr来搭建梯子</title>
+      <link>http://localhost:1313/post/vultr-shadowsocks/</link>
+      <pubDate>Wed, 20 Sep 2017 14:16:47 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vultr-shadowsocks/</guid>
+      <description>因为坑爹的GFW某些问题,导致一些浏览器的默认搜索长期404,为了解决这个问题之前试过lantern 也试过一些 vpn,但是都不好用啊,vpn</description>
+    </item>
+    
+  </channel>
+</rss>

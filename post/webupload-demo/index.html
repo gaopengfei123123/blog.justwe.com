@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>webuploader插件 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/webupload-demo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="webuploader插件" />
+<meta property="og:description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/webupload-demo/" />
+<meta property="article:published_time" content="2016-10-12T15:24:00+00:00" />
+<meta property="article:modified_time" content="2016-10-12T15:24:00+00:00" />
+<meta itemprop="name" content="webuploader插件">
+<meta itemprop="description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把">
+
+
+<meta itemprop="datePublished" content="2016-10-12T15:24:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-10-12T15:24:00&#43;00:00" />
+<meta itemprop="wordCount" content="3055">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="webuploader插件"/>
+<meta name="twitter:description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">webuploader插件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-10-12 </span>
+        <div class="post-category">
+            <a href="/categories/front-end/"> front-end </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#html代码">html代码</a></li>
+<li><a href="#js部分">js部分</a></li>
+<li><a href="#后端php部分">后端php部分</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#最后">最后</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>通过这个插件让我感觉到大百度还仍然是技术公司
+ <!-- more -->
+说了句废话,开始正题.
+这里用的是插件提供的源码 <a href="http://fex.baidu.com/webuploader/">插件官网传送门</a></p>
+
+<p>demo就是拿的源码的 image-upload 示例,就是把代码中我们需要了解的给摘了出来</p>
+
+<h4 id="html代码">html代码</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html;charset=UTF-8&#34;&gt;
+    &lt;title&gt;WebUploader演示&lt;/title&gt;
+    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;{{ asset(&#39;webuploaderDemo/css/webuploader.css&#39;) }}&#34; /&gt;
+    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/style.css&#39;) }}&#34; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&#34;wrapper&#34;&gt;
+    &lt;h1 id=&#34;stopBtn&#34;&gt;暂停&lt;/h1&gt;
+    &lt;h1 id=&#34;continueBtn&#34;&gt;继续&lt;/h1&gt;
+    &lt;h1 id=&#34;cancleBtn&#34; attr=&#34;&#34;&gt;取消&lt;/h1&gt;
+    &lt;div id=&#34;container&#34;&gt;
+        &lt;!--头部，相册选择和格式选择--&gt;
+
+        &lt;div id=&#34;uploader&#34;&gt;
+            &lt;div class=&#34;queueList&#34;&gt;
+                &lt;div id=&#34;dndArea&#34; class=&#34;placeholder&#34;&gt;
+                    &lt;div id=&#34;filePicker&#34;&gt;&lt;/div&gt;
+                    &lt;p&gt;或将文件拖动到这里,支持格式:mp4,rmvb,上限3个&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;statusBar&#34; style=&#34;display:none;&#34;&gt;
+                &lt;div class=&#34;progress&#34;&gt;
+                    &lt;span class=&#34;text&#34;&gt;0%&lt;/span&gt;
+                    &lt;span class=&#34;percentage&#34;&gt;&lt;/span&gt;
+                &lt;/div&gt;&lt;div class=&#34;info&#34;&gt;&lt;/div&gt;
+                &lt;div class=&#34;btns&#34;&gt;
+                    &lt;div id=&#34;filePicker2&#34;&gt;&lt;/div&gt;&lt;div class=&#34;uploadBtn&#34;&gt;暂停&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/jquery.js&#39;) }}&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/dist/webuploader.js&#39;) }}&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/upload3.js&#39;) }}&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></td></tr></table>
+</div>
+</div>
+<h4 id="js部分">js部分</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">(function( $ ){
+    // 当domReady的时候开始初始化
+    $(function() {
+        var $wrap = $(&#39;#uploader&#39;),
+
+            // 图片容器
+            $queue = $( &#39;&lt;ul class=&#34;filelist&#34;&gt;&lt;/ul&gt;&#39; )
+                .appendTo( $wrap.find( &#39;.queueList&#39; ) ),
+
+            // 状态栏，包括进度和控制按钮
+            $statusBar = $wrap.find( &#39;.statusBar&#39; ),
+
+            // 文件总体选择信息。
+            $info = $statusBar.find( &#39;.info&#39; ),
+
+            // 上传按钮
+            $upload = $wrap.find( &#39;.uploadBtn&#39; ),
+
+            // 没选择文件之前的内容。
+            $placeHolder = $wrap.find( &#39;.placeholder&#39; ),
+
+            $progress = $statusBar.find( &#39;.progress&#39; ).hide(),
+
+            // 添加的文件数量
+            fileCount = 0,
+
+            // 添加的文件总大小
+            fileSize = 0,
+
+            // 优化retina, 在retina下这个值是2
+            ratio = window.devicePixelRatio || 1,
+
+            // 缩略图大小
+            thumbnailWidth = 110 * ratio,
+            thumbnailHeight = 110 * ratio,
+
+            // 可能有pedding, ready, uploading, confirm, done.
+            state = &#39;pedding&#39;,
+
+            // 所有文件的进度信息，key为file id
+            percentages = {},
+            // 判断浏览器是否支持图片的base64
+            isSupportBase64 = ( function() {
+                var data = new Image();
+                var support = true;
+                data.onload = data.onerror = function() {
+                    if( this.width != 1 || this.height != 1 ) {
+                        support = false;
+                    }
+                }
+                data.src = &#34;data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==&#34;;
+                return support;
+            } )(),
+
+            // 检测是否已经安装flash，检测flash的版本
+            flashVersion = ( function() {
+                var version;
+
+                try {
+                    version = navigator.plugins[ &#39;Shockwave Flash&#39; ];
+                    version = version.description;
+                } catch ( ex ) {
+                    try {
+                        version = new ActiveXObject(&#39;ShockwaveFlash.ShockwaveFlash&#39;)
+                                .GetVariable(&#39;$version&#39;);
+                    } catch ( ex2 ) {
+                        version = &#39;0.0&#39;;
+                    }
+                }
+                version = version.match( /\d+/g );
+                return parseFloat( version[ 0 ] + &#39;.&#39; + version[ 1 ], 10 );
+            } )(),
+
+            supportTransition = (function(){
+                var s = document.createElement(&#39;p&#39;).style,
+                    r = &#39;transition&#39; in s ||
+                            &#39;WebkitTransition&#39; in s ||
+                            &#39;MozTransition&#39; in s ||
+                            &#39;msTransition&#39; in s ||
+                            &#39;OTransition&#39; in s;
+                s = null;
+                return r;
+            })(),
+
+            // WebUploader实例
+            uploader;
+
+        if ( !WebUploader.Uploader.support(&#39;flash&#39;) &amp;&amp; WebUploader.browser.ie ) {
+
+            // flash 安装了但是版本过低。
+            if (flashVersion) {
+                (function(container) {
+                    window[&#39;expressinstallcallback&#39;] = function( state ) {
+                        switch(state) {
+                            case &#39;Download.Cancelled&#39;:
+                                alert(&#39;您取消了更新！&#39;)
+                                break;
+
+                            case &#39;Download.Failed&#39;:
+                                alert(&#39;安装失败&#39;)
+                                break;
+
+                            default:
+                                alert(&#39;安装已成功，请刷新！&#39;);
+                                break;
+                        }
+                        delete window[&#39;expressinstallcallback&#39;];
+                    };
+
+                    var swf = &#39;./expressInstall.swf&#39;;
+                    // insert flash object
+                    var html = &#39;&lt;object type=&#34;application/&#39; +
+                            &#39;x-shockwave-flash&#34; data=&#34;&#39; +  swf + &#39;&#34; &#39;;
+
+                    if (WebUploader.browser.ie) {
+                        html += &#39;classid=&#34;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&#34; &#39;;
+                    }
+
+                    html += &#39;width=&#34;100%&#34; height=&#34;100%&#34; style=&#34;outline:0&#34;&gt;&#39;  +
+                        &#39;&lt;param name=&#34;movie&#34; value=&#34;&#39; + swf + &#39;&#34; /&gt;&#39; +
+                        &#39;&lt;param name=&#34;wmode&#34; value=&#34;transparent&#34; /&gt;&#39; +
+                        &#39;&lt;param name=&#34;allowscriptaccess&#34; value=&#34;always&#34; /&gt;&#39; +
+                    &#39;&lt;/object&gt;&#39;;
+
+                    container.html(html);
+
+                })($wrap);
+
+            // 压根就没有安转。
+            } else {
+                $wrap.html(&#39;&lt;a href=&#34;http://www.adobe.com/go/getflashplayer&#34; target=&#34;_blank&#34; border=&#34;0&#34;&gt;&lt;img alt=&#34;get flash player&#34; src=&#34;http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg&#34; /&gt;&lt;/a&gt;&#39;);
+            }
+
+            return;
+        } else if (!WebUploader.Uploader.support()) {
+            alert( &#39;Web Uploader 不支持您的浏览器！&#39;);
+            return;
+        }
+
+        // 实例化
+        uploader = WebUploader.create({
+            auto: true,         //开启自动上传
+            pick: {             //点击选择文件按钮
+                id: &#39;#filePicker&#39;,
+                label: &#39;点击选择文件&#39;,
+                multiple : false //是否开起同时选择多个文件能力。
+            },
+            formData: {         //上传时的文本内容
+                uid: 5173180,
+                filename : &#39;filename_test&#39;
+            },
+            dnd: &#39;#dndArea&#39;,                    //文件可拖拽范围
+            paste: &#39;#uploader&#39;,                 //可通过粘贴添加到文件框内
+            swf: &#39;../../dist/Uploader.swf&#39;,     //flash文件
+            chunked: true,                      //开启分片上传
+            chunkSize: 512 * 1024,      //分片大小 512k
+            server : &#39;http://testlaravel/web/uploader&#39;, //后端处理函数
+            // runtimeOrder: &#39;flash&#39;,
+
+             accept: {      //限制文件类型
+                 title: &#39;Video&#39;,
+                 extensions: &#39;mp4,rmvb&#39;,
+                 mimeTypes: &#39;video/*&#39;
+             },
+
+            disableGlobalDnd: true,             // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
+            fileNumLimit: 1,                    //限制上传一个文件
+            fileSizeLimit: 1024 * 1024 * 1024,  // 1 G
+            fileSingleSizeLimit: 1024 * 1024 * 1024,    // 单个最大文件 1G
+            method : &#39;POST&#39;                     //指定上传方法
+        });
+
+
+        //// 拖拽时不接受 js, txt 文件。
+        uploader.on( &#39;dndAccept&#39;, function( items ) {
+            var denied = false,
+                len = items.length,
+                i = 0,
+                // 修改js类型
+                unAllowed = &#39;text/plain;application/javascript &#39;;
+
+            for ( ; i &lt; len; i++ ) {
+                // 如果在列表里面
+                if ( ~unAllowed.indexOf( items[ i ].type ) ) {
+                    denied = true;
+                    break;
+                }
+            }
+
+            return !denied;
+        });
+
+
+        var oldTime = new Date().getTime();
+
+        uploader.on( &#39;uploadProgress&#39;, function( file, percentage ) {
+            console.log(&#39;上传进度:&#39;+ percentage * 100 + &#39;%&#39;);
+
+            var currentTime = new Date().getTime();
+            var cha = currentTime - oldTime;
+
+            var chunkSize = 512;
+
+            //设置网速
+            var ws = (chunkSize/cha)*1000;
+
+
+            console.log(&#39;当前网速:&#39; + ws + &#39;kb/s&#39;);
+
+            oldTime = currentTime;
+
+        });
+
+        //接收服务器返回信息
+        //这里才是接收服务器信息的地方,如果有出错就 `return false` 来停止上传
+        uploader.on( &#39;uploadAccept&#39;, function( file, response ) {
+            var str = response._raw;
+            var info = eval(&#39;(&#39; + str + &#39;)&#39;);
+            console.log(info);
+            //if ( hasError ) {
+            //    // 通过return false来告诉组件，此文件上传有错。
+            //    return false;
+            //}
+        });
+
+        uploader.onFileQueued = function( file ) {
+            console.log(&#39;添加文件动作&#39;);
+            $(&#39;#cancleBtn&#39;).attr({&#39;attr&#39;: file.id});
+        };
+
+        uploader.onUploadFinished = function(){
+            console.log(&#39;完成上传&#39;);
+        }
+
+        $(&#39;#stopBtn&#39;).on( &#39;click&#39;, function() {
+            console.log(&#34;暂停上传...&#34;);
+            uploader.stop(true);
+        });
+
+        $(&#39;#continueBtn&#39;).on( &#39;click&#39;, function() {
+            console.log(&#34;继续&#34;);
+            uploader.upload();
+        });
+
+        $(&#39;#cancleBtn&#39;).on( &#39;click&#39;, function() {
+            console.log(&#34;取消上传&#34;);
+            var id = $(this).attr(&#39;attr&#39;);
+            //指定取消的文件id
+            uploader.cancelFile(id);
+        });
+
+
+    });
+})( jQuery );</pre></td></tr></table>
+</div>
+</div>
+<h4 id="后端php部分">后端php部分</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">public function testSaveWebUploader(Request $request){
+        //强制浏览器不缓存
+        header(&#34;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#34;);
+        header(&#34;Last-Modified: &#34; . gmdate(&#34;D, d M Y H:i:s&#34;) . &#34; GMT&#34;);
+        header(&#34;Cache-Control: no-store, no-cache, must-revalidate&#34;);
+        header(&#34;Cache-Control: post-check=0, pre-check=0&#34;, false);
+        header(&#34;Pragma: no-cache&#34;);
+
+
+        //指定提交方式
+        if ($_SERVER[&#39;REQUEST_METHOD&#39;] == &#39;OPTIONS&#39;) {
+            exit; // finish preflight CORS requests here
+        }
+
+        //当出现debug判断服务器报错
+        if ( !empty($_REQUEST[ &#39;debug&#39; ]) ) {
+            $random = rand(0, intval($_REQUEST[ &#39;debug&#39; ]) );
+            if ( $random === 0 ) {
+                header(&#34;HTTP/1.0 500 Internal Server Error&#34;);
+                exit;
+            }
+        }
+
+
+        @set_time_limit(5 * 60);
+
+
+        //临时文件夹和存放文件的文件夹
+        $targetDir = &#39;upload_tmp&#39;;
+        $uploadDir = &#39;upload&#39;;
+
+        $cleanupTargetDir = true; // Remove old files
+        $maxFileAge = 5 * 3600; // Temp file age in seconds
+
+
+
+        // 检测文件夹是否存在
+        if (!file_exists($targetDir)) {
+            @mkdir($targetDir);
+        }
+
+        if (!file_exists($uploadDir)) {
+            @mkdir($uploadDir);
+        }
+
+
+        // 重新设置文件名
+        $fileName = $this-&gt;renameFile();
+
+        $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
+        $uploadPath = $uploadDir . DIRECTORY_SEPARATOR . $fileName;
+
+        // 是否分片
+        $chunk = isset($_REQUEST[&#34;chunk&#34;]) ? intval($_REQUEST[&#34;chunk&#34;]) : 0;
+        $chunks = isset($_REQUEST[&#34;chunks&#34;]) ? intval($_REQUEST[&#34;chunks&#34;]) : 1;
+
+
+        // 删除过期文件
+        if ($cleanupTargetDir) {
+            if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
+                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 100, &#34;message&#34;: &#34;Failed to open temp directory.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+            }
+
+            while (($file = readdir($dir)) !== false) {
+                $tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
+
+                // 忽略当前临时文件
+                if ($tmpfilePath == &#34;{$filePath}_{$chunk}.part&#34; || $tmpfilePath == &#34;{$filePath}_{$chunk}.parttmp&#34;) {
+                    continue;
+                }
+
+                // 过期文件删除
+                if (preg_match(&#39;/\.(part|parttmp)$/&#39;, $file) &amp;&amp; (@filemtime($tmpfilePath) &lt; time() - $maxFileAge)) {
+                    @unlink($tmpfilePath);
+                }
+            }
+            closedir($dir);
+        }
+
+
+        // 打开缓存文件
+        if (!$out = @fopen(&#34;{$filePath}_{$chunk}.parttmp&#34;, &#34;wb&#34;)) {
+            die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 102, &#34;message&#34;: &#34;Failed to open output stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+        }
+
+        if (!empty($_FILES)) {
+            if ($_FILES[&#34;file&#34;][&#34;error&#34;] || !is_uploaded_file($_FILES[&#34;file&#34;][&#34;tmp_name&#34;])) {
+                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 103, &#34;message&#34;: &#34;Failed to move uploaded file.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+            }
+
+            // Read binary input stream and append it to temp file
+            if (!$in = @fopen($_FILES[&#34;file&#34;][&#34;tmp_name&#34;], &#34;rb&#34;)) {
+                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 101, &#34;message&#34;: &#34;Failed to open input stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+            }
+        } else {
+            if (!$in = @fopen(&#34;php://input&#34;, &#34;rb&#34;)) {
+                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 101, &#34;message&#34;: &#34;Failed to open input stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+            }
+        }
+
+        while ($buff = fread($in, 4096)) {
+            fwrite($out, $buff);
+        }
+
+        @fclose($out);
+        @fclose($in);
+
+        //重命名文件名
+        rename(&#34;{$filePath}_{$chunk}.parttmp&#34;, &#34;{$filePath}_{$chunk}.part&#34;);
+
+        $index = 0;
+        $done = true;
+        for( $index = 0; $index &lt; $chunks; $index++ ) {
+            if ( !file_exists(&#34;{$filePath}_{$index}.part&#34;) ) {
+                $done = false;
+                break;
+            }
+        }
+        if ( $done ) {
+            if (!$out = @fopen($uploadPath, &#34;wb&#34;)) {
+                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 102, &#34;message&#34;: &#34;Failed to open output stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+            }
+
+            if ( flock($out, LOCK_EX) ) {
+                for( $index = 0; $index &lt; $chunks; $index++ ) {
+                    if (!$in = @fopen(&#34;{$filePath}_{$index}.part&#34;, &#34;rb&#34;)) {
+                        break;
+                    }
+
+                    while ($buff = fread($in, 4096)) {
+                        fwrite($out, $buff);
+                    }
+
+                    @fclose($in);
+                    @unlink(&#34;{$filePath}_{$index}.part&#34;);
+                }
+
+                flock($out, LOCK_UN);
+            }
+            @fclose($out);
+            die(&#34;{&#39;jsonrpc&#39; : &#39;2.0&#39;, &#39;result&#39; : &#39;done&#39;, &#39;chunk&#39; : &#39;{$chunk}&#39;, &#39;chunks&#39;: &#39;{$chunks}&#39;}&#34;);
+        }
+
+        // Return Success JSON-RPC response
+        die(&#34;{&#39;jsonrpc&#39; : &#39;2.0&#39;, &#39;result&#39; : &#39;success&#39;, &#39;chunk&#39; : &#39;{$chunk}&#39;, &#39;chunks&#39;: &#39;{$chunks}&#39;}&#34;);
+
+    }
+
+    protected function renameFile(){
+        //获取后缀
+        $ext = pathinfo($_FILES[&#34;file&#34;][&#34;name&#34;], PATHINFO_EXTENSION);
+        //文件名
+        if (isset($_REQUEST[&#34;name&#34;])) {
+            $fileName = isset($_REQUEST[&#34;filename&#34;]) ? $_REQUEST[&#34;filename&#34;] : $_REQUEST[&#34;name&#34;];
+        } elseif (!empty($_FILES)) {
+            $fileName = $_FILES[&#34;file&#34;][&#34;name&#34;];
+        } else {
+            $fileName = uniqid(&#34;file_&#34;);
+        }
+
+        $key = isset($_REQUEST[&#39;uid&#39;]) ? $_REQUEST[&#39;uid&#39;] : &#39;hotcast&#39;;
+
+        $fileName = md5($fileName.$key);
+
+        return $fileName.&#39;.&#39;.$ext;
+    }</pre></td></tr></table>
+</div>
+</div>
+<h2 id="最后">最后</h2>
+
+<p>相关的代码已经贴出来了,事件调用在js部分找,后端处理的大体思路就是保存分片上传过来的文件,当文件上传完毕后就通过fwrite或者file_put_content这类的函数给按顺序怼到一个文件当中
+//如果真的懒需要源码的话 <a href="http://git.oschina.net/gaofeifps/testLaravel/blob/master/laravel51/resources/views/uploader/index.blade.php?dir=0&amp;filepath=laravel51%2Fresources%2Fviews%2Fuploader%2Findex.blade.php&amp;oid=54ea7f6ae5ae71551d693d8dbedb6f8b59b14798&amp;sha=a507ac55dc985fb4a08663623688d4f909436857">我这有</a> , 写在了laravel框架里面了,但是代码可以单独拿出来,依赖性并不高</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-10-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/laravel-orm/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">larvel ORM模型中的一些方法和变量的作用</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/js-href/">
+            <span class="next-text nav-default">js获取地址信息</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

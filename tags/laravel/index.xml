@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>laravel on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/laravel/</link>
+    <description>Recent content in laravel on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Jun 2017 16:50:15 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>__callstatic</title>
+      <link>http://localhost:1313/post/php-callstatic/</link>
+      <pubDate>Fri, 23 Jun 2017 16:50:15 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-callstatic/</guid>
+      <description>现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分</description>
+    </item>
+    
+    <item>
+      <title>laravel54初始化迁移失败</title>
+      <link>http://localhost:1313/post/laravel54-migrate-error/</link>
+      <pubDate>Wed, 24 May 2017 11:55:45 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/laravel54-migrate-error/</guid>
+      <description>在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: 1. laravel 版本 5.4.23 2. 配置好数</description>
+    </item>
+    
+    <item>
+      <title>larvel ORM模型中的一些方法和变量的作用</title>
+      <link>http://localhost:1313/post/laravel-orm/</link>
+      <pubDate>Fri, 21 Oct 2016 12:02:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/laravel-orm/</guid>
+      <description>用代码说话 相关命令： 创建迁移文件 php artisan make:migration Pate_table 进行迁移 php artisan migrate 创建模型文件 php artisan make:model Page 把如下文件内容复制到对应的文件下，就可以按照注释进行测试了。控制器</description>
+    </item>
+    
+  </channel>
+</rss>

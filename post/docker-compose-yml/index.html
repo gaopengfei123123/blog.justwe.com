@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>docker-compose.yml 常用命令 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/docker-compose-yml/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="docker-compose.yml 常用命令" />
+<meta property="og:description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/docker-compose-yml/" />
+<meta property="article:published_time" content="2018-02-12T10:36:50+00:00" />
+<meta property="article:modified_time" content="2018-02-12T10:36:50+00:00" />
+<meta itemprop="name" content="docker-compose.yml 常用命令">
+<meta itemprop="description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up">
+
+
+<meta itemprop="datePublished" content="2018-02-12T10:36:50&#43;00:00" />
+<meta itemprop="dateModified" content="2018-02-12T10:36:50&#43;00:00" />
+<meta itemprop="wordCount" content="1142">
+
+
+
+<meta itemprop="keywords" content="docker-composer,docker," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker-compose.yml 常用命令"/>
+<meta name="twitter:description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">docker-compose.yml 常用命令</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-02-12 </span>
+        <div class="post-category">
+            <a href="/categories/docker/"> docker </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#build-构建-重构-服务容器">build 构建(重构)服务容器</a></li>
+<li><a href="#up-这个才是最常用的">up (这个才是最常用的)</a></li>
+<li><a href="#config-检测配置文件格式">config 检测配置文件格式</a></li>
+<li><a href="#down-停止-up-启动的游戏">down 停止<code>up</code>启动的游戏</a></li>
+<li><a href="#exec-进入指定的容器">exec 进入指定的容器</a></li>
+<li><a href="#images-列出-compose-中包含的镜像">images 列出 compose 中包含的镜像</a></li>
+<li><a href="#kill-发送信号停止容器">kill 发送信号停止容器</a></li>
+<li><a href="#logs-日志">logs 日志</a></li>
+<li><a href="#pause-暂停一个服务">pause 暂停一个服务</a></li>
+<li><a href="#pull-拉取所需的镜像">pull 拉取所需的镜像</a></li>
+<li><a href="#version-输出-compose-的版本">version 输出 compose 的版本</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>常用命令备注
+<!-- more --></p>
+
+<h3 id="build-构建-重构-服务容器">build 构建(重构)服务容器</h3>
+
+<p>格式为: <code>docker-compose build [options] [service...]</code>
+- <code>--force-rm</code> 删除构建时的临时容器
+- <code>--no-cache</code> 构建不使用 cache
+- <code>--pull</code>     始终尝试 pull 最新的镜像</p>
+
+<h3 id="up-这个才是最常用的">up (这个才是最常用的)</h3>
+
+<p><code>docker-compose up [options] [service...]</code></p>
+
+<p>直接输出<code>docker-compose up</code>就是将执行目录下的<code>docker-compose.yml</code>里的服务都自动构建,重新创建,并启动起来,同时将不同的容器关联起来,默认保持前台运行,同时也会输出各容器的输出日志</p>
+
+<p><code>docker-compose up -d</code> 将后台执行,在生产环境中使用</p>
+
+<ul>
+<li><code>-d</code> 保持后台运行</li>
+<li><code>--no-color</code> 不以颜色区分日志输出</li>
+<li><code>--no-deps</code> 不启动服务关联的容器</li>
+<li><code>--force-recreate</code> 强制重新创建容器</li>
+<li><code>--no-recreate</code> 若容器已经存在,则不再构建, 与上者不同时使用</li>
+<li><code>--no-build</code> 不自动构建缺失的镜像</li>
+<li><code>-t , --timeout  TIMEOUT</code> 停止容器时候的超时,默认10s</li>
+</ul>
+
+<h3 id="config-检测配置文件格式">config 检测配置文件格式</h3>
+
+<p>如果正确则显示配置文件内容,如果错误则显示错误原因</p>
+
+<h3 id="down-停止-up-启动的游戏">down 停止<code>up</code>启动的游戏</h3>
+
+<h3 id="exec-进入指定的容器">exec 进入指定的容器</h3>
+
+<h3 id="images-列出-compose-中包含的镜像">images 列出 compose 中包含的镜像</h3>
+
+<h3 id="kill-发送信号停止容器">kill 发送信号停止容器</h3>
+
+<p><code>docker-compose kill [options] [service...]</code>
+比如 <code>docker kill -s web</code></p>
+
+<h3 id="logs-日志">logs 日志</h3>
+
+<p><code>docker-compose logs [options] [service...]</code>
+不同容器输出的日志颜色不同,不想有颜色就添加参数<code>--no-color</code></p>
+
+<h3 id="pause-暂停一个服务">pause 暂停一个服务</h3>
+
+<h3 id="pull-拉取所需的镜像">pull 拉取所需的镜像</h3>
+
+<p><code>docker-compose pull [options] [service...]</code></p>
+
+<h3 id="version-输出-compose-的版本">version 输出 compose 的版本</h3>
+
+<p>一个简单的示例,具体代码参考 <a href="https://github.com/gaopengfei123123/docker_study/tree/master/docker_compose_demo">这里</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>services<span class="p">:</span><span class="w">
+</span><span class="w">  </span>web<span class="p">:</span><span class="w">                          </span><span class="c"># 一个 service 的名字</span><span class="w">
+</span><span class="w">    </span>build<span class="p">:</span><span class="w"> </span>.<span class="w">                    </span><span class="c"># 指出 Dockerfile 所在文件夹的路径, 而且每个 service 中必须有 build 或者 image</span><span class="w">
+</span><span class="w">    </span>ports<span class="p">:</span><span class="w">                      </span><span class="c"># 将容器内的接口绑定到宿主机上</span><span class="w">
+</span><span class="w">      </span>-<span class="w"> </span><span class="s2">&#34;5000:5000&#34;</span><span class="w">
+</span><span class="w">  </span>redis<span class="p">:</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span><span class="s2">&#34;redis:alpine&#34;</span><span class="w">       </span><span class="c"># 这就是使用的远程镜像</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>下面列出来几个常用的参数命令:
+- <code>build</code> 通过 <code>Dockerfile</code> 来构建镜像,可以指定<code>Dockerfile</code>路径以及<code>context</code>的路径, 可以用<code>arg</code>指定构建时的参数 比如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">web<span class="p">:</span><span class="w">
+</span><span class="w">    </span>build<span class="p">:</span><span class="w">
+</span><span class="w">        </span>context<span class="p">:</span><span class="w"> </span>./dir<span class="w">
+</span><span class="w">        </span>dockerfile<span class="p">:</span><span class="w"> </span>./other-dir<span class="w">
+</span><span class="w">        </span>arg<span class="p">:</span><span class="w">
+</span><span class="w">            </span>buildno<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><p><code>image</code> 根据提供的镜像名拉取镜像</p></li>
+
+<li><p><code>command</code> 覆盖容器启动后的默认命令比如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">command<span class="p">:</span><span class="w"> </span>echo<span class="w"> </span><span class="s2">&#34;hello world&#34;</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>container_name</code> 指定 <code>service</code> 容器的名字,如果没设置的话就是 容器_序号 这样, 比如 <code>web_1</code>,<code>db_1</code> 这样的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">container_name<span class="p">:</span><span class="w"> </span>web-container</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>devices</code> 指定设备映射关系</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">devices<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;/dev/ttyUSB1:/dev/ttyUSB0&#34;</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>depends_on</code> 指定容器依赖关系,会优先构建依赖的容器,比如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span>services<span class="p">:</span><span class="w">
+</span><span class="w"></span>web<span class="p">:</span><span class="w">
+</span><span class="w">    </span>build<span class="p">:</span><span class="w"> </span>.<span class="w">
+</span><span class="w">    </span>depends_on<span class="p">:</span><span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>db<span class="w">
+</span><span class="w">        </span>-<span class="w"> </span>redis<span class="w">
+</span><span class="w"></span>redis<span class="p">:</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>redis<span class="w">
+</span><span class="w"></span>db<span class="p">:</span><span class="w"> 
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>mysql</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>会先构建 <code>db</code>,<code>redis</code>再构建<code>web</code></p>
+
+<ul>
+<li><p><code>dns</code> 自定义 dns 服务列表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">dns<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="m">8.8.8.8</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="m">114.114.114.114</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>env_file</code> 从文件中提取环境变量,同变量名的会被最后的变量覆盖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">env_file<span class="p">:</span><span class="w"> </span>.env<span class="w">
+</span><span class="w">
+</span><span class="w"></span>env_file<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>.env1<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>.env2</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<p>格式必须是可以被 <code>#</code>注释的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">PRO_ENV</span><span class="o">=</span><span class="s">product</span>
+<span class="na">APP_NAME</span><span class="o">=</span><span class="s">hahaha</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><p><code>environment</code> 设置环境变量,可以是<code>KEY=VALUE</code> 也可以只给出变量名,这将调取 <code>docker</code> 宿主机的环境变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">environment<span class="p">:</span><span class="w">
+</span><span class="w"></span>ROCK_ENV<span class="p">:</span><span class="w"> </span><span class="s1">&#39;development&#39;</span><span class="w">
+</span><span class="w"></span>SESSION_SECRET<span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>environment<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>ROCK_ENV=development<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>SESSION_SECRET</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>port</code> 将端口暴露到宿主机上
+对于表示布尔值的变量建议添加引号,防止 yaml 解析的时候产生歧义,比如:<code>y|yes|TRYE|true|ON|on</code> 这一类的</p></li>
+
+<li><p><code>volumes</code> 将宿主机的目录路径和容器中的路径挂载,可以设置访问模式,比如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">volumes<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>/var/lib/mysql<span class="w">                </span><span class="c"># 同路径挂载</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>cache/<span class="p">:</span>/tmp/cache<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>~/configs<span class="p">:</span>/etc/configs<span class="p">:</span>/ro<span class="w">    </span><span class="c"># 支持相对路径, 支持访问模式</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>读取变量: compose会读取宿主机的环境变量和当前目录下的<code>.env</code>文件中的变量 比如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">version<span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w"></span>services<span class="p">:</span><span class="w">
+</span><span class="w"></span>db<span class="p">:</span><span class="w">
+</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>&#34;mongodb<span class="p">:</span>($MONGO_VERSION)</code></pre></td></tr></table>
+</div>
+</div>
+<p>这在启动的时候就会根据环境变量来调整要拉取的镜像</p></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-02-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker-composer/">docker-composer</a>
+          <a href="/tags/docker/">docker</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/docker-volume/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">docker-volume</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/go-jwt/">
+            <span class="next-text nav-default">使用 go 进行 jwt 验证</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

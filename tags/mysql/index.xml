@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/mysql/</link>
+    <description>Recent content in mysql on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 17 Dec 2018 14:48:26 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>go mysql数据库连接池的使用</title>
+      <link>http://localhost:1313/post/go-mysql-pool/</link>
+      <pubDate>Mon, 17 Dec 2018 14:48:26 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go-mysql-pool/</guid>
+      <description>建立一个mysql连接池将极大的缩短应用的响应时间, 减少频繁的io开销以及gc, 这在golang里面也是很容易就实现的 示例代码: 1 2 3 4 5 6</description>
+    </item>
+    
+    <item>
+      <title>转 my.cnf 文件注释信息</title>
+      <link>http://localhost:1313/post/mysql-config/</link>
+      <pubDate>Thu, 29 Jun 2017 15:17:52 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mysql-config/</guid>
+      <description>MySQL配置文件my.cnf 例子最详细翻译,可以保存做笔记用。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38</description>
+    </item>
+    
+    <item>
+      <title>go-mysql</title>
+      <link>http://localhost:1313/post/go-mysql/</link>
+      <pubDate>Wed, 17 May 2017 23:32:12 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go-mysql/</guid>
+      <description>这里写一个go 操作 mysql 的 curd 的 demo 表结构是这样的 1 2 3 4 5 6 create table test( id int primary key auto_increment, name varchar(20) default &amp;#39;&amp;#39;, age int default 0, created_at int default 0 ) go 的文件是: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+    </item>
+    
+    <item>
+      <title>mysql5.7版本初始化设置</title>
+      <link>http://localhost:1313/post/mysql57-config/</link>
+      <pubDate>Tue, 15 Nov 2016 09:45:06 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mysql57-config/</guid>
+      <description>5.7版本有了一些新的变动，首先就是密码部分和之前有了较大的区别。它对数据的安全性方面做了较大的提升。其次的是数据对json的支持，数据库添</description>
+    </item>
+    
+  </channel>
+</rss>

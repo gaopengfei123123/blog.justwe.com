@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>callback on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/callback/</link>
+    <description>Recent content in callback on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 May 2017 18:31:59 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/callback/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>php-callback-func</title>
+      <link>http://localhost:1313/post/php-callback-func/</link>
+      <pubDate>Thu, 11 May 2017 18:31:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/php-callback-func/</guid>
+      <description>你知道茴香的茴有四种写法,那你知道 php 的回调也有四种写法吗? 匿名函数 1 2 3 4 var $array = [1,2,3]; array_map(function($item){ return $item; },$array); 类静态调用 1 2 3 4 5 6 7 8 9 10 class A { static function test($req) { echo &amp;#34;hello world&amp;#34;;</description>
+    </item>
+    
+  </channel>
+</rss>

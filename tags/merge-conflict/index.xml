@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>merge-conflict on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/merge-conflict/</link>
+    <description>Recent content in merge-conflict on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Aug 2018 18:40:25 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/merge-conflict/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搞定 git 合并冲突</title>
+      <link>http://localhost:1313/post/git-merge-conflict/</link>
+      <pubDate>Fri, 03 Aug 2018 18:40:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/git-merge-conflict/</guid>
+      <description>这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点 关键命令 checkout 是个好</description>
+    </item>
+    
+  </channel>
+</rss>

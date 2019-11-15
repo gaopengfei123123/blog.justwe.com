@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="代码改变生活" /><meta name="keywords" content="golang, blog, php" />
+
+
+
+<meta name="google-site-verification" content="VvMRi2mvr2-coUGzBvV70mi473YMTjSnsTdBaMjUnCA" />
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/" />
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="Even - A super concise theme for Hugo" />
+  <link href="http://localhost:1313/index.xml" rel="feed" type="application/rss+xml" title="Even - A super concise theme for Hugo" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Even - A super concise theme for Hugo" />
+<meta property="og:description" content="代码改变生活" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/" />
+
+<meta property="og:updated_time" content="2019-11-15T10:46:41+08:00" />
+<meta itemprop="name" content="Even - A super concise theme for Hugo">
+<meta itemprop="description" content="代码改变生活">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Even - A super concise theme for Hugo"/>
+<meta name="twitter:description" content="代码改变生活"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git-rm-cache/">git删除已提交入库的文件</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-29 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      将git已经提交的文件移除出库（针对的就是 .idea 和 .DS_Store） 1 2 3 4 5 6 7 8 git rm -r --cache .idea/ git rm --cache .DS_Store 在 .gitignore 文件中添加相应禁止的东西 git commit -m &#39;we didnt want
+    </div>
+    <div class="read-more">
+      <a href="/post/git-rm-cache/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git-remote/">git更换远程地址</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-29 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      关键就是移除本地的远程连接路径，替换成我们需要传到的路径 将本地库的远程地址更改 1 git remote set-url origin nideyuanchengdizhi 接下来正常推送就好
+    </div>
+    <div class="read-more">
+      <a href="/post/git-remote/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git-push/">git本地建库推送远程</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-29 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      本地新建库和多远程库的操作 新建本地库 1 2 3 4 5 6 7 8 9 10 11 12 13 #初始化 git init git add -A git commit -m &#39;init it&#39; #删除本地远程连接 git remote rm origin git remote add origin https://git.oschina.net/gaofeifps/laravel53.git #自动合并远程
+    </div>
+    <div class="read-more">
+      <a href="/post/git-push/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mysql57-config/">mysql5.7版本初始化设置</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-15 </span>
+      <div class="post-category">
+          <a href="/categories/default/"> default </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      5.7版本有了一些新的变动，首先就是密码部分和之前有了较大的区别。它对数据的安全性方面做了较大的提升。其次的是数据对json的支持，数据库添
+    </div>
+    <div class="read-more">
+      <a href="/post/mysql57-config/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/lumen-dd/">lumen5.3正常使用dd()函数</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-15 </span>
+      <div class="post-category">
+          <a href="/categories/laravel/"> laravel </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      主用laravel的已经习惯了dd函数的方便， 但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码 1 2 3 4 5 6 7 8 9 10
+    </div>
+    <div class="read-more">
+      <a href="/post/lumen-dd/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/qiniujs-demo/">七牛云javascriptSDK的demo</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-12 </span>
+      <div class="post-category">
+          <a href="/categories/laravel/"> laravel </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      使用oss的话碰到用户上传的场景建议优先使用的js上传到oss，不需要经过服务端，也算减轻了服务器的压力，缺点就是有的sdk不支持文件类型的
+    </div>
+    <div class="read-more">
+      <a href="/post/qiniujs-demo/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/wxcx-2/">小程序(2)</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-07 </span>
+      <div class="post-category">
+          <a href="/categories/wx/"> wx </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      由上篇博客可以了解小程序运行的一个大体过程,首先app.json进行配置路由和基本的样式调整,其次可以在对应的路由指向的目录下添加 .wxml .wxss .js 这三
+    </div>
+    <div class="read-more">
+      <a href="/post/wxcx-2/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/php-array-1/">多维数组排序</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-03 </span>
+      <div class="post-category">
+          <a href="/categories/default/"> default </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $testArr = [ [&#39;id&#39;=&gt;1,&#39;msg&#39;=&gt;&#39;aaa&#39;], [&#39;id&#39;=&gt;2,&#39;msg&#39;=&gt;&#39;bbb&#39;], [&#39;id&#39;=&gt;3,&#39;msg&#39;=&gt;&#39;ccc&#39;], [&#39;id&#39;=&gt;4,&#39;msg&#39;=&gt;&#39;ddd&#39;], ]; $roler = [2,1,3,4]; usort($testArr,function($a,$b) use($roler){ return (array_search($a[&#39;id&#39;], $roler) &lt; array_search($b[&#39;id&#39;], $roler)) ? -1 : 1; }); var_dump($testArr); die(); 输出结果：反正成功了 还有就是 第一层要是索引数组
+    </div>
+    <div class="read-more">
+      <a href="/post/php-array-1/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git-pull/">git本地拉取远程分支</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-10-28 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      首先git clone一个git库， 其次在本地新建一个分支 1 git checkout -b devlocal 然后设置本地git文件，将本地分支和远程分支关联起来 （我有个远程分支叫做d
+    </div>
+    <div class="read-more">
+      <a href="/post/git-pull/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/yii-rewrite/">yii2路由重写方案</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-10-27 </span>
+      <div class="post-category">
+          <a href="/categories/yii2/"> yii2 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      yii2 关于 apache 和 nginx 的路由重写配置 apache路由重写 1 2 3 4 5 6 7 8 9 10 Options +FollowSymLinks IndexIgnore */* RewriteEngine on # if a directory or a file exists, use it directly RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d # otherwise forward it to index.php RewriteRule . index.php 从yiic
+    </div>
+    <div class="read-more">
+      <a href="/post/yii-rewrite/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    </section>
+  
+  <nav class="pagination">
+    <a class="prev" href="/page/13/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    <a class="next" href="/page/15/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">GPF</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?7c9c1ba6f08944ab44a0d401f1721fe";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+
+</body>
+</html>

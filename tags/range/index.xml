@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>range on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/range/</link>
+    <description>Recent content in range on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Jan 2019 16:22:57 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/range/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于 go 的 for range 上的一个坑</title>
+      <link>http://localhost:1313/post/go-for-range-error/</link>
+      <pubDate>Wed, 30 Jan 2019 16:22:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/go-for-range-error/</guid>
+      <description>range作为go的一个语法糖在进行迭代的时候是很方便的, 但6是传址赋值的时候需要小心一点 出现问题 直接上代码: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</description>
+    </item>
+    
+  </channel>
+</rss>

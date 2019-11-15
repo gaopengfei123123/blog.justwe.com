@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>axios on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/axios/</link>
+    <description>Recent content in axios on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Jun 2017 16:42:38 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/axios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>转 跨域请求时两次发送请求的问题</title>
+      <link>http://localhost:1313/post/axios-cors/</link>
+      <pubDate>Fri, 23 Jun 2017 16:42:38 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/axios-cors/</guid>
+      <description>跨域的时候总会碰上各种各样的问题,这就是其中一种情况 检查一下，两次请求分别的 Request Method: 因为是跨域请求，客户端发先发送一个OPTIONS 请求 Preflighted Req</description>
+    </item>
+    
+    <item>
+      <title>使用 axios-post 提交数据</title>
+      <link>http://localhost:1313/post/vue-axios-post/</link>
+      <pubDate>Tue, 02 May 2017 16:45:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vue-axios-post/</guid>
+      <description>继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &amp;gt; 最近团队讨论了一下，</description>
+    </item>
+    
+  </channel>
+</rss>
