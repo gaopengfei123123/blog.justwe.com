@@ -401,14 +401,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/git/</loc>
+    <loc>http://blog.justwe.site/tags/git/</loc>
     <lastmod>2018-10-26T15:01:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/git/</loc>
+    <loc>http://blog.justwe.site/categories/git/</loc>
     <lastmod>2018-10-26T15:01:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1129,14 +1129,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/jquery/</loc>
+    <loc>http://blog.justwe.site/tags/jquery/</loc>
     <lastmod>2017-05-02T11:39:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/jquery/</loc>
+    <loc>http://blog.justwe.site/categories/jquery/</loc>
     <lastmod>2017-05-02T11:39:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
