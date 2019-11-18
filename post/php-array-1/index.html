@@ -43,13 +43,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.justwe.site/post/php-array-1/" />
 <meta property="article:published_time" content="2016-11-03T09:32:00+00:00" />
-<meta property="article:modified_time" content="2016-11-03T09:32:00+00:00" />
+<meta property="article:modified_time" content="2019-11-18T11:12:17+08:00" />
 <meta itemprop="name" content="多维数组排序">
 <meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $testArr = [ [&#39;id&#39;=&gt;1,&#39;msg&#39;=&gt;&#39;aaa&#39;], [&#39;id&#39;=&gt;2,&#39;msg&#39;=&gt;&#39;bbb&#39;], [&#39;id&#39;=&gt;3,&#39;msg&#39;=&gt;&#39;ccc&#39;], [&#39;id&#39;=&gt;4,&#39;msg&#39;=&gt;&#39;ddd&#39;], ]; $roler = [2,1,3,4]; usort($testArr,function($a,$b) use($roler){ return (array_search($a[&#39;id&#39;], $roler) &lt; array_search($b[&#39;id&#39;], $roler)) ? -1 : 1; }); var_dump($testArr); die(); 输出结果：反正成功了 还有就是 第一层要是索引数组">
 
 
 <meta itemprop="datePublished" content="2016-11-03T09:32:00&#43;00:00" />
-<meta itemprop="dateModified" content="2016-11-03T09:32:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-18T11:12:17&#43;08:00" />
 <meta itemprop="wordCount" content="64">
 
 
@@ -185,8 +185,8 @@ usort($testArr,function($a,$b) use($roler){
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2016-11-03
-        
+        2019-11-18
+        <a href="#ZgotmplZ/commit/e1bcac9c1841f0ec3bf6619157808dd432fb904d" title="加一堆文章">(e1bcac9)</a>
     </span>
   </p>
   
@@ -287,7 +287,21 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
 
 
 

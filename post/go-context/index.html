@@ -43,13 +43,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.justwe.site/post/go-context/" />
 <meta property="article:published_time" content="2019-10-25T14:13:43+00:00" />
-<meta property="article:modified_time" content="2019-10-25T14:13:43+00:00" />
+<meta property="article:modified_time" content="2019-11-18T11:12:17+08:00" />
 <meta itemprop="name" content="golang 通过 context 控制并发的应用场景">
 <meta itemprop="description" content="golang 里出现多 goroutine 的场景很常见, 最常用的两种方式就是 WaitGroup 和 Context, 今天我们了解一下 Context 的应用场景 使用场景 场景一: 多goroutine执行超时通知 并发执行的业">
 
 
 <meta itemprop="datePublished" content="2019-10-25T14:13:43&#43;00:00" />
-<meta itemprop="dateModified" content="2019-10-25T14:13:43&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-18T11:12:17&#43;08:00" />
 <meta itemprop="wordCount" content="1449">
 
 
@@ -444,8 +444,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-10-25
-        
+        2019-11-18
+        <a href="#ZgotmplZ/commit/e1bcac9c1841f0ec3bf6619157808dd432fb904d" title="加一堆文章">(e1bcac9)</a>
     </span>
   </p>
   
@@ -549,7 +549,21 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
 
 
 

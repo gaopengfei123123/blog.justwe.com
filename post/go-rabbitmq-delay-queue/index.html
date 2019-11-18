@@ -43,13 +43,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://blog.justwe.site/post/go-rabbitmq-delay-queue/" />
 <meta property="article:published_time" content="2018-05-14T21:37:40+00:00" />
-<meta property="article:modified_time" content="2018-05-14T21:37:40+00:00" />
+<meta property="article:modified_time" content="2019-11-18T11:12:17+08:00" />
 <meta itemprop="name" content="基于rabbitmq实现的延时队列(golang版)">
 <meta itemprop="description" content="虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发">
 
 
 <meta itemprop="datePublished" content="2018-05-14T21:37:40&#43;00:00" />
-<meta itemprop="dateModified" content="2018-05-14T21:37:40&#43;00:00" />
+<meta itemprop="dateModified" content="2019-11-18T11:12:17&#43;08:00" />
 <meta itemprop="wordCount" content="1140">
 
 
@@ -495,8 +495,8 @@ go run productor.go</code></pre></td></tr></table>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2018-05-14
-        
+        2019-11-18
+        <a href="#ZgotmplZ/commit/e1bcac9c1841f0ec3bf6619157808dd432fb904d" title="加一堆文章">(e1bcac9)</a>
     </span>
   </p>
   
@@ -600,7 +600,21 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
 
 
 
