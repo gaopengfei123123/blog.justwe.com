@@ -72,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/tools/</loc>
-    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.justwe.site/tags/tools/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -86,7 +79,7 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/go/</loc>
+    <loc>http://blog.justwe.site/categories/tools/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -94,6 +87,13 @@
   
   <url>
     <loc>http://blog.justwe.site/categories/go/</loc>
+    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.justwe.site/tags/go/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -170,14 +170,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/k8s/</loc>
+    <loc>http://blog.justwe.site/tags/k8s/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/k8s/</loc>
+    <loc>http://blog.justwe.site/categories/k8s/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -219,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/php/</loc>
+    <loc>http://blog.justwe.site/categories/php/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/php/</loc>
+    <loc>http://blog.justwe.site/tags/php/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -401,14 +401,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/git/</loc>
+    <loc>http://blog.justwe.site/tags/git/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/git/</loc>
+    <loc>http://blog.justwe.site/categories/git/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1129,14 +1129,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/jquery/</loc>
+    <loc>http://blog.justwe.site/tags/jquery/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/jquery/</loc>
+    <loc>http://blog.justwe.site/categories/jquery/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
