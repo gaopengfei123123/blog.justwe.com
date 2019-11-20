@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>upx on Hello world</title>
+    <link>http://blog.justwe.site/tags/upx/</link>
+    <description>Recent content in upx on Hello world</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 20 Nov 2019 11:31:00 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.justwe.site/tags/upx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>go 打包文件压缩</title>
+      <link>http://blog.justwe.site/post/go-build-compress/</link>
+      <pubDate>Wed, 20 Nov 2019 11:31:00 +0800</pubDate>
+      
+      <guid>http://blog.justwe.site/post/go-build-compress/</guid>
+      <description>golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &amp;ldquo;-s -w&amp;rdquo; 参数来优化编</description>
+    </item>
+    
+  </channel>
+</rss>
