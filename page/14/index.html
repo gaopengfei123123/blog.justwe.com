@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://blog.justwe.site/" />
 
-<meta property="og:updated_time" content="2019-11-15T10:46:41+08:00" />
+<meta property="og:updated_time" content="2019-11-20T11:31:00+08:00" />
 <meta itemprop="name" content="Hello world">
 <meta itemprop="description" content="代码改变生活">
 
@@ -116,6 +116,27 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/centos-install-git/">centos上安装git2.2</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-12-03 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      centos自带的git版本太低了,安装个新吧 安装依赖环境 1 2 3 4 5 6 7 &gt;# yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc &gt;# yum install gcc perl-ExtUtils-MakeMaker error: ```/utf8.c:463: undefined reference to `libiconv&#39;``` &gt;# wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz &gt;# tar zxvf libiconv-1.14.tar.gz &gt;# cd libiconv-1.14 &gt;# ./configure --prefix=/usr/local/libiconv &gt;#
+    </div>
+    <div class="read-more">
+      <a href="/post/centos-install-git/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/git-rm-cache/">git删除已提交入库的文件</a></h1>
@@ -301,27 +322,6 @@
     </div>
     <div class="read-more">
       <a href="/post/git-pull/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/yii-rewrite/">yii2路由重写方案</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-10-27 </span>
-      <div class="post-category">
-          <a href="/categories/yii2/"> yii2 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      yii2 关于 apache 和 nginx 的路由重写配置 apache路由重写 1 2 3 4 5 6 7 8 9 10 Options +FollowSymLinks IndexIgnore */* RewriteEngine on # if a directory or a file exists, use it directly RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d # otherwise forward it to index.php RewriteRule . index.php 从yiic
-    </div>
-    <div class="read-more">
-      <a href="/post/yii-rewrite/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

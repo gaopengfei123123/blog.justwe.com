@@ -9,8 +9,57 @@
   </url>
   
   <url>
+    <loc>http://blog.justwe.site/categories/</loc>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.justwe.site/categories/go/</loc>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.justwe.site/tags/go/</loc>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.justwe.site/post/go-build-compress/</loc>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.justwe.site/</loc>
-    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.justwe.site/post/</loc>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.justwe.site/tags/</loc>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.justwe.site/tags/upx/</loc>
+    <lastmod>2019-11-20T11:31:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -25,13 +74,6 @@
   <url>
     <loc>http://blog.justwe.site/posts/</loc>
     <lastmod>2019-11-15T11:41:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.justwe.site/categories/</loc>
-    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -58,27 +100,6 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/post/</loc>
-    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.justwe.site/tags/</loc>
-    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.justwe.site/tags/tools/</loc>
-    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://blog.justwe.site/categories/tools/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -86,14 +107,7 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/go/</loc>
-    <lastmod>2019-11-18T11:12:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.justwe.site/tags/go/</loc>
+    <loc>http://blog.justwe.site/tags/tools/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -401,14 +415,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/git/</loc>
+    <loc>http://blog.justwe.site/categories/git/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/git/</loc>
+    <loc>http://blog.justwe.site/tags/git/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -828,14 +842,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/elementui/</loc>
+    <loc>http://blog.justwe.site/tags/elementui/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/elementui/</loc>
+    <loc>http://blog.justwe.site/categories/elementui/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1129,14 +1143,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/jquery/</loc>
+    <loc>http://blog.justwe.site/categories/jquery/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/jquery/</loc>
+    <loc>http://blog.justwe.site/tags/jquery/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
