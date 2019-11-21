@@ -12,14 +12,12 @@
     
     
     <item>
-      <title>About</title>
+      <title>关于我</title>
       <link>http://blog.justwe.site/about/</link>
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>http://blog.justwe.site/about/</guid>
-      <description>Hugo is a static site engine written in Go.
-It makes use of a variety of open source projects including:
- Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
+      <description>会点 php,会点 js,会点 go,还有一些乱七八糟的东西 目前学的比较杂乱,需要整理一番,慢慢来吧.. 求职, 北京范围内golang开发</description>
     </item>
     
     <item>
@@ -29,15 +27,6 @@ It makes use of a variety of open source projects including:
       
       <guid>http://blog.justwe.site/post/go-build-compress/</guid>
       <description>golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &amp;ldquo;-s -w&amp;rdquo; 参数来优化编</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>http://blog.justwe.site/posts/my-first-post/</link>
-      <pubDate>Fri, 15 Nov 2019 10:46:41 +0800</pubDate>
-      
-      <guid>http://blog.justwe.site/posts/my-first-post/</guid>
-      <description>asdfasd</description>
     </item>
     
     <item>
