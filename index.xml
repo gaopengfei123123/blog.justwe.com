@@ -6,7 +6,8 @@
     <description>Recent content on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Nov 2019 11:31:00 +0800</lastBuildDate>
+    <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 25 Nov 2019 19:40:43 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.justwe.site/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,6 +19,15 @@
       
       <guid>http://blog.justwe.site/about/</guid>
       <description>会点 php,会点 js,会点 go,还有一些乱七八糟的东西 目前学的比较杂乱,需要整理一番,慢慢来吧.. 求职, 北京范围内golang开发</description>
+    </item>
+    
+    <item>
+      <title>Es Study Note</title>
+      <link>http://blog.justwe.site/post/es-study-note/</link>
+      <pubDate>Mon, 25 Nov 2019 19:40:43 +0800</pubDate>
+      
+      <guid>http://blog.justwe.site/post/es-study-note/</guid>
+      <description>安装 1 2 3 git clone https://github.com/deviantony/docker-elk.git cd docker-elk docker-compose up 遇到过的问题 终端访问: 1 curl -XGET &amp;#39;localhost:9200/_cat/health?v&amp;amp;pretty&amp;#39; 如果出现: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 { &amp;#34;error&amp;#34;: { &amp;#34;root_cause&amp;#34;: [ { &amp;#34;type&amp;#34;: &amp;#34;security_exception&amp;#34;, &amp;#34;reason&amp;#34;: &amp;#34;unable to authenticate user [elasticd] for REST request [/_cat/health]&amp;#34;, &amp;#34;header&amp;#34;:</description>
     </item>
     
     <item>
