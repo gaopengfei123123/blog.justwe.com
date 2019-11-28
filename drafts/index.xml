@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>elastic on Hello world</title>
-    <link>http://blog.justwe.site/categories/elastic/</link>
-    <description>Recent content in elastic on Hello world</description>
+    <title>Drafts on Hello world</title>
+    <link>http://blog.justwe.site/drafts/</link>
+    <description>Recent content in Drafts on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 25 Nov 2019 19:40:43 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/categories/elastic/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.justwe.site/drafts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

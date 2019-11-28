@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://blog.justwe.site/" />
 
-<meta property="og:updated_time" content="2019-11-25T19:40:43+08:00" />
+<meta property="og:updated_time" content="2019-11-20T11:31:00+08:00" />
 <meta itemprop="name" content="Hello world">
 <meta itemprop="description" content="代码改变生活">
 
@@ -116,27 +116,6 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/caipiao/">震惊！彩票的随机机制竟然是这样的.....</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-03-24 </span>
-      <div class="post-category">
-          <a href="/categories/default/"> default </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 ### &lt;?php $lanList = []; $hongList = []; for($i=1;$i&lt;34;$i++){ if($i&lt;16){ array_push($lanList,$i); } array_push($hongList, $i); } $res = [ &#39;red&#39; =&gt; [], &#39;blue&#39; =&gt; [] ]; for($i=0;$i&lt;=6;$i++){ if($i==0){ $res[&#39;blue&#39;] = array_slice($lanList, mt_rand( 0,count($lanList)-1) ,1); } $res[&#39;red&#39;][] = array_splice($hongList, mt_rand( 0,count($hongList)-1),1)[0]; } sort($res[&#39;red&#39;]);
-    </div>
-    <div class="read-more">
-      <a href="/post/caipiao/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/symfony-router/">symfony-路由</a></h1>
@@ -318,6 +297,27 @@
     </div>
     <div class="read-more">
       <a href="/post/redis-geohash-lbs/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker-dockerfile/">docker(3) 构建dockerfile</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-08 </span>
+      <div class="post-category">
+          <a href="/categories/docker/"> docker </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      上一章我们用的是 docker commit 命令创建的自己的库，虽然简单但是定制性比较差，因此我们采用另一种且更广泛的做法就是 docker build命令，先上手做个demo 1
+    </div>
+    <div class="read-more">
+      <a href="/post/docker-dockerfile/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
