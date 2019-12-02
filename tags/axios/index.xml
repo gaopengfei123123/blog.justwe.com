@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>axios on Hello world</title>
-    <link>http://blog.justwe.site/tags/axios/</link>
+    <link>https://blog.justwe.site/tags/axios/</link>
     <description>Recent content in axios on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 23 Jun 2017 16:42:38 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/axios/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/axios/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>转 跨域请求时两次发送请求的问题</title>
-      <link>http://blog.justwe.site/post/axios-cors/</link>
+      <link>https://blog.justwe.site/post/axios-cors/</link>
       <pubDate>Fri, 23 Jun 2017 16:42:38 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/axios-cors/</guid>
+      <guid>https://blog.justwe.site/post/axios-cors/</guid>
       <description>跨域的时候总会碰上各种各样的问题,这就是其中一种情况 检查一下，两次请求分别的 Request Method: 因为是跨域请求，客户端发先发送一个OPTIONS 请求 Preflighted Req</description>
     </item>
     
     <item>
       <title>使用 axios-post 提交数据</title>
-      <link>http://blog.justwe.site/post/vue-axios-post/</link>
+      <link>https://blog.justwe.site/post/vue-axios-post/</link>
       <pubDate>Tue, 02 May 2017 16:45:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/vue-axios-post/</guid>
+      <guid>https://blog.justwe.site/post/vue-axios-post/</guid>
       <description>继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &amp;gt; 最近团队讨论了一下，</description>
     </item>
     

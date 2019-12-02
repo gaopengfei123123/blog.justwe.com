@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>brew on Hello world</title>
-    <link>http://blog.justwe.site/tags/brew/</link>
+    <link>https://blog.justwe.site/tags/brew/</link>
     <description>Recent content in brew on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Sun, 09 Apr 2017 23:36:54 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/brew/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/brew/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>brew-update</title>
-      <link>http://blog.justwe.site/post/brew-update/</link>
+      <link>https://blog.justwe.site/post/brew-update/</link>
       <pubDate>Sun, 09 Apr 2017 23:36:54 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/brew-update/</guid>
+      <guid>https://blog.justwe.site/post/brew-update/</guid>
       <description>brew更新软件时常用的操作 安装 brew ruby -e &amp;quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/Go/install)&amp;quot; 搜索 brew search MySQL 查看程序具体信息 brew info mysql 更新 brew brew update 更新软件 brew upgrade mysql 如果不指定更新哪个则会更新所有可以更新的</description>
     </item>
     

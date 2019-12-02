@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jmeter on Hello world</title>
-    <link>http://blog.justwe.site/tags/jmeter/</link>
+    <link>https://blog.justwe.site/tags/jmeter/</link>
     <description>Recent content in jmeter on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 30 Apr 2019 17:45:59 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/jmeter/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/jmeter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>jmeter 对tcp进行压测</title>
-      <link>http://blog.justwe.site/post/tools-jmeter/</link>
+      <link>https://blog.justwe.site/post/tools-jmeter/</link>
       <pubDate>Tue, 30 Apr 2019 17:45:59 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/tools-jmeter/</guid>
+      <guid>https://blog.justwe.site/post/tools-jmeter/</guid>
       <description>jmeter是个好工具, 跨平台, 有GUI, 简单易用, 扩展多 安装 本地环境为macOS Mojave 10.14.4 本地需要安装java8 jmeter官方下载地址 jmet</description>
     </item>
     

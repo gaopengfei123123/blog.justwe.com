@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on Hello world</title>
-    <link>http://blog.justwe.site/tags/linux/</link>
+    <link>https://blog.justwe.site/tags/linux/</link>
     <description>Recent content in linux on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 11 Dec 2018 10:55:47 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>crontab 设置一小时执行一次</title>
-      <link>http://blog.justwe.site/post/linux-crontab/</link>
+      <link>https://blog.justwe.site/post/linux-crontab/</link>
       <pubDate>Tue, 11 Dec 2018 10:55:47 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/linux-crontab/</guid>
+      <guid>https://blog.justwe.site/post/linux-crontab/</guid>
       <description>如果主管给你个任务, 让你每小时执行一次脚本, 是不是就是这样: 1 * */1 * * * xxxxx.bash 这样就错了呦~ 以上产生的结果是每分钟执行一次, 因为从匹配角度来看每</description>
     </item>
     
     <item>
       <title>git-error-permission</title>
-      <link>http://blog.justwe.site/post/git-error-permission/</link>
+      <link>https://blog.justwe.site/post/git-error-permission/</link>
       <pubDate>Fri, 23 Jun 2017 16:46:13 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-error-permission/</guid>
+      <guid>https://blog.justwe.site/post/git-error-permission/</guid>
       <description>这种情况在部署 webhook 的时候经常会碰到 报错信息: git error insufficient permission for adding an object 这种报错就是权限错误,把项目中的.git 文件整体改成你的执行权限就行 有一点要注意,</description>
     </item>
     

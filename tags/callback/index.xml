@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>callback on Hello world</title>
-    <link>http://blog.justwe.site/tags/callback/</link>
+    <link>https://blog.justwe.site/tags/callback/</link>
     <description>Recent content in callback on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 11 May 2017 18:31:59 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/callback/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/callback/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>php-callback-func</title>
-      <link>http://blog.justwe.site/post/php-callback-func/</link>
+      <link>https://blog.justwe.site/post/php-callback-func/</link>
       <pubDate>Thu, 11 May 2017 18:31:59 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/php-callback-func/</guid>
+      <guid>https://blog.justwe.site/post/php-callback-func/</guid>
       <description>你知道茴香的茴有四种写法,那你知道 php 的回调也有四种写法吗? 匿名函数 1 2 3 4 var $array = [1,2,3]; array_map(function($item){ return $item; },$array); 类静态调用 1 2 3 4 5 6 7 8 9 10 class A { static function test($req) { echo &amp;#34;hello world&amp;#34;;</description>
     </item>
     

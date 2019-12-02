@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>merge-conflict on Hello world</title>
-    <link>http://blog.justwe.site/tags/merge-conflict/</link>
+    <link>https://blog.justwe.site/tags/merge-conflict/</link>
     <description>Recent content in merge-conflict on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 03 Aug 2018 18:40:25 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/merge-conflict/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/merge-conflict/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>搞定 git 合并冲突</title>
-      <link>http://blog.justwe.site/post/git-merge-conflict/</link>
+      <link>https://blog.justwe.site/post/git-merge-conflict/</link>
       <pubDate>Fri, 03 Aug 2018 18:40:25 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-merge-conflict/</guid>
+      <guid>https://blog.justwe.site/post/git-merge-conflict/</guid>
       <description>这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点 关键命令 checkout 是个好</description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>comma-ok on Hello world</title>
-    <link>http://blog.justwe.site/tags/comma-ok/</link>
+    <link>https://blog.justwe.site/tags/comma-ok/</link>
     <description>Recent content in comma-ok on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 24 Apr 2017 22:52:37 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/comma-ok/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/comma-ok/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>go-comma-switch</title>
-      <link>http://blog.justwe.site/post/go-comma-switch/</link>
+      <link>https://blog.justwe.site/post/go-comma-switch/</link>
       <pubDate>Mon, 24 Apr 2017 22:52:37 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/go-comma-switch/</guid>
+      <guid>https://blog.justwe.site/post/go-comma-switch/</guid>
       <description>简单介绍下 comma-ok 和 switch 用来判定变量类型 上篇博客介绍了接口,接口在实际应用中可以当做一个万用变量来用,可以用一个空接口来存储多种类型的变量 但是,当我</description>
     </item>
     

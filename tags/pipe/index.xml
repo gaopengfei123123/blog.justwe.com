@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>pipe on Hello world</title>
-    <link>http://blog.justwe.site/tags/pipe/</link>
+    <link>https://blog.justwe.site/tags/pipe/</link>
     <description>Recent content in pipe on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 14 Nov 2019 11:29:20 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/pipe/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/pipe/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>转 go 模仿Unix 管道操作</title>
-      <link>http://blog.justwe.site/post/go-pipe-pattern/</link>
+      <link>https://blog.justwe.site/post/go-pipe-pattern/</link>
       <pubDate>Thu, 14 Nov 2019 11:29:20 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/go-pipe-pattern/</guid>
+      <guid>https://blog.justwe.site/post/go-pipe-pattern/</guid>
       <description>本文摘录了许式伟 《Go，基于连接与组合的语言》部分内容，为了便于理解，我在其后端写了个完整的示例程序帮助理解，这篇文章 一是展示go在并行编程</description>
     </item>
     

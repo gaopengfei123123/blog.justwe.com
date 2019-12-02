@@ -2,166 +2,166 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on Hello world</title>
-    <link>http://blog.justwe.site/tags/git/</link>
+    <link>https://blog.justwe.site/tags/git/</link>
     <description>Recent content in git on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 26 Oct 2018 15:01:51 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>git-diff</title>
-      <link>http://blog.justwe.site/post/git-diff/</link>
+      <link>https://blog.justwe.site/post/git-diff/</link>
       <pubDate>Fri, 26 Oct 2018 15:01:51 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-diff/</guid>
+      <guid>https://blog.justwe.site/post/git-diff/</guid>
       <description>git 对比文件差异 通常 git diff COMMIT_ID_1 COMMIT_DI_2 查看 只查看更改过的文件目录 git diff --name-only COMMIT_ID_1 COMMIT_DI_2 快捷用法就是: git diff --name-only HEAD HEAD^ 对比和上次提交时的改动</description>
     </item>
     
     <item>
       <title>记一次 git revert 的经历</title>
-      <link>http://blog.justwe.site/post/git-revert/</link>
+      <link>https://blog.justwe.site/post/git-revert/</link>
       <pubDate>Thu, 25 Oct 2018 16:27:06 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-revert/</guid>
+      <guid>https://blog.justwe.site/post/git-revert/</guid>
       <description>合作开发经常会提merge request嘛, 然后就提了一个不该提的, 还手抖给合并了&amp;hellip;. 返现问题以后准备回退, 然后抬眼一看各分支</description>
     </item>
     
     <item>
       <title>搞定 git 合并冲突</title>
-      <link>http://blog.justwe.site/post/git-merge-conflict/</link>
+      <link>https://blog.justwe.site/post/git-merge-conflict/</link>
       <pubDate>Fri, 03 Aug 2018 18:40:25 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-merge-conflict/</guid>
+      <guid>https://blog.justwe.site/post/git-merge-conflict/</guid>
       <description>这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点 关键命令 checkout 是个好</description>
     </item>
     
     <item>
       <title>git调整 ssh 登录参数</title>
-      <link>http://blog.justwe.site/post/git-sshcommand/</link>
+      <link>https://blog.justwe.site/post/git-sshcommand/</link>
       <pubDate>Sat, 23 Jun 2018 23:39:17 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-sshcommand/</guid>
+      <guid>https://blog.justwe.site/post/git-sshcommand/</guid>
       <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true #</description>
     </item>
     
     <item>
       <title>git-error-permission</title>
-      <link>http://blog.justwe.site/post/git-error-permission/</link>
+      <link>https://blog.justwe.site/post/git-error-permission/</link>
       <pubDate>Fri, 23 Jun 2017 16:46:13 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-error-permission/</guid>
+      <guid>https://blog.justwe.site/post/git-error-permission/</guid>
       <description>这种情况在部署 webhook 的时候经常会碰到 报错信息: git error insufficient permission for adding an object 这种报错就是权限错误,把项目中的.git 文件整体改成你的执行权限就行 有一点要注意,</description>
     </item>
     
     <item>
       <title>git同步所 fork 的库代码</title>
-      <link>http://blog.justwe.site/post/git-fork-upstream/</link>
+      <link>https://blog.justwe.site/post/git-fork-upstream/</link>
       <pubDate>Sat, 17 Jun 2017 14:36:23 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-fork-upstream/</guid>
+      <guid>https://blog.justwe.site/post/git-fork-upstream/</guid>
       <description>有时候我们 fork 了一个库进行开发,但是时间长了那个库已经添加了一些新的东西,这要怎么处理呢? 先添加你 fork 的库的地址 1 2 git remote add FORK-sync https://github.com/xxx/yyy.git git remote -v 能看到类似的</description>
     </item>
     
     <item>
       <title>关于使用 git 的操作流程</title>
-      <link>http://blog.justwe.site/post/git-workflow/</link>
+      <link>https://blog.justwe.site/post/git-workflow/</link>
       <pubDate>Sat, 27 May 2017 13:24:32 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-workflow/</guid>
+      <guid>https://blog.justwe.site/post/git-workflow/</guid>
       <description>老夫的毕生功力都在这了&amp;hellip; 通常我们工作时是这样操作 说一下使用 git 做版本控制的时候的工作流程 1 2 3 4 git add -A #需要添加到版本库中的文件</description>
     </item>
     
     <item>
       <title>git-askpass-error</title>
-      <link>http://blog.justwe.site/post/git-askpass-error/</link>
+      <link>https://blog.justwe.site/post/git-askpass-error/</link>
       <pubDate>Mon, 08 May 2017 22:31:42 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-askpass-error/</guid>
+      <guid>https://blog.justwe.site/post/git-askpass-error/</guid>
       <description>git 的账号密码错误情况 error 前段时间使用 phpstrom 中的 git 出现了一个错误 1 2 3 4 Fetch failed error: unable to read askpass response from &amp;#39;..\tmp\intellij-git-askpass.bat&amp;#39; error: failed to execute prompt script (exit code 1) fatal: could not read Username for &amp;#39;http://xxx:3000&amp;#39;: No error 大体情况就是某一次操</description>
     </item>
     
     <item>
       <title>git-submodule</title>
-      <link>http://blog.justwe.site/post/git-submodule/</link>
+      <link>https://blog.justwe.site/post/git-submodule/</link>
       <pubDate>Tue, 11 Apr 2017 14:34:36 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-submodule/</guid>
+      <guid>https://blog.justwe.site/post/git-submodule/</guid>
       <description>项目中经常会使用到第三方的 git 库,将三方库整合到项目中最简单的办法就是复制粘贴,但是如果这个库升级了一个很酷炫的功能,你要怎么整合进来呢? 这就</description>
     </item>
     
     <item>
       <title>git标签操作</title>
-      <link>http://blog.justwe.site/post/git-tag/</link>
+      <link>https://blog.justwe.site/post/git-tag/</link>
       <pubDate>Mon, 13 Mar 2017 07:30:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-tag/</guid>
+      <guid>https://blog.justwe.site/post/git-tag/</guid>
       <description>列出所有标签 1 git tag 添加标签(同时生成独立的版本库) 1 2 3 4 5 # 给当前commit打标签 git tag -a v0.0.1 -m &amp;#39;第一次添加标签&amp;#39; # 给指定的</description>
     </item>
     
     <item>
       <title>git推送远程失败</title>
-      <link>http://blog.justwe.site/post/git-error/</link>
+      <link>https://blog.justwe.site/post/git-error/</link>
       <pubDate>Wed, 11 Jan 2017 06:41:43 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-error/</guid>
+      <guid>https://blog.justwe.site/post/git-error/</guid>
       <description>git push 的时候提示: 1 2 remote: Permission to ******/born.git denied to ******/. fatal: unable to access &amp;#39;https://github.com/ ******//born.git/&amp;#39;: The requested URL returned error: 403 是因为git的账号冲突，git误认为你使用的是另一个账号，解决办法也很简单 推送方式</description>
     </item>
     
     <item>
       <title>git强制将远程版本覆盖本地</title>
-      <link>http://blog.justwe.site/post/git-push-force/</link>
+      <link>https://blog.justwe.site/post/git-push-force/</link>
       <pubDate>Fri, 06 Jan 2017 06:18:22 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-push-force/</guid>
+      <guid>https://blog.justwe.site/post/git-push-force/</guid>
       <description>1 2 git fetch --all git reset --hard origin/master</description>
     </item>
     
     <item>
       <title>通过git rebase来合并commit提交记录</title>
-      <link>http://blog.justwe.site/post/git-rebase/</link>
+      <link>https://blog.justwe.site/post/git-rebase/</link>
       <pubDate>Sun, 25 Dec 2016 15:43:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-rebase/</guid>
+      <guid>https://blog.justwe.site/post/git-rebase/</guid>
       <description>多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版</description>
     </item>
     
     <item>
       <title>git删除已提交入库的文件</title>
-      <link>http://blog.justwe.site/post/git-rm-cache/</link>
+      <link>https://blog.justwe.site/post/git-rm-cache/</link>
       <pubDate>Tue, 29 Nov 2016 03:07:45 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-rm-cache/</guid>
+      <guid>https://blog.justwe.site/post/git-rm-cache/</guid>
       <description>将git已经提交的文件移除出库（针对的就是 .idea 和 .DS_Store） 1 2 3 4 5 6 7 8 git rm -r --cache .idea/ git rm --cache .DS_Store 在 .gitignore 文件中添加相应禁止的东西 git commit -m &amp;#39;we didnt want</description>
     </item>
     
     <item>
       <title>git更换远程地址</title>
-      <link>http://blog.justwe.site/post/git-remote/</link>
+      <link>https://blog.justwe.site/post/git-remote/</link>
       <pubDate>Tue, 29 Nov 2016 03:06:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-remote/</guid>
+      <guid>https://blog.justwe.site/post/git-remote/</guid>
       <description>关键就是移除本地的远程连接路径，替换成我们需要传到的路径 将本地库的远程地址更改 1 git remote set-url origin nideyuanchengdizhi 接下来正常推送就好</description>
     </item>
     
     <item>
       <title>git本地建库推送远程</title>
-      <link>http://blog.justwe.site/post/git-push/</link>
+      <link>https://blog.justwe.site/post/git-push/</link>
       <pubDate>Tue, 29 Nov 2016 03:04:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-push/</guid>
+      <guid>https://blog.justwe.site/post/git-push/</guid>
       <description>本地新建库和多远程库的操作 新建本地库 1 2 3 4 5 6 7 8 9 10 11 12 13 #初始化 git init git add -A git commit -m &amp;#39;init it&amp;#39; #删除本地远程连接 git remote rm origin git remote add origin https://git.oschina.net/gaofeifps/laravel53.git #自动合并远程</description>
     </item>
     
     <item>
       <title>git本地拉取远程分支</title>
-      <link>http://blog.justwe.site/post/git-pull/</link>
+      <link>https://blog.justwe.site/post/git-pull/</link>
       <pubDate>Fri, 28 Oct 2016 11:44:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-pull/</guid>
+      <guid>https://blog.justwe.site/post/git-pull/</guid>
       <description>首先git clone一个git库， 其次在本地新建一个分支 1 git checkout -b devlocal 然后设置本地git文件，将本地分支和远程分支关联起来 （我有个远程分支叫做d</description>
     </item>
     

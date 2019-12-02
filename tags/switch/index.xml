@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>switch on Hello world</title>
-    <link>http://blog.justwe.site/tags/switch/</link>
+    <link>https://blog.justwe.site/tags/switch/</link>
     <description>Recent content in switch on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Fri, 28 Sep 2018 16:58:31 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/switch/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/switch/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>golang 处理 map[interface{}]interface{} 数据</title>
-      <link>http://blog.justwe.site/post/go-complex-interface/</link>
+      <link>https://blog.justwe.site/post/go-complex-interface/</link>
       <pubDate>Fri, 28 Sep 2018 16:58:31 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/go-complex-interface/</guid>
+      <guid>https://blog.justwe.site/post/go-complex-interface/</guid>
       <description>go 调用 rpc , 掉用其他的服务时会出现一些神奇的数据结构, 今天我们来实验一个 上代码: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31</description>
     </item>
     
     <item>
       <title>go-comma-switch</title>
-      <link>http://blog.justwe.site/post/go-comma-switch/</link>
+      <link>https://blog.justwe.site/post/go-comma-switch/</link>
       <pubDate>Mon, 24 Apr 2017 22:52:37 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/go-comma-switch/</guid>
+      <guid>https://blog.justwe.site/post/go-comma-switch/</guid>
       <description>简单介绍下 comma-ok 和 switch 用来判定变量类型 上篇博客介绍了接口,接口在实际应用中可以当做一个万用变量来用,可以用一个空接口来存储多种类型的变量 但是,当我</description>
     </item>
     

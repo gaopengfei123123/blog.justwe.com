@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>front-end on Hello world</title>
-    <link>http://blog.justwe.site/categories/front-end/</link>
+    <link>https://blog.justwe.site/categories/front-end/</link>
     <description>Recent content in front-end on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 06 Mar 2017 03:02:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/categories/front-end/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/categories/front-end/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>转 HTML5上传文件显示进度</title>
-      <link>http://blog.justwe.site/post/html5-ajax-process/</link>
+      <link>https://blog.justwe.site/post/html5-ajax-process/</link>
       <pubDate>Mon, 06 Mar 2017 03:02:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/html5-ajax-process/</guid>
+      <guid>https://blog.justwe.site/post/html5-ajax-process/</guid>
       <description>使用ajax上传文件的时候为了通过 files api来获取文件信息，从而可以看到显示进度 html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &amp;lt;div class=&amp;#34;row&amp;#34;&amp;gt; &amp;lt;label for=&amp;#34;file&amp;#34;&amp;gt; Upload Image:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;file&amp;#34; name=&amp;#34;fileToUpload&amp;#34; id=&amp;#34;fileToUpload&amp;#34; multiple=&amp;#34;multiple&amp;#34; onchange=&amp;#34;fileSelected();&amp;#34; /&amp;gt;</description>
     </item>
     
     <item>
       <title>webuploader插件</title>
-      <link>http://blog.justwe.site/post/webupload-demo/</link>
+      <link>https://blog.justwe.site/post/webupload-demo/</link>
       <pubDate>Wed, 12 Oct 2016 15:24:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/webupload-demo/</guid>
+      <guid>https://blog.justwe.site/post/webupload-demo/</guid>
       <description>通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把</description>
     </item>
     
     <item>
       <title>js获取地址信息</title>
-      <link>http://blog.justwe.site/post/js-href/</link>
+      <link>https://blog.justwe.site/post/js-href/</link>
       <pubDate>Mon, 10 Oct 2016 13:43:44 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/js-href/</guid>
+      <guid>https://blog.justwe.site/post/js-href/</guid>
       <description>js获取api的一系列API接口 1 2 3 4 5 window.location.host document.domain(vue下会发生错误) //全地址 window.location.href 补充: 获取当前域名信息 代码如下 1</description>
     </item>
     
     <item>
       <title>vue的初识</title>
-      <link>http://blog.justwe.site/post/vue-1/</link>
+      <link>https://blog.justwe.site/post/vue-1/</link>
       <pubDate>Sun, 09 Oct 2016 15:02:46 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/vue-1/</guid>
+      <guid>https://blog.justwe.site/post/vue-1/</guid>
       <description>照着下面的代码打一遍体会一下vue的优雅 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 &amp;lt;div class=&amp;#34;mytest&amp;#34;&amp;gt; {{--直接调取js中定义好的值--}</description>
     </item>
     
     <item>
       <title>唉~被ie坑了一次又一次</title>
-      <link>http://blog.justwe.site/post/fuck-ie/</link>
+      <link>https://blog.justwe.site/post/fuck-ie/</link>
       <pubDate>Sat, 08 Oct 2016 14:39:00 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/fuck-ie/</guid>
+      <guid>https://blog.justwe.site/post/fuck-ie/</guid>
       <description>最近的网站项目当中用上了vue,结果ie低版本的不支持es5的写法,导致各种报错,而且一些很实用的api也不能用了..还有webGL的支持也</description>
     </item>
     

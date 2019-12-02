@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>workflow on Hello world</title>
-    <link>http://blog.justwe.site/tags/workflow/</link>
+    <link>https://blog.justwe.site/tags/workflow/</link>
     <description>Recent content in workflow on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 27 May 2017 13:24:32 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于使用 git 的操作流程</title>
-      <link>http://blog.justwe.site/post/git-workflow/</link>
+      <link>https://blog.justwe.site/post/git-workflow/</link>
       <pubDate>Sat, 27 May 2017 13:24:32 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/git-workflow/</guid>
+      <guid>https://blog.justwe.site/post/git-workflow/</guid>
       <description>老夫的毕生功力都在这了&amp;hellip; 通常我们工作时是这样操作 说一下使用 git 做版本控制的时候的工作流程 1 2 3 4 git add -A #需要添加到版本库中的文件</description>
     </item>
     

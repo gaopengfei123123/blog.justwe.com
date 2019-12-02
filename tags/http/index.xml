@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>http on Hello world</title>
-    <link>http://blog.justwe.site/tags/http/</link>
+    <link>https://blog.justwe.site/tags/http/</link>
     <description>Recent content in http on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 04 Nov 2019 17:11:54 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/http/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/http/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>转 golang http平滑重启实现</title>
-      <link>http://blog.justwe.site/post/go-http-grace-restart/</link>
+      <link>https://blog.justwe.site/post/go-http-grace-restart/</link>
       <pubDate>Mon, 04 Nov 2019 17:11:54 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/go-http-grace-restart/</guid>
+      <guid>https://blog.justwe.site/post/go-http-grace-restart/</guid>
       <description>服务端代码经常需要升级，对于线上系统的升级常用的做法是，通过前端的负载均衡（如nginx）来保证升级时至少有一个服务可用，依次（灰度）升级。</description>
     </item>
     
     <item>
       <title>go-http</title>
-      <link>http://blog.justwe.site/post/go-http/</link>
+      <link>https://blog.justwe.site/post/go-http/</link>
       <pubDate>Wed, 26 Apr 2017 23:11:29 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/go-http/</guid>
+      <guid>https://blog.justwe.site/post/go-http/</guid>
       <description>用于了解 http 包的一些运行机制 首先一个简单的例子 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;log&amp;#34; ) func sayhelloName(w http.ResponseWriter, r *http.Request) { r.ParseForm() //</description>
     </item>
     

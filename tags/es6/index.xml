@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ES6 on Hello world</title>
-    <link>http://blog.justwe.site/tags/es6/</link>
+    <link>https://blog.justwe.site/tags/es6/</link>
     <description>Recent content in ES6 on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 31 Oct 2017 23:11:45 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/es6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/es6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>js promise 对象</title>
-      <link>http://blog.justwe.site/post/js-promise/</link>
+      <link>https://blog.justwe.site/post/js-promise/</link>
       <pubDate>Tue, 31 Oct 2017 23:11:45 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/js-promise/</guid>
+      <guid>https://blog.justwe.site/post/js-promise/</guid>
       <description>我们本次要了解一下 es6 中的 Promise 对象 then() 在 ES6 中函数有一个很明显的区别就是一些异步函数中不再是使用回调函数callback(),而是then() 方法来</description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>debug on Hello world</title>
-    <link>http://blog.justwe.site/tags/debug/</link>
+    <link>https://blog.justwe.site/tags/debug/</link>
     <description>Recent content in debug on Hello world</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
     <lastBuildDate>Thu, 28 Feb 2019 10:30:23 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.justwe.site/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.justwe.site/tags/debug/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>php开发过程中不常碰到的error (2.28更新)</title>
-      <link>http://blog.justwe.site/post/php-unsual-mistakes/</link>
+      <link>https://blog.justwe.site/post/php-unsual-mistakes/</link>
       <pubDate>Thu, 28 Feb 2019 10:30:23 +0000</pubDate>
       
-      <guid>http://blog.justwe.site/post/php-unsual-mistakes/</guid>
+      <guid>https://blog.justwe.site/post/php-unsual-mistakes/</guid>
       <description>这里做一些备注,以防再次碰到 url 当中的参数有 &amp;amp;timestamp=1234567890这样的字段会被转义成xtamp=12345678</description>
     </item>
     

@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://blog.justwe.site/sitemap.xml
+Sitemap: https://blog.justwe.site/sitemap.xml
