@@ -39,5 +39,14 @@
       <description>现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分</description>
     </item>
     
+    <item>
+      <title>自己封装一个composer包玩玩</title>
+      <link>http://blog.justwe.site/post/composer-package/</link>
+      <pubDate>Wed, 11 Jan 2017 06:40:00 +0000</pubDate>
+      
+      <guid>http://blog.justwe.site/post/composer-package/</guid>
+      <description>how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用</description>
+    </item>
+    
   </channel>
 </rss>

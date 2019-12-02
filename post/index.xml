@@ -1389,17 +1389,5 @@
       <description>laravel版本5.1+ 首先创建测试文件 1 php artisan make:controller TestController 修改路由文件route.php或者routes/web.php 1 Route::get(&amp;#39;test&amp;#39;, &amp;#39;TestController@index&amp;#39;); 创建服务提供者文件,</description>
     </item>
     
-    <item>
-      <title>Hello World</title>
-      <link>http://blog.justwe.site/post/hello-world/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.justwe.site/post/hello-world/</guid>
-      <description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick Start Create a new post 1  $ hexo new &amp;#34;My New Post&amp;#34;   More info: Writing
-Run server 1  $ hexo server   More info: Server
-Generate static files 1  $ hexo generate   More info: Generating</description>
-    </item>
-    
   </channel>
 </rss>

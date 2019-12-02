@@ -193,6 +193,15 @@
     </item>
     
     <item>
+      <title>安装LiteIde配置</title>
+      <link>http://blog.justwe.site/post/go-liteide/</link>
+      <pubDate>Tue, 07 Mar 2017 05:49:56 +0000</pubDate>
+      
+      <guid>http://blog.justwe.site/post/go-liteide/</guid>
+      <description>这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是</description>
+    </item>
+    
+    <item>
       <title>centos65安装docker遇到的坑</title>
       <link>http://blog.justwe.site/post/contentos-docker/</link>
       <pubDate>Wed, 01 Mar 2017 05:55:27 +0000</pubDate>

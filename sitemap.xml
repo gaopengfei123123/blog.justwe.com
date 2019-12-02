@@ -219,14 +219,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/php/</loc>
+    <loc>http://blog.justwe.site/tags/php/</loc>
     <lastmod>2019-02-28T10:30:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/php/</loc>
+    <loc>http://blog.justwe.site/categories/php/</loc>
     <lastmod>2019-02-28T10:30:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -401,14 +401,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/git/</loc>
+    <loc>http://blog.justwe.site/categories/git/</loc>
     <lastmod>2018-10-26T15:01:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/git/</loc>
+    <loc>http://blog.justwe.site/tags/git/</loc>
     <lastmod>2018-10-26T15:01:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -828,14 +828,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/elementui/</loc>
+    <loc>http://blog.justwe.site/categories/elementui/</loc>
     <lastmod>2017-09-15T11:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/elementui/</loc>
+    <loc>http://blog.justwe.site/tags/elementui/</loc>
     <lastmod>2017-09-15T11:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1129,14 +1129,14 @@
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/categories/jquery/</loc>
+    <loc>http://blog.justwe.site/tags/jquery/</loc>
     <lastmod>2017-05-02T11:39:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.justwe.site/tags/jquery/</loc>
+    <loc>http://blog.justwe.site/categories/jquery/</loc>
     <lastmod>2017-05-02T11:39:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1740,12 +1740,6 @@
   <url>
     <loc>http://blog.justwe.site/post/laravel-repository/</loc>
     <lastmod>2016-04-01T20:53:01+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://blog.justwe.site/post/hello-world/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
