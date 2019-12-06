@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $testArr = [ [&amp;#39;id&amp;#39;=&amp;gt;1,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;aaa&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;2,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;bbb&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;3,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ccc&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;4,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ddd&amp;#39;], ]; $roler = [2,1,3,4]; usort($testArr,function($a,$b) use($roler){ return (array_search($a[&amp;#39;id&amp;#39;], $roler) &amp;lt; array_search($b[&amp;#39;id&amp;#39;], $roler)) ? -1 : 1; }); var_dump($testArr); die(); 输出结果：反正成功了 还有就是 第一层要是索引数组" /><meta name="keywords" content="golang, blog, php, 编程, 博客" />
+<meta name="author" content="GPF" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $testArr = [ [&amp;#39;id&amp;#39;=&amp;gt;1,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;aaa&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;2,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;bbb&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;3,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ccc&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;4,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ddd&amp;#39;], ]; $roler = [2,1,3,4]; usort($testArr,function($a,$b) use($roler){ return (array_search($a[&amp;#39;id&amp;#39;], $roler) &amp;lt; array_search($b[&amp;#39;id&amp;#39;], $roler)) ? -1 : 1; }); var_dump($testArr); die(); 输出结果：反正成功了 还有就是 第一层要是索引数组" /><meta name="keywords" content="多维数组, 排序算法, php" />
 
 
 
