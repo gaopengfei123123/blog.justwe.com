@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go · Hello world</title>
+  <title>Golang值得读一下的文章-1 - Hello world</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="代码改变生活" /><meta name="keywords" content="golang, blog, php, 编程, 博客" />
+<meta name="author" content="GPF" /><meta name="description" content="收藏 != 会了 [译]Go：垃圾回收器是如何监控你的应用的？ 了解一下golang的GC回收原理, 对于应用是否会造成内存泄露有一个大概了解 [译] Go" /><meta name="keywords" content="golang, go, 转载, 编程学习" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
-<link rel="canonical" href="https://blog.justwe.site/tags/go/" />
-  <link href="https://blog.justwe.site/tags/go/index.xml" rel="alternate" type="application/rss+xml" title="Hello world" />
-  <link href="https://blog.justwe.site/tags/go/index.xml" rel="feed" type="application/rss+xml" title="Hello world" />
+<link rel="canonical" href="https://blog.justwe.site/post/go-article-collection-1/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,18 +38,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="go" />
-<meta property="og:description" content="代码改变生活" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.justwe.site/tags/go/" />
+<meta property="og:title" content="Golang值得读一下的文章-1" />
+<meta property="og:description" content="收藏 != 会了 [译]Go：垃圾回收器是如何监控你的应用的？ 了解一下golang的GC回收原理, 对于应用是否会造成内存泄露有一个大概了解 [译] Go" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-article-collection-1/" />
+<meta property="article:published_time" content="2019-12-17T14:19:44+08:00" />
+<meta property="article:modified_time" content="2019-12-17T14:19:44+08:00" />
+<meta itemprop="name" content="Golang值得读一下的文章-1">
+<meta itemprop="description" content="收藏 != 会了 [译]Go：垃圾回收器是如何监控你的应用的？ 了解一下golang的GC回收原理, 对于应用是否会造成内存泄露有一个大概了解 [译] Go">
 
-<meta property="og:updated_time" content="2019-12-17T14:19:44+08:00" />
-<meta itemprop="name" content="go">
-<meta itemprop="description" content="代码改变生活">
 
+<meta itemprop="datePublished" content="2019-12-17T14:19:44&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-17T14:19:44&#43;08:00" />
+<meta itemprop="wordCount" content="263">
+
+
+
+<meta itemprop="keywords" content="go," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="go"/>
-<meta name="twitter:description" content="代码改变生活"/>
+<meta name="twitter:title" content="Golang值得读一下的文章-1"/>
+<meta name="twitter:description" content="收藏 != 会了 [译]Go：垃圾回收器是如何监控你的应用的？ 了解一下golang的GC回收原理, 对于应用是否会造成内存泄露有一个大概了解 [译] Go"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -115,84 +121,103 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="archive" class="archive">
-  
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Golang值得读一下的文章-1</h1>
 
-  <div class="archive-post">
-      <span class="archive-post-time">
-        2017-11-22
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/raspberry-pi3-golang-env/" class="archive-post-link">
-          树莓派上安装 golang
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2017-06-05
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-json/" class="archive-post-link">
-          go操作 json 文本
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2017-05-17
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-mysql/" class="archive-post-link">
-          go-mysql
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2017-04-26
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-http/" class="archive-post-link">
-          go-http
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2017-04-24
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-comma-switch/" class="archive-post-link">
-          go-comma-switch
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2017-04-19
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-interface/" class="archive-post-link">
-          go-interface
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2017-04-18
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-simple-webserver-demo/" class="archive-post-link">
-          go-simple-webserver-demo
-        </a>
-      </span>
+      <div class="post-meta">
+        <span class="post-time"> 2019-12-17 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            <a href="/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/"> 精选转载 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <blockquote>
+<p><code>收藏</code> != <code>会了</code></p>
+</blockquote>
+
+<!-- more -->
+
+<ol>
+<li><p><a href="https://juejin.im/post/5de778d4e51d4557fe59343e">[译]Go：垃圾回收器是如何监控你的应用的？</a></p>
+
+<p>了解一下golang的GC回收原理, 对于应用是否会造成内存泄露有一个大概了解</p></li>
+
+<li><p><a href="https://mp.weixin.qq.com/s/Fv7_M7L7fxYrEixq8yAx-w">[译] Go语言的协程，系统线程以及CPU管理</a></p>
+
+<p>为什么golang的 goroutinue 是轻量的, 和系统线程有什么区别, 在这里了解一下</p></li>
+
+<li><p><a href="https://mp.weixin.qq.com/s/U3QcbqOaRAABd-ESkzpI1Q">Go 标准库 encoding/json 真的慢吗？</a></p>
+
+<p>对于应用是否需要替换 <code>encoding/json</code> 包, 这里会通过代码来给你一些参考</p></li>
+
+<li><p><a href="https://cyningsun.github.io/12-09-2019/concurrency-is-not-parallelism.html">译|并发不是并行</a></p>
+
+<p>如题,并发不是并行, 这是两种概念的东西, 并发是一种逻辑思路, 并行是多个事务运行时的状态</p></li>
+
+<li><p><a href="https://purewhite.io/2019/11/28/runtime-hacking-translate/">golang 在 runtime 中的一些骚东西</a></p>
+
+<p>如果懒得读 <code>runtime</code> 包源码(毕竟很枯燥), 可以扫一眼这个在脑内建立一个索引, 以后会用到的时候再说</p></li>
+</ol>
+
     </div>
-</section>
 
-<nav class="pagination">
-  <a class="prev" href="/tags/go/">
-      <i class="iconfont icon-left"></i>
-      <span class="prev-text">上一页</span>
-    </a>
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-12-17
+        
+    </span>
+  </p>
   
-</nav>
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/es-study-note/">
+            <span class="next-text nav-default">elasticSearch 随笔</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
 
       </div>
     </main>
@@ -236,6 +261,13 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
 <script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
 
