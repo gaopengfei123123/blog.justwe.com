@@ -121,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/categories/tools/</loc>
+    <loc>https://blog.justwe.site/tags/tools/</loc>
     <lastmod>2019-12-10T18:00:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/tools/</loc>
+    <loc>https://blog.justwe.site/categories/tools/</loc>
     <lastmod>2019-12-10T18:00:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -205,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/k8s/</loc>
+    <loc>https://blog.justwe.site/categories/k8s/</loc>
     <lastmod>2019-12-11T10:30:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/categories/k8s/</loc>
+    <loc>https://blog.justwe.site/tags/k8s/</loc>
     <lastmod>2019-12-11T10:30:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
