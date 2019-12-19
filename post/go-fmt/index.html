@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[转] golang fmt格式“占位符” - Hello world</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="qing123" /><meta name="description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&amp;#34;%v&amp;#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&amp;#34;%&#43;v&amp;#34;," /><meta name="keywords" content="golang, go, package, fmt" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.justwe.site/post/go-fmt/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[转] golang fmt格式“占位符”" />
+<meta property="og:description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&#34;%v&#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&#34;%&#43;v&#34;," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-fmt/" />
+<meta property="article:published_time" content="2019-12-19T14:11:01+08:00" />
+<meta property="article:modified_time" content="2019-12-19T14:11:01+08:00" />
+<meta itemprop="name" content="[转] golang fmt格式“占位符”">
+<meta itemprop="description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&#34;%v&#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&#34;%&#43;v&#34;,">
+
+
+<meta itemprop="datePublished" content="2019-12-19T14:11:01&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-19T14:11:01&#43;08:00" />
+<meta itemprop="wordCount" content="1287">
+
+
+
+<meta itemprop="keywords" content="go,fmt," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[转] golang fmt格式“占位符”"/>
+<meta name="twitter:description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&#34;%v&#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&#34;%&#43;v&#34;,"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[转] golang fmt格式“占位符”</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-12-19 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>golang fmt占位符的备注:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">普通占位符
+占位符     说明                           举例                   输出
+%v      相应值的默认格式。            Printf(&#34;%v&#34;, people)   {zhangsan}，
+%+v     打印结构体时，会添加字段名     Printf(&#34;%+v&#34;, people)  {Name:zhangsan}
+%#v     相应值的Go语法表示            Printf(&#34;#v&#34;, people)   main.Human{Name:&#34;zhangsan&#34;}
+%T      相应值的类型的Go语法表示       Printf(&#34;%T&#34;, people)   main.Human
+%%      字面上的百分号，并非值的占位符  Printf(&#34;%%&#34;)            %</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">布尔占位符
+占位符       说明                举例                     输出
+%t          true 或 false。     Printf(&#34;%t&#34;, true)       true</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">整数占位符
+占位符     说明                                  举例                       输出
+%b      二进制表示                             Printf(&#34;%b&#34;, 5)             101
+%c      相应Unicode码点所表示的字符              Printf(&#34;%c&#34;, 0x4E2D)        中
+%d      十进制表示                             Printf(&#34;%d&#34;, 0x12)          18
+%o      八进制表示                             Printf(&#34;%d&#34;, 10)            12
+%q      单引号围绕的字符字面值，由Go语法安全地转义 Printf(&#34;%q&#34;, 0x4E2D)        &#39;中&#39;
+%x      十六进制表示，字母形式为小写 a-f         Printf(&#34;%x&#34;, 13)             d
+%X      十六进制表示，字母形式为大写 A-F         Printf(&#34;%x&#34;, 13)             D
+%U      Unicode格式：U+1234，等同于 &#34;U+%04X&#34;   Printf(&#34;%U&#34;, 0x4E2D)         U+4E2D</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">浮点数和复数的组成部分（实部和虚部）
+占位符     说明                              举例            输出
+%b      无小数部分的，指数为二的幂的科学计数法，
+        与 strconv.FormatFloat 的 &#39;b&#39; 转换格式一致。例如 -123456p-78
+%e      科学计数法，例如 -1234.456e+78        Printf(&#34;%e&#34;, 10.2)     1.020000e+01
+%E      科学计数法，例如 -1234.456E+78        Printf(&#34;%e&#34;, 10.2)     1.020000E+01
+%f      有小数点而无指数，例如 123.456        Printf(&#34;%f&#34;, 10.2)     10.200000
+%g      根据情况选择 %e 或 %f 以产生更紧凑的（无末尾的0）输出 Printf(&#34;%g&#34;, 10.20)   10.2
+%G      根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0）输出 Printf(&#34;%G&#34;, 10.20+2i) (10.2+2i)</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">字符串与字节切片
+占位符     说明                              举例                           输出
+%s      输出字符串表示（string类型或[]byte)   Printf(&#34;%s&#34;, []byte(&#34;Go语言&#34;))  Go语言
+%q      双引号围绕的字符串，由Go语法安全地转义  Printf(&#34;%q&#34;, &#34;Go语言&#34;)         &#34;Go语言&#34;
+%x      十六进制，小写字母，每字节两个字符      Printf(&#34;%x&#34;, &#34;golang&#34;)         676f6c616e67
+%X      十六进制，大写字母，每字节两个字符      Printf(&#34;%X&#34;, &#34;golang&#34;)         676F6C616E67</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">指针
+占位符         说明                      举例                             输出
+%p      十六进制表示，前缀 0x          Printf(&#34;%p&#34;, &amp;people)             0x4f57f0</pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">其它标记
+占位符      说明                             举例          输出
++      总打印数值的正负号；对于%q（%+q）保证只输出ASCII编码的字符。 
+                                           Printf(&#34;%+q&#34;, &#34;中文&#34;)  &#34;\u4e2d\u6587&#34;
+-      在右侧而非左侧填充空格（左对齐该区域）
+#      备用格式：为八进制添加前导 0（%#o）      Printf(&#34;%#U&#34;, &#39;中&#39;)      U+4E2D
+       为十六进制添加前导 0x（%#x）或 0X（%#X），为 %p（%#p）去掉前导 0x；
+       如果可能的话，%q（%#q）会打印原始 （即反引号围绕的）字符串；
+       如果是可打印字符，%U（%#U）会写出该字符的
+       Unicode 编码形式（如字符 x 会被打印成 U+0078 &#39;x&#39;）。
+&#39; &#39;    (空格)为数值中省略的正负号留出空白（% d）；
+       以十六进制（% x, % X）打印字符串或切片时，在字节之间用空格隔开
+0      填充前导的0而非空格；对于数字，这会将填充移到正负号之后</pre></td></tr></table>
+</div>
+</div>
+<p>golang没有 &lsquo;%u&rsquo; 点位符，若整数为无符号类型，默认就会被打印成无符号的。</p>
+
+<p>宽度与精度的控制格式以Unicode码点为单位。宽度为该数值占用区域的最小宽度；精度为小数点之后的位数。
+操作数的类型为int时，宽度与精度都可用字符 &lsquo;*&rsquo; 表示。</p>
+
+<p>对于 %g/%G 而言，精度为所有数字的总数，例如：123.45，%.4g 会打印123.5，（而 %6.2f 会打印123.45）。</p>
+
+<p>%e 和 %f 的默认精度为6</p>
+
+<p>对大多数的数值类型而言，宽度为输出的最小字符数，如果必要的话会为已格式化的形式填充空格。</p>
+
+<p>而以字符串类型，精度为输出的最大字符数，如果必要的话会直接截断。</p>
+
+<p><a href="https://studygolang.com/articles/2644?fr=sidebar">文章原文</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">qing123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-12-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/fmt/">fmt</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-defer/">
+            <span class="next-text nav-default">Golang 使用 defer 的场景</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.justwe.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author"><a rel='icp' href='https://blog.justwe.site/' target='_blank'>京ICP备16053557号-2</a></span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

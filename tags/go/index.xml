@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 17 Dec 2019 14:19:44 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 14:11:01 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[转] golang fmt格式“占位符”</title>
+      <link>https://blog.justwe.site/post/go-fmt/</link>
+      <pubDate>Thu, 19 Dec 2019 14:11:01 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/go-fmt/</guid>
+      <description>golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&amp;#34;%v&amp;#34;, people) {zhangsan}， %+v 打印结构体时，会添加字段名 Printf(&amp;#34;%+v&amp;#34;,</description>
+    </item>
+    
+    <item>
+      <title>Golang 使用 defer 的场景</title>
+      <link>https://blog.justwe.site/post/go-defer/</link>
+      <pubDate>Wed, 18 Dec 2019 16:58:37 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/go-defer/</guid>
+      <description>defer特性 defer 是在 return 之后执行标记代码行, 直观一点就是函数从上往下一行行执行代码, 遇到defer跳过, return之后, 再从下往上依次执行r</description>
+    </item>
     
     <item>
       <title>Golang值得读一下的文章-1</title>

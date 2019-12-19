@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go · Hello world</title>
+  <title>defer · Hello world</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -26,9 +26,9 @@
 <meta name="generator" content="Hugo 0.59.1 with theme even" />
 
 
-<link rel="canonical" href="https://blog.justwe.site/tags/go/" />
-  <link href="https://blog.justwe.site/tags/go/index.xml" rel="alternate" type="application/rss+xml" title="Hello world" />
-  <link href="https://blog.justwe.site/tags/go/index.xml" rel="feed" type="application/rss+xml" title="Hello world" />
+<link rel="canonical" href="https://blog.justwe.site/tags/defer/" />
+  <link href="https://blog.justwe.site/tags/defer/index.xml" rel="alternate" type="application/rss+xml" title="Hello world" />
+  <link href="https://blog.justwe.site/tags/defer/index.xml" rel="feed" type="application/rss+xml" title="Hello world" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -40,17 +40,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="go" />
+<meta property="og:title" content="defer" />
 <meta property="og:description" content="代码改变生活" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.justwe.site/tags/go/" />
+<meta property="og:url" content="https://blog.justwe.site/tags/defer/" />
 
-<meta property="og:updated_time" content="2019-12-19T14:11:01+08:00" />
-<meta itemprop="name" content="go">
+<meta property="og:updated_time" content="2019-12-18T16:58:37+08:00" />
+<meta itemprop="name" content="defer">
 <meta itemprop="description" content="代码改变生活">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="go"/>
+<meta name="twitter:title" content="defer"/>
 <meta name="twitter:description" content="代码改变生活"/>
 
 <!--[if lte IE 9]>
@@ -117,19 +117,10 @@
         <div id="content" class="content">
           <section id="archive" class="archive">
   <div class="archive-title tag">
-        <h2 class="archive-name">go</h2>
+        <h2 class="archive-name">defer</h2>
       </div>
 
   <div class="archive-post">
-      <span class="archive-post-time">
-        2019-12-19
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-fmt/" class="archive-post-link">
-          [转] golang fmt格式“占位符”
-        </a>
-      </span>
-    </div><div class="archive-post">
       <span class="archive-post-time">
         2019-12-18
       </span>
@@ -138,177 +129,12 @@
           Golang 使用 defer 的场景
         </a>
       </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-12-17
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-article-collection-1/" class="archive-post-link">
-          Golang值得读一下的文章-1
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-11-20
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-build-compress/" class="archive-post-link">
-          go 打包文件压缩
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-11-14
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-pipe-pattern/" class="archive-post-link">
-          转 go 模仿Unix 管道操作
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-11-04
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-http-grace-restart/" class="archive-post-link">
-          转 golang http平滑重启实现
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-10-25
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-context/" class="archive-post-link">
-          golang 通过 context 控制并发的应用场景
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-01-31
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-50-tips/" class="archive-post-link">
-          转 Golang 需要避免踩的 50 个坑
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2019-01-15
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-chat/" class="archive-post-link">
-          用gorilla websocket 搞一个聊天室
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-12-17
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-mysql-pool/" class="archive-post-link">
-          go mysql数据库连接池的使用
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-12-14
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-dotdotdot/" class="archive-post-link">
-          go里的点点点语法
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-12-04
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-channel-waitgroup/" class="archive-post-link">
-          通过channel控制并发数量
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-11-25
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-nginx-docker/" class="archive-post-link">
-          nginx转发到go服务当中
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-11-01
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-flame-graph/" class="archive-post-link">
-          go 火焰图分析
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-09-28
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-complex-interface/" class="archive-post-link">
-          golang 处理 map[interface{}]interface{} 数据
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-09-25
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-primary-mistakes/" class="archive-post-link">
-          go 开发时的一些初级问题
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-09-20
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-test/" class="archive-post-link">
-          golang 的测试文件
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-09-12
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-interface-tip/" class="archive-post-link">
-          go interface 的机制
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-09-12
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-why/" class="archive-post-link">
-          身为 phper 为什么我选择 go 语言?
-        </a>
-      </span>
-    </div><div class="archive-post">
-      <span class="archive-post-time">
-        2018-05-14
-      </span>
-      <span class="archive-post-title">
-        <a href="/post/go-rabbitmq-delay-queue/" class="archive-post-link">
-          基于rabbitmq实现的延时队列(golang版)
-        </a>
-      </span>
     </div>
 </section>
 
 <nav class="pagination">
   
-  <a class="next" href="/tags/go/page/2/">
-      <span class="next-text">下一页</span>
-      <i class="iconfont icon-right"></i>
-    </a>
+  
 </nav>
         </div>
         
