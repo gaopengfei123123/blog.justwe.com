@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>关于redis缓存的日常操作 - 摸鱼划水</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至" /><meta name="keywords" content="redis, 缓存穿透, 缓存击穿, 缓存雪崩, 熔断, 缓存" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.justwe.site/post/redis-tips/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="关于redis缓存的日常操作" />
+<meta property="og:description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/redis-tips/" />
+<meta property="article:published_time" content="2019-12-24T11:45:20+08:00" />
+<meta property="article:modified_time" content="2019-12-24T11:45:20+08:00" />
+<meta itemprop="name" content="关于redis缓存的日常操作">
+<meta itemprop="description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至">
+
+
+<meta itemprop="datePublished" content="2019-12-24T11:45:20&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-24T11:45:20&#43;08:00" />
+<meta itemprop="wordCount" content="659">
+
+
+
+<meta itemprop="keywords" content="redis,cache," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于redis缓存的日常操作"/>
+<meta name="twitter:description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">关于redis缓存的日常操作</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-12-24 </span>
+        <div class="post-category">
+            <a href="/categories/redis/"> redis </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      
+
+<p>大致讲一下 <code>缓存雪崩</code>, <code>缓存穿透</code>, <code>缓存击穿</code> 的场景以及常规解决手段</p>
+
+<h4 id="缓存雪崩">缓存雪崩</h4>
+
+<h5 id="场景">场景:</h5>
+
+<p>在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至宕机/被动构建缓存时cpu占用率暴升</p>
+
+<h5 id="解决方式">解决方式</h5>
+
+<ul>
+<li>缓存过期时间+/- 一个随机值, 尽量让缓存过期交错进行</li>
+<li>缓存集群部署, 缓存分布在各个节点中也能产生类似的效果</li>
+<li>不设置缓存过期时间, 而是数据更新后通过排它锁更新缓存</li>
+</ul>
+
+<h4 id="缓存穿透">缓存穿透</h4>
+
+<h5 id="场景-1">场景:</h5>
+
+<p>比如按缓存了id=[1,2,3]的数据, 有一个ip不断请求id=-1 或 id=[4,5,6]这些未缓存到的数据, 导致缓存形同虚设, 增加数据库负载</p>
+
+<p>或者id=1的缓存数据失效后读库时发生了错误, 也会导致所有请求id=1的请求都会直接链接数据库</p>
+
+<h5 id="解决方式-1">解决方式:</h5>
+
+<ul>
+<li>接口校验请求参数, 规避一些明显的错误格式</li>
+<li>设置数据边界, 比如mysql分页时最大page=100, 之后就不能用offset去做偏移,而是根据日期或者id去直接读取</li>
+<li>针对不存在缓存中的, id=-1的, 构建缓存时报错的也给缓存一个时间短一点的值, 就直接是null就好</li>
+<li>布隆过滤器</li>
+</ul>
+
+<p>举例如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php">function demo($catchKey, $callback){
+    try{
+        $value = $this-&gt;getValueFromCache($catchKey);
+        if($value === false){
+            $this-&gt;setCache($catchKey, [], 30);
+            return [];
+        }
+        if(!empty($value)){
+            return $value;
+        }
+
+        $value = $callback($catchKey);
+        $this-&gt;setCache($catchKey, $value, 3600)
+        return $value;
+    }catch(\Exception $e){
+        $this-&gt;logException($e);
+        $this-&gt;setCache($catchKey, [], 30);
+        return [];
+    }
+
+}</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="缓存击穿">缓存击穿</h4>
+
+<h5 id="场景-2">场景:</h5>
+
+<p>和缓存雪崩类似, 这里是单个热数据缓存失效, 导致流量像锥子一样穿透层层缓存的保护直达数据库, 然后数据库跪了&hellip;</p>
+
+<h5 id="解决方式-2">解决方式:</h5>
+
+<ul>
+<li>热点数据不设置缓存过期时间, 主动构建缓存, 加互斥锁</li>
+<li>布隆过滤器</li>
+<li>碰到这种情况时说明有了一定的流量, 那么就要考虑熔断的机制, 限制服务接收请求频次, 牺牲部分用户体验, 但是保证整体服务可用</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-12-24
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/redis/">redis</a>
+          <a href="/tags/cache/">cache</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-fmt/">
+            <span class="next-text nav-default">[转] golang fmt格式“占位符”</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.justwe.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author"><a rel='icp' href='https://blog.justwe.site/' target='_blank'>京ICP备16053557号-2</a></span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

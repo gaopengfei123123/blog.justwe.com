@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on 摸鱼划水</title>
+    <link>https://blog.justwe.site/tags/redis/</link>
+    <description>Recent content in redis on 摸鱼划水</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 24 Dec 2019 11:45:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.justwe.site/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于redis缓存的日常操作</title>
+      <link>https://blog.justwe.site/post/redis-tips/</link>
+      <pubDate>Tue, 24 Dec 2019 11:45:20 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/redis-tips/</guid>
+      <description>大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至</description>
+    </item>
+    
+  </channel>
+</rss>
