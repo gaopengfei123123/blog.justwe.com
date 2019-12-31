@@ -3,63 +3,63 @@
   
   <url>
     <loc>https://blog.justwe.site/about/</loc>
-    <lastmod>2019-11-21T15:15:30+08:00</lastmod>
+    <lastmod>2019-12-31T14:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/tags/cache/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-27T11:44:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/categories/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-27T11:44:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/post/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-27T11:44:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/categories/redis/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-27T11:44:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/tags/redis/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-27T11:44:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/tags/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-27T11:44:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/post/redis-tips/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-27T11:44:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/</loc>
-    <lastmod>2019-12-24T11:45:20+08:00</lastmod>
+    <lastmod>2019-12-31T14:47:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/go/</loc>
+    <loc>https://blog.justwe.site/categories/go/</loc>
     <lastmod>2019-12-19T14:23:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/categories/go/</loc>
+    <loc>https://blog.justwe.site/tags/go/</loc>
     <lastmod>2019-12-19T14:23:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -492,14 +492,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/categories/git/</loc>
+    <loc>https://blog.justwe.site/tags/git/</loc>
     <lastmod>2019-12-02T11:55:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/git/</loc>
+    <loc>https://blog.justwe.site/categories/git/</loc>
     <lastmod>2019-12-02T11:55:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -919,14 +919,14 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/categories/elementui/</loc>
+    <loc>https://blog.justwe.site/tags/elementui/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/elementui/</loc>
+    <loc>https://blog.justwe.site/categories/elementui/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
