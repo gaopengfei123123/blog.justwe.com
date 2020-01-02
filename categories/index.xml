@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 24 Dec 2019 11:45:20 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 16:27:10 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>redis</title>
       <link>https://blog.justwe.site/categories/redis/</link>
-      <pubDate>Tue, 24 Dec 2019 11:45:20 +0800</pubDate>
+      <pubDate>Tue, 31 Dec 2019 16:27:10 +0800</pubDate>
       
       <guid>https://blog.justwe.site/categories/redis/</guid>
       <description></description>
@@ -76,7 +76,7 @@
     </item>
     
     <item>
-      <title>Yii2</title>
+      <title>yii2</title>
       <link>https://blog.justwe.site/categories/yii2/</link>
       <pubDate>Wed, 19 Dec 2018 11:31:00 +0000</pubDate>
       

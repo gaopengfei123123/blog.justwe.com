@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.justwe.site/" />
 
-<meta property="og:updated_time" content="2019-12-24T11:45:20+08:00" />
+<meta property="og:updated_time" content="2019-12-31T16:27:10+08:00" />
 <meta itemprop="name" content="摸鱼划水">
 <meta itemprop="description" content="代码改变生活">
 
@@ -116,6 +116,27 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-http-grace-restart/">转 golang http平滑重启实现</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-11-04 </span>
+      <div class="post-category">
+          <a href="/categories/go/"> go </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      服务端代码经常需要升级，对于线上系统的升级常用的做法是，通过前端的负载均衡（如nginx）来保证升级时至少有一个服务可用，依次（灰度）升级。
+    </div>
+    <div class="read-more">
+      <a href="/post/go-http-grace-restart/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/go-context/">golang 通过 context 控制并发的应用场景</a></h1>
@@ -306,27 +327,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-chat/">用gorilla websocket 搞一个聊天室</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-01-15 </span>
-      <div class="post-category">
-          <a href="/categories/go/"> go </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      这个demo实现了: 1. 消息广播 2. 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息
-    </div>
-    <div class="read-more">
-      <a href="/post/go-chat/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -367,7 +367,7 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

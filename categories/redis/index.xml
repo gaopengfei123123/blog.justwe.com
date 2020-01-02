@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 24 Dec 2019 11:45:20 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 16:27:10 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/categories/redis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Redis 统计uv</title>
+      <link>https://blog.justwe.site/post/redis-hyperloglog/</link>
+      <pubDate>Tue, 31 Dec 2019 16:27:10 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/redis-hyperloglog/</guid>
+      <description>日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? p{ text-indent:2em;} 场景 下面有三个选择: 1. 甩给公司的大数据部门, 让他们搞去 2. 开始记录i</description>
+    </item>
     
     <item>
       <title>关于redis缓存的日常操作</title>
