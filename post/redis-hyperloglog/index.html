@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-12-31T16:27:10&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-02T11:41:26&#43;08:00" />
-<meta itemprop="wordCount" content="715">
+<meta itemprop="wordCount" content="830">
 
 
 
@@ -151,8 +151,9 @@ p{ text-indent:2em;}
 
 <p>下面有三个选择:
 1. 甩给公司的大数据部门, 让他们搞去
-2. 开始记录ip ,然后去重统计
-3. 使用 HyperLogLog 算法</p>
+2. 开始记录ip ,然后去重统计, b数/mysql/redis/hashMap等等
+3. bitmap
+4. 使用 HyperLogLog 算法</p>
 
 <p>首先, 选1的时候看公司架构怎么说, 如果人家给你排期到半个月后了你这需求还做不做了?</p>
 
@@ -163,7 +164,11 @@ p{ text-indent:2em;}
 <p>比如放到redis的集合里面(曾经我就这么干过), 把所有请求的ip存到redis中, 最后统计集合中元素的个数, 后来运维开始在群里嚷嚷:咱们缓存服务的内存要不够用啦!
 运维把大key一列, 嗯? xx, 你这缓存能优化一下不? 这几百mb的冷数据扔缓存里面太浪费资源了balabala</p>
 
-<p>总之就是你得优化一下了, 那么怎么优化呢? 经过我一番谷歌+翻文档, 发现了这么个神奇的东西: HyperLogLog</p>
+<p>总之就是你得优化一下了, 那么怎么优化呢?</p>
+
+<p>bitmap也是一种不错的方式, 把十进制映射到bit字节上, 比如 10000000 个基数, 那么转换后就变成了  100000000/8/1024/1024 ≈ 12M, 这也是个不错的选择, 不过key很多的情况下占用空间也不少</p>
+
+<p>经过我一番谷歌+翻文档, 发现了这么个神奇的东西: HyperLogLog, 基于概率这种玄学的算法</p>
 
 <h3 id="在redis中的使用">在redis中的使用</h3>
 
