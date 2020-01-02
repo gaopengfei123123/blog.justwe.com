@@ -43,14 +43,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/redis-hyperloglog/" />
 <meta property="article:published_time" content="2019-12-31T16:27:10+08:00" />
-<meta property="article:modified_time" content="2019-12-31T16:27:10+08:00" />
+<meta property="article:modified_time" content="2020-01-02T11:41:26+08:00" />
 <meta itemprop="name" content="Redis 统计uv">
 <meta itemprop="description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? p{ text-indent:2em;} 场景 下面有三个选择: 1. 甩给公司的大数据部门, 让他们搞去 2. 开始记录i">
 
 
 <meta itemprop="datePublished" content="2019-12-31T16:27:10&#43;08:00" />
-<meta itemprop="dateModified" content="2019-12-31T16:27:10&#43;08:00" />
-<meta itemprop="wordCount" content="650">
+<meta itemprop="dateModified" content="2020-01-02T11:41:26&#43;08:00" />
+<meta itemprop="wordCount" content="715">
 
 
 
@@ -169,6 +169,8 @@ p{ text-indent:2em;}
 
 <p>Redis 在 2.8.9 版本添加了 HyperLogLog 结构, 它的优势就是每个key仅需12kb的内存, 就能存储 2^64 个不同元素的基数, 存储空间小且固定, 缺点就是元数据无法直接提取了</p>
 
+<p>这种是基于概率的算法, 既然是概率就包含着不确定性, 存在统计误差, 不过大部分场景是能hold住的, 如果需要<strong>绝对精确</strong>的情况, 不要用这个</p>
+
 <p>使用的命令如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -223,8 +225,8 @@ OK
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-12-31
-        
+        2020-01-02
+        <a href="#ZgotmplZ/commit/314f0932441fc719dc85dd050bf97d9e179d82f8" title="新增一篇文章">(314f093)</a>
     </span>
   </p>
   
