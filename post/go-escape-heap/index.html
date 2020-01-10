@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>golang 简单解释内存逃逸 - 摸鱼划水</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="先提一个问题: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // escape.go package main import &amp;#34;fmt&amp;#34; func intSeq() func() int { i := 0 return func() int { i&#43;&#43; return i } } func main() { nextInt := intSeq() fmt.Println(nextInt()) fmt.Println(nextInt()) fmt.Println(nextInt()) } 会输出什么? 先简单介绍一" /><meta name="keywords" content="go, 内存逃逸, 堆, 栈, 性能优化" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.justwe.site/post/go-escape-heap/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="golang 简单解释内存逃逸" />
+<meta property="og:description" content="先提一个问题: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // escape.go package main import &#34;fmt&#34; func intSeq() func() int { i := 0 return func() int { i&#43;&#43; return i } } func main() { nextInt := intSeq() fmt.Println(nextInt()) fmt.Println(nextInt()) fmt.Println(nextInt()) } 会输出什么? 先简单介绍一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-escape-heap/" />
+<meta property="article:published_time" content="2020-01-10T17:23:23+08:00" />
+<meta property="article:modified_time" content="2020-01-10T17:23:23+08:00" />
+<meta itemprop="name" content="golang 简单解释内存逃逸">
+<meta itemprop="description" content="先提一个问题: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // escape.go package main import &#34;fmt&#34; func intSeq() func() int { i := 0 return func() int { i&#43;&#43; return i } } func main() { nextInt := intSeq() fmt.Println(nextInt()) fmt.Println(nextInt()) fmt.Println(nextInt()) } 会输出什么? 先简单介绍一">
+
+
+<meta itemprop="datePublished" content="2020-01-10T17:23:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-10T17:23:23&#43;08:00" />
+<meta itemprop="wordCount" content="890">
+
+
+
+<meta itemprop="keywords" content="go,编译," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="golang 简单解释内存逃逸"/>
+<meta name="twitter:description" content="先提一个问题: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // escape.go package main import &#34;fmt&#34; func intSeq() func() int { i := 0 return func() int { i&#43;&#43; return i } } func main() { nextInt := intSeq() fmt.Println(nextInt()) fmt.Println(nextInt()) fmt.Println(nextInt()) } 会输出什么? 先简单介绍一"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt;</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt;</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">golang 简单解释内存逃逸</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-10 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      
+
+<p>先提一个问题:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// escape.go
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">func</span> <span class="nf">intSeq</span><span class="p">()</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+		<span class="nx">i</span><span class="o">++</span>
+		<span class="k">return</span> <span class="nx">i</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">nextInt</span> <span class="o">:=</span> <span class="nf">intSeq</span><span class="p">()</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">nextInt</span><span class="p">())</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>会输出什么?</p>
+
+<!-- more -->
+
+<p>先简单介绍一下堆和栈</p>
+
+<ul>
+<li><p>栈
+在程序中，每个函数块都会有自己的内存区域用来存自己的局部变量（内存占用少）、返回地址、返回值之类的数据，这一块内存区域有特定的结构和寻址方式，大小在编译时已经确定，寻址起来也十分迅速，开销很少。这一块内存地址称为栈。栈是线程级别的，大小在创建的时候已经确定，所以当数据太大的时候，就会发生”stack overflow”。</p></li>
+
+<li><p>堆
+在程序中，全局变量、内存占用大的局部变量、发生了逃逸的局部变量存在的地方就是堆，这一块内存没有特定的结构，也没有固定的大小，可以根据需要进行调整。简单来说，有大量数据要存的时候，就存在堆里面。堆是进程级别的。当一个变量需要分配在堆上的时候，开销会比较大，对于 go 这种带 GC 的语言来说，也会增加 gc 压力，同时也容易造成内存碎片。</p></li>
+</ul>
+
+<p>通常来讲, 分配在栈上的内存, 在函数执行完毕后就会被回收, 堆上的会根据gc算法来回收</p>
+
+<p>再回到最开始的问题上, 上面的代码会输出:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">1
+2
+3</pre></td></tr></table>
+</div>
+</div>
+<p>中间发生了什么, 我们一步一步的讲</p>
+
+<p>首先执行 <code>go build -gcflags '-m' escape.go</code>, 输出:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># command-line-arguments</span>
+./escape.go:7:9: can inline intSeq.func1
+./escape.go:14:13: inlining call to fmt.Println
+./escape.go:15:13: inlining call to fmt.Println
+./escape.go:16:13: inlining call to fmt.Println
+./escape.go:6:2: moved to heap: i
+./escape.go:7:9: func literal escapes to heap
+./escape.go:14:21: nextInt<span class="o">()</span> escapes to heap
+./escape.go:14:13: main <span class="o">[]</span>interface <span class="o">{}</span> literal does not escape
+./escape.go:14:13: io.Writer<span class="o">(</span>os.Stdout<span class="o">)</span> escapes to heap
+./escape.go:15:21: nextInt<span class="o">()</span> escapes to heap
+./escape.go:15:13: main <span class="o">[]</span>interface <span class="o">{}</span> literal does not escape
+./escape.go:15:13: io.Writer<span class="o">(</span>os.Stdout<span class="o">)</span> escapes to heap
+./escape.go:16:21: nextInt<span class="o">()</span> escapes to heap
+./escape.go:16:13: main <span class="o">[]</span>interface <span class="o">{}</span> literal does not escape
+./escape.go:16:13: io.Writer<span class="o">(</span>os.Stdout<span class="o">)</span> escapes to heap
+&lt;autogenerated&gt;:1: <span class="o">(</span>*File<span class="o">)</span>.close .this does not escape</code></pre></td></tr></table>
+</div>
+</div>
+<p>像 <code>can inline</code>, <code>inlining call to</code> 这种内联的先不管</p>
+
+<p>注意这一条 <code>./escape.go:6:2: moved to heap: i</code>  编译的时候把<code>i</code>变量的内存地址放到了堆(heap)上</p>
+
+<p>因为当 <code>./escape.go:7:</code> 时, 函数 <code>intSeq</code> 返回一个闭包, 然而这个函数在这时还没执行, 因此内存不能回收, 而闭包中的变量 <code>i</code> 本来是 <code>intSeq</code> 函数内声明的一个局部变量,这么随着闭包返出的时候, 自然要从栈内存分配到堆内存上, 而且这个闭包发生了内存逃逸 <code>nextInt() escapes to heap</code>, 因此 <code>i</code> 变成了一个范围更大的一个局部变量, 被包在<code>nextInt()</code>函数中, 因此只要 <code>nextInt</code> 这个变量不被销毁, 那么 <code>i</code> 就一直存在着, 相当于无数个 <code>nextInt</code> 专属的 &ldquo;全局变量&rdquo;</p>
+
+<h5 id="相关资料">相关资料</h5>
+
+<ul>
+<li><a href="https://purewhite.io/2019/03/25/golang-escape-check/">golang 逃逸分析</a></li>
+<li><a href="https://golangnote.com/topic/83.html">5个GoLang 应用优化措施</a></li>
+<li><a href="https://segmentfault.com/a/1190000016354799">Go 性能调优之 —— 编译优化</a></li>
+<li><a href="https://segmentfault.com/a/1190000016743220">Go 语言编译器的 &ldquo;//go:&rdquo; 详解</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-01-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          <a href="/tags/%E7%BC%96%E8%AF%91/">编译</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/redis-hyperloglog/">
+            <span class="next-text nav-default">Redis 统计uv</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.justwe.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author"><a rel='icp' href='https://blog.justwe.site/' target='_blank'>京ICP备16053557号-2</a></span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

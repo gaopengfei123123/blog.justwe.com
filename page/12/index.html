@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.justwe.site/" />
 
-<meta property="og:updated_time" content="2019-12-31T16:27:10+08:00" />
+<meta property="og:updated_time" content="2020-01-10T17:23:23+08:00" />
 <meta itemprop="name" content="摸鱼划水">
 <meta itemprop="description" content="代码改变生活">
 
@@ -116,6 +116,27 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/laravel-trancate/">laravel事务</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-03-21 </span>
+      <div class="post-category">
+          <a href="/categories/laravel/"> laravel </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      laravel 事务的使用会忽略的地方 laravel开启事物有两种方法： 一种是闭包 1 2 3 4 5 DB::transaction(function() { DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]); DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]); }); 当闭包内发生错误就会自动回滚 另一种比较灵活 1 2 3 4 5
+    </div>
+    <div class="read-more">
+      <a href="/post/laravel-trancate/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/go-workflow/">go语言了解(3) 工作流程</a></h1>
@@ -301,27 +322,6 @@
     </div>
     <div class="read-more">
       <a href="/post/go-liteide/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/html5-ajax-process/">转 HTML5上传文件显示进度</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-03-06 </span>
-      <div class="post-category">
-          <a href="/categories/front-end/"> front-end </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      使用ajax上传文件的时候为了通过 files api来获取文件信息，从而可以看到显示进度 html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;div class=&#34;row&#34;&gt; &lt;label for=&#34;file&#34;&gt; Upload Image:&lt;/label&gt; &lt;input type=&#34;file&#34; name=&#34;fileToUpload&#34; id=&#34;fileToUpload&#34; multiple=&#34;multiple&#34; onchange=&#34;fileSelected();&#34; /&gt;
-    </div>
-    <div class="read-more">
-      <a href="/post/html5-ajax-process/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
