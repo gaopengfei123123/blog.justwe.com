@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://blog.justwe.site/&#39; target=&#39;_blank&#39;&gt;京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 19 Feb 2020 18:33:27 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2020 18:39:13 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://blog.justwe.site/about/</guid>
       <description>会点 php,会点 js,会点 go,还有一些乱七八糟的东西 目前学的比较杂乱,需要整理一番,慢慢来吧..</description>
+    </item>
+    
+    <item>
+      <title>[leetcode] LongestValidParentheses</title>
+      <link>https://blog.justwe.site/post/leetcode-longestvalidparentheses/</link>
+      <pubDate>Thu, 20 Feb 2020 18:39:13 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/leetcode-longestvalidparentheses/</guid>
+      <description>&lt;p&gt;疫情期间的摸鱼活动&lt;/p&gt;</description>
     </item>
     
     <item>
