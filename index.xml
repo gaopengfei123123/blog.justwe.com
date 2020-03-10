@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 24 Feb 2020 18:54:05 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2020 15:03:50 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://blog.justwe.site/about/</guid>
       <description>会点 php,会点 js,会点 go,还有一些乱七八糟的东西 目前学的比较杂乱,需要整理一番,慢慢来吧..</description>
+    </item>
+    
+    <item>
+      <title>Docker 搭建 Zookeeper 测试集群</title>
+      <link>https://blog.justwe.site/post/docker-zookeeper/</link>
+      <pubDate>Tue, 10 Mar 2020 15:03:50 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/docker-zookeeper/</guid>
+      <description>&lt;p&gt;使用 docker-compose 在本地搭建一个测试用的zookeeper集群, 顺便带个web页面方便查看&lt;/p&gt;</description>
     </item>
     
     <item>
