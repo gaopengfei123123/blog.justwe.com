@@ -18,7 +18,7 @@
       <pubDate>Wed, 12 Sep 2018 14:53:03 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/go-interface-tip/</guid>
-      <description>对 interface 赋值变量的时候经常出的问题 日常开发时有个这样的例子: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 package main import &amp;#34;fmt&amp;#34; type Human interface { Run() } type Boy struct { Name string } func (b</description>
+      <description>对 interface 赋值变量的时候经常出的问题 日常开发时有个这样的例子: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 package main import &amp;#34;fmt&amp;#34; type Human interface { Run() } type Boy struct { Name string } func</description>
     </item>
     
     <item>

@@ -27,7 +27,7 @@
       <pubDate>Tue, 14 May 2019 11:04:46 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/k8s-minikube/</guid>
-      <description>本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作</description>
+      <description>本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: kubectl 本地做命令行控制用, 所有的命令操作都</description>
     </item>
     
     <item>

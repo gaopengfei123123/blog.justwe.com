@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-swoole/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="安装swoole的记录">
 <meta itemprop="description" content="源码地址 因为swoole已经加入官方扩展包中，可以直接用pecl安装 1 pecl install swoole 也可以通过源码安装： 首先确认php的安装路径 1 which php 这个大部分都是">
-
-
 <meta itemprop="datePublished" content="2016-12-10T05:43:14&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="389">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安装swoole的记录"/>
 <meta name="twitter:description" content="源码地址 因为swoole已经加入官方扩展包中，可以直接用pecl安装 1 pecl install swoole 也可以通过源码安装： 首先确认php的安装路径 1 which php 这个大部分都是"/>
 
@@ -138,94 +135,89 @@
     
     <div class="post-content">
       <p><a href="https://github.com/swoole/swoole-src">源码地址</a></p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>因为swoole已经加入官方扩展包中，可以直接用pecl安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">pecl install swoole</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pecl install swoole
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也可以通过源码安装：</p>
-
+</div><p>也可以通过源码安装：</p>
 <p>首先确认php的安装路径</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">which php</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">which php
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这个大部分都是指向的/usr/local/bin/php这个地址，但这些文件都是链接，顺着这个就能找到文件真正所在了</p>
-
+</div><p>这个大部分都是指向的/usr/local/bin/php这个地址，但这些文件都是链接，顺着这个就能找到文件真正所在了</p>
 <p>去这里是为了找到 phpize 这个工具,在文件安装目录中的 bin 目录中找有没有 phpize 这个快捷方式
 如果没有的话，就运行如下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">yum install php-dev
-注意版本问题</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">yum install php-dev
+注意版本问题
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>之后有了 <code>phpize</code> 工具就好说了</p>
+</div><p>之后有了 <code>phpize</code> 工具就好说了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">sudo apt-get install php5-dev
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt-get install php5-dev
 git clone https://github.com/swoole/swoole-src.git
 cd swoole-src
 phpize
 ./configure
-make &amp;&amp; make install</pre></td></tr></table>
+make &amp;&amp; make install
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这一段是官方提供的安装命令，安装完毕后留意一下他的安装路径，或者指定路径 可以在编译前的 <code>./configure --help</code>查看，比如<code>----prefix=/your/wanted/path</code></p>
-
+</div><p>这一段是官方提供的安装命令，安装完毕后留意一下他的安装路径，或者指定路径 可以在编译前的 <code>./configure --help</code>查看，比如<code>----prefix=/your/wanted/path</code></p>
 <p>之后就是在运行的<code>php.ini</code>文件中添加配置了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">#查看php运行的php.ini
-php -i | grep php.ini</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#查看php运行的php.ini
+php -i | grep php.ini
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑 <code>php.ini</code> 直接添加一行</p>
+</div><p>编辑 <code>php.ini</code> 直接添加一行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">extension= swoole.so</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">extension= swoole.so
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>保存退出后</p>
+</div><p>保存退出后</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php -m | grep swoole</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php -m | grep swoole
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>出现了就说明已经安装上了，high起来！</p>
+</div><p>出现了就说明已经安装上了，high起来！</p>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/vue-svg-icon/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="转 在 vue-cli 中使用 svg 做 icon">
 <meta itemprop="description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了">
-
-
 <meta itemprop="datePublished" content="2017-12-26T17:03:55&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="1077">
+<meta itemprop="wordCount" content="1075">
 
 
 
-<meta itemprop="keywords" content="vue,js," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="vue,js," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 在 vue-cli 中使用 svg 做 icon"/>
 <meta name="twitter:description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了"/>
 
@@ -137,30 +134,24 @@
 
     
     <div class="post-content">
-      
-
-<p>之前都是用的<code>image sprite</code>或者使用的 <a href="http://fontawesome.io/">Font Awesome</a>这类的开源库
+      <p>之前都是用的<code>image sprite</code>或者使用的 <a href="http://fontawesome.io/">Font Awesome</a>这类的开源库
 现在咱们已经走进了现代浏览器的年代(ie9+),可以玩点新鲜的东西了,svg</p>
-
-<!-- more -->
-
-<p>svg 有几个好处:
-* 矢量图,不失真
-* 可以受CSS样式影响,就像一个文本
-* http请求低了</p>
-
+<!-- raw HTML omitted -->
+<p>svg 有几个好处:</p>
+<ul>
+<li>矢量图,不失真</li>
+<li>可以受CSS样式影响,就像一个文本</li>
+<li>http请求低了</li>
+</ul>
 <blockquote>
 <p>相关阅读: <a href="http://www.zhangxinxu.com/wordpress/2014/07/introduce-svg-sprite-technology/?spm=a313x.7781069.1998910419.50">未来必热：SVG Sprite技术介绍</a></p>
 </blockquote>
-
 <p>而对我来说最直观的好处就是可以让设计师给你出一个 svg,而不是自己眼都挑花了去找一个合适的图标:)</p>
-
 <h2 id="做一个-svg-icon-组件">做一个 svg-icon 组件</h2>
-
 <p>在 vue-cli 生成的 vue 脚手架中添加组件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -198,6 +189,7 @@
 </span><span class="lnt">36
 </span><span class="lnt">37
 </span><span class="lnt">38
+</span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// path: @/components/SvgIcon/index.vue
@@ -238,13 +230,13 @@
 <span class="nx">链接</span><span class="err">：</span><span class="nx">https</span><span class="o">:</span><span class="c1">//juejin.im/post/59bb864b5188257e7a427c09
 </span><span class="c1"></span><span class="nx">来源</span><span class="err">：</span><span class="nx">掘金</span>
 <span class="nx">著作权归作者所有</span><span class="err">。</span><span class="nx">商业转载请联系作者获得授权</span><span class="err">，</span><span class="nx">非商业转载请注明出处</span><span class="err">。</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>使用:</p>
+</div><p>使用:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -257,9 +249,9 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">//引入svg组件
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//引入svg组件
 import IconSvg from &#39;@/components/IconSvg&#39;
 
 //全局注册icon-svg
@@ -271,20 +263,17 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
 作者：花裤衩
 链接：https://juejin.im/post/59bb864b5188257e7a427c09
 来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</pre></td></tr></table>
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>现在组件有了,svg 去哪里搞?</p>
-
+</div><p>现在组件有了,svg 去哪里搞?</p>
 <h2 id="使用-svg-sprite-loader">使用 svg-sprite-loader</h2>
-
 <p>这个工具可以把多个 svg 打包成 svg-sprite</p>
-
 <p>为了把 icon 使用的 svg 和其他地方使用的 svg 区分开,我们需要对<code>webpack.base.conf.js</code>中的内容
 重新设置一下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -332,14 +321,14 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
      <span class="p">...</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>接下来需要使用 webpack 的<code>require.context</code>函数
-&gt;require.context(&ldquo;./test&rdquo;, false, /.test.js$/);这行代码就会去 test 文件夹（不包含子目录）下面的找所有文件名以 .test.js 结尾的文件能被 require 的文件。更直白的说就是 我们可以通过正则匹配引入相应的文件模块。</p>
-
+</div><p>接下来需要使用 webpack 的<code>require.context</code>函数</p>
+<blockquote>
+<p>require.context(&quot;./test&rdquo;, false, /.test.js$/);这行代码就会去 test 文件夹（不包含子目录）下面的找所有文件名以 .test.js 结尾的文件能被 require 的文件。更直白的说就是 我们可以通过正则匹配引入相应的文件模块。</p>
+</blockquote>
 <p>为了拆卸方便就把这些都放在了<code>icons</code>目录下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -367,11 +356,10 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
 </span><span class="c1"></span><span class="nx">requireAll</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>然后只需要在 <code>main.js</code> 文件中引入这个组件就可以了</p>
+</div><p>然后只需要在 <code>main.js</code> 文件中引入这个组件就可以了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -383,15 +371,10 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
 </span><span class="c1"></span><span class="p">...</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>具体代码可以参考 <a href="https://github.com/gaopengfei123123/tadmin/commit/32735b2998290ca7558a1bfe0ec8b9c368893703">这个地址链接</a></p>
-
+</div><p>具体代码可以参考 <a href="https://github.com/gaopengfei123123/tadmin/commit/32735b2998290ca7558a1bfe0ec8b9c368893703">这个地址链接</a></p>
 <h2 id="压缩-svg-内容">压缩 svg 内容</h2>
-
 <p>这里推荐一个比较好用的工具: <a href="https://github.com/svg/svgo">svgo</a> <a href="http://www.zhangxinxu.com/wordpress/2016/02/svg-compress-tool-svgo-experience/">SVG精简压缩工具svgo简介和初体验</a></p>
-
 <h2 id="最后">最后</h2>
-
 <p>这是我抄的 花裤衩的 <a href="https://juejin.im/post/59bb864b5188257e7a427c09">手摸手，带你优雅的使用 icon</a>,观摩别人的代码给自己带来了很多收获</p>
 
     </div>

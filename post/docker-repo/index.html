@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES" /><meta name="keywords" content="docker file, docker教程" />
+<meta name="author" content="GPF" /><meta name="description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 6 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS" /><meta name="keywords" content="docker file, docker教程" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-repo/" />
@@ -39,25 +39,22 @@
 
 
 <meta property="og:title" content="docker(2) 创建属于自己的库" />
-<meta property="og:description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES" />
+<meta property="og:description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 6 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/docker-repo/" />
 <meta property="article:published_time" content="2017-02-19T09:48:00+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="docker(2) 创建属于自己的库">
-<meta itemprop="description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES">
-
-
+<meta itemprop="description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 6 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS">
 <meta itemprop="datePublished" content="2017-02-19T09:48:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="657">
+<meta itemprop="wordCount" content="656">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker(2) 创建属于自己的库"/>
-<meta name="twitter:description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES"/>
+<meta name="twitter:description" content="上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 6 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,104 +134,100 @@
 
     
     <div class="post-content">
-      <p>上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的
-<!-- more -->
-首先查看下自己的库有哪些</p>
+      <p>上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的</p>
+<!-- raw HTML omitted -->
+<p>首先查看下自己的库有哪些</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">➜  ~ docker ps -a
-CONTAINER ID        IMAGE                   COMMAND             CREATED             STATUS                      PORTS               NAMES
-4cd577624dd2        ubuntu                  &#34;/bin/bash&#34;         2 days ago          Exited (127) 16 hours ago                       little_cat
-80ac1b1ba419        ubuntu                  &#34;/bin/bash&#34;         2 days ago          Exited (0) 2 days ago                           determined_bhaskara
-ce5104ceef1f        ubuntu                  &#34;/bin/bash&#34;         4 days ago          Exited (0) 4 days ago                           small_hugle</pre></td></tr></table>
-</div>
-</div>
-<p>我们上次创建并操作的容器就是名字是<code>little_cat</code> 而且它的容器id为<code>4cd577624dd2</code> 正是我们需要的</p>
-
-<p>接下来就是在<a href="https://hub.docker.com">docker官网</a>上注册一个账号，过程也很简单，填个账户，邮箱，密码 邮箱再验证一下就好</p>
-
-<p>本地我们登陆一下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">➜  ~ docker ps -a</pre></td></tr></table>
-</div>
-</div>
-<p>输入*有效*的账户信息就行，他会在 $HOME/.docker/config.json 文件中生成一条 auth 信息</p>
-
-<p>登陆成功后，我们把指定的容器做成我们自己的库</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">➜  ~ docket commit 4cd577624dd2 gaofeifiy/ubuntu-base</pre></td></tr></table>
-</div>
-</div>
-<p>这条命令的作用就是把 containerId 为 4cd577624dd2 (也就是 little_cat) 提交给 gaofeifiy/ubuntu-base 这个库，
-注意，这里commit的时候要用到id而不是容器的name，我自己试的时候就出现提交为none的情况，也许以后的版本会补上</p>
-
-<p>这个有什么作用呢？ 我们查看一下images</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">➜  ~ docker images
-REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
-gaofeifiy/ubuntu-base   latest              6f8cfa1871b0        40 minutes ago      227 MB
-ubuntu                  16.04               f49eec89601e        4 weeks ago         129.5 MB
-ubuntu                  latest              f49eec89601e        4 weeks ago         129.5 MB</pre></td></tr></table>
-</div>
-</div>
-<p>我们最早的 little_cat 已经在本地被做成一个基础的images了</p>
-
-<p>直接用它创建一个容器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">➜  ~ docker run -t -i --name big_cat gaofeifiy/ubuntu-base /bin/bash
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  ~ docker ps -a
+CONTAINER ID        IMAGE                   COMMAND             CREATED             STATUS                      PORTS               NAMES
+4cd577624dd2        ubuntu                  &#34;/bin/bash&#34;         2 days ago          Exited (127) 16 hours ago                       little_cat
+80ac1b1ba419        ubuntu                  &#34;/bin/bash&#34;         2 days ago          Exited (0) 2 days ago                           determined_bhaskara
+ce5104ceef1f        ubuntu                  &#34;/bin/bash&#34;         4 days ago          Exited (0) 4 days ago                           small_hugle
+
+</code></pre></td></tr></table>
+</div>
+</div><p>我们上次创建并操作的容器就是名字是<code>little_cat</code> 而且它的容器id为<code>4cd577624dd2</code> 正是我们需要的</p>
+<p>接下来就是在<a href="https://hub.docker.com">docker官网</a>上注册一个账号，过程也很简单，填个账户，邮箱，密码 邮箱再验证一下就好</p>
+<p>本地我们登陆一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  ~ docker ps -a
+</code></pre></td></tr></table>
+</div>
+</div><p>输入<em>有效</em>的账户信息就行，他会在 $HOME/.docker/config.json 文件中生成一条 auth 信息</p>
+<p>登陆成功后，我们把指定的容器做成我们自己的库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  ~ docket commit 4cd577624dd2 gaofeifiy/ubuntu-base
+</code></pre></td></tr></table>
+</div>
+</div><p>这条命令的作用就是把 containerId 为 4cd577624dd2 (也就是 little_cat) 提交给 gaofeifiy/ubuntu-base 这个库，
+注意，这里commit的时候要用到id而不是容器的name，我自己试的时候就出现提交为none的情况，也许以后的版本会补上</p>
+<p>这个有什么作用呢？ 我们查看一下images</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  ~ docker images
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+gaofeifiy/ubuntu-base   latest              6f8cfa1871b0        40 minutes ago      227 MB
+ubuntu                  16.04               f49eec89601e        4 weeks ago         129.5 MB
+ubuntu                  latest              f49eec89601e        4 weeks ago         129.5 MB
+</code></pre></td></tr></table>
+</div>
+</div><p>我们最早的 little_cat 已经在本地被做成一个基础的images了</p>
+<p>直接用它创建一个容器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  ~ docker run -t -i --name big_cat gaofeifiy/ubuntu-base /bin/bash
 
 
 ➜  ~ docker ps -a
 CONTAINER ID        IMAGE                   COMMAND             CREATED             STATUS                      PORTS               NAMES
-10ea9940c6d2        gaofeifiy/ubuntu-base   &#34;/bin/bash&#34;         48 seconds ago      Exited (0) 39 seconds ago                       big_cat</pre></td></tr></table>
+10ea9940c6d2        gaofeifiy/ubuntu-base   &#34;/bin/bash&#34;         48 seconds ago      Exited (0) 39 seconds ago                       big_cat
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们用刚才新建的image为基础创建了 big_cat 这个容器</p>
-
+</div><p>我们用刚才新建的image为基础创建了 big_cat 这个容器</p>
 <p>要删除的话也是很简单，这里有两个命令 <code>docker rm</code> 和 <code>docker rmi</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker rm 10ea9940c6d2 这是用来删除容器(CONTAINER)的
-docker rmi 6f8cfa1871b0 这是用来删除镜像的(IMAGE) 的</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker rm 10ea9940c6d2 这是用来删除容器(CONTAINER)的
+docker rmi 6f8cfa1871b0 这是用来删除镜像的(IMAGE) 的
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>有一点需要注意的就是如果要删除的image是有container在使用的话需要先把container给删除再删除image</p>
+</div><p>有一点需要注意的就是如果要删除的image是有container在使用的话需要先把container给删除再删除image</p>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-fork-upstream/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="git同步所 fork 的库代码">
 <meta itemprop="description" content="有时候我们 fork 了一个库进行开发,但是时间长了那个库已经添加了一些新的东西,这要怎么处理呢? 先添加你 fork 的库的地址 1 2 git remote add FORK-sync https://github.com/xxx/yyy.git git remote -v 能看到类似的">
-
-
 <meta itemprop="datePublished" content="2017-06-17T14:36:23&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="122">
 
 
 
-<meta itemprop="keywords" content="git,fork," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git,fork," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git同步所 fork 的库代码"/>
 <meta name="twitter:description" content="有时候我们 fork 了一个库进行开发,但是时间长了那个库已经添加了一些新的东西,这要怎么处理呢? 先添加你 fork 的库的地址 1 2 git remote add FORK-sync https://github.com/xxx/yyy.git git remote -v 能看到类似的"/>
 
@@ -137,59 +134,60 @@
 
     
     <div class="post-content">
-      <p>有时候我们 fork 了一个库进行开发,但是时间长了那个库已经添加了一些新的东西,这要怎么处理呢?
-<!-- more -->
-先添加你 fork 的库的地址</p>
+      <p>有时候我们 fork 了一个库进行开发,但是时间长了那个库已经添加了一些新的东西,这要怎么处理呢?</p>
+<!-- raw HTML omitted -->
+<p>先添加你 fork 的库的地址</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git remote add FORK-sync https://github.com/xxx/yyy.git
-git remote -v</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git remote add FORK-sync https://github.com/xxx/yyy.git
+git remote -v
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>能看到类似的</p>
+</div><p>能看到类似的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">FORK-sync	https://github.com/xxx/yyy.git (fetch)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">FORK-sync	https://github.com/xxx/yyy.git (fetch)
 FORK-sync	https://github.com/xxx/yyy.git (push)
 origin	git@github.xxx/born-1.git (fetch)
-origin	git@github.xxx/born-1.git (push)</pre></td></tr></table>
+origin	git@github.xxx/born-1.git (push)
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后接受所 fork 库的内容</p>
+</div><p>然后接受所 fork 库的内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git fetch FORK-sync</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git fetch FORK-sync
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>合并</p>
+</div><p>合并</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git merge FORK-sync/master</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git merge FORK-sync/master
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再推送到你的远程仓库就行了</p>
+</div><p>再推送到你的远程仓库就行了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git push</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git push
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

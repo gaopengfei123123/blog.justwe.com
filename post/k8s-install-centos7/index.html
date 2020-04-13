@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/k8s-install-centos7/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="centos7 部署 k8s">
 <meta itemprop="description" content="都是走的国内镜像源 关闭 selinux 1 2 setenforce 0 #实时动态关闭 selinux sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/&#39; /etc/selinux/config #禁止重启后自动开启 关闭交换分区 1 2 swapoff -a #实时动态关闭交换分区 sed -i &#39;/ swap / s/^/#/&#39; /etc/fstab #禁止重">
-
-
 <meta itemprop="datePublished" content="2019-06-17T11:59:54&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
-<meta itemprop="wordCount" content="747">
+<meta itemprop="wordCount" content="748">
 
 
 
-<meta itemprop="keywords" content="k8s," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="centos7 部署 k8s"/>
 <meta name="twitter:description" content="都是走的国内镜像源 关闭 selinux 1 2 setenforce 0 #实时动态关闭 selinux sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/&#39; /etc/selinux/config #禁止重启后自动开启 关闭交换分区 1 2 swapoff -a #实时动态关闭交换分区 sed -i &#39;/ swap / s/^/#/&#39; /etc/fstab #禁止重"/>
 
@@ -137,38 +134,34 @@
 
     
     <div class="post-content">
-      
-
-<p>都是走的国内镜像源</p>
-
-<!-- more -->
-
+      <p>都是走的国内镜像源</p>
+<!-- raw HTML omitted -->
 <h3 id="关闭-selinux">关闭 selinux</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">setenforce 0 #实时动态关闭 selinux
-sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/&#39; /etc/selinux/config #禁止重启后自动开启</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">setenforce 0 #实时动态关闭 selinux
+sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/&#39; /etc/selinux/config #禁止重启后自动开启
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="关闭交换分区">关闭交换分区</h3>
+</div><h3 id="关闭交换分区">关闭交换分区</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">swapoff -a #实时动态关闭交换分区
-sed -i &#39;/ swap / s/^/#/&#39; /etc/fstab #禁止重启后自动开启</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">swapoff -a #实时动态关闭交换分区
+sed -i &#39;/ swap / s/^/#/&#39; /etc/fstab #禁止重启后自动开启
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="网络配置文件">网络配置文件</h3>
+</div><h3 id="网络配置文件">网络配置文件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -177,9 +170,9 @@ sed -i &#39;/ swap / s/^/#/&#39; /etc/fstab #禁止重启后自动开启</pre></
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cat &lt;&lt;EOF &gt; /etc/sysctl.d/k8s.conf
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cat &lt;&lt;EOF &gt; /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
@@ -187,30 +180,30 @@ vm.swappiness=0
 EOF
 
 modprobe br_netfilter  #执行该命令 如果不执行就会在应用k8s.conf时出现加载错误
-sysctl -p /etc/sysctl.d/k8s.conf #应用配置文件</pre></td></tr></table>
+sysctl -p /etc/sysctl.d/k8s.conf #应用配置文件
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="yum换国内源">yum换国内源</h3>
+</div><h3 id="yum换国内源">yum换国内源</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cd /etc/yum.repos.d  &amp;&amp; \
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd /etc/yum.repos.d  &amp;&amp; \
 sudo mv CentOS-Base.repo CentOS-Base.repo.bak &amp;&amp; \
 sudo wget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo &amp;&amp; \
 yum clean all &amp;&amp; \
-yum makecache</pre></td></tr></table>
+yum makecache
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="配置k8s资源的下载地址">配置k8s资源的下载地址</h3>
+</div><h3 id="配置k8s资源的下载地址">配置k8s资源的下载地址</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -221,9 +214,9 @@ yum makecache</pre></td></tr></table>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
 
 [kubernetes]
 name=Kubernetes
@@ -233,22 +226,22 @@ gpgcheck=0
 repo_gpgcheck=0
 gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
         http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-EOF</pre></td></tr></table>
+EOF
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="安装依赖">安装依赖</h3>
+</div><h3 id="安装依赖">安装依赖</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">yum install -y docker kubelet kubeadm kubectl </pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">yum install -y docker kubelet kubeadm kubectl 
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="docker换源">docker换源</h3>
+</div><h3 id="docker换源">docker换源</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -256,74 +249,72 @@ EOF</pre></td></tr></table>
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">mkdir -p /etc/docker
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39;
 {
 &#34;registry-mirrors&#34;: [&#34;https://registry.docker-cn.com&#34;]
 }
 EOF
 
-service docker restart</pre></td></tr></table>
+service docker restart
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="开机启动">开机启动</h3>
+</div><h3 id="开机启动">开机启动</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">systemctl disable firewalld.service  &amp;&amp; systemctl stop firewalld.service 
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">systemctl disable firewalld.service  &amp;&amp; systemctl stop firewalld.service 
 systemctl enable docker &amp;&amp; systemctl start docker
-systemctl enable kubelet &amp;&amp; systemctl start kubelet</pre></td></tr></table>
+systemctl enable kubelet &amp;&amp; systemctl start kubelet
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="下载k8s依赖镜像">下载k8s依赖镜像</h3>
-
+</div><h3 id="下载k8s依赖镜像">下载k8s依赖镜像</h3>
 <p>获取依赖的镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kubeadm config images list</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubeadm config images list
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>国内用户通过阿里云镜像下载k8s依赖组件</p>
+</div><p>国内用户通过阿里云镜像下载k8s依赖组件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kubeadm config images list |sed -e &#39;s/^/docker pull /g&#39; -e &#39;s#k8s.gcr.io#registry.cn-hangzhou.aliyuncs.com/google_containers#g&#39; |sh -x
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubeadm config images list |sed -e &#39;s/^/docker pull /g&#39; -e &#39;s#k8s.gcr.io#registry.cn-hangzhou.aliyuncs.com/google_containers#g&#39; |sh -x
 
 docker images |grep registry.cn-hangzhou.aliyuncs.com/google_containers |awk &#39;{print &#34;docker tag &#34;,$1&#34;:&#34;$2,$1&#34;:&#34;$2}&#39; |sed -e &#39;s#registry.cn-hangzhou.aliyuncs.com/google_containers#k8s.gcr.io#2&#39; |sh -x
 
-docker images |grep registry.cn-hangzhou.aliyuncs.com/google_containers |awk &#39;{print &#34;docker rmi &#34;, $1&#34;:&#34;$2}&#39; |sh -x</pre></td></tr></table>
+docker images |grep registry.cn-hangzhou.aliyuncs.com/google_containers |awk &#39;{print &#34;docker rmi &#34;, $1&#34;:&#34;$2}&#39; |sh -x
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="主节点初始化">主节点初始化</h3>
-
+</div><h3 id="主节点初始化">主节点初始化</h3>
 <p>Kubernetes v1.14.3</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kubeadm init --kubernetes-version=1.14.3</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubeadm init --kubernetes-version=1.14.3
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>执行成功后出现</p>
+</div><p>执行成功后出现</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -337,9 +328,9 @@ docker images |grep registry.cn-hangzhou.aliyuncs.com/google_containers |awk &#3
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">To start using your cluster, you need to run the following as a regular user:
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">To start using your cluster, you need to run the following as a regular user:
 
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -352,108 +343,105 @@ Run &#34;kubectl apply -f [podnetwork].yaml&#34; with one of the options listed 
 Then you can join any number of worker nodes by running the following on each as root:
 
 kubeadm join 192.168.31.120:6443 --token 6nelb5.lrc5qbs0k3v64eln \
-    --discovery-token-ca-cert-hash sha256:c55a113114d664133685430a86f2e39f40e9df6b12ad3f4d65462fd372079e97 </pre></td></tr></table>
+    --discovery-token-ca-cert-hash sha256:c55a113114d664133685430a86f2e39f40e9df6b12ad3f4d65462fd372079e97 
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="node节点启动">node节点启动</h3>
+</div><h3 id="node节点启动">node节点启动</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kubeadm join 192.168.31.120:6443 --token 6nelb5.lrc5qbs0k3v64eln \
-    --discovery-token-ca-cert-hash sha256:c55a113114d664133685430a86f2e39f40e9df6b12ad3f4d65462fd372079e97 </pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubeadm join 192.168.31.120:6443 --token 6nelb5.lrc5qbs0k3v64eln \
+    --discovery-token-ca-cert-hash sha256:c55a113114d664133685430a86f2e39f40e9df6b12ad3f4d65462fd372079e97 
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>就是初始化后的最后一条命令</p>
-
+</div><p>就是初始化后的最后一条命令</p>
 <p>主节点执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[root@localhost ~]# kubectl get nodes
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@localhost ~]# kubectl get nodes
 NAME                    STATUS     ROLES    AGE     VERSION
 localhost.localdomain   NotReady   master   40m     v1.14.3
-miwifi-r3-srv           NotReady   &lt;none&gt;   3m48s   v1.14.3</pre></td></tr></table>
+miwifi-r3-srv           NotReady   &lt;none&gt;   3m48s   v1.14.3
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>状态还是notReady</p>
-
+</div><p>状态还是notReady</p>
 <p>查看文档 <a href="https://kubernetes.io/docs/concepts/cluster-administration/addons/">https://kubernetes.io/docs/concepts/cluster-administration/addons/</a></p>
-
 <p>这里选了 weave 插件文档： <a href="https://www.weave.works/docs/net/latest/kubernetes/kube-addon/">https://www.weave.works/docs/net/latest/kubernetes/kube-addon/</a>
 执行命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kubectl apply -f &#34;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d &#39;\n&#39;)&#34;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubectl apply -f &#34;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d &#39;\n&#39;)&#34;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>稍微等几分钟就可以看到正常了</p>
+</div><p>稍微等几分钟就可以看到正常了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[root@localhost ~]# kubectl get nodes
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[root@localhost ~]# kubectl get nodes
 NAME                    STATUS     ROLES    AGE   VERSION
 localhost.localdomain   Ready      master   49m   v1.14.3
-miwifi-r3-srv           Ready      &lt;none&gt;   12m   v1.14.3</pre></td></tr></table>
+miwifi-r3-srv           Ready      &lt;none&gt;   12m   v1.14.3
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="kubeadm-token-过期的情况">kubeadm token 过期的情况</h4>
-
-<p><code>kubeadm join</code> 用到的token有效期是24h</p>
-
+</div><h4 id="kubeadm-token-过期的情况">kubeadm token 过期的情况</h4>
+<p><code>kubeadm join </code> 用到的token有效期是24h</p>
 <p>生成 token, 查看token</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span><span class="lnt">6
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ kubeadm token create
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ kubeadm token create
 rugi2c.bb97e7ney91bogbg
 $ kubeadm token list
 TOKEN                     TTL       EXPIRES                     USAGES                   DESCRIPTION   EXTRA GROUPS
-rugi2c.bb97e7ney91bogbg   23h       2019-06-18T22:28:11+08:00   authentication,signing   &lt;none&gt;        system:bootstrappers:kubeadm:default-node-token</pre></td></tr></table>
+rugi2c.bb97e7ney91bogbg   23h       2019-06-18T22:28:11+08:00   authentication,signing   &lt;none&gt;        system:bootstrappers:kubeadm:default-node-token
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>生成证书</p>
+</div><p>生成证书</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>新token加入</p>
+</div><p>新token加入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kubeadm join 192.168.31.120:6443 --token rugi2c.bb97e7ney91bogbg \
-    --discovery-token-ca-cert-hash sha256:c55a113114d664133685430a86f2e39f40e9df6b12ad3f4d65462fd372079e97</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">kubeadm join 192.168.31.120:6443 --token rugi2c.bb97e7ney91bogbg \
+    --discovery-token-ca-cert-hash sha256:c55a113114d664133685430a86f2e39f40e9df6b12ad3f4d65462fd372079e97
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><a href="https://www.cnblogs.com/pekkle/p/10545145.html">搭建教程</a>
+</div><p><a href="https://www.cnblogs.com/pekkle/p/10545145.html">搭建教程</a>
 <a href="https://jimmysong.io/kubernetes-handbook/practice/node-installation.html">部署node节点</a></p>
 
     </div>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-merge-conflict/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="搞定 git 合并冲突">
 <meta itemprop="description" content="这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点 关键命令 checkout 是个好">
-
-
 <meta itemprop="datePublished" content="2018-08-03T18:40:25&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="551">
 
 
 
-<meta itemprop="keywords" content="git,merge-conflict," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git,merge-conflict," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="搞定 git 合并冲突"/>
 <meta name="twitter:description" content="这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点 关键命令 checkout 是个好"/>
 
@@ -137,46 +134,41 @@
 
     
     <div class="post-content">
-      
-
-<p>这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点
-<!-- more --></p>
-
+      <p>这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点</p>
+<!-- raw HTML omitted -->
 <h2 id="关键命令">关键命令</h2>
-
 <p>checkout 是个好方法, 能粗暴的解决很多问题</p>
-
 <p>针对冲突文件保留自己的分支</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout --ours path/to/conflict_file</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout --ours path/to/conflict_file
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>想保留别人的分支</p>
+</div><p>想保留别人的分支</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout --theirs path/to/conflict_file</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout --theirs path/to/conflict_file
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>批量的解决:</p>
+</div><p>批量的解决:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">grep -lr <span class="s1">&#39;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&#39;</span> . <span class="p">|</span> xargs git checkout --ours</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">grep -lr <span class="s1">&#39;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&#39;</span> . <span class="p">|</span> xargs git checkout --ours
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="一个鲜活的例子">一个鲜活的例子&hellip;</h2>
+</div><h2 id="一个鲜活的例子">一个鲜活的例子&hellip;</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -309,7 +301,8 @@ Unmerged paths:
 
 no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git add&#34;</span> and/or <span class="s2">&#34;git commit -a&#34;</span><span class="o">)</span>
 ➜  merge-demo git:<span class="o">(</span>master<span class="o">)</span> ✗ git add -A <span class="o">&amp;&amp;</span> git commit -m <span class="s1">&#39;done&#39;</span>
-<span class="o">[</span>master d2d2057<span class="o">]</span> <span class="k">done</span></code></pre></td></tr></table>
+<span class="o">[</span>master d2d2057<span class="o">]</span> <span class="k">done</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

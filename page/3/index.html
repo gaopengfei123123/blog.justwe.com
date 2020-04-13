@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/" />
@@ -44,12 +44,9 @@
 <meta property="og:description" content="记录代码, 记录生活" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.justwe.site/" />
-
-<meta property="og:updated_time" content="2020-03-10T15:03:50+08:00" />
+<meta property="og:updated_time" content="2017-08-20T21:38:52+08:00" />
 <meta itemprop="name" content="摸鱼划水">
-<meta itemprop="description" content="记录代码, 记录生活">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="记录代码, 记录生活"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="摸鱼划水"/>
 <meta name="twitter:description" content="记录代码, 记录生活"/>
 
@@ -118,6 +115,28 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-context/">golang 通过 context 控制并发的应用场景</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-10-25 </span>
+      <div class="post-category">
+          <a href="/categories//">  </a>
+          <a href="/categories/go/"> go </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      golang 里出现多 goroutine 的场景很常见, 最常用的两种方式就是 WaitGroup 和 Context, 今天我们了解一下 Context 的应用场景 使用场景 场景一: 多goroutine执行超时通知 并发执行的业
+    </div>
+    <div class="read-more">
+      <a href="/post/go-context/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/k8s-install-centos7/">centos7 部署 k8s</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-06-17 </span>
@@ -150,7 +169,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作
+      本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: kubectl 本地做命令行控制用, 所有的命令操作都
     </div>
     <div class="read-more">
       <a href="/post/k8s-minikube/" class="read-more-link">阅读更多</a>
@@ -297,31 +316,10 @@
   
   <div class="post-content">
     <div class="post-summary">
-      这个demo实现了: 1. 消息广播 2. 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息
+      这个demo实现了: 消息广播 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息分发
     </div>
     <div class="read-more">
       <a href="/post/go-chat/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/yii-mysql/">转 yii2 断线重连问题</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-12-19 </span>
-      <div class="post-category">
-          <a href="/categories/yii2/"> yii2 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      yii2 + swoole 的模式下因为使用swoole做的常驻内存服务, 那么之前的设计思路会有一点偏差, 不是第一眼能看到的就是 mysql has gone away的问题 目前解决思路就
-    </div>
-    <div class="read-more">
-      <a href="/post/yii-mysql/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

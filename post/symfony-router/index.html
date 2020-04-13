@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/symfony-router/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="symfony-路由">
 <meta itemprop="description" content="laravel的路由模块就是从这里封装起来的，咱们先了解下symfony的路由机制 使用注释定义一个路由 symfony 的强大之处在于代码中的注释都参与到程">
-
-
 <meta itemprop="datePublished" content="2017-03-23T11:25:49&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="688">
+<meta itemprop="wordCount" content="689">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="symfony-路由"/>
 <meta name="twitter:description" content="laravel的路由模块就是从这里封装起来的，咱们先了解下symfony的路由机制 使用注释定义一个路由 symfony 的强大之处在于代码中的注释都参与到程"/>
 
@@ -135,20 +132,15 @@
 
     
     <div class="post-content">
-      
-
-<blockquote>
+      <blockquote>
 <p>laravel的路由模块就是从这里封装起来的，咱们先了解下symfony的路由机制</p>
 </blockquote>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <h2 id="使用注释定义一个路由">使用注释定义一个路由</h2>
-
 <p>symfony 的强大之处在于代码中的注释都参与到程序运行当中，这样强制的规范了注释排版，比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -173,32 +165,29 @@
 
         return new Response($numbers);
     }
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>当输入 <code>http://domain/app_dev.php/lucky/number</code> 将会返回方法中的随机数</p>
-
-<h2 id="使用配置文件定义一个路由推荐这种写法-方便他人维护">使用配置文件定义一个路由推荐这种写法，方便他人维护</h2>
-
+</div><p>当输入 <code>http://domain/app_dev.php/lucky/number</code> 将会返回方法中的随机数</p>
+<h2 id="使用配置文件定义一个路由推荐这种写法方便他人维护">使用配置文件定义一个路由推荐这种写法，方便他人维护</h2>
 <p>在 <code>@app/config/routing.yml</code>文件中，定义一个blog_show路由</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">blog_show:
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">blog_show:
     path:      /blog/{slug}
-    defaults:  { _controller: AppBundle:Lucky:show ,slug:2333}</pre></td></tr></table>
+    defaults:  { _controller: AppBundle:Lucky:show ,slug:2333}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里还有 <code>{slug}</code> 奇怪的写法，这代表着路由中传入 <code>slug</code>的自定义参数，从laravel过来的同学一定不会陌生</p>
-
+</div><p>这里还有 <code>{slug}</code> 奇怪的写法，这代表着路由中传入 <code>slug</code>的自定义参数，从laravel过来的同学一定不会陌生</p>
 <p><code>defaults</code> 下指定了该路由指向哪个控制器，同时 slug 也有了默认值，在控制器中就是这样写：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -209,9 +198,9 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// src: @src/AppBundle/LuckyController
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// src: @src/AppBundle/LuckyController
 public function showAction($slug){
         $str = &#39;this is blog-&#39;.$slug;
 
@@ -221,13 +210,13 @@ public function showAction($slug){
 #注释的写法就是
 /**
  * @Route(&#34;/blog/{slug}&#34;, defaults={&#34;slug&#34; = 1})
- */</pre></td></tr></table>
+ */
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="高级路由示例">高级路由示例</h2>
+</div><h2 id="高级路由示例">高级路由示例</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -252,6 +241,7 @@ public function showAction($slug){
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
+</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php"># in Controller
@@ -278,19 +268,17 @@ article_show:
   requirements:
       _locale:  en|fr
       _format:  html|rss
-      year:     \d+</code></pre></td></tr></table>
-</div>
-</div>
-<p>这里对参数进行了正则筛选，如果不复合条件的也将报 404 错误</p>
+      year:     \d+
 
+</code></pre></td></tr></table>
+</div>
+</div><p>这里对参数进行了正则筛选，如果不复合条件的也将报 404 错误</p>
 <p>新出现的 <code>requirements</code> 部分就是对指定的参数筛分，使用的是正则的格式</p>
-
 <h2 id="在程序中生成路由和解析路由">在程序中生成路由和解析路由</h2>
-
 <p>路由在系统中是双向映射，既能生成带参数的路由，又能反向解析成运行的函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -315,13 +303,13 @@ $uri = $this-&gt;get(&#39;router&#39;)-&gt;generate(&#39;blog_show&#39;, array(
     &#39;slug&#39; =&gt; &#39;my-blog-post&#39;
 ));
 dump($uri);
-// /blog/my-blog-post</code></pre></td></tr></table>
+// /blog/my-blog-post
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在 <code>generate</code> 方法中，如果添加了路由中没设置的参数比如</p>
+</div><p>在 <code>generate</code> 方法中，如果添加了路由中没设置的参数比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -334,15 +322,14 @@ dump($uri);
     &#39;author&#39; =&gt; &#39;jack&#39;,
     &#39;type&#39; =&gt; &#39;markdown&#39;
 ));
-// /blog/my-blog-post?author=jack<span class="err">&amp;</span>type=markdown</code></pre></td></tr></table>
+// /blog/my-blog-post?author=jack<span class="err">&amp;</span>type=markdown
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>会以 Query Strings 的形式添加到地址中</p>
-
+</div><p>会以 Query Strings 的形式添加到地址中</p>
 <p>现在生成的是相对路径，如果是全路径的话需要加一个参数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -353,10 +340,10 @@ dump($uri);
     &#39;slug&#39; =&gt; &#39;my-blog-post&#39;,
     &#39;author&#39; =&gt; &#39;jack&#39;,
     &#39;type&#39; =&gt; &#39;markdown&#39;
-),UrlGenerator::ABSOLUTE_URL);</code></pre></td></tr></table>
+),UrlGenerator::ABSOLUTE_URL);
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>UrlGenerator::ABSOLUTE_URL</code> 这个参数也可以替换成 <code>0</code></p>
+</div><p><code>UrlGenerator::ABSOLUTE_URL</code> 这个参数也可以替换成 <code>0</code></p>
 
     </div>
 

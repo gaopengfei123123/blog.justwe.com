@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/linux-crontab/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="crontab 设置一小时执行一次">
 <meta itemprop="description" content="如果主管给你个任务, 让你每小时执行一次脚本, 是不是就是这样: 1 * */1 * * * xxxxx.bash 这样就错了呦~ 以上产生的结果是每分钟执行一次, 因为从匹配角度来看每">
-
-
 <meta itemprop="datePublished" content="2018-12-11T10:55:47&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="314">
+<meta itemprop="wordCount" content="313">
 
 
 
-<meta itemprop="keywords" content="linux," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="crontab 设置一小时执行一次"/>
 <meta name="twitter:description" content="如果主管给你个任务, 让你每小时执行一次脚本, 是不是就是这样: 1 * */1 * * * xxxxx.bash 这样就错了呦~ 以上产生的结果是每分钟执行一次, 因为从匹配角度来看每"/>
 
@@ -140,75 +137,71 @@
       <p>如果主管给你个任务, 让你每小时执行一次脚本, 是不是就是这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">* */1 * * * xxxxx.bash</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">* */1 * * * xxxxx.bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样就错了呦~</p>
-
-<!-- more -->
-
+</div><p>这样就错了呦~</p>
+<!-- raw HTML omitted -->
 <p>以上产生的结果是每分钟执行一次, 因为从匹配角度来看每分钟都符合规则, 继而执行命令</p>
-
 <p>因此对于整点定时任务有两种写法:</p>
-
 <p>每<strong>整点</strong>执行一次:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">0 */1 * * * xxxxx.bash</pre></td></tr></table>
-</div>
-</div>
-<p>每<strong>隔60分钟</strong>执行一次:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">*/60 * * * * xxxxx.bash</pre></td></tr></table>
-</div>
-</div>
-<p>注意我的描述啊, 整点和隔60分钟其实是两个东西, 根据具体业务要求去使用它</p>
-
-<p><img src="/images/crontab.png" alt="" /></p>
-
-<p>关于定时器这里有三个示例:
-1. 在上午8点到11点的第3和第15分钟执行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">3</span>,15 <span class="m">8</span>-11 * * * command</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">0 */1 * * * xxxxx.bash
+</code></pre></td></tr></table>
 </div>
+</div><p>每<strong>隔60分钟</strong>执行一次:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">*/60 * * * * xxxxx.bash
+</code></pre></td></tr></table>
 </div>
+</div><p>注意我的描述啊, 整点和隔60分钟其实是两个东西, 根据具体业务要求去使用它</p>
+<p><img src="/images/crontab.png" alt=""></p>
+<p>关于定时器这里有三个示例:</p>
 <ol>
-<li><p>每隔两天的上午8点到11点的第3和第15分钟执行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">3</span>,15 <span class="m">8</span>-11 */2 * * command</code></pre></td></tr></table>
-</div>
-</div></li>
-
-<li><p>每个星期一的上午8点到11点的第3和第15分钟执行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">3</span>,15 <span class="m">8</span>-11 * * <span class="m">1</span> command</code></pre></td></tr></table>
-</div>
-</div></li>
+<li>在上午8点到11点的第3和第15分钟执行</li>
 </ol>
-
-<p>详细的crontab操作可以参考这篇博客:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">3,15 8-11 * * * <span class="nb">command</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>每隔两天的上午8点到11点的第3和第15分钟执行</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">3,15 8-11 */2 * * <span class="nb">command</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>每个星期一的上午8点到11点的第3和第15分钟执行</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">3,15 8-11 * * <span class="m">1</span> <span class="nb">command</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>详细的crontab操作可以参考这篇博客:
 <a href="https://blog.csdn.net/u014726937/article/details/51182666">crontab&ndash;定时器命令</a></p>
 
     </div>

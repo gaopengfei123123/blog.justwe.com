@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/es-study-note/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="elasticSearch 随笔">
 <meta itemprop="description" content="关于es的一些笔记 安装 1 2 3 git clone https://github.com/deviantony/docker-elk.git cd docker-elk docker-compose up 遇到过的问题 unable to authenticate user 终端访问: 1 curl -XGET &#39;localhost:9200/_cat/health?v&amp;pretty&#39; 如果出现: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 { &#34;error&#34;: { &#34;root_cause&#34;: [ {">
-
-
 <meta itemprop="datePublished" content="2019-11-25T19:40:43&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="898">
+<meta itemprop="wordCount" content="899">
 
 
 
-<meta itemprop="keywords" content="es," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="es," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="elasticSearch 随笔"/>
 <meta name="twitter:description" content="关于es的一些笔记 安装 1 2 3 git clone https://github.com/deviantony/docker-elk.git cd docker-elk docker-compose up 遇到过的问题 unable to authenticate user 终端访问: 1 curl -XGET &#39;localhost:9200/_cat/health?v&amp;pretty&#39; 如果出现: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 { &#34;error&#34;: { &#34;root_cause&#34;: [ {"/>
 
@@ -137,42 +134,36 @@
 
     
     <div class="post-content">
-      
-
-<p>关于es的一些笔记</p>
-
-<!-- more -->
-
+      <p>关于es的一些笔记</p>
+<!-- raw HTML omitted -->
 <h3 id="安装">安装</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">git clone https://github.com/deviantony/docker-elk.git
 <span class="nb">cd</span> docker-elk
-docker-compose up</code></pre></td></tr></table>
+docker-compose up
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="遇到过的问题">遇到过的问题</h3>
-
+</div><h3 id="遇到过的问题">遇到过的问题</h3>
 <h4 id="unable-to-authenticate-user">unable to authenticate user</h4>
-
 <p>终端访问:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -XGET <span class="s1">&#39;localhost:9200/_cat/health?v&amp;pretty&#39;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">curl -XGET <span class="s1">&#39;localhost:9200/_cat/health?v&amp;pretty&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果出现:</p>
+</div><p>如果出现:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -211,35 +202,33 @@ docker-compose up</code></pre></td></tr></table>
         <span class="p">}</span>
     <span class="p">},</span>
     <span class="nt">&#34;status&#34;</span><span class="p">:</span> <span class="mi">401</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>则需要带上 <code>authenticate</code> 信息</p>
+</div><p>则需要带上 <code>authenticate</code> 信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"> curl --user elastic:changeme -XGET <span class="s1">&#39;localhost:9200/_cat/health?v&amp;pretty&#39;</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"> curl --user elastic:changeme -XGET <span class="s1">&#39;localhost:9200/_cat/health?v&amp;pretty&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="docker安装-ik-中文分词器">docker安装 IK 中文分词器</h4>
-
+</div><h4 id="docker安装-ik-中文分词器">docker安装 IK 中文分词器</h4>
 <p>如果在 <code>dockerfile</code> 中直接写</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile">elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v<span class="si">${</span><span class="nv">ES_VERSION</span><span class="si">}</span>/elasticsearch-analysis-ik-<span class="si">${</span><span class="nv">ES_VERSION</span><span class="si">}</span>.zip</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile">elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v<span class="si">${</span><span class="nv">ES_VERSION</span><span class="si">}</span>/elasticsearch-analysis-ik-<span class="si">${</span><span class="nv">ES_VERSION</span><span class="si">}</span>.zip<span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>因为安装的时候需要交互, 在 <code>docker build</code>的时候会出现<code>unable to read from standard input; is standard input open and a tty attached?</code></p>
-
+</div><p>因为安装的时候需要交互, 在 <code>docker build</code>的时候会出现<code>unable to read from standard input; is standard input open and a tty attached?</code></p>
 <p>以下是dockerfile成功安装示例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -250,6 +239,7 @@ docker-compose up</code></pre></td></tr></table>
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">ARG</span> ELK_VERSION<span class="err">
@@ -260,19 +250,18 @@ docker-compose up</code></pre></td></tr></table>
 </span><span class="err"></span><span class="c"># Add your elasticsearch plugins setup here</span><span class="err">
 </span><span class="err"></span><span class="c"># Example: RUN elasticsearch-plugin install analysis-icu</span><span class="err">
 </span><span class="err">
-</span><span class="err"></span><span class="k">ENV</span> ES_VERSION <span class="m">7</span>.4.1<span class="err">
+</span><span class="err"></span><span class="k">ENV</span> ES_VERSION 7.4.1<span class="err">
 </span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> sh -c <span class="s1">&#39;/bin/echo -e &#34;y&#34; | elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ES_VERSION}/elasticsearch-analysis-ik-${ES_VERSION}.zip&#39;</span></code></pre></td></tr></table>
+</span><span class="err"></span><span class="k">RUN</span> sh -c <span class="s1">&#39;/bin/echo -e &#34;y&#34; | elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v${ES_VERSION}/elasticsearch-analysis-ik-${ES_VERSION}.zip&#39;</span><span class="err">
+</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="查询语句">查询语句</h3>
-
+</div><h3 id="查询语句">查询语句</h3>
 <h4 id="should和bool的区别">should和bool的区别</h4>
-
 <p>官方示例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -307,29 +296,26 @@ docker-compose up</code></pre></td></tr></table>
       <span class="p">]</span>
     <span class="p">}</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<ul>
+</div><ul>
 <li><code>should</code> 把所有match到的score相加, 最终得到一个综合评分, hits 就按这个评分从高到低排列</li>
 <li><code>bool</code> 的运行逻辑是:
-
 <ul>
 <li>执行 should 语句中的两个查询。</li>
 <li>加和两个查询的评分。</li>
 <li>乘以匹配语句的总数。</li>
 <li>除以所有语句总数。</li>
-</ul></li>
 </ul>
-
-<h4 id="dis-max">dis_max</h4>
-
+</li>
+</ul>
+<h4 id="dis_max">dis_max</h4>
 <p>用法类似 <code>OR</code>, 将任何与<strong>任一</strong>查询匹配的文档作为结果返回，但只将最佳匹配的评分作为查询的评分结果返回</p>
-
 <p>这两条match中,<strong>只要有一条符合</strong>就会返回结果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -350,26 +336,23 @@ docker-compose up</code></pre></td></tr></table>
             <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="tie-breaker-参数">tie_breaker 参数</h5>
-
+</div><h5 id="tie_breaker-参数">tie_breaker 参数</h5>
 <p>dis_max 的特性是<strong>符合一条</strong> 就会返回结果, 会对结果产生偏差
 tie_breaker 参数提供了一种 dis_max 和 bool 之间的折中选择, 它的评分方式是:</p>
-
 <ol>
 <li>获得最佳匹配语句的评分 _score 。</li>
 <li>将其他匹配语句的评分结果与 tie_breaker 相乘。</li>
 <li>对以上评分求和并规范化。</li>
 </ol>
-
 <blockquote>
 <p>参数在 0~1之间波动</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -392,17 +375,15 @@ tie_breaker 参数提供了一种 dis_max 和 bool 之间的折中选择, 它的
             <span class="nt">&#34;tie_breaker&#34;</span><span class="p">:</span> <span class="mf">0.3</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="multi-match-查询">multi_match 查询</h4>
-
+</div><h4 id="multi_match-查询">multi_match 查询</h4>
 <p><code>dis_match</code> 的另一种简化写法就是 <code>multi_match</code> 了</p>
-
 <p>示例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -425,14 +406,14 @@ tie_breaker 参数提供了一种 dis_max 和 bool 之间的折中选择, 它的
 	        <span class="nt">&#34;minimum_should_match&#34;</span><span class="p">:</span> <span class="s2">&#34;30%&#34;</span> 
     	<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可以使用模糊字段查找
+</div><p>可以使用模糊字段查找
 示例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -449,14 +430,14 @@ tie_breaker 参数提供了一种 dis_max 和 bool 之间的折中选择, 它的
 	        <span class="nt">&#34;fields&#34;</span><span class="p">:</span>               <span class="p">[</span> <span class="s2">&#34;hospital_*&#34;</span><span class="p">],</span>
     	<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可以使用 ^ 字符语法为单个字段提升权重，在字段名称的末尾添加 ^boost ，其中 boost 是一个浮点数：
+</div><p>可以使用 ^ 字符语法为单个字段提升权重，在字段名称的末尾添加 ^boost ，其中 boost 是一个浮点数：
 示例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -473,10 +454,10 @@ tie_breaker 参数提供了一种 dis_max 和 bool 之间的折中选择, 它的
 	        <span class="nt">&#34;fields&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;*_title&#34;</span><span class="p">,</span> <span class="s2">&#34;chapter_title^2&#34;</span> <span class="p">]</span> 
     	<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>默认是 ^1</p>
+</div><p>默认是 ^1</p>
 
     </div>
 

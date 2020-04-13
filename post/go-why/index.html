@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-why/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="身为 phper 为什么我选择 go 语言?">
 <meta itemprop="description" content="想换个语言开发的同学可以看这里 概况 go 相比 php 有哪些优势? go 的部署简单, 运行时只要把一个二进制文件扔到机器上就行, 这一点在容器化方面优势很大 可控">
-
-
 <meta itemprop="datePublished" content="2018-09-12T14:45:50&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1734">
+<meta itemprop="wordCount" content="1727">
 
 
 
-<meta itemprop="keywords" content="go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="身为 phper 为什么我选择 go 语言?"/>
 <meta name="twitter:description" content="想换个语言开发的同学可以看这里 概况 go 相比 php 有哪些优势? go 的部署简单, 运行时只要把一个二进制文件扔到机器上就行, 这一点在容器化方面优势很大 可控"/>
 
@@ -137,18 +134,12 @@
 
     
     <div class="post-content">
-      
-
-<blockquote>
+      <blockquote>
 <p>想换个语言开发的同学可以看这里</p>
 </blockquote>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <h2 id="概况">概况</h2>
-
 <h3 id="go-相比-php-有哪些优势">go 相比 php 有哪些优势?</h3>
-
 <ul>
 <li>go 的部署简单, 运行时只要把一个二进制文件扔到机器上就行, 这一点在容器化方面优势很大</li>
 <li>可控的多线程和更简单的多线程间通信</li>
@@ -156,9 +147,7 @@
 <li>微服务相关的项目多</li>
 <li>自 go 1.5 以后, 底层完全采用的 go 自己的代码重构</li>
 </ul>
-
 <h3 id="go-本身的优势">go 本身的优势</h3>
-
 <ul>
 <li>开发效率和运行的效率都在可接受范围</li>
 <li>成熟的官方库和活跃的社区, 还有官方出品的工具链</li>
@@ -167,23 +156,19 @@
 <li>语言层面支持并发</li>
 <li>运行时对外部的依赖极少</li>
 </ul>
-
 <h3 id="go-较于-php-的劣势">go 较于 php 的劣势</h3>
-
 <ul>
 <li>编译造成的繁琐操作</li>
 <li>代码量偏多</li>
 <li>至今没有一个成熟的依赖库管理工具, 缺乏版本管理</li>
-<li>字典类型要考虑并发读写安全的问题, 需要有<code>锁</code>的概念, 这一点 swoole 也有类似的情况
-&mdash;</li>
+<li>字典类型要考虑并发读写安全的问题, 需要有<code>锁</code>的概念, 这一点 swoole 也有类似的情况</li>
 </ul>
-
+<hr>
 <h2 id="go-的特色">go 的特色</h2>
-
 <h3 id="defer-延迟处理">defer 延迟处理</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -216,13 +201,13 @@
 
   <span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
   <span class="k">return</span> <span class="kc">true</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>对比一下</p>
+</div><p>对比一下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -249,11 +234,12 @@
     <span class="k">return</span> <span class="kc">false</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="kc">true</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -278,13 +264,13 @@
 </span><span class="c1">// 输出： 3
 </span><span class="c1">// 输出： 2
 </span><span class="c1">// 输出： 1
-</span><span class="c1"></span><span class="o">//</span> <span class="nx">输出</span><span class="err">：</span> <span class="mi">0</span></code></pre></td></tr></table>
+</span><span class="c1">// 输出： 0
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="多返回值">多返回值</h3>
+</div><h3 id="多返回值">多返回值</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -299,13 +285,13 @@
 		<span class="k">return</span> <span class="nx">res</span><span class="p">,</span> <span class="kc">nil</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;math: square root of negative number&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="goroutinue-并发">goroutinue 并发</h3>
+</div><h3 id="goroutinue-并发">goroutinue 并发</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -348,13 +334,13 @@
 			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;loop2: %d \n&#34;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="channel-多线程通信">channel 多线程通信</h3>
+</div><h3 id="channel-多线程通信">channel 多线程通信</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -378,9 +364,11 @@
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
+</span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-go" data-lang="go">
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c1">// 创建一个缓冲
 </span><span class="c1"></span>	<span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 	<span class="k">go</span> <span class="nf">loopPro</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="nx">ch</span><span class="p">)</span>
@@ -403,15 +391,14 @@
 			<span class="nx">ch</span> <span class="o">&lt;-</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;loop2: %d \n&#34;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="跨平台">跨平台</h3>
-
+</div><h3 id="跨平台">跨平台</h3>
 <p><code>http-server</code>的 demo</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -464,24 +451,24 @@
 
 <span class="kd">func</span> <span class="nf">pageHandler</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;hi baby&#34;</span><span class="p">))</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可根编译成指定平台的执行文件</p>
+</div><p>可根编译成指定平台的执行文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="调用-c-代码">调用 c 代码</h3>
+</div><h3 id="调用-c-代码">调用 c 代码</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -498,6 +485,7 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go</pre></td></tr></table>
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -516,22 +504,19 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go</pre></td></tr></table>
 	<span class="nx">b</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 	<span class="nx">value</span> <span class="o">:=</span> <span class="nx">C</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<p><a href="http://bastengao.com/blog/2017/12/go-cgo-c.html">代码来源</a></p>
+<span class="p">}</span>
 
-<hr />
-
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="http://bastengao.com/blog/2017/12/go-cgo-c.html">代码来源</a></p>
+<hr>
 <h2 id="大体了解一下语法">大体了解一下语法</h2>
-
 <h3 id="安装">安装</h3>
-
 <p>官网安装包地址: <a href="https://golang.org/dl/">https://golang.org/dl/</a>
 以 centos 为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -540,27 +525,27 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go</pre></td></tr></table>
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
 $ tar -C /usr/local -zxvf go1.11.linux-amd64.tar.gz
 $ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/go/bin/
-$ go</code></pre></td></tr></table>
+$ go
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>GOROOT 不用管它&hellip;
+</div><p>GOROOT 不用管它&hellip;
 GOPATH 目录结构</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">bin/                                # 生成的执行文件                
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">bin/                                # 生成的执行文件                
 pkg/                                # 编译时用到的外部库执行文件
-src/                                # 我们开发的各种库和 go get 到的各种库源码</pre></td></tr></table>
+src/                                # 我们开发的各种库和 go get 到的各种库源码
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="hello-world">Hello world</h3>
+</div><h3 id="hello-world">Hello world</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -579,34 +564,35 @@ src/                                # 我们开发的各种库和 go get 到的�
 
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;hello world&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行 <code>go run main.go</code></p>
-
+</div><p>运行 <code>go run main.go</code></p>
 <h3 id="资源类型">资源类型</h3>
-
-<p>常用:
-- <code>int/int8/int16/int32/int64</code>
-- <code>uint/uint8/uint16/uint32/uint64</code>
-- <code>float32/float64</code>
-- <code>string</code>
-- <code>array</code>
-- <code>slice</code>(切片)
-- <code>map</code>(字典)
-- <code>point</code>(指针)</p>
-
-<p>面向对象:
-- <code>struct</code>
-- <code>interface</code></p>
-
-<p>特色:
-- <code>chan</code></p>
-
+<p>常用:</p>
+<ul>
+<li><code>int/int8/int16/int32/int64</code></li>
+<li><code>uint/uint8/uint16/uint32/uint64</code></li>
+<li><code>float32/float64</code></li>
+<li><code>string</code></li>
+<li><code>array</code></li>
+<li><code>slice</code>(切片)</li>
+<li><code>map</code>(字典)</li>
+<li><code>point</code>(指针)</li>
+</ul>
+<p>面向对象:</p>
+<ul>
+<li><code>struct</code></li>
+<li><code>interface</code></li>
+</ul>
+<p>特色:</p>
+<ul>
+<li><code>chan</code></li>
+</ul>
 <h3 id="变量赋值">变量赋值</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -655,13 +641,13 @@ src/                                # 我们开发的各种库和 go get 到的�
 <span class="c1">// 同上 
 </span><span class="c1"></span><span class="nx">mp</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">:</span> <span class="s">&#34;aaa&#34;</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">:</span> <span class="s">&#34;bbb&#34;</span><span class="p">}</span>
 <span class="c1">// 这样写得清楚这是干什么的
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">mp</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">mp</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="逻辑处理">逻辑处理</h3>
+</div><h3 id="逻辑处理">逻辑处理</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -678,6 +664,8 @@ src/                                # 我们开发的各种库和 go get 到的�
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
@@ -696,15 +684,16 @@ src/                                # 我们开发的各种库和 go get 到的�
 		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Linux.&#34;</span><span class="p">)</span>
 	<span class="k">default</span><span class="p">:</span>
 		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%s.&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="面向对象">面向对象</h3>
+<span class="p">}</span>
 
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="面向对象">面向对象</h3>
 <h4 id="struct">struct</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -735,6 +724,7 @@ src/                                # 我们开发的各种库和 go get 到的�
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
+</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -767,17 +757,17 @@ src/                                # 我们开发的各种库和 go get 到的�
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">xm</span><span class="p">)</span>
 
 	<span class="nx">xm</span><span class="p">.</span><span class="nf">Say</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<h4 id="interface">interface</h4>
+<span class="p">}</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="interface">interface</h4>
 <blockquote>
 <p>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。 &ndash; <a href="https://zh.wikipedia.org/wiki/%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B">鸭子类型</a></p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -858,10 +848,10 @@ src/                                # 我们开发的各种库和 go get 到的�
 </span><span class="c1"></span>	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">animal</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">animals</span> <span class="p">{</span>
 		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">animal</span><span class="p">.</span><span class="nf">Speak</span><span class="p">())</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><a href="https://github.com/gaopengfei123123/why-go">demo 代码地址</a></p>
+</div><p><a href="https://github.com/gaopengfei123123/why-go">demo 代码地址</a></p>
 
     </div>
 

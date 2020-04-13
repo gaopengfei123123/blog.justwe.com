@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/composer-redis-lbs/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="使用redis—geo api实现搜索附近的人，自己写的一个composer包">
 <meta itemprop="description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos">
-
-
 <meta itemprop="datePublished" content="2017-03-11T12:11:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="957">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用redis—geo api实现搜索附近的人，自己写的一个composer包"/>
 <meta name="twitter:description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos"/>
 
@@ -137,42 +134,35 @@
 
     
     <div class="post-content">
-      
-
-<p><a href="https://github.com/gaopengfei123123/redis_lbs">git地址</a></p>
-
-<!-- more -->
-
+      <p><a href="https://github.com/gaopengfei123123/redis_lbs">git地址</a></p>
+<!-- raw HTML omitted -->
 <h1 id="安装">安装</h1>
-
 <p>需要使用composer，<a href="https://getcomposer.org/download/">安装composer</a>, <a href="http://www.phpcomposer.com/">composer中国镜像</a></p>
-
 <p>如果是应用在项目当中的话找到根目录，需要和 <code>composer.json</code>同级</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">composer require gaopengfei/redis_lbs</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">composer require gaopengfei/redis_lbs
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>#基本操作</p>
-
+</div><p>#基本操作</p>
 <h2 id="初始化">初始化</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php">require_once __DIR__.&#39;/vendor/autoload.php&#39;;
-$lbs = new \LBS\Services\LBSService();</code></pre></td></tr></table>
+$lbs = new \LBS\Services\LBSService();
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="添加">添加</h2>
+</div><h2 id="添加">添加</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -263,13 +253,13 @@ $lbs = new \LBS\Services\LBSService();</code></pre></td></tr></table>
 $res = $lbs-&gt;add($add_params);
 
 返回
-int 6</code></pre></td></tr></table>
+int 6
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="删除">删除</h2>
+</div><h2 id="删除">删除</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -298,13 +288,13 @@ int 0 或 1
 
 
 如果是指定的集合名就
-$res = $lbs-&gt;del(&#39;gao1&#39;,&#39;set-name&#39;);</code></pre></td></tr></table>
+$res = $lbs-&gt;del(&#39;gao1&#39;,&#39;set-name&#39;);
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="用坐标查询附近的单位">用坐标查询附近的单位</h2>
+</div><h2 id="用坐标查询附近的单位">用坐标查询附近的单位</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -365,13 +355,13 @@ array:4 [▼
     &#34;name&#34; =&gt; &#34;galaxy_soho&#34;
     &#34;dist&#34; =&gt; &#34;386.9165&#34;
   ]
-]</code></pre></td></tr></table>
+]
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="根据已有的位置查询">根据已有的位置查询</h2>
+</div><h2 id="根据已有的位置查询">根据已有的位置查询</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -430,13 +420,13 @@ array:4 [▼
     &#34;name&#34; =&gt; &#34;galaxy_soho&#34;
     &#34;dist&#34; =&gt; &#34;386.9165&#34;
   ]
-]</code></pre></td></tr></table>
+]
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="列出集合的所有值-其实就是-zrange">列出集合的所有值（其实就是 zrange)</h2>
+</div><h2 id="列出集合的所有值其实就是-zrange">列出集合的所有值（其实就是 zrange)</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -473,7 +463,8 @@ array:6 [▼
   3 =&gt; &#34;cofco&#34;
   4 =&gt; &#34;galaxy_soho&#34;
   5 =&gt; &#34;chaoyangmen&#34;
-]</code></pre></td></tr></table>
+]
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

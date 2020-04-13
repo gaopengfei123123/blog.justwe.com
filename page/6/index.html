@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/" />
@@ -44,12 +44,9 @@
 <meta property="og:description" content="记录代码, 记录生活" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.justwe.site/" />
-
-<meta property="og:updated_time" content="2020-03-10T15:03:50+08:00" />
+<meta property="og:updated_time" content="2017-08-20T21:38:52+08:00" />
 <meta itemprop="name" content="摸鱼划水">
-<meta itemprop="description" content="记录代码, 记录生活">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="记录代码, 记录生活"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="摸鱼划水"/>
 <meta name="twitter:description" content="记录代码, 记录生活"/>
 
@@ -118,6 +115,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker-install-centos65/">在 centOS65 环境下安装 docker</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-06 </span>
+      <div class="post-category">
+          <a href="/categories/docker/"> docker </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      早期的 docker 对稍微老点的系统支持都不是很友好, 也是因为操作系统的一些新特性才能让 docker 运行起来 在国内的云服务商提供的 CentOS65 镜像内核都是2.6.*的，不能
+    </div>
+    <div class="read-more">
+      <a href="/post/docker-install-centos65/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/docker-arg-env/">docker中 arg 和 env 的区别</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-06-28 </span>
@@ -150,7 +168,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true #
+      指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true
     </div>
     <div class="read-more">
       <a href="/post/git-sshcommand/" class="read-more-link">阅读更多</a>
@@ -276,7 +294,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&#39;3&#39;services:db:image:mysql:5.7volumes:-db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:-33060:3306wordpress:depends_on:-dbimage:wordpress:latestports:-&#34;8080:80&#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点奇怪的地
+      这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&#39;3&#39;services:db:image:mysql:5.7volumes:- db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:- 33060:3306wordpress:depends_on:- dbimage:wordpress:latestports:- &#34;8080:80&#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点
     </div>
     <div class="read-more">
       <a href="/post/docker-volume/" class="read-more-link">阅读更多</a>
@@ -297,31 +315,10 @@
   
   <div class="post-content">
     <div class="post-summary">
-      常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up
+      常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] --force-rm 删除构建时的临时容器 --no-cache 构建不使用 cache --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up [options] [service...] 直
     </div>
     <div class="read-more">
       <a href="/post/docker-compose-yml/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-jwt/">使用 go 进行 jwt 验证</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-01-22 </span>
-      <div class="post-category">
-          <a href="/categories/go/"> go </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这
-    </div>
-    <div class="read-more">
-      <a href="/post/go-jwt/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/" />
@@ -44,12 +44,9 @@
 <meta property="og:description" content="记录代码, 记录生活" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.justwe.site/" />
-
-<meta property="og:updated_time" content="2020-03-10T15:03:50+08:00" />
+<meta property="og:updated_time" content="2017-08-20T21:38:52+08:00" />
 <meta itemprop="name" content="摸鱼划水">
-<meta itemprop="description" content="记录代码, 记录生活">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="记录代码, 记录生活"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="摸鱼划水"/>
 <meta name="twitter:description" content="记录代码, 记录生活"/>
 
@@ -118,6 +115,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/yii-beforeaction/">beforeAction的一个示例</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-02-28 </span>
+      <div class="post-category">
+          <a href="/categories/yii2/"> Yii2 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public function beforeAction($action) { if(condition){ Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON; Yii::$app-&gt;response-&gt;data = array( &#39;status&#39; =&gt; -1, &#39;message&#39; =&gt; &#39;请先登录&#39;, &#39;url&#39; =&gt; \Yii::$app-&gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响
+    </div>
+    <div class="read-more">
+      <a href="/post/yii-beforeaction/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/yii-csrf/">局部关闭csrf验证</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-02-28 </span>
@@ -150,7 +168,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+      上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 6 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS
     </div>
     <div class="read-more">
       <a href="/post/docker-repo/" class="read-more-link">阅读更多</a>
@@ -255,7 +273,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用
+      how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 创建一个git库 （不用说
     </div>
     <div class="read-more">
       <a href="/post/composer-package/" class="read-more-link">阅读更多</a>
@@ -301,27 +319,6 @@
     </div>
     <div class="read-more">
       <a href="/post/laravel-lazy-load/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git-rebase/">通过git rebase来合并commit提交记录</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-12-25 </span>
-      <div class="post-category">
-          <a href="/categories/git/"> git </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版
-    </div>
-    <div class="read-more">
-      <a href="/post/git-rebase/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

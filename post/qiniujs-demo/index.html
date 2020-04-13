@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/qiniujs-demo/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="七牛云javascriptSDK的demo">
 <meta itemprop="description" content="使用oss的话碰到用户上传的场景建议优先使用的js上传到oss，不需要经过服务端，也算减轻了服务器的压力，缺点就是有的sdk不支持文件类型的">
-
-
 <meta itemprop="datePublished" content="2016-11-12T04:28:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="2029">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="七牛云javascriptSDK的demo"/>
 <meta name="twitter:description" content="使用oss的话碰到用户上传的场景建议优先使用的js上传到oss，不需要经过服务端，也算减轻了服务器的压力，缺点就是有的sdk不支持文件类型的"/>
 
@@ -137,18 +134,13 @@
 
     
     <div class="post-content">
-      
-
-<p>使用oss的话碰到用户上传的场景建议优先使用的js上传到oss，不需要经过服务端，也算减轻了服务器的压力，缺点就是有的sdk不支持文件类型的筛分，但这些都是可以规避的</p>
-
-<!-- more -->
-
+      <p>使用oss的话碰到用户上传的场景建议优先使用的js上传到oss，不需要经过服务端，也算减轻了服务器的压力，缺点就是有的sdk不支持文件类型的筛分，但这些都是可以规避的</p>
+<!-- raw HTML omitted -->
 <p>七牛js的sdkdemo</p>
-
 <p>这里用的laravel框架和vuejs，里面涉及到的语法就算 <code>@{{ vue要输出的变量 }}</code> 和 <code>{{ laravel需要输出的变量 }}</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -419,17 +411,15 @@
     <span class="c1">// uploader 为一个 plupload 对象，继承了所有 plupload 的方法，参考http://plupload.com/docs
 </span><span class="c1"></span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里需要后台传给一个token,token内容是 <a href="http://developer.qiniu.com/code/v7/sdk/php.html#io-put">这里</a> ,或者通过异步请求来token</p>
-
+</div><p>这里需要后台传给一个token,token内容是 <a href="http://developer.qiniu.com/code/v7/sdk/php.html#io-put">这里</a> ,或者通过异步请求来token</p>
 <h2 id="这里有一个bug">这里有一个bug</h2>
-
 <p>当七牛oss的存储空间选择的是华北区的话，目前版本(v1.0.17.1)需要修改以下js文件的上传地址，不然会出现 <code>请求报文格式错误。(400：incorrect region, please use up-z1.qiniu.com)</code> 报错，需要下载最新的(v1.0.17.1) <code>qiniu.js</code> 文件，同时要修改的地方如下，别的地方正常使用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4

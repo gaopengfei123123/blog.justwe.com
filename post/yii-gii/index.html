@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/yii-gii/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="自定义 gii 模板">
 <meta itemprop="description" content="开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造 这里先拿 basic 版举例, advance版同理 1.修改配置文件 web.php 1 2">
-
-
 <meta itemprop="datePublished" content="2018-05-23T14:15:12&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="2259">
+<meta itemprop="wordCount" content="2260">
 
 
 
-<meta itemprop="keywords" content="php,gii,yii," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="php,gii,yii," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义 gii 模板"/>
 <meta name="twitter:description" content="开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造 这里先拿 basic 版举例, advance版同理 1.修改配置文件 web.php 1 2"/>
 
@@ -137,18 +134,13 @@
 
     
     <div class="post-content">
-      
-
-<p>开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造</p>
-
-<!-- more -->
-
+      <p>开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造</p>
+<!-- raw HTML omitted -->
 <p>这里先拿 <code>basic</code> 版举例, <code>advance</code>版同理</p>
-
-<h3 id="1-修改配置文件-web-php">1.修改配置文件 web.php</h3>
+<h3 id="1修改配置文件-webphp">1.修改配置文件 web.php</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -205,19 +197,16 @@ if (YII_ENV_DEV) {
         ],
     ];
 
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>现在在配置中指定了两种model 生成模板了</p>
-
-<h3 id="2-设置自定义的-geneartor-和-template">2.设置自定义的 Geneartor 和 template</h3>
-
+</div><p>现在在配置中指定了两种model 生成模板了</p>
+<h3 id="2设置自定义的-geneartor-和-template">2.设置自定义的 Geneartor 和 template</h3>
 <p>现在进<code>@app/vendor/yiisoft/yii2-gii/src/generators/model</code>把这个目录拷贝到 <code>@app/common/gii/</code>这里,位置随意, 只要保证 config 中能找到这个路径就行,现在我们就在 <code>@app/common/gii/model</code>这里操作</p>
-
 <p>因为 Generator 继承的 \yii\gii\Generator, 需要实现两个方法, 一个是 getName() 另一个是 generate(), 我们主要修改的就是 generate(),</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -290,9 +279,9 @@ if (YII_ENV_DEV) {
 </span><span class="lnt">71
 </span><span class="lnt">72
 </span><span class="lnt">73
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// file path: @app/common/gii/model/Generator
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// file path: @app/common/gii/model/Generator
 namespace app\common\gii\model;
 
 use Yii;
@@ -364,19 +353,16 @@ class Generator extends \yii\gii\Generator{
      /**
     some code .....
     */
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在<code>generate()</code> 这个方法里的 <code>$params</code> 这里就是给模板准备参数, <code>new CodeFile</code>这里就是生成指定的模板</p>
-
+</div><p>在<code>generate()</code> 这个方法里的 <code>$params</code> 这里就是给模板准备参数, <code>new CodeFile</code>这里就是生成指定的模板</p>
 <p>现在我们在模板中搞一下</p>
-
-<h3 id="3-设置-model-模板">3.设置 model 模板</h3>
-
+<h3 id="3设置-model-模板">3.设置 model 模板</h3>
 <p>在<code>@app/common/gii/model</code>目录下有一个<code>default</code>目录,就是默认的 template,咱们在<code>config.php</code>中设置了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -387,13 +373,13 @@ class Generator extends \yii\gii\Generator{
             //模板名 =&gt; 模板路径
             &#39;default&#39; =&gt;  &#39;@app/common/gii/model/default&#39;,
             &#39;original&#39; =&gt; &#39;@app/common/gii/model/original_tpl&#39;,
-        ]</code></pre></td></tr></table>
+        ]
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这两个, 把 <code>default/</code> 复制一份叫 <code>original_tpl/</code> 这在 gii 页面端选模板的时候能看到这写别名,如果是<code>console</code>模式的话只能使用<code>default</code>模板了</p>
+</div><p>这两个, 把 <code>default/</code> 复制一份叫 <code>original_tpl/</code> 这在 gii 页面端选模板的时候能看到这写别名,如果是<code>console</code>模式的话只能使用<code>default</code>模板了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -461,13 +447,11 @@ use Yii;
 ...底下一些乱七八糟的代码....
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>这里就看着办吧,就是正常的渲染模板</p>
-
+</div><p>这里就看着办吧,就是正常的渲染模板</p>
 <p>因为在<code>generate()</code>中还设置了一个</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -482,13 +466,13 @@ if ($index == 0) {
         Yii::getAlias(&#39;@&#39; . str_replace(&#39;\\&#39;, &#39;/&#39;, $this-&gt;ns)) . &#39;/Model.php&#39;,
         $this-&gt;render(&#39;cModel.php&#39;, $params)
     );
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>新增了一个<code>cModel.php</code>,这个是我自己的业务需求, 同库的 model 全部继承这个 model, 这里只是设置了一下<code>getDb()</code>方法</p>
+</div><p>新增了一个<code>cModel.php</code>,这个是我自己的业务需求, 同库的 model 全部继承这个 model, 这里只是设置了一下<code>getDb()</code>方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -604,15 +588,12 @@ if ($index == 0) {
 <span class="cp">?&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>这样依赖 gii 的模板自定义就算是完事了</p>
-
+</div><p>这样依赖 gii 的模板自定义就算是完事了</p>
 <h3 id="4-console-模式下的-gii">4. console 模式下的 gii</h3>
-
 <p>照例首先需要设置<code>console.php</code>的配置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -645,15 +626,14 @@ if (YII_ENV_DEV) {
             ]
         ],
     ];
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>generators</code> 和 之前的配置一样,区别就是 module 下的 class 设置成自己的 Module</p>
-
+</div><p><code>generators</code> 和 之前的配置一样,区别就是 module 下的 class 设置成自己的 Module</p>
 <p>这里把<code>@app/vendor/yiisoft/yii2-gii/src/Module.php</code>复制一份到<code>@app/common/gii/Module.php</code> 改一下命名空间并且继承<code>\yii\gii\Module</code> 毕竟咱们是定制的, 这个代码不能在 vendor 中改,不然以后你再装新的 composer 包的时候会非常麻烦</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -678,6 +658,7 @@ if (YII_ENV_DEV) {
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
+</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php">// path: @app/common/gii/Module.php
@@ -704,15 +685,15 @@ if (YII_ENV_DEV) {
     }
 /**
 代码块
-*/</code></pre></td></tr></table>
-</div>
-</div>
-<p>只用把 console 的 GenerateController 指向咱们自定义的控制器, 复制目录<code>@app/vendor/yiisoft/yii2-gii/src/console/</code> 到 <code>@app/common/gii/console/</code>, 这时我们就能对 gii console 模式下的代码进行调整了</p>
+*/
 
+</code></pre></td></tr></table>
+</div>
+</div><p>只用把 console 的 GenerateController 指向咱们自定义的控制器, 复制目录<code>@app/vendor/yiisoft/yii2-gii/src/console/</code> 到 <code>@app/common/gii/console/</code>, 这时我们就能对 gii console 模式下的代码进行调整了</p>
 <p>可能在<code>@app/common/gii/console/GenerateController.php</code>中的代码让你摸不到头脑, 这里是在 <code>actions()</code>来着注册 router, 具体的 action 实现则是在 class 中指定了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -753,10 +734,10 @@ if (YII_ENV_DEV) {
             }
         }
         return $actions;
-    }</code></pre></td></tr></table>
+    }
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>因为所有的 Generator 都实现了 <code>getName()</code> 和 <code>generate()</code>这两个方法,action 也是只使用了这两个方法,可以自己翻下代码,这里就不详细讲了</p>
+</div><p>因为所有的 Generator 都实现了 <code>getName()</code> 和 <code>generate()</code>这两个方法,action 也是只使用了这两个方法,可以自己翻下代码,这里就不详细讲了</p>
 
     </div>
 

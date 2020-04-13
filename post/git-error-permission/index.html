@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-error-permission/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="git-error-permission">
 <meta itemprop="description" content="这种情况在部署 webhook 的时候经常会碰到 报错信息: git error insufficient permission for adding an object 这种报错就是权限错误,把项目中的.git 文件整体改成你的执行权限就行 有一点要注意,">
-
-
 <meta itemprop="datePublished" content="2017-06-23T16:46:13&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="175">
 
 
 
-<meta itemprop="keywords" content="git,linux," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git,linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git-error-permission"/>
 <meta name="twitter:description" content="这种情况在部署 webhook 的时候经常会碰到 报错信息: git error insufficient permission for adding an object 这种报错就是权限错误,把项目中的.git 文件整体改成你的执行权限就行 有一点要注意,"/>
 
@@ -140,7 +137,6 @@
       <p>这种情况在部署 <code>webhook</code> 的时候经常会碰到
 报错信息: <code>git error insufficient permission for adding an object</code>
 这种报错就是权限错误,把项目中的.git 文件整体改成你的执行权限就行</p>
-
 <p><strong>有一点要注意</strong>,如果你服务器上有一个 www 的角色在部署项目,那么你就不能再用root的角色去部署了,否则会在 .git/objects 目录下产生由 root所属的文件从而造成当www再次执行合并任务的时候因为权限不能操作部分commit的文件而造成合并失败</p>
 
     </div>

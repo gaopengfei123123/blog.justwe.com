@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &amp;gt; 最近团队讨论了一下，" /><meta name="keywords" content="vue, js, axios" />
+<meta name="author" content="GPF" /><meta name="description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A" /><meta name="keywords" content="vue, js, axios" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/vue-axios-post/" />
@@ -39,25 +39,22 @@
 
 
 <meta property="og:title" content="使用 axios-post 提交数据" />
-<meta property="og:description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &gt; 最近团队讨论了一下，" />
+<meta property="og:description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/vue-axios-post/" />
 <meta property="article:published_time" content="2017-05-02T16:45:00+00:00" />
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="使用 axios-post 提交数据">
-<meta itemprop="description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &gt; 最近团队讨论了一下，">
-
-
+<meta itemprop="description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A">
 <meta itemprop="datePublished" content="2017-05-02T16:45:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="788">
+<meta itemprop="wordCount" content="787">
 
 
 
-<meta itemprop="keywords" content="vue,axios," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="vue,axios," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 axios-post 提交数据"/>
-<meta name="twitter:description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &gt; 最近团队讨论了一下，"/>
+<meta name="twitter:description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,33 +134,26 @@
 
     
     <div class="post-content">
-      
-
-<p>继 <code>vue-resource</code> 之后, <code>axios</code> 是 vue 官方首推的网络请求组件
-<!-- more --></p>
-
+      <p>继 <code>vue-resource</code> 之后, <code>axios</code> 是 vue 官方首推的网络请求组件</p>
+<!-- raw HTML omitted -->
 <h2 id="axios简介">axios简介</h2>
-
-<p>它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是:
-&gt; 最近团队讨论了一下，Ajax 本身跟 Vue 并没有什么需要特别整合的地方，使用 fetch polyfill 或是 axios、superagent 等等都可以起到同等的效果，vue-resource 提供的价值和其维护成本相比并不划算，所以决定在不久以后取消对 vue-resource 的官方推荐。已有的用户可以继续使用，但以后不再把 vue-resource 作为官方的 ajax 方案。
+<p>它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是:</p>
+<blockquote>
+<p>最近团队讨论了一下，Ajax 本身跟 Vue 并没有什么需要特别整合的地方，使用 fetch polyfill 或是 axios、superagent 等等都可以起到同等的效果，vue-resource 提供的价值和其维护成本相比并不划算，所以决定在不久以后取消对 vue-resource 的官方推荐。已有的用户可以继续使用，但以后不再把 vue-resource 作为官方的 ajax 方案。
 这里可以去掉 vue-resource，文档也不必翻译了。
 <a href="https://github.com/vuefe/vuefe.github.io/issues/186">原文链接</a></p>
-
+</blockquote>
 <p>这里还有一份<a href="https://juejin.im/entry/587599388d6d810058a7a41a">看两眼就是能用的手册</a></p>
-
 <h2 id="关于-csrf-攻击">关于 csrf 攻击</h2>
-
 <p>这篇文章想说的不是怎么用 axios,而是之前碰到了一种情况,就是在 php 框架当中,碰到了 csrf 验证的问题
 关于 csrf 攻击这里也不会讲,因为前辈们已经说的很详细了,比如这篇<a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html#undefined">通俗易懂的文章</a></p>
-
 <h2 id="axios-与-csrf-token">axios 与 csrf-token</h2>
-
 <p>我常用的两个框架中 laravel 是支持在 header 中设置 csrf-token 的,而 yii 中的默认设置只是在表单
 提交的内容中检测 csrf-token 相关的字段,使用 axios 提交内容的时候默认并不会出现在 from-data
 内容当中,比如这样提交的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,12 +183,11 @@
   <span class="p">})</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>但是这样的提交形式在 yii2.0 当中是接收不到提交的内容的,因为它的内容是存在了 <code>request payload</code>当中
+</div><p>但是这样的提交形式在 yii2.0 当中是接收不到提交的内容的,因为它的内容是存在了 <code>request payload</code>当中
 所以使用<code>Yii::$app-&gt;request-&gt;post()</code>是获取不到内容的,想要得到提交的内容需要这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -209,18 +198,16 @@
     $request_payload = file_get_contents(&#39;php://input&#39;);
     return json_decode($request_payload,true);
 }
-print_r(requestPayload());</code></pre></td></tr></table>
+print_r(requestPayload());
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样做的缺点就是获取请求都是自己去实现,而不是通过框架的 request 类去处理
+</div><p>这样做的缺点就是获取请求都是自己去实现,而不是通过框架的 request 类去处理
 这么做的前提还是关闭所提交 controller 的 csrf-token 验证,不安全啊同志们!</p>
-
 <p>那么问题来了,用什么样的姿势提交能让框架去识别并自动提取出来 csrf-token 呢?</p>
-
 <p>说了那么多废话终于到正题了,关键就是这个类了:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -250,8 +237,7 @@ print_r(requestPayload());</code></pre></td></tr></table>
   <span class="p">})</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>在这之前 bb 了那么多也是想让自己的印象更清晰一点,边说边捋思路,这是当初找到答案的地方<a href="https://github.com/mzabriskie/axios/issues/318#issuecomment-218948420">github</a></p>
+</div><p>在这之前 bb 了那么多也是想让自己的印象更清晰一点,边说边捋思路,这是当初找到答案的地方<a href="https://github.com/mzabriskie/axios/issues/318#issuecomment-218948420">github</a></p>
 
     </div>
 

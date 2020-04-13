@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-revert/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="记一次 git revert 的经历">
 <meta itemprop="description" content="合作开发经常会提merge request嘛, 然后就提了一个不该提的, 还手抖给合并了&hellip;. 返现问题以后准备回退, 然后抬眼一看各分支">
-
-
 <meta itemprop="datePublished" content="2018-10-25T16:27:06&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="413">
+<meta itemprop="wordCount" content="414">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="记一次 git revert 的经历"/>
 <meta name="twitter:description" content="合作开发经常会提merge request嘛, 然后就提了一个不该提的, 还手抖给合并了&hellip;. 返现问题以后准备回退, 然后抬眼一看各分支"/>
 
@@ -138,18 +135,14 @@
     
     <div class="post-content">
       <p>合作开发经常会提<code>merge request</code>嘛, 然后就提了一个不该提的, 还手抖给合并了&hellip;.</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>返现问题以后准备回退, 然后抬眼一看各分支的合并情况&hellip;.
-<img src="http://blog-image.onlyoneip.com/git-merge-line.png" alt="" /></p>
-
+<img src="http://blog-image.onlyoneip.com/git-merge-line.png" alt=""></p>
 <p>哇脑壳痛, 这就用不了平时最喜欢的 <code>reset</code> 了, 查了查资料, 想<strong>取消某一次 merge request</strong>用 <code>revert</code> 是最合适的</p>
-
 <p>接下来分三步,先找到要回退的那次 mr, 通常是这样的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -171,6 +164,7 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">git log 
@@ -178,37 +172,37 @@
 commit 365ea982c24f2c60150df6159734ab73b74515bc <span class="o">(</span>origin/master, origin/HEAD<span class="o">)</span>
 Merge: 465fbfb8 f15b39ae
 Author: xxx &lt;xxx&gt;
-Date:   Thu Oct <span class="m">25</span> <span class="m">15</span>:41:10 <span class="m">2018</span> +0800
+Date:   Thu Oct <span class="m">25</span> 15:41:10 <span class="m">2018</span> +0800
 
     Merge branch <span class="s1">&#39;master&#39;</span> of xxxxxxxxxxxxxxx
 
 commit 465fbfb8084089f9d08516b4d75ba51ae5dcd5ce
 Author: xxx &lt;xxx&gt;
-Date:   Thu Oct <span class="m">25</span> <span class="m">15</span>:41:03 <span class="m">2018</span> +0800
+Date:   Thu Oct <span class="m">25</span> 15:41:03 <span class="m">2018</span> +0800
 
     merge
 
 commit 1e309ff40fd02d1c9c6e604c2649d8a94086a573
 Author: xxx &lt;zhangkaixuan&gt;
-Date:   Thu Oct <span class="m">25</span> <span class="m">15</span>:40:37 <span class="m">2018</span> +0800
+Date:   Thu Oct <span class="m">25</span> 15:40:37 <span class="m">2018</span> +0800
 
     merge
 
-...</code></pre></td></tr></table>
-</div>
-</div>
-<p>这样的, 这只是 log 的中间的一部分, 假设 mr 之后后续又有很多 mr 已经合并了, 那么先找到我们要回退的 <code>commit id</code>, 这里就假设一个叫 <code>c76627674dedf4fc067cb0c5b2afbc123fd9c053</code></p>
+...
 
+</code></pre></td></tr></table>
+</div>
+</div><p>这样的, 这只是 log 的中间的一部分, 假设 mr 之后后续又有很多 mr 已经合并了, 那么先找到我们要回退的 <code>commit id</code>, 这里就假设一个叫 <code>c76627674dedf4fc067cb0c5b2afbc123fd9c053</code></p>
 <ol>
-<li><p>执行 <code>git revert -m 1 c76627674dedf4fc067cb0c5b2afbc123fd9c053</code></p>
-
-<p>通常执行这一步之后没什么冲突就可以了, 然后有冲突了, 就和正常的 merger conflicts 处理一样</p></li>
-
-<li><p>解决完冲突, 执行 <code>git revert --continue</code> 这就算合并了</p>
-
-<p>那么回滚到一半不想做了, 也好说, 执行 <code>git revert --abort</code> 以后, 大家就当无事发生过</p></li>
+<li>
+<p>执行 <code>git revert -m 1 c76627674dedf4fc067cb0c5b2afbc123fd9c053</code></p>
+<p>通常执行这一步之后没什么冲突就可以了, 然后有冲突了, 就和正常的 merger conflicts 处理一样</p>
+</li>
+<li>
+<p>解决完冲突, 执行 <code>git revert --continue</code> 这就算合并了</p>
+<p>那么回滚到一半不想做了, 也好说, 执行 <code>git revert --abort</code> 以后, 大家就当无事发生过</p>
+</li>
 </ol>
-
 <p>关于 <code>git revert -m 1</code> 这个<code>1</code>指的是 <code>mainline</code>, 1 代表着 master 这条线
 <a href="https://stackoverflow.com/a/5971033/9561528">资料参考: Why does git revert complain about a missing -m option?</a></p>
 

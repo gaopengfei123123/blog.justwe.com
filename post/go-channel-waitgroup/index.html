@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-channel-waitgroup/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="通过channel控制并发数量">
 <meta itemprop="description" content="使用 go 关键字有时候需要控制一下并发的数量, 但不至于去修改 runtime.GOMAXPROCS 这个数值, 这里就用到了缓冲channel的特性 demo: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17">
-
-
 <meta itemprop="datePublished" content="2018-12-04T14:14:30&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="395">
+<meta itemprop="wordCount" content="397">
 
 
 
-<meta itemprop="keywords" content="go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过channel控制并发数量"/>
 <meta name="twitter:description" content="使用 go 关键字有时候需要控制一下并发的数量, 但不至于去修改 runtime.GOMAXPROCS 这个数值, 这里就用到了缓冲channel的特性 demo: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17"/>
 
@@ -138,13 +135,11 @@
     
     <div class="post-content">
       <p>使用 <code>go</code> 关键字有时候需要控制一下并发的数量, 但不至于去修改 <code>runtime.GOMAXPROCS</code> 这个数值, 这里就用到了缓冲<code>channel</code>的特性</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>demo:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -189,9 +184,12 @@
 </span><span class="lnt">43
 </span><span class="lnt">44
 </span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">pool</span>
+<pre class="chroma"><code class="language-go" data-lang="go">
+<span class="kn">package</span> <span class="nx">pool</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;sync&#34;</span>
@@ -235,13 +233,14 @@
 <span class="c1">// Wait 等待
 </span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ap</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="nf">Wait</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">ap</span><span class="p">.</span><span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>test:</p>
+</div><p>test:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -296,13 +295,13 @@
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02T15:04:05Z07:00&#34;</span><span class="p">),</span> <span class="s">&#34;output: &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02T15:04:05Z07:00&#34;</span><span class="p">),</span> <span class="s">&#34;output: &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&#34;done&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>输出:</p>
+</div><p>输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -321,26 +320,26 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">2018</span>-12-04T14:22:27+08:00 output:  <span class="m">3</span>
-<span class="m">2018</span>-12-04T14:22:27+08:00 output:  <span class="m">1</span>
-<span class="m">2018</span>-12-04T14:22:27+08:00 output:  <span class="m">0</span>
-<span class="m">2018</span>-12-04T14:22:27+08:00 output:  <span class="m">2</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">3</span> <span class="k">done</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">0</span> <span class="k">done</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">1</span> <span class="k">done</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">5</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">6</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">2</span> <span class="k">done</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">7</span>
-<span class="m">2018</span>-12-04T14:22:28+08:00 output:  <span class="m">4</span>
-<span class="m">2018</span>-12-04T14:22:29+08:00 output:  <span class="m">4</span> <span class="k">done</span>
-<span class="m">2018</span>-12-04T14:22:29+08:00 output:  <span class="m">8</span>
-<span class="m">2018</span>-12-04T14:22:29+08:00 output:  <span class="m">7</span> <span class="k">done</span>
-<span class="m">2018</span>-12-04T14:22:29+08:00 output:  <span class="m">6</span> <span class="k">done</span>
-.....</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">2018-12-04T14:22:27+08:00 output:  <span class="m">3</span>
+2018-12-04T14:22:27+08:00 output:  <span class="m">1</span>
+2018-12-04T14:22:27+08:00 output:  <span class="m">0</span>
+2018-12-04T14:22:27+08:00 output:  <span class="m">2</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">3</span> <span class="k">done</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">0</span> <span class="k">done</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">1</span> <span class="k">done</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">5</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">6</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">2</span> <span class="k">done</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">7</span>
+2018-12-04T14:22:28+08:00 output:  <span class="m">4</span>
+2018-12-04T14:22:29+08:00 output:  <span class="m">4</span> <span class="k">done</span>
+2018-12-04T14:22:29+08:00 output:  <span class="m">8</span>
+2018-12-04T14:22:29+08:00 output:  <span class="m">7</span> <span class="k">done</span>
+2018-12-04T14:22:29+08:00 output:  <span class="m">6</span> <span class="k">done</span>
+.....
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里还是要带上 <code>sync.WaitGroup</code>, 保证最后一次循环时携程不会过早退出</p>
+</div><p>这里还是要带上 <code>sync.WaitGroup</code>, 保证最后一次循环时携程不会过早退出</p>
 
     </div>
 

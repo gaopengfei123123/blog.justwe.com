@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/redis-tips/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-27T11:44:12+08:00" />
 <meta itemprop="name" content="关于redis缓存的日常操作">
 <meta itemprop="description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至">
-
-
 <meta itemprop="datePublished" content="2019-12-24T11:45:20&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-27T11:44:12&#43;08:00" />
 <meta itemprop="wordCount" content="659">
 
 
 
-<meta itemprop="keywords" content="redis,cache," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="redis,cache," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于redis缓存的日常操作"/>
 <meta name="twitter:description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至"/>
 
@@ -137,45 +134,31 @@
 
     
     <div class="post-content">
-      
-
-<p>大致讲一下 <code>缓存雪崩</code>, <code>缓存穿透</code>, <code>缓存击穿</code> 的场景以及常规解决手段</p>
-
+      <p>大致讲一下 <code>缓存雪崩</code>, <code>缓存穿透</code>, <code>缓存击穿</code> 的场景以及常规解决手段</p>
 <h4 id="缓存雪崩">缓存雪崩</h4>
-
 <h5 id="场景">场景:</h5>
-
 <p>在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至宕机/被动构建缓存时cpu占用率暴升</p>
-
 <h5 id="解决方式">解决方式</h5>
-
 <ul>
 <li>缓存过期时间+/- 一个随机值, 尽量让缓存过期交错进行</li>
 <li>缓存集群部署, 缓存分布在各个节点中也能产生类似的效果</li>
 <li>不设置缓存过期时间, 而是数据更新后通过排它锁更新缓存</li>
 </ul>
-
 <h4 id="缓存穿透">缓存穿透</h4>
-
 <h5 id="场景-1">场景:</h5>
-
 <p>比如按缓存了id=[1,2,3]的数据, 有一个ip不断请求id=-1 或 id=[4,5,6]这些未缓存到的数据, 导致缓存形同虚设, 增加数据库负载</p>
-
 <p>或者id=1的缓存数据失效后读库时发生了错误, 也会导致所有请求id=1的请求都会直接链接数据库</p>
-
 <h5 id="解决方式-1">解决方式:</h5>
-
 <ul>
 <li>接口校验请求参数, 规避一些明显的错误格式</li>
 <li>设置数据边界, 比如mysql分页时最大page=100, 之后就不能用offset去做偏移,而是根据日期或者id去直接读取</li>
 <li>针对不存在缓存中的, id=-1的, 构建缓存时报错的也给缓存一个时间短一点的值, 就直接是null就好</li>
 <li>布隆过滤器</li>
 </ul>
-
 <p>举例如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -218,17 +201,13 @@
         return [];
     }
 
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="缓存击穿">缓存击穿</h4>
-
+</div><h4 id="缓存击穿">缓存击穿</h4>
 <h5 id="场景-2">场景:</h5>
-
 <p>和缓存雪崩类似, 这里是单个热数据缓存失效, 导致流量像锥子一样穿透层层缓存的保护直达数据库, 然后数据库跪了&hellip;</p>
-
 <h5 id="解决方式-2">解决方式:</h5>
-
 <ul>
 <li>热点数据不设置缓存过期时间, 主动构建缓存, 加互斥锁</li>
 <li>布隆过滤器</li>

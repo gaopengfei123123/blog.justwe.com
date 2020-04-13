@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-askpass-error/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="git-askpass-error">
 <meta itemprop="description" content="git 的账号密码错误情况 error 前段时间使用 phpstrom 中的 git 出现了一个错误 1 2 3 4 Fetch failed error: unable to read askpass response from &#39;..\tmp\intellij-git-askpass.bat&#39; error: failed to execute prompt script (exit code 1) fatal: could not read Username for &#39;http://xxx:3000&#39;: No error 大体情况就是某一次操">
-
-
 <meta itemprop="datePublished" content="2017-05-08T22:31:42&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="220">
 
 
 
-<meta itemprop="keywords" content="git,askpass," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git,askpass," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git-askpass-error"/>
 <meta name="twitter:description" content="git 的账号密码错误情况 error 前段时间使用 phpstrom 中的 git 出现了一个错误 1 2 3 4 Fetch failed error: unable to read askpass response from &#39;..\tmp\intellij-git-askpass.bat&#39; error: failed to execute prompt script (exit code 1) fatal: could not read Username for &#39;http://xxx:3000&#39;: No error 大体情况就是某一次操"/>
 
@@ -137,57 +134,50 @@
 
     
     <div class="post-content">
-      
-
-<p>git 的账号密码错误情况
-<!-- more --></p>
-
+      <p>git 的账号密码错误情况</p>
+<!-- raw HTML omitted -->
 <h2 id="error">error</h2>
-
 <p>前段时间使用 phpstrom 中的 git 出现了一个错误</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">	Fetch failed
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">	Fetch failed
 		error: unable to read askpass response from &#39;..\tmp\intellij-git-askpass.bat&#39;
 		error: failed to execute prompt script (exit code 1)
-		fatal: could not read Username for &#39;http://xxx:3000&#39;: No error</pre></td></tr></table>
+		fatal: could not read Username for &#39;http://xxx:3000&#39;: No error
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>大体情况就是某一次操作的时候账户密码发生了变动,导致本地的 git 没权限去拉取远程库了(因为用的是 https)
+</div><p>大体情况就是某一次操作的时候账户密码发生了变动,导致本地的 git 没权限去拉取远程库了(因为用的是 https)
 的方式</p>
-
 <h2 id="解决">解决</h2>
-
 <p>第一种(推荐): 将远程地址换成 ssh 地址,使用 ssh-key 登录</p>
-
 <p>第二种: 实在不想换的话就是用这种方式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git remote set-url origin https://&lt;username&gt;:&lt;password&gt;@github.com/&lt;username&gt;/&lt;repo_name&gt;.git</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git remote set-url origin https://&lt;username&gt;:&lt;password&gt;@github.com/&lt;username&gt;/&lt;repo_name&gt;.git
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>将账号密码写入到请求地址当中
+</div><p>将账号密码写入到请求地址当中
 比如我账户为: gaopengfei 密码为: 123456
 请求的库的地址是 <code>https://github.com/gaopengfei123123/redis_lbs.git</code>
 那么我的远程地址就是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git remote set-url origin https://gaopengfei:123456@github.com/gaopengfei123123/redis_lbs.git</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git remote set-url origin https://gaopengfei:123456@github.com/gaopengfei123123/redis_lbs.git
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><a href="https://github.com/atom/atom/issues/8984#issuecomment-144697558">参考issues</a></p>
+</div><p><a href="https://github.com/atom/atom/issues/8984#issuecomment-144697558">参考issues</a></p>
 
     </div>
 

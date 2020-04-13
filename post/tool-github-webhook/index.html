@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/tool-github-webhook/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="github-webhook 小工具">
 <meta itemprop="description" content="最近写了一个小工具, 用来接收github webhook消息, 以在服务器上自动执行脚本 gaopengfei123123/hook github hook server 一个用来接收webhook的server 环境 golang v1.11&#43;">
-
-
 <meta itemprop="datePublished" content="2019-11-14T16:44:42&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="551">
+<meta itemprop="wordCount" content="553">
 
 
 
-<meta itemprop="keywords" content="tools,github,hook," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tools,github,hook," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="github-webhook 小工具"/>
 <meta name="twitter:description" content="最近写了一个小工具, 用来接收github webhook消息, 以在服务器上自动执行脚本 gaopengfei123123/hook github hook server 一个用来接收webhook的server 环境 golang v1.11&#43;"/>
 
@@ -137,45 +134,36 @@
 
     
     <div class="post-content">
-      
-
-<p>最近写了一个小工具, 用来接收github webhook消息, 以在服务器上自动执行脚本</p>
-
+      <p>最近写了一个小工具, 用来接收github webhook消息, 以在服务器上自动执行脚本</p>
 <p><a href="https://github.com/gaopengfei123123/hook">gaopengfei123123/hook</a></p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <h2 id="github-hook-server">github hook server</h2>
-
 <p>一个用来接收webhook的server</p>
-
 <h3 id="环境">环境</h3>
-
 <p>golang v1.11+ (因为用到了go mod)</p>
-
 <h3 id="安装">安装</h3>
-
 <p>执行:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">go get -u github.com/gaopengfei123123/hook</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">go get -u github.com/gaopengfei123123/hook
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>创建文件 <code>main.go</code></p>
+</div><p>创建文件 <code>main.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -186,84 +174,80 @@
 
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">hook</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>执行命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">go build -o app main.go</code></pre></td></tr></table>
-</div>
-</div>
-<p><code>app</code> 这个二进制文件就是本体了, 放到合适的地方, 执行:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">./app start -d</code></pre></td></tr></table>
-</div>
-</div>
-<p>后台启动, app 同目录下会创建 <code>scripts</code>, <code>logs</code> 两个目录, 和一个 <code>hook.pid</code> 保存pid</p>
+<span class="p">}</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p>执行命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">go build -o app main.go
+</code></pre></td></tr></table>
+</div>
+</div><p><code>app</code> 这个二进制文件就是本体了, 放到合适的地方, 执行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./app start -d
+</code></pre></td></tr></table>
+</div>
+</div><p>后台启动, app 同目录下会创建 <code>scripts</code>, <code>logs</code> 两个目录, 和一个 <code>hook.pid</code> 保存pid</p>
 <p>检测是否启动:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-cmd" data-lang="cmd"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-cmd" data-lang="cmd">[root@xxx]# curl localhost:8080/ping
-{<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;pong v5&#34;</span>}</code></pre></td></tr></table>
+{<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;pong v5&#34;</span>}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>说明服务已经启动成功, 服务地址为<code>0.0.0.0:8080</code></p>
-
+</div><p>说明服务已经启动成功, 服务地址为<code>0.0.0.0:8080</code></p>
 <h3 id="接口">接口</h3>
-
 <ul>
 <li><code>0.0.0.0:8080/ping</code>   检测接口</li>
 <li><code>0.0.0.0:8080/push</code>   接受github webhook请求, 根据 Repository.Name 去判断执行什么脚本</li>
 </ul>
-
 <h3 id="可用指令">可用指令</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">reload      重新加载日志, 以及平滑重启
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">reload      重新加载日志, 以及平滑重启
 start       启动命令, -d 后台运行
 stop        终止命令
-version     程序版本</pre></td></tr></table>
+version     程序版本
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="目录功能">目录功能:</h3>
-
+</div><h3 id="目录功能">目录功能:</h3>
 <ul>
 <li>logs 存放请求日志</li>
 <li>scripts 存放hook脚本, 当有对应库名的请求进来, 将执行配置好的脚本</li>
 <li>hook.pid 存放进程pid</li>
 </ul>
-
 <h3 id="配置文件">配置文件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
@@ -274,11 +258,11 @@ version     程序版本</pre></td></tr></table>
             <span class="nt">&#34;push&#34;</span><span class="p">:</span> <span class="s2">&#34;test&#34;</span>  <span class="err">//</span> <span class="err">推送事件执行的脚本</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="特性">特性</h3>
+<span class="p">}</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="特性">特性</h3>
 <ul>
 <li>一键初始化</li>
 <li>平滑重启, 信号通信</li>
@@ -288,17 +272,13 @@ version     程序版本</pre></td></tr></table>
 <li>脚本传递参数(TODO)</li>
 <li>事件钩子(TODO)</li>
 </ul>
-
 <h3 id="依赖组件">依赖组件</h3>
-
 <ul>
 <li>http框架 <a href="https://github.com/gin-gonic/gin">gin</a></li>
 <li>日志组件 <a href="https://github.com/sirupsen/logrus">logrus</a></li>
 <li>命令行组件 <a href="https://github.com/spf13/cobra">cobra</a></li>
 </ul>
-
 <h3 id="github地址">github地址</h3>
-
 <p><a href="https://github.com/gaopengfei123123/hook">gaopengfei123123/hook</a></p>
 
     </div>

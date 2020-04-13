@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-trancate/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel事务">
 <meta itemprop="description" content="laravel 事务的使用会忽略的地方 laravel开启事物有两种方法： 一种是闭包 1 2 3 4 5 DB::transaction(function() { DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]); DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]); }); 当闭包内发生错误就会自动回滚 另一种比较灵活 1 2 3 4 5">
-
-
 <meta itemprop="datePublished" content="2017-03-21T09:01:02&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="252">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel事务"/>
 <meta name="twitter:description" content="laravel 事务的使用会忽略的地方 laravel开启事物有两种方法： 一种是闭包 1 2 3 4 5 DB::transaction(function() { DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]); DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]); }); 当闭包内发生错误就会自动回滚 另一种比较灵活 1 2 3 4 5"/>
 
@@ -137,16 +134,15 @@
 
     
     <div class="post-content">
-      <p>laravel 事务的使用会忽略的地方
-<!-- more --></p>
-
+      <p>laravel 事务的使用会忽略的地方</p>
+<!-- raw HTML omitted -->
 <p>laravel开启事物有两种方法：</p>
-
 <ul>
-<li><p>一种是闭包</p>
+<li>一种是闭包</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -155,17 +151,18 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php">DB::transaction(function()
 {
-DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]);
-DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]);
-});</code></pre></td></tr></table>
+    DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]);
+    DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]);
+});
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>当闭包内发生错误就会自动回滚</p></li>
-
-<li><p>另一种比较灵活</p>
+</div><p>当闭包内发生错误就会自动回滚</p>
+<ul>
+<li>另一种比较灵活</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -177,20 +174,17 @@ DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]);
 <pre class="chroma"><code class="language-php" data-lang="php">DB::beginTransaction();
 //这里执行一些数据库操作，包括 eloquent 的
 if(condition){
-DB::commit();
+    DB::commit();
 }else{
-DB::rollback();
-}</code></pre></td></tr></table>
+    DB::rollback();
+}
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<p>但是我有一次发现两种方法的事物都不起作用，在想掉几根头发之后想到了可能是不同数据库的原因！</p>
-
+</div><p>但是我有一次发现两种方法的事物都不起作用，在想掉几根头发之后想到了可能是不同数据库的原因！</p>
 <p>如果你采用的是分库存储不同逻辑的方式，执行事物的时候<strong>一定要加上连接信息</strong> 上面的就要这样写了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -205,10 +199,10 @@ if(condition){
     DB::connection(&#39;admin_database&#39;)-&gt;commit();
 }else{
     DB::connection(&#39;admin_database&#39;)-&gt;rollback();
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果逻辑中的 eloquent 连接的数据库和开启事物的数据库不是一个库一样是不起作用的</p>
+</div><p>如果逻辑中的 eloquent 连接的数据库和开启事物的数据库不是一个库一样是不起作用的</p>
 
     </div>
 

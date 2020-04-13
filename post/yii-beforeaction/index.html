@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 public function beforeAction($action) { if(condition){ Yii::$app-&amp;gt;response-&amp;gt;format = Response::FORMAT_JSON; Yii::$app-&amp;gt;response-&amp;gt;data = array( &amp;#39;status&amp;#39; =&amp;gt; -1, &amp;#39;message&amp;#39; =&amp;gt; &amp;#39;请先登录&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; \Yii::$app-&amp;gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响应" /><meta name="keywords" content="yii2, beforeAction, php" />
+<meta name="author" content="GPF" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public function beforeAction($action) { if(condition){ Yii::$app-&amp;gt;response-&amp;gt;format = Response::FORMAT_JSON; Yii::$app-&amp;gt;response-&amp;gt;data = array( &amp;#39;status&amp;#39; =&amp;gt; -1, &amp;#39;message&amp;#39; =&amp;gt; &amp;#39;请先登录&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; \Yii::$app-&amp;gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响" /><meta name="keywords" content="yii2, beforeAction, php" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/yii-beforeaction/" />
@@ -39,25 +39,22 @@
 
 
 <meta property="og:title" content="beforeAction的一个示例" />
-<meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 public function beforeAction($action) { if(condition){ Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON; Yii::$app-&gt;response-&gt;data = array( &#39;status&#39; =&gt; -1, &#39;message&#39; =&gt; &#39;请先登录&#39;, &#39;url&#39; =&gt; \Yii::$app-&gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响应" />
+<meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public function beforeAction($action) { if(condition){ Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON; Yii::$app-&gt;response-&gt;data = array( &#39;status&#39; =&gt; -1, &#39;message&#39; =&gt; &#39;请先登录&#39;, &#39;url&#39; =&gt; \Yii::$app-&gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/yii-beforeaction/" />
 <meta property="article:published_time" content="2017-02-28T07:42:34+00:00" />
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="beforeAction的一个示例">
-<meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 public function beforeAction($action) { if(condition){ Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON; Yii::$app-&gt;response-&gt;data = array( &#39;status&#39; =&gt; -1, &#39;message&#39; =&gt; &#39;请先登录&#39;, &#39;url&#39; =&gt; \Yii::$app-&gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响应">
-
-
+<meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public function beforeAction($action) { if(condition){ Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON; Yii::$app-&gt;response-&gt;data = array( &#39;status&#39; =&gt; -1, &#39;message&#39; =&gt; &#39;请先登录&#39;, &#39;url&#39; =&gt; \Yii::$app-&gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响">
 <meta itemprop="datePublished" content="2017-02-28T07:42:34&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="77">
+<meta itemprop="wordCount" content="78">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="beforeAction的一个示例"/>
-<meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 public function beforeAction($action) { if(condition){ Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON; Yii::$app-&gt;response-&gt;data = array( &#39;status&#39; =&gt; -1, &#39;message&#39; =&gt; &#39;请先登录&#39;, &#39;url&#39; =&gt; \Yii::$app-&gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响应"/>
+<meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public function beforeAction($action) { if(condition){ Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON; Yii::$app-&gt;response-&gt;data = array( &#39;status&#39; =&gt; -1, &#39;message&#39; =&gt; &#39;请先登录&#39;, &#39;url&#39; =&gt; \Yii::$app-&gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,7 +136,7 @@
     <div class="post-content">
       <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -153,9 +150,10 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span></pre></td>
+</span><span class="lnt">15
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">public function beforeAction($action)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">public function beforeAction($action)
 {
     if(condition){
         Yii::$app-&gt;response-&gt;format = Response::FORMAT_JSON;
@@ -168,11 +166,11 @@
     }
 
     return true;
-}</pre></td></tr></table>
-</div>
-</div>
-<p>这个函数只返回bool值，响应内容交给 response</p>
+}
 
+</code></pre></td></tr></table>
+</div>
+</div><p>这个函数只返回bool值，响应内容交给 response</p>
 <p><a href="http://www.yiichina.com/question/795">原文</a></p>
 
     </div>

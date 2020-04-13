@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-pull/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="git本地拉取远程分支">
 <meta itemprop="description" content="首先git clone一个git库， 其次在本地新建一个分支 1 git checkout -b devlocal 然后设置本地git文件，将本地分支和远程分支关联起来 （我有个远程分支叫做d">
-
-
 <meta itemprop="datePublished" content="2016-10-28T11:44:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="159">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git本地拉取远程分支"/>
 <meta name="twitter:description" content="首先git clone一个git库， 其次在本地新建一个分支 1 git checkout -b devlocal 然后设置本地git文件，将本地分支和远程分支关联起来 （我有个远程分支叫做d"/>
 
@@ -138,34 +135,34 @@
     
     <div class="post-content">
       <p>首先git clone一个git库，
-其次在本地新建一个分支
-<!-- more --></p>
+其次在本地新建一个分支</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git checkout -b devlocal</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git checkout -b devlocal
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后设置本地git文件，将本地分支和远程分支关联起来 （我有个远程分支叫做dev）</p>
+</div><p>然后设置本地git文件，将本地分支和远程分支关联起来 （我有个远程分支叫做dev）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git branch --set-upstream-to=origin/dev devlocal</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git branch --set-upstream-to=origin/dev devlocal
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再git pull 就能获取到远程git dev分支上的东西到本地的devlocal这个分支上了</p>
-
+</div><p>再git pull 就能获取到远程git dev分支上的东西到本地的devlocal这个分支上了</p>
 <p>还有一个是将本地分支推送到远程分支前要做的处理（远程不存在该分支）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git push --set-upstream origin new</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git push --set-upstream origin new
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

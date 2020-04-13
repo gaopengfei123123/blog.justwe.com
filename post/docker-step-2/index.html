@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-step-2/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="不正宗 docker 入门教程-构建一个镜像(2/3)">
 <meta itemprop="description" content="本章讲的大概能让你明白虚拟机和 docker 的区别&hellip; docker 设置了两种构建镜像的方式: 通过 docker commit 构建镜像(不推荐) 这个命令是将先有的容器制作成">
-
-
 <meta itemprop="datePublished" content="2018-07-08T22:54:58&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="2225">
+<meta itemprop="wordCount" content="2212">
 
 
 
-<meta itemprop="keywords" content="docker入门," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker入门," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="不正宗 docker 入门教程-构建一个镜像(2/3)"/>
 <meta name="twitter:description" content="本章讲的大概能让你明白虚拟机和 docker 的区别&hellip; docker 设置了两种构建镜像的方式: 通过 docker commit 构建镜像(不推荐) 这个命令是将先有的容器制作成"/>
 
@@ -135,33 +132,26 @@
 
     
     <div class="post-content">
-      
-
-<blockquote>
+      <blockquote>
 <p>本章讲的大概能让你明白虚拟机和 docker 的区别&hellip;</p>
 </blockquote>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>docker 设置了两种构建镜像的方式:</p>
-
-<h3 id="通过-docker-commit-构建镜像-不推荐">通过 docker commit 构建镜像(不推荐)</h3>
-
+<h3 id="通过-docker-commit-构建镜像不推荐">通过 docker commit 构建镜像(不推荐)</h3>
 <p>这个命令是将先有的容器制作成镜像, 不过建议仅用在排查问题的时候使用, 平时生成容器时最好不要用这种镜像, 因为不知道里面有什么改动, 对于开发者来说完全是一个黑盒</p>
-
 <p>命令格式:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">[</span>参数<span class="o">]</span> &lt;容器 ID 或 容器名&gt; <span class="o">[</span>仓库名<span class="o">[</span>:标签<span class="o">]]</span> <span class="o">[</span>flags<span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker commit <span class="o">[</span>参数<span class="o">]</span> &lt;容器 ID 或 容器名&gt; <span class="o">[</span>仓库名<span class="o">[</span>:标签<span class="o">]]</span> <span class="o">[</span>flags<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>比如(我随便找了一个本地容器 ID):</p>
+</div><p>比如(我随便找了一个本地容器 ID):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -172,24 +162,23 @@
 sha256:134e09cdce58842dea03202aa5b6516ead8268afe78d2203be8595b4f0bc5ebe
 ➜  ~ docker images
 REPOSITORY              TAG                    IMAGE ID            CREATED             SIZE
-local_nginx             v1                     134e09cdce58        <span class="m">2</span> seconds ago       109MB</code></pre></td></tr></table>
+local_nginx             v1                     134e09cdce58        <span class="m">2</span> seconds ago       109MB
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这就把当前的容器转换成了镜像, 提交到远程就是:</p>
+</div><p>这就把当前的容器转换成了镜像, 提交到远程就是:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker push local_nginx:v1</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker push local_nginx:v1
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>和<code>git</code>很像对不对?   不过推送到远程时需要有个 <a href="https://hub.docker.com/_/php/">dockerhub</a> 的账号</p>
-
+</div><p>和<code>git</code>很像对不对?   不过推送到远程时需要有个 <a href="https://hub.docker.com/_/php/">dockerhub</a> 的账号</p>
 <p><code>docker history</code> 命令可以查看镜像的构建记录</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -211,35 +200,32 @@ IMAGE               CREATED             CREATED BY                              
 &lt;missing&gt;           <span class="m">4</span> days ago          /bin/sh -c <span class="c1">#(nop)  STOPSIGNAL [SIGTERM]         0B</span>
 &lt;missing&gt;           <span class="m">4</span> days ago          /bin/sh -c <span class="c1">#(nop)  EXPOSE 80/tcp                0B</span>
 &lt;missing&gt;           <span class="m">4</span> days ago          /bin/sh -c ln -sf /dev/stdout /var/log/nginx…   22B
-&lt;missing&gt;           <span class="m">4</span> days ago          /bin/sh -c <span class="nb">set</span> -x  <span class="o">&amp;&amp;</span> apt-get update  <span class="o">&amp;&amp;</span> apt…   <span class="m">53</span>.7MB
+&lt;missing&gt;           <span class="m">4</span> days ago          /bin/sh -c <span class="nb">set</span> -x  <span class="o">&amp;&amp;</span> apt-get update  <span class="o">&amp;&amp;</span> apt…   53.7MB
 &lt;missing&gt;           <span class="m">4</span> days ago          /bin/sh -c <span class="c1">#(nop)  ENV NJS_VERSION=1.15.1.0.…   0B</span>
 &lt;missing&gt;           <span class="m">4</span> days ago          /bin/sh -c <span class="c1">#(nop)  ENV NGINX_VERSION=1.15.1-…   0B</span>
 &lt;missing&gt;           <span class="m">11</span> days ago         /bin/sh -c <span class="c1">#(nop)  LABEL maintainer=NGINX Do…   0B</span>
 &lt;missing&gt;           <span class="m">11</span> days ago         /bin/sh -c <span class="c1">#(nop)  CMD [&#34;bash&#34;]                 0B</span>
-&lt;missing&gt;           <span class="m">11</span> days ago         /bin/sh -c <span class="c1">#(nop) ADD file:28fbc9fd012eef727…   55.3MB</span></code></pre></td></tr></table>
+&lt;missing&gt;           <span class="m">11</span> days ago         /bin/sh -c <span class="c1">#(nop) ADD file:28fbc9fd012eef727…   55.3MB</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="通过-dockerfile-构建镜像">通过 Dockerfile 构建镜像</h3>
-
+</div><h3 id="通过-dockerfile-构建镜像">通过 Dockerfile 构建镜像</h3>
 <p>一个 Dockerfile 就是一个构建镜像的脚本, 常用的几个命令也不多, 也就<code>FROM</code>, <code>COPY</code>, <code>RUN</code>, <code>ADD</code>, <code>ARG</code>, <code>ENV</code>, <code>VOLUME</code>, <code>EXPOSE</code>, <code>CMD</code>, <code>LABEL</code>, 其他的一些命令就不再这里说了, 想了解完整的 Dockerfile 的关键词看这个 <a href="https://docs.docker.com/engine/reference/builder/#usage">Dockerfile reference</a></p>
-
 <h4 id="一个简单的-demo">一个简单的 demo</h4>
-
 <p>接下来我们就用一个完整的 Dockerfile 来示范一下:</p>
-
 <p>首先创建一个Dockerfile</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">mkdir dockerfile_demo <span class="o">&amp;&amp;</span> <span class="nb">cd</span> dockerfile_demo
-vi Dockerfile</code></pre></td></tr></table>
+vi Dockerfile
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -266,20 +252,21 @@ vi Dockerfile</code></pre></td></tr></table>
 </span><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s1">&#39;Hi, I am in your container&#39;</span><span class="se">\
 </span><span class="se"></span>    &gt;/var/www/html/index.html<span class="err">
 </span><span class="err"></span><span class="c"># 镜像对外暴露80端口</span><span class="err">
-</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 80</span></code></pre></td></tr></table>
+</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 80</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>然后为了更新速度快一点, 就要换一个国内镜像</p>
+</div><p>然后为了更新速度快一点, 就要换一个国内镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">vi sources.list</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">vi sources.list
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -304,87 +291,84 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiv
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</code></pre></td></tr></table>
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后还是在这个目录下, 运行:</p>
+</div><p>然后还是在这个目录下, 运行:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker build ./ -t local_ubuntu_nginx:v2</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker build ./ -t local_ubuntu_nginx:v2
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>执行完毕后就能看到本地多了一个镜像</p>
+</div><p>执行完毕后就能看到本地多了一个镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">➜  Documents docker images
 REPOSITORY              TAG                    IMAGE ID            CREATED             SIZE
-local_ubuntu_nginx      v2                     b0f5984c042a        <span class="m">14</span> minutes ago      214MB</code></pre></td></tr></table>
+local_ubuntu_nginx      v2                     b0f5984c042a        <span class="m">14</span> minutes ago      214MB
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>用这个镜像构建一个容器:</p>
+</div><p>用这个镜像构建一个容器:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">➜  Documents docker run -it --rm -p <span class="m">8088</span>:80 local_ubuntu_nginx:v2 /bin/bash
+<pre class="chroma"><code class="language-bash" data-lang="bash">➜  Documents docker run -it --rm -p 8088:80 local_ubuntu_nginx:v2 /bin/bash
 root@5cb9ff723bee:/# /usr/sbin/nginx
-root@5cb9ff723bee:/#</code></pre></td></tr></table>
+root@5cb9ff723bee:/#
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>保持终端打开, 本地访问 <code>http://localhost:8088/</code> 就能看到欢迎界面了 </p>
-
-<p>如果这个是关闭交互端口, 这个就访问不到了, 这里要说一个<strong>关键点</strong>了
-&gt; 在 docker 中运行的程序不能使用后台运行的模式, 否则 docker 会任务这个容器不活跃或出现问题而自动关闭
+</div><p>保持终端打开, 本地访问 <code>http://localhost:8088/</code> 就能看到欢迎界面了 </p>
+<p>如果这个是关闭交互端口, 这个就访问不到了, 这里要说一个<strong>关键点</strong>了</p>
+<blockquote>
+<p>在 docker 中运行的程序不能使用后台运行的模式, 否则 docker 会任务这个容器不活跃或出现问题而自动关闭
 但是 docker 容器本身是可以后台运行的: docker run -d &hellip;&hellip;</p>
-
+</blockquote>
 <h4 id="关于-docker-build-多说一句">关于 docker build 多说一句</h4>
-
 <p>之前我们构建时执行的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker build ./ -t local_ubuntu_nginx:v2</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker build ./ -t local_ubuntu_nginx:v2
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这个 <code>./</code> 的路径指的是构建文本流(context)的路径, 而不是 <code>Dockerfile</code>的文件路径, 在 <code>Dockerfile</code> 中用的各种相对路径都是基于 <code>context</code> 的,我们完全可以是</p>
+</div><p>这个 <code>./</code> 的路径指的是构建文本流(context)的路径, 而不是 <code>Dockerfile</code>的文件路径, 在 <code>Dockerfile</code> 中用的各种相对路径都是基于 <code>context</code> 的,我们完全可以是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker build /path/to/context -f /path/to/anywhere/Dockerfile_demo -t local_ubuntu_nginx</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker build /path/to/context -f /path/to/anywhere/Dockerfile_demo -t local_ubuntu_nginx
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>你看, Dockerfile 的文件名不就变成 <code>Dockerfile_demo</code> 了, 如果有</p>
+</div><p>你看, Dockerfile 的文件名不就变成 <code>Dockerfile_demo</code> 了, 如果有</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">COPY</span> ./sources.list /etc/apt/sources.list</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">COPY</span> ./sources.list /etc/apt/sources.list<span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>这样的操作, 那么它的完整路径应该是 <code>/path/to/context/sources.list</code>, 不过默认的情况下就是这两个路径是一起的, 不设置镜像<code>tag</code>的话就拿 Dockerfile 所在的目录名为镜像名,默认<code>latest</code>版本</p>
-
+</div><p>这样的操作, 那么它的完整路径应该是 <code>/path/to/context/sources.list</code>, 不过默认的情况下就是这两个路径是一起的, 不设置镜像<code>tag</code>的话就拿 Dockerfile 所在的目录名为镜像名,默认<code>latest</code>版本</p>
 <h3 id="多阶段构建">多阶段构建</h3>
-
 <p>有时候我们的运行环境和编译环境是两回事, 就拿 golang 来举例, 我们只会去维护代码, 而不去管它生成的二进制包是什么, 又因为golang 打包出来的二进制文件几乎是没有依赖, 只要执行这个文件就行, 那么在运行环境中和编译相关的程序就是多余的, 可以看一下官网的示例 <a href="https://docs.docker.com/develop/develop-images/multistage-build/">Use multi-stage builds</a>, 不能翻墙的看这个</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -409,22 +393,23 @@ root@5cb9ff723bee:/#</code></pre></td></tr></table>
 </span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /root/</span><span class="err">
 </span><span class="err"></span><span class="c"># 这个是关键, --from=0 是指从第一个镜像(from)中复制内容, 程序中的1 就是0</span><span class="err">
 </span><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span><span class="m">0</span> /go/src/github.com/alexellis/href-counter/app .<span class="err">
-</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./app&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./app&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker build -t alexellis2/href-counter:latest .</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker build -t alexellis2/href-counter:latest .
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这是我自己构建镜像时编译 <code>swoole.so</code> 的镜像和运行时的镜像大小
-<img src="http://blog-image.onlyoneip.com/docker-images.png" alt="docker-images" />
+</div><p>这是我自己构建镜像时编译 <code>swoole.so</code> 的镜像和运行时的镜像大小
+<img src="http://blog-image.onlyoneip.com/docker-images.png" alt="docker-images">
 我们只想要一个 <code>swoole.so</code> 像 <code>gcc</code>, <code>make</code> 都是不是代码运行时需要的模块, 因此只是在编译的时候用上, 吐一个<code>swoole.so</code>出来就行, <a href="https://github.com/gayhuber/dnmp/tree/master/php-cli">相关代码</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -469,7 +454,7 @@ root@5cb9ff723bee:/#</code></pre></td></tr></table>
 </span><span class="se"></span>    apk add autoconf gcc make<span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="k">RUN</span> wget https://github.com/swoole/swoole-src/archive/1.8.12-stable.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>    tar zxvf <span class="m">1</span>.8.12-stable.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    tar zxvf 1.8.12-stable.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
 </span><span class="se"></span>    <span class="nb">cd</span> swoole-src-1.8.12-stable <span class="o">&amp;&amp;</span> <span class="se">\
 </span><span class="se"></span>    phpize <span class="o">&amp;&amp;</span> <span class="se">\
 </span><span class="se"></span>    ./configure <span class="o">&amp;&amp;</span> <span class="se">\
@@ -487,22 +472,20 @@ root@5cb9ff723bee:/#</code></pre></td></tr></table>
 </span><span class="err">
 </span><span class="err"></span><span class="c"># 通常 run 是构建镜像时用的, 会保存一层缓存, cmd 就是镜像启动后执行的命令</span><span class="err">
 </span><span class="err"></span><span class="k">RUN</span> <span class="o">[</span><span class="s2">&#34;php&#34;</span>, <span class="s2">&#34;-m&#34;</span><span class="o">]</span><span class="err">
-</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;php&#34;</span><span class="p">,</span> <span class="s2">&#34;-a&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;php&#34;</span><span class="p">,</span> <span class="s2">&#34;-a&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="构建镜像时需要注意的几点">构建镜像时需要注意的几点</h3>
-
+</div><h3 id="构建镜像时需要注意的几点">构建镜像时需要注意的几点</h3>
 <ol>
 <li>尽量使用官方镜像, 同时版本选择 <code>alpine &gt; debian &gt; ubuntu &gt; centos</code>, <code>alpine</code>版本的镜像是最小的</li>
 <li>COPY 和 ADD 尽量使用 COPY, COPY 只是单纯的复制, ADD 则会自动执行一些东西, 有可能出现意料外的问题</li>
 <li>CMD 和 ENTERPOINT 这两个可以查一下区别, 我个人习惯用 CMD</li>
 <li>容器中的程序都要前台执行的模式, 使用 daemon 模式会被退出(你想想本身一个后台运行的容器中有个后台运行的程序&hellip;)</li>
 <li>每一个 <code>RUN</code> 指令就是一层缓存, 当其中一个步骤发生更改那么这之后的步骤也都重新构建</li>
-
-<li><p>系统更新最好合成一个 RUN 比如:</p>
+<li>系统更新最好合成一个 RUN 比如:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -511,20 +494,18 @@ root@5cb9ff723bee:/#</code></pre></td></tr></table>
 <pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">RUN</span> apk update <span class="o">&amp;&amp;</span> <span class="se">\
 </span><span class="se"></span>    apk upgrade <span class="o">&amp;&amp;</span> <span class="se">\
 </span><span class="se"></span>    apk add alpine-sdk linux-headers <span class="o">&amp;&amp;</span> <span class="se">\
-</span><span class="se"></span>    apk add autoconf gcc make</code></pre></td></tr></table>
+</span><span class="se"></span>    apk add autoconf gcc make<span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>同样还是为了避免因为缓存时出现问题</p></li>
-
-<li><p>多看看官方构建的镜像, 收获会很多, 比如 <a href="https://github.com/nginxinc/docker-nginx/tree/e3e35236b2c77e02266955c875b74bdbceb79c44/stable">docker-nginx</a>, <a href="https://github.com/docker-library/php/tree/4af0a8734a48ab84ee96de513aabc45418b63dc5">docker-php</a></p></li>
+</div><p>同样还是为了避免因为缓存时出现问题</p>
+</li>
+<li>多看看官方构建的镜像, 收获会很多, 比如 <a href="https://github.com/nginxinc/docker-nginx/tree/e3e35236b2c77e02266955c875b74bdbceb79c44/stable">docker-nginx</a>, <a href="https://github.com/docker-library/php/tree/4af0a8734a48ab84ee96de513aabc45418b63dc5">docker-php</a></li>
 </ol>
-
 <h3 id="相关">相关</h3>
-
 <ol>
-<li><a href="http://blog.justwe.site/2018/07/06/docker-step-1/">不正宗 Docker 入门教程-启动一个容器(<sup>1</sup>&frasl;<sub>3</sub>)</a></li>
-<li><a href="http://blog.justwe.site/2018/07/08/docker-step-2/">不正宗 Docker 入门教程-构建一个镜像(<sup>2</sup>&frasl;<sub>3</sub>)</a></li>
-<li><a href="http://blog.justwe.site/2018/07/20/docker-step-3/">不正宗 Docker 入门教程-使用 Docker-Compose (<sup>3</sup>&frasl;<sub>3</sub>)</a></li>
+<li><a href="http://blog.justwe.site/2018/07/06/docker-step-1/">不正宗 Docker 入门教程-启动一个容器(1/3)</a></li>
+<li><a href="http://blog.justwe.site/2018/07/08/docker-step-2/">不正宗 Docker 入门教程-构建一个镜像(2/3)</a></li>
+<li><a href="http://blog.justwe.site/2018/07/20/docker-step-3/">不正宗 Docker 入门教程-使用 Docker-Compose (3/3)</a></li>
 </ol>
 
     </div>

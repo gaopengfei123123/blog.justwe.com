@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-interface/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go-interface">
 <meta itemprop="description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得">
-
-
 <meta itemprop="datePublished" content="2017-04-19T23:43:41&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="945">
+<meta itemprop="wordCount" content="950">
 
 
 
-<meta itemprop="keywords" content="go,interface," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,interface," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go-interface"/>
 <meta name="twitter:description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得"/>
 
@@ -137,23 +134,17 @@
 
     
     <div class="post-content">
-      
-
-<p>关于 go 语言接口的简单介绍
-<!-- more -->
-接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息,
+      <p>关于 go 语言接口的简单介绍</p>
+<!-- raw HTML omitted -->
+<p>接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息,
 但是相关的方法将会变得非常麻烦</p>
-
 <h2 id="什么是接口">什么是接口?</h2>
-
 <p>接口就是制定一个通用的规范,只要符合这个规范就能使用这个借口(听起来像是车轱辘话)</p>
-
 <h2 id="接口类型">接口类型</h2>
-
 <p>比如我定义了一个接口</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -162,14 +153,14 @@
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">example</span> <span class="kd">interface</span><span class="p">{</span>
   <span class="nf">a</span><span class="p">()</span>
   <span class="nf">b</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>他定义了两个方法,只要有结构体中含有 <code>a()</code>,<code>b()</code>两个方法就能实现这个接口,通过接口来统一调用,
+</div><p>他定义了两个方法,只要有结构体中含有 <code>a()</code>,<code>b()</code>两个方法就能实现这个接口,通过接口来统一调用,
 如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -298,17 +289,17 @@
   <span class="nx">i</span> <span class="p">=</span> <span class="nx">jack</span>
   <span class="nx">i</span><span class="p">.</span><span class="nf">Sayhi</span><span class="p">();</span>
   <span class="nx">i</span><span class="p">.</span><span class="nf">Sing</span><span class="p">(</span><span class="s">&#34;haha haha haha&#34;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里的 <code>Men</code> 接口被所有继承了<code>Human</code>的结构体的方法所实现,所以这些实例化的结构体可以赋值给
+</div><p>这里的 <code>Men</code> 接口被所有继承了<code>Human</code>的结构体的方法所实现,所以这些实例化的结构体可以赋值给
 <code>Men</code>的接口变量上,我们在 go 语言中的面向对象开发可以说就是面向接口在开发,由接口来组成一个个的
 变量,
 这和 php 的接口有所不同,在 php 中,接口是需要被 class 来继承,然后class 中去实现 interface 中
 指定的方法,比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -321,6 +312,7 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php">interface Human{
@@ -335,16 +327,16 @@ class Student implements Human{
   public function sing(){
     // TODO:
   }
-}</code></pre></td></tr></table>
-</div>
-</div>
-<p>这样子的, 每个类需要指定继承哪些接口才可以去实现接口,而 go 和 php 正好相反,是谁实现了我的规范
-谁就可以用我的接口,实现顺序正好倒过来了</p>
+}
 
+</code></pre></td></tr></table>
+</div>
+</div><p>这样子的, 每个类需要指定继承哪些接口才可以去实现接口,而 go 和 php 正好相反,是谁实现了我的规范
+谁就可以用我的接口,实现顺序正好倒过来了</p>
 <h2 id="再举一个接口的例子">再举一个接口的例子</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -389,17 +381,27 @@ class Student implements Human{
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">Duck</span> <span class="o">:=</span> <span class="nx">Human</span><span class="p">{</span><span class="s">&#34;duck&#34;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="s">&#34;110-120-119&#34;</span><span class="p">}</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;this human is :&#34;</span><span class="p">,</span> <span class="nx">Duck</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上述例子当中我们实现了 <code>fmt.Println</code> 中的一个接口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Stringer</span> <span class="kd">interface</span> <span class="p">{</span>
+  <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="nx">这样之后</span><span class="p">,</span><span class="nx">调用</span> <span class="s">`Human`</span> <span class="nx">的</span> <span class="nf">String</span><span class="p">()</span> <span class="nx">函数就能被</span> <span class="s">`fmt.Println()`</span> <span class="nx">所用了</span>
+</code></pre></td></tr></table>
 </div>
 </div>
-<p>上述例子当中我们实现了 <code>fmt.Println</code> 中的一个接口
-```go
-type Stringer interface {
-  String() string
-}</p>
-
-<p>这样之后,调用 <code>Human</code> 的 String() 函数就能被 <code>fmt.Println()</code> 所用了</p>
-
     </div>
 
     <div class="post-copyright">

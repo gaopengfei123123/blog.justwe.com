@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-pipe-pattern/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="转 go 模仿Unix 管道操作">
 <meta itemprop="description" content="本文摘录了许式伟 《Go，基于连接与组合的语言》部分内容，为了便于理解，我在其后端写了个完整的示例程序帮助理解，这篇文章 一是展示go在并行编程">
-
-
 <meta itemprop="datePublished" content="2019-11-14T11:29:20&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="2133">
+<meta itemprop="wordCount" content="2134">
 
 
 
-<meta itemprop="keywords" content="pipe,go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="pipe,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 go 模仿Unix 管道操作"/>
 <meta name="twitter:description" content="本文摘录了许式伟 《Go，基于连接与组合的语言》部分内容，为了便于理解，我在其后端写了个完整的示例程序帮助理解，这篇文章 一是展示go在并行编程"/>
 
@@ -137,62 +134,51 @@
 
     
     <div class="post-content">
-      
-
-<p>本文摘录了许式伟 <a href="https://www.infoq.cn/article/go-based-on-connection-combination-language-1/">《Go，基于连接与组合的语言》</a>部分内容，为了便于理解，我在其后端写了个完整的示例程序帮助理解，这篇文章 一是展示go在并行编程中的伟大，也是理解和学习闭包的活的教科书</p>
-
-<!-- more -->
-
+      <p>本文摘录了许式伟 <a href="https://www.infoq.cn/article/go-based-on-connection-combination-language-1/">《Go，基于连接与组合的语言》</a>部分内容，为了便于理解，我在其后端写了个完整的示例程序帮助理解，这篇文章 一是展示go在并行编程中的伟大，也是理解和学习闭包的活的教科书</p>
+<!-- raw HTML omitted -->
 <h3 id="正文">正文</h3>
-
 <p>让我们从Unix谈起。Go语言与Unix、C语言有着极深的渊源。Go语言的领袖们参与甚至主导了Unix和C语言的设计。Ken Thompson 甚至算得上Unix和C语言的鼻祖。Go语言亦深受Unix和C语言的设计哲学影响。</p>
-
 <p>在Unix世界里，组件就是应用程序（app），每个app可大体抽象为：</p>
-
 <ul>
 <li>输入：stdin（标准输入）, params（命令行参数）</li>
 <li>输出：stdout（标准输出）</li>
 <li>协议：text (data stream)</li>
 </ul>
-
 <p>不同的应用程序（app）如何连接？答案是：管道（pipeline）。在Unix世界中大家对这样的东西已经很熟悉了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">app1 params1 | app2 params2</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">app1 params1 | app2 params2
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通过管道（pipeline），可以将一个应用程序的输出（stdout）转换为另一个应用程序的输入（stdin）。更为神奇的一点，是这些应用程序是并行执行的。app1每产生一段输出，立即会被app2所处理。所以管道（pipeline）称得上是最古老，同时也是极其优秀的并行设施，简单而强大。</p>
-
+</div><p>通过管道（pipeline），可以将一个应用程序的输出（stdout）转换为另一个应用程序的输入（stdin）。更为神奇的一点，是这些应用程序是并行执行的。app1每产生一段输出，立即会被app2所处理。所以管道（pipeline）称得上是最古老，同时也是极其优秀的并行设施，简单而强大。</p>
 <p>需要注意的是，Unix世界中不同应用程序直接是松散耦合的。上游app的输出是xml还是json，下游app需要知晓，但并无任何强制的约束。同一输出，不同的下游app，对协议的理解甚至都可能并不相同。例如，上游app输出一段xml文本，对于某个下游app来说，是一颗dom树，但对linecount程序来说只是一个多行的文本，对于英文单词词频统计程序来说，是一篇英文文章。</p>
-
 <p>为了方便理解，我们先尝试在Go语言中模拟整个Unix的管道（pipeline）机制。首先是应用程序（app），我们抽象为：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">func(in io.Reader, out io.Writer, args []string)</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">func(in io.Reader, out io.Writer, args []string)
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也就是说，Unix 中的</p>
-
+</div><p>也就是说，Unix 中的</p>
 <p>app1 params1 | app2 params2
 对应Go语言中是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">pipe( bind(app1, params1), bind(app2, params2) )</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pipe( bind(app1, params1), bind(app2, params2) )
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其中，bind 函数实现如下：</p>
+</div><p>其中，bind 函数实现如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -211,15 +197,14 @@
     <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">in</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">,</span> <span class="nx">out</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="p">{</span>
         <span class="nf">app</span><span class="p">(</span><span class="nx">in</span><span class="p">,</span> <span class="nx">out</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>要理解bind函数，需要先理解“闭包”。Go语言中，应用程序以一个闭包的形式体现。如果你熟悉函数式编程，不难发现，这个bind函数其实就是所谓的柯里化（currying）。</p>
-
+</div><p>要理解bind函数，需要先理解“闭包”。Go语言中，应用程序以一个闭包的形式体现。如果你熟悉函数式编程，不难发现，这个bind函数其实就是所谓的柯里化（currying）。</p>
 <p>pipe函数如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -250,15 +235,14 @@
         <span class="p">}()</span>
         <span class="nf">app1</span><span class="p">(</span><span class="nx">in</span><span class="p">,</span> <span class="nx">pw</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>要理解pipe函数，除了“闭包”外，需要知晓defer关键字和goroutine（go关键字）。defer语句会在函数退出时执行（无论是否发生了异常），通常用于资源的清理操作（比如关闭文件句柄等）。有了defer语句，Go语言中的错误处理代码显得非常优雅。在一个正常的函数调用前加上go关键字，就会使得该函数在新的goroutine中并行执行。理解了这些背景，这个pipe函数不难理解，无非是：先创建一个管道，让app1读入数据（in），并向管道的写入端（pw）输出，启动一个新goroutine，让app2从管道的读入端读取数据，并将处理结果输出（out）。这样得到的app就是app1和app2的组合了。</p>
-
+</div><p>要理解pipe函数，除了“闭包”外，需要知晓defer关键字和goroutine（go关键字）。defer语句会在函数退出时执行（无论是否发生了异常），通常用于资源的清理操作（比如关闭文件句柄等）。有了defer语句，Go语言中的错误处理代码显得非常优雅。在一个正常的函数调用前加上go关键字，就会使得该函数在新的goroutine中并行执行。理解了这些背景，这个pipe函数不难理解，无非是：先创建一个管道，让app1读入数据（in），并向管道的写入端（pw）输出，启动一个新goroutine，让app2从管道的读入端读取数据，并将处理结果输出（out）。这样得到的app就是app1和app2的组合了。</p>
 <p>你甚至可以对多个app进行组合：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -295,35 +279,34 @@
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">app</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们举个比较实际的例子，假设我们有2个应用程序tar（打包）、gzip（压缩）：</p>
+</div><p>我们举个比较实际的例子，假设我们有2个应用程序tar（打包）、gzip（压缩）：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">tar</span><span class="p">(</span><span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">,</span> <span class="nx">out</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">,</span> <span class="nx">files</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span>
-<span class="kd">func</span> <span class="nf">gzip</span><span class="p">(</span><span class="nx">in</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">,</span> <span class="nx">out</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="kd">func</span> <span class="nf">gzip</span><span class="p">(</span><span class="nx">in</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Reader</span><span class="p">,</span> <span class="nx">out</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>那么打包并压缩的代码是：</p>
+</div><p>那么打包并压缩的代码是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nf">pipe</span><span class="p">(</span> <span class="nf">bind</span><span class="p">(</span><span class="nx">tar</span><span class="p">,</span> <span class="nx">files</span><span class="p">),</span> <span class="nx">gzip</span> <span class="p">)(</span><span class="kc">nil</span><span class="p">,</span> <span class="nx">out</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nf">pipe</span><span class="p">(</span> <span class="nf">bind</span><span class="p">(</span><span class="nx">tar</span><span class="p">,</span> <span class="nx">files</span><span class="p">),</span> <span class="nx">gzip</span> <span class="p">)(</span><span class="kc">nil</span><span class="p">,</span> <span class="nx">out</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通过对管道（pipeline）的模拟我们可以看出，Go语言对并行支持是非常强大的，这主要得益于Go的轻量级进程（goroutine）。</p>
-
+</div><p>通过对管道（pipeline）的模拟我们可以看出，Go语言对并行支持是非常强大的，这主要得益于Go的轻量级进程（goroutine）。</p>
 <p>实例程序，帮助理解管道：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -379,6 +362,7 @@
 </span><span class="lnt">54
 </span><span class="lnt">55
 </span><span class="lnt">56
+</span><span class="lnt">57
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -436,11 +420,13 @@
 			<span class="nx">out</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">nline</span><span class="p">)</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -487,11 +473,10 @@
 	<span class="p">}</span>
     <span class="nx">p</span> <span class="o">:=</span> <span class="nf">pipe</span><span class="p">(</span><span class="nf">bind</span><span class="p">(</span><span class="nx">app1</span><span class="p">,</span> <span class="nx">args</span><span class="p">),</span> <span class="nx">app2</span><span class="p">)</span>
 	<span class="nf">p</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdin</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="参考">参考</h3>
-
+</div><h3 id="参考">参考</h3>
 <p><a href="https://blog.csdn.net/hittata/article/details/44067343?utm_campaign=studygolang.com&amp;utm_medium=studygolang.com&amp;utm_source=studygolang.com">文章原文-golang 并发设计模式(二)&ndash;管道模式1</a>
 <a href="https://www.infoq.cn/article/go-based-on-connection-combination-language-1/">Go，基于连接与组合的语言（上）</a></p>
 

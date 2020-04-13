@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-doc/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go安装godoc">
 <meta itemprop="description" content="现在的版本(go version 1.8)下，go的开发工具已经都在git上上线了，可以直接安装 1 2 3 git clone https://github.com/golang/tools $GOPATH/src/golang.org/x/tools go build golang.org/x/tools 就能生成 godoc 的二进制包了，注意需要把第三方">
-
-
 <meta itemprop="datePublished" content="2017-03-07T11:07:54&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="92">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go安装godoc"/>
 <meta name="twitter:description" content="现在的版本(go version 1.8)下，go的开发工具已经都在git上上线了，可以直接安装 1 2 3 git clone https://github.com/golang/tools $GOPATH/src/golang.org/x/tools go build golang.org/x/tools 就能生成 godoc 的二进制包了，注意需要把第三方"/>
 
@@ -140,17 +137,17 @@
       <p>现在的版本(go version 1.8)下，go的开发工具已经都在git上上线了，可以直接安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git clone https://github.com/golang/tools $GOPATH/src/golang.org/x/tools
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://github.com/golang/tools $GOPATH/src/golang.org/x/tools
 
-go build golang.org/x/tools</pre></td></tr></table>
+go build golang.org/x/tools
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>就能生成 <code>godoc</code> 的二进制包了，注意需要把第三方的包放到 <code>$GOPATH/src</code> 目录下，这样才能让go能找到并构建</p>
+</div><p>就能生成 <code>godoc</code> 的二进制包了，注意需要把第三方的包放到 <code>$GOPATH/src</code> 目录下，这样才能让go能找到并构建</p>
 
     </div>
 

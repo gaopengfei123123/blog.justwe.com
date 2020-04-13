@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/mysql57-config/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="mysql5.7版本初始化设置">
 <meta itemprop="description" content="5.7版本有了一些新的变动，首先就是密码部分和之前有了较大的区别。它对数据的安全性方面做了较大的提升。其次的是数据对json的支持，数据库添">
-
-
 <meta itemprop="datePublished" content="2016-11-15T09:45:06&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="446">
 
 
 
-<meta itemprop="keywords" content="mysql," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mysql5.7版本初始化设置"/>
 <meta name="twitter:description" content="5.7版本有了一些新的变动，首先就是密码部分和之前有了较大的区别。它对数据的安全性方面做了较大的提升。其次的是数据对json的支持，数据库添"/>
 
@@ -137,57 +134,50 @@
 
     
     <div class="post-content">
-      
-
-<p>5.7版本有了一些新的变动，首先就是密码部分和之前有了较大的区别。它对数据的安全性方面做了较大的提升。其次的是数据对json的支持，数据库添加时自带计算等等一些更加方便的玩意</p>
-
-<p><!-- more --></p>
-
+      <p>5.7版本有了一些新的变动，首先就是密码部分和之前有了较大的区别。它对数据的安全性方面做了较大的提升。其次的是数据对json的支持，数据库添加时自带计算等等一些更加方便的玩意</p>
+<!-- raw HTML omitted -->
 <p>当第一次安装完毕的时候，要注意安装提示，会给你串字符串那就是系统给的默认密码<strong>这个是重点</strong>。</p>
-
 <p>登录后进行查库操作会有这样的提示<code>ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</code>，需要重设密码，步骤如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">SET PASSWORD = PASSWORD(‘your new password’);
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">SET PASSWORD = PASSWORD(‘your new password’);
 
 ALTER USER ‘root’@‘localhost’ PASSWORD EXPIRE NEVER;
 
-flush privileges;</pre></td></tr></table>
+flush privileges;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="将mysql添加到环境变量">将mysql添加到环境变量</h3>
-
+</div><h3 id="将mysql添加到环境变量">将mysql添加到环境变量</h3>
 <p>当前我的mac版本是10.10 OS X Yosemite,属于Bourne Shell的变种,这样就简单了</p>
-
 <p>对于系统自带的终端是这样的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">sudo vim ~/.bash_profile
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo vim ~/.bash_profile
 #对文件中编辑
 export PATH=${PATH}:/usr/local/mysql/bin
 #保存退出
 :/wq
 #解析文件立即生效
-source ~/.bash_profile</pre></td></tr></table>
+source ~/.bash_profile
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果用的<code>~/.zshrc</code>的这样配置的也是同样的操作步骤,如果有<code>.zshrc</code>这样的文件优先它，否则上面配置的环境变量会被它覆盖，结果就是上面的配置好了关闭终端再重进就又失效了</p>
+</div><p>如果用的<code>~/.zshrc</code>的这样配置的也是同样的操作步骤,如果有<code>.zshrc</code>这样的文件优先它，否则上面配置的环境变量会被它覆盖，结果就是上面的配置好了关闭终端再重进就又失效了</p>
 
     </div>
 

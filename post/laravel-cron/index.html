@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-cron/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel的定时任务">
 <meta itemprop="description" content="了解下 laravel 定时任务是怎么使用的 首先在linux上创建一个crontab命令. crontab -e 第一次用的时候会选择编辑器,默认nano 然后在crontab文">
-
-
 <meta itemprop="datePublished" content="2016-10-09T15:22:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="475">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel的定时任务"/>
 <meta name="twitter:description" content="了解下 laravel 定时任务是怎么使用的 首先在linux上创建一个crontab命令. crontab -e 第一次用的时候会选择编辑器,默认nano 然后在crontab文"/>
 
@@ -137,26 +134,25 @@
 
     
     <div class="post-content">
-      <p>了解下 laravel 定时任务是怎么使用的
-<!-- more -->
-首先在linux上创建一个crontab命令.
+      <p>了解下 laravel 定时任务是怎么使用的</p>
+<!-- raw HTML omitted -->
+<p>首先在linux上创建一个crontab命令.
 crontab -e
 第一次用的时候会选择编辑器,默认nano
 然后在crontab文件中添加一行命令:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">***** php /path/to/artisan schedule:run 1&gt;&gt;/dev/null2&gt;&amp;1</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">***** php /path/to/artisan schedule:run 1&gt;&gt;/dev/null2&gt;&amp;1
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>linux上的操作就完毕了,接下来是在框架中的操作:</p>
-
+</div><p>linux上的操作就完毕了,接下来是在框架中的操作:</p>
 <p>在 app/Console/Kernel.php文件中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -234,8 +230,7 @@ crontab -e
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>这里仅仅是用artisan命令做了一个测试,实际也可以调用服务,有了这个例子再结合文档来看对小白来说估计就稍微不那么蒙圈了</p>
+</div><p>这里仅仅是用artisan命令做了一个测试,实际也可以调用服务,有了这个例子再结合文档来看对小白来说估计就稍微不那么蒙圈了</p>
 
     </div>
 

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 10 Mar 2020 15:03:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 17:38:30 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于docker for mac 占用大量硬盘的问题</title>
+      <link>https://blog.justwe.site/post/docker-for-mac-huge-disk/</link>
+      <pubDate>Mon, 13 Apr 2020 17:38:30 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/docker-for-mac-huge-disk/</guid>
+      <description>&lt;p&gt;有一天我更新 xcode 的时候, 系统提示磁盘空间不足, 我打开一看发现 &lt;code&gt;其他&lt;/code&gt; 选项占了竟然有150G!
+后来扫描了一遍, 发现了吃硬盘的大户: &lt;code&gt;docker for mac&lt;/code&gt; 和微信&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Docker 搭建 Zookeeper 测试集群</title>
@@ -90,7 +100,7 @@
       <pubDate>Tue, 31 Dec 2019 16:27:10 +0800</pubDate>
       
       <guid>https://blog.justwe.site/post/redis-hyperloglog/</guid>
-      <description>日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? p{ text-indent:2em;} 场景 下面有三个选择: 1. 甩给公司的大数据部门, 让他们搞去 2. 开始记录i</description>
+      <description>日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后</description>
     </item>
     
     <item>
@@ -207,7 +217,7 @@
       <pubDate>Tue, 14 May 2019 11:04:46 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/k8s-minikube/</guid>
-      <description>本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: * kubectl 本地做命令行控制用, 所有的命令操作</description>
+      <description>本地快速装一个微型的kubernetes环境, 翻墙的苦谁能懂? mac 本地安装minikube环境 环境需求: kubectl 本地做命令行控制用, 所有的命令操作都</description>
     </item>
     
     <item>
@@ -270,7 +280,7 @@
       <pubDate>Tue, 15 Jan 2019 11:27:36 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/go-chat/</guid>
-      <description>这个demo实现了: 1. 消息广播 2. 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息</description>
+      <description>这个demo实现了: 消息广播 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息分发</description>
     </item>
     
     <item>
@@ -378,7 +388,7 @@
       <pubDate>Tue, 25 Sep 2018 10:57:02 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/go-primary-mistakes/</guid>
-      <description>平时碰到的一些小问题, 记一下 assignment to entry in nil map, map 赋值问题 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 // ServiceMap</description>
+      <description>平时碰到的一些小问题, 记一下 assignment to entry in nil map, map 赋值问题 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 //</description>
     </item>
     
     <item>
@@ -396,7 +406,7 @@
       <pubDate>Wed, 12 Sep 2018 14:53:03 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/go-interface-tip/</guid>
-      <description>对 interface 赋值变量的时候经常出的问题 日常开发时有个这样的例子: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 package main import &amp;#34;fmt&amp;#34; type Human interface { Run() } type Boy struct { Name string } func (b</description>
+      <description>对 interface 赋值变量的时候经常出的问题 日常开发时有个这样的例子: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 package main import &amp;#34;fmt&amp;#34; type Human interface { Run() } type Boy struct { Name string } func</description>
     </item>
     
     <item>
@@ -477,7 +487,7 @@
       <pubDate>Sat, 23 Jun 2018 23:39:17 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/git-sshcommand/</guid>
-      <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true #</description>
+      <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true</description>
     </item>
     
     <item>
@@ -531,7 +541,7 @@
       <pubDate>Tue, 13 Feb 2018 13:24:30 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/docker-volume/</guid>
-      <description>这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&amp;#39;3&amp;#39;services:db:image:mysql:5.7volumes:-db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:-33060:3306wordpress:depends_on:-dbimage:wordpress:latestports:-&amp;#34;8080:80&amp;#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点奇怪的地</description>
+      <description>这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&amp;#39;3&amp;#39;services:db:image:mysql:5.7volumes:- db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:- 33060:3306wordpress:depends_on:- dbimage:wordpress:latestports:- &amp;#34;8080:80&amp;#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点</description>
     </item>
     
     <item>
@@ -540,7 +550,7 @@
       <pubDate>Mon, 12 Feb 2018 10:36:50 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/docker-compose-yml/</guid>
-      <description>常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up</description>
+      <description>常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] --force-rm 删除构建时的临时容器 --no-cache 构建不使用 cache --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up [options] [service...] 直</description>
     </item>
     
     <item>
@@ -594,7 +604,7 @@
       <pubDate>Wed, 29 Nov 2017 13:21:26 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/</guid>
-      <description>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: &amp;gt;官方提供的</description>
+      <description>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: 官方提供的一个说明</description>
     </item>
     
     <item>
@@ -603,7 +613,7 @@
       <pubDate>Tue, 28 Nov 2017 14:50:49 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-local-lang/</guid>
-      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set LC_CTYPE</description>
+      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 13 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set</description>
     </item>
     
     <item>
@@ -612,7 +622,7 @@
       <pubDate>Wed, 22 Nov 2017 10:30:03 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-golang-env/</guid>
-      <description>树莓派上需要进行编译安装,不过很简单,而且 golang 官方也有 arm 平台的编译包, 在树莓派上一定要选linux-armv61这个版本啊 &amp;gt; golang 各版本的下载列表</description>
+      <description>树莓派上需要进行编译安装,不过很简单,而且 golang 官方也有 arm 平台的编译包, 在树莓派上一定要选linux-armv61这个版本啊 golang 各版本的下载列表 $</description>
     </item>
     
     <item>
@@ -630,7 +640,7 @@
       <pubDate>Tue, 21 Nov 2017 14:24:29 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-install/</guid>
-      <description>怎么在 mac 上给 TF 卡烧录一个树莓派系统(为什么没有 win 的?因为 win 上的烧录软件很好用啊!混蛋!) 下载树莓派镜像 首先需要下载个系统镜像 &amp;gt; 官方镜像列表 RASPBIAN</description>
+      <description>怎么在 mac 上给 TF 卡烧录一个树莓派系统(为什么没有 win 的?因为 win 上的烧录软件很好用啊!混蛋!) 下载树莓派镜像 首先需要下载个系统镜像 官方镜像列表 RASPBIAN :</description>
     </item>
     
     <item>
@@ -720,7 +730,7 @@
       <pubDate>Tue, 11 Jul 2017 19:50:33 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/element-dialog/</guid>
-      <description>使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 &amp;lt;el-dialog title=&amp;#34</description>
+      <description>使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 12 &amp;lt;el-dialog title=&amp;#3</description>
     </item>
     
     <item>
@@ -819,7 +829,7 @@
       <pubDate>Wed, 24 May 2017 11:55:45 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/laravel54-migrate-error/</guid>
-      <description>在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: 1. laravel 版本 5.4.23 2. 配置好数</description>
+      <description>在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: laravel 版本 5.4.23 配置好数据库</description>
     </item>
     
     <item>
@@ -864,7 +874,7 @@
       <pubDate>Tue, 02 May 2017 16:45:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/vue-axios-post/</guid>
-      <description>继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &amp;gt; 最近团队讨论了一下，</description>
+      <description>继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A</description>
     </item>
     
     <item>
@@ -918,7 +928,7 @@
       <pubDate>Tue, 18 Apr 2017 23:25:04 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/go-simple-webserver-demo/</guid>
-      <description>用 go 写的一个简单的 http 服务 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;log&amp;#34; ) func sayhelloName(w http.ResponseWriter, r *http.Request) { r.ParseForm() //解析参数,默认不解析</description>
+      <description>用 go 写的一个简单的 http 服务 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;log&amp;#34; ) func sayhelloName(w http.ResponseWriter, r *http.Request) { r.ParseForm() //解析参数,默认不</description>
     </item>
     
     <item>
@@ -1035,7 +1045,7 @@
       <pubDate>Fri, 24 Mar 2017 06:01:17 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/caipiao/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 ### &amp;lt;?php $lanList = []; $hongList = []; for($i=1;$i&amp;lt;34;$i++){ if($i&amp;lt;16){ array_push($lanList,$i); } array_push($hongList, $i); } $res = [ &amp;#39;red&amp;#39; =&amp;gt; [], &amp;#39;blue&amp;#39; =&amp;gt; [] ]; for($i=0;$i&amp;lt;=6;$i++){ if($i==0){ $res[&amp;#39;blue&amp;#39;] = array_slice($lanList, mt_rand( 0,count($lanList)-1) ,1); } $res[&amp;#39;red&amp;#39;][] = array_splice($hongList, mt_rand( 0,count($hongList)-1),1)[0]; } sort($res[&amp;#39;red&amp;#39;]);</description>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 ### &amp;lt;?php $lanList = []; $hongList = []; for($i=1;$i&amp;lt;34;$i++){ if($i&amp;lt;16){ array_push($lanList,$i); } array_push($hongList, $i); } $res = [ &amp;#39;red&amp;#39; =&amp;gt; [], &amp;#39;blue&amp;#39; =&amp;gt; [] ]; for($i=0;$i&amp;lt;=6;$i++){ if($i==0){ $res[&amp;#39;blue&amp;#39;] = array_slice($lanList, mt_rand( 0,count($lanList)-1) ,1); } $res[&amp;#39;red&amp;#39;][] = array_splice($hongList, mt_rand( 0,count($hongList)-1),1)[0]; }</description>
     </item>
     
     <item>
@@ -1179,7 +1189,7 @@
       <pubDate>Tue, 28 Feb 2017 07:42:34 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/yii-beforeaction/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 public function beforeAction($action) { if(condition){ Yii::$app-&amp;gt;response-&amp;gt;format = Response::FORMAT_JSON; Yii::$app-&amp;gt;response-&amp;gt;data = array( &amp;#39;status&amp;#39; =&amp;gt; -1, &amp;#39;message&amp;#39; =&amp;gt; &amp;#39;请先登录&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; \Yii::$app-&amp;gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响应</description>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public function beforeAction($action) { if(condition){ Yii::$app-&amp;gt;response-&amp;gt;format = Response::FORMAT_JSON; Yii::$app-&amp;gt;response-&amp;gt;data = array( &amp;#39;status&amp;#39; =&amp;gt; -1, &amp;#39;message&amp;#39; =&amp;gt; &amp;#39;请先登录&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; \Yii::$app-&amp;gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响</description>
     </item>
     
     <item>
@@ -1197,7 +1207,7 @@
       <pubDate>Sun, 19 Feb 2017 09:48:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/docker-repo/</guid>
-      <description>上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES</description>
+      <description>上一章是了解了怎么创建一个容器，现在我们来把它做成我们自己的库，类似git那样的 首先查看下自己的库有哪些 1 2 3 4 5 6 ➜ ~ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS</description>
     </item>
     
     <item>
@@ -1242,7 +1252,7 @@
       <pubDate>Wed, 11 Jan 2017 06:40:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/composer-package/</guid>
-      <description>how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用</description>
+      <description>how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 创建一个git库 （不用说</description>
     </item>
     
     <item>
@@ -1341,7 +1351,7 @@
       <pubDate>Tue, 29 Nov 2016 03:04:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/git-push/</guid>
-      <description>本地新建库和多远程库的操作 新建本地库 1 2 3 4 5 6 7 8 9 10 11 12 13 #初始化 git init git add -A git commit -m &amp;#39;init it&amp;#39; #删除本地远程连接 git remote rm origin git remote add origin https://git.oschina.net/gaofeifps/laravel53.git #自动合并远程</description>
+      <description>本地新建库和多远程库的操作 新建本地库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #初始化 git init git add -A git commit -m &amp;#39;init it&amp;#39; #删除本地远程连接 git remote rm origin git remote add origin https://git.oschina.net/gaofeifps/laravel53.git #自动合并远</description>
     </item>
     
     <item>
@@ -1386,7 +1396,7 @@
       <pubDate>Thu, 03 Nov 2016 09:32:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/php-array-1/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $testArr = [ [&amp;#39;id&amp;#39;=&amp;gt;1,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;aaa&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;2,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;bbb&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;3,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ccc&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;4,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ddd&amp;#39;], ]; $roler = [2,1,3,4]; usort($testArr,function($a,$b) use($roler){ return (array_search($a[&amp;#39;id&amp;#39;], $roler) &amp;lt; array_search($b[&amp;#39;id&amp;#39;], $roler)) ? -1 : 1; }); var_dump($testArr); die(); 输出结果：反正成功了 还有就是 第一层要是索引数组</description>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 $testArr = [ [&amp;#39;id&amp;#39;=&amp;gt;1,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;aaa&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;2,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;bbb&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;3,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ccc&amp;#39;], [&amp;#39;id&amp;#39;=&amp;gt;4,&amp;#39;msg&amp;#39;=&amp;gt;&amp;#39;ddd&amp;#39;], ]; $roler = [2,1,3,4]; usort($testArr,function($a,$b) use($roler){ return (array_search($a[&amp;#39;id&amp;#39;], $roler) &amp;lt; array_search($b[&amp;#39;id&amp;#39;], $roler)) ? -1 : 1; }); var_dump($testArr); die(); 输出结果：反正成功了 还有就是 第一层要是索引数组</description>
     </item>
     
     <item>

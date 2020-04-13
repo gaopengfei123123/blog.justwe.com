@@ -45,7 +45,7 @@
       <pubDate>Tue, 11 Jul 2017 19:50:33 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/element-dialog/</guid>
-      <description>使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 &amp;lt;el-dialog title=&amp;#34</description>
+      <description>使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 12 &amp;lt;el-dialog title=&amp;#3</description>
     </item>
     
     <item>
@@ -72,7 +72,7 @@
       <pubDate>Tue, 02 May 2017 16:45:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/vue-axios-post/</guid>
-      <description>继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: &amp;gt; 最近团队讨论了一下，</description>
+      <description>继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A</description>
     </item>
     
   </channel>

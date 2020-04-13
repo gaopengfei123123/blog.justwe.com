@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-liteide/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="安装LiteIde配置">
 <meta itemprop="description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是">
-
-
 <meta itemprop="datePublished" content="2017-03-07T05:49:56&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
-<meta itemprop="wordCount" content="571">
+<meta itemprop="wordCount" content="567">
 
 
 
-<meta itemprop="keywords" content="liteide," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="liteide," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安装LiteIde配置"/>
 <meta name="twitter:description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是"/>
 
@@ -138,37 +135,33 @@
     
     <div class="post-content">
       <p>这里设置 Liteide 的配置(环境macOS)</p>
-
 <blockquote>
 <p>Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是不少go的开发者在推荐的一款ide</p>
 </blockquote>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>1.安装go</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">brew install go</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install go
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>下载Liteide
-&gt;<a href="http://golangtc.com/download/liteide">下载地址</a></li>
+</div><ol start="2">
+<li>下载Liteide</li>
 </ol>
-
+<blockquote>
+<p><a href="http://golangtc.com/download/liteide">下载地址</a></p>
+</blockquote>
 <p>选择一个适合系统的版本，推荐qt5的，版本高的不容易过时</p>
-
-<ol>
+<ol start="3">
 <li>打开编辑器 <code>查看-&gt;编辑当前环境</code></li>
 </ol>
-
 <p>列出我现在的环境</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -185,9 +178,9 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># native compiler darwin amd64
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># native compiler darwin amd64
 
 GOROOT=/usr/local/Cellar/go/1.8/libexec
 GOPATH=$HOME/Documents/go
@@ -203,64 +196,55 @@ LITEIDE_MAKE=make
 LITEIDE_TERM=/usr/bin/open
 LITEIDE_TERMARGS=-a Terminal
 LITEIDE_EXEC=/usr/X11R6/bin/xterm
-LITEIDE_EXECOPT=-e</pre></td></tr></table>
+LITEIDE_EXECOPT=-e
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>上面这一块刚开始是注释掉的，需要我们自己填写，这个是每次运行编辑器的适合才会用到的配置，和安装时的系统配置不冲突</p>
-
+</div><p>上面这一块刚开始是注释掉的，需要我们自己填写，这个是每次运行编辑器的适合才会用到的配置，和安装时的系统配置不冲突</p>
 <p>需要注意区分的就是 <code>GOROOT</code> 和 <code>GOPATH</code> 这两个变量</p>
-
 <p><code>GOROOT</code> 是go的执行目录，说白了就是go源码的安装目录，
 比如 <code>import “fmt”</code>这条命令就是从 <code>GOROOT</code> 给的路径中找加载的包</p>
-
 <p><code>GOPATH</code> 是工作目录，类似apache的www目录，你的项目代码都是放到 <code>$GOPATH/src</code> 目录下的
 同时我们通过 <code>go get</code> 获取的第三方package也是放在这里的为了能执行package里的文件也是需要把这个路径添加到环境变量当中，
 因此才会出现 <code>PATH=$GOROOT/bin:$PATH</code> 这样的配置</p>
-
-<ol>
-<li><p>配置完成后运行个文件试一下</p>
+<ol start="4">
+<li>配置完成后运行个文件试一下</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cd $HOME/Documents/go/src
-mkdir hello &amp;&amp; cd hello</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd $HOME/Documents/go/src
+mkdir hello &amp;&amp; cd hello
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通过liteide编辑器打开目录，创建一个文件  main.go</p></li>
-</ol>
-
+</div><p>通过liteide编辑器打开目录，创建一个文件  main.go</p>
 <p>文件内容如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 
 <span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello world!&#34;</span><span class="p">)</span>
-<span class="p">}</span></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后点击编辑器右上角的 <code>BR(build and run)</code> 就能在编辑器下面的信息框中看到输出内容了</p>
-
+</div><p>然后点击编辑器右上角的 <code>BR(build and run)</code> 就能在编辑器下面的信息框中看到输出内容了</p>
 <p>ready go！</p>
-
 <p><a href="https://segmentfault.com/a/1190000004008942">参考1</a></p>
-
 <p><a href="http://www.jianshu.com/p/4e699ff478a5">参考2</a></p>
-
 <blockquote>
 <p>ps:
 因为颜值我最后还是采用了 atom 的 go-plus 插件 :)</p>

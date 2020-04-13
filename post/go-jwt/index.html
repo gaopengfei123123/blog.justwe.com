@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-jwt/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="使用 go 进行 jwt 验证">
 <meta itemprop="description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这">
-
-
 <meta itemprop="datePublished" content="2018-01-22T14:04:26&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="852">
+<meta itemprop="wordCount" content="854">
 
 
 
-<meta itemprop="keywords" content="go,json,jwt," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,json,jwt," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 go 进行 jwt 验证"/>
 <meta name="twitter:description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这"/>
 
@@ -137,26 +134,22 @@
 
     
     <div class="post-content">
-      
-
-<p>对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到
-这一台服务器上,这和负载均衡的初衷不一致啊,而 jwt 就解决了这类的痛点
-<!-- more --></p>
-
+      <p>对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到
+这一台服务器上,这和负载均衡的初衷不一致啊,而 jwt 就解决了这类的痛点</p>
+<!-- raw HTML omitted -->
 <h2 id="使用-jwt-的场景">使用 JWT 的场景</h2>
-
 <ul>
 <li>身份验证 用户在登录过后服务器会用 jwt 返回用户可访问的资源,比如权限什么的</li>
 <li>传递信息 通过 jwt 的<code>header</code>和<code>signature</code>可以保证<code>payload</code>没有被篡改,保证信息的安全</li>
 </ul>
-
 <h2 id="jwt-的结构">JWT 的结构</h2>
-
-<p>JWT 是由<code>header,payload,signature</code>三部分组成的,咱们先用例子说话
-- header</p>
+<p>JWT 是由<code>header,payload,signature</code>三部分组成的,咱们先用例子说话</p>
+<ul>
+<li>header</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -167,16 +160,16 @@
   <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;HS256&#34;</span><span class="p">,</span>
   <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;JWT&#34;</span>
 <span class="p">}</span>
-<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJhbGciOiJIUzI</span><span class="mi">1</span><span class="err">NiIsInR</span><span class="mi">5</span><span class="err">cCI</span><span class="mi">6</span><span class="err">IkpXVCJ</span><span class="mi">9</span><span class="err">`</span></code></pre></td></tr></table>
+<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJhbGciOiJIUzI</span><span class="mi">1</span><span class="err">NiIsInR</span><span class="mi">5</span><span class="err">cCI</span><span class="mi">6</span><span class="err">IkpXVCJ</span><span class="mi">9</span><span class="err">`</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里规定了加密算法,hash256</p>
-
+</div><p>这里规定了加密算法,hash256</p>
 <ul>
-<li><p>payload</p>
+<li>payload</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -185,67 +178,63 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-<span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;1234567890&#34;</span><span class="p">,</span>
-<span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span><span class="p">,</span>
-<span class="nt">&#34;admin&#34;</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;1234567890&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;admin&#34;</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span>
-<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJzdWIiOiIxMjM</span><span class="mi">0</span><span class="err">NTY</span><span class="mi">3</span><span class="err">ODkwIiwibmFtZSI</span><span class="mi">6</span><span class="err">IkpvaG</span><span class="mi">4</span><span class="err">gRG</span><span class="mi">9</span><span class="err">lIiwiYWRtaW</span><span class="mi">4</span><span class="err">iOnRydWV</span><span class="mi">9</span><span class="err">`</span></code></pre></td></tr></table>
+<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJzdWIiOiIxMjM</span><span class="mi">0</span><span class="err">NTY</span><span class="mi">3</span><span class="err">ODkwIiwibmFtZSI</span><span class="mi">6</span><span class="err">IkpvaG</span><span class="mi">4</span><span class="err">gRG</span><span class="mi">9</span><span class="err">lIiwiYWRtaW</span><span class="mi">4</span><span class="err">iOnRydWV</span><span class="mi">9</span><span class="err">`</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里的内容没有强制要求,因为 paylaod 就是为了承载内容而存在的,不过想用规范的话也可以参考下面的</p>
-
+</div><pre><code>这里的内容没有强制要求,因为 paylaod 就是为了承载内容而存在的,不过想用规范的话也可以参考下面的
+* iss: jwt签发者
+* sub: jwt所面向的用户
+* aud: 接收jwt的一方
+* exp: jwt的过期时间，这个过期时间必须要大于签发时间
+* nbf: 定义在什么时间之前，该jwt都是不可用的.
+* iat: jwt的签发时间
+* jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。
+</code></pre>
 <ul>
-<li>iss: jwt签发者</li>
-<li>sub: jwt所面向的用户</li>
-<li>aud: 接收jwt的一方</li>
-<li>exp: jwt的过期时间，这个过期时间必须要大于签发时间</li>
-<li>nbf: 定义在什么时间之前，该jwt都是不可用的.</li>
-<li>iat: jwt的签发时间</li>
-<li>jti: jwt的唯一身份标识，主要用来作为一次性token,从而回避重放攻击。</li>
-</ul></li>
-
-<li><p>signature
-是用 <code>header + payload + secret</code>组合起来加密的,公式是:</p>
+<li>signature
+是用 <code>header + payload + secret</code>组合起来加密的,公式是:</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">HMACSHA256(
-base64UrlEncode(header) + &#34;.&#34; +
-base64UrlEncode(payload),
-secret)</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">HMACSHA256(
+  base64UrlEncode(header) + &#34;.&#34; +
+  base64UrlEncode(payload),
+  secret)
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里 <code>secret</code>就是自己定义的一个随机字符串,这一个过程只能发生在 server 端,会随机生成一个 hash 值</p></li>
-</ul>
-
+</div><p>这里 <code>secret</code>就是自己定义的一个随机字符串,这一个过程只能发生在 server 端,会随机生成一个 hash 值</p>
 <p>这样组合起来之后就是一个完整的 jwt 了:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.4c9540f793ab33b13670169bdf444c1eb1c37047f18e861981e14e34587b1e04</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.4c9540f793ab33b13670169bdf444c1eb1c37047f18e861981e14e34587b1e04
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里有一个<a href="https://github.com/gaopengfei123123/go_study/tree/master/code/jwt">用 go 加密和验证 jwt 的 demo</a></p>
-
+</div><p>这里有一个<a href="https://github.com/gaopengfei123123/go_study/tree/master/code/jwt">用 go 加密和验证 jwt 的 demo</a></p>
 <h2 id="总结">总结</h2>
-
-<p>选择 jwt 最大的理由:
-1. 内容有公钥私钥,可以保证内容的合法性
-2. token 中可以包含很多信息</p>
-
-<p>不过 jwt 不保证的安全问题:
-1. 因为<code>header,paylaod</code>是 base64编码,相当于明文可见的,因此不能在<code>payload</code>中放入敏感信息
-2. 并不能保证数据传输时会不会被盗用,这一点和 sessionID 一样,因此不要迷信它有多高的安全性..</p>
-
+<p>选择 jwt 最大的理由:</p>
+<ol>
+<li>内容有公钥私钥,可以保证内容的合法性</li>
+<li>token 中可以包含很多信息</li>
+</ol>
+<p>不过 jwt 不保证的安全问题:</p>
+<ol>
+<li>因为<code>header,paylaod</code>是 base64编码,相当于明文可见的,因此不能在<code>payload</code>中放入敏感信息</li>
+<li>并不能保证数据传输时会不会被盗用,这一点和 sessionID 一样,因此不要迷信它有多高的安全性..</li>
+</ol>
 <p><strong>为了安全还是要上 https</strong></p>
-
 <blockquote>
 <p>相关推荐:
 <a href="https://jwt.io/introduction/">jwt.io</a></p>

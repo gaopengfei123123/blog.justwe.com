@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/vue-transition/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="vue-transition">
 <meta itemprop="description" content="对 vue 的渐变效果的简单使用 单个节点的渐变效果 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;tit">
-
-
 <meta itemprop="datePublished" content="2017-05-06T13:24:23&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="509">
+<meta itemprop="wordCount" content="505">
 
 
 
-<meta itemprop="keywords" content="vue,js,animate," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="vue,js,animate," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="vue-transition"/>
 <meta name="twitter:description" content="对 vue 的渐变效果的简单使用 单个节点的渐变效果 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34;&gt; &lt;tit"/>
 
@@ -137,16 +134,12 @@
 
     
     <div class="post-content">
-      
-
-<p>对 vue 的渐变效果的简单使用</p>
-
-<!-- more -->
-
+      <p>对 vue 的渐变效果的简单使用</p>
+<!-- raw HTML omitted -->
 <h2 id="单个节点的渐变效果">单个节点的渐变效果</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -219,33 +212,34 @@
   <span class="p">})</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里解释一下 <code>&lt;transition&gt;</code> 中的参数问题:
-1. <code>mode=&quot;out-in&quot;</code> 采用的切换模式是 先出后进,保证两个节点能平滑的切换显示, 还有一种是 <code>in-out</code>,
-如果没有指定<code>mode</code>将同时生效,两个元素的动画同时触发这不是我现在需要的
-2. <code>enter-active-class=&quot;animated fadeInDown&quot;</code>  元素显示时添加的 class , 这里使用了 <a href="https://daneden.github.io/animate.css/">animate.css</a>,
-3. <code>leave-active-class=&quot;animated fadeOutDown&quot;</code> 元素消失时显示的动画
-4. <code>key</code> 相同标签名中必须的标识,否则 vue 将不能区分元素内容</p>
-
+</div><p>这里解释一下 <code>&lt;transition&gt;</code> 中的参数问题:</p>
+<ol>
+<li><code>mode=&quot;out-in&quot;</code> 采用的切换模式是 先出后进,保证两个节点能平滑的切换显示, 还有一种是 <code>in-out</code>,
+如果没有指定<code>mode</code>将同时生效,两个元素的动画同时触发这不是我现在需要的</li>
+<li><code>enter-active-class=&quot;animated fadeInDown&quot;</code>  元素显示时添加的 class , 这里使用了 <a href="https://daneden.github.io/animate.css/">animate.css</a>,</li>
+<li><code>leave-active-class=&quot;animated fadeOutDown&quot;</code> 元素消失时显示的动画</li>
+<li><code>key</code> 相同标签名中必须的标识,否则 vue 将不能区分元素内容</li>
+</ol>
 <h2 id="一种运用-key-简化判断的一种写法">一种运用 key 简化判断的一种写法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">transition</span> <span class="na">mode</span><span class="o">=</span><span class="s">&#34;out-in&#34;</span> <span class="na">enter-active-class</span><span class="o">=</span><span class="s">&#34;animated fadeInDown&#34;</span> <span class="na">leave-active-class</span><span class="o">=</span><span class="s">&#34;animated fadeOutDown&#34;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">p</span> <span class="na">:key</span><span class="o">=</span><span class="s">&#34;status&#34;</span><span class="p">&gt;</span>{{ status }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">transition</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">transition</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>它的效果等同于:</p>
+</div><p>它的效果等同于:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -262,15 +256,14 @@
   <span class="p">&lt;</span><span class="nt">button</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;status === &#39;hidden&#39;&#34;</span> <span class="na">key</span><span class="o">=</span><span class="s">&#34;hidden&#34;</span><span class="p">&gt;</span>
     hidden
   <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">transition</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">transition</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果是多重的状态判断这个会很实用</p>
-
+</div><p>如果是多重的状态判断这个会很实用</p>
 <h2 id="多组件之间的状态过渡">多组件之间的状态过渡</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -325,10 +318,10 @@
         <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">})</span>
-  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></td></tr></table>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这种情况下部需要添加 key 值了,因为每次动态渲染的时候都只有一个</p>
+</div><p>这种情况下部需要添加 key 值了,因为每次动态渲染的时候都只有一个</p>
 
     </div>
 

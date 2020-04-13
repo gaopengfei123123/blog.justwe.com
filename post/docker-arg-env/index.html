@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-arg-env/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-11-21T16:16:27+08:00" />
 <meta itemprop="name" content="docker中 arg 和 env 的区别">
 <meta itemprop="description" content="在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用">
-
-
 <meta itemprop="datePublished" content="2018-06-28T17:55:59&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-21T16:16:27&#43;08:00" />
-<meta itemprop="wordCount" content="456">
+<meta itemprop="wordCount" content="458">
 
 
 
-<meta itemprop="keywords" content="docker-composer,docker," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker-composer,docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker中 arg 和 env 的区别"/>
 <meta name="twitter:description" content="在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用"/>
 
@@ -137,25 +134,18 @@
 
     
     <div class="post-content">
-      
-
-<p>在使用 <code>docker-compoe</code> 构建镜像的时候会感觉 <code>ARG</code> 和 <code>ENV</code> 的作用很相似, 但是这两个存在就肯定有它的原因</p>
-
-<!-- more -->
-
+      <p>在使用 <code>docker-compoe</code> 构建镜像的时候会感觉 <code>ARG</code> 和 <code>ENV</code> 的作用很相似, 但是这两个存在就肯定有它的原因</p>
+<!-- raw HTML omitted -->
 <h3 id="它们起作用的时机">它们起作用的时机</h3>
-
 <ul>
 <li>arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用</li>
 <li>env 是容器构建好之后的环境变量, 不能在 Dockerfile 中当参数使用</li>
 </ul>
-
 <p>从这里可以看出来 <code>ARG</code> 就是专门为构建镜像而生的</p>
-
 <h3 id="拿一个具体的例子">拿一个具体的例子</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -168,6 +158,7 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="c"># Dockerfile</span><span class="err">
@@ -182,35 +173,35 @@
 </span><span class="err">
 </span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 6379</span><span class="err">
 </span><span class="err">
-</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;sh&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="s2">&#34;exec redis-server --requirepass \&#34;$REDIS_PASSWORD\&#34;&#34;</span><span class="p">]</span></code></pre></td></tr></table>
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;sh&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="s2">&#34;exec redis-server --requirepass \&#34;$REDIS_PASSWORD\&#34;&#34;</span><span class="p">]</span><span class="err">
+</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>这是一个构建 redis 的文件, 中间有这么一句</p>
+</div><p>这是一个构建 redis 的文件, 中间有这么一句</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">ARG <span class="nv">REDIS_SET_PASSWORD</span><span class="o">=</span>developer
-ENV REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD</span><span class="si">}</span></code></pre></td></tr></table>
+ENV REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD</span><span class="si">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>它是为</p>
+</div><p>它是为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">CMD <span class="o">[</span><span class="s2">&#34;sh&#34;</span>, <span class="s2">&#34;-c&#34;</span>, <span class="s2">&#34;exec redis-server --requirepass \&#34;</span><span class="nv">$REDIS_PASSWORD</span><span class="s2">\&#34;&#34;</span><span class="o">]</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">CMD <span class="o">[</span><span class="s2">&#34;sh&#34;</span>, <span class="s2">&#34;-c&#34;</span>, <span class="s2">&#34;exec redis-server --requirepass \&#34;</span><span class="nv">$REDIS_PASSWORD</span><span class="s2">\&#34;&#34;</span><span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这一句服务的, 这句就是在启动 redis 的时候设置密码, 因为当执行 <code>CMD</code> 的时候,说明容器已经构建成功运行了起来,此时 <code>CMD</code>是在容器中执行容器中的命令, 因此 <code>CMD</code> 中的变量是用的环境变量而不是在 <code>Dockerfile</code> 中的变量,因此需要把 <code>ARG</code> 中的值在构建的时候赋值给 <code>ENV</code></p>
-
+</div><p>这一句服务的, 这句就是在启动 redis 的时候设置密码, 因为当执行 <code>CMD</code> 的时候,说明容器已经构建成功运行了起来,此时 <code>CMD</code>是在容器中执行容器中的命令, 因此 <code>CMD</code> 中的变量是用的环境变量而不是在 <code>Dockerfile</code> 中的变量,因此需要把 <code>ARG</code> 中的值在构建的时候赋值给 <code>ENV</code></p>
 <h3 id="另一个使用-arg-的例子">另一个使用 ARG 的例子</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -233,6 +224,7 @@ ENV REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">FROM</span><span class="s"> nginx:1.13.1-alpine</span><span class="err">
@@ -257,23 +249,24 @@ ENV REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD
 </span><span class="err">
 </span><span class="err"></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&#34;/var/log/nginx&#34;</span><span class="p">,</span> <span class="s2">&#34;/var/www&#34;</span><span class="p">]</span><span class="err">
 </span><span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/share/nginx/html</span></code></pre></td></tr></table>
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/share/nginx/html</span><span class="err">
+</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>这里就只是用了<code>ARG</code></p>
+</div><p>这里就只是用了<code>ARG</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">ARG <span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="o">=</span>php-fpm
 ARG <span class="nv">PHP_UPSTREAM_PORT</span><span class="o">=</span><span class="m">9000</span>
-RUN <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf</code></pre></td></tr></table>
+RUN <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里的变量用的就是 <code>ARG</code> 而不是 <code>ENV</code>了,因为这条命令运行在 <code>Dockerfile</code> 当中的, 像这种临时使用一下的变量没必要存环境变量的值就很适合使用 <code>ARG</code></p>
+</div><p>这里的变量用的就是 <code>ARG</code> 而不是 <code>ENV</code>了,因为这条命令运行在 <code>Dockerfile</code> 当中的, 像这种临时使用一下的变量没必要存环境变量的值就很适合使用 <code>ARG</code></p>
 
     </div>
 

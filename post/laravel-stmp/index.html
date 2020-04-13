@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-stmp/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel5.1使用stmp邮箱服务">
 <meta itemprop="description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5">
-
-
 <meta itemprop="datePublished" content="2016-10-09T14:51:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="454">
+<meta itemprop="wordCount" content="455">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel5.1使用stmp邮箱服务"/>
 <meta name="twitter:description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5"/>
 
@@ -137,53 +134,47 @@
 
     
     <div class="post-content">
-      
-
-<p>这里主要使用的qq邮箱来举例</p>
-
+      <p>这里主要使用的qq邮箱来举例</p>
 <p>流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <h3 id="laravel配置">laravel配置</h3>
-
 <p><code>.env</code>文件当中：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span><span class="lnt">7
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">MAIL_DRIVER=smtp  //服务驱动
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">MAIL_DRIVER=smtp  //服务驱动
 MAIL_HOST=smtp.qq.com   //服务器地址
 MAIL_PORT=465           //端口
 MAIL_USERNAME=5173180@qq.com    //账户
 MAIL_PASSWORD=fgxhrahbayzvcai   //你账户的授权码，在开通stmp服务的时候获取到
-MAIL_ENCRYPTION=ssl //安全协议</pre></td></tr></table>
+MAIL_ENCRYPTION=ssl //安全协议
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>以上的内容如果不因环境变化可直接写入到<code>config/mail.php</code>文件内
+</div><p>以上的内容如果不因环境变化可直接写入到<code>config/mail.php</code>文件内
 <code>config/mail.php</code>内要修改的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&#39;from&#39; =&gt; [&#39;address&#39; =&gt; &#39;5173180@qq.com&#39;, &#39;name&#39; =&gt; &#39;GsMail&#39;],</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;from&#39; =&gt; [&#39;address&#39; =&gt; &#39;5173180@qq.com&#39;, &#39;name&#39; =&gt; &#39;GsMail&#39;],
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样基本配置就算配置好了</p>
-
+</div><p>这样基本配置就算配置好了</p>
 <h4 id="测试一下">测试一下</h4>
-
 <p>使用 <code>php artisan tinker</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -194,15 +185,15 @@ MAIL_ENCRYPTION=ssl //安全协议</pre></td></tr></table>
 [&#39;testVar&#39;=&gt;&#39;LaravelAcademy.org&#39;],
  function($message){
  $message-&gt;to(&#39;5173180@qq.com&#39;)-&gt;subject(&#39;测试邮件  &#39;);
- });</code></pre></td></tr></table>
+ });
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>send</code>的参数分别是发送过去的邮件视图，向邮件视图内绑定的参数，一个回调函数
+</div><p><code>send</code>的参数分别是发送过去的邮件视图，向邮件视图内绑定的参数，一个回调函数
 <code>$message</code>变量在视图模板当中恒定存在
 相关<code>$message</code>的方法有：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -229,7 +220,8 @@ $message-&gt;attach($pathToFile, array $options = []);
 // 从$data字符串追加文件...
 $message-&gt;attachData($data, $name, array $options = []);
 // 获取底层SwiftMailer消息实例...
-$message-&gt;getSwiftMessage();</code></pre></td></tr></table>
+$message-&gt;getSwiftMessage();
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

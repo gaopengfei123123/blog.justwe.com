@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-build-compress/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-11-21T16:16:27+08:00" />
 <meta itemprop="name" content="go 打包文件压缩">
 <meta itemprop="description" content="golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &ldquo;-s -w&rdquo; 参数来优化编">
-
-
 <meta itemprop="datePublished" content="2019-11-20T11:31:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-21T16:16:27&#43;08:00" />
 <meta itemprop="wordCount" content="378">
 
 
 
-<meta itemprop="keywords" content="go,upx," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,upx," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go 打包文件压缩"/>
 <meta name="twitter:description" content="golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &ldquo;-s -w&rdquo; 参数来优化编"/>
 
@@ -137,51 +134,41 @@
 
     
     <div class="post-content">
-      
-
-<p>golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下</p>
-
-<!-- more -->
-
-<h3 id="命令行参数-ldflags">命令行参数 -ldflags</h3>
-
+      <p>golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下</p>
+<!-- raw HTML omitted -->
+<h3 id="命令行参数--ldflags">命令行参数 -ldflags</h3>
 <p>在程序编译的时候可以加上-ldflags &ldquo;-s -w&rdquo; 参数来优化编译程序, 其实通过去除部分连接和调试等信息来使得编译之后的执行程序更小,具体参数如下:</p>
-
 <ul>
 <li><code>-a</code> 强制编译所有依赖包</li>
 <li><code>-s</code> 去掉符号表信息, panic时候的stack trace就没有任何文件名/行号信息了.</li>
-
-<li><p><code>-w</code> 去掉DWARF调试信息，得到的程序就不能用gdb调试了
-执行如下命令:</p>
+<li><code>-w</code> 去掉DWARF调试信息，得到的程序就不能用gdb调试了
+执行如下命令:</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">go build -ldflags -w main.go</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sh" data-lang="sh">go build -ldflags -w main.go
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>对比数据:</p>
+</div><p>对比数据:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">-rwxr-xr-x <span class="m">1</span> root root  12M 11月 <span class="m">20</span> <span class="m">11</span>:56 example
--rwxr-xr-x <span class="m">1</span> root root  16M 11月 <span class="m">20</span> <span class="m">11</span>:56 example2</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sh" data-lang="sh">-rwxr-xr-x <span class="m">1</span> root root  12M 11月 <span class="m">20</span> 11:56 example
+-rwxr-xr-x <span class="m">1</span> root root  16M 11月 <span class="m">20</span> 11:56 example2
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
-<h3 id="使用upx">使用upx</h3>
-
+</div><h3 id="使用upx">使用upx</h3>
 <p>打完包后还可以使用 <a href="https://github.com/upx/upx">upx</a> 给压缩一下, 可以用 <code>yum</code> <code>brew</code> 什么的下载, 也可以从github页面下载</p>
-
 <p>执行命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -200,27 +187,27 @@
 
                        Ultimate Packer <span class="k">for</span> eXecutables
                           Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">1996</span> - <span class="m">2018</span>
-UPX <span class="m">3</span>.95        Markus Oberhumer, Laszlo Molnar <span class="p">&amp;</span> John Reiser   Aug 26th <span class="m">2018</span>
+UPX 3.95        Markus Oberhumer, Laszlo Molnar <span class="p">&amp;</span> John Reiser   Aug 26th <span class="m">2018</span>
 
         File size         Ratio      Format      Name
    --------------------   ------   -----------   -----------
-  <span class="m">12083200</span> -&gt;   <span class="m">4603884</span>   <span class="m">38</span>.10%   linux/amd64   example
+  <span class="m">12083200</span> -&gt;   <span class="m">4603884</span>   38.10%   linux/amd64   example
 
-Packed <span class="m">1</span> file</code></pre></td></tr></table>
+Packed <span class="m">1</span> file
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>压缩后</p>
+</div><p>压缩后</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">-rwxr-xr-x 1 root root 4.4M 11月 20 11:56 example
--rwxr-xr-x 1 root root  16M 11月 20 11:56 example2</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-rwxr-xr-x 1 root root 4.4M 11月 20 11:56 example
+-rwxr-xr-x 1 root root  16M 11月 20 11:56 example2
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>和原包比对就能看到巨大差距</p>
+</div><p>和原包比对就能看到巨大差距</p>
 
     </div>
 

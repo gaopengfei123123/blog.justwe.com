@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-repository/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel-repository">
 <meta itemprop="description" content="laravel版本5.1&#43; 首先创建测试文件 1 php artisan make:controller TestController 修改路由文件route.php或者routes/web.php 1 Route::get(&#39;test&#39;, &#39;TestController@index&#39;); 创建服务提供者文件,">
-
-
 <meta itemprop="datePublished" content="2016-04-01T20:53:01&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="904">
+<meta itemprop="wordCount" content="905">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel-repository"/>
 <meta name="twitter:description" content="laravel版本5.1&#43; 首先创建测试文件 1 php artisan make:controller TestController 修改路由文件route.php或者routes/web.php 1 Route::get(&#39;test&#39;, &#39;TestController@index&#39;); 创建服务提供者文件,"/>
 
@@ -138,40 +135,38 @@
     
     <div class="post-content">
       <p>laravel版本5.1+</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>首先创建测试文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">php artisan make:controller TestController</pre></td></tr></table>
-</div>
-</div>
-<p>修改路由文件<code>route.php</code>或者<code>routes/web.php</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">Route::get(&#39;test&#39;, &#39;TestController@index&#39;);</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan make:controller TestController
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>创建服务提供者文件,这个文件的作用就是用来注册自定义的<a href="http://laravelacademy.org/post/5809.html">服务容器</a></p>
+</div><p>修改路由文件<code>route.php</code>或者<code>routes/web.php</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php artisan make:provider HelloProvider</pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php">Route::get(&#39;test&#39;, &#39;TestController@index&#39;);
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>我们再创建一个容器文件夹<code>app/Repositories</code>这里存放相应的接口和应用类，现在上我们的主角</p>
+</div><p>创建服务提供者文件,这个文件的作用就是用来注册自定义的<a href="http://laravelacademy.org/post/5809.html">服务容器</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan make:provider HelloProvider
+</code></pre></td></tr></table>
+</div>
+</div><p>我们再创建一个容器文件夹<code>app/Repositories</code>这里存放相应的接口和应用类，现在上我们的主角</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -209,7 +204,7 @@
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -249,11 +244,10 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>还记得刚才我们创建的<code>HelloProvider</code>吗？现在我们在这里注册一下服务</p>
+</div><p>还记得刚才我们创建的<code>HelloProvider</code>吗？现在我们在这里注册一下服务</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -315,11 +309,10 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>接下来是<strong>最重要的一步</strong>，那就是去注册这个服务，你发现每次安装一个依赖包的时候都会操作一个文件，那就是<code>config/app.php</code>，在<code>providers</code>这个数组中添加服务</p>
+</div><p>接下来是<strong>最重要的一步</strong>，那就是去注册这个服务，你发现每次安装一个依赖包的时候都会操作一个文件，那就是<code>config/app.php</code>，在<code>providers</code>这个数组中添加服务</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -328,14 +321,14 @@
 <pre class="chroma"><code class="language-php" data-lang="php">&#39;providers&#39; =&gt; [
     //other providers...
     App\Providers\HelloProvider::class,
-    ],</code></pre></td></tr></table>
+    ],
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>现在就可以使用这个啦！
+</div><p>现在就可以使用这个啦！
 进入我们的<code>TestController</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -355,6 +348,7 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
@@ -377,13 +371,11 @@
         <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">provider</span><span class="o">-&gt;</span><span class="na">say</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>访问 <code>http://your-domain/test</code>就能看到效果了</p>
-
+</div><p>访问 <code>http://your-domain/test</code>就能看到效果了</p>
 <p>这里要记住，我们在控制器中调用的是接口，而接口已经通过<code>provider</code>已经注册绑定了一个符合接口规范的实例，这样的话我们只调用接口提供的外部方法，这样一个好处就是在控制器中我们就专注流程，具体的实现交给服务，内部需要什么依赖就服务自己去解决，而且服务是通用的，每个控制器都能调用，代码的<strong>可复用性</strong>和<strong>可维护性</strong>，这一点项目初期可能会感觉不到，但是一旦发生变动的时候，重复改动的地方就会非常多，项目经营时间越长这个变动的代价就会越高</p>
-
 <p>试想一下，如果你是每个<code>controller</code>中都写相同的调度逻辑，有一天你的产品经理对你说：这里这里改一下，添加个字段而已很简单的……你会不会有砍死他的冲动？如果用上了服务仓库，你完全可以先看一下仓库中需要改动的方法到底怎么样再考虑砍人的事情 ：）</p>
 
     </div>

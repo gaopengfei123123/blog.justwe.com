@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/elementui-form-event/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-11-18T11:12:17+08:00" />
 <meta itemprop="name" content="关于 elementUI 中的 intput 框的enter 事件">
 <meta itemprop="description" content="在文档中没有出现相关的说明,但是在实际使用中确实需要用到,怎么办呢? 这里有一个示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;el-form :inline=&#34;true&#34; :model=&#34;price_form&#34; :rules=&#34;price_rules&#34; ref=&#34;priceForm&#34; @submit.native.prevent v-if=&#34;scope.row.edit_deposit&#34; &gt;">
-
-
 <meta itemprop="datePublished" content="2017-09-15T11:42:23&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-18T11:12:17&#43;08:00" />
 <meta itemprop="wordCount" content="228">
 
 
 
-<meta itemprop="keywords" content="elementUI," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="elementUI," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于 elementUI 中的 intput 框的enter 事件"/>
 <meta name="twitter:description" content="在文档中没有出现相关的说明,但是在实际使用中确实需要用到,怎么办呢? 这里有一个示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;el-form :inline=&#34;true&#34; :model=&#34;price_form&#34; :rules=&#34;price_rules&#34; ref=&#34;priceForm&#34; @submit.native.prevent v-if=&#34;scope.row.edit_deposit&#34; &gt;"/>
 
@@ -138,13 +135,11 @@
     
     <div class="post-content">
       <p>在文档中没有出现相关的说明,但是在实际使用中确实需要用到,怎么办呢?</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>这里有一个示例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -185,13 +180,12 @@
            <span class="p">&lt;/</span><span class="nt">el-input</span><span class="p">&gt;</span>
        <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
    <span class="p">&lt;/</span><span class="nt">el-row</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">el-form</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">el-form</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里需要在input 中加入 <code>@keyup.native.enter=&quot;&quot;</code> 事件,只加这个还不完整,因为回车的时候会
+</div><p>这里需要在input 中加入 <code>@keyup.native.enter=&quot;&quot;</code> 事件,只加这个还不完整,因为回车的时候会
 出现表单默认提交的情况,有些时候是我们不需要的,因此,需要在 <code>el-form</code>中添加<code>@submit.native.prevent</code>
 来阻止 form 的默认提交行为</p>
-
 <p><a href="https://github.com/ElemeFE/element/issues/3625">资料来源</a></p>
 
     </div>

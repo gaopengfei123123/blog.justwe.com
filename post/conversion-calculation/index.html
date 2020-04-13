@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/conversion-calculation/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="十进制与二进制,八进制,十六进制的换算">
 <meta itemprop="description" content="复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们 首先做一个定义： B(Binary)表示二进制，O(Octal)表示八进">
-
-
 <meta itemprop="datePublished" content="2018-05-23T10:58:29&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="547">
 
 
 
-<meta itemprop="keywords" content="binary," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="binary," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="十进制与二进制,八进制,十六进制的换算"/>
 <meta name="twitter:description" content="复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们 首先做一个定义： B(Binary)表示二进制，O(Octal)表示八进"/>
 
@@ -137,45 +134,35 @@
 
     
     <div class="post-content">
-      
-
-<p>复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们</p>
-
-<!-- more -->
-
+      <p>复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们</p>
+<!-- raw HTML omitted -->
 <p>首先做一个定义： B(Binary)表示二进制，O(Octal)表示八进制，D(Decimal)或不加表示十进制，H(Hexadecimal)表示十六进制，比如：(101011)B=(53)O=(43)D=(2B)H</p>
-
 <h3 id="十进制转换成二进制">十进制转换成二进制</h3>
-
 <h4 id="除二取余法">除二取余法</h4>
-
 <p>二进制说白了就是 0 和 1 啊，在十进制的时候就是2的次方</p>
-
 <p>以十进制的(43)D为例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">43/2=21%1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">43/2=21%1
 21/2=10%1
 10/2=5 %0
 5 /2=2 %1
 2 /2=1 %0
 1 /2=0 %1
-以上把余数倒着排就是二进制的结果了，即101011</pre></td></tr></table>
+以上把余数倒着排就是二进制的结果了，即101011
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="阶段相减法-适合低次方的速算">阶段相减法（适合低次方的速算）</h4>
-
+</div><h4 id="阶段相减法适合低次方的速算">阶段相减法（适合低次方的速算）</h4>
 <p>每次都减去最大的值，还是拿(42)D举例：42-32-8-2-1=0， 对应以下的表格为：</p>
-
 <table>
 <thead>
 <tr>
@@ -188,7 +175,6 @@
 <th align="center">1</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">2^6</td>
@@ -199,7 +185,6 @@
 <td align="center">2^1</td>
 <td align="center">2^0</td>
 </tr>
-
 <tr>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -209,49 +194,50 @@
 <td align="center">1</td>
 <td align="center">1</td>
 </tr>
+<tr>
+<td align="center">结果就是： 101011</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-
-<p>结果就是： 101011</p>
-
 <h3 id="十进制转二进制">十进制转二进制</h3>
-
 <p>以 (101011)B 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">1*2^0 + 1*2^1 + 1*2^3 + 1*2^5 = 43</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">1*2^0 + 1*2^1 + 1*2^3 + 1*2^5 = 43
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="十进制转八进制和十六进制">十进制转八进制和十六进制</h3>
-
+</div><h3 id="十进制转八进制和十六进制">十进制转八进制和十六进制</h3>
 <p>都是用的除8或16取余法，不做赘述了，有点区别就是16进制的9以后就是abcd&hellip;代替的
 这等式就自己进行一下验算好了: (101011)B=(53)O=(43)D=(2B)H</p>
-
-<h3 id="二进制转八进制-十六进制">二进制转八进制、十六进制</h3>
-
+<h3 id="二进制转八进制十六进制">二进制转八进制、十六进制</h3>
 <p>先复习一个等式: <code>2^0 * 2^1 * 2^2 = 2^3</code>， 那么二进制转八进制就是将二进制的数三个为一组合并一下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">101|011 =&gt; 53</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">101|011 =&gt; 53
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>同理， 二进制转16进制就是按四个为一组合并一下：</p>
+</div><p>同理， 二进制转16进制就是按四个为一组合并一下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">0010|1011 =&gt; 2b</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">0010|1011 =&gt; 2b
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="十六进制和八进制之间转换">十六进制和八进制之间转换</h3>
-
+</div><h3 id="十六进制和八进制之间转换">十六进制和八进制之间转换</h3>
 <p>都是先转换成二进制，然后再转成想要的进制</p>
 
     </div>

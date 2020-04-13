@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/redis-geohash-lbs/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="LBS使用redis的解决方案--GEOHASH">
 <meta itemprop="description" content="最近需要用到LBS距离测绘方面的东西，用于搜索附近的人， 在网上搜了一下有一个比较通用的方案，就是采用 GEOHASH 算法 相关的参考资料 这套算法在 mongoDB 当中已经">
-
-
 <meta itemprop="datePublished" content="2017-03-10T10:53:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="820">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LBS使用redis的解决方案--GEOHASH"/>
 <meta name="twitter:description" content="最近需要用到LBS距离测绘方面的东西，用于搜索附近的人， 在网上搜了一下有一个比较通用的方案，就是采用 GEOHASH 算法 相关的参考资料 这套算法在 mongoDB 当中已经"/>
 
@@ -139,209 +136,195 @@
     <div class="post-content">
       <p>最近需要用到LBS距离测绘方面的东西，用于搜索附近的人，
 在网上搜了一下有一个比较通用的方案，就是采用 GEOHASH 算法</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p><a href="http://blog.jobbole.com/80633/">相关的参考资料</a></p>
-
 <p>这套算法在 mongoDB 当中已经集成了，但是公司的业务中没有用到 mongodb 而是用了redis，
 本来打算自己造个轮子去实现，但是万幸翻看了一下redis的文档，它也在 3.* 版本后提供了GEO相关的api</p>
-
 <p><a href="http://cristian.regolo.cc/2015/07/07/introducing-the-geo-api-in-redis.html">相关文章</a></p>
-
 <p>首先是添加命令 <code>GEOADD</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEOADD key long lat name [long lat name1,long lat name2,long lat name3...]</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOADD key long lat name [long lat name1,long lat name2,long lat name3...]
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
+</div><ol>
 <li>key  <code>GEOSET</code>的名字</li>
 <li>long 地点的经度</li>
 <li>lat  地点的纬度</li>
 <li>name <code>GEOSET</code>内的值的名字
 可以批量输入</li>
 </ol>
-
 <p>举个栗子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEOADD chaoyangqu 116.43620200729366 39.916880160714435 &#34;yabaolu&#34; 116.4356870231628 39.908560377800676 &#34;jianguomen&#34; 116.4345336732864 39.924466658329585 &#34;chaoyangmen&#34; 116.4335788068771 39.921372916981106 &#34;yinhesoho&#34; 116.43564410781856 39.92024564137184 &#34;zhongliang&#34;
-(integer) 5</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOADD chaoyangqu 116.43620200729366 39.916880160714435 &#34;yabaolu&#34; 116.4356870231628 39.908560377800676 &#34;jianguomen&#34; 116.4345336732864 39.924466658329585 &#34;chaoyangmen&#34; 116.4335788068771 39.921372916981106 &#34;yinhesoho&#34; 116.43564410781856 39.92024564137184 &#34;zhongliang&#34;
+(integer) 5
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>返回值为1 说明是新添，返回0 说明是更新 错误的话就报错了</p>
-
+</div><p>返回值为1 说明是新添，返回0 说明是更新 错误的话就报错了</p>
 <p>查看当前插入的内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">zrange chaoyangqu 0 -1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">zrange chaoyangqu 0 -1
 1) &#34;jianguomen&#34;
 2) &#34;yabaolu&#34;
 3) &#34;zhongliang&#34;
 4) &#34;yinhesoho&#34;
-5) &#34;chaoyangmen&#34;</pre></td></tr></table>
+5) &#34;chaoyangmen&#34;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>从这条命令也可以看出来 geoset 是属于有序集合</p>
-
+</div><p>从这条命令也可以看出来 geoset 是属于有序集合</p>
 <p>命令 <code>GEORADIUS</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEORADIUS key long lat radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUS key long lat radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]
+</code></pre></td></tr></table>
 </div>
-</div>
-<ol>
-<li>key 集合的名字</li>
-<li>long 指定的经度</li>
-<li>lat  指定的纬度</li>
-<li>radius 半径范围</li>
-
-<li><p>unit 单位 可以说 m km ft(英尺) mi(英里)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m
-1) &#34;zhongliang&#34;
-2) &#34;yabaolu&#34;</pre></td></tr></table>
-</div>
-</div>
-<p>带上参数可以显示更多位置信息，通常业务需要显示下距离和进行排序，添加 <code>WITHDIST</code> <code>ASC</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m WITHDIST ASC
-1) 1) &#34;yabaolu&#34;
-2) &#34;162.8454&#34;
-2) 1) &#34;zhongliang&#34;
-2) &#34;239.7758&#34;</pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-
-<p>命令<code>GEORADIUSBYMEMBER</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">GEORADIUSBYMEMBER key member radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]</pre></td></tr></table>
-</div>
-</div>
-<ol>
+</div><ol>
 <li>key 集合的名字</li>
 <li>long 指定的经度</li>
 <li>lat  指定的纬度</li>
 <li>radius 半径范围</li>
 <li>unit 单位 可以说 m km ft(英尺) mi(英里)</li>
 </ol>
-
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m
+1) &#34;zhongliang&#34;
+2) &#34;yabaolu&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>带上参数可以显示更多位置信息，通常业务需要显示下距离和进行排序，添加 <code>WITHDIST</code> <code>ASC</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m WITHDIST ASC
+1) 1) &#34;yabaolu&#34;
+   2) &#34;162.8454&#34;
+2) 1) &#34;zhongliang&#34;
+   2) &#34;239.7758&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>命令<code>GEORADIUSBYMEMBER</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUSBYMEMBER key member radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>key 集合的名字</li>
+<li>long 指定的经度</li>
+<li>lat  指定的纬度</li>
+<li>radius 半径范围</li>
+<li>unit 单位 可以说 m km ft(英尺) mi(英里)</li>
+</ol>
 <p>这个和 <code>GEORADIUS</code> 的区别就是 前者是指定坐标，后者是可以直接从集合中指定一个name做计算
 栗子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
 GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
 1) 1) &#34;yinhesoho&#34;
    2) &#34;0.0000&#34;
 2) 1) &#34;zhongliang&#34;
-   2) &#34;216.2817&#34;</pre></td></tr></table>
+   2) &#34;216.2817&#34;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>排在第一位的肯定是自己啊，而且需要确定你要搜寻的名字已经存在集合中，否则会报错</p>
-
+</div><p>排在第一位的肯定是自己啊，而且需要确定你要搜寻的名字已经存在集合中，否则会报错</p>
 <p>命令<code>GEOPOS</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEOPOS key elem1 elem2 ... elemN</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOPOS key elem1 elem2 ... elemN
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>列出集合中指定name的坐标
+</div><p>列出集合中指定name的坐标
 栗子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEOPOS chaoyangqu yabaolu yinhesoho xxx
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOPOS chaoyangqu yabaolu yinhesoho xxx
 1) 1) &#34;116.43620342016220093&#34;
    2) &#34;39.9168813345921123&#34;
 2) 1) &#34;116.43358021974563599&#34;
    2) &#34;39.92137286048646416&#34;
-3) (nil)</pre></td></tr></table>
+3) (nil)
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>说明如果 name 不存在set中就会返回nil</p>
-
+</div><p>说明如果 name 不存在set中就会返回nil</p>
 <p>命令<code>GEODIST</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEODIST key elem1 elem2 [unit]
-1. unit 单位可以说m lm ft mi</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEODIST key elem1 elem2 [unit]
+1. unit 单位可以说m lm ft mi
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>只能是两个元素之间的啊，不然三个元素就是语法错误，两个元素中有一个不存在则返回 <code>nil</code>
+</div><p>只能是两个元素之间的啊，不然三个元素就是语法错误，两个元素中有一个不存在则返回 <code>nil</code>
 栗子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">GEODIST chaoyangqu yabaolu yinhesoho m
-&#34;547.4030&#34;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEODIST chaoyangqu yabaolu yinhesoho m
+&#34;547.4030&#34;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>下面的几个命令做个了解，平时不常用到</p>
-
+</div><p>下面的几个命令做个了解，平时不常用到</p>
 <ul>
 <li>GEOHASH key elem1 elem2 &hellip; elemN   //获取指定name的hash值</li>
 </ul>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-orm/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="larvel ORM模型中的一些方法和变量的作用">
 <meta itemprop="description" content="用代码说话 相关命令： 创建迁移文件 php artisan make:migration Pate_table 进行迁移 php artisan migrate 创建模型文件 php artisan make:model Page 把如下文件内容复制到对应的文件下，就可以按照注释进行测试了。控制器">
-
-
 <meta itemprop="datePublished" content="2016-10-21T12:02:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="756">
+<meta itemprop="wordCount" content="757">
 
 
 
-<meta itemprop="keywords" content="laravel," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="laravel," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="larvel ORM模型中的一些方法和变量的作用"/>
 <meta name="twitter:description" content="用代码说话 相关命令： 创建迁移文件 php artisan make:migration Pate_table 进行迁移 php artisan migrate 创建模型文件 php artisan make:model Page 把如下文件内容复制到对应的文件下，就可以按照注释进行测试了。控制器"/>
 
@@ -136,27 +133,18 @@
     
     <div class="post-content">
       <p>用代码说话</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>相关命令：</p>
-
 <p>创建迁移文件</p>
-
 <p><code>php artisan make:migration Pate_table</code></p>
-
 <p>进行迁移</p>
-
 <p><code>php artisan migrate</code></p>
-
 <p>创建模型文件</p>
-
 <p><code>php artisan make:model Page</code></p>
-
 <p><em>把如下文件内容复制到对应的文件下，就可以按照注释进行测试了。控制器的代码就需要自己动手一遍了，用一次就会了</em></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -288,11 +276,10 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>相关的表结构如下：</p>
+</div><p>相关的表结构如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -326,6 +313,7 @@
 </span><span class="lnt">32
 </span><span class="lnt">33
 </span><span class="lnt">34
+</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
@@ -362,6 +350,7 @@
         <span class="nx">Schema</span><span class="o">::</span><span class="na">drop</span><span class="p">(</span><span class="s1">&#39;pages&#39;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
 </div>

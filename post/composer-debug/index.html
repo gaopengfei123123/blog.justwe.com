@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/composer-debug/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="composer的一个小毛病">
 <meta itemprop="description" content="当环境中同时安装xdebug和composer的时候，会产生一个报错 1 You are running composer with xdebug enabled. This has a major impact on runtime performance. See Https://getcomposer.org/xdebug 其实作为开发环境来说，并没有太大的影">
-
-
 <meta itemprop="datePublished" content="2017-02-13T15:15:24&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="291">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="composer的一个小毛病"/>
 <meta name="twitter:description" content="当环境中同时安装xdebug和composer的时候，会产生一个报错 1 You are running composer with xdebug enabled. This has a major impact on runtime performance. See Https://getcomposer.org/xdebug 其实作为开发环境来说，并没有太大的影"/>
 
@@ -140,59 +137,53 @@
       <p>当环境中同时安装xdebug和composer的时候，会产生一个报错</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">You are running composer with xdebug enabled. This has a major impact on runtime performance. See Https://getcomposer.org/xdebug</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">You are running composer with xdebug enabled. This has a major impact on runtime performance. See Https://getcomposer.org/xdebug
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- more -->
-
+</div><!-- raw HTML omitted -->
 <p>其实作为开发环境来说，并没有太大的影响，也就是拖慢了composer的运行速度，大概3-4倍的样子。</p>
-
 <p>当然，如果不想让那个 warning 再显示就先全局关闭xdebug</p>
-
 <p>首先知道到php.ini的文件路径</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">➜  ~ php -i | grep &#34;php.ini&#34;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  ~ php -i | grep &#34;php.ini&#34;
 Configuration File (php.ini) Path =&gt; /usr/local/etc/php/7.0
-Loaded Configuration File =&gt; /usr/local/etc/php/7.0/php.ini</pre></td></tr></table>
+Loaded Configuration File =&gt; /usr/local/etc/php/7.0/php.ini
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑php.ini文件 找到xdebug扩展的位置给加上引号注释下就行</p>
+</div><p>编辑php.ini文件 找到xdebug扩展的位置给加上引号注释下就行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">;[xdebug]
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">;[xdebug]
 ;zend_extension=&#34;/usr/local/opt/php70-xdebug/xdebug.so&#34;
-~</pre></td></tr></table>
+~
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果php.ini文件当中没有这个模块的配置，就找找<code>php.ini</code>同级目录下的 <code>conf.d</code> 目录，那里也是加载php扩展的配置文件的</p>
-
+</div><p>如果php.ini文件当中没有这个模块的配置，就找找<code>php.ini</code>同级目录下的 <code>conf.d</code> 目录，那里也是加载php扩展的配置文件的</p>
 <p>比如我的路径就是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cd /usr/local/etc/php/7.0/conf.d/ext-xdebug.ini</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd /usr/local/etc/php/7.0/conf.d/ext-xdebug.ini
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>一样给注释掉就行</p>
-
+</div><p>一样给注释掉就行</p>
 <p><a href="http://stackoverflow.com/questions/33909559/php-composer-xdebug-warning">参考1</a></p>
-
 <p><a href="http://www.tuicool.com/articles/qYNnqmf">参考2</a></p>
 
     </div>

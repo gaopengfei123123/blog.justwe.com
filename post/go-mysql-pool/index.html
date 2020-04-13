@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-mysql-pool/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-11-21T16:16:27+08:00" />
 <meta itemprop="name" content="go mysql数据库连接池的使用">
 <meta itemprop="description" content="建立一个mysql连接池将极大的缩短应用的响应时间, 减少频繁的io开销以及gc, 这在golang里面也是很容易就实现的 示例代码: 1 2 3 4 5 6">
-
-
 <meta itemprop="datePublished" content="2018-12-17T14:48:26&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-21T16:16:27&#43;08:00" />
-<meta itemprop="wordCount" content="717">
+<meta itemprop="wordCount" content="719">
 
 
 
-<meta itemprop="keywords" content="mysql,go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="mysql,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go mysql数据库连接池的使用"/>
 <meta name="twitter:description" content="建立一个mysql连接池将极大的缩短应用的响应时间, 减少频繁的io开销以及gc, 这在golang里面也是很容易就实现的 示例代码: 1 2 3 4 5 6"/>
 
@@ -138,13 +135,11 @@
     
     <div class="post-content">
       <p>建立一个mysql连接池将极大的缩短应用的响应时间, 减少频繁的io开销以及gc, 这在golang里面也是很容易就实现的</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>示例代码:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -249,6 +244,7 @@
 </span><span class="lnt">103
 </span><span class="lnt">104
 </span><span class="lnt">105
+</span><span class="lnt">106
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// main.go
@@ -355,13 +351,14 @@
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>测试代码:</p>
+</div><p>测试代码:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -401,6 +398,7 @@
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
+</span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// main_test.go
@@ -442,13 +440,14 @@
 			<span class="nf">doSomething2</span><span class="p">()</span>
 		<span class="p">}</span>
 	<span class="p">})</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>测试输出对比:</p>
+</div><p>测试输出对比:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -469,13 +468,13 @@ BenchmarkDoSomethingParallel-4                     <span class="m">50000</span> 
 BenchmarkDoSomethingWithoutPoll-4                   <span class="m">1000</span>           <span class="m">8400516</span> ns/op
 BenchmarkDoSomethingWithoutPollParallel-4           <span class="m">2000</span>           <span class="m">8167164</span> ns/op
 PASS
-ok      _/Users/gpf/Documents/go/code/mysql_curd/pool   <span class="m">28</span>.857s</code></pre></td></tr></table>
+ok      _/Users/gpf/Documents/go/code/mysql_curd/pool   28.857s
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>关键就是这几个方法:</p>
+</div><p>关键就是这几个方法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -490,11 +489,10 @@ ok      _/Users/gpf/Documents/go/code/mysql_curd/pool   <span class="m">28</span
 <span class="c1">// 设置最大空闲连接数
 </span><span class="c1"></span><span class="nx">db</span><span class="p">.</span><span class="nf">SetMaxIdleConns</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="c1">// 设置每个链接的过期时间
-</span><span class="c1"></span><span class="nx">db</span><span class="p">.</span><span class="nf">SetConnMaxLifetime</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span></code></pre></td></tr></table>
+</span><span class="c1"></span><span class="nx">db</span><span class="p">.</span><span class="nf">SetConnMaxLifetime</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>设置超时时间很有必要, 避免出现server端主动关闭的情况 <code>mysql has gone away...</code></p>
-
+</div><p>设置超时时间很有必要, 避免出现server端主动关闭的情况 <code>mysql has gone away...</code></p>
 <p><a href="http://www.01happy.com/golang-go-sql-drive-mysql-connection-pooling/">代码来源</a></p>
 
     </div>

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 10 Mar 2020 15:03:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 17:38:30 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于docker for mac 占用大量硬盘的问题</title>
+      <link>https://blog.justwe.site/post/docker-for-mac-huge-disk/</link>
+      <pubDate>Mon, 13 Apr 2020 17:38:30 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/docker-for-mac-huge-disk/</guid>
+      <description>&lt;p&gt;有一天我更新 xcode 的时候, 系统提示磁盘空间不足, 我打开一看发现 &lt;code&gt;其他&lt;/code&gt; 选项占了竟然有150G!
+后来扫描了一遍, 发现了吃硬盘的大户: &lt;code&gt;docker for mac&lt;/code&gt; 和微信&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Docker 搭建 Zookeeper 测试集群</title>
@@ -63,7 +73,7 @@
       <pubDate>Tue, 13 Feb 2018 13:24:30 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/docker-volume/</guid>
-      <description>这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&amp;#39;3&amp;#39;services:db:image:mysql:5.7volumes:-db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:-33060:3306wordpress:depends_on:-dbimage:wordpress:latestports:-&amp;#34;8080:80&amp;#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点奇怪的地</description>
+      <description>这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&amp;#39;3&amp;#39;services:db:image:mysql:5.7volumes:- db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:- 33060:3306wordpress:depends_on:- dbimage:wordpress:latestports:- &amp;#34;8080:80&amp;#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点</description>
     </item>
     
     <item>
@@ -72,7 +82,7 @@
       <pubDate>Mon, 12 Feb 2018 10:36:50 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/docker-compose-yml/</guid>
-      <description>常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] - --force-rm 删除构建时的临时容器 - --no-cache 构建不使用 cache - --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up</description>
+      <description>常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] --force-rm 删除构建时的临时容器 --no-cache 构建不使用 cache --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up [options] [service...] 直</description>
     </item>
     
     <item>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/k8s-install-docker/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="docker for mac 部署 kubernetes">
 <meta itemprop="description" content="docker for mac 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 gcr.io 这个域被墙了&hellip; 目前来看前辈们已经把坑给淌的差不多了">
-
-
 <meta itemprop="datePublished" content="2019-05-06T15:58:16&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
 <meta itemprop="wordCount" content="617">
 
 
 
-<meta itemprop="keywords" content="k8s," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker for mac 部署 kubernetes"/>
 <meta name="twitter:description" content="docker for mac 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 gcr.io 这个域被墙了&hellip; 目前来看前辈们已经把坑给淌的差不多了"/>
 
@@ -137,75 +134,61 @@
 
     
     <div class="post-content">
-      
-
-<p><code>docker for mac</code> 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 <code>gcr.io</code> 这个域被墙了&hellip;</p>
-
-<p>目前来看前辈们已经把坑给淌的差不多了, 我老早的时候也被折腾的头秃, 这里就做个总结
-<!-- more --></p>
-
+      <p><code>docker for mac</code> 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 <code>gcr.io</code> 这个域被墙了&hellip;</p>
+<p>目前来看前辈们已经把坑给淌的差不多了, 我老早的时候也被折腾的头秃, 这里就做个总结</p>
+<!-- raw HTML omitted -->
 <h4 id="通过代理翻墙下载镜像">通过代理翻墙下载镜像</h4>
-
 <p>这个方法相对来说一劳永逸, 缺点是每个月有vpn的花费, 我代理用的shadowsockets, 就拿这个来举例:</p>
-
 <p>首先安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">brew install privoxy</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install privoxy
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>添加配置:</p>
+</div><p>添加配置:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">vi /usr/local/etc/privoxy/config</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vi /usr/local/etc/privoxy/config
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>配置内容:</p>
+</div><p>配置内容:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-txt" data-lang="txt"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-txt" data-lang="txt">listen-address 0.0.0.0:8118
-forward-socks5 / localhost:1080 .</code></pre></td></tr></table>
+forward-socks5 / localhost:1080 .
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>监听本地8118端口, 转发到 localhost:1080, 这也是ss的客户端的转发端口</p>
-
+</div><p>监听本地8118端口, 转发到 localhost:1080, 这也是ss的客户端的转发端口</p>
 <p>启动:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">brew services start privoxy</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew services start privoxy
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>转发部分完成, 接下来在 <code>docker for mac</code>配置</p>
-
+</div><p>转发部分完成, 接下来在 <code>docker for mac</code>配置</p>
 <p><code>docker for mac</code> &gt; <code>preferences</code> &gt; <code>Proxies</code> &gt; 点击 <code>Manual proxy configuration</code></p>
-
-<p><code>Web Server(HTTP)</code> 和 <code>Secure Web Server (HTTPS)</code> 都填入 <code>http://{你机器IP}:8118</code> 比如: &lsquo;<a href="http://192.168.110.203:8118'">http://192.168.110.203:8118'</a></p>
-
+<p><code>Web Server(HTTP)</code> 和 <code>Secure Web Server (HTTPS)</code> 都填入 <code>http://{你机器IP}:8118</code> 比如: &lsquo;http://192.168.110.203:8118&rsquo;</p>
 <p>不能用 127.0.0.1, 因为 docker for mac 启动后, docker 是运行在一个虚拟机中,而不是macOS下, 因此这个地址代表的意义不一样</p>
-
 <p>点保存, 这样就能正常安装k8s了, 可以通过活动监视器看一下他们的流量是否正常</p>
-
 <p><a href="https://juejin.im/post/58dcd8dd44d904006dfe148b">教程来源</a></p>
-
 <h4 id="自己预先加载一套镜像来">自己预先加载一套镜像来</h4>
-
 <p>找个目录, 新建 <code>images.properties</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -215,9 +198,9 @@ forward-socks5 / localhost:1080 .</code></pre></td></tr></table>
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">k8s.gcr.io/pause-amd64:3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/pause-amd64:3.1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">k8s.gcr.io/pause-amd64:3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/pause-amd64:3.1
 k8s.gcr.io/kube-controller-manager-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager-amd64:v1.10.3
 k8s.gcr.io/kube-scheduler-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler-amd64:v1.10.3
 k8s.gcr.io/kube-proxy-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy-amd64:v1.10.3
@@ -226,13 +209,13 @@ k8s.gcr.io/etcd-amd64:3.1.12=registry.cn-hangzhou.aliyuncs.com/google_containers
 k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.8
 k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-kube-dns-amd64:1.14.8
 k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.8
-k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.8.3</pre></td></tr></table>
+k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.8.3
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>新建脚本: <code>kubernetes.sh</code></p>
+</div><p>新建脚本: <code>kubernetes.sh</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -271,18 +254,14 @@ k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3=registry.cn-hangzhou.aliyuncs.com/g
 
 <span class="k">else</span>
   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2"> not found.&#34;</span>
-<span class="k">fi</span></code></pre></td></tr></table>
+<span class="k">fi</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行就行</p>
-
+</div><p>运行就行</p>
 <p><a href="https://my.oschina.net/wubiaowpBlogShare/blog/1921180">教程来源</a>
 <a href="https://github.com/maguowei/k8s-docker-for-mac/tree/master/image">k8s-docker-for-mac</a></p>
-
-<h4 id="找个gcr-io的国内镜像">找个gcr.io的国内镜像</h4>
-
+<h4 id="找个gcrio的国内镜像">找个gcr.io的国内镜像</h4>
 <p>这个是利用了<code>dockerHub</code> 因为都是国外的, 先让<code>dockerHub</code>给build一下, 然后直接拉<code>dockerHub</code>的镜像来迂回一下</p>
-
 <p><a href="https://anjia0532.github.io/2017/11/15/gcr-io-image-mirror/">Google Container Registry(gcr.io) 中国可用镜像(长期维护)</a>
 <a href="https://github.com/anjia0532/gcr.io_mirror">gcr.io_mirror</a>
 <a href="https://jeremyxu2010.github.io/2018/05/%E5%9F%BA%E4%BA%8Edocker-for-macos%E7%9A%84kubernetes%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%BA%94%E7%94%A8%E9%83%A8%E7%BD%B2/">基于Docker for macOS的Kubernetes本地环境搭建与应用部署</a></p>

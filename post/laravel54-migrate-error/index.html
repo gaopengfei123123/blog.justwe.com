@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: 1. laravel 版本 5.4.23 2. 配置好数" /><meta name="keywords" content="laravel, 版本升级, php框架" />
+<meta name="author" content="GPF" /><meta name="description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: laravel 版本 5.4.23 配置好数据库" /><meta name="keywords" content="laravel, 版本升级, php框架" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel54-migrate-error/" />
@@ -39,25 +39,22 @@
 
 
 <meta property="og:title" content="laravel54初始化迁移失败" />
-<meta property="og:description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: 1. laravel 版本 5.4.23 2. 配置好数" />
+<meta property="og:description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: laravel 版本 5.4.23 配置好数据库" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/laravel54-migrate-error/" />
 <meta property="article:published_time" content="2017-05-24T11:55:45+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel54初始化迁移失败">
-<meta itemprop="description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: 1. laravel 版本 5.4.23 2. 配置好数">
-
-
+<meta itemprop="description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: laravel 版本 5.4.23 配置好数据库">
 <meta itemprop="datePublished" content="2017-05-24T11:55:45&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="120">
+<meta itemprop="wordCount" content="118">
 
 
 
-<meta itemprop="keywords" content="php,laravel," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="php,laravel," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel54初始化迁移失败"/>
-<meta name="twitter:description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: 1. laravel 版本 5.4.23 2. 配置好数"/>
+<meta name="twitter:description" content="在新版的 laravel 框架当中(v5.4.23) 出现了报错 1 2 3 4 [Illuminate\Database\QueryException] SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t oo long; max key length is 767 bytes (SQL: alter table `users` add unique ` users_email_unique`(`email`)) 错误重现: laravel 版本 5.4.23 配置好数据库"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -138,40 +135,40 @@
       <p>在新版的 laravel 框架当中(v5.4.23) 出现了报错</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">[Illuminate\Database\QueryException]
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[Illuminate\Database\QueryException]
  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was t
  oo long; max key length is 767 bytes (SQL: alter table `users` add unique `
- users_email_unique`(`email`))</pre></td></tr></table>
+ users_email_unique`(`email`))
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- more -->
-
-<p>错误重现:
-1. laravel 版本 5.4.23
-2. 配置好数据库链接,执行</p>
+</div><!-- raw HTML omitted -->
+<p>错误重现:</p>
+<ol>
+<li>laravel 版本 5.4.23</li>
+<li>配置好数据库链接,执行</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php artisan make:auth
-php artisan migrate</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan make:auth
+php artisan migrate
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>就会出现错误</p>
-
+</div><p>就会出现错误</p>
 <p>解决办法:
 打开文件 <code>@yourApp/app/Prividers/AppserviceProvider.php</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -184,10 +181,10 @@ php artisan migrate</pre></td></tr></table>
 function boot()
 {
     Schema::defaultStringLength(191);
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>文章来源: <a href="https://laracasts.com/discuss/channels/laravel/laravel-54-failing-on-php-artisan-migrate-after-php-artisan-makeauth?page=1">laracast</a></p>
+</div><p>文章来源: <a href="https://laracasts.com/discuss/channels/laravel/laravel-54-failing-on-php-artisan-migrate-after-php-artisan-makeauth?page=1">laracast</a></p>
 
     </div>
 

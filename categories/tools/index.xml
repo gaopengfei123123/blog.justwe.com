@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 14 Nov 2019 16:44:42 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 17:38:30 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于docker for mac 占用大量硬盘的问题</title>
+      <link>https://blog.justwe.site/post/docker-for-mac-huge-disk/</link>
+      <pubDate>Mon, 13 Apr 2020 17:38:30 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/docker-for-mac-huge-disk/</guid>
+      <description>&lt;p&gt;有一天我更新 xcode 的时候, 系统提示磁盘空间不足, 我打开一看发现 &lt;code&gt;其他&lt;/code&gt; 选项占了竟然有150G!
+后来扫描了一遍, 发现了吃硬盘的大户: &lt;code&gt;docker for mac&lt;/code&gt; 和微信&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>github-webhook 小工具</title>
@@ -72,7 +82,7 @@
       <pubDate>Sat, 23 Jun 2018 23:39:17 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/git-sshcommand/</guid>
-      <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true #</description>
+      <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true</description>
     </item>
     
     <item>
@@ -99,7 +109,7 @@
       <pubDate>Wed, 29 Nov 2017 13:21:26 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/</guid>
-      <description>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: &amp;gt;官方提供的</description>
+      <description>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: 官方提供的一个说明</description>
     </item>
     
     <item>
@@ -108,7 +118,7 @@
       <pubDate>Tue, 28 Nov 2017 14:50:49 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-local-lang/</guid>
-      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set LC_CTYPE</description>
+      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 13 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set</description>
     </item>
     
     <item>
@@ -117,7 +127,7 @@
       <pubDate>Wed, 22 Nov 2017 10:30:03 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-golang-env/</guid>
-      <description>树莓派上需要进行编译安装,不过很简单,而且 golang 官方也有 arm 平台的编译包, 在树莓派上一定要选linux-armv61这个版本啊 &amp;gt; golang 各版本的下载列表</description>
+      <description>树莓派上需要进行编译安装,不过很简单,而且 golang 官方也有 arm 平台的编译包, 在树莓派上一定要选linux-armv61这个版本啊 golang 各版本的下载列表 $</description>
     </item>
     
     <item>

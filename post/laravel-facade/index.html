@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-facade/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="再来个facade吧">
 <meta itemprop="description" content="参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor">
-
-
 <meta itemprop="datePublished" content="2016-12-19T15:48:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="461">
+<meta itemprop="wordCount" content="462">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="再来个facade吧"/>
 <meta name="twitter:description" content="参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor"/>
 
@@ -138,13 +135,11 @@
     
     <div class="post-content">
       <p>参照上一篇的文章<a href="http://www.onlyoneip.com/laravel/29.html">laravel 的 Repository 模式</a> 都已经注册了服务也可以使用 <code>Facade</code>了</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>首先创建一个 <code>Facade</code>文件，还是在 <code>app/Repositories</code>这里，创建<code>HelloFacade.php</code> 名字无所谓，路径也是无所谓的，关键是能够正确引入文件就行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -186,11 +181,10 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>然后再在之前创建的<code>namespace App\Providers\HelloProvider</code>中作出一些改动</p>
+</div><p>然后再在之前创建的<code>namespace App\Providers\HelloProvider</code>中作出一些改动</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -223,9 +217,10 @@
 </span><span class="lnt">31
 </span><span class="lnt">32
 </span><span class="lnt">33
-</span></pre></td>
+</span><span class="lnt">34
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 namespace App\Providers;
 
@@ -257,15 +252,15 @@ class HelloProvider extends ServiceProvider
             return new HelloRepository();
         });
     }
-}</pre></td></tr></table>
-</div>
-</div>
-<p><code>$this-&gt;app-&gt;singleton</code>就是为了去绑定facade 现在已经成功了一半了，接下来去配置文件中注册一下就能正常使用了</p>
+}
 
+</code></pre></td></tr></table>
+</div>
+</div><p><code>$this-&gt;app-&gt;singleton</code>就是为了去绑定facade 现在已经成功了一半了，接下来去配置文件中注册一下就能正常使用了</p>
 <p>在<code>config/app.php</code>中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -275,9 +270,9 @@ class HelloProvider extends ServiceProvider
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&#39;providers&#39; =&gt; [
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;providers&#39; =&gt; [
     ....
      App\Providers\HelloProvider::class,
     ....
@@ -286,23 +281,23 @@ class HelloProvider extends ServiceProvider
     ...
     &#39;Hello&#39; =&gt; \App\Repositories\HelloFacade::class,
     ...
-]</pre></td></tr></table>
+]
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样注册过后就能在文件中直接类似</p>
+</div><p>这样注册过后就能在文件中直接类似</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">use Hello;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">use Hello;
 
-Hello::say();</pre></td></tr></table>
+Hello::say();
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这一类的调用了</p>
+</div><p>这一类的调用了</p>
 
     </div>
 

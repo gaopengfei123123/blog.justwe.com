@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/webupload-demo/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="webuploader插件">
 <meta itemprop="description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把">
-
-
 <meta itemprop="datePublished" content="2016-10-12T15:24:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="3055">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="webuploader插件"/>
 <meta name="twitter:description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把"/>
 
@@ -137,19 +134,15 @@
 
     
     <div class="post-content">
-      
-
-<p>通过这个插件让我感觉到大百度还仍然是技术公司
- <!-- more -->
-说了句废话,开始正题.
+      <p>通过这个插件让我感觉到大百度还仍然是技术公司</p>
+<!-- raw HTML omitted -->
+<p>说了句废话,开始正题.
 这里用的是插件提供的源码 <a href="http://fex.baidu.com/webuploader/">插件官网传送门</a></p>
-
 <p>demo就是拿的源码的 image-upload 示例,就是把代码中我们需要了解的给摘了出来</p>
-
 <h4 id="html代码">html代码</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -189,9 +182,9 @@
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
 &lt;html lang=&#34;en&#34;&gt;
 &lt;head&gt;
     &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html;charset=UTF-8&#34;&gt;
@@ -230,13 +223,13 @@
 &lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/dist/webuploader.js&#39;) }}&#34;&gt;&lt;/script&gt;
 &lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/upload3.js&#39;) }}&#34;&gt;&lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</pre></td></tr></table>
+&lt;/html&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="js部分">js部分</h4>
+</div><h4 id="js部分">js部分</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -490,9 +483,9 @@
 </span><span class="lnt">252
 </span><span class="lnt">253
 </span><span class="lnt">254
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">(function( $ ){
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(function( $ ){
     // 当domReady的时候开始初始化
     $(function() {
         var $wrap = $(&#39;#uploader&#39;),
@@ -745,13 +738,13 @@
 
 
     });
-})( jQuery );</pre></td></tr></table>
+})( jQuery );
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="后端php部分">后端php部分</h4>
+</div><h4 id="后端php部分">后端php部分</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -917,9 +910,9 @@
 </span><span class="lnt">164
 </span><span class="lnt">165
 </span><span class="lnt">166
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">public function testSaveWebUploader(Request $request){
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">public function testSaveWebUploader(Request $request){
         //强制浏览器不缓存
         header(&#34;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#34;);
         header(&#34;Last-Modified: &#34; . gmdate(&#34;D, d M Y H:i:s&#34;) . &#34; GMT&#34;);
@@ -1084,11 +1077,10 @@
         $fileName = md5($fileName.$key);
 
         return $fileName.&#39;.&#39;.$ext;
-    }</pre></td></tr></table>
+    }
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="最后">最后</h2>
-
+</div><h2 id="最后">最后</h2>
 <p>相关的代码已经贴出来了,事件调用在js部分找,后端处理的大体思路就是保存分片上传过来的文件,当文件上传完毕后就通过fwrite或者file_put_content这类的函数给按顺序怼到一个文件当中
 //如果真的懒需要源码的话 <a href="http://git.oschina.net/gaofeifps/testLaravel/blob/master/laravel51/resources/views/uploader/index.blade.php?dir=0&amp;filepath=laravel51%2Fresources%2Fviews%2Fuploader%2Findex.blade.php&amp;oid=54ea7f6ae5ae71551d693d8dbedb6f8b59b14798&amp;sha=a507ac55dc985fb4a08663623688d4f909436857">我这有</a> , 写在了laravel框架里面了,但是代码可以单独拿出来,依赖性并不高</p>
 

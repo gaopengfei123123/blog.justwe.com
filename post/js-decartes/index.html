@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/js-decartes/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="js生成笛卡尔积数组">
 <meta itemprop="description" content="以下转载了来自 segmentfault的一个回答 第一种 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &lt;script type=&#34;text/javascript&#34;&gt; var data = new Array(new Array(1, 2, 3), new Array(4, 5, 6)); var result = []; console.log(data); function descartes(arrIndex, aresult){ if (arrIndex">
-
-
 <meta itemprop="datePublished" content="2017-07-18T10:36:50&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
 <meta itemprop="wordCount" content="165">
 
 
 
-<meta itemprop="keywords" content="js,decartes," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="js,decartes," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="js生成笛卡尔积数组"/>
 <meta name="twitter:description" content="以下转载了来自 segmentfault的一个回答 第一种 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &lt;script type=&#34;text/javascript&#34;&gt; var data = new Array(new Array(1, 2, 3), new Array(4, 5, 6)); var result = []; console.log(data); function descartes(arrIndex, aresult){ if (arrIndex"/>
 
@@ -138,14 +135,13 @@
     
     <div class="post-content">
       <p>以下转载了来自 <a href="https://segmentfault.com/q/1010000002696523">segmentfault</a>的一个回答</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <ol>
-<li><p>第一种</p>
+<li>第一种</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -167,32 +163,32 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text/javascript&#34;</span><span class="o">&gt;</span>
-    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
-    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-    <span class="kd">function</span> <span class="nx">descartes</span><span class="p">(</span><span class="nx">arrIndex</span><span class="p">,</span> <span class="nx">aresult</span><span class="p">){</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">arrIndex</span> <span class="o">&gt;=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">aresult</span><span class="p">);</span>
-            <span class="k">return</span> <span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+        <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="kd">function</span> <span class="nx">descartes</span><span class="p">(</span><span class="nx">arrIndex</span><span class="p">,</span> <span class="nx">aresult</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">arrIndex</span> <span class="o">&gt;=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">aresult</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kd">var</span> <span class="nx">aArr</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">arrIndex</span><span class="p">];</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">aArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">theResult</span> <span class="o">=</span> <span class="nx">aresult</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">aresult</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+                <span class="nx">theResult</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">aArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+                <span class="nx">descartes</span><span class="p">(</span><span class="nx">arrIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">theResult</span><span class="p">);</span>
+            <span class="p">}</span>
         <span class="p">}</span>
-        <span class="kd">var</span> <span class="nx">aArr</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">arrIndex</span><span class="p">];</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">aArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">theResult</span> <span class="o">=</span> <span class="nx">aresult</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">aresult</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
-            <span class="nx">theResult</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">aArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-            <span class="nx">descartes</span><span class="p">(</span><span class="nx">arrIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">theResult</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nx">descartes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[]);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
+        <span class="nx">descartes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[]);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+    <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>第二种</p>
+</div><ol start="2">
+<li>第二种</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -209,24 +205,22 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">descartes</span><span class="p">(){</span>
-<span class="k">if</span><span class="p">(</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">return</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="k">return</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="p">[];</span>
 
-<span class="k">return</span> <span class="p">[].</span><span class="nx">reduce</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">col</span><span class="p">,</span> <span class="nx">set</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="nx">col</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span><span class="nx">set</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">concat</span><span class="p">(</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="o">?</span> <span class="nx">c</span> <span class="o">:</span> <span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="p">);</span>
-        <span class="nx">t</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
-        <span class="nx">res</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
-    <span class="p">})});</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
-<span class="p">});</span>
+    <span class="k">return</span> <span class="p">[].</span><span class="nx">reduce</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">col</span><span class="p">,</span> <span class="nx">set</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="nx">col</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span><span class="nx">set</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">concat</span><span class="p">(</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="o">?</span> <span class="nx">c</span> <span class="o">:</span> <span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="p">);</span>
+            <span class="nx">t</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
+        <span class="p">})});</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
+    <span class="p">});</span>
 <span class="p">}</span>
 <span class="nx">descartes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]);</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
+</div>
     </div>
 
     <div class="post-copyright">

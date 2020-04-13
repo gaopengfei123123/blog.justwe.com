@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-info/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go语言了解(1)">
 <meta itemprop="description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但">
-
-
 <meta itemprop="datePublished" content="2017-03-08T06:42:24&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="782">
+<meta itemprop="wordCount" content="780">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go语言了解(1)"/>
 <meta name="twitter:description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但"/>
 
@@ -137,16 +134,10 @@
 
     
     <div class="post-content">
-      
-
-<p>有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了</p>
-
-<!-- more -->
-
+      <p>有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了</p>
+<!-- raw HTML omitted -->
 <h2 id="声明变量">声明变量</h2>
-
 <p>go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但是以下几种形式还是可以的</p>
-
 <ol>
 <li>var ValueName type   //直接声明一个，<em>声明了就要用啊，不然编译的时候就会报错</em></li>
 <li>var name1,name2,name3 type  //类型就近原则，直接声明三个相同类型的变量</li>
@@ -155,18 +146,17 @@
 <li>name1,name2,name3  := value1,value2,value3   //这才是常用的写法，用 <code>:</code> 来自动判断类型，单个的也是这个用法
 还有个特殊的变量名， <code>_</code> 这代表占个位置但是赋给他的值会被丢弃，比如  <code>_,a := 1,2</code> a的值为2 但是1就给丢了 这时的使用情景碰到再说</li>
 </ol>
-
 <h2 id="声明常量">声明常量</h2>
-
-<p>常量的关键词就不是 <code>var</code> 了 而是 <code>const</code>，和变量的区别是一旦定义就不能改了
-1. const ValueName = value  //直接赋值
-2. const Pi float32 = 3.1415926  //也可以声明常量的类型</p>
-
+<p>常量的关键词就不是 <code>var</code> 了 而是 <code>const</code>，和变量的区别是一旦定义就不能改了</p>
+<ol>
+<li>const ValueName = value  //直接赋值</li>
+<li>const Pi float32 = 3.1415926  //也可以声明常量的类型</li>
+</ol>
 <p>###分组赋值
 在多个包里用到再赋值有的时候不利于debug，可以直接把要赋值的都放到一起 比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -177,9 +167,9 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">const{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">const{
       ENV := true
       LOCAL := &#39;dev&#39;
       DATE := 20170307
@@ -189,57 +179,50 @@ var{
     i int
     pi float32
     name string
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>##boolean类型
+</div><p>##boolean类型
 <code>true</code> or <code>false</code> 默认为false</p>
-
 <p>##数值类型
 go支持 <code>int</code>,<code>uint</code>可以定义的类型有<code>rune,int8,int16,int32,int64,byte,uint8,uint16,uint16,uint32,uint64</code></p>
-
 <p>其中 rune是int32的别称，byte是uint8的别称</p>
-
 <p>不同类型的数不能相互赋值和操作  二进制的数不能和八进制的相加减</p>
-
 <p>浮点型也有<code>float32,float64</code>两种，没有 <code>float</code>这个类型，默认 <code>float64</code></p>
-
 <p>##字符串
 字符串的赋值方式遵循着上面的 声明变量 那一块说的。</p>
-
 <p>Value1 := &lsquo;string&rsquo;    和    Value1 := &ldquo;string&rdquo; 一个效果  <code>&quot;&quot;</code>代表的是一个空字符串也是占着内存的</p>
-
 <p>字符串之间的拼接用 <code>+</code> 比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">a,b :=&#34;hello&#34;,&#34;world&#34;  
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">a,b :=&#34;hello&#34;,&#34;world&#34;  
 
 c := a + b
 
-Printf(&#34;%s\n&#34;,c)  //输出 helloworld</pre></td></tr></table>
+Printf(&#34;%s\n&#34;,c)  //输出 helloworld
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>字符串的修改不能直接修改，可以用切片的方式实现例如：</p>
+</div><p>字符串的修改不能直接修改，可以用切片的方式实现例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">a := &#39;hello&#39;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">a := &#39;hello&#39;
 b := &#39;w&#39; + a[1:]
-//b 的值为 wello</pre></td></tr></table>
+//b 的值为 wello
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>什么是切片我们一会儿就会说到</p>
+</div><p>什么是切片我们一会儿就会说到</p>
 
     </div>
 

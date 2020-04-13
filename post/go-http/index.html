@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-http/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go-http">
 <meta itemprop="description" content="用于了解 http 包的一些运行机制 首先一个简单的例子 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 package main import ( &#34;fmt&#34; &#34;net/http&#34; &#34;strings&#34; &#34;log&#34; ) func sayhelloName(w http.ResponseWriter, r *http.Request) { r.ParseForm() //">
-
-
 <meta itemprop="datePublished" content="2017-04-26T23:11:29&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1046">
+<meta itemprop="wordCount" content="1044">
 
 
 
-<meta itemprop="keywords" content="http,go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="http,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go-http"/>
 <meta name="twitter:description" content="用于了解 http 包的一些运行机制 首先一个简单的例子 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 package main import ( &#34;fmt&#34; &#34;net/http&#34; &#34;strings&#34; &#34;log&#34; ) func sayhelloName(w http.ResponseWriter, r *http.Request) { r.ParseForm() //"/>
 
@@ -137,16 +134,12 @@
 
     
     <div class="post-content">
-      
-
-<p>用于了解 http 包的一些运行机制</p>
-
-<!-- more -->
-
+      <p>用于了解 http 包的一些运行机制</p>
+<!-- raw HTML omitted -->
 <h2 id="首先一个简单的例子">首先一个简单的例子</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -207,68 +200,62 @@
 </span><span class="c1"></span>  <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
     <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;ListenAndServe: &#34;</span><span class="p">,</span><span class="nx">err</span><span class="p">)</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>文件目录下 <code>go build http.go</code> <code>./http</code> 再直接访问<code>http://localhost:9090</code>就能看到页面了</p>
-
+</div><p>文件目录下 <code>go build http.go</code> <code>./http</code> 再直接访问<code>http://localhost:9090</code>就能看到页面了</p>
 <h2 id="运行流程是什么呢">运行流程是什么呢?</h2>
-
-<p>大体的运行流程是介样:
-1. 创建 Listen Socket,监听 tcp 协议的 9090 端口,等待请求
-2. 收到请求后创建一个 client socket 去解析请求(request)
-3. 将请求内容交给 handle request 去处理,处理后返回给 client socket(handler)
-4. client socket 收到后台的处理结果返回给用户(response)</p>
-
+<p>大体的运行流程是介样:</p>
+<ol>
+<li>创建 Listen Socket,监听 tcp 协议的 9090 端口,等待请求</li>
+<li>收到请求后创建一个 client socket 去解析请求(request)</li>
+<li>将请求内容交给 handle request 去处理,处理后返回给 client socket(handler)</li>
+<li>client socket 收到后台的处理结果返回给用户(response)</li>
+</ol>
 <p>我们80%的逻辑都是在第3步内进行的,其他的已经有底层包帮我们实现了</p>
-
 <h2 id="我们的路由绑定机制是怎么实现的">我们的路由绑定机制是怎么实现的?</h2>
-
 <p>当走到以上的第3步的时候将会进入自己独立的 goroutine ,这也是用户访问互不影响的原因,
 这一点和 nginx 很像,都是异步非阻塞的处理方式用来应对高并发</p>
-
 <p>在最开始的例子当中我们绑定路由是直接将路由和函数指定了的,这里面发生了什么呢?
 当调用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">sayhelloName</span><span class="p">)</span>   </code></pre></td></tr></table>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">sayhelloName</span><span class="p">)</span>   
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>时 因为没有对监听函数传递第二个参数,传了个 nil 进去</p>
+</div><p>时 因为没有对监听函数传递第二个参数,传了个 nil 进去</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:9090&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:9090&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>nil 的位置本应该是一个 handler,如果为空的话,将调用默认的 handler ,即 <code>DefaultServeMux</code>,
+</div><p>nil 的位置本应该是一个 handler,如果为空的话,将调用默认的 handler ,即 <code>DefaultServeMux</code>,
 因为它实现了 <code>Handler</code> 接口所以能处理请求, <code>Handler</code>接口的内容是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Handler</span> <span class="kd">interface</span><span class="p">{</span>
   <span class="nf">ServeHTTP</span><span class="p">(</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这个方法就是我们的路由实现器,我们所有的路由指向的方法都是在这里处理的,</p>
-
+</div><p>这个方法就是我们的路由实现器,我们所有的路由指向的方法都是在这里处理的,</p>
 <p>可是为什么我的<code>sayhelloName()</code>并没有实现 <code>Handler</code>的接口但还是正常运行了,这怎么回事呢?
 这是因为 <code>http.HandleFunc()</code>帮你完成了这个接口的实现,<a href="https://gowalker.org/net/http#HandleFunc">文档</a></p>
-
 <h2 id="自己实现一个简易的路由">自己实现一个简易的路由</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -308,9 +295,12 @@
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre class="chroma"><code class="language-go" data-lang="go">
+<span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;fmt&#34;</span>
@@ -349,16 +339,16 @@
 </span><span class="c1"></span>	<span class="nx">mux</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">MyMux</span><span class="p">{}</span>
   <span class="c1">//当做 handler 注入到监听服务当中去
 </span><span class="c1"></span>	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:9090&#34;</span><span class="p">,</span> <span class="nx">mux</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<p>如果想自己实现路由的处理也可以这样试试,但是我不想平白的用一个空的 struct 去承载这个啊,
-我们可以试试这个</p>
+<span class="p">}</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><p>如果想自己实现路由的处理也可以这样试试,但是我不想平白的用一个空的 struct 去承载这个啊,
+我们可以试试这个</p>
 <h2 id="servemux">ServeMux</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -397,10 +387,10 @@
 	<span class="p">})</span>
 
 	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:9090&#34;</span><span class="p">,</span> <span class="nx">mux</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>说了这么多其实还是云里雾里的,不过没关系,可以先放在这里,等用的多了自然也能想开了</p>
+</div><p>说了这么多其实还是云里雾里的,不过没关系,可以先放在这里,等用的多了自然也能想开了</p>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-callback-func/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="php-callback-func">
 <meta itemprop="description" content="你知道茴香的茴有四种写法,那你知道 php 的回调也有四种写法吗? 匿名函数 1 2 3 4 var $array = [1,2,3]; array_map(function($item){ return $item; },$array); 类静态调用 1 2 3 4 5 6 7 8 9 10 class A { static function test($req) { echo &#34;hello world&#34;;">
-
-
 <meta itemprop="datePublished" content="2017-05-11T18:31:59&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="166">
 
 
 
-<meta itemprop="keywords" content="callback,php," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="callback,php," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="php-callback-func"/>
 <meta name="twitter:description" content="你知道茴香的茴有四种写法,那你知道 php 的回调也有四种写法吗? 匿名函数 1 2 3 4 var $array = [1,2,3]; array_map(function($item){ return $item; },$array); 类静态调用 1 2 3 4 5 6 7 8 9 10 class A { static function test($req) { echo &#34;hello world&#34;;"/>
 
@@ -137,15 +134,12 @@
 
     
     <div class="post-content">
-      
-
-<p>你知道茴香的<code>茴</code>有四种写法,那你知道 php 的回调也有四种写法吗?
-<!-- more --></p>
-
+      <p>你知道茴香的<code>茴</code>有四种写法,那你知道 php 的回调也有四种写法吗?</p>
+<!-- raw HTML omitted -->
 <h2 id="匿名函数">匿名函数</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -154,13 +148,13 @@
 <pre class="chroma"><code class="language-php" data-lang="php">var $array = [1,2,3];
 array_map(function($item){
   return $item;
-},$array);</code></pre></td></tr></table>
+},$array);
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="类静态调用">类静态调用</h2>
+</div><h2 id="类静态调用">类静态调用</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -181,13 +175,13 @@ array_map(function($item){
 }
 var $array = [1,2,3];
 array_map(&#39;A::Test&#39;,$array);
-array_map([&#39;A&#39;,&#39;Test&#39;],$array);</code></pre></td></tr></table>
+array_map([&#39;A&#39;,&#39;Test&#39;],$array);
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="函数">函数</h2>
+</div><h2 id="函数">函数</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -198,13 +192,13 @@ array_map([&#39;A&#39;,&#39;Test&#39;],$array);</code></pre></td></tr></table>
   return &#39;hello world&#39;;
 }
 var $array = [1,2,3];
-array_map(&#39;test&#39;,$array);</code></pre></td></tr></table>
+array_map(&#39;test&#39;,$array);
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="对象方法">对象方法</h2>
+</div><h2 id="对象方法">对象方法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -225,10 +219,10 @@ array_map(&#39;test&#39;,$array);</code></pre></td></tr></table>
 }
 var $array = [1,2,3];
 $obj = new A();
-array_map([$obj,&#39;test&#39;],$array);</code></pre></td></tr></table>
+array_map([$obj,&#39;test&#39;],$array);
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>转载自:<a href="https://wiki.swoole.com/wiki/page/458.html">4种PHP回调函数风格-Swoole扩展-Swoole文档中心</a></p>
+</div><p>转载自:<a href="https://wiki.swoole.com/wiki/page/458.html">4种PHP回调函数风格-Swoole扩展-Swoole文档中心</a></p>
 
     </div>
 

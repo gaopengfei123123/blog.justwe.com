@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-comma-switch/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go-comma-switch">
 <meta itemprop="description" content="简单介绍下 comma-ok 和 switch 用来判定变量类型 上篇博客介绍了接口,接口在实际应用中可以当做一个万用变量来用,可以用一个空接口来存储多种类型的变量 但是,当我">
-
-
 <meta itemprop="datePublished" content="2017-04-24T22:52:37&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="725">
 
 
 
-<meta itemprop="keywords" content="go,comma-ok,switch," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,comma-ok,switch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go-comma-switch"/>
 <meta name="twitter:description" content="简单介绍下 comma-ok 和 switch 用来判定变量类型 上篇博客介绍了接口,接口在实际应用中可以当做一个万用变量来用,可以用一个空接口来存储多种类型的变量 但是,当我"/>
 
@@ -137,20 +134,16 @@
 
     
     <div class="post-content">
-      
-
-<p>简单介绍下 <code>comma-ok</code> 和 <code>switch</code> 用来判定变量类型
-<!-- more -->
-上篇博客介绍了接口,接口在实际应用中可以当做一个万用变量来用,可以用一个空接口来存储多种类型的变量
+      <p>简单介绍下 <code>comma-ok</code> 和 <code>switch</code> 用来判定变量类型</p>
+<!-- raw HTML omitted -->
+<p>上篇博客介绍了接口,接口在实际应用中可以当做一个万用变量来用,可以用一个空接口来存储多种类型的变量
 但是,当我们需要取出来用的时候就要头疼一下取出的到底是哪种类型的数据了</p>
-
 <h2 id="comma-ok">comma-ok</h2>
-
-<p><code>value, ok := element.(type)</code>  element 就是我们要判断的变量,括号中是要判断的类型,
+<p><code>value, ok := element.(type) </code>  element 就是我们要判断的变量,括号中是要判断的类型,
 value 就是变量的值,ok 是 bool 类型,true||false</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -223,19 +216,17 @@ value 就是变量的值,ok 是 bool 类型,true||false</p>
 			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;list[%d] is undefined&#34;</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里就是调用 go 提供的内置函数, 在 php 当中就是 <code>is_null,is_array</code>这类的函数方法,
+</div><p>这里就是调用 go 提供的内置函数, 在 php 当中就是 <code>is_null,is_array</code>这类的函数方法,
 这种写法判定单个类型的时候比较方便,但是类型一多就会出现多个 <code>if-else</code> 这样很不优雅,
 于是就有了下面的写法</p>
-
 <h2 id="switch">switch</h2>
-
 <p>用代码看是最直观的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -312,10 +303,10 @@ value 就是变量的值,ok 是 bool 类型,true||false</p>
 			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;list[%d] is undefined&#34;</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样就能批量判定类型了
+</div><p>这样就能批量判定类型了
 <strong>这里需要注意一下</strong>, <code>element.(type)</code> 这种写法只能出现在 <code>switch</code> 当中,判定单个类型的时候
 还是老实的用 <code>value , ok := element.(type)</code> 这种写法
 看到这里我们发现其实调用的都是同一个内置函数,就是添加了一个 <code>switch</code> 这样的使用情景</p>

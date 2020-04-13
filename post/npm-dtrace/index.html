@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/npm-dtrace/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="npm-DTrace">
 <meta itemprop="description" content="安装npm模块的时候有时候会提示Error: Cannot find module &#39;./build/Release/DTraceProviderBindings 虽然会正常运行但是总是报这个错也是很不爽的,查了下相关的 issues 比较直接的解决方法是 1 sudo npm install dtrace-provider">
-
-
 <meta itemprop="datePublished" content="2017-04-10T22:21:13&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="130">
 
 
 
-<meta itemprop="keywords" content="tools," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tools," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="npm-DTrace"/>
 <meta name="twitter:description" content="安装npm模块的时候有时候会提示Error: Cannot find module &#39;./build/Release/DTraceProviderBindings 虽然会正常运行但是总是报这个错也是很不爽的,查了下相关的 issues 比较直接的解决方法是 1 sudo npm install dtrace-provider"/>
 
@@ -138,21 +135,18 @@
     
     <div class="post-content">
       <p>安装<code>npm</code>模块的时候有时候会提示<code>Error: Cannot find module './build/Release/DTraceProviderBindings</code></p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>虽然会正常运行但是总是报这个错也是很不爽的,查了下相关的 <a href="https://github.com/mcavage/node-ldapjs/issues/64">issues</a>
 比较直接的解决方法是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">sudo npm install dtrace-provider</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo npm install dtrace-provider
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>ubuntu 和 macos 上都有效</p>
-
+</div><p>ubuntu 和 macos 上都有效</p>
 <p>这是一个历史遗留的问题,开发者已经逐渐替代了这个模块,所以说影响不大,如果觉的终端总是报错很烦就这样试试吧</p>
 
     </div>

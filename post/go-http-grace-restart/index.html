@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-http-grace-restart/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="转 golang http平滑重启实现">
 <meta itemprop="description" content="服务端代码经常需要升级，对于线上系统的升级常用的做法是，通过前端的负载均衡（如nginx）来保证升级时至少有一个服务可用，依次（灰度）升级。">
-
-
 <meta itemprop="datePublished" content="2019-11-04T17:11:54&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="847">
+<meta itemprop="wordCount" content="848">
 
 
 
-<meta itemprop="keywords" content="http,go,grace," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="http,go,grace," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 golang http平滑重启实现"/>
 <meta name="twitter:description" content="服务端代码经常需要升级，对于线上系统的升级常用的做法是，通过前端的负载均衡（如nginx）来保证升级时至少有一个服务可用，依次（灰度）升级。"/>
 
@@ -137,16 +134,10 @@
 
     
     <div class="post-content">
-      
-
-<p>服务端代码经常需要升级，对于线上系统的升级常用的做法是，通过前端的负载均衡（如nginx）来保证升级时至少有一个服务可用，依次（灰度）升级。</p>
-
+      <p>服务端代码经常需要升级，对于线上系统的升级常用的做法是，通过前端的负载均衡（如nginx）来保证升级时至少有一个服务可用，依次（灰度）升级。</p>
 <p>而另一种更方便的方法是在应用上做热重启，直接升级应用而不停服务。</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <h3 id="主流程">主流程</h3>
-
 <ol>
 <li>监听信号（USR2）</li>
 <li>收到信号时fork子进程（使用相同的启动命令），将服务监听的socket文件描述符传递给子进程</li>
@@ -154,20 +145,17 @@
 <li>子进程启动成功之后，父进程停止接收新的连接，等待旧连接处理完成（或超时）</li>
 <li>父进程退出，升级完成</li>
 </ol>
-
 <h3 id="关键点">关键点</h3>
-
 <ul>
 <li>父进程将socket文件描述符传递给子进程可以通过命令行，或者环境变量等</li>
 <li>子进程启动时使用和父进程一样的命令行，对于golang来说用更新的可执行程序覆盖旧程序</li>
 <li>server.Shutdown()优雅关闭方法是go1.8的新特性</li>
 <li>server.Serve(l)方法在Shutdown时立即返回，Shutdown方法则阻塞至context完成，所以Shutdown的方法要写在主goroutine中</li>
 </ul>
-
 <h3 id="代码实现">代码实现</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -276,6 +264,7 @@
 </span><span class="lnt">107
 </span><span class="lnt">108
 </span><span class="lnt">109
+</span><span class="lnt">110
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -386,10 +375,11 @@
 			<span class="k">return</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><a href="http://kuangchanglang.com/golang/2017/04/27/golang-graceful-restart">文章原文</a></p>
+</div><p><a href="http://kuangchanglang.com/golang/2017/04/27/golang-graceful-restart">文章原文</a></p>
 
     </div>
 

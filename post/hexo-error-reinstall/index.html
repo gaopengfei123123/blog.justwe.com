@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/hexo-error-reinstall/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="记一次 hexo 报错经历">
 <meta itemprop="description" content="就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&hellip;. 报错信息如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
-
-
 <meta itemprop="datePublished" content="2017-06-29T15:49:58&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
 <meta itemprop="wordCount" content="583">
 
 
 
-<meta itemprop="keywords" content="hexo,error," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="hexo,error," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="记一次 hexo 报错经历"/>
 <meta name="twitter:description" content="就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&hellip;. 报错信息如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"/>
 
@@ -136,13 +133,11 @@
     
     <div class="post-content">
       <p>就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&hellip;.</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>报错信息如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -198,9 +193,9 @@
 </span><span class="lnt">54
 </span><span class="lnt">55
 </span><span class="lnt">56
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">Error: The module &#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Error: The module &#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;
 was compiled against a different Node.js version using
 NODE_MODULE_VERSION 51. This version of Node.js requires
 NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
@@ -255,32 +250,29 @@ the module (for instance, using `npm rebuild` or `npm install`).
     at Module._compile (module.js:569:30)
     at Object.Module._extensions..js (module.js:580:10)
     at Module.load (module.js:503:32) code: &#39;MODULE_NOT_FOUND&#39; }
-(node:7992) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.</pre></td></tr></table>
+(node:7992) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>唔&hellip;之前报过<code>dtrace-provider</code>的错误,翻了一下以前的记录就直接无脑的<code>sudo npm install dtrace-provider
-</code> 但是该怎么报错还是怎么报错&hellip;.</p>
-
+</div><p>唔&hellip;之前报过<code>dtrace-provider</code>的错误,翻了一下以前的记录就直接无脑的<code>sudo npm install dtrace-provider</code> 但是该怎么报错还是怎么报错&hellip;.</p>
 <p>后来再粗暴点就删了<code>package-lock.json</code>和<code>node_modules</code>目录重新来了一遍<code>npm install</code>,结果还是不行&hellip;</p>
-
 <p>有点绝望的我在想:难道我以后就不能用新版本了吗? 后来开始仔细看一下报错信息:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">Error: The module &#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Error: The module &#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;
 was compiled against a different Node.js version using
 NODE_MODULE_VERSION 51. This version of Node.js requires
 NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).</pre></td></tr></table>
+the module (for instance, using `npm rebuild` or `npm install`).
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>看到这我意识到之前<strong>全局安装的文件</strong>都没更新过!
+</div><p>看到这我意识到之前<strong>全局安装的文件</strong>都没更新过!
 于是乎执行<code>sudo npm install -g hexo-cli</code> 好了,解决了</p>
 
     </div>

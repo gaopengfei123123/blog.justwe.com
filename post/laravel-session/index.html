@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-session/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel-session">
 <meta itemprop="description" content="前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &#39;redis&#39; =&gt;">
-
-
 <meta itemprop="datePublished" content="2016-06-01T20:56:16&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="463">
+<meta itemprop="wordCount" content="460">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel-session"/>
 <meta name="twitter:description" content="前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &#39;redis&#39; =&gt;"/>
 
@@ -137,42 +134,37 @@
 
     
     <div class="post-content">
-      
-
-<h2 id="前置条件">前置条件</h2>
-
+      <h2 id="前置条件">前置条件</h2>
 <p>首先需要有redis的支持 session_driver=database 的另说</p>
-
-<!-- more -->
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">composer require predis/predis 1.0.*</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">composer require predis/predis 1.0.*
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="文件配置">文件配置</h2>
-
+</div><h2 id="文件配置">文件配置</h2>
 <p>在.env 文件下的app_key</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1
 
 CACHE_DRIVER=redis
-SESSION_DRIVER=redis</pre></td></tr></table>
+SESSION_DRIVER=redis
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>config/database.php</p>
+</div><p>config/database.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -201,13 +193,13 @@ SESSION_DRIVER=redis</pre></td></tr></table>
         ],
 
 
-    ],</code></pre></td></tr></table>
+    ],
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>config/session.php</p>
+</div><p>config/session.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -222,13 +214,13 @@ SESSION_DRIVER=redis</pre></td></tr></table>
 &#39;connection&#39; =&gt; &#39;session&#39;,
 
 //必须指定共同的域名 否则session无法共享
-&#39;domain&#39; =&gt; &#39;.yourWebName.com&#39;,</code></pre></td></tr></table>
+&#39;domain&#39; =&gt; &#39;.yourWebName.com&#39;,
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>config/cache.php</p>
+</div><p>config/cache.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -239,15 +231,14 @@ SESSION_DRIVER=redis</pre></td></tr></table>
             &#39;driver&#39; =&gt; &#39;redis&#39;,
             //这里就是将cache和session的redis配置共用
             &#39;connection&#39; =&gt; &#39;session&#39;,
-        ],</code></pre></td></tr></table>
+        ],
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="示例">示例</h2>
-
+</div><h2 id="示例">示例</h2>
 <p>在 a.yourWebName.com 的route.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -264,13 +255,13 @@ SESSION_DRIVER=redis</pre></td></tr></table>
 	Session::put(&#39;session2&#39;,&#39;session2-value&#39;,1);
 	return Session::getId();
 });
-//此条路由分别用 Cache 设置两条数据和两条 Session 数据，最后返回 SessionId</code></pre></td></tr></table>
+//此条路由分别用 Cache 设置两条数据和两条 Session 数据，最后返回 SessionId
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在 b.yourWebName.com 的route.php中</p>
+</div><p>在 b.yourWebName.com 的route.php中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -293,15 +284,16 @@ SESSION_DRIVER=redis</pre></td></tr></table>
 	];
 	return $data;
 });
-//此条路由分别获取获取两条 Cache 数据和两条 Session 数据及 SessionId ,最后返回数据</code></pre></td></tr></table>
+//此条路由分别获取获取两条 Cache 数据和两条 Session 数据及 SessionId ,最后返回数据
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="总结">总结</h2>
-
-<p>同步session有以下关键点：
-* app_key两者要一样
-* session配置指向的redis库要一样，这样方便两个程序找到共享的session位置
-* 所属项目需要支持redis扩展包</p>
+</div><h2 id="总结">总结</h2>
+<p>同步session有以下关键点：</p>
+<ul>
+<li>app_key两者要一样</li>
+<li>session配置指向的redis库要一样，这样方便两个程序找到共享的session位置</li>
+<li>所属项目需要支持redis扩展包</li>
+</ul>
 
     </div>
 

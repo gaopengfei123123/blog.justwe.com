@@ -27,7 +27,7 @@
       <pubDate>Wed, 29 Nov 2017 13:21:26 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/</guid>
-      <description>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: &amp;gt;官方提供的</description>
+      <description>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: 官方提供的一个说明</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@
       <pubDate>Tue, 28 Nov 2017 14:50:49 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-local-lang/</guid>
-      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set LC_CTYPE</description>
+      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 13 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@
       <pubDate>Wed, 22 Nov 2017 10:30:03 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-golang-env/</guid>
-      <description>树莓派上需要进行编译安装,不过很简单,而且 golang 官方也有 arm 平台的编译包, 在树莓派上一定要选linux-armv61这个版本啊 &amp;gt; golang 各版本的下载列表</description>
+      <description>树莓派上需要进行编译安装,不过很简单,而且 golang 官方也有 arm 平台的编译包, 在树莓派上一定要选linux-armv61这个版本啊 golang 各版本的下载列表 $</description>
     </item>
     
     <item>
@@ -63,7 +63,7 @@
       <pubDate>Tue, 21 Nov 2017 14:24:29 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-install/</guid>
-      <description>怎么在 mac 上给 TF 卡烧录一个树莓派系统(为什么没有 win 的?因为 win 上的烧录软件很好用啊!混蛋!) 下载树莓派镜像 首先需要下载个系统镜像 &amp;gt; 官方镜像列表 RASPBIAN</description>
+      <description>怎么在 mac 上给 TF 卡烧录一个树莓派系统(为什么没有 win 的?因为 win 上的烧录软件很好用啊!混蛋!) 下载树莓派镜像 首先需要下载个系统镜像 官方镜像列表 RASPBIAN :</description>
     </item>
     
   </channel>

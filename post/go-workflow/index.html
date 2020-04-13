@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-workflow/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go语言了解(3) 工作流程">
 <meta itemprop="description" content="本章将的关键字有 defer,panic,recover,main,init,import defer go语言中有一个不错的设计，就是defer。尤其是调用资源时需要打开和关闭两个选项的时候就能凸显出来 它的作用是将指定的语">
-
-
 <meta itemprop="datePublished" content="2017-03-19T15:58:05&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1087">
+<meta itemprop="wordCount" content="1084">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go语言了解(3) 工作流程"/>
 <meta name="twitter:description" content="本章将的关键字有 defer,panic,recover,main,init,import defer go语言中有一个不错的设计，就是defer。尤其是调用资源时需要打开和关闭两个选项的时候就能凸显出来 它的作用是将指定的语"/>
 
@@ -137,37 +134,31 @@
 
     
     <div class="post-content">
-      
-
-<p>本章将的关键字有 <code>defer</code>,<code>panic</code>,<code>recover</code>,<code>main</code>,<code>init</code>,<code>import</code></p>
-
-<!-- more -->
-
+      <p>本章将的关键字有 <code>defer</code>,<code>panic</code>,<code>recover</code>,<code>main</code>,<code>init</code>,<code>import</code></p>
+<!-- raw HTML omitted -->
 <h2 id="defer">defer</h2>
-
 <p>go语言中有一个不错的设计，就是<code>defer</code>。尤其是调用资源时需要打开和关闭两个选项的时候就能凸显出来</p>
-
 <p>它的作用是将指定的语句在函数结束时执行，没明白？咱们举个例子啊</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">main () {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">main () {
   for i :=0;i &lt; 5 ; i++{
     defer fmt.Println(&#39;输出：&#39;,i)
   }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>输出的结果不是01234而是相反的43210，这样就明白它的功能了吧？再举一个常用的例子</p>
+</div><p>输出的结果不是01234而是相反的43210，这样就明白它的功能了吧？再举一个常用的例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -183,9 +174,9 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">func OpenFile() bool{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">func OpenFile() bool{
   file.Open(&#34;file/path&#34;)
 
   if condition1 {
@@ -200,14 +191,14 @@
 
   file.Close()
   return true
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在别的语言中我们打开文件的逻辑大体是这样的，你会发现打开一个文件需要在每个条件结束的时候去再声明关闭它，
+</div><p>在别的语言中我们打开文件的逻辑大体是这样的，你会发现打开一个文件需要在每个条件结束的时候去再声明关闭它，
 这显得语句很臃肿，而且如果我们哪个地方给忘了很可能就造成内存泄漏，但在go中它变的很简单</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -219,9 +210,9 @@
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">func OpenFile() bool{
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">func OpenFile() bool{
   file.Open(&#34;file/path&#34;)
   defer file.Close()
   if condition1 {
@@ -232,59 +223,47 @@
     return false
   }
   return true
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>当函数按照从上往下执行的时，执行到最下面准备结束这个函数，go将会再从下往上执行一下标明的defer的命令</p>
-
+</div><p>当函数按照从上往下执行的时，执行到最下面准备结束这个函数，go将会再从下往上执行一下标明的defer的命令</p>
 <h2 id="panic-和-recover">panic 和 recover</h2>
-
 <p>这两个函数放在一起说，因为他们的作用是相对的</p>
-
 <p><code>panic</code>会中断控制流程的命令，是go语言的报错机制，一旦执行<code>panic</code>那么当前进程就会终止，
 但是我们刚才讲的defer命令还是会执行，等defer执行完了就会结束这个goroutine</p>
-
 <p><code>recover</code>会恢复panic造成的中断，从而让进程继续进行，而且<code>recover</code>只能在defer中执行，同时在正常进程中执行的<code>recover()</code>将返回false</p>
-
 <p>由于没想到十分合适的场景就先不举例了:p</p>
-
 <h2 id="main-和-init">main 和 init</h2>
-
 <p>这两个也能放在一起说</p>
-
 <p><code>main</code>只能有一个，而且只能在<code>main package</code>当中，而<code>init()</code>每个包里都可以有多个，也可以没有，为了方便维护，建议包里不超过一个<code>init</code></p>
-
 <p>这两个都是系统自动执行的函数，不用在文件中执行</p>
-
 <p>在平时构建项目的时候我们会导入很多的包(package)，多个包中肯定会有重复的，但是不用担心，<em>重复导入的包只会生效一次</em></p>
-
 <p>从<code>main package</code>导入外界的包会优先执行外界包的init和变量初始化，如果外界的包也导入了第三方的包，那么优先执行外界包的第三方包的初始化，再执行外界包的初始化最后执行mian package的初始化</p>
-
 <p>这也很好理解，我们引入包的时候这个包肯定要是完整的形态，为了让他完整就要优先满足它的条件，这也层层向外翻到了最边缘初始化完毕再一层层的向内完成初始化</p>
-
 <h2 id="import">import</h2>
-
 <p><code>import</code>有几个很方便的特性比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">import(
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import(
   f &#34;fmt&#34;
   . &#34;fmt&#34;
   _ &#34;fmt&#34;
-  )</pre></td></tr></table>
+  )
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这三种写法
-1. 第一种是引入别名  <code>fmt.Println</code> 就可以简写成 <code>f.Println</code>
-2. 第二种更厉害了，直接就可以把包名给省去 可以当成自己的方法写成 <code>Println</code>
-3. 第三种其实是引入该包，不直接使用包里的函数，而是调用了该包的init函数</p>
+</div><p>这三种写法</p>
+<ol>
+<li>第一种是引入别名  <code>fmt.Println</code> 就可以简写成 <code>f.Println</code></li>
+<li>第二种更厉害了，直接就可以把包名给省去 可以当成自己的方法写成 <code>Println</code></li>
+<li>第三种其实是引入该包，不直接使用包里的函数，而是调用了该包的init函数</li>
+</ol>
 
     </div>
 

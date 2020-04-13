@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/golang-awesome-tools/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go 开发过程中一些不错的工具(不定期更新)">
 <meta itemprop="description" content="就是平时用到的一些工具 fswatch 用于监听目录文件的修改,一旦发生修改将自动执行系统指令,比如保存后自动 go run 之类的, 这个使用 go 写的 codeskyblue/fswatch 还有个跨平台的命令">
-
-
 <meta itemprop="datePublished" content="2018-03-26T20:20:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="665">
 
 
 
-<meta itemprop="keywords" content="tools," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tools," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go 开发过程中一些不错的工具(不定期更新)"/>
 <meta name="twitter:description" content="就是平时用到的一些工具 fswatch 用于监听目录文件的修改,一旦发生修改将自动执行系统指令,比如保存后自动 go run 之类的, 这个使用 go 写的 codeskyblue/fswatch 还有个跨平台的命令"/>
 
@@ -137,67 +134,41 @@
 
     
     <div class="post-content">
-      
-
-<p>就是平时用到的一些工具
-<!-- more --></p>
-
+      <p>就是平时用到的一些工具</p>
+<!-- raw HTML omitted -->
 <h1 id="fswatch">fswatch</h1>
-
 <p>用于监听目录文件的修改,一旦发生修改将自动执行系统指令,比如保存后自动 <code>go run</code> 之类的, 这个使用 go 写的</p>
-
 <p><a href="https://github.com/codeskyblue/fswatch">codeskyblue/fswatch</a></p>
-
 <p>还有个跨平台的命令行工具,同样的名字 start 更多 <a href="https://github.com/emcrisostomo/fswatch">emcrisostomo/fswatch</a> 不过图方便用 go 这个就行</p>
-
 <h1 id="bee">bee</h1>
-
 <p>属于 beego 的附属开发工具, <code>bee run [project-name]</code> 的执行效果也是自动监听文件改动执行编译命令, 感觉不如<code>fswatch</code>方便,当然用 beego 开发的另说
 <a href="https://github.com/astaxie/beego">astaxie/beego</a></p>
-
 <h1 id="govendor">govendor</h1>
-
 <p>是 go 开发的包管理工具, 虽然依赖的<code>package</code>都在 <code>gopath</code>当中,但是代码换一个环境就要重新<code>go get</code>一堆东西实在不方便,而且还有一个值得吐槽的依赖包版本问题
 <code>govendor</code>工具就是解决这类的问题,通过 hash 来保证开发和线上使用的依赖库一样
 <a href="https://github.com/kardianos/govendor">kardianos/govendor</a></p>
-
 <h1 id="gin">Gin</h1>
-
 <p>一个很不错的 web 开发框架,github 上已经有 14711个 star(截止到18/02/05), 和 <code>Martini</code>的api 很像,但是更快,适合用来做 restful 的 API
 <a href="https://github.com/gin-gonic/gin">gin-gonic/gin</a></p>
-
 <h1 id="mux">mux</h1>
-
 <p>一个独立的路由包, 支持 restful,轻量,而且支持go的<code>net/http</code> 的接口
 <a href="https://github.com/gorilla/mux">gorilla/mux</a></p>
-
 <h1 id="beego">beego</h1>
-
 <p>国人开发的go web框架, 特点是大而全,方便入门,和 php 的框架思路很像,有不少人在吐槽它的笨重, 如果公司想转成 go 做 web 业务它是一个不错的选择,因为它能快速出东西啊,个人感觉有点头疼的是源码很多很多&hellip;
 <a href="https://github.com/astaxie/beego">astaxie/beego</a></p>
-
 <h1 id="beego-log">beego-log</h1>
-
 <p>如果不想全部引用 beego 的内容,可以引进它的模块啊,它的 log 模块就是一个很不错的选择
 <a href="https://beego.me/docs/module/logs.md">beego-log 的中文档</a></p>
-
 <h1 id="kafka-go">kafka-go</h1>
-
 <p>和 kafka 相关的库很少,不过我个人使用的话这个库已经能满足我的需求, 我这里也有一个<a href="https://github.com/gaopengfei123123/go_study/tree/master/src/kafka_demo">demo示例</a>
 <a href="https://github.com/segmentio/kafka-go">segmentio/kafka-go</a></p>
-
-<h1 id="go-redis-redis">go-redis/redis</h1>
-
+<h1 id="go-redisredis">go-redis/redis</h1>
 <p>redis 的依赖包还是很简单的,这里推荐一个 star 不少的库
 <a href="https://github.com/go-redis/redis">go-redis/redis</a></p>
-
 <h1 id="amqp">amqp</h1>
-
 <p>如果用 rabbitmq 就肯定用这个拉,官方出品的肯定有保证啊,可惜 kafka 还没出官方包
 <a href="https://github.com/streadway/amqp">amqp</a></p>
-
 <h1 id="viper">viper</h1>
-
 <p>一个很不错的 config 文件管理工具
 <a href="https://github.com/spf13/viper">viper</a></p>
 

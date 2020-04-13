@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/wxcx-2/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-11-18T11:12:17+08:00" />
 <meta itemprop="name" content="小程序(2)">
 <meta itemprop="description" content="由上篇博客可以了解小程序运行的一个大体过程,首先app.json进行配置路由和基本的样式调整,其次可以在对应的路由指向的目录下添加 .wxml .wxss .js 这三">
-
-
 <meta itemprop="datePublished" content="2016-11-07T15:55:22&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-18T11:12:17&#43;08:00" />
 <meta itemprop="wordCount" content="822">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="小程序(2)"/>
 <meta name="twitter:description" content="由上篇博客可以了解小程序运行的一个大体过程,首先app.json进行配置路由和基本的样式调整,其次可以在对应的路由指向的目录下添加 .wxml .wxss .js 这三"/>
 
@@ -137,20 +134,14 @@
 
     
     <div class="post-content">
-      
-
-<p>由上篇博客可以了解小程序运行的一个大体过程,首先app.json进行配置路由和基本的样式调整,其次可以在对应的路由指向的目录下添加 .wxml .wxss .js 这三种文件,只要指定一个路径框架就会对他们自行加载</p>
-
-<!-- more -->
-
+      <p>由上篇博客可以了解小程序运行的一个大体过程,首先app.json进行配置路由和基本的样式调整,其次可以在对应的路由指向的目录下添加 .wxml .wxss .js 这三种文件,只要指定一个路径框架就会对他们自行加载</p>
+<!-- raw HTML omitted -->
 <p>接下来我们开始了解小程序的一些细节问题:</p>
-
 <h3 id="注册程序">注册程序</h3>
-
 <p>在根目录下有<code>app.js</code>这个文件,里面涉及了小程序整体的一些事件响应,代码如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -168,9 +159,9 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">App({
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">App({
   //当小程序初始化完成时，会触发onLaunch（全局只触发一次）
   onLaunch: function () {
     console.log(&#39;App Launch&#39;)
@@ -187,48 +178,37 @@
   globalData: {
     hasLogin: false
   }
-})</pre></td></tr></table>
+})
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里的前后台转换的前提都是系统没有将小程序销毁,要注意一个概念<strong>进入后台不意味着资源被销毁,只有进入后台有一段时间或者系统内存不足的时候小程序才会被回收资源</strong></p>
-
+</div><p>这里的前后台转换的前提都是系统没有将小程序销毁,要注意一个概念<strong>进入后台不意味着资源被销毁,只有进入后台有一段时间或者系统内存不足的时候小程序才会被回收资源</strong></p>
 <p><code>App()</code> 这个函数是注册小程序的函数,我们进行的操作都是在它里面运行的</p>
-
-<h6 id="app-prototype-getcurrentpage">App.prototype.getCurrentPage()</h6>
-
+<h6 id="appprototypegetcurrentpage">App.prototype.getCurrentPage()</h6>
 <p>getCurrentPage()函数用户获取当前页面的实例。</p>
-
 <h6 id="getapp">getApp()</h6>
-
 <p>我们提供了全局的getApp()函数，可以获取到小程序实例。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// other.js
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// other.js
 var appInstance = getApp()
-console.log(appInstance.globalData) // I am global data</pre></td></tr></table>
+console.log(appInstance.globalData) // I am global data
+</code></pre></td></tr></table>
 </div>
-</div>
-<h6 id="注意">注意:</h6>
-
+</div><h6 id="注意">注意:</h6>
 <p>App()必须在app.js中注册，且不能注册多个。</p>
-
 <p>不要在定义于App()内的函数中调用getApp()，使用this就可以拿到app实例。</p>
-
 <p>不要在onLaunch的时候调用getCurrentPage()，此时page还没有生成。</p>
-
 <p>通过getApp获取实例之后，不要私自调用生命周期函数。</p>
-
 <h3 id="注册页面">注册页面</h3>
-
 <p>上篇博客的例子中我们也运用到了怎么对我们要构建的页面进行js操作,这里用到了<code>Page()</code>方法,里面的结果<strong>真的和Vue很像</strong>,简直就是它的简化版,这里给出了一些api</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -255,9 +235,9 @@ console.log(appInstance.globalData) // I am global data</pre></td></tr></table>
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">//index.js
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//index.js
 Page({
     data: {
         text: &#34;This is page data.&#34;
@@ -283,7 +263,8 @@ Page({
             text: &#39;Set some data for updating view.&#39;
         })
     }
-})</pre></td></tr></table>
+})
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

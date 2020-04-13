@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/html5-ajax-process/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="转 HTML5上传文件显示进度">
 <meta itemprop="description" content="使用ajax上传文件的时候为了通过 files api来获取文件信息，从而可以看到显示进度 html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;div class=&#34;row&#34;&gt; &lt;label for=&#34;file&#34;&gt; Upload Image:&lt;/label&gt; &lt;input type=&#34;file&#34; name=&#34;fileToUpload&#34; id=&#34;fileToUpload&#34; multiple=&#34;multiple&#34; onchange=&#34;fileSelected();&#34; /&gt;">
-
-
 <meta itemprop="datePublished" content="2017-03-06T03:02:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
-<meta itemprop="wordCount" content="376">
+<meta itemprop="wordCount" content="377">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 HTML5上传文件显示进度"/>
 <meta name="twitter:description" content="使用ajax上传文件的时候为了通过 files api来获取文件信息，从而可以看到显示进度 html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;div class=&#34;row&#34;&gt; &lt;label for=&#34;file&#34;&gt; Upload Image:&lt;/label&gt; &lt;input type=&#34;file&#34; name=&#34;fileToUpload&#34; id=&#34;fileToUpload&#34; multiple=&#34;multiple&#34; onchange=&#34;fileSelected();&#34; /&gt;"/>
 
@@ -139,11 +136,10 @@
     <div class="post-content">
       <p>使用ajax上传文件的时候为了通过 <code>files</code> api来获取文件信息，从而可以看到显示进度
 html</p>
-
-<!-- more -->
+<!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -178,13 +174,13 @@ html</p>
             <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;uploadFile()&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;Upload Image&#34;</span> <span class="p">/&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;progressNumber&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></td></tr></table>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>js</p>
+</div><p>js</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -233,9 +229,10 @@ html</p>
 </span><span class="lnt">47
 </span><span class="lnt">48
 </span><span class="lnt">49
-</span></pre></td>
+</span><span class="lnt">50
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">        function fileSelected() {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">        function fileSelected() {
             var file = document.getElementById(&#39;fileToUpload&#39;).files[0];
             if (file) {
                 var fileSize = 0;
@@ -283,11 +280,11 @@ html</p>
 
         function uploadCanceled(evt) {
             alert(&#34;The upload has been canceled by the user or the browser dropped the connection.&#34;);
-        }</pre></td></tr></table>
-</div>
-</div>
-<p>这里加了一个监听事件，可以通过异步来不断获取上传信息，从而能正常的显示上传进度</p>
+        }
 
+</code></pre></td></tr></table>
+</div>
+</div><p>这里加了一个监听事件，可以通过异步来不断获取上传信息，从而能正常的显示上传进度</p>
 <p><a href="http://www.cnblogs.com/wintersun/archive/2012/08/30/2663408.html">文章来源</a>
 <a href="https://www.ibm.com/developerworks/cn/web/1101_hanbf_fileupload/">另一个资料－使用 JavaScript File API 实现文件上传</a></p>
 

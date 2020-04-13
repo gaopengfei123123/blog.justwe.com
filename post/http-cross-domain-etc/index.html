@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/http-cross-domain-etc/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="关于跨域请求的二三事">
 <meta itemprop="description" content="在前后端分离开发时跨域经常是一个不可回避的问题,这里介绍一个比较简单的办法,前端 vue.js,后端 go 首先要区分简单请求和复杂请求 这里阮一峰">
-
-
 <meta itemprop="datePublished" content="2018-01-16T17:29:54&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
-<meta itemprop="wordCount" content="1158">
+<meta itemprop="wordCount" content="1156">
 
 
 
-<meta itemprop="keywords" content="js,go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="js,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于跨域请求的二三事"/>
 <meta name="twitter:description" content="在前后端分离开发时跨域经常是一个不可回避的问题,这里介绍一个比较简单的办法,前端 vue.js,后端 go 首先要区分简单请求和复杂请求 这里阮一峰"/>
 
@@ -137,41 +134,33 @@
 
     
     <div class="post-content">
-      
-
-<p>在前后端分离开发时跨域经常是一个不可回避的问题,这里介绍一个比较简单的办法,前端 <code>vue.js</code>,后端 <code>go</code></p>
-
-<!-- more -->
-
+      <p>在前后端分离开发时跨域经常是一个不可回避的问题,这里介绍一个比较简单的办法,前端 <code>vue.js</code>,后端 <code>go</code></p>
+<!-- raw HTML omitted -->
 <h3 id="首先要区分简单请求和复杂请求">首先要区分简单请求和复杂请求</h3>
-
 <p>这里阮一峰有详细讲解过一个: <a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a></p>
-
-<p>如果你有一种<strong>太长不看</strong>的想法,就听我给你简单说一下:
-- 简单路由: 指的就是你平时表单提交,ajax 提交,使用<code>GET,POST,HEAD</code>,http 头信息里面没有杂七杂八
+<p>如果你有一种<strong>太长不看</strong>的想法,就听我给你简单说一下:</p>
+<ul>
+<li>简单路由: 指的就是你平时表单提交,ajax 提交,使用<code>GET,POST,HEAD</code>,http 头信息里面没有杂七杂八
 的东西的请求
-<img src="http://blog-image.onlyoneip.com/WX20180116-180128@2x.png" alt="简单请求示例" />
-- 复杂请求: 就是除了简单请求之外的请求,比如你在 http 头里有自定义的字段,或者你使用像<code>DELETE,PATCH</code>这
+<img src="http://blog-image.onlyoneip.com/WX20180116-180128@2x.png" alt="简单请求示例"></li>
+<li>复杂请求: 就是除了简单请求之外的请求,比如你在 http 头里有自定义的字段,或者你使用像<code>DELETE,PATCH</code>这
 样的方法
-<img src="http://blog-image.onlyoneip.com/WX20180116-181559@2x.png" alt="复杂请求示例" /></p>
-
+<img src="http://blog-image.onlyoneip.com/WX20180116-181559@2x.png" alt="复杂请求示例"></li>
+</ul>
 <p>你会发现复杂请求最明显的变化就是浏览器每次去请求接口的时候会发送两次,这里第一次发送的必定是一个请求方法为<code>OPTIONS</code>
 的,第二个才是你写的方法,我截图里的就是<code>POST</code>, 第二张截图之所以被判定为复杂请求就是因为我加了一个<code>X-TOKEN</code>这个
 header,而如果第一次的<code>OPTIONS</code>方法的请求如果失败了也就不会发送第二条信息了,至于为什么,我只能说这是规定</p>
-
 <blockquote>
 <p>跨域资源共享标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的 HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨域请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证（包括 Cookies 和 HTTP 认证相关数据）。
 &mdash;&mdash;<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">HTTP访问控制（CORS）</a></p>
 </blockquote>
-
-<h2 id="对于简单请求和复杂请求的处理-后端">对于简单请求和复杂请求的处理(后端)</h2>
-
+<h2 id="对于简单请求和复杂请求的处理后端">对于简单请求和复杂请求的处理(后端)</h2>
 <p>既然叫简单请求处理起来也很简单,下面已经列出代码, 关键就是设置<code>Access-Control-Allow</code>这一些参数就行,
 复杂请求就是添加一个针对<code>OPTIONS</code>的处理方式,通常情况返回一个空字符串就行至于跨域验证之类的就是八仙过海各显神通了
 各家有个家的处理方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -252,11 +241,10 @@ header,而如果第一次的<code>OPTIONS</code>方法的请求如果失败了�
 	<span class="nx">server</span><span class="p">.</span><span class="nf">Serve</span><span class="p">(</span><span class="nx">httpListener</span><span class="p">)</span>
 
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;finish &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="补充一下后续踩过的坑">补充一下后续踩过的坑</h3>
-
+</div><h3 id="补充一下后续踩过的坑">补充一下后续踩过的坑</h3>
 <p>当设置 <code>Access-Control-Allow-Credentials: true</code> 时, <code>Access-Control-Allow-Origin</code> 不能是 <code>*</code>, 而是要写明域
 这时就会出现一个问题: <strong>我想要跨多个域呢?</strong> 那么就一定不能把<code>Access-Control-Allow-Origin</code>写死了, 需要根据请求里的host
 来判定是否允许跨域, 需要检测你整个项目里是不是有写死 <code>Access-Control-Allow-Origin: *</code>的header 或者在nginx里面设置过</p>

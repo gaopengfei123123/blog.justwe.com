@@ -18,7 +18,7 @@
       <pubDate>Wed, 11 Jan 2017 06:40:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/composer-package/</guid>
-      <description>how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 1. 创建一个git库 （不用</description>
+      <description>how to build a composer package 参考文档 首先是完善 composer.json 这个是composer需要抓去的的东西，相当于这个composer包的名片 实现步骤是 创建一个git库 （不用说</description>
     </item>
     
   </channel>

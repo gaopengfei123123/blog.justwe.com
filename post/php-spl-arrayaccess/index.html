@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-spl-arrayaccess/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="PHP标准类库系列 arrayAccess">
 <meta itemprop="description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p">
-
-
 <meta itemprop="datePublished" content="2017-06-26T17:22:53&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="535">
 
 
 
-<meta itemprop="keywords" content="php,SPL," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="php,SPL," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PHP标准类库系列 arrayAccess"/>
 <meta name="twitter:description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p"/>
 
@@ -137,22 +134,16 @@
 
     
     <div class="post-content">
-      
-
-<p>现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了<code>arrayAccess</code>这个接口
-<!-- more --></p>
-
+      <p>现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了<code>arrayAccess</code>这个接口</p>
+<!-- raw HTML omitted -->
 <h2 id="什么是-spl">什么是 SPL?</h2>
-
 <p>SPL 是 Standard PHP Library 的缩写,是官方在 php5之后提供的一个标准类库,为 php 面向对象开发
 提供了良好的支持</p>
-
 <h2 id="如何使用arrayaccess-接口">如何使用arrayAccess 接口</h2>
-
 <p>最好的学习就是使用啊,这是我写的一个 demo</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -362,11 +353,10 @@
 </span><span class="c1"></span><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>输出:</p>
+</div><p>输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -383,9 +373,9 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">demo
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">demo
 demo
 180cm
 NULL
@@ -401,10 +391,10 @@ object(Demo)#1 (2) {
     [&#34;sex&#34;]=&gt;
     string(3) &#34;man&#34;
   }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里还用了<code>__set</code>和<code>__get</code>,现在一些框架的关于数据模型的类也是类似的实现思路</p>
+</div><p>这里还用了<code>__set</code>和<code>__get</code>,现在一些框架的关于数据模型的类也是类似的实现思路</p>
 
     </div>
 

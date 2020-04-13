@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: &amp;gt;官方提供的" /><meta name="keywords" content="sense HAT, 树莓派" />
+<meta name="author" content="GPF" /><meta name="description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&amp;hellip; 英文不错的同学出门右转: 官方提供的一个说明" /><meta name="keywords" content="sense HAT, 树莓派" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/" />
@@ -39,25 +39,22 @@
 
 
 <meta property="og:title" content="树莓派3安装 sense HAT" />
-<meta property="og:description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: &gt;官方提供的" />
+<meta property="og:description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: 官方提供的一个说明" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/" />
 <meta property="article:published_time" content="2017-11-29T13:21:26+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="树莓派3安装 sense HAT">
-<meta itemprop="description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: &gt;官方提供的">
-
-
+<meta itemprop="description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: 官方提供的一个说明">
 <meta itemprop="datePublished" content="2017-11-29T13:21:26&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="460">
+<meta itemprop="wordCount" content="455">
 
 
 
-<meta itemprop="keywords" content="Raspberry,MacOS," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Raspberry,MacOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="树莓派3安装 sense HAT"/>
-<meta name="twitter:description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: &gt;官方提供的"/>
+<meta name="twitter:description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: 官方提供的一个说明"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,43 +134,42 @@
 
     
     <div class="post-content">
-      
-
-<p>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip;
-<!-- more --></p>
-
-<p>英文不错的同学出门右转:
-&gt;<a href="https://www.raspberrypi.org/documentation/hardware/sense-hat/">官方提供的一个说明</a>
+      <p>因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip;</p>
+<!-- raw HTML omitted -->
+<p>英文不错的同学出门右转:</p>
+<blockquote>
+<p><a href="https://www.raspberrypi.org/documentation/hardware/sense-hat/">官方提供的一个说明</a>
 <a href="https://pythonhosted.org/sense-hat/">一个 sense-hat 的接口文档</a>
 <a href="https://www.raspberrypi.org/documentation/hardware/sense-hat/images/Sense-HAT-V1_0.pdf">各感应模块的针脚示意图</a></p>
-
-<h2 id="更新系统-rasbian">更新系统(Rasbian)</h2>
+</blockquote>
+<h2 id="更新系统rasbian">更新系统(Rasbian)</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ sudo apt update &amp;&amp; sudo apt upgrade -y</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt update &amp;&amp; sudo apt upgrade -y
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可能得等一大会儿&hellip;.</p>
-
+</div><p>可能得等一大会儿&hellip;.</p>
 <h2 id="安装扩展模块">安装扩展模块</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ sudo apt-get install sense-hat
-$ sudo reboot</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get install sense-hat
+$ sudo reboot
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行一个 demo,
-&gt; <a href="https://github.com/RPi-Distro/python-sense-hat/tree/master/examples">官方提供的一些 demo</a></p>
+</div><p>运行一个 demo,</p>
+<blockquote>
+<p><a href="https://github.com/RPi-Distro/python-sense-hat/tree/master/examples">官方提供的一些 demo</a></p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -254,49 +250,48 @@ $ sudo reboot</pre></td></tr></table>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
     <span class="n">sense</span><span class="o">.</span><span class="n">clear</span><span class="p">([</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
     <span class="n">msleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">next_colour</span><span class="p">()</span></code></pre></td></tr></table>
+    <span class="n">next_colour</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果运行是出现下列报错的话:</p>
+</div><p>如果运行是出现下列报错的话:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">Traceback (most recent call last):
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Traceback (most recent call last):
   File &#34;demo1.py&#34;, line 38, in &lt;module&gt;
     sense.clear([r, g, b])
   File &#34;/usr/lib/python2.7/dist-packages/sense_hat/sense_hat.py&#34;, line 413, in clear
     self.set_pixels([colour] * 64)
   File &#34;/usr/lib/python2.7/dist-packages/sense_hat/sense_hat.py&#34;, line 294, in set_pixels
-    f.seek(map[index // 8][index % 8] * 2)  # row, column</pre></td></tr></table>
+    f.seek(map[index // 8][index % 8] * 2)  # row, column
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>还是比较好解决的,更改配置就行</p>
+</div><p>还是比较好解决的,更改配置就行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ sudo vi /boot/config.txt
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo vi /boot/config.txt
 //找到 dtoverlay 这一行修改成
 dtoverlay=rpi-sense
 //然后 wq 退出
-$ sudo reboot</pre></td></tr></table>
+$ sudo reboot
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这是我第一次安装时碰到的问题</p>
-
+</div><p>这是我第一次安装时碰到的问题</p>
 <blockquote>
 <p><a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&amp;t=173113">解决方案来源</a></p>
 </blockquote>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-tag/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="git标签操作">
 <meta itemprop="description" content="列出所有标签 1 git tag 添加标签(同时生成独立的版本库) 1 2 3 4 5 # 给当前commit打标签 git tag -a v0.0.1 -m &#39;第一次添加标签&#39; # 给指定的">
-
-
 <meta itemprop="datePublished" content="2017-03-13T07:30:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="273">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git标签操作"/>
 <meta name="twitter:description" content="列出所有标签 1 git tag 添加标签(同时生成独立的版本库) 1 2 3 4 5 # 给当前commit打标签 git tag -a v0.0.1 -m &#39;第一次添加标签&#39; # 给指定的"/>
 
@@ -137,78 +134,75 @@
 
     
     <div class="post-content">
-      
-
-<h2 id="列出所有标签">列出所有标签</h2>
+      <h2 id="列出所有标签">列出所有标签</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git tag</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git tag
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="添加标签-同时生成独立的版本库">添加标签(同时生成独立的版本库)</h2>
+</div><h2 id="添加标签同时生成独立的版本库">添加标签(同时生成独立的版本库)</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># 给当前commit打标签
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># 给当前commit打标签
 git tag -a v0.0.1 -m &#39;第一次添加标签&#39;
 
 # 给指定的commit打标签，需要commit的head
-git tag -a v0.0.1 0ed1dd07d324cb5aece243a95312187955619fcf</pre></td></tr></table>
+git tag -a v0.0.1 0ed1dd07d324cb5aece243a95312187955619fcf
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>不加 <code>-a</code> 参数相当于是一个commit的引用</p>
-
+</div><p>不加 <code>-a</code> 参数相当于是一个commit的引用</p>
 <h2 id="将标签推送到远程库">将标签推送到远程库</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># 推送本地所有标签
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># 推送本地所有标签
 git push origin --tags
 # 推送指定标签
-git push origin v0.0.1</pre></td></tr></table>
+git push origin v0.0.1
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="跳转到指定标签">跳转到指定标签</h2>
+</div><h2 id="跳转到指定标签">跳转到指定标签</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git checkout v0.0.1</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git checkout v0.0.1
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>和跳转到branch操作一样，但是因为是独立的版本库上，你在独立标签中的<code>git branch</code>和在主线中包含的branch显示的是不同的，<strong>独立版本库和分支的性质是不一样的</strong></p>
-
+</div><p>和跳转到branch操作一样，但是因为是独立的版本库上，你在独立标签中的<code>git branch</code>和在主线中包含的branch显示的是不同的，<strong>独立版本库和分支的性质是不一样的</strong></p>
 <h2 id="删除指定标签">删除指定标签</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git tag -d v0.0.1</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git tag -d v0.0.1
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="删除远程分支">删除远程分支</h2>
+</div><h2 id="删除远程分支">删除远程分支</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git push origin -d tag &lt;tagname&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git push origin -d tag &lt;tagname&gt;
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

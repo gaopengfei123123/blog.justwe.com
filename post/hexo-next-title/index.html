@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/hexo-next-title/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="hexo-next-title">
 <meta itemprop="description" content="hexo-next 是一个很完美的组合,这次我碰到的问题就是 title 不能显示&lt;hello-world/&gt; 这样的文本 比如你的网站配置文件_config.y">
-
-
 <meta itemprop="datePublished" content="2017-04-07T15:04:39&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
 <meta itemprop="wordCount" content="442">
 
 
 
-<meta itemprop="keywords" content="hexo-next," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="hexo-next," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hexo-next-title"/>
 <meta name="twitter:description" content="hexo-next 是一个很完美的组合,这次我碰到的问题就是 title 不能显示&lt;hello-world/&gt; 这样的文本 比如你的网站配置文件_config.y"/>
 
@@ -136,54 +133,49 @@
     
     <div class="post-content">
       <p><code>hexo-next</code> 是一个很完美的组合,这次我碰到的问题就是 title 不能显示<code>&lt;hello-world/&gt;</code> 这样的文本</p>
-
-<!-- more  -->
-
+<!-- raw HTML omitted -->
 <p>比如你的网站配置文件<code>_config.yml</code>的内容是这样的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># Site
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Site
 title:  &lt;hello-world/&gt;
 subtitle: 代码改变世界
 description: hey
 author: GPF
-language: zh-Hans</pre></td></tr></table>
+language: zh-Hans
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果这么写的话是根本不会正常输出出来的,于是我转换成实体格式</p>
+</div><p>如果这么写的话是根本不会正常输出出来的,于是我转换成实体格式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># Site
-title: &amp;lt;hello-world/&amp;gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Site
+title: &amp;lt;hello-world/&amp;gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里出现的问题是左边的不能正常显示出 <code>&lt;</code>而右边的可以正常显示<code>&gt;</code>,发现 <code>title:</code> 后不能出现<code>&amp;</code>特殊字符,看的比较匆暂时没理解是什么原因,但是这样写对于自己的感官上也不怎么好,于是就看了下模板的代码,原来是 <code>swig</code> 的模板引擎,<em>虽然我擅长的是 php,但是我也是用过模板引擎的人!</em> 这样就可以做很多事情了,再说 symfony 也是用的 swig.</p>
-
+</div><p>这里出现的问题是左边的不能正常显示出 <code>&lt;</code>而右边的可以正常显示<code>&gt;</code>,发现 <code>title:</code> 后不能出现<code>&amp;</code>特殊字符,看的比较匆暂时没理解是什么原因,但是这样写对于自己的感官上也不怎么好,于是就看了下模板的代码,原来是 <code>swig</code> 的模板引擎,<em>虽然我擅长的是 php,但是我也是用过模板引擎的人!</em> 这样就可以做很多事情了,再说 symfony 也是用的 swig.</p>
 <p>于是乎进行一下操作:</p>
-
 <p>打开<code>@app/themes/next/layout/_partials/header.swig</code>,找到 <code>class=&quot;site-title&quot;</code>,把这个标签改成这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;span class=&#34;site-title&#34;&gt;{{ config.title | escape }}&lt;/span&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;span class=&#34;site-title&#34;&gt;{{ config.title | escape }}&lt;/span&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样就行了</p>
-
+</div><p>这样就行了</p>
 <p><em>注意</em>,如果是本地修改的 <code>_config.yml</code>文件需要重启 hexo server 才能显示效果</p>
 
     </div>

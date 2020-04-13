@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/websocket-demo/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="swoole构建聊天室demo">
 <meta itemprop="description" content="websocket文档 原文出处 后端代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 //websocket.php &lt;?php $server = new swoole_websocket_server(&#34;0.0.0.0&#34;, 9501); $server-&gt;on(&#39;open&#39;, function (swoole_websocket_server $server, $request) { file_put_contents( __DIR__ .&#39;/log.txt&#39; , $request-&gt;fd); }); $server-&gt;on(&#39;message&#39;, function (swoole_websocket_server $server, $frame) { global">
-
-
 <meta itemprop="datePublished" content="2016-12-10T11:40:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="328">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="swoole构建聊天室demo"/>
 <meta name="twitter:description" content="websocket文档 原文出处 后端代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 //websocket.php &lt;?php $server = new swoole_websocket_server(&#34;0.0.0.0&#34;, 9501); $server-&gt;on(&#39;open&#39;, function (swoole_websocket_server $server, $request) { file_put_contents( __DIR__ .&#39;/log.txt&#39; , $request-&gt;fd); }); $server-&gt;on(&#39;message&#39;, function (swoole_websocket_server $server, $frame) { global"/>
 
@@ -137,16 +134,13 @@
 
     
     <div class="post-content">
-      <!-- more -->
-
+      <!-- raw HTML omitted -->
 <p><a href="https://developer.mozilla.org/zh-CN/docs/WebSockets/Writing_WebSocket_client_applications">websocket文档</a></p>
-
 <p><a href="https://segmentfault.com/a/1190000003057118">原文出处</a></p>
-
 <p>后端代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -200,11 +194,10 @@
 <span class="nv">$server</span><span class="o">-&gt;</span><span class="na">start</span><span class="p">();</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>前端代码</p>
+</div><p>前端代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -247,19 +240,19 @@
 <span class="p">&lt;</span><span class="nt">input</span>  <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">button</span>  <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;exampleSocket.send( document.getElementById(&#39;content&#39;).value )&#34;</span><span class="p">&gt;</span>发送<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></td></tr></table>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>现在在本地命令行运行</p>
+</div><p>现在在本地命令行运行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php websocket.php</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php websocket.php
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>查看浏览器的console就可以测试了,<code>swoole</code>官方example中有个示例，这个demo就是为了抢先体验一下</p>
+</div><p>查看浏览器的console就可以测试了,<code>swoole</code>官方example中有个示例，这个demo就是为了抢先体验一下</p>
 
     </div>
 

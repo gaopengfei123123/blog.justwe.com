@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-flame-graph/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go 火焰图分析">
 <meta itemprop="description" content="go version go1.11.1 darwin/amd64 安装: 1 2 3 $ go get github.com/uber/go-torch $ cd $GOPATH/src/github.com/uber/go-torch $ git clone https://github.com/brendangregg/FlameGraph.git 安装测试工具 1 2 3 $ go get github.com/Masterminds/glide $ cd $GOPATH/src/github.com/uber/go-torch $ glide install 性能分析工具 glide install如果出现 Update failed for golang.org/x/sys: Cannot detect VCS 这种报错,">
-
-
 <meta itemprop="datePublished" content="2018-11-01T17:03:33&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="212">
 
 
 
-<meta itemprop="keywords" content="flame-graph,go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="flame-graph,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go 火焰图分析"/>
 <meta name="twitter:description" content="go version go1.11.1 darwin/amd64 安装: 1 2 3 $ go get github.com/uber/go-torch $ cd $GOPATH/src/github.com/uber/go-torch $ git clone https://github.com/brendangregg/FlameGraph.git 安装测试工具 1 2 3 $ go get github.com/Masterminds/glide $ cd $GOPATH/src/github.com/uber/go-torch $ glide install 性能分析工具 glide install如果出现 Update failed for golang.org/x/sys: Cannot detect VCS 这种报错,"/>
 
@@ -138,52 +135,48 @@
     
     <div class="post-content">
       <p>go version go1.11.1 darwin/amd64</p>
-
 <p>安装:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ go get github.com/uber/go-torch
 $ <span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/uber/go-torch
-$ git clone https://github.com/brendangregg/FlameGraph.git</code></pre></td></tr></table>
+$ git clone https://github.com/brendangregg/FlameGraph.git
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>安装测试工具</p>
+</div><p>安装测试工具</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ go get github.com/Masterminds/glide
 $ <span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/uber/go-torch
-$ glide install</code></pre></td></tr></table>
+$ glide install
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>性能分析工具</p>
-
-<!-- more -->
-
+</div><p>性能分析工具</p>
+<!-- raw HTML omitted -->
 <p><code>glide install</code>如果出现  <code>Update failed for golang.org/x/sys: Cannot detect VCS</code> 这种报错, 可以执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ glide mirror <span class="nb">set</span> https://golang.org/x/sys https://github.com/golang/sys</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ glide mirror <span class="nb">set</span> https://golang.org/x/sys https://github.com/golang/sys
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>改变 <code>$HOME/.gilde/mirrors.yaml</code> 的镜像链接即可</p>
-
+</div><p>改变 <code>$HOME/.gilde/mirrors.yaml</code> 的镜像链接即可</p>
 <p>运行时完成后输入 web</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -200,14 +193,14 @@ Fetching profile over HTTP from http://localhost:9090/debug/pprof/profile?second
 Please wait... <span class="o">(</span>25s<span class="o">)</span>
 Saved profile in /Users/gpf/pprof/pprof.samples.cpu.002.pb.gz
 Type: cpu
-Time: Nov <span class="m">2</span>, <span class="m">2018</span> at <span class="m">11</span>:46am <span class="o">(</span>CST<span class="o">)</span>
-Duration: 25s, Total <span class="nv">samples</span> <span class="o">=</span> <span class="m">2</span>.17s <span class="o">(</span> <span class="m">8</span>.68%<span class="o">)</span>
+Time: Nov 2, <span class="m">2018</span> at 11:46am <span class="o">(</span>CST<span class="o">)</span>
+Duration: 25s, Total <span class="nv">samples</span> <span class="o">=</span> 2.17s <span class="o">(</span> 8.68%<span class="o">)</span>
 Entering interactive mode <span class="o">(</span><span class="nb">type</span> <span class="s2">&#34;help&#34;</span> <span class="k">for</span> commands, <span class="s2">&#34;o&#34;</span> <span class="k">for</span> options<span class="o">)</span>
 <span class="o">(</span>pprof<span class="o">)</span> web
-Failed to execute dot. Is Graphviz installed? Error: exec: <span class="s2">&#34;dot&#34;</span>: executable file not found in <span class="nv">$PATH</span></code></pre></td></tr></table>
+Failed to execute dot. Is Graphviz installed? Error: exec: <span class="s2">&#34;dot&#34;</span>: executable file not found in <span class="nv">$PATH</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>出现 <code>Failed to execute dot. Is Graphviz installed? Error: exec: &quot;dot&quot;: executable file not found in $PATH</code> 报错, 需要安装 <code>graphviz</code>  在 mac 上就直接 <code>brew install graphviz</code> 即可</p>
+</div><p>出现 <code>Failed to execute dot. Is Graphviz installed? Error: exec: &quot;dot&quot;: executable file not found in $PATH</code> 报错, 需要安装 <code>graphviz</code>  在 mac 上就直接 <code>brew install graphviz</code> 即可</p>
 
     </div>
 

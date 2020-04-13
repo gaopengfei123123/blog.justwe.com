@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-rabbitmq-delay-queue/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="基于rabbitmq实现的延时队列(golang版)">
 <meta itemprop="description" content="虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发">
-
-
 <meta itemprop="datePublished" content="2018-05-14T21:37:40&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1140">
+<meta itemprop="wordCount" content="1142">
 
 
 
-<meta itemprop="keywords" content="go,rabbitmq," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,rabbitmq," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于rabbitmq实现的延时队列(golang版)"/>
 <meta name="twitter:description" content="虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发"/>
 
@@ -137,34 +134,24 @@
 
     
     <div class="post-content">
-      
-
-<p>虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的</p>
-
-<!-- more -->
-
+      <p>虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的</p>
+<!-- raw HTML omitted -->
 <h2 id="实现延时队列的基本要素">实现延时队列的基本要素</h2>
-
 <ol>
 <li>存在一个倒计时机制:Time To Live(TTL)</li>
 <li>当到达时间点的时候会触发一个发送消息的事件:Dead Letter Exchanges（DLX）</li>
 </ol>
-
 <p>$~~~~~~$基于第一点,我利用的是消息存在过期时间这一特性, 消息一旦过期就会变成<code>dead letter</code>,可以让单独的消息过期,也可以设置整个队列消息的过期时间
 而<code>rabbitmq</code>会有限取两个值的最小值</p>
-
 <p>$~~~~~~$基于第二点,是用到了<code>rabbitmq</code>的过期消息处理机制:
 . <code>x-dead-letter-exchange</code> 将过期的消息发送到指定的 <code>exchange</code> 中
 . <code>x-dead-letter-routing-key</code> 将过期的消息发送到自定的 <code>route</code>当中</p>
-
 <p>在这里例子当中,我使用的是 过期消息+转发指定exchange</p>
-
 <h2 id="在-golang-中的实现">在 golang 中的实现</h2>
-
 <p>首先是消费者<code>comsumer.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -260,6 +247,7 @@
 </span><span class="lnt">94
 </span><span class="lnt">95
 </span><span class="lnt">96
+</span><span class="lnt">97
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -357,13 +345,14 @@
 
 	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34; [*] Waiting for logs. To exit press CTRL+C&#34;</span><span class="p">)</span>
 	<span class="o">&lt;-</span><span class="nx">forever</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后是生产者<code>productor.go</code></p>
+</div><p>然后是生产者<code>productor.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -414,6 +403,7 @@
 </span><span class="lnt">49
 </span><span class="lnt">50
 </span><span class="lnt">51
+</span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -466,23 +456,23 @@
 		<span class="nx">s</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">s</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行一下:</p>
+</div><p>运行一下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">go run comsumer.go
-go run productor.go</code></pre></td></tr></table>
+go run productor.go
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>$~~~~~~$具体看代码和注释就行, 这里的关键点就是将要延时的消息发送到过期队列当中, 然后监听的是<strong>过期队列转发到的 exchange 下的队列</strong>
+</div><p>$~~~~~~$具体看代码和注释就行, 这里的关键点就是将要延时的消息发送到过期队列当中, 然后监听的是<strong>过期队列转发到的 exchange 下的队列</strong>
 正常情况就是始终监听一个队列,然后把过期消息发送到延时队列中,当消息到达时间后就把消息发到正在监听的队列</p>
-
 <p><a href="https://github.com/gaopengfei123123/go_study/tree/master/src/mq_demo">一个自己写的mq工具</a></p>
 
     </div>

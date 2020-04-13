@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/yii-mysql/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="转 yii2 断线重连问题">
 <meta itemprop="description" content="yii2 &#43; swoole 的模式下因为使用swoole做的常驻内存服务, 那么之前的设计思路会有一点偏差, 不是第一眼能看到的就是 mysql has gone away的问题 目前解决思路就">
-
-
 <meta itemprop="datePublished" content="2018-12-19T11:31:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="746">
 
 
 
-<meta itemprop="keywords" content="yii2," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="yii2," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 yii2 断线重连问题"/>
 <meta name="twitter:description" content="yii2 &#43; swoole 的模式下因为使用swoole做的常驻内存服务, 那么之前的设计思路会有一点偏差, 不是第一眼能看到的就是 mysql has gone away的问题 目前解决思路就"/>
 
@@ -138,17 +135,13 @@
     
     <div class="post-content">
       <p>yii2 + swoole 的模式下因为使用swoole做的常驻内存服务, 那么之前的设计思路会有一点偏差, 不是第一眼能看到的就是 <code>mysql has gone away</code>的问题</p>
-
 <p>目前解决思路就是当sql命令报错<code>mysql has gone away</code>的时候就断开重连再重新执行一次</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>参考 <a href="https://www.yiichina.com/topic/7296">Yii2实现mysql断线重连</a></p>
-
 <p>重写一个command类</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -302,11 +295,10 @@
     <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>在配置文件中关于db的配置给加上指定的class</p>
+</div><p>在配置文件中关于db的配置给加上指定的class</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -334,8 +326,7 @@
     <span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>相关文章:
+</div><p>相关文章:
 <a href="https://www.yiichina.com/topic/7296">Yii2实现mysql断线重连</a>
 <a href="https://blog.csdn.net/cenfei78325747/article/details/7854611">在mysql中connection设置和wait-timeout的设置</a>
 <a href="https://blog.csdn.net/csCrazybing/article/details/53303807">查看mysql连接情况，以及连接超时时间设置</a>

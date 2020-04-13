@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-error/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="git推送远程失败">
 <meta itemprop="description" content="git push 的时候提示: 1 2 remote: Permission to ******/born.git denied to ******/. fatal: unable to access &#39;https://github.com/ ******//born.git/&#39;: The requested URL returned error: 403 是因为git的账号冲突，git误认为你使用的是另一个账号，解决办法也很简单 推送方式">
-
-
 <meta itemprop="datePublished" content="2017-01-11T06:41:43&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="207">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git推送远程失败"/>
 <meta name="twitter:description" content="git push 的时候提示: 1 2 remote: Permission to ******/born.git denied to ******/. fatal: unable to access &#39;https://github.com/ ******//born.git/&#39;: The requested URL returned error: 403 是因为git的账号冲突，git误认为你使用的是另一个账号，解决办法也很简单 推送方式"/>
 
@@ -140,40 +137,36 @@
       <p>git push 的时候提示:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">remote: Permission to ******/born.git denied to  ******/.
-fatal: unable to access &#39;https://github.com/ ******//born.git/&#39;: The requested URL returned error: 403</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">remote: Permission to ******/born.git denied to  ******/.
+fatal: unable to access &#39;https://github.com/ ******//born.git/&#39;: The requested URL returned error: 403
+</code></pre></td></tr></table>
 </div>
-</div>
-<!-- more -->
-
+</div><!-- raw HTML omitted -->
 <p>是因为git的账号冲突，git误认为你使用的是另一个账号，解决办法也很简单</p>
-
 <p>推送方式改成ssh的，这样即使是不同账号但是使用的是同一台设备，还不需要改动究竟和哪一个账号冲突了</p>
-
 <p>查看本机ssh－key</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">cat ~/.ssh/id_rsa.pub</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">cat ~/.ssh/id_rsa.pub
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>登录自己的github账户&gt;自己的头像&gt;Setting&gt;SSH and GPG keys&gt;New SSH key</p>
-
+</div><p>登录自己的github账户&gt;自己的头像&gt;Setting&gt;SSH and GPG keys&gt;New SSH key</p>
 <p>把本机的那一串密码填里面就行</p>
-
 <p>推送方式也改成ssh的地址</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git remote set-url origin git@github.com:******/born.git</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git remote set-url origin git@github.com:******/born.git
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

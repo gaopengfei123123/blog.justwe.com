@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/win-node-npm/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="windows构建node,npm,gulp工具(测试可用)">
 <meta itemprop="description" content="windows 安装 node 其实很简单 原文地址 第一步 到官网下载页下载nodejs，并默认安装，安装成功后打开cmd， 运行node -v即可查看当前node.js版">
-
-
 <meta itemprop="datePublished" content="2016-12-13T10:04:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="387">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="windows构建node,npm,gulp工具(测试可用)"/>
 <meta name="twitter:description" content="windows 安装 node 其实很简单 原文地址 第一步 到官网下载页下载nodejs，并默认安装，安装成功后打开cmd， 运行node -v即可查看当前node.js版"/>
 
@@ -137,106 +134,113 @@
 
     
     <div class="post-content">
-      <p>windows 安装 node 其实很简单
-<!-- more -->
- <a href="http://www.ituring.com.cn/article/205990">原文地址</a></p>
-
+      <p>windows 安装 node 其实很简单</p>
+<!-- raw HTML omitted -->
+<p><a href="http://www.ituring.com.cn/article/205990">原文地址</a></p>
 <ol>
-<li><p>第一步
-到官网下载页下载nodejs，并默认安装，安装成功后打开cmd， 运行node -v即可查看当前node.js版本。</p></li>
-
-<li><p>第二步
-安装windows git工具，本机已经安装好git bash，可自行百度安装。</p></li>
-
-<li><p>第三步
+<li>
+<p>第一步
+到官网下载页下载nodejs，并默认安装，安装成功后打开cmd， 运行node -v即可查看当前node.js版本。</p>
+</li>
+<li>
+<p>第二步
+安装windows git工具，本机已经安装好git bash，可自行百度安装。</p>
+</li>
+<li>
+<p>第三步
 安装npm，打开git bash，进入自定义的文件夹下，然后执行</p>
+</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git config --system http.sslcainfo /bin/curl-ca-bundle.crt
-git clone --recursive git://github.com/isaacs/npm.git</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --system http.sslcainfo /bin/curl-ca-bundle.crt
+git clone --recursive git://github.com/isaacs/npm.git
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>克隆成功后，进入npm文件夹下，执行</p>
+</div><p>克隆成功后，进入npm文件夹下，执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">node cli.js install npm -gf</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">node cli.js install npm -gf
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>第四步
-用npm安装gulp</p>
+</div><ol start="4">
+<li>第四步
+用npm安装gulp</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ npm install --global gulp
-$ npm install --save-dev gulp</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install --global gulp
+$ npm install --save-dev gulp
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>第五步
-安装gulp插件</p>
+</div><ol start="5">
+<li>第五步
+安装gulp插件</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">npm install gulp-util gulp-imagemin gulp-ruby-sass gulp-minify-css gulp-jshint gulp-uglify gulp-rename gulp-concat gulp-clean gulp-livereload tiny-lr --save-dev</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">npm install gulp-util gulp-imagemin gulp-ruby-sass gulp-minify-css gulp-jshint gulp-uglify gulp-rename gulp-concat gulp-clean gulp-livereload tiny-lr --save-dev
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>第六步
-测试gulp，创建一个名为 gulpfile.js 的配置文件在当前目录下，并输入下面的代码，这里创建了一个空的任务（仅作为用于测试gulp是否正常工作）</p>
+</div><ol start="6">
+<li>第六步
+测试gulp，创建一个名为 gulpfile.js 的配置文件在当前目录下，并输入下面的代码，这里创建了一个空的任务（仅作为用于测试gulp是否正常工作）</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">var gulp = require(&#39;gulp&#39;);
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">var gulp = require(&#39;gulp&#39;);
 gulp.task(&#39;default&#39;, function() {
-// place code for your default task here
-});  </pre></td></tr></table>
+  // place code for your default task here
+});  
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>最后，执行</p>
+</div><ol start="7">
+<li>最后，执行</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ gulp</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ gulp
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行gulp，如果正确输出类似下面的信息，则说明gulp 已经正确安装并运行。</p>
+</div><p>运行gulp，如果正确输出类似下面的信息，则说明gulp 已经正确安装并运行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ gulp
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ gulp
 [11:13:17] Using gulpfile xxx\gulpfile.js
 [11:13:17] Starting &#39;default&#39;...
-[11:13:17] Finished &#39;default&#39; after 44 μs  </pre></td></tr></table>
+[11:13:17] Finished &#39;default&#39; after 44 μs  
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
+</div>
     </div>
 
     <div class="post-copyright">

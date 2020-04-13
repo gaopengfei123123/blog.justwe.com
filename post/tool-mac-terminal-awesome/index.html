@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/tool-mac-terminal-awesome/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="转 mac上一些好玩的命令行工具">
 <meta itemprop="description" content="mac上一些有意思的命令行小工具 asciinema 和 svg-term assiiname 是用来命令行录屏的, svg-term 将文件转换成svg动图, 这个做截屏很方便 安装: 1 2 brew install asciinema npm install -g svg-term 使用方式: 1 2">
-
-
 <meta itemprop="datePublished" content="2019-01-18T18:26:42&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="235">
 
 
 
-<meta itemprop="keywords" content="tools,mac,terminal," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tools,mac,terminal," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 mac上一些好玩的命令行工具"/>
 <meta name="twitter:description" content="mac上一些有意思的命令行小工具 asciinema 和 svg-term assiiname 是用来命令行录屏的, svg-term 将文件转换成svg动图, 这个做截屏很方便 安装: 1 2 brew install asciinema npm install -g svg-term 使用方式: 1 2"/>
 
@@ -137,84 +134,71 @@
 
     
     <div class="post-content">
-      
-
-<p>mac上一些有意思的命令行小工具</p>
-
-<!-- more -->
-
-<h3 id="asciinema-和-svg-term">asciinema 和  svg-term</h3>
-
+      <p>mac上一些有意思的命令行小工具</p>
+<!-- raw HTML omitted -->
+<h3 id="asciinema-和--svg-term">asciinema 和  svg-term</h3>
 <p>assiiname 是用来命令行录屏的, svg-term 将文件转换成svg动图, 这个做截屏很方便</p>
-
 <p>安装:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">brew install asciinema
-npm install -g svg-term</code></pre></td></tr></table>
+npm install -g svg-term
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>使用方式:</p>
+</div><p>使用方式:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">asciinema rec cast.json   // 开始录制, 数据保存在cast.json, 按 ctrl+d 保存
-cat cast.json <span class="p">|</span> svg-term-cli   //输出svg文件</code></pre></td></tr></table>
+cat cast.json <span class="p">|</span> svg-term-cli   //输出svg文件
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>比如下图
-<img src="/images/terminal/demo.svg" alt="图片" />
+</div><p>比如下图
+<img src="/images/terminal/demo.svg" alt="图片">
 缺点就是如果文件特别大帧率受到严重的影响</p>
-
 <h4 id="sl-和-cmatrix-小特效玩具">sl 和 cmatrix 小特效玩具</h4>
-
 <p>安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">brew install sl
-brew install cmatrix</code></pre></td></tr></table>
+brew install cmatrix
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>平时装哔用的</p>
-
+</div><p>平时装哔用的</p>
 <h4 id="bat">bat</h4>
-
 <p>安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">brew install bat</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">brew install bat
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>替代 <code>cat</code> 命令, 支持代码高亮</p>
-
+</div><p>替代 <code>cat</code> 命令, 支持代码高亮</p>
 <h4 id="ncdu-清理磁盘">ncdu 清理磁盘</h4>
-
 <p>如标题, 清理磁盘, 直接运行就行</p>
-
 <p>安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">brew install ncdu</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">brew install ncdu
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>收藏链接:
+</div><p>收藏链接:
 <a href="https://juejin.im/post/5c3dcecef265da6163024b1c">优秀的命令行工具整理（一）</a>
 <a href="https://juejin.im/post/5c418e2df265da616501d461">优秀的命令行工具整理（二）</a></p>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/yii-rewrite/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="yii2路由重写方案">
 <meta itemprop="description" content="yii2 关于 apache 和 nginx 的路由重写配置 apache路由重写 1 2 3 4 5 6 7 8 9 10 Options &#43;FollowSymLinks IndexIgnore */* RewriteEngine on # if a directory or a file exists, use it directly RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d # otherwise forward it to index.php RewriteRule . index.php 从yiic">
-
-
 <meta itemprop="datePublished" content="2016-10-27T15:49:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="353">
 
 
 
-<meta itemprop="keywords" content="rewrite,yii2," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="rewrite,yii2," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="yii2路由重写方案"/>
 <meta name="twitter:description" content="yii2 关于 apache 和 nginx 的路由重写配置 apache路由重写 1 2 3 4 5 6 7 8 9 10 Options &#43;FollowSymLinks IndexIgnore */* RewriteEngine on # if a directory or a file exists, use it directly RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d # otherwise forward it to index.php RewriteRule . index.php 从yiic"/>
 
@@ -137,14 +134,11 @@
 
     
     <div class="post-content">
-      
-
-<p>yii2 关于 apache 和 nginx 的路由重写配置</p>
-
+      <p>yii2 关于 apache 和 nginx 的路由重写配置</p>
 <h2 id="apache路由重写">apache路由重写</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -154,9 +148,9 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">Options +FollowSymLinks
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine on
 
@@ -165,20 +159,17 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # otherwise forward it to index.php
-RewriteRule . index.php</pre></td></tr></table>
+RewriteRule . index.php
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>从yiichina那里推荐的apache路由重写方案直接改服务器的配置文件影响太大了,我们需要把它限制在这个项目里,这样更方便操作了</p>
-
+</div><p>从yiichina那里推荐的apache路由重写方案直接改服务器的配置文件影响太大了,我们需要把它限制在这个项目里,这样更方便操作了</p>
 <p><em>需要开启 apache 的 rewrite 模块</em></p>
-
 <p>参考了一下laravel的路由重写方案,首先在你的根目录下 <code>your-app/web</code>创建一个文件</p>
-
 <p><code>.htaccess</code>
 文件内容如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -187,9 +178,9 @@ RewriteRule . index.php</pre></td></tr></table>
 </span><span class="lnt">7
 </span><span class="lnt">8
 </span><span class="lnt">9
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;IfModule mod_rewrite.c&gt;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;IfModule mod_rewrite.c&gt;
      # 开启 mod_rewrite 用于美化 URL 功能的支持（译注：对应 pretty URL 选项）
         RewriteEngine on
         # 如果请求的是真实存在的文件或目录，直接访问
@@ -197,45 +188,46 @@ RewriteRule . index.php</pre></td></tr></table>
         RewriteCond %{REQUEST_FILENAME} !-d
         # 如果请求的不是真实文件或目录，分发请求至 index.php
         RewriteRule . index.php
-&lt;/IfModule&gt;</pre></td></tr></table>
+&lt;/IfModule&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="nginx路由重写">nginx路由重写</h2>
+</div><h2 id="nginx路由重写">nginx路由重写</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">location / {  
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">location / {  
     if (!-e $request_filename){  
         rewrite ^/(.*) /index.php last;  
     }  
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<blockquote>
+</div><blockquote>
 <p>conf/web.php 中的 ‘components’数组是这样的</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&#39;urlManager&#39; =&gt; [
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;urlManager&#39; =&gt; [
             &#39;enablePrettyUrl&#39; =&gt; true,
             &#39;showScriptName&#39; =&gt; false,
             &#39;rules&#39; =&gt; [
             ],
-        ],</pre></td></tr></table>
+        ],
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

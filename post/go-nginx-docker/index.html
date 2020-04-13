@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-nginx-docker/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="nginx转发到go服务当中">
 <meta itemprop="description" content="通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go">
-
-
 <meta itemprop="datePublished" content="2018-11-25T15:39:36&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="359">
+<meta itemprop="wordCount" content="360">
 
 
 
-<meta itemprop="keywords" content="docker,nginx,go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker,nginx,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="nginx转发到go服务当中"/>
 <meta name="twitter:description" content="通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go"/>
 
@@ -138,15 +135,12 @@
     
     <div class="post-content">
       <p>通过docker-compose编排的容器总是有一些奇怪的问题</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go的服务就需要进行转发了</p>
-
 <p>如果是在同一个容器中只需要:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-conf" data-lang="conf"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -174,7 +168,7 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-conf" data-lang="conf">server {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">server {
     listen       80;
     server_name  .a.com;
 
@@ -199,15 +193,14 @@
 
         proxy_pass http://127.0.0.1:8080;
     }
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><a href="https://beego.me/docs/deploy/nginx.md">beego-nginx部署</a></p>
-
+</div><p><a href="https://beego.me/docs/deploy/nginx.md">beego-nginx部署</a></p>
 <p>那么如果是两个容器当中呢? 基于上面的例子, 我们需要用到<code>upstream</code>,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-conf" data-lang="conf"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -239,9 +232,11 @@
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
+</span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-conf" data-lang="conf">upstream go_server_proxy {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+upstream go_server_proxy {
     # 这里的server 需要用到 容器名:端口 的形式
     server go_server:9090;
 }
@@ -272,10 +267,10 @@ server {
         proxy_set_header Host            $http_host;
         proxy_pass  http://go_server_proxy;
     }
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样做的原因是容器之间的ip并不固定, 使用容器名做host地址是更简单的选择</p>
+</div><p>这样做的原因是容器之间的ip并不固定, 使用容器名做host地址是更简单的选择</p>
 
     </div>
 

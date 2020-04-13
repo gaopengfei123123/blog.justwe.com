@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/lumen-dd/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="lumen5.3正常使用dd()函数">
 <meta itemprop="description" content="主用laravel的已经习惯了dd函数的方便， 但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码 1 2 3 4 5 6 7 8 9 10">
-
-
 <meta itemprop="datePublished" content="2016-11-15T06:58:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="341">
+<meta itemprop="wordCount" content="342">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="lumen5.3正常使用dd()函数"/>
 <meta name="twitter:description" content="主用laravel的已经习惯了dd函数的方便， 但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码 1 2 3 4 5 6 7 8 9 10"/>
 
@@ -137,12 +134,12 @@
 
     
     <div class="post-content">
-      <p>主用laravel的已经习惯了dd函数的方便，
-<!-- more -->
-但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码</p>
+      <p>主用laravel的已经习惯了dd函数的方便，</p>
+<!-- raw HTML omitted -->
+<p>但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -158,6 +155,7 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-php" data-lang="php">if (! function_exists(&#39;dd&#39;)) {
@@ -175,13 +173,14 @@
 
         die(1);
     }
-}</code></pre></td></tr></table>
+}
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>再找<code>Dumper</code>这个类，</p>
+</div><p>再找<code>Dumper</code>这个类，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -207,9 +206,9 @@
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 namespace Illuminate\Support\Debug;
 
@@ -234,19 +233,19 @@ class Dumper
             var_dump($value);
         }
     }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>发现当它查不到<code>CliDumper::class</code>这个类的时候就会使用php自带的<code>var_dump</code>函数，因此我们需要加载一个clidumper</p>
+</div><p>发现当它查不到<code>CliDumper::class</code>这个类的时候就会使用php自带的<code>var_dump</code>函数，因此我们需要加载一个clidumper</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">composer require symfony/var-dumper</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">composer require symfony/var-dumper
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样的话哪怕不用的lumen，只要composer能够自动加载就可以直接使用<code>dump()</code>方法，而在lumen当中就是<code>dd()</code>辅助函数</p>
+</div><p>这样的话哪怕不用的lumen，只要composer能够自动加载就可以直接使用<code>dump()</code>方法，而在lumen当中就是<code>dd()</code>辅助函数</p>
 
     </div>
 

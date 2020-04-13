@@ -18,7 +18,7 @@
       <pubDate>Tue, 15 Jan 2019 11:27:36 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/go-chat/</guid>
-      <description>这个demo实现了: 1. 消息广播 2. 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息</description>
+      <description>这个demo实现了: 消息广播 心跳检测 提供了一个通过命令行来进行聊天的例子 具体逻辑都在 websocket.go 这个文件里 这里的核心就是 aliveList 这个全局变量, 负责把消息分发</description>
     </item>
     
   </channel>

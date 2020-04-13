@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/chrome-redirection-https/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="关于 chrome 浏览器会强制跳转到 https 的问题">
 <meta itemprop="description" content="我在本地使用的是 *.app 的域名开发的,某一天发现使用谷歌的时候会强制跳转到 https,改成http都不管用 询问了一下万能的404网站,查询的结果大">
-
-
 <meta itemprop="datePublished" content="2017-12-19T10:34:25&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="364">
+<meta itemprop="wordCount" content="363">
 
 
 
-<meta itemprop="keywords" content="tools," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tools," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于 chrome 浏览器会强制跳转到 https 的问题"/>
 <meta name="twitter:description" content="我在本地使用的是 *.app 的域名开发的,某一天发现使用谷歌的时候会强制跳转到 https,改成http都不管用 询问了一下万能的404网站,查询的结果大"/>
 
@@ -137,32 +134,32 @@
 
     
     <div class="post-content">
-      <p>我在本地使用的是 <code>*.app</code> 的域名开发的,某一天发现使用谷歌的时候会强制跳转到 <code>https</code>,改成<code>http</code>都不管用
-<!-- more --></p>
-
-<p>询问了一下万能的404网站,查询的结果大多是:
-&gt; chrome浏览器地址栏输入：chrome://net-internals/#hsts
+      <p>我在本地使用的是 <code>*.app</code> 的域名开发的,某一天发现使用谷歌的时候会强制跳转到 <code>https</code>,改成<code>http</code>都不管用</p>
+<!-- raw HTML omitted -->
+<p>询问了一下万能的404网站,查询的结果大多是:</p>
+<blockquote>
+<p>chrome浏览器地址栏输入：chrome://net-internals/#hsts
 在该页面中搜索：Query HSTS/PKP domain
 在其下方的 Domain 后面的输入框中输入自己无法访问的域名，比如：domain.app，点击Query进行查询，如果有类似下面的结果，说明该域名后缀无法使用http前缀。</p>
-
+</blockquote>
 <p>这样式儿的结果,结果试了以后没有解决都我目前的问题,后来根据这篇文章的描述 <a href="https://laravel-china.org/articles/7035/chrome-forcibly-converts-thedev-domain-name-to-https-as-of-the-v63-version#reply10">Chrome 于 V63 版本起会将 .dev 域名强制转换为 HTTPS</a>
 说 <code>.dev</code> 的域名就是会强制跳转,看来我用的<code>.app</code>的域名估计也是同样的问题,解决方法也简单.
 根据 <a href="https://iyware.com/dont-use-dev-for-development/">Don&rsquo;t Use .dev For Development</a>建议使用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">.localhost
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">.localhost
 .invalid
 .text
-.example</pre></td></tr></table>
+.example
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>作为本地开发的模拟域名,如果用的不爽的话,换火狐啊 :)</p>
+</div><p>作为本地开发的模拟域名,如果用的不爽的话,换火狐啊 :)</p>
 
     </div>
 

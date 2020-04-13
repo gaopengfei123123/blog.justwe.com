@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-defer/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-19T14:23:09+08:00" />
 <meta itemprop="name" content="Golang 使用 defer 的场景">
 <meta itemprop="description" content="defer特性 defer 是在 return 之后执行标记代码行, 直观一点就是函数从上往下一行行执行代码, 遇到defer跳过, return之后, 再从下往上依次执行r">
-
-
 <meta itemprop="datePublished" content="2019-12-18T16:58:37&#43;08:00" />
 <meta itemprop="dateModified" content="2019-12-19T14:23:09&#43;08:00" />
-<meta itemprop="wordCount" content="584">
+<meta itemprop="wordCount" content="586">
 
 
 
-<meta itemprop="keywords" content="go,defer," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,defer," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang 使用 defer 的场景"/>
 <meta name="twitter:description" content="defer特性 defer 是在 return 之后执行标记代码行, 直观一点就是函数从上往下一行行执行代码, 遇到defer跳过, return之后, 再从下往上依次执行r"/>
 
@@ -137,16 +134,12 @@
 
     
     <div class="post-content">
-      
-
-<h5 id="defer特性">defer特性</h5>
-
+      <h5 id="defer特性">defer特性</h5>
 <p><code>defer</code> 是在 <code>return</code> 之后执行标记代码行, 直观一点就是函数从上往下一行行执行代码, 遇到defer跳过, <code>return</code>之后, 再从下往上依次执行<code>refer</code></p>
-
 <p>举一个例子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -164,6 +157,7 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -183,13 +177,14 @@
 			<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;i: %d, index: %d \n&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>
 		<span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>输出:</p>
+</div><p>输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-cmd" data-lang="cmd"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -200,17 +195,15 @@
 2019/12/18 17:11:03 i: 5, index: 3 
 2019/12/18 17:11:03 i: 5, index: 2 
 2019/12/18 17:11:03 i: 5, index: 1 
-2019/12/18 17:11:03 i: 5, index: 0</code></pre></td></tr></table>
+2019/12/18 17:11:03 i: 5, index: 0
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>i</code>是外部变量, 在执行<code>defer</code>的时候, 已经运行完毕<code>for</code>循环, 那么<code>i</code>此时的值就一直是5了</p>
-
+</div><p><code>i</code>是外部变量, 在执行<code>defer</code>的时候, 已经运行完毕<code>for</code>循环, 那么<code>i</code>此时的值就一直是5了</p>
 <p><code>index</code>是函数内部变量, 是在运行时传入的, 变量值被拷贝到函数当中, 且最先<code>defer</code>的最后执行, 所以看到了 4,3,2,1,0</p>
-
 <p>由于defer中的变量在之前运行时都已经设置好了, 有些日志收集类的方法也可以使用它</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -265,13 +258,13 @@
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;func args: %s \n&#34;</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span>
 		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;exit %s (%s)&#34;</span><span class="p">,</span> <span class="nx">funcName</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">start</span><span class="p">))</span>
 	<span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h5 id="使用场景一-延迟释放资源">使用场景一: 延迟释放资源</h5>
+</div><h5 id="使用场景一-延迟释放资源">使用场景一: 延迟释放资源</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -302,17 +295,15 @@
     <span class="k">defer</span> <span class="nx">dst</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">dst</span><span class="p">,</span> <span class="nx">src</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样把开启和关闭资源的函数写一起, 减少开发时的心智负担</p>
-
+</div><p>这样把开启和关闭资源的函数写一起, 减少开发时的心智负担</p>
 <h5 id="使用场景二-recover">使用场景二: recover</h5>
-
 <p>go 里面没有 <code>try catch</code>, 但是有 <code>painc recover</code>, 这个是配合<code>defer</code>才能使用的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -328,6 +319,7 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
@@ -345,11 +337,11 @@
 
     <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;error&#34;</span><span class="p">)</span>
 
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-<h5 id="参考">参考</h5>
+<span class="p">}</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="参考">参考</h5>
 <ul>
 <li><a href="https://blog.golang.org/defer-panic-and-recover">Defer, Panic, and Recover</a></li>
 </ul>

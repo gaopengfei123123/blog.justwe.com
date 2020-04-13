@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-info/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="docker(1)入门">
 <meta itemprop="description" content="开始 首先在docker官网或者国内的daoCloud来下载工具，不推荐新手在直接通过brew来安装 docker-machine 根据安装导航安装好就行 刚接触一个新玩具最">
-
-
 <meta itemprop="datePublished" content="2017-02-16T15:46:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="761">
 
 
 
-<meta itemprop="keywords" content="docker," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker(1)入门"/>
 <meta name="twitter:description" content="开始 首先在docker官网或者国内的daoCloud来下载工具，不推荐新手在直接通过brew来安装 docker-machine 根据安装导航安装好就行 刚接触一个新玩具最"/>
 
@@ -137,24 +134,17 @@
 
     
     <div class="post-content">
-      
-
-<h2 id="开始">开始</h2>
-
+      <h2 id="开始">开始</h2>
 <p>首先在docker<a href="https://www.docker.com/products/docker-toolbox">官网</a>或者国内的<a href="http://get.daocloud.io/">daoCloud</a>来下载工具，不推荐新手在直接通过brew来安装 docker-machine</p>
-
 <p>根据安装导航安装好就行</p>
-
 <blockquote>
 <p>刚接触一个新玩具最先要做的就是让他跑起来</p>
 </blockquote>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>打开命令行，输入命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -171,9 +161,9 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker version
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker version
 
 lient:
  Version:      1.12.3
@@ -189,56 +179,48 @@ Server:
  Go version:   go1.6.3
  Git commit:   6b644ec
  Built:        Wed Oct 26 23:26:11 2016
- OS/Arch:      linux/amd64</pre></td></tr></table>
+ OS/Arch:      linux/amd64
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行正常</p>
-
+</div><p>运行正常</p>
 <p>接下来我们用到了几个命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker run  运行一个主机
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run  运行一个主机
 docker ps   列出正在运行的主机
 docker attach  附着到指定的主机上
 docker pull    从远程拉下指定的容器
-docker images  列出下载到本地的容器</pre></td></tr></table>
+docker images  列出下载到本地的容器
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>首先开启运行一个ubuntu容器</p>
+</div><p>首先开启运行一个ubuntu容器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker run -i -t ubuntu /bin/bash</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run -i -t ubuntu /bin/bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>解释一下命令含义：</p>
-
+</div><p>解释一下命令含义：</p>
 <p>运行ubuntu容器，</p>
-
 <p>-i 保证容器中的 STDIN 是开启的，</p>
-
 <p>-t 为容器生成一个伪tty终端</p>
-
 <p>ubuntu  以ubuntu作为基础镜像，同理可以使用 centos，debain之类的</p>
-
 <p>更多的命令 输入 docker run &ndash;help 可以查看</p>
-
 <p>执行这条命令的时候，如果本地没有 ubuntu 的话会自动执行 <code>docker pull ubuntu</code> 拉取默认的ubuntu镜像到本地，执行完毕后就会进入容器中的bash界面，相当于一个ubuntu的虚拟机，执行 hostname 查看homeId
 执行 <code>exit</code>推出容器内部界面，当退出的时候容器也将停止运行</p>
-
 <p>退出后到本地的终端界面</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -246,54 +228,51 @@ docker images  列出下载到本地的容器</pre></td></tr></table>
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker ps -a
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker ps -a
 
 
 CONTAINER ID        IMAGE               COMMAND             CREATED                  STATUS                       PORTS               NAMES
 572fd5bda011        ubuntu              &#34;-i -t /bin/bash&#34;   Less than a second ago   Created                                          hungry_franklin
 4cd577624dd2        ubuntu              &#34;/bin/bash&#34;         58 minutes ago           Exited (127) 9 minutes ago                       little_cat
 80ac1b1ba419        ubuntu              &#34;/bin/bash&#34;         About an hour ago        Exited (0) 59 minutes ago                        determined_bhaskara
-ce5104ceef1f        ubuntu              &#34;/bin/bash&#34;         47 hours ago             Exited (0) 47 hours ago                          small_hugle</pre></td></tr></table>
+ce5104ceef1f        ubuntu              &#34;/bin/bash&#34;         47 hours ago             Exited (0) 47 hours ago                          small_hugle
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>列出所有的容器，每次 <code>docker run</code> 都会新创建一个容器， 相当于每次运行的时候都是一个初始的容器</p>
-
+</div><p>列出所有的容器，每次 <code>docker run</code> 都会新创建一个容器， 相当于每次运行的时候都是一个初始的容器</p>
 <p>如果想接着上次退出的就执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker start 4cd577624dd2
-docker start little_cat</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker start 4cd577624dd2
+docker start little_cat
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这两条执行的效果是一样的，都是指向同一个容器</p>
-
+</div><p>这两条执行的效果是一样的，都是指向同一个容器</p>
 <p>但是这时只是开启了，我们想进入这个容器里怎么办？ 执行下一条命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker attach littlt_cat</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker attach littlt_cat
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这样就会进入到容器里面的界面</p>
-
+</div><p>这样就会进入到容器里面的界面</p>
 <p>忘了说了，如果想创建一个指定名字的容器就添加一个 <code>--name</code> 参数 比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">docker run -d --name littl_cat ubuntu /bin/bash</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run -d --name littl_cat ubuntu /bin/bash
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这里的 -d 就是以守护进程的方式在后台运行 &ndash;name 就是指定了容器的名字，如果不指定的话也会随机分配一个</p>
+</div><p>这里的 -d 就是以守护进程的方式在后台运行 &ndash;name 就是指定了容器的名字，如果不指定的话也会随机分配一个</p>
 
     </div>
 

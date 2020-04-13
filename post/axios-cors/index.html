@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/axios-cors/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-11-21T16:16:27+08:00" />
 <meta itemprop="name" content="转 跨域请求时两次发送请求的问题">
 <meta itemprop="description" content="跨域的时候总会碰上各种各样的问题,这就是其中一种情况 检查一下，两次请求分别的 Request Method: 因为是跨域请求，客户端发先发送一个OPTIONS 请求 Preflighted Req">
-
-
 <meta itemprop="datePublished" content="2017-06-23T16:42:38&#43;00:00" />
 <meta itemprop="dateModified" content="2019-11-21T16:16:27&#43;08:00" />
 <meta itemprop="wordCount" content="304">
 
 
 
-<meta itemprop="keywords" content="js,axios,php," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="js,axios,php," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 跨域请求时两次发送请求的问题"/>
 <meta name="twitter:description" content="跨域的时候总会碰上各种各样的问题,这就是其中一种情况 检查一下，两次请求分别的 Request Method: 因为是跨域请求，客户端发先发送一个OPTIONS 请求 Preflighted Req"/>
 
@@ -137,34 +134,32 @@
 
     
     <div class="post-content">
-      <p>跨域的时候总会碰上各种各样的问题,这就是其中一种情况
-<!-- more -->
-检查一下，两次请求分别的 Request Method:
+      <p>跨域的时候总会碰上各种各样的问题,这就是其中一种情况</p>
+<!-- raw HTML omitted -->
+<p>检查一下，两次请求分别的 Request Method:
 因为是跨域请求，客户端发先发送一个OPTIONS 请求
 Preflighted Requests是CORS中一种透明服务器验证机制。预检请求首先需要向另外一个域名的资源发送一个 HTTP OPTIONS 请求头，其目的就是为了判断实际发送的请求是否是安全的。</p>
-
 <p>很有可能是这个问题，我现在用axios 作为我的网络请求库，也遇到了这个问题，跨域访问的时候 ，都会先发送一个OPTIONS请求，用来判断接下来的请求是否安全和被允许</p>
-
 <p>我现在的做法是，在index.php 入口文件中，检测，是否为OPTIONS 请求，如果是就返回一个状态具体代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">if ($_SERVER[&#39;REQUEST_METHOD&#39;]==&#39;OPTIONS&#39;) {
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">if ($_SERVER[&#39;REQUEST_METHOD&#39;]==&#39;OPTIONS&#39;) {
     header(&#34;Access-Control-Allow-Origin: *&#34;);
     header(&#34;Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization&#34;);
     header(&#39;Access-Control-Allow-Methods: GET, POST, PUT,DELETE,OPTIONS,PATCH&#39;);
     return;
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><a href="https://segmentfault.com/q/1010000009846666">原文</a></p>
+</div><p><a href="https://segmentfault.com/q/1010000009846666">原文</a></p>
 
     </div>
 

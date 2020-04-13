@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-rm-cache/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="git删除已提交入库的文件">
 <meta itemprop="description" content="将git已经提交的文件移除出库（针对的就是 .idea 和 .DS_Store） 1 2 3 4 5 6 7 8 git rm -r --cache .idea/ git rm --cache .DS_Store 在 .gitignore 文件中添加相应禁止的东西 git commit -m &#39;we didnt want">
-
-
 <meta itemprop="datePublished" content="2016-11-29T03:07:45&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="103">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git删除已提交入库的文件"/>
 <meta name="twitter:description" content="将git已经提交的文件移除出库（针对的就是 .idea 和 .DS_Store） 1 2 3 4 5 6 7 8 git rm -r --cache .idea/ git rm --cache .DS_Store 在 .gitignore 文件中添加相应禁止的东西 git commit -m &#39;we didnt want"/>
 
@@ -140,7 +137,7 @@
       <p>将git已经提交的文件移除出库（针对的就是 .idea 和 .DS_Store）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -148,19 +145,19 @@
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git rm -r --cache .idea/
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git rm -r --cache .idea/
 git rm --cache .DS_Store
 
 在 .gitignore 文件中添加相应禁止的东西
 
 git commit -m &#39;we didnt want to see you any more!&#39;
 git pull
-git push</pre></td></tr></table>
+git push
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这是将指定的文件从库中删除而不影响实际使用的文件</p>
+</div><p>这是将指定的文件从库中删除而不影响实际使用的文件</p>
 
     </div>
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/python-csv-split/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="是用脚本分割csv文件">
 <meta itemprop="description" content="首先安装panda 1 pip install pandas 创建脚本: 1 2 3 4 import pandas as pd rows = pd.read_csv(&#34;csvfile.csv&#34;, chunksize=5000000) # 每个文件的尺寸, 以及导入文件名 for i, chuck in enumerate(rows): chuck.to_csv(&#39;out{}.csv&#39;.format(i)) # 输出文件名 运行 1 python demo.py py挽救了我半">
-
-
 <meta itemprop="datePublished" content="2019-11-11T16:28:55&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="79">
 
 
 
-<meta itemprop="keywords" content="csv," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="csv," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="是用脚本分割csv文件"/>
 <meta name="twitter:description" content="首先安装panda 1 pip install pandas 创建脚本: 1 2 3 4 import pandas as pd rows = pd.read_csv(&#34;csvfile.csv&#34;, chunksize=5000000) # 每个文件的尺寸, 以及导入文件名 for i, chuck in enumerate(rows): chuck.to_csv(&#39;out{}.csv&#39;.format(i)) # 输出文件名 运行 1 python demo.py py挽救了我半"/>
 
@@ -140,16 +137,16 @@
       <p>首先安装panda</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">pip install pandas</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install pandas
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>创建脚本:</p>
+</div><p>创建脚本:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -158,19 +155,19 @@
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> 
 <span class="n">rows</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;csvfile.csv&#34;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">5000000</span><span class="p">)</span> <span class="c1"># 每个文件的尺寸, 以及导入文件名</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chuck</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span> 
-    <span class="n">chuck</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;out{}.csv&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="c1"># 输出文件名</span></code></pre></td></tr></table>
+    <span class="n">chuck</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;out{}.csv&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="c1"># 输出文件名</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>运行</p>
+</div><p>运行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">python demo.py</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">python demo.py
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>py挽救了我半小时的<del>摸鱼时光</del>生命</p>
+</div><p>py挽救了我半小时的<del>摸鱼时光</del>生命</p>
 
     </div>
 

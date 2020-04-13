@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-error/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel的报错处理">
 <meta itemprop="description" content="有很多时候我们需要有404 500 这类的错误页面,在逻辑层里写这些又有些太繁琐,干脆从上游去搞一下 在 app/exceptions/handler.">
-
-
 <meta itemprop="datePublished" content="2016-10-09T15:10:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="381">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel的报错处理"/>
 <meta name="twitter:description" content="有很多时候我们需要有404 500 这类的错误页面,在逻辑层里写这些又有些太繁琐,干脆从上游去搞一下 在 app/exceptions/handler."/>
 
@@ -138,17 +135,13 @@
     
     <div class="post-content">
       <p>有很多时候我们需要有404 500 这类的错误页面,在逻辑层里写这些又有些太繁琐,干脆从上游去搞一下</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>在 app/exceptions/handler.php中</p>
-
 <p>判定$e是属于 http异常还是其他的类似model或者pdo异常，这样就根据异常的类型返回对应的页面，http异常就返回404（其实可以按照状态码分好多）  服务器异常不想显示报错信息就返回一个页面这样的</p>
-
 <p>如果为了方便开发时查看报错信息，需要再添加一层输出debug的配置判定</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -199,7 +192,8 @@ public function render($request, Exception $e)
     } else {
         return response()-&gt;view(&#39;errors.500&#39;, [&#39;message&#39;=&gt;&#39;服务器发生未知错误&#39;], 500);
     }
-}</code></pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

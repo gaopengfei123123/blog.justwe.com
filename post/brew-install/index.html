@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/brew-install/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="brew权限问题">
 <meta itemprop="description" content="在一个新的环境下安装 homebrew 新装系统时难免会遇到权限的问题，在老版系统下（osx 10.10.* )需要一些权限设置，方式如下: 1 2 3 4 5 sudo chown -R $(whoami):admin /usr/local sudo chown -R $(whoami) /Library/Caches/Homebrew brew doctor">
-
-
 <meta itemprop="datePublished" content="2017-03-31T14:38:36&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="74">
 
 
 
-<meta itemprop="keywords" content="homebrew," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="homebrew," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="brew权限问题"/>
 <meta name="twitter:description" content="在一个新的环境下安装 homebrew 新装系统时难免会遇到权限的问题，在老版系统下（osx 10.10.* )需要一些权限设置，方式如下: 1 2 3 4 5 sudo chown -R $(whoami):admin /usr/local sudo chown -R $(whoami) /Library/Caches/Homebrew brew doctor"/>
 
@@ -138,24 +135,23 @@
     
     <div class="post-content">
       <p>在一个新的环境下安装 <a href="https://brew.sh">homebrew</a></p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>新装系统时难免会遇到权限的问题，在老版系统下（osx 10.10.* )需要一些权限设置，方式如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">sudo chown -R $(whoami):admin /usr/local
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo chown -R $(whoami):admin /usr/local
 sudo chown -R $(whoami) /Library/Caches/Homebrew
 brew doctor
 brew prune
-brew update</pre></td></tr></table>
+brew update
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

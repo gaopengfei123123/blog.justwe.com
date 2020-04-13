@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-rebase/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="通过git rebase来合并commit提交记录">
 <meta itemprop="description" content="多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版">
-
-
 <meta itemprop="datePublished" content="2016-12-25T15:43:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="901">
 
 
 
-<meta itemprop="keywords" content="git," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过git rebase来合并commit提交记录"/>
 <meta name="twitter:description" content="多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版"/>
 
@@ -137,14 +134,16 @@
 
     
     <div class="post-content">
-      <p>多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致<code>git log</code>查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版本。<br />
-做完一个小功能随时提交是一个好习惯，但是这写小记录推送到远程就是个不大不小的麻烦
-<!-- more -->
-我们通过rebase命令将这些小版本合并成一个大的版本，然后推送到远程，前提是你的代码功能已经达到了。
-1. 查看log信息</p>
+      <p>多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致<code>git log</code>查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版本。<br>
+做完一个小功能随时提交是一个好习惯，但是这写小记录推送到远程就是个不大不小的麻烦</p>
+<!-- raw HTML omitted -->
+<p>我们通过rebase命令将这些小版本合并成一个大的版本，然后推送到远程，前提是你的代码功能已经达到了。</p>
+<ol>
+<li>查看log信息</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -162,9 +161,9 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">commit 53097de5638d371da51bc6fef74a90ca1420d967
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">commit 53097de5638d371da51bc6fef74a90ca1420d967
 Author: GPF &lt;5173180@qq.com&gt;
 Date:   Sun Dec 25 22:46:13 2016 +0800
 
@@ -181,28 +180,29 @@ Author: GPF &lt;5173180@qq.com&gt;
 Date:   Sun Dec 25 22:45:43 2016 +0800
 
     test1
-...</pre></td></tr></table>
+...
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>比如我们就合并这前三个提交记录</p>
-
-<ol>
-<li><p>开启rebase脚本</p>
+</div><p>比如我们就合并这前三个提交记录</p>
+<ol start="2">
+<li>开启rebase脚本</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">git rebase -i HEAD~3</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git rebase -i HEAD~3
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>HEAD~3</code>的意思就是最近的san tiao三条提交信息</p></li>
-
-<li><p>编辑脚本
-执行步骤2的时候就会进入一个编辑脚本如下：</p>
+</div><p><code>HEAD~3</code>的意思就是最近的san tiao三条提交信息</p>
+<ol start="3">
+<li>编辑脚本
+执行步骤2的时候就会进入一个编辑脚本如下：</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -224,9 +224,9 @@ Date:   Sun Dec 25 22:45:43 2016 +0800
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">pick 646f5be test1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pick 646f5be test1
 pick 830026a test2
 pick 53097de test3
 
@@ -247,16 +247,14 @@ pick 53097de test3
 #
 # However, if you remove everything, the rebase will be aborted.
 #
-# Note that empty commits are commented out</pre></td></tr></table>
+# Note that empty commits are commented out
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
-<p>带#号的都是注释内容，这里提供了很多命令信息。最上面的三行就是我们要执行的命令，<code>pick</code> 查看注释是 <code>use commit</code> 可以简写成 <code>p</code> ， 而且你看排列commit记录的顺序是最早的排在最上面，我们这次是为了合并commit，因此我们要用的命令就是<code>squash</code> 简写成 <code>s</code>
+</div><p>带#号的都是注释内容，这里提供了很多命令信息。最上面的三行就是我们要执行的命令，<code>pick</code> 查看注释是 <code>use commit</code> 可以简写成 <code>p</code> ， 而且你看排列commit记录的顺序是最早的排在最上面，我们这次是为了合并commit，因此我们要用的命令就是<code>squash</code> 简写成 <code>s</code>
 将脚本修改成这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -278,9 +276,10 @@ pick 53097de test3
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span></pre></td>
+</span><span class="lnt">23
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">pick 646f5be test1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pick 646f5be test1
 s 830026a test2
 s 53097de test3
 
@@ -301,12 +300,12 @@ s 53097de test3
 #
 # However, if you remove everything, the rebase will be aborted.
 #
-# Note that empty commits are commented out</pre></td></tr></table>
-</div>
-</div>
-<p>我们合并最早的两个到test1版本当中然后<code>:wq</code>退出，<strong>注意</strong>合并记录的时候，不能pick最近的一条，会产生报错，如果把报错的话就输入命令<code>git rebase --abort</code>终止这次执行就好</p>
+# Note that empty commits are commented out
 
-<ol>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们合并最早的两个到test1版本当中然后<code>:wq</code>退出，<strong>注意</strong>合并记录的时候，不能pick最近的一条，会产生报错，如果把报错的话就输入命令<code>git rebase --abort</code>终止这次执行就好</p>
+<ol start="4">
 <li>接下来会直接进入一个commit记录编辑界面，#都是注释过的，将非注释的内容编辑成我们想要的然后<code>:wq</code>保存就完毕了</li>
 </ol>
 

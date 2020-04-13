@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/webconfig/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="hexo-next 的一些配置">
 <meta itemprop="description" content="目前对 hexo-next 添加的功能 搜索 1 $ npm install hexo-generator-searchdb --save 站点配置文件 1 2 3 4 5 search: path: search.xml field: post format: html limit: 10000 next主题配置文件 1 2 3 # Local search local_search: enable: true 生成 sitemap 1 2 $ npm install hexo-generator-sitemap --save $ npm install hexo-generator-baidu-sitemap">
-
-
 <meta itemprop="datePublished" content="2017-03-30T21:06:50&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="535">
 
 
 
-<meta itemprop="keywords" content="config,hexo-next," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="config,hexo-next," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hexo-next 的一些配置"/>
 <meta name="twitter:description" content="目前对 hexo-next 添加的功能 搜索 1 $ npm install hexo-generator-searchdb --save 站点配置文件 1 2 3 4 5 search: path: search.xml field: post format: html limit: 10000 next主题配置文件 1 2 3 # Local search local_search: enable: true 生成 sitemap 1 2 $ npm install hexo-generator-sitemap --save $ npm install hexo-generator-baidu-sitemap"/>
 
@@ -135,77 +132,72 @@
 
     
     <div class="post-content">
-      
-
-<p>目前对 hexo-next 添加的功能</p>
-
-<!-- more -->
-
+      <p>目前对 hexo-next 添加的功能</p>
+<!-- raw HTML omitted -->
 <h2 id="搜索">搜索</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ npm install hexo-generator-searchdb --save</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install hexo-generator-searchdb --save
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>站点配置文件</p>
+</div><p>站点配置文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">search:
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">search:
   path: search.xml
   field: post
   format: html
-  limit: 10000</pre></td></tr></table>
+  limit: 10000
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>next主题配置文件</p>
+</div><p>next主题配置文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># Local search
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Local search
 local_search:
-  enable: true</pre></td></tr></table>
+  enable: true
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="生成-sitemap">生成 sitemap</h2>
+</div><h2 id="生成-sitemap">生成 sitemap</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ npm install hexo-generator-sitemap --save
-$ npm install hexo-generator-baidu-sitemap --save</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install hexo-generator-sitemap --save
+$ npm install hexo-generator-baidu-sitemap --save
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="支持-hexo-deploy">支持 hexo deploy</h2>
+</div><h2 id="支持-hexo-deploy">支持 hexo deploy</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ npm install hexo-deployer-git --save</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install hexo-deployer-git --save
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="将-next-主题的依赖包由-bootcdn-提供">将 next 主题的依赖包由 bootcdn 提供</h2>
-
+</div><h2 id="将-next-主题的依赖包由-bootcdn-提供">将 next 主题的依赖包由 bootcdn 提供</h2>
 <p>在主题配置文件中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -249,9 +241,9 @@ $ npm install hexo-generator-baidu-sitemap --save</pre></td></tr></table>
 </span><span class="lnt">42
 </span><span class="lnt">43
 </span><span class="lnt">44
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">vendors:
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vendors:
   # Internal path prefix. Please do not edit it.
   _internal: lib
 
@@ -294,15 +286,14 @@ $ npm install hexo-generator-baidu-sitemap --save</pre></td></tr></table>
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js
-  canvas_nest: //cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js</pre></td></tr></table>
+  canvas_nest: //cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="谷歌字体">谷歌字体</h2>
-
+</div><h2 id="谷歌字体">谷歌字体</h2>
 <p>主题配置文件，换成国内的一个cdn</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -347,9 +338,9 @@ $ npm install hexo-generator-baidu-sitemap --save</pre></td></tr></table>
 </span><span class="lnt">43
 </span><span class="lnt">44
 </span><span class="lnt">45
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"># ---------------------------------------------------------------
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># ---------------------------------------------------------------
 # Font Settings
 # - Find fonts on Google Fonts (https://www.google.com/fonts)
 # - All fonts set here will have the following styles:
@@ -393,44 +384,44 @@ font:
   codes:
     external: true
     family:
-    size:</pre></td></tr></table>
+    size:
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="添加rss">添加rss</h2>
+</div><h2 id="添加rss">添加rss</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">$ npm install hexo-generator-feed --save</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ npm install hexo-generator-feed --save
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>主题配置文件</p>
+</div><p>主题配置文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">rss: /atom.xml</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">rss: /atom.xml
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="代码中使用js">代码中使用js</h2>
-
+</div><h2 id="代码中使用js">代码中使用js</h2>
 <p>使用 raw 标签包裹住就能让内容内容略过 markdown 解析</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">{% raw %}
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">{% raw %}
 &lt;script&gt;
   alert(12312)
 &lt;/script&gt;
-{% endraw %}</pre></td></tr></table>
+{% endraw %}
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>

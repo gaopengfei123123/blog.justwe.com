@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-auth/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel-auth">
 <meta itemprop="description" content="原文出处 auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：） 本着松">
-
-
 <meta itemprop="datePublished" content="2017-04-01T20:57:12&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="2311">
+<meta itemprop="wordCount" content="2313">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel-auth"/>
 <meta name="twitter:description" content="原文出处 auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：） 本着松"/>
 
@@ -138,27 +135,23 @@
     
     <div class="post-content">
       <p><a href="https://laravel-china.org/topics/2777">原文出处</a></p>
-
 <p>auth提供了很方便的登录体系，已经做到了开箱即用的便捷，但是任何方便的工具都是需要花费学习成本的，了解的过程就由些痛苦了：）</p>
-
 <p>本着松鼠过冬的原则，自己是能写一点是一点，以后忘记的话也能立即捡起来</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>安装auth系统</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php artisan make:auth</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan make:auth
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>默认会安装基于user表的登录验证，现在我们需要增加另一个表的登录验证（比如后台的数据表）
+</div><p>默认会安装基于user表的登录验证，现在我们需要增加另一个表的登录验证（比如后台的数据表）
 编辑<code>config/auth.php</code>,我们需要指定的就是<code>guards</code>和<code>providers</code>这两个数组，</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -258,9 +251,10 @@
 </span><span class="lnt"> 98
 </span><span class="lnt"> 99
 </span><span class="lnt">100
-</span></pre></td>
+</span><span class="lnt">101
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 return [
 
@@ -359,22 +353,23 @@ return [
        ],
    ],
 
-];</pre></td></tr></table>
+];
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>新建模型 <code>App/Models/Admin</code></p>
+</div><p>新建模型 <code>App/Models/Admin</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php artisan make:model Models/Admin -m</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan make:model Models/Admin -m
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑模型</p>
+</div><p>编辑模型</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -398,9 +393,9 @@ return [
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 namespace App\Models;
 
@@ -423,13 +418,13 @@ class Admin extends Authenticatable
    protected $hidden = [
        &#39;password&#39;, &#39;remember_token&#39;,
    ];
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑数据迁移文件 <code>database/migrations/xxxx_admin_table.php</code></p>
+</div><p>编辑数据迁移文件 <code>database/migrations/xxxx_admin_table.php</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -468,9 +463,9 @@ class Admin extends Authenticatable
 </span><span class="lnt">37
 </span><span class="lnt">38
 </span><span class="lnt">39
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -508,15 +503,14 @@ class CreateAdminTable extends Migration
    {
        Schema::dropIfExists(&#39;admin&#39;);
    }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑数据填充文件，这一步懒得折腾可以直接手动添加数据</p>
-
+</div><p>编辑数据填充文件，这一步懒得折腾可以直接手动添加数据</p>
 <p>编辑 <code>Faker</code> 这个数据模拟的类 <code>database/factories/ModelFactory.php</code> 添加一下内容,是根据我们刚创建的<code>Models/Admin</code>模型而填充的内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -528,9 +522,9 @@ class CreateAdminTable extends Migration
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">//other code...........
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//other code...........
 
 $factory-&gt;define(App\Models\Admin::class, function (Faker\Generator $faker) {
    static $password;
@@ -541,13 +535,13 @@ $factory-&gt;define(App\Models\Admin::class, function (Faker\Generator $faker) {
        &#39;password&#39; =&gt; $password ?: $password = bcrypt(&#39;secret&#39;),
        &#39;remember_token&#39; =&gt; str_random(10),
    ];
-});</pre></td></tr></table>
+});
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑<code>database/seeds/AdminTableSeeder.php</code></p>
+</div><p>编辑<code>database/seeds/AdminTableSeeder.php</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -565,9 +559,10 @@ $factory-&gt;define(App\Models\Admin::class, function (Faker\Generator $faker) {
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span></pre></td>
+</span><span class="lnt">19
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 use Illuminate\Database\Seeder;
 
@@ -584,13 +579,14 @@ class AdminsTableSeeder extends Seeder
            &#39;password&#39; =&gt; bcrypt(&#39;123456&#39;)
        ]);
    }
-}</pre></td></tr></table>
+}
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>将自动填充文件写入总的Seeder文件当中</p>
+</div><p>将自动填充文件写入总的Seeder文件当中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -605,9 +601,9 @@ class AdminsTableSeeder extends Seeder
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">//in database/seeds/DatabaseSeeder.php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//in database/seeds/DatabaseSeeder.php
 
 class DatabaseSeeder extends Seeder
 {
@@ -621,37 +617,36 @@ class DatabaseSeeder extends Seeder
        // $this-&gt;call(UsersTableSeeder::class);
        $this-&gt;call(AdminsTableSeeder::class);
    }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>执行数据库迁移操作 <code>--seed</code> 顺便执行数据填充操作</p>
+</div><p>执行数据库迁移操作 <code>--seed</code> 顺便执行数据填充操作</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php artisan migrate --seed</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan migrate --seed
+</code></pre></td></tr></table>
 </div>
-</div>
-<blockquote>
+</div><blockquote>
 <p>好了,到这一步数据库就已经有了<code>admin</code> 这个表,而且里面出现了三条测试数据,我们接着看看控制器里是怎么操作的:</p>
 </blockquote>
-
 <p>首先创建相应的控制器:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php artisan make:controller Admin/LoginController
-php artisan make:controller Admin/HomeController</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan make:controller Admin/LoginController
+php artisan make:controller Admin/HomeController
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Admin/LoginController.php</p>
+</div><p>Admin/LoginController.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -711,9 +706,9 @@ php artisan make:controller Admin/HomeController</pre></td></tr></table>
 </span><span class="lnt">58
 </span><span class="lnt">59
 </span><span class="lnt">60
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -772,13 +767,13 @@ class LoginController extends Controller
 //    protected function username(){
 //        return &#39;name&#39;;
 //    }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>Admin/HomeController.php</p>
+</div><p>Admin/HomeController.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -810,9 +805,9 @@ class LoginController extends Controller
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 namespace App\Http\Controllers\Admin;
 
@@ -843,15 +838,14 @@ class HomeController extends Controller
    {
        dd(&#39;后台首页，当前用户名：&#39;.auth(&#39;admin&#39;)-&gt;user()-&gt;name);
    }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>因为在LoginController中也使用了 <code>guest</code>这个中间件,而系统自带的那个也使用了它,因此需要在这个中间件里面做一下区分</p>
-
+</div><p>因为在LoginController中也使用了 <code>guest</code>这个中间件,而系统自带的那个也使用了它,因此需要在这个中间件里面做一下区分</p>
 <p>编辑 <code>app/Http/Kernel.php</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -861,9 +855,9 @@ class HomeController extends Controller
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">public function handle($request, Closure $next, $guard = null)
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">public function handle($request, Closure $next, $guard = null)
    {
        if (Auth::guard($guard)-&gt;check()) {
 //            return redirect(&#39;/home&#39;);
@@ -872,22 +866,22 @@ class HomeController extends Controller
        }
 
        return $next($request);
-   }</pre></td></tr></table>
+   }
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>而在 <code>Admin/HomeController</code>这里,因为验证需要登录才能进入,我们给他也加了一个验证中间件 <code>AdminAuthMiddlware</code></p>
+</div><p>而在 <code>Admin/HomeController</code>这里,因为验证需要登录才能进入,我们给他也加了一个验证中间件 <code>AdminAuthMiddlware</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">php artisan make:middleware AdminAuthMiddlware</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">php artisan make:middleware AdminAuthMiddlware
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>编辑<code>AdminAuthMiddlware</code></p>
+</div><p>编辑<code>AdminAuthMiddlware</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -914,9 +908,9 @@ class HomeController extends Controller
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;?php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
 
 namespace App\Http\Middleware;
 use Closure;
@@ -942,13 +936,13 @@ class AdminAuthMiddleware
        }
        return $next($request);
    }
-}</pre></td></tr></table>
+}
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>在路由文件里添加对应的路由</p>
+</div><p>在路由文件里添加对应的路由</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -958,9 +952,9 @@ class AdminAuthMiddleware
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">// in routes/web.php
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// in routes/web.php
 //后台登录部分
 Route::group([&#39;prefix&#39; =&gt; &#39;admin&#39;,&#39;namespace&#39; =&gt; &#39;Admin&#39;],function ($router)
 {
@@ -969,13 +963,12 @@ Route::group([&#39;prefix&#39; =&gt; &#39;admin&#39;,&#39;namespace&#39; =&gt; &
    $router-&gt;any(&#39;logout&#39;, &#39;LoginController@logout&#39;);
 
    $router-&gt;get(&#39;dash&#39;, &#39;HomeController@index&#39;);
-});</pre></td></tr></table>
+});
+</code></pre></td></tr></table>
 </div>
-</div>
-<blockquote>
+</div><blockquote>
 <p>做到这一步其实就已经算是完成了,剩下的视图部分可以按照<code>resources/views/auth</code>中的内容创建一个<code>resource/views/admin</code>目录,<code>resource/views/admin/login/index.blade.php</code>就是后台登录界面,注意这里的表单提交地址要按刚才路由文件中写的指向后台的登录控制器中,<code>route('admin.login')</code></p>
 </blockquote>
-
 <p>这一段是我按照原文操作一遍后自己写了一遍,算是了解了auth的大致运行过程,其后就是翻一下源码进行解析了,为了controller中的代码好看一点其后的运作并不少,但是解耦做的非常不错</p>
 
     </div>

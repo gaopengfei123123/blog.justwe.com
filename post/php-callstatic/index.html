@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-callstatic/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="__callstatic">
 <meta itemprop="description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分">
-
-
 <meta itemprop="datePublished" content="2017-06-23T16:50:15&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="705">
 
 
 
-<meta itemprop="keywords" content="php,laravel," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="php,laravel," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="__callstatic"/>
 <meta name="twitter:description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分"/>
 
@@ -137,15 +134,13 @@
 
     
     <div class="post-content">
-      <p>现在很多框架中调用方法都是<code>Foo::bar()</code>这种格式的,但是他们真的是静态方法吗?
-<!-- more --></p>
-
+      <p>现在很多框架中调用方法都是<code>Foo::bar()</code>这种格式的,但是他们真的是静态方法吗?</p>
+<!-- raw HTML omitted -->
 <p>这种情况在 <code>larave</code> 中尤其常见,但是开发过程中很明显这些有一部分不是静态的,比如你使用一个模型<code>User</code>,那么你每次实例化出来他都是一个全新的,互不影响,这里就用到了一个魔术方法<code>__callStatic</code></p>
-
 <p>举个栗子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -185,13 +180,11 @@
 </span><span class="c1">//this is __callStatic:hi
 </span></code></pre></td></tr></table>
 </div>
-</div>
-<p>当然魔术方法也是很耗性能的一种方式,每次调用的时候后回先扫一遍<code>class</code>没找到方法时才会调用它,而为了代码的整洁和抽象这个方法也能给很大的帮助,在这之间去要有个权衡</p>
-
+</div><p>当然魔术方法也是很耗性能的一种方式,每次调用的时候后回先扫一遍<code>class</code>没找到方法时才会调用它,而为了代码的整洁和抽象这个方法也能给很大的帮助,在这之间去要有个权衡</p>
 <p>下面实现的 <code>log</code> 类,采用的就是这种方法,将方法解耦出来,只要符合规定的接口就能调用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -299,11 +292,10 @@
 <span class="nv">$test</span><span class="o">-&gt;</span><span class="na">alert</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>
-<p>输出:</p>
+</div><p>输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -315,9 +307,9 @@
 </span><span class="lnt">10
 </span><span class="lnt">11
 </span><span class="lnt">12
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">this is Log method info
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">this is Log method info
 array(4) {
   [0]=&gt;
   string(6) &#34;好好&#34;
@@ -328,10 +320,10 @@ array(4) {
   [3]=&gt;
   string(6) &#34;向上&#34;
 }
-this is Log method alert: hello</pre></td></tr></table>
+this is Log method alert: hello
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也许有的小伙伴已经看出来了,没错!这段代码就是仿照(抄)的 <code>EasyWechat</code>的日志部分,<a href="https://github.com/overtrue/wechat/blob/master/src/Support/Log.php">代码片段</a></p>
+</div><p>也许有的小伙伴已经看出来了,没错!这段代码就是仿照(抄)的 <code>EasyWechat</code>的日志部分,<a href="https://github.com/overtrue/wechat/blob/master/src/Support/Log.php">代码片段</a></p>
 
     </div>
 

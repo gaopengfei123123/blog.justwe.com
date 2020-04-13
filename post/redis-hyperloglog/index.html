@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? p{ text-indent:2em;} 场景 下面有三个选择: 1. 甩给公司的大数据部门, 让他们搞去 2. 开始记录i" /><meta name="keywords" content="redis, HyperLogLog, 算法, 统计UV" />
+<meta name="author" content="GPF" /><meta name="description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后" /><meta name="keywords" content="redis, HyperLogLog, 算法, 统计UV" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.59.1 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/redis-hyperloglog/" />
@@ -39,25 +39,22 @@
 
 
 <meta property="og:title" content="Redis 统计uv" />
-<meta property="og:description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? p{ text-indent:2em;} 场景 下面有三个选择: 1. 甩给公司的大数据部门, 让他们搞去 2. 开始记录i" />
+<meta property="og:description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/redis-hyperloglog/" />
 <meta property="article:published_time" content="2019-12-31T16:27:10+08:00" />
 <meta property="article:modified_time" content="2020-01-03T10:37:52+08:00" />
 <meta itemprop="name" content="Redis 统计uv">
-<meta itemprop="description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? p{ text-indent:2em;} 场景 下面有三个选择: 1. 甩给公司的大数据部门, 让他们搞去 2. 开始记录i">
-
-
+<meta itemprop="description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后">
 <meta itemprop="datePublished" content="2019-12-31T16:27:10&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-03T10:37:52&#43;08:00" />
-<meta itemprop="wordCount" content="830">
+<meta itemprop="wordCount" content="824">
 
 
 
-<meta itemprop="keywords" content="redis,cache,uv," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="redis,cache,uv," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Redis 统计uv"/>
-<meta name="twitter:description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? p{ text-indent:2em;} 场景 下面有三个选择: 1. 甩给公司的大数据部门, 让他们搞去 2. 开始记录i"/>
+<meta name="twitter:description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,49 +134,34 @@
 
     
     <div class="post-content">
-      
-
-<p>日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做?</p>
-
-<!-- more -->
-
-<style type="text/css">  
-p{ text-indent:2em;}  
-</style>  
-
+      <p>日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做?</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h3 id="场景">场景</h3>
-
-<p>下面有三个选择:
-1. 甩给公司的大数据部门, 让他们搞去
-2. 开始记录ip ,然后去重统计, b数/mysql/redis/hashMap等等
-3. bitmap
-4. 使用 HyperLogLog 算法</p>
-
+<p>下面有三个选择:</p>
+<ol>
+<li>甩给公司的大数据部门, 让他们搞去</li>
+<li>开始记录ip ,然后去重统计, b数/mysql/redis/hashMap等等</li>
+<li>bitmap</li>
+<li>使用 HyperLogLog 算法</li>
+</ol>
 <p>首先, 选1的时候看公司架构怎么说, 如果人家给你排期到半个月后了你这需求还做不做了?</p>
-
 <p>其次, 选2是我们的大多数情况, 而且是最直白的一种统计方式.
 这种方式的好处就是统计准确, 且能保留住数据, 在特定的业务里面还能复用(比如做个ip黑名单, 反作弊啥的).
 当然缺点也很明显, 如果你的服务请求量特别大, 那么你存储数据的体积增长特别快.</p>
-
 <p>比如放到redis的集合里面(曾经我就这么干过), 把所有请求的ip存到redis中, 最后统计集合中元素的个数, 后来运维开始在群里嚷嚷:咱们缓存服务的内存要不够用啦!
 运维把大key一列, 嗯? xx, 你这缓存能优化一下不? 这几百mb的冷数据扔缓存里面太浪费资源了balabala</p>
-
 <p>总之就是你得优化一下了, 那么怎么优化呢?</p>
-
 <p>bitmap也是一种不错的方式, 把十进制映射到bit字节上, 比如 10000000 个基数, 那么转换后就变成了  100000000/8/1024/1024 ≈ 12M, 这也是个不错的选择, 不过key很多的情况下占用空间也不少</p>
-
 <p>经过我一番谷歌+翻文档, 发现了这么个神奇的东西: HyperLogLog, 基于概率这种玄学的算法</p>
-
 <h3 id="在redis中的使用">在redis中的使用</h3>
-
 <p>Redis 在 2.8.9 版本添加了 HyperLogLog 结构, 它的优势就是每个key仅需12kb的内存, 就能存储 2^64 个不同元素的基数, 存储空间小且固定, 缺点就是元数据无法直接提取了</p>
-
 <p>这种是基于概率的算法, 既然是概率就包含着不确定性, 存在统计误差, 不过大部分场景是能hold住的, 如果需要<strong>绝对精确</strong>的情况, 不要用这个</p>
-
 <p>使用的命令如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-redis" data-lang="redis"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -191,7 +173,7 @@ p{ text-indent:2em;}
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-redis" data-lang="redis">127.0.0.1:6379&gt; PFADD test_uv id1 id2 id3 id4 id1
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">127.0.0.1:6379&gt; PFADD test_uv id1 id2 id3 id4 id1
 (integer) 1
 127.0.0.1:6379&gt; PFCOUNT test_uv
 (integer) 4
@@ -200,21 +182,15 @@ p{ text-indent:2em;}
 127.0.0.1:6379&gt; PFMERGE test_uv3 test_uv test_uv2
 OK
 127.0.0.1:6379&gt; PFCOUNT test_uv3
-(integer) 5</code></pre></td></tr></table>
+(integer) 5
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>PFADD 添加基数</p>
-
+</div><p>PFADD 添加基数</p>
 <p>PFCOUNT 统计个数</p>
-
 <p>PFMERGE 两个key合并</p>
-
 <p>就是这么简单, 粗暴</p>
-
 <h3 id="算法原理">算法原理</h3>
-
 <p>这个我也是看的别人的, 所以就把这两篇文章列出来自己复习一下:</p>
-
 <ul>
 <li><a href="http://www.rainybowe.com/blog/2017/07/13/%E7%A5%9E%E5%A5%87%E7%9A%84HyperLogLog%E7%AE%97%E6%B3%95/index.html">神奇的HyperLogLog算法</a></li>
 <li><a href="https://juejin.im/post/5c7900bf518825407c7eafd0#heading-5">HyperLogLog 算法的原理讲解以及 Redis 是如何应用它的</a></li>
