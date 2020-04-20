@@ -10,34 +10,48 @@
   
   <url>
     <loc>https://blog.justwe.site/categories/</loc>
-    <lastmod>2020-04-13T17:58:25+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/tags/docker/</loc>
-    <lastmod>2020-04-13T17:58:25+08:00</lastmod>
+    <lastmod>2020-04-20T11:24:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/post/</loc>
-    <lastmod>2020-04-13T17:58:25+08:00</lastmod>
+    <lastmod>2020-04-20T11:24:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/qiniu/</loc>
+    <lastmod>2020-04-20T11:24:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/tags/</loc>
-    <lastmod>2020-04-13T17:58:25+08:00</lastmod>
+    <lastmod>2020-04-20T11:24:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/categories/tools/</loc>
+    <lastmod>2020-04-20T11:24:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/blog-image-cdn/</loc>
+    <lastmod>2020-04-20T11:24:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/docker/</loc>
     <lastmod>2020-04-13T17:58:25+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

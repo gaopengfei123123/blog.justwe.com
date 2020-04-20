@@ -22,6 +22,16 @@
     </item>
     
     <item>
+      <title>博客图床自动匹配CDN</title>
+      <link>https://blog.justwe.site/post/blog-image-cdn/</link>
+      <pubDate>Mon, 20 Apr 2020 11:24:17 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/blog-image-cdn/</guid>
+      <description>&lt;p&gt;使用hugo, hexo这类的博客工具的时候比较头疼的就是把图片上传图床然后替换链接&lt;/p&gt;
+&lt;p&gt;于是就写了一个简单的工具来替代一下&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>关于docker for mac 占用大量硬盘的问题</title>
       <link>https://blog.justwe.site/post/docker-for-mac-huge-disk/</link>
       <pubDate>Mon, 13 Apr 2020 17:38:30 +0800</pubDate>
