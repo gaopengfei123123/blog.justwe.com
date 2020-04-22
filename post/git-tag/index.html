@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -132,7 +133,21 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#列出所有标签">列出所有标签</a></li>
+    <li><a href="#添加标签同时生成独立的版本库">添加标签(同时生成独立的版本库)</a></li>
+    <li><a href="#将标签推送到远程库">将标签推送到远程库</a></li>
+    <li><a href="#跳转到指定标签">跳转到指定标签</a></li>
+    <li><a href="#删除指定标签">删除指定标签</a></li>
+    <li><a href="#删除远程分支">删除远程分支</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <h2 id="列出所有标签">列出所有标签</h2>
 <div class="highlight"><div class="chroma">
@@ -311,7 +326,10 @@ git push origin v0.0.1
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

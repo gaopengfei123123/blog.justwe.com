@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -132,7 +133,30 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#build-构建重构服务容器">build 构建(重构)服务容器</a></li>
+        <li><a href="#up-这个才是最常用的">up (这个才是最常用的)</a></li>
+        <li><a href="#config-检测配置文件格式">config 检测配置文件格式</a></li>
+        <li><a href="#down-停止up启动的游戏">down 停止<code>up</code>启动的游戏</a></li>
+        <li><a href="#exec-进入指定的容器">exec 进入指定的容器</a></li>
+        <li><a href="#images-列出-compose-中包含的镜像">images 列出 compose 中包含的镜像</a></li>
+        <li><a href="#kill-发送信号停止容器">kill 发送信号停止容器</a></li>
+        <li><a href="#logs-日志">logs 日志</a></li>
+        <li><a href="#pause-暂停一个服务">pause 暂停一个服务</a></li>
+        <li><a href="#pull-拉取所需的镜像">pull 拉取所需的镜像</a></li>
+        <li><a href="#version-输出-compose-的版本">version 输出 compose 的版本</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <p>常用命令备注</p>
 <!-- raw HTML omitted -->
@@ -513,7 +537,10 @@
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

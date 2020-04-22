@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -132,7 +133,34 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#url-当中的参数有-timestamp1234567890这样的字段会被转义成xtamp1234567890">url 当中的参数有 <code>&amp;timestamp=1234567890</code>这样的字段会被转义成<code>xtamp=1234567890</code></a></li>
+        <li><a href="#automatically-populating-http_raw_post_data-is-deprecated-and-will-be-removed-in-a-future-version">Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version.</a></li>
+        <li><a href="#exception-yiidbexception-with-message-sqlstatehy000-2002-no-such-file-or-directory">Exception &lsquo;yii\db\Exception&rsquo; with message &lsquo;SQLSTATE[HY000] [2002] No such file or directory&rsquo;</a></li>
+        <li><a href="#常驻内存时发生的事情">常驻内存时发生的事情</a></li>
+        <li><a href="#mysql-has-gone-away">mysql has gone away</a></li>
+        <li><a href="#js-和-php-交互传中文参数的编解码问题">js 和 php 交互传中文参数的编解码问题</a></li>
+        <li><a href="#php中rawurlencode和urlencodejs中encodeuri与encodeuricomponent-的区别">PHP中rawurlencode和urlencode、JS中encodeURI与encodeURIComponent 的区别</a></li>
+        <li><a href="#关于出现-u200b-这种-zero-width-space-字符">关于出现 &lt;U+200B&gt; 这种 zero-width space 字符</a></li>
+        <li><a href="#mac-设置crontab--e--usrbinvi-exited-with-status-1">mac 设置crontab -e ： &ldquo;/usr/bin/vi&rdquo; exited with status 1</a></li>
+        <li><a href="#出现-the-httpsbowerherokuappcompackagesjquery-file-could-not-be-downloaded-http11-502-bad-gateway">出现: The &ldquo;<a href="https://bower.herokuapp.com/packages/jquery%22">https://bower.herokuapp.com/packages/jquery&quot;</a> file could not be downloaded (HTTP/1.1 502 Bad Gateway)</a></li>
+        <li><a href="#出现-jquery-ui-1114-and-jquery-30-的版本兼容问题">出现: Jquery UI 1.11.4 and jquery 3.0 的版本兼容问题</a></li>
+        <li><a href="#macos-brew安装php71-以及swoole扩展">macOS brew安装php7.1 以及swoole扩展</a></li>
+        <li><a href="#出现-connection-reset-by-peer-报错">出现 Connection reset by peer 报错</a></li>
+        <li><a href="#warning-preg_match-functionpreg-match-compilation-failed-pcre-does-not-support-l-l-n-u-or-u-at">Warning: preg_match() [function.preg-match]: Compilation failed: PCRE does not support \L, \l, \N, \U, or \u at</a></li>
+        <li><a href="#php匹配-utf-8-with-dom-的字符">php匹配 UTF-8 with DOM 的字符</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <p>这里做一些备注,以防再次碰到</p>
 <!-- raw HTML omitted -->
@@ -596,7 +624,10 @@ function toUTF8($str){
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

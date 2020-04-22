@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -132,7 +133,25 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#环境">环境</a></li>
+        <li><a href="#软件版本">软件版本</a></li>
+        <li><a href="#启动前的配置">启动前的配置</a></li>
+        <li><a href="#启动容器">启动容器</a></li>
+        <li><a href="#测试一下">测试一下</a></li>
+        <li><a href="#todo">TODO</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <blockquote>
 <p>找了不少使用 docker-elk 搭建的博客, 英文的阅读吃力不说, 镜像源也是慢的让人头皮发麻, 因此重新编排了一个<code>docker-compose</code>,源都是从 <a href="https://hub.docker.com/">https://hub.docker.com/</a> 上找的, 即使拉的国内镜像源应该也能很好的支持了吧?</p>
@@ -385,7 +404,10 @@ Creating docker-elk_kibana_1        ... done
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

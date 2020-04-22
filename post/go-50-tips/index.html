@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -132,7 +133,87 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#初级篇1-34">初级篇：1-34</a>
+      <ul>
+        <li><a href="#1-左大括号--一般不能单独放一行">1. 左大括号 <code>{</code> 一般不能单独放一行</a></li>
+        <li><a href="#2-未使用的变量">2. 未使用的变量</a></li>
+        <li><a href="#3-未使用的-import">3. 未使用的 import</a></li>
+        <li><a href="#4-简短声明的变量只能在函数内部使用">4. 简短声明的变量只能在函数内部使用</a></li>
+        <li><a href="#5-使用简短声明来重复声明变量">5. 使用简短声明来重复声明变量</a></li>
+        <li><a href="#6-不能使用简短声明来设置字段的值">6. 不能使用简短声明来设置字段的值</a></li>
+        <li><a href="#7-不小心覆盖了变量">7. 不小心覆盖了变量</a></li>
+        <li><a href="#8-显式类型的变量无法使用-nil-来初始化">8. 显式类型的变量无法使用 nil 来初始化</a></li>
+        <li><a href="#9-直接使用值为-nil-的-slicemap">9. 直接使用值为 nil 的 slice、map</a></li>
+        <li><a href="#10-map-容量">10. map 容量</a></li>
+        <li><a href="#11--string-类型的变量值不能为-nil">11.  string 类型的变量值不能为 nil</a></li>
+        <li><a href="#12-array-类型的值作为函数参数">12. Array 类型的值作为函数参数</a></li>
+        <li><a href="#13-range-遍历-slice-和-array-时混淆了返回值">13. range 遍历 slice 和 array 时混淆了返回值</a></li>
+        <li><a href="#14-slice-和-array-其实是一维数据">14. slice 和 array 其实是一维数据</a></li>
+        <li><a href="#15-访问-map-中不存在的-key">15. 访问 map 中不存在的 key</a></li>
+        <li><a href="#16-string-类型的值是常量不可更改">16. string 类型的值是常量，不可更改</a></li>
+        <li><a href="#17-string-与-byte-slice-之间的转换">17. string 与 byte slice 之间的转换</a></li>
+        <li><a href="#18-string-与索引操作符">18. string 与索引操作符</a></li>
+        <li><a href="#19-字符串并不都是-utf8-文本">19. 字符串并不都是 UTF8 文本</a></li>
+        <li><a href="#20-字符串的长度">20. 字符串的长度</a></li>
+        <li><a href="#21-在多行-arrayslicemap-语句中缺少--号">21. 在多行 array、slice、map 语句中缺少 <code>,</code> 号</a></li>
+        <li><a href="#22-logfatal-和-logpanic-不只是-log">22. <code>log.Fatal</code> 和 <code>log.Panic</code> 不只是 log</a></li>
+        <li><a href="#23-对内建数据结构的操作并不是同步的">23. 对内建数据结构的操作并不是同步的</a></li>
+        <li><a href="#24-range-迭代-string-得到的值">24. range 迭代 string 得到的值</a></li>
+        <li><a href="#25-range-迭代-map">25. range 迭代 map</a></li>
+        <li><a href="#26-switch-中的-fallthrough-语句">26. switch 中的 fallthrough 语句</a></li>
+        <li><a href="#27-自增和自减运算">27. 自增和自减运算</a></li>
+        <li><a href="#28-按位取反">28. 按位取反</a></li>
+        <li><a href="#29-运算符的优先级">29. 运算符的优先级</a></li>
+        <li><a href="#30-不导出的-struct-字段无法被-encode">30. 不导出的 struct 字段无法被 encode</a></li>
+        <li><a href="#31-程序退出时还有-goroutine-在执行">31. 程序退出时还有 goroutine 在执行</a></li>
+        <li><a href="#32-向无缓冲的-channel-发送数据只要-receiver-准备好了就会立刻返回">32. 向无缓冲的 channel 发送数据，只要 receiver 准备好了就会立刻返回</a></li>
+        <li><a href="#33-向已关闭的-channel-发送数据会造成-panic">33. 向已关闭的 channel 发送数据会造成 panic</a></li>
+        <li><a href="#34-使用了值为-nil--的-channel">34. 使用了值为 <code>nil </code> 的 channel</a></li>
+        <li><a href="#34-若函数-receiver-传参是传值方式则无法修改参数的原有值">34. 若函数 receiver 传参是传值方式，则无法修改参数的原有值</a></li>
+      </ul>
+    </li>
+    <li><a href="#中级篇35-50">中级篇：35-50</a>
+      <ul>
+        <li><a href="#35-关闭-http-的响应体">35. 关闭 HTTP 的响应体</a></li>
+        <li><a href="#36-关闭-http-连接">36. 关闭 HTTP 连接</a></li>
+        <li><a href="#37-将-json-中的数字解码为-interface-类型">37. 将 JSON 中的数字解码为 interface 类型</a></li>
+        <li><a href="#38-structarrayslice-和-map-的值比较">38. struct、array、slice 和 map 的值比较</a></li>
+        <li><a href="#39-从-panic-中恢复">39. 从 panic 中恢复</a></li>
+        <li><a href="#40-在-range-迭代-slicearraymap-时通过更新引用来更新元素">40. 在 range 迭代 slice、array、map 时通过更新引用来更新元素</a></li>
+        <li><a href="#41-slice-中隐藏的数据">41. slice 中隐藏的数据</a></li>
+        <li><a href="#42-slice-中数据的误用">42. Slice 中数据的误用</a></li>
+        <li><a href="#43-旧-slice">43. 旧 slice</a></li>
+        <li><a href="#44-类型声明与方法">44. 类型声明与方法</a></li>
+        <li><a href="#45-跳出-for-switch-和-for-select-代码块">45. 跳出 for-switch 和 for-select 代码块</a></li>
+        <li><a href="#46-for-语句中的迭代变量与闭包函数">46. for 语句中的迭代变量与闭包函数</a></li>
+        <li><a href="#47-defer-函数的参数值">47. defer 函数的参数值</a></li>
+        <li><a href="#48-defer-函数的执行时机">48. defer 函数的执行时机</a></li>
+        <li><a href="#49-失败的类型断言">49. 失败的类型断言</a></li>
+        <li><a href="#50-阻塞的-gorutinue-与资源泄露">50. 阻塞的 gorutinue 与资源泄露</a></li>
+      </ul>
+    </li>
+    <li><a href="#高级篇51-57">高级篇：51-57</a>
+      <ul>
+        <li><a href="#51-使用指针作为方法的-receiver">51. 使用指针作为方法的 receiver</a></li>
+        <li><a href="#52-更新-map-字段的值">52. 更新 map 字段的值</a></li>
+        <li><a href="#53-nil-interface-和-nil-interface-值">53. nil interface 和 nil interface 值</a></li>
+        <li><a href="#54-堆栈变量">54. 堆栈变量</a></li>
+        <li><a href="#55-gomaxprocsconcurrency并发and-parallelism并行">55. GOMAXPROCS、Concurrency（并发）and Parallelism（并行）</a></li>
+        <li><a href="#56-读写操作的重新排序">56. 读写操作的重新排序</a></li>
+        <li><a href="#57-优先调度">57. 优先调度</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <p><a href="https://github.com/wuYin/blog/blob/master/golang/50-shades-of-golang-traps-gotchas-mistakes.md">Golang 需要避免踩的 50 个坑</a></p>
 <blockquote>
@@ -4316,7 +4397,10 @@ cannot take the address of m[&ldquo;x&rdquo;]</p>
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">

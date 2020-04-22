@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -132,7 +133,19 @@
       </div>
     </header>
 
-    
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#做一个-svg-icon-组件">做一个 svg-icon 组件</a></li>
+    <li><a href="#使用-svg-sprite-loader">使用 svg-sprite-loader</a></li>
+    <li><a href="#压缩-svg-内容">压缩 svg 内容</a></li>
+    <li><a href="#最后">最后</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
     <div class="post-content">
       <p>之前都是用的<code>image sprite</code>或者使用的 <a href="http://fontawesome.io/">Font Awesome</a>这类的开源库
 现在咱们已经走进了现代浏览器的年代(ie9+),可以玩点新鲜的东西了,svg</p>
@@ -484,7 +497,10 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
 
 
 <script type="application/javascript">
