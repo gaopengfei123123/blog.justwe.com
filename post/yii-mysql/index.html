@@ -139,6 +139,11 @@
     <nav id="TableOfContents"></nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-10T18:00:55" title="December 10, 2019">December 10, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
     <div class="post-content">
       <p>yii2 + swoole 的模式下因为使用swoole做的常驻内存服务, 那么之前的设计思路会有一点偏差, 不是第一眼能看到的就是 <code>mysql has gone away</code>的问题</p>
 <p>目前解决思路就是当sql命令报错<code>mysql has gone away</code>的时候就断开重连再重新执行一次</p>
