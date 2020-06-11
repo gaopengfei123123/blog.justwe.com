@@ -10,42 +10,63 @@
   
   <url>
     <loc>https://blog.justwe.site/categories/</loc>
-    <lastmod>2020-06-10T18:01:52+08:00</lastmod>
+    <lastmod>2020-06-11T17:50:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/markdown/</loc>
-    <lastmod>2020-06-10T18:01:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/post/markdown-inline/</loc>
-    <lastmod>2020-06-10T18:01:52+08:00</lastmod>
+    <loc>https://blog.justwe.site/categories/default/</loc>
+    <lastmod>2020-06-11T17:50:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/post/</loc>
-    <lastmod>2020-06-10T18:01:52+08:00</lastmod>
+    <lastmod>2020-06-11T17:50:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/tags/</loc>
-    <lastmod>2020-06-10T18:01:52+08:00</lastmod>
+    <lastmod>2020-06-11T17:50:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/tcp/</loc>
+    <lastmod>2020-06-11T17:50:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/tcp-zhanbao/</loc>
+    <lastmod>2020-06-11T17:50:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/markdown/</loc>
+    <lastmod>2020-06-10T20:12:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/markdown-inline/</loc>
+    <lastmod>2020-06-10T20:12:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/categories/tools/</loc>
-    <lastmod>2020-06-10T18:01:52+08:00</lastmod>
+    <lastmod>2020-06-10T20:12:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -844,13 +865,6 @@
   <url>
     <loc>https://blog.justwe.site/tags/binary/</loc>
     <lastmod>2019-12-02T11:55:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/categories/default/</loc>
-    <lastmod>2019-12-10T18:00:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

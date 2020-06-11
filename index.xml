@@ -22,6 +22,16 @@
     </item>
     
     <item>
+      <title>TCP &#39;粘包&#39;问题</title>
+      <link>https://blog.justwe.site/post/tcp-zhanbao/</link>
+      <pubDate>Thu, 11 Jun 2020 17:50:27 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/tcp-zhanbao/</guid>
+      <description>&lt;p&gt;有一次面试被问道TCP&amp;quot;粘包&amp;quot;问题, 当时还有点蒙, 这什么玩意? 啥是粘包?&lt;/p&gt;
+&lt;p&gt;这其实是个人体验上感觉数据粘在一起了, 从这个现象上也反映出tcp的一些特性&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Markdown 使用内联ID</title>
       <link>https://blog.justwe.site/post/markdown-inline/</link>
       <pubDate>Wed, 10 Jun 2020 18:01:52 +0800</pubDate>
