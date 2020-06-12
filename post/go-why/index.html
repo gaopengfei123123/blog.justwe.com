@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/go-why/" />
 <meta property="article:published_time" content="2018-09-12T14:45:50+00:00" />
-<meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+<meta property="article:modified_time" content="2020-06-12T10:35:58+08:00" />
 <meta itemprop="name" content="身为 phper 为什么我选择 go 语言?">
 <meta itemprop="description" content="想换个语言开发的同学可以看这里 概况 go 相比 php 有哪些优势? go 的部署简单, 运行时只要把一个二进制文件扔到机器上就行, 这一点在容器化方面优势很大 可控">
 <meta itemprop="datePublished" content="2018-09-12T14:45:50&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1727">
+<meta itemprop="dateModified" content="2020-06-12T10:35:58&#43;08:00" />
+<meta itemprop="wordCount" content="1798">
 
 
 
@@ -165,15 +165,11 @@
         <li><a href="#面向对象">面向对象</a></li>
       </ul>
     </li>
+    <li><a href="#基于go的应用和开源工具">基于go的应用和开源工具</a></li>
   </ul>
 </nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
-    </div>
-  </div>
     <div class="post-content">
       <blockquote>
 <p>想换个语言开发的同学可以看这里</p>
@@ -191,7 +187,7 @@
 <h3 id="go-本身的优势">go 本身的优势</h3>
 <ul>
 <li>开发效率和运行的效率都在可接受范围</li>
-<li>成熟的官方库和活跃的社区, 还有官方出品的工具链</li>
+<li>成熟的官方库和活跃的社区, 还有官方出品的工具链, 站在巨人的肩膀上</li>
 <li>语法简单(25个关键字), 对于初学者来说不用受配置环境的苦</li>
 <li>良好兼容 c 语言</li>
 <li>语言层面支持并发</li>
@@ -199,9 +195,9 @@
 </ul>
 <h3 id="go-较于-php-的劣势">go 较于 php 的劣势</h3>
 <ul>
-<li>编译造成的繁琐操作</li>
+<li>编译造成的繁琐操作, 本地调试的时候比较烦</li>
 <li>代码量偏多</li>
-<li>至今没有一个成熟的依赖库管理工具, 缺乏版本管理</li>
+<li>至今没有一个成熟的依赖库管理工具, 缺乏版本管理(1.15版本之后好一些, 可以体验一下 go mod)</li>
 <li>字典类型要考虑并发读写安全的问题, 需要有<code>锁</code>的概念, 这一点 swoole 也有类似的情况</li>
 </ul>
 <hr>
@@ -893,6 +889,18 @@ src/                                # 我们开发的各种库和 go get 到的�
 </code></pre></td></tr></table>
 </div>
 </div><p><a href="https://github.com/gaopengfei123123/why-go">demo 代码地址</a></p>
+<h2 id="基于go的应用和开源工具">基于go的应用和开源工具</h2>
+<ul>
+<li><a href="https://www.kubernetes.org.cn/">kubernetes</a></li>
+<li><a href="https://www.docker.com/">docker</a></li>
+<li><a href="https://gogs.io/">gogos</a></li>
+<li><a href="https://github.com/caddyserver/caddy">caddy</a></li>
+<li><a href="https://github.com/etcd-io/etcd">etcd</a></li>
+<li><a href="https://github.com/gohugoio/hugo">hugo</a></li>
+<li><a href="https://github.com/astaxie/beego">beego</a></li>
+<li><a href="https://github.com/gin-gonic/gin">Gin</a></li>
+</ul>
+<p>等等&hellip;</p>
 
     </div>
 
@@ -904,8 +912,8 @@ src/                                # 我们开发的各种库和 go get 到的�
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-12-02
-        <a href="#ZgotmplZ/commit/521dbfe55fb3648ac43f2806e7fe9537f2a7ad1c" title="更新">(521dbfe)</a>
+        2020-06-12
+        <a href="#ZgotmplZ/commit/f96a3efd52e2d771311c516dca61665d5efd2979" title="更新一篇老文章">(f96a3ef)</a>
     </span>
   </p>
   
