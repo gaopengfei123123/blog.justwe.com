@@ -40,6 +40,15 @@
     </item>
     
     <item>
+      <title>PHP 单例</title>
+      <link>https://blog.justwe.site/post/php-singleton/</link>
+      <pubDate>Fri, 14 Jul 2017 11:05:31 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/php-singleton/</guid>
+      <description>&lt;p&gt;关于php单例模式的使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>PHP标准类库系列 Iterator</title>
       <link>https://blog.justwe.site/post/php-spl-iterator/</link>
       <pubDate>Tue, 27 Jun 2017 11:35:37 +0000</pubDate>

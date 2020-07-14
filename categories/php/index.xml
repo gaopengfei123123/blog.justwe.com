@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>PHP 单例</title>
+      <link>https://blog.justwe.site/post/php-singleton/</link>
+      <pubDate>Fri, 14 Jul 2017 11:05:31 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/php-singleton/</guid>
+      <description>&lt;p&gt;关于php单例模式的使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>__callstatic</title>
       <link>https://blog.justwe.site/post/php-callstatic/</link>
       <pubDate>Fri, 23 Jun 2017 16:50:15 +0000</pubDate>

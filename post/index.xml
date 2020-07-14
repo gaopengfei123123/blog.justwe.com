@@ -763,6 +763,15 @@
     </item>
     
     <item>
+      <title>PHP 单例</title>
+      <link>https://blog.justwe.site/post/php-singleton/</link>
+      <pubDate>Fri, 14 Jul 2017 11:05:31 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/php-singleton/</guid>
+      <description>&lt;p&gt;关于php单例模式的使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>element-dialog</title>
       <link>https://blog.justwe.site/post/element-dialog/</link>
       <pubDate>Tue, 11 Jul 2017 19:50:33 +0000</pubDate>
