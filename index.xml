@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>使用go在命令行打印进度条</title>
+      <link>https://blog.justwe.site/post/go-progress/</link>
+      <pubDate>Wed, 29 Jul 2020 17:51:25 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/go-progress/</guid>
+      <description>&lt;p&gt;打印进度条核心在于 &lt;code&gt;print(&amp;quot;\r&amp;quot;)&lt;/code&gt; 的使用&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[leetcode] Trap</title>
       <link>https://blog.justwe.site/post/leetcode-trap/</link>
       <pubDate>Wed, 01 Jul 2020 18:19:05 +0800</pubDate>
