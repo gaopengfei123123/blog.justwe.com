@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 11 Jun 2020 17:50:27 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2020 21:24:00 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/categories/default/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>同步,异步,阻塞,非阻塞IO</title>
+      <link>https://blog.justwe.site/post/sync-async-block-no_block-io/</link>
+      <pubDate>Tue, 04 Aug 2020 21:24:00 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/sync-async-block-no_block-io/</guid>
+      <description>&lt;p&gt;又到了抠字眼的时间, 解释一下同步,异步,阻塞,非阻塞IO的区别&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>TCP &#39;粘包&#39;问题</title>

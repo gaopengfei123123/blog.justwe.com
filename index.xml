@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>同步,异步,阻塞,非阻塞IO</title>
+      <link>https://blog.justwe.site/post/sync-async-block-no_block-io/</link>
+      <pubDate>Tue, 04 Aug 2020 21:24:00 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/sync-async-block-no_block-io/</guid>
+      <description>&lt;p&gt;又到了抠字眼的时间, 解释一下同步,异步,阻塞,非阻塞IO的区别&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>使用go在命令行打印进度条</title>
       <link>https://blog.justwe.site/post/go-progress/</link>
       <pubDate>Wed, 29 Jul 2020 17:51:25 +0800</pubDate>
