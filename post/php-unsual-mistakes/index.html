@@ -49,7 +49,7 @@
 <meta itemprop="description" content="这里做一些备注,以防再次碰到 url 当中的参数有 &amp;timestamp=1234567890这样的字段会被转义成xtamp=12345678">
 <meta itemprop="datePublished" content="2019-02-28T10:30:23&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="3299">
+<meta itemprop="wordCount" content="3635">
 
 
 
@@ -155,6 +155,7 @@
         <li><a href="#出现-connection-reset-by-peer-报错">出现 Connection reset by peer 报错</a></li>
         <li><a href="#warning-preg_match-functionpreg-match-compilation-failed-pcre-does-not-support-l-l-n-u-or-u-at">Warning: preg_match() [function.preg-match]: Compilation failed: PCRE does not support \L, \l, \N, \U, or \u at</a></li>
         <li><a href="#php匹配-utf-8-with-dom-的字符">php匹配 UTF-8 with DOM 的字符</a></li>
+        <li><a href="#allowed-memory-size-of-33554432-bytes-exhausted-tried-to-allocate-43148176-bytes-in-php">Allowed memory size of 33554432 bytes exhausted (tried to allocate 43148176 bytes) in php</a></li>
       </ul>
     </li>
   </ul>
@@ -521,6 +522,15 @@ function toUTF8($str){
 </div><p>不过 <code>utf-8 with dom</code> 对php来说是个隐患, 因为php没有对这块的处理, 会出现<code>ZERO WIDTH NO-BREAK SPACE</code>这样的问题, 有数据但是不会在页面输出</p>
 <p>参考:
 <a href="https://blog.csdn.net/wb_ustc/article/details/3575768">PHP UTF-8的 BOM 问题解决</a></p>
+<h3 id="allowed-memory-size-of-33554432-bytes-exhausted-tried-to-allocate-43148176-bytes-in-php">Allowed memory size of 33554432 bytes exhausted (tried to allocate 43148176 bytes) in php</h3>
+<p>当程序允许内存是 <code>64mb</code> 这时候出现一个 <code>70mb</code> 的变量, 就会出现这种情况</p>
+<p>出现这种情况的原因通常是微服务或者console这种常驻内存的程序运行时对一个不能回收的变量持续写入,比如如下情况:</p>
+<ol>
+<li>一个日志组件把日志信息全写到一个对象属性当中, 设计上是请求完毕后写入磁盘, 但是某个程序恰好是已100个为一组, 从数据库循环取10W条数据,
+这就导致程序不断向日志类里写数据, 还释放不了, 导致这个类的体积越来越大, 直到超过系统上限</li>
+<li>php的常驻进程里的静态变量只能不能写(除非你能确定程序发生了什么), 尤其是静态变量数组这个玩意, 因为php的数组是会自动扩容的, 每个会话都往这个
+数组中写数据, 就算一个会话写入一次, 日积月累下总有爆内存的一天, 这是一个巨大的隐患, 而且还不易发现</li>
+</ol>
 
     </div>
 
