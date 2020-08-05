@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[转] 一个专家眼中的Go与Java垃圾回收算法大对比 - 摸鱼划水</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="高可用架构「ArchNotes」微信公众号" /><meta name="description" content=" 导读：GC 是大部分现代语言内置的特性，本文作者针对 Go 语言声称的 10ms 以下的 GC 停顿进行了深入分析，还同 Java 的垃圾收集器做了对比。Go GC 是否已经足够成熟，请看高可用架构志愿者翻译的文章。
+" /><meta name="keywords" content="default" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.justwe.site/post/go-java-gc/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[转] 一个专家眼中的Go与Java垃圾回收算法大对比" />
+<meta property="og:description" content="
+导读：GC 是大部分现代语言内置的特性，本文作者针对 Go 语言声称的 10ms 以下的 GC 停顿进行了深入分析，还同 Java 的垃圾收集器做了对比。Go GC 是否已经足够成熟，请看高可用架构志愿者翻译的文章。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-java-gc/" />
+<meta property="article:published_time" content="2020-08-05T15:51:57+08:00" />
+<meta property="article:modified_time" content="2020-08-05T15:51:57+08:00" />
+<meta itemprop="name" content="[转] 一个专家眼中的Go与Java垃圾回收算法大对比">
+<meta itemprop="description" content="
+导读：GC 是大部分现代语言内置的特性，本文作者针对 Go 语言声称的 10ms 以下的 GC 停顿进行了深入分析，还同 Java 的垃圾收集器做了对比。Go GC 是否已经足够成熟，请看高可用架构志愿者翻译的文章。
+">
+<meta itemprop="datePublished" content="2020-08-05T15:51:57&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-05T15:51:57&#43;08:00" />
+<meta itemprop="wordCount" content="5715">
+
+
+
+<meta itemprop="keywords" content="gc," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[转] 一个专家眼中的Go与Java垃圾回收算法大对比"/>
+<meta name="twitter:description" content="
+导读：GC 是大部分现代语言内置的特性，本文作者针对 Go 语言声称的 10ms 以下的 GC 停顿进行了深入分析，还同 Java 的垃圾收集器做了对比。Go GC 是否已经足够成熟，请看高可用架构志愿者翻译的文章。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[转] 一个专家眼中的Go与Java垃圾回收算法大对比</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-05 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/"> 精选转载 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#gc-理论基础">GC 理论基础</a></li>
+    <li><a href="#权衡tradeoff的艺术">权衡（tradeoff）的艺术</a></li>
+    <li><a href="#代际generation假说">代际（generation）假说</a></li>
+    <li><a href="#go-并发垃圾收集器">Go 并发垃圾收集器</a></li>
+    <li><a href="#与-java-对比">与 Java 对比</a></li>
+    <li><a href="#结论">结论</a></li>
+    <li><a href="#来源">来源</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>导读：GC 是大部分现代语言内置的特性，本文作者针对 Go 语言声称的 10ms 以下的 GC 停顿进行了深入分析，还同 Java 的垃圾收集器做了对比。Go GC 是否已经足够成熟，请看高可用架构志愿者翻译的文章。</p>
+</blockquote>
+<p>我最近看过一堆宣传 Go 语言的最新垃圾收集器的文章。 其中一些文章来自 Go 项目本身。 他们声称 GC 技术发生了根本性的突破。</p>
+<p>以下是 2015 年 8 月新垃圾收集器的公告：</p>
+<p>Go 正在构建一个垃圾收集器（GC），不仅是为了了 2015 年，同时也为 2025 以及更远的未来…… stw 停顿不再是使用 Go 语言的障碍。在将来，应用程序随着硬件轻松地扩展，并且跟随硬件一起变得更加强大，GC 不会成为软件可扩展性的绊脚石。</p>
+<p>Go 团队不仅声称已经解决了 GC 暂停的问题，而且整个事情变得非常傻瓜：</p>
+<p>解决性能问题更高级别的一种方法是添加 GC 选项，每个性能问题设置不同的选项。程序员搜索适合其应用的合适 GC 设置。 缺点是，经过十年以后你会得到非常多配置选项（配置选项成为一门黑魔法）。Go 不会走这条路。 相反，我们提供一个单一的选项，称为 GOGC。</p>
+<p>此外，由于持续支持数十个选项，Go 团队可以根据真实应用程序的运行情况的反馈来改进运行时的效果。</p>
+<p>许多 Go 用户都非常满意于新的 runtime。 但是对我来说，它更像是一个误导。 由于这些声明在各种博客重复出现，现在是时候更深入地审视它们了。</p>
+<p>现实情况是，Go 的 GC 并没有真正实现任何新的思想或研究。 正如公告中表达的，它是一个并发标记/扫描收集器（基于 20 世纪 70 年代的想法）。 它被设计为以 GC 中其他因素为代价来优化暂停时间。 Go 的技术讲座似乎没有提到这些权衡：</p>
+<p>为了在接下来的十年中创建一个垃圾收集器，我们转向几十年前的一个算法。 Go 的新垃圾收集器是一个并发的，三色，标记扫描收集器，这是一个由 Dijkstra 在 1978 年首次提出的想法。和今天的大多数“企业级”垃圾收集器相比，这是一个经得起推敲的差异化选择，我们认为该算法非常适合现代硬件的属性和现代软件的延迟要求。</p>
+<p>读了上述声明之后，你可能会非常困惑，过去 40 年间，所有“企业”级别的 GC 研究没有任何成果？</p>
+<h2 id="gc-理论基础">GC 理论基础</h2>
+<p>下面是在设计垃圾收集算法时您想要考虑的不同因素：</p>
+<p>程序吞吐量：你的算法在多大程度上减慢程序？这表示为花费在执行垃圾收集与工作时间的百分比。</p>
+<p>GC吞吐量：在给定CPU时间内多少垃圾可以被收集器清除？</p>
+<p>堆开销：你的收集器需要多少额外的内存？如果你的算法在收集时分配临时内存，是否会使你的程序的内存使用突然暴涨？</p>
+<p>暂停时间：你的垃圾收集器stop world多久了？</p>
+<p>暂停频率：你的垃圾收集器多久暂停一次程序？</p>
+<p>暂停分布：有时有非常短暂的停顿，但有时会有很长的停顿。</p>
+<p>内存分配性能：分配新内存的时候是快还是慢？或者性能不可预测？</p>
+<p>整理：因为内存碎片的原因，在有足够的可用空间可满足请求，垃圾收集器是否会报告内存不足（OOM）错误？</p>
+<p>并发：垃圾收集器如何使用多核？</p>
+<p>扩展性：你的垃圾收集器随着堆增大工作情况如何？</p>
+<p>调优：垃圾收集器的配置有多复杂，可以开箱即用并获得最佳性能吗？</p>
+<p>预热时间：垃圾收集算法是否基于测量行为进行自适应调整？需要多长时间才能达到最佳？</p>
+<p>内存释放：您的算法是否释放未使用的内存回到操作系统？如果是，什么时候释放？</p>
+<p>可移植性：您的垃圾收集器是否可以在提供比x86更弱的内存一致性保证的CPU体系结构上工作？</p>
+<p>兼容性：您的垃圾收集器使用哪些语言和编译器？它可以与设计时没有考虑GC的语言（如 C++）一起工作吗？它需要修改编译器吗？如果是这样，更改GC算法是否需要重新编译所有程序和依赖关系？</p>
+<p>如你所见，设计垃圾收集器有很多不同的因子需要考虑，其中一些会影响您平台上更广泛的生态系统的设计。 我自己甚至不确定以上列表是否包含所有因子。</p>
+<p>因为设计空间如此复杂，所以垃圾收集是计算机科学的一个子领域。该领域有丰富的研究论文， 新的算法由学术界和工业界以稳定的速率提出并实现。 然而没有人发现单一的算法在理论上满足所有情况。</p>
+<h2 id="权衡tradeoff的艺术">权衡（tradeoff）的艺术</h2>
+<p>让我们讨论得更具体一点。</p>
+<p>第一个垃圾收集算法是为具有较小堆的单处理器机器设计的。 当时CPU和RAM是非常昂贵的，用户对程序暂停的要求并非很严苛，因此可见暂停是可以接受的。这个算法优先考虑最小化垃圾收集器的CPU和堆开销。这意味着在你分配内存失败之前，垃圾收集器没有做任何事情。垃圾收集器将暂停程序，并且完成堆的标记/扫描并回收内存。</p>
+<p>该类型的收集器尽管有些年迈，但仍然有一些优势 - 算法简单导致不会降低你的程序运行速度，当不进行垃圾收集时，不增加任何内存开销。在保守垃圾收集器如Boehm GC的情况下，甚至不需要修改编译器或换编程语言！这使它们适合于通常具有较小堆内存的桌面应用，包括AAA视频游戏（其中大量的RAM由不需要扫描的数据文件占用）。</p>
+<p>Stop-the-world（STW）标记/扫描 （mark/sweep）是本科计算机科学类中最常见的 GC 算法。在面试时，我会要求候选人谈一谈 GC，他们几乎总是将 GC作为黑盒并对 GC 知之甚少。</p>
+<p>简单的STW 标记/扫描（mark/sweep）有非常严重的问题。随着你添加处理器或者堆增长，该算法无法良好工作。但是 -如果你的堆比较小，该算法就能够满足对停顿时间的要求！在这种情况下，你应该使用该算法，以保持你的GC开销足够低。</p>
+<p>极端的情况下，也许你在一个拥有数十个核的机器上使用数百 GB 的堆。也许您的服务器正在运行金融市场交易，或搜索引擎，因此低暂停时间对您非常重要。这时候你可能愿意使用虽然降低程序运行速度但是可以并发执行的收集算法。</p>
+<p>或者您也许有大批量作业。因为它们是非交互式，所以暂停时间根本不重要。在这种情况下，您最好使用吞吐量高于一切的算法，可以提高工作时间与执行收集时间的比率。</p>
+<p>问题是没有单一的算法在所有方面都是完美的。语言运行时也不可能知道您的程序是批处理作业还是交互式延迟敏感型程序。这就是为什么“GC调优”存在的原因。它反映了我们计算机科学的基本限制。</p>
+<h2 id="代际generation假说">代际（generation）假说</h2>
+<p>自1984年以来，我们发现大多数对象都很“年轻”（在分配之后很快就变成垃圾）。这个情况被称为代际假说（generational hypothesis），是整个 PL 工程领域最强的经验之一。它在不同种类的编程语言中，以及在软件行业几十年的变化中一直是正确的：函数语言，命令式语言，没有值类型的语言和有值类型的语言都是如此。</p>
+<p>发现这个事实是非常有用的，因为它意味着 GC 算法可以在设计时利用它。这些新一代垃圾收集器对旧的 SWT 垃圾收集器有很多改进：</p>
+<p>GC吞吐量：他们可以更多更快的收集垃圾。</p>
+<p>分配性能：分配新的内存不再需要搜索通过堆寻找可用内存，因此内存分配器变得更有效。</p>
+<p>程序吞吐量：对象整齐地放在彼此相邻的内存中，这大大提高了缓存利用率。分代垃圾收集器确实需要程序在运行时做一些额外的工作，但是这种降低被改进的高速缓存效果所抵消。</p>
+<p>暂停时间：大多数（但不是全部）暂停时间变得更低。</p>
+<p>当然也引入一些缺点：</p>
+<p>兼容性：实现一个分代垃圾收集器需要能够在内存中移动对象，并且在某些情况下，当程序使用指针时需要执行额外的工作。这意味着GC必须与编译器紧密集成。因此没有用于 C++ 的分代垃圾收集器。</p>
+<p>堆开销：这些收集器通过在各种“空间”之间来回复制内存来工作。因为必须有空间来进行复制，这些垃圾收集器增加了一些堆开销。此外，它们需要维护各种指针映射，进一步增加内存开销。</p>
+<p>暂停分配：虽然许多GC暂停现在非常短，但有些仍然需要对整个堆执行完全标记/扫描。</p>
+<p>调优：代数收集器引入了“年轻代”或“eden空间”的概念，程序性能对这个空间的大小非常敏感。</p>
+<p>预热时间：为了响应调优问题，一些收集器通过观测程序的运行以来动态地调整年轻代的大小，这种情况下暂停时间就取决于程序运行多长时间。</p>
+<p>分代收集器的优势是如此诱人，因此基本上所有现代 GC 算法都是分代的。分代垃圾收集器可以通过各种其他功能进行增强，典型的现代 GC 将并发，并行，整理和分代集成在一起。</p>
+<h2 id="go-并发垃圾收集器">Go 并发垃圾收集器</h2>
+<p>由于 Go 是一种命令式语言，它的值类型，内存访问模式和 C# （.NET 使用分代垃圾收集器）相当。</p>
+<p>事实上，Go 程序通常是处理 request/response 任务（如 HTTP 服务器），这意味着 Go 程序表现出强烈的代际行为，Go 团队正在探索潜在的可以利用代际假说的算法，他们称之为“面向请求的垃圾收集器”。这本质上是一个可以策略调优的分代垃圾收集器。在处理请求/响应这种模式时，通过确保年轻代足够大以使通过处理请求产生的所有垃圾都在其中来优化 GC。（高可用架构译者注：指的是 Go下一代垃圾收集器 Transaction-Oriented Collector）</p>
+<p>尽管如此，Go 的当前 GC 是不分代的。只是在后台运行标记/扫描。（高可用架构译者注：并发标记清除算法）</p>
+<p>这样使暂停时间非常短 ，但使其他因素更糟糕。从我们的基本理论上面我们可以看到：</p>
+<p>GC吞吐量：GC时间与堆大小同步增长。简单来说，你的程序使用的内存越多，内存释放速度就越慢，你的计算机花费的时间就越多。如果你的程序没有并行化，你可以不用考虑这个问题。</p>
+<p>整理：因为没有整理，GC 过程会产生内存碎片。程序也不会受益于在缓存中整齐排列的内容。</p>
+<p>程序吞吐量：因为GC必须在每个周期做很多工作，所以会消耗不少CPU时间。</p>
+<p>暂停分布：与程序并发运行的任何垃圾收集器都可能遇到Java中“并发模式失败”的问题：您的程序创建垃圾的速度比GC线程可以清除它快。在这种情况下，runtime别无选择只能完全停止程序，等待GC完成垃圾收集。因此当Go团队声明GC暂停非常低时，该声明只能适用于GC具有足够的CPU时间和空间以完成垃圾回收的情况。另外，由于Go编译器缺乏确保线程可以被快速可靠暂停这一功能，会导致暂停时间是否很低取决于您运行的是什么类型的代码（例如，base64 解码单个 goroutine 中的大 blob 会导致暂停时间上升）。</p>
+<p>堆开销：因为通过标记/扫描收集堆非常慢，您需要大量的空间以确保不会遇见“并发模式故障”。 Go默认使用100％的堆开销会让程序需要的内存量增加一倍。</p>
+<p>我们可以看到这些权衡：</p>
+<p>服务1分配内存多于服务2，因此STW暂停在服务1中较高。但STW暂停持续时间在两个服务上都下降了一个数量级。我们看到切换后，两个服务后在GC中花费的CPU使用率增加了约20％。</p>
+<p>在这个特定的情况下，Go 以更慢的收集器为代价换取暂停时间的数量级下降。这是一个好的权衡吗？暂停时间已经足够低吗？</p>
+<p>付出更多的硬件成本以获得较低的暂停时间，在一些情况下未必有意义。如果你的服务器暂停时间从 10msec 降低到 1msec，你的用户真的会注意到吗？如果你必须加倍你的机器数量才能达成这一目的呢？</p>
+<p>Go 将暂停时间优化作为首要目标，以至于它似乎愿意将程序减慢至任何数量级，以获得较短暂停。</p>
+<h2 id="与-java-对比">与 Java 对比</h2>
+<p>HotSpot JVM 有几个 GC 算法，您可以在命令行中选择。因为他需要平衡其他各种因素，因此没有一个 GC 算法的目标能将暂停时间降低到 Go 水平。可以通过重新启动程序在 GC 之间切换，因为编译是在程序运行时完成（高可用架构译者注：这里指 JIT 编译器），所以不同算法所需的不同内存屏障可以根据需要编译和优化到代码中。</p>
+<p>默认算法是吞吐量收集器（throughput collector）。这是为批处理作业设计的，默认情况下没有任何暂停时间目标。这种默认选择也是人们认为 Java GC 有点吸引力的一个原因：开箱即用，它试图使您的应用程序尽可能快地运行，并尽可能少的内存开销，而暂停时间不是该算法首要考虑的。</p>
+<p>如果暂停时间对您更重要，那么您可能需要切换到并发标记/扫描收集器（ CMS concurrent mark / sweep collector）。这是和 Go 使用的 GC 算法最接近的垃圾收集器。但它也是分代的垃圾收集器，这也是为什么它的暂停时间比 Go 的更长的原因：年轻代需要整理并移动对象，而导致应用程序暂停。 CMS 中有两种类型的暂停。第一种，较为短暂可能持续大约 2-5 毫秒。第二种可能会持续 20 毫秒或者更久。 CMS 是自适应的：因为是并发的，所以它必须猜测什么时候可以开始运行 GC（就像 Go）。 CMS 将在运行时调整自己并尝试避免“并发模式故障”。因为堆的大部分是标记/扫描算法（高可用架构译者注：这里说的是老年代，使用 CMS 算法的时候，年轻代并非使用该算法而是使用基于标记/整理的 ParNew，所以严格来说把整理并整理内存的好处算在 CMS 算法头上是有问题的），可能会因为堆碎片而导致问题。</p>
+<p>最新一代 Java GC 被称为“ G1”（ garbage first 垃圾优先）。它将在 Java 9 中成为默认算法。它旨在提供一个通用的算法。该算法是针对整个堆的并发的，分代的和整理的算法。 G1 在很大程度上也是自适应的，因为（像所有的 GC 算法）它不能知道你真正想要什么，但它允许你指定首选权衡：只需要告诉它你允许使用的 RAM 最大值和暂停时间目标（以毫秒为单位），它就会尽力满足暂停时间目标。除非你指定不同的目标，否则默认的暂停时间目标大约是 100 毫秒。 G1 会更倾向于让你的应用程序运行的速度快而非暂停少。其每次暂停时间并不完全一致，但大多数都非常快（少于一毫秒），有些暂停因为堆被整理而稍慢（ 50 毫秒）。 G1 的扩展性也非常好。有报告称，人们在 TB 级别堆规模的程序上使用 G1 算法。它还有一些其他功能，如重复数据删除堆中的字符串。</p>
+<p>Red Hat 支持的一个项目组开发了一种新的 GC 算法，称为 Shenandoah。代码已经贡献给 OpenJDK，但不会出现在 Java 9 中（除非你使用红帽子的 Java 版本）。这一算法被设计为无论堆多大的情况下，都可以在提供整理的同时保证非常低的暂停时间。其成本是额外的堆开销和更多的内存屏障（高可用架构译者注：同时使用了读写屏障，而上述其他算法都只使用了写屏障）。在这个意义上，它类似于 Azul 的“无暂停”垃圾收集器（ArchNotes 译者注：指的是使用 C4 算法的垃圾收集器，严格来说也并非完全无停顿，只是保证停顿时间在任何情况都小于 10ms, 由于在软实时系统上 OS 带来的误差有可能超过 10ms，因此可以认为是无停顿垃圾收集器）。</p>
+<h2 id="结论">结论</h2>
+<p>本文的重点不是说服你使用不同的编程语言或工具。 只是希望带来对垃圾收集器的正确的理解。垃圾收集是一个非常挑战的工作，很多计算机科学家在上面耗费了数十年，因此不太有可能一晚上就会有一个全新的别人没用过的 GC 算法问世，更有可能的是，声称的新的 GC 算法只是对老的 GC 算法做了一个不同的，而且成熟的 GC 算法不太会考虑的偏门 tradeoff 而已。</p>
+<p>但是如果你仅希望减少程序暂停时间，那么请关注 Go GC。</p>
+<h2 id="来源">来源</h2>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=2653548163&amp;idx=1&amp;sn=870f487c65d48513c1045b6286474641&amp;chksm=813a7f1bb64df60d01db71564ede663a9f9428ef5637d79b81b383fde99f690d62d9e32628b8&amp;scene=21#wechat_redirect">原文地址</a></p>
+<p><img src="/images/qrcode/arch-note.webp" alt="二维码"></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">高可用架构「ArchNotes」微信公众号</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/gc/">gc</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/sync-async-block-no_block-io/">
+            <span class="next-text nav-default">同步,异步,阻塞,非阻塞IO</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.justwe.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

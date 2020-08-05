@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 17 Jan 2020 17:17:29 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 15:51:57 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.justwe.site/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[转] 一个专家眼中的Go与Java垃圾回收算法大对比</title>
+      <link>https://blog.justwe.site/post/go-java-gc/</link>
+      <pubDate>Wed, 05 Aug 2020 15:51:57 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/go-java-gc/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;导读：GC 是大部分现代语言内置的特性，本文作者针对 Go 语言声称的 10ms 以下的 GC 停顿进行了深入分析，还同 Java 的垃圾收集器做了对比。Go GC 是否已经足够成熟，请看高可用架构志愿者翻译的文章。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
     
     <item>
       <title>[转] 羊毛党跑去京东摸了年终奖</title>

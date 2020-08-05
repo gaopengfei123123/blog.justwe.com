@@ -22,6 +22,17 @@
     </item>
     
     <item>
+      <title>[转] 一个专家眼中的Go与Java垃圾回收算法大对比</title>
+      <link>https://blog.justwe.site/post/go-java-gc/</link>
+      <pubDate>Wed, 05 Aug 2020 15:51:57 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/go-java-gc/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;导读：GC 是大部分现代语言内置的特性，本文作者针对 Go 语言声称的 10ms 以下的 GC 停顿进行了深入分析，还同 Java 的垃圾收集器做了对比。Go GC 是否已经足够成熟，请看高可用架构志愿者翻译的文章。&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
       <title>同步,异步,阻塞,非阻塞IO</title>
       <link>https://blog.justwe.site/post/sync-async-block-no_block-io/</link>
       <pubDate>Tue, 04 Aug 2020 21:24:00 +0800</pubDate>
