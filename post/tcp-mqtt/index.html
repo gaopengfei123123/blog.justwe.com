@@ -53,7 +53,7 @@
 那么这篇文章也是这样, 就是使用go怎么使用mqtt通信, 不涉及原理, 文章止步于能跑起来一个demo, 后续怎么开发, 怎么使用就看个人体验了, 也不是一篇文章能记录下来的">
 <meta itemprop="datePublished" content="2020-08-13T15:43:55&#43;08:00" />
 <meta itemprop="dateModified" content="2020-08-13T16:21:18&#43;08:00" />
-<meta itemprop="wordCount" content="886">
+<meta itemprop="wordCount" content="887">
 
 
 
@@ -268,6 +268,7 @@ go get golang.org/x/net/proxy
 </span><span class="lnt">70
 </span><span class="lnt">71
 </span><span class="lnt">72
+</span><span class="lnt">73
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="cm">/*
@@ -301,30 +302,30 @@ go get golang.org/x/net/proxy
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// 打印程序运行结果, 感觉干扰视线就把 mqtt.DEBUG个注释掉
+	<span class="c1">// 打印程序运行结果, 感觉干扰视线就把 mqtt.DEBUG个注释掉
 </span><span class="c1"></span>	<span class="nx">mqtt</span><span class="p">.</span><span class="nx">DEBUG</span> <span class="p">=</span> <span class="nx">log</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="nx">mqtt</span><span class="p">.</span><span class="nx">ERROR</span> <span class="p">=</span> <span class="nx">log</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="c1">// 这里使用的本地地址
+	<span class="nx">mqtt</span><span class="p">.</span><span class="nx">ERROR</span> <span class="p">=</span> <span class="nx">log</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="c1">// 这里使用的本地地址
 </span><span class="c1"></span>	<span class="nx">opts</span> <span class="o">:=</span> <span class="nx">mqtt</span><span class="p">.</span><span class="nf">NewClientOptions</span><span class="p">().</span><span class="nf">AddBroker</span><span class="p">(</span><span class="s">&#34;tcp://0.0.0.0:1883&#34;</span><span class="p">).</span><span class="nf">SetClientID</span><span class="p">(</span><span class="s">&#34;gotrivial&#34;</span><span class="p">)</span>
-    <span class="nx">opts</span><span class="p">.</span><span class="nf">SetKeepAlive</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-    
-    <span class="c1">// 这里需要注入一个client收到消息后对消息处理的方法
+	<span class="nx">opts</span><span class="p">.</span><span class="nf">SetKeepAlive</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+
+	<span class="c1">// 这里需要注入一个client收到消息后对消息处理的方法
 </span><span class="c1"></span>	<span class="nx">opts</span><span class="p">.</span><span class="nf">SetDefaultPublishHandler</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
 	<span class="nx">opts</span><span class="p">.</span><span class="nf">SetPingTimeout</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 
-    <span class="c1">// 启动一个链接
+	<span class="c1">// 启动一个链接
 </span><span class="c1"></span>	<span class="nx">c</span> <span class="o">:=</span> <span class="nx">mqtt</span><span class="p">.</span><span class="nf">NewClient</span><span class="p">(</span><span class="nx">opts</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">token</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Connect</span><span class="p">();</span> <span class="nx">token</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">token</span><span class="p">.</span><span class="nf">Error</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nb">panic</span><span class="p">(</span><span class="nx">token</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
 	<span class="p">}</span>
 
-    <span class="c1">// 订阅一个topic
+	<span class="c1">// 订阅一个topic
 </span><span class="c1"></span>	<span class="k">if</span> <span class="nx">token</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Subscribe</span><span class="p">(</span><span class="s">&#34;go-mqtt/sample&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">nil</span><span class="p">);</span> <span class="nx">token</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nx">token</span><span class="p">.</span><span class="nf">Error</span><span class="p">()</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">token</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
 		<span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 	<span class="p">}</span>
 
-    <span class="c1">// 向topic发布消息, SetDefaultPublishHandler里收消息
+	<span class="c1">// 向topic发布消息, SetDefaultPublishHandler里收消息
 </span><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 		<span class="nx">text</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;this is msg #%d!&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
 		<span class="nx">token</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Publish</span><span class="p">(</span><span class="s">&#34;go-mqtt/sample&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span>
@@ -342,6 +343,7 @@ go get golang.org/x/net/proxy
 
 	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 <span class="p">}</span>
+
 </code></pre></td></tr></table>
 </div>
 </div><p>demo里提供的地址国内估计用不了, 换成本地<code>mosquitto</code>的就行了, 然后运行一下就能看到效果了, 如果想了解更多的用法, 就翻翻那个包里其他的用例</p>
