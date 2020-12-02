@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/composer-redis-lbs/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="使用redis—geo api实现搜索附近的人，自己写的一个composer包">
 <meta itemprop="description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos">
-<meta itemprop="datePublished" content="2017-03-11T12:11:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="datePublished" content="2017-03-11T12:11:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="957">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用redis—geo api实现搜索附近的人，自己写的一个composer包"/>
 <meta name="twitter:description" content="git地址 安装 需要使用composer，安装composer, composer中国镜像 如果是应用在项目当中的话找到根目录，需要和 compos"/>
 
@@ -134,7 +135,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -149,8 +150,8 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    <div class="warn">
+      <p><span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -175,8 +176,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">require_once __DIR__.&#39;/vendor/autoload.php&#39;;
-$lbs = new \LBS\Services\LBSService();
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">require_once</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+<span class="nv">$lbs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\LBS\Services\LBSService</span><span class="p">();</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="添加">添加</h2>
@@ -229,51 +230,51 @@ $lbs = new \LBS\Services\LBSService();
 </span><span class="lnt">45
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$add_params = [
-    [
-        &#39;name&#39; =&gt; &#39;yabao_road&#39;,
-        &#39;long&#39; =&gt; &#39;116.43620200729366&#39;,
-        &#39;lat&#39; =&gt; &#39;39.916880160714435&#39;
-    ],
-    [
-        &#39;name&#39; =&gt; &#39;jianguomen&#39;,
-        &#39;long&#39; =&gt; &#39;116.4356870231628&#39;,
-        &#39;lat&#39; =&gt; &#39;39.908560377800676&#39;
-    ],
-    [
-        &#39;name&#39; =&gt; &#39;chaoyangmen&#39;,
-        &#39;long&#39; =&gt; &#39;116.4345336732864&#39;,
-        &#39;lat&#39; =&gt; &#39;39.924466658329585&#39;
-    ],
-    [
-        &#39;name&#39; =&gt; &#39;galaxy_soho&#39;,
-        &#39;long&#39; =&gt; &#39;116.4335788068771&#39;,
-        &#39;lat&#39; =&gt; &#39;39.921372916981106&#39;
-    ],
-    [
-        &#39;name&#39; =&gt; &#39;cofco&#39;,
-        &#39;long&#39; =&gt; &#39;116.43564410781856&#39;,
-        &#39;lat&#39; =&gt; &#39;39.92024564137184&#39;
-    ],
-    [
-        &#39;name&#39; =&gt; &#39;fesco&#39;,
-        &#39;long&#39; =&gt; &#39;116.435182767868&#39;,
-        &#39;lat&#39; =&gt; &#39;39.91811857809279&#39;
-    ],
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$add_params</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yabao_road&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;long&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;116.43620200729366&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;39.916880160714435&#39;</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;jianguomen&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;long&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;116.4356870231628&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;39.908560377800676&#39;</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;chaoyangmen&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;long&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;116.4345336732864&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;39.924466658329585&#39;</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;galaxy_soho&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;long&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;116.4335788068771&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;39.921372916981106&#39;</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;cofco&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;long&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;116.43564410781856&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;39.92024564137184&#39;</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;fesco&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;long&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;116.435182767868&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;lat&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;39.91811857809279&#39;</span>
+    <span class="p">],</span>
 
 
-];
-/**
- * 在集合中新加一个坐标
- * @param array $params
- *  结构是 [&#39;name&#39;=&gt;&#39;xxx&#39;,&#39;long&#39;=&gt;&#39;1.2321&#39;,&#39;lat&#39;=&gt;&#39;1.3112&#39;]或者[[&#39;name&#39;=&gt;&#39;xxx&#39;,&#39;long&#39;=&gt;&#39;1.2321&#39;,&#39;lat&#39;=&gt;&#39;1.3112&#39;]]
- * @param null $key
- * @return int
- */
-$res = $lbs-&gt;add($add_params);
+<span class="p">];</span>
+<span class="sd">/**
+</span><span class="sd"> * 在集合中新加一个坐标
+</span><span class="sd"> * @param array $params
+</span><span class="sd"> *  结构是 [&#39;name&#39;=&gt;&#39;xxx&#39;,&#39;long&#39;=&gt;&#39;1.2321&#39;,&#39;lat&#39;=&gt;&#39;1.3112&#39;]或者[[&#39;name&#39;=&gt;&#39;xxx&#39;,&#39;long&#39;=&gt;&#39;1.2321&#39;,&#39;lat&#39;=&gt;&#39;1.3112&#39;]]
+</span><span class="sd"> * @param null $key
+</span><span class="sd"> * @return int
+</span><span class="sd"> */</span>
+<span class="nv">$res</span> <span class="o">=</span> <span class="nv">$lbs</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$add_params</span><span class="p">);</span>
 
-返回
-int 6
+<span class="nx">返回</span>
+<span class="nx">int</span> <span class="mi">6</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="删除">删除</h2>
@@ -295,20 +296,20 @@ int 6
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">/**
- * 删除集合中指定元素
- * @param $name
- * @param null $key  默认存在集合，可以指定
- * @return int
- */
-$res = $lbs-&gt;del(&#39;gao1&#39;);
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="sd">/**
+</span><span class="sd"> * 删除集合中指定元素
+</span><span class="sd"> * @param $name
+</span><span class="sd"> * @param null $key  默认存在集合，可以指定
+</span><span class="sd"> * @return int
+</span><span class="sd"> */</span>
+<span class="nv">$res</span> <span class="o">=</span> <span class="nv">$lbs</span><span class="o">-&gt;</span><span class="na">del</span><span class="p">(</span><span class="s1">&#39;gao1&#39;</span><span class="p">);</span>
 
-返回
-int 0 或 1
+<span class="nx">返回</span>
+<span class="nx">int</span> <span class="mi">0</span> <span class="nx">或</span> <span class="mi">1</span>
 
 
-如果是指定的集合名就
-$res = $lbs-&gt;del(&#39;gao1&#39;,&#39;set-name&#39;);
+<span class="nx">如果是指定的集合名就</span>
+<span class="nv">$res</span> <span class="o">=</span> <span class="nv">$lbs</span><span class="o">-&gt;</span><span class="na">del</span><span class="p">(</span><span class="s1">&#39;gao1&#39;</span><span class="p">,</span><span class="s1">&#39;set-name&#39;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="用坐标查询附近的单位">用坐标查询附近的单位</h2>
@@ -346,36 +347,36 @@ $res = $lbs-&gt;del(&#39;gao1&#39;,&#39;set-name&#39;);
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">/**
- * 查询范围内元素，如果不转 key就用默认的
- * @param $long     经度
- * @param $lat      纬度
- * @param $radius   范围
- * @param $unit     单位  (仅支持 m,km,ft,mi)
- * @param null $key 集合名
- * @return mixed
- */
-$search = $lbs-&gt;search(&#39;116.435182767868&#39;,&#39;39.91811857809279&#39;,500,&#39;m&#39;);
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="sd">/**
+</span><span class="sd"> * 查询范围内元素，如果不转 key就用默认的
+</span><span class="sd"> * @param $long     经度
+</span><span class="sd"> * @param $lat      纬度
+</span><span class="sd"> * @param $radius   范围
+</span><span class="sd"> * @param $unit     单位  (仅支持 m,km,ft,mi)
+</span><span class="sd"> * @param null $key 集合名
+</span><span class="sd"> * @return mixed
+</span><span class="sd"> */</span>
+<span class="nv">$search</span> <span class="o">=</span> <span class="nv">$lbs</span><span class="o">-&gt;</span><span class="na">search</span><span class="p">(</span><span class="s1">&#39;116.435182767868&#39;</span><span class="p">,</span><span class="s1">&#39;39.91811857809279&#39;</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">);</span>
 
-返回数组
-array:4 [▼
-  0 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;fesco&#34;
-    &#34;dist&#34; =&gt; &#34;0.1250&#34;
-  ]
-  1 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;yabao_road&#34;
-    &#34;dist&#34; =&gt; &#34;162.8454&#34;
-  ]
-  2 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;cofco&#34;
-    &#34;dist&#34; =&gt; &#34;239.7758&#34;
-  ]
-  3 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;galaxy_soho&#34;
-    &#34;dist&#34; =&gt; &#34;386.9165&#34;
-  ]
-]
+<span class="nx">返回数组</span>
+<span class="k">array</span><span class="o">:</span><span class="mi">4</span> <span class="p">[</span><span class="nx">▼</span>
+  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;fesco&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;0.1250&#34;</span>
+  <span class="p">]</span>
+  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;yabao_road&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;162.8454&#34;</span>
+  <span class="p">]</span>
+  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;cofco&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;239.7758&#34;</span>
+  <span class="p">]</span>
+  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;galaxy_soho&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;386.9165&#34;</span>
+  <span class="p">]</span>
+<span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="根据已有的位置查询">根据已有的位置查询</h2>
@@ -412,35 +413,35 @@ array:4 [▼
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">/**
- * 根据集合中的元素查询范围内元素，如果不转 key就用默认的
- * @param $name         集合中的元素名
- * @param $radius       范围
- * @param $unit         单位
- * @param null $key     集合名
- * @return mixed
- */
-$search = $lbs-&gt;-&gt;searchByMembers(&#39;fesco&#39;,500,&#39;m&#39;);
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="sd">/**
+</span><span class="sd"> * 根据集合中的元素查询范围内元素，如果不转 key就用默认的
+</span><span class="sd"> * @param $name         集合中的元素名
+</span><span class="sd"> * @param $radius       范围
+</span><span class="sd"> * @param $unit         单位
+</span><span class="sd"> * @param null $key     集合名
+</span><span class="sd"> * @return mixed
+</span><span class="sd"> */</span>
+<span class="nv">$search</span> <span class="o">=</span> <span class="nv">$lbs</span><span class="o">-&gt;-&gt;</span><span class="nx">searchByMembers</span><span class="p">(</span><span class="s1">&#39;fesco&#39;</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">);</span>
 
-返回数组
-array:4 [▼
-  0 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;fesco&#34;
-    &#34;dist&#34; =&gt; &#34;0.1250&#34;
-  ]
-  1 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;yabao_road&#34;
-    &#34;dist&#34; =&gt; &#34;162.8454&#34;
-  ]
-  2 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;cofco&#34;
-    &#34;dist&#34; =&gt; &#34;239.7758&#34;
-  ]
-  3 =&gt; array:2 [▼
-    &#34;name&#34; =&gt; &#34;galaxy_soho&#34;
-    &#34;dist&#34; =&gt; &#34;386.9165&#34;
-  ]
-]
+<span class="nx">返回数组</span>
+<span class="k">array</span><span class="o">:</span><span class="mi">4</span> <span class="p">[</span><span class="nx">▼</span>
+  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;fesco&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;0.1250&#34;</span>
+  <span class="p">]</span>
+  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;yabao_road&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;162.8454&#34;</span>
+  <span class="p">]</span>
+  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;cofco&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;239.7758&#34;</span>
+  <span class="p">]</span>
+  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="o">:</span><span class="mi">2</span> <span class="p">[</span><span class="nx">▼</span>
+    <span class="s2">&#34;name&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;galaxy_soho&#34;</span>
+    <span class="s2">&#34;dist&#34;</span> <span class="o">=&gt;</span> <span class="s2">&#34;386.9165&#34;</span>
+  <span class="p">]</span>
+<span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="列出集合的所有值其实就是-zrange">列出集合的所有值（其实就是 zrange)</h2>
@@ -466,24 +467,24 @@ array:4 [▼
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">/**
- * 列出集合中的内容
- * @param $key          集合的key
- * @param int $start    起始位置
- * @param int $end      结束位置 -1 为直到末尾
- * @return array
- */
-$list = $lbs-&gt;list($test-&gt;geoset_name,2,-1);
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="sd">/**
+</span><span class="sd"> * 列出集合中的内容
+</span><span class="sd"> * @param $key          集合的key
+</span><span class="sd"> * @param int $start    起始位置
+</span><span class="sd"> * @param int $end      结束位置 -1 为直到末尾
+</span><span class="sd"> * @return array
+</span><span class="sd"> */</span>
+<span class="nv">$list</span> <span class="o">=</span> <span class="nv">$lbs</span><span class="o">-&gt;</span><span class="na">list</span><span class="p">(</span><span class="nv">$test</span><span class="o">-&gt;</span><span class="na">geoset_name</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 
-返回数组
-array:6 [▼
-  0 =&gt; &#34;jianguomen&#34;
-  1 =&gt; &#34;yabao_road&#34;
-  2 =&gt; &#34;fesco&#34;
-  3 =&gt; &#34;cofco&#34;
-  4 =&gt; &#34;galaxy_soho&#34;
-  5 =&gt; &#34;chaoyangmen&#34;
-]
+<span class="nx">返回数组</span>
+<span class="k">array</span><span class="o">:</span><span class="mi">6</span> <span class="p">[</span><span class="nx">▼</span>
+  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="s2">&#34;jianguomen&#34;</span>
+  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s2">&#34;yabao_road&#34;</span>
+  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="s2">&#34;fesco&#34;</span>
+  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="s2">&#34;cofco&#34;</span>
+  <span class="mi">4</span> <span class="o">=&gt;</span> <span class="s2">&#34;galaxy_soho&#34;</span>
+  <span class="mi">5</span> <span class="o">=&gt;</span> <span class="s2">&#34;chaoyangmen&#34;</span>
+<span class="p">]</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -491,11 +492,11 @@ array:6 [▼
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-02
         <a href="#ZgotmplZ/commit/521dbfe55fb3648ac43f2806e7fe9537f2a7ad1c" title="更新">(521dbfe)</a>
@@ -510,11 +511,11 @@ array:6 [▼
         <a class="prev" href="/post/git-tag/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">git标签操作</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/redis-geohash-lbs/">
             <span class="next-text nav-default">LBS使用redis的解决方案--GEOHASH</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -554,11 +555,11 @@ array:6 [▼
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -567,13 +568,10 @@ array:6 [▼
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -594,7 +592,7 @@ array:6 [▼
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

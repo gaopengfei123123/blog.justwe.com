@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/redis-tips/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-27T11:44:12+08:00" />
 <meta itemprop="name" content="关于redis缓存的日常操作">
 <meta itemprop="description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至">
-<meta itemprop="datePublished" content="2019-12-24T11:45:20&#43;08:00" />
-<meta itemprop="dateModified" content="2019-12-27T11:44:12&#43;08:00" />
+<meta itemprop="datePublished" content="2019-12-24T11:45:20+08:00" />
+<meta itemprop="dateModified" content="2019-12-27T11:44:12+08:00" />
 <meta itemprop="wordCount" content="659">
 
 
 
-<meta itemprop="keywords" content="redis,cache," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="redis,cache," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于redis缓存的日常操作"/>
 <meta name="twitter:description" content="大致讲一下 缓存雪崩, 缓存穿透, 缓存击穿 的场景以及常规解决手段 缓存雪崩 场景: 在服务高峰期时出现大面积缓存过期的情况, 导致数据库请求被打满甚至"/>
 
@@ -134,7 +135,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -149,7 +150,7 @@
 </div>
   <div class="post-outdated">
     <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-27T11:44:12" title="December 27, 2019">December 27, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+      <p><span class="timeago" datetime="2019-12-27T11:44:12" title="December 27, 2019">December 27, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -200,27 +201,27 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">function demo($catchKey, $callback){
-    try{
-        $value = $this-&gt;getValueFromCache($catchKey);
-        if($value === false){
-            $this-&gt;setCache($catchKey, [], 30);
-            return [];
-        }
-        if(!empty($value)){
-            return $value;
-        }
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">function</span> <span class="nf">demo</span><span class="p">(</span><span class="nv">$catchKey</span><span class="p">,</span> <span class="nv">$callback</span><span class="p">){</span>
+    <span class="k">try</span><span class="p">{</span>
+        <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getValueFromCache</span><span class="p">(</span><span class="nv">$catchKey</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nv">$value</span> <span class="o">===</span> <span class="k">false</span><span class="p">){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setCache</span><span class="p">(</span><span class="nv">$catchKey</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">30</span><span class="p">);</span>
+            <span class="k">return</span> <span class="p">[];</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$value</span><span class="p">)){</span>
+            <span class="k">return</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">}</span>
 
-        $value = $callback($catchKey);
-        $this-&gt;setCache($catchKey, $value, 3600)
-        return $value;
-    }catch(\Exception $e){
-        $this-&gt;logException($e);
-        $this-&gt;setCache($catchKey, [], 30);
-        return [];
-    }
+        <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$callback</span><span class="p">(</span><span class="nv">$catchKey</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setCache</span><span class="p">(</span><span class="nv">$catchKey</span><span class="p">,</span> <span class="nv">$value</span><span class="p">,</span> <span class="mi">3600</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logException</span><span class="p">(</span><span class="nv">$e</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setCache</span><span class="p">(</span><span class="nv">$catchKey</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">30</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">[];</span>
+    <span class="p">}</span>
 
-}
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="缓存击穿">缓存击穿</h4>
@@ -237,11 +238,11 @@
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-27
         <a href="#ZgotmplZ/commit/56ab284bf7dbf8bfd1c3489313967520e186348b" title="更新一篇文章">(56ab284)</a>
@@ -259,11 +260,11 @@
         <a class="prev" href="/post/redis-hyperloglog/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">Redis 统计uv</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/go-fmt/">
             <span class="next-text nav-default">[转] golang fmt格式“占位符”</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -303,11 +304,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -316,13 +317,10 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -343,7 +341,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

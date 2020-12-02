@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.justwe.site/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 24 Nov 2020 10:42:15 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于我</title>
       <link>https://blog.justwe.site/about/</link>
@@ -19,6 +15,15 @@
       
       <guid>https://blog.justwe.site/about/</guid>
       <description>会点 php,会点 js,会点 go,还有一些乱七八糟的东西 目前学的比较杂乱,需要整理一番,慢慢来吧.. 如果加微信, 麻烦标明 justwe 来的, 不然一律当做卖</description>
+    </item>
+    
+    <item>
+      <title>[转] 基于mysql实现group by取各分组最新一条数据</title>
+      <link>https://blog.justwe.site/post/mysql-group-by-latest/</link>
+      <pubDate>Tue, 24 Nov 2020 10:42:15 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/mysql-group-by-latest/</guid>
+      <description>&lt;p&gt;mysql group by 时获取最新的数据&lt;/p&gt;</description>
     </item>
     
     <item>

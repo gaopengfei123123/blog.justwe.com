@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-zookeeper/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -48,13 +48,14 @@
 <meta property="article:modified_time" content="2020-04-13T17:58:25+08:00" />
 <meta itemprop="name" content="Docker 搭建 Zookeeper 测试集群">
 <meta itemprop="description" content="使用 docker-compose 在本地搭建一个测试用的zookeeper集群, 顺便带个web页面方便查看">
-<meta itemprop="datePublished" content="2020-03-10T15:03:50&#43;08:00" />
-<meta itemprop="dateModified" content="2020-04-13T17:58:25&#43;08:00" />
-<meta itemprop="wordCount" content="264">
+<meta itemprop="datePublished" content="2020-03-10T15:03:50+08:00" />
+<meta itemprop="dateModified" content="2020-04-13T17:58:25+08:00" />
+<meta itemprop="wordCount" content="270">
 
 
 
-<meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker 搭建 Zookeeper 测试集群"/>
 <meta name="twitter:description" content="使用 docker-compose 在本地搭建一个测试用的zookeeper集群, 顺便带个web页面方便查看"/>
 
@@ -135,11 +136,16 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents"></nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p><span class="timeago" datetime="2020-04-13T17:58:25" title="April 13, 2020">April 13, 2020</span></p>
+    </div>
+  </div>
     <div class="post-content">
       <p>使用 docker-compose 在本地搭建一个测试用的zookeeper集群, 顺便带个web页面方便查看</p>
 <p>docker-compose.yml 如下:</p>
@@ -207,65 +213,65 @@
 </span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">zoo-web</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>tobilg/zookeeper-webui<span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>zk-web<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">zoo-web</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">tobilg/zookeeper-webui</span><span class="w">
+</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">zk-web</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span>- <span class="s2">&#34;8080:8080&#34;</span><span class="w">
-</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- frontend<span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">ZK_DEFAULT_NODE</span><span class="p">:</span><span class="w"> </span>zk1<span class="p">:</span><span class="m">2181</span><span class="w">
-</span><span class="w">      </span><span class="k">USER</span><span class="p">:</span><span class="w"> </span>admin<span class="w">
-</span><span class="w">      </span><span class="k">PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="m">123123</span><span class="w">
-</span><span class="w">      </span><span class="k">HTTP_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
-</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w"> 
-</span><span class="w">      </span>- zoo1<span class="w">
-</span><span class="w">  </span><span class="k">zoo1</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>zookeeper<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>zk1<span class="w">
-</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">ZK_DEFAULT_NODE</span><span class="p">:</span><span class="w"> </span><span class="l">zk1:2181</span><span class="w">
+</span><span class="w">      </span><span class="nt">USER</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span><span class="w">      </span><span class="nt">PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="m">123123</span><span class="w">
+</span><span class="w">      </span><span class="nt">HTTP_PORT</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> 
+</span><span class="w">      </span>- <span class="l">zoo1</span><span class="w">
+</span><span class="w">  </span><span class="nt">zoo1</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">zookeeper:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">zk1</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span>- <span class="s2">&#34;2181:2181&#34;</span><span class="w">
-</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- frontend<span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">ZOO_MY_ID</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w">      </span><span class="k">ZOO_SERVERS</span><span class="p">:</span><span class="w"> </span>server<span class="m">.1</span>=zk1<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w"> </span>server<span class="m">.2</span>=zk2<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w"> </span>server<span class="m">.3</span>=zk3<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w">
-</span><span class="w">  </span><span class="k">zoo2</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>zookeeper<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>zk2<span class="w">
-</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">ZOO_MY_ID</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">      </span><span class="nt">ZOO_SERVERS</span><span class="p">:</span><span class="w"> </span><span class="l">server.1=zk1:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=zk3:2888:3888;2181</span><span class="w">
+</span><span class="w">  </span><span class="nt">zoo2</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">zookeeper:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">zk2</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span>- <span class="s2">&#34;2182:2181&#34;</span><span class="w">
-</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- frontend<span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">ZOO_MY_ID</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
-</span><span class="w">      </span><span class="k">ZOO_SERVERS</span><span class="p">:</span><span class="w"> </span>server<span class="m">.1</span>=zk1<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w"> </span>server<span class="m">.2</span>=zk2<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w"> </span>server<span class="m">.3</span>=zk3<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w">
-</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w"> 
-</span><span class="w">      </span>- zoo1<span class="w">
-</span><span class="w">  </span><span class="k">zoo3</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>zookeeper<span class="p">:</span>latest<span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>zk3<span class="w">
-</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">ZOO_MY_ID</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">      </span><span class="nt">ZOO_SERVERS</span><span class="p">:</span><span class="w"> </span><span class="l">server.1=zk1:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=zk3:2888:3888;2181</span><span class="w">
+</span><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> 
+</span><span class="w">      </span>- <span class="l">zoo1</span><span class="w">
+</span><span class="w">  </span><span class="nt">zoo3</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">zookeeper:latest</span><span class="w">
+</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">zk3</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span><span class="w">      </span>- <span class="s2">&#34;2183:2181&#34;</span><span class="w">
-</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- frontend<span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">ZOO_MY_ID</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span><span class="w">      </span><span class="k">ZOO_SERVERS</span><span class="p">:</span><span class="w"> </span>server<span class="m">.1</span>=zk1<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w"> </span>server<span class="m">.2</span>=zk2<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w"> </span>server<span class="m">.3</span>=zk3<span class="p">:</span><span class="m">2888</span><span class="p">:</span><span class="m">3888</span>;<span class="m">2181</span><span class="w">
-</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w"> 
-</span><span class="w">      </span>- zoo1<span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">ZOO_MY_ID</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span><span class="w">      </span><span class="nt">ZOO_SERVERS</span><span class="p">:</span><span class="w"> </span><span class="l">server.1=zk1:2888:3888;2181 server.2=zk2:2888:3888;2181 server.3=zk3:2888:3888;2181</span><span class="w">
+</span><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> 
+</span><span class="w">      </span>- <span class="l">zoo1</span><span class="w">
 </span><span class="w">
 </span><span class="w">    
-</span><span class="w"></span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">frontend</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>bridge<span class="w">
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">bridge</span><span class="w">
 </span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
@@ -277,11 +283,11 @@
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2020-04-13
         <a href="#ZgotmplZ/commit/745df91d849f0dd9261d66b3d4850543e1aeb75f" title="更新">(745df91)</a>
@@ -298,11 +304,11 @@
         <a class="prev" href="/post/docker-for-mac-huge-disk/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">关于docker for mac 占用大量硬盘的问题</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/leetcode-searchrange/">
             <span class="next-text nav-default">[leetcode] SearchRange</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -342,11 +348,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -355,13 +361,10 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -382,7 +385,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

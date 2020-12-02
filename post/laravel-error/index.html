@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-error/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel的报错处理">
 <meta itemprop="description" content="有很多时候我们需要有404 500 这类的错误页面,在逻辑层里写这些又有些太繁琐,干脆从上游去搞一下 在 app/exceptions/handler.">
-<meta itemprop="datePublished" content="2016-10-09T15:10:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="datePublished" content="2016-10-09T15:10:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="381">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel的报错处理"/>
 <meta name="twitter:description" content="有很多时候我们需要有404 500 这类的错误页面,在逻辑层里写这些又有些太繁琐,干脆从上游去搞一下 在 app/exceptions/handler."/>
 
@@ -134,14 +135,14 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    <div class="warn">
+      <p><span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -179,31 +180,31 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">/**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
-     * @return \Illuminate\Http\Response
-     */
-public function render($request, Exception $e)
-{
-//        return parent::render($request, $e);
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="sd">/**
+</span><span class="sd">     * Render an exception into an HTTP response.
+</span><span class="sd">     *
+</span><span class="sd">     * @param  \Illuminate\Http\Request  $request
+</span><span class="sd">     * @param  \Exception  $e
+</span><span class="sd">     * @return \Illuminate\Http\Response
+</span><span class="sd">     */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nv">$request</span><span class="p">,</span> <span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">//        return parent::render($request, $e);
+</span><span class="c1"></span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Config</span><span class="p">(</span><span class="s1">&#39;app.debug&#39;</span><span class="p">)){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$e</span> <span class="nx">instanceof</span> <span class="nx">ModelNotFoundException</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$e</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NotFoundHttpException</span><span class="p">(</span><span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">(),</span> <span class="nv">$e</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="nv">$request</span><span class="p">,</span> <span class="nv">$e</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    if(Config(&#39;app.debug&#39;)){
-        if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e-&gt;getMessage(), $e);
-        }
-        return parent::render($request, $e);
-    }
 
-
-    if($e instanceof NotFoundHttpException) {
-        return response()-&gt;view(&#39;errors.404&#39;, [&#39;message&#39;=&gt;&#39;找不到页面&#39;], 404);
-    } else {
-        return response()-&gt;view(&#39;errors.500&#39;, [&#39;message&#39;=&gt;&#39;服务器发生未知错误&#39;], 500);
-    }
-}
+    <span class="k">if</span><span class="p">(</span><span class="nv">$e</span> <span class="nx">instanceof</span> <span class="nx">NotFoundHttpException</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;errors.404&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;找不到页面&#39;</span><span class="p">],</span> <span class="mi">404</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">response</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;errors.500&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;服务器发生未知错误&#39;</span><span class="p">],</span> <span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -211,11 +212,11 @@ public function render($request, Exception $e)
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-06
         <a href="#ZgotmplZ/commit/7ba517e49d44f804f03c798ed38a227e7a8d7dd2" title="更新一批关键词">(7ba517e)</a>
@@ -230,11 +231,11 @@ public function render($request, Exception $e)
         <a class="prev" href="/post/laravel-cron/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">laravel的定时任务</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/vue-1/">
             <span class="next-text nav-default">vue的初识</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -274,11 +275,11 @@ public function render($request, Exception $e)
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -287,13 +288,10 @@ public function render($request, Exception $e)
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -314,7 +312,7 @@ public function render($request, Exception $e)
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

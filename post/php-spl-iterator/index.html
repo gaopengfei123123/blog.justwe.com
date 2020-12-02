@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-spl-iterator/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="PHP标准类库系列 Iterator">
 <meta itemprop="description" content="迭代器,让对象可用 foreach,for,while方法 啥是 Iterator 是一种 php 提供的接口标准,可以将不同的类迭代调用统一成一样的方法,打个比方(话说">
-<meta itemprop="datePublished" content="2017-06-27T11:35:37&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="datePublished" content="2017-06-27T11:35:37+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="1002">
 
 
 
-<meta itemprop="keywords" content="php,SPL," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="php,SPL," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PHP标准类库系列 Iterator"/>
 <meta name="twitter:description" content="迭代器,让对象可用 foreach,for,while方法 啥是 Iterator 是一种 php 提供的接口标准,可以将不同的类迭代调用统一成一样的方法,打个比方(话说"/>
 
@@ -134,7 +135,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -145,8 +146,8 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    <div class="warn">
+      <p><span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -176,23 +177,23 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$dbms=&#39;mysql&#39;;
-$host=&#39;localhost&#39;;
-$dbName=&#39;wechat&#39;;
-$user=&#39;root&#39;;      
-$pass=&#39;123123&#39;;
-$dsn=&#34;$dbms:host=$host:33060;dbname=$dbName;&#34;;
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$dbms</span><span class="o">=</span><span class="s1">&#39;mysql&#39;</span><span class="p">;</span>
+<span class="nv">$host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$dbName</span><span class="o">=</span><span class="s1">&#39;wechat&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>      
+<span class="nv">$pass</span><span class="o">=</span><span class="s1">&#39;123123&#39;</span><span class="p">;</span>
+<span class="nv">$dsn</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">$dbms</span><span class="s2">:host=</span><span class="si">$host</span><span class="s2">:33060;dbname=</span><span class="si">$dbName</span><span class="s2">;&#34;</span><span class="p">;</span>
 
-try {
-    $dbh = new PDO($dsn, $user, $pass); //初始化一个PDO对象
-    foreach ($dbh-&gt;query(&#39;SELECT * from migrations;&#39;) as $row) {
-        print_r($row);
-    }
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$dbh</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="nv">$dsn</span><span class="p">,</span> <span class="nv">$user</span><span class="p">,</span> <span class="nv">$pass</span><span class="p">);</span> <span class="c1">//初始化一个PDO对象
+</span><span class="c1"></span>    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$dbh</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * from migrations;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">print_r</span><span class="p">(</span><span class="nv">$row</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    $dbh = null;
-} catch (PDOException $e) {
-    die (&#34;Error!: &#34; . $e-&gt;getMessage() . &#34;<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>&#34;);
-}
+    <span class="nv">$dbh</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">die</span> <span class="p">(</span><span class="s2">&#34;Error!: &#34;</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="s2">&#34;&lt;br/&gt;&#34;</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>而读取目录下所有文件的方法是:</p>
@@ -205,11 +206,11 @@ try {
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$dirPath = &#39;/Users/gpf/Desktop&#39;;
-$list = opendir($dirPath);
-while($filename = readdir($list)){
-    echo $filename . PHP_EOL;
-}
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$dirPath</span> <span class="o">=</span> <span class="s1">&#39;/Users/gpf/Desktop&#39;</span><span class="p">;</span>
+<span class="nv">$list</span> <span class="o">=</span> <span class="nx">opendir</span><span class="p">(</span><span class="nv">$dirPath</span><span class="p">);</span>
+<span class="k">while</span><span class="p">(</span><span class="nv">$filename</span> <span class="o">=</span> <span class="nx">readdir</span><span class="p">(</span><span class="nv">$list</span><span class="p">)){</span>
+    <span class="k">echo</span> <span class="nv">$filename</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>而读取文件内容的方法是</p>
@@ -231,20 +232,20 @@ while($filename = readdir($list)){
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$filePath = &#39;/Users/gpf/Desktop/test.php&#39;;
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$filePath</span> <span class="o">=</span> <span class="s1">&#39;/Users/gpf/Desktop/test.php&#39;</span><span class="p">;</span>
 
-$handler = @fopen($filePath,&#39;r&#39;);
-if(!$handler){
-    die(&#39;error&#39;);
-}
-while(!feof($handler)){
-    $line = fgets($handler);
-    echo $line;
-}
+<span class="nv">$handler</span> <span class="o">=</span> <span class="o">@</span><span class="nx">fopen</span><span class="p">(</span><span class="nv">$filePath</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$handler</span><span class="p">){</span>
+    <span class="k">die</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nx">feof</span><span class="p">(</span><span class="nv">$handler</span><span class="p">)){</span>
+    <span class="nv">$line</span> <span class="o">=</span> <span class="nx">fgets</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nv">$line</span><span class="p">;</span>
+<span class="p">}</span>
 
-foreach(new SplFileObject($filePath) as $line){
-    echo $line . PHP_EOL;
-}
+<span class="k">foreach</span><span class="p">(</span><span class="k">new</span> <span class="nx">SplFileObject</span><span class="p">(</span><span class="nv">$filePath</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$line</span><span class="p">){</span>
+    <span class="k">echo</span> <span class="nv">$line</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>都是做的循环的事但是不统一,这就很烦躁,因为同样一件事你需要用不同的方法去实现,一个<code>茴</code>字要用四种写法
@@ -263,14 +264,14 @@ foreach(new SplFileObject($filePath) as $line){
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$filePath = &#39;/Users/gpf/Desktop/test.php&#39;;
-$handler = new SplFileObject($filePath);
-foreach($handler as $line){
-    echo $line . PHP_EOL;
-}
-//当然也可以直接跳行查找
-$handler-&gt;seek(4);
-var_dump($handler-&gt;current());
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$filePath</span> <span class="o">=</span> <span class="s1">&#39;/Users/gpf/Desktop/test.php&#39;</span><span class="p">;</span>
+<span class="nv">$handler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SplFileObject</span><span class="p">(</span><span class="nv">$filePath</span><span class="p">);</span>
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$handler</span> <span class="k">as</span> <span class="nv">$line</span><span class="p">){</span>
+    <span class="k">echo</span> <span class="nv">$line</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//当然也可以直接跳行查找
+</span><span class="c1"></span><span class="nv">$handler</span><span class="o">-&gt;</span><span class="na">seek</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="nx">var_dump</span><span class="p">(</span><span class="nv">$handler</span><span class="o">-&gt;</span><span class="na">current</span><span class="p">());</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这样调用就显得比较统一了,那么</p>
@@ -334,58 +335,58 @@ var_dump($handler-&gt;current());
 </span><span class="lnt">53
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">class IteratorDemo implements Iterator{
-    private $attributes = [];
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">IteratorDemo</span> <span class="k">implements</span> <span class="nx">Iterator</span><span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[];</span>
 
-    protected $valid = FALSE;
+    <span class="k">protected</span> <span class="nv">$valid</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
 
-    function __construct(array $array)
-    {
-        $this-&gt;attributes = $array;
-    }
+    <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$array</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span> <span class="o">=</span> <span class="nv">$array</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    function rewind()
-    {
-        var_dump(__METHOD__);
-        $this-&gt;valid = (FALSE !== reset($this-&gt;attributes));
-    }
+    <span class="k">function</span> <span class="nf">rewind</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">var_dump</span><span class="p">(</span><span class="no">__METHOD__</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">valid</span> <span class="o">=</span> <span class="p">(</span><span class="k">FALSE</span> <span class="o">!==</span> <span class="nx">reset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">));</span>
+    <span class="p">}</span>
 
-    function current()
-    {
-        var_dump(__METHOD__);
-        return current($this-&gt;attributes);
-    }
+    <span class="k">function</span> <span class="nf">current</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">var_dump</span><span class="p">(</span><span class="no">__METHOD__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">current</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    function key()
-    {
-        var_dump(__METHOD__);
-        return key($this-&gt;attributes);
-    }
+    <span class="k">function</span> <span class="nf">key</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">var_dump</span><span class="p">(</span><span class="no">__METHOD__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">key</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">);</span>
+    <span class="p">}</span>
 
-    //如果 next 返回 false 循环将终止
-    function next()
-    {
-        var_dump(__METHOD__);
-        $this-&gt;valid = (FALSE !== next($this-&gt;attributes));
-    }
+    <span class="c1">//如果 next 返回 false 循环将终止
+</span><span class="c1"></span>    <span class="k">function</span> <span class="nf">next</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">var_dump</span><span class="p">(</span><span class="no">__METHOD__</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">valid</span> <span class="o">=</span> <span class="p">(</span><span class="k">FALSE</span> <span class="o">!==</span> <span class="nx">next</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">));</span>
+    <span class="p">}</span>
 
-    function valid()
-    {
-        var_dump(__METHOD__);
-        return $this-&gt;valid;
-    }
-}
+    <span class="k">function</span> <span class="nf">valid</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">var_dump</span><span class="p">(</span><span class="no">__METHOD__</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">valid</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-$arr  = [
-    &#39;red&#39; =&gt; &#39;stop&#39;,
-    &#39;green&#39; =&gt; &#39;run&#39;,
-    &#39;yellow&#39; =&gt; &#39;wait&#39;
-];
-$demo = new IteratorDemo($arr);
-var_dump($demo);
-foreach ($demo as $key =&gt; $value){
-    echo $key  . &#39;=&gt;&#39; . $value . PHP_EOL;
-}
+<span class="nv">$arr</span>  <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;red&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;stop&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;green&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;run&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;yellow&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;wait&#39;</span>
+<span class="p">];</span>
+<span class="nv">$demo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IteratorDemo</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+<span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$demo</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">){</span>
+    <span class="k">echo</span> <span class="nv">$key</span>  <span class="o">.</span> <span class="s1">&#39;=&gt;&#39;</span> <span class="o">.</span> <span class="nv">$value</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></td></tr></table>
 </div>
@@ -424,36 +425,36 @@ foreach ($demo as $key =&gt; $value){
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">object(IteratorDemo)#1 (2) {
-  [&#34;attributes&#34;:&#34;IteratorDemo&#34;:private]=&gt;
-  array(3) {
-    [&#34;red&#34;]=&gt;
-    string(4) &#34;stop&#34;
-    [&#34;green&#34;]=&gt;
-    string(3) &#34;run&#34;
-    [&#34;yellow&#34;]=&gt;
-    string(4) &#34;wait&#34;
-  }
-  [&#34;valid&#34;:protected]=&gt;
-  bool(false)
-}
-string(20) &#34;IteratorDemo::rewind&#34;
-string(19) &#34;IteratorDemo::valid&#34;
-string(21) &#34;IteratorDemo::current&#34;
-string(17) &#34;IteratorDemo::key&#34;
-red=&gt;stop
-string(18) &#34;IteratorDemo::next&#34;
-string(19) &#34;IteratorDemo::valid&#34;
-string(21) &#34;IteratorDemo::current&#34;
-string(17) &#34;IteratorDemo::key&#34;
-green=&gt;run
-string(18) &#34;IteratorDemo::next&#34;
-string(19) &#34;IteratorDemo::valid&#34;
-string(21) &#34;IteratorDemo::current&#34;
-string(17) &#34;IteratorDemo::key&#34;
-yellow=&gt;wait
-string(18) &#34;IteratorDemo::next&#34;
-string(19) &#34;IteratorDemo::valid&#34;
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">object</span><span class="p">(</span><span class="nx">IteratorDemo</span><span class="p">)</span><span class="c1">#1 (2) {
+</span><span class="c1"></span>  <span class="p">[</span><span class="s2">&#34;attributes&#34;</span><span class="o">:</span><span class="s2">&#34;IteratorDemo&#34;</span><span class="o">:</span><span class="k">private</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="k">array</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">]</span><span class="o">=&gt;</span>
+    <span class="nx">string</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="s2">&#34;stop&#34;</span>
+    <span class="p">[</span><span class="s2">&#34;green&#34;</span><span class="p">]</span><span class="o">=&gt;</span>
+    <span class="nx">string</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="s2">&#34;run&#34;</span>
+    <span class="p">[</span><span class="s2">&#34;yellow&#34;</span><span class="p">]</span><span class="o">=&gt;</span>
+    <span class="nx">string</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="s2">&#34;wait&#34;</span>
+  <span class="p">}</span>
+  <span class="p">[</span><span class="s2">&#34;valid&#34;</span><span class="o">:</span><span class="k">protected</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">bool</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::rewind&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::valid&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::current&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::key&#34;</span>
+<span class="nx">red</span><span class="o">=&gt;</span><span class="nx">stop</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::next&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::valid&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::current&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::key&#34;</span>
+<span class="nx">green</span><span class="o">=&gt;</span><span class="nx">run</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::next&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::valid&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::current&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::key&#34;</span>
+<span class="nx">yellow</span><span class="o">=&gt;</span><span class="nx">wait</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::next&#34;</span>
+<span class="nx">string</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span> <span class="s2">&#34;IteratorDemo::valid&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这就实现了一个通用的 <code>Iterator</code> 接口,当然这是是为了实现而实现,中间可以做很多事情的,这要发挥一下想象力</p>
@@ -471,11 +472,11 @@ string(19) &#34;IteratorDemo::valid&#34;
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-06
         <a href="#ZgotmplZ/commit/7ba517e49d44f804f03c798ed38a227e7a8d7dd2" title="更新一批关键词">(7ba517e)</a>
@@ -493,11 +494,11 @@ string(19) &#34;IteratorDemo::valid&#34;
         <a class="prev" href="/post/mysql-config/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">转 my.cnf 文件注释信息</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/php-spl-arrayaccess/">
             <span class="next-text nav-default">PHP标准类库系列 arrayAccess</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -537,11 +538,11 @@ string(19) &#34;IteratorDemo::valid&#34;
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -550,13 +551,10 @@ string(19) &#34;IteratorDemo::valid&#34;
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -577,7 +575,7 @@ string(19) &#34;IteratorDemo::valid&#34;
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

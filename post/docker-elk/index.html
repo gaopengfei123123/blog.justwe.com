@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-elk/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="通过 docker-compose 搭建一个 elk">
 <meta itemprop="description" content="找了不少使用 docker-elk 搭建的博客, 英文的阅读吃力不说, 镜像源也是慢的让人头皮发麻, 因此重新编排了一个docker-compose,源都是从 https://hub.docker.com/ 上找的,">
-<meta itemprop="datePublished" content="2018-08-20T14:57:47&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="datePublished" content="2018-08-20T14:57:47+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="597">
 
 
 
-<meta itemprop="keywords" content="docker,elk," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="docker,elk," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过 docker-compose 搭建一个 elk"/>
 <meta name="twitter:description" content="找了不少使用 docker-elk 搭建的博客, 英文的阅读吃力不说, 镜像源也是慢的让人头皮发麻, 因此重新编排了一个docker-compose,源都是从 https://hub.docker.com/ 上找的,"/>
 
@@ -134,7 +135,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -153,8 +154,8 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    <div class="warn">
+      <p><span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -215,7 +216,7 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">input <span class="o">{</span>
       file <span class="o">{</span>
-          <span class="c1">#这里的路径指的是 logstash 容器中的路径, 外部接入需要使用 volume 进行目录映射</span> 
+          <span class="c1">#这里的路径指的是 logstash 容器中的路径, 外部接入需要使用 volume 进行目录映射 </span>
             <span class="nv">path</span> <span class="o">=</span>&gt; <span class="s2">&#34;/logs/input/*&#34;</span>
       <span class="o">}</span>
 
@@ -306,11 +307,11 @@ Creating docker-elk_kibana_1        ... done
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-02
         <a href="#ZgotmplZ/commit/521dbfe55fb3648ac43f2806e7fe9537f2a7ad1c" title="更新">(521dbfe)</a>
@@ -328,11 +329,11 @@ Creating docker-elk_kibana_1        ... done
         <a class="prev" href="/post/go-why/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">身为 phper 为什么我选择 go 语言?</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/git-merge-conflict/">
             <span class="next-text nav-default">搞定 git 合并冲突</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -372,11 +373,11 @@ Creating docker-elk_kibana_1        ... done
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -385,13 +386,10 @@ Creating docker-elk_kibana_1        ... done
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -412,7 +410,7 @@ Creating docker-elk_kibana_1        ... done
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-trancate/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel事务">
 <meta itemprop="description" content="laravel 事务的使用会忽略的地方 laravel开启事物有两种方法： 一种是闭包 1 2 3 4 5 DB::transaction(function() { DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]); DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]); }); 当闭包内发生错误就会自动回滚 另一种比较灵活 1 2 3 4 5">
-<meta itemprop="datePublished" content="2017-03-21T09:01:02&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="datePublished" content="2017-03-21T09:01:02+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="252">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel事务"/>
 <meta name="twitter:description" content="laravel 事务的使用会忽略的地方 laravel开启事物有两种方法： 一种是闭包 1 2 3 4 5 DB::transaction(function() { DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]); DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]); }); 当闭包内发生错误就会自动回滚 另一种比较灵活 1 2 3 4 5"/>
 
@@ -134,14 +135,14 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    <div class="warn">
+      <p><span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -160,11 +161,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">DB::transaction(function()
-{
-    DB::table(&#39;user&#39;)-&gt;insert([&#39;username&#39;=&gt;&#39;xxx&#39;]);
-    DB::table(&#39;comment&#39;)-&gt;insert([&#39;content&#39;=&gt;&#39;zzz&#39;]);
-});
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">DB</span><span class="o">::</span><span class="na">transaction</span><span class="p">(</span><span class="k">function</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span><span class="s1">&#39;username&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;xxx&#39;</span><span class="p">]);</span>
+    <span class="nx">DB</span><span class="o">::</span><span class="na">table</span><span class="p">(</span><span class="s1">&#39;comment&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([</span><span class="s1">&#39;content&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;zzz&#39;</span><span class="p">]);</span>
+<span class="p">});</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>当闭包内发生错误就会自动回滚</p>
@@ -182,13 +183,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">DB::beginTransaction();
-//这里执行一些数据库操作，包括 eloquent 的
-if(condition){
-    DB::commit();
-}else{
-    DB::rollback();
-}
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">DB</span><span class="o">::</span><span class="na">beginTransaction</span><span class="p">();</span>
+<span class="c1">//这里执行一些数据库操作，包括 eloquent 的
+</span><span class="c1"></span><span class="k">if</span><span class="p">(</span><span class="nx">condition</span><span class="p">){</span>
+    <span class="nx">DB</span><span class="o">::</span><span class="na">commit</span><span class="p">();</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="nx">DB</span><span class="o">::</span><span class="na">rollback</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>但是我有一次发现两种方法的事物都不起作用，在想掉几根头发之后想到了可能是不同数据库的原因！</p>
@@ -204,13 +205,13 @@ if(condition){
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">DB::connection(&#39;admin_database&#39;)-&gt;beginTransaction();
-//这里执行一些数据库操作，包括 eloquent 的
-if(condition){
-    DB::connection(&#39;admin_database&#39;)-&gt;commit();
-}else{
-    DB::connection(&#39;admin_database&#39;)-&gt;rollback();
-}
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">DB</span><span class="o">::</span><span class="na">connection</span><span class="p">(</span><span class="s1">&#39;admin_database&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">beginTransaction</span><span class="p">();</span>
+<span class="c1">//这里执行一些数据库操作，包括 eloquent 的
+</span><span class="c1"></span><span class="k">if</span><span class="p">(</span><span class="nx">condition</span><span class="p">){</span>
+    <span class="nx">DB</span><span class="o">::</span><span class="na">connection</span><span class="p">(</span><span class="s1">&#39;admin_database&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">commit</span><span class="p">();</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="nx">DB</span><span class="o">::</span><span class="na">connection</span><span class="p">(</span><span class="s1">&#39;admin_database&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">rollback</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果逻辑中的 eloquent 连接的数据库和开启事物的数据库不是一个库一样是不起作用的</p>
@@ -219,11 +220,11 @@ if(condition){
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-06
         <a href="#ZgotmplZ/commit/7ba517e49d44f804f03c798ed38a227e7a8d7dd2" title="更新一批关键词">(7ba517e)</a>
@@ -238,11 +239,11 @@ if(condition){
         <a class="prev" href="/post/hexo-blog/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">使用hexo和github-pages发布博客</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/go-workflow/">
             <span class="next-text nav-default">go语言了解(3) 工作流程</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -282,11 +283,11 @@ if(condition){
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -295,13 +296,10 @@ if(condition){
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -322,7 +320,7 @@ if(condition){
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-repository/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel-repository">
 <meta itemprop="description" content="laravel版本5.1&#43; 首先创建测试文件 1 php artisan make:controller TestController 修改路由文件route.php或者routes/web.php 1 Route::get(&#39;test&#39;, &#39;TestController@index&#39;); 创建服务提供者文件,">
-<meta itemprop="datePublished" content="2016-04-01T20:53:01&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="datePublished" content="2016-04-01T20:53:01+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="905">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel-repository"/>
 <meta name="twitter:description" content="laravel版本5.1&#43; 首先创建测试文件 1 php artisan make:controller TestController 修改路由文件route.php或者routes/web.php 1 Route::get(&#39;test&#39;, &#39;TestController@index&#39;); 创建服务提供者文件,"/>
 
@@ -134,14 +135,14 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    <div class="warn">
+      <p><span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -162,7 +163,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">Route::get(&#39;test&#39;, &#39;TestController@index&#39;);
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;TestController@index&#39;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>创建服务提供者文件,这个文件的作用就是用来注册自定义的<a href="http://laravelacademy.org/post/5809.html">服务容器</a></p>
@@ -195,7 +196,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="c1">//app/Repositories/Hello.php
 </span><span class="c1"></span><span class="sd">/**
 </span><span class="sd"> * Created by PhpStorm.
@@ -235,7 +236,7 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="c1">//app/Repositories/HelloRepository.php
 </span><span class="c1"></span><span class="sd">/**
 </span><span class="sd"> * Created by PhpStorm.
@@ -289,7 +290,7 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="c1">//app/Provider/HelloProvider.php
 </span><span class="c1"></span>
 <span class="k">namespace</span> <span class="nx">App\Providers</span><span class="p">;</span>
@@ -329,10 +330,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">&#39;providers&#39; =&gt; [
-    //other providers...
-    App\Providers\HelloProvider::class,
-    ],
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="s1">&#39;providers&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="c1">//other providers...
+</span><span class="c1"></span>    <span class="nx">App\Providers\HelloProvider</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">],</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>现在就可以使用这个啦！
@@ -362,7 +363,7 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 
 <span class="k">namespace</span> <span class="nx">App\Http\Controllers</span><span class="p">;</span>
 
@@ -393,11 +394,11 @@
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-06
         <a href="#ZgotmplZ/commit/7ba517e49d44f804f03c798ed38a227e7a8d7dd2" title="更新一批关键词">(7ba517e)</a>
@@ -412,7 +413,7 @@
         <a class="prev" href="/post/laravel-session/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">laravel-session</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         
       </nav>
@@ -452,11 +453,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -465,13 +466,10 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -492,7 +490,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

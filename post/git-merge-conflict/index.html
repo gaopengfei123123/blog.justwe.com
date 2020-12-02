@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-merge-conflict/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="搞定 git 合并冲突">
 <meta itemprop="description" content="这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点 关键命令 checkout 是个好">
-<meta itemprop="datePublished" content="2018-08-03T18:40:25&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="datePublished" content="2018-08-03T18:40:25+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="551">
 
 
 
-<meta itemprop="keywords" content="git,merge-conflict," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="git,merge-conflict," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="搞定 git 合并冲突"/>
 <meta name="twitter:description" content="这次说一下通过命令行去批量解决文件冲突的问题, 这个方法适用你清楚的知道自己需要保留哪一个分支, 而不是两个分支里的改动都要一点 关键命令 checkout 是个好"/>
 
@@ -134,7 +135,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -145,8 +146,8 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+    <div class="warn">
+      <p><span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -325,11 +326,11 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-02
         <a href="#ZgotmplZ/commit/521dbfe55fb3648ac43f2806e7fe9537f2a7ad1c" title="更新">(521dbfe)</a>
@@ -347,11 +348,11 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git
         <a class="prev" href="/post/docker-elk/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">通过 docker-compose 搭建一个 elk</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/docker-step-3/">
             <span class="next-text nav-default">不正宗 docker 入门教程-使用 docker-compose (3/3)</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -391,11 +392,11 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -404,13 +405,10 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -431,7 +429,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&#34;git
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,9 +45,10 @@
 <meta property="og:description" content="记录代码, 记录生活" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.justwe.site/" />
-<meta property="og:updated_time" content="2017-08-20T21:38:52+08:00" />
+<meta property="og:updated_time" content="2020-11-24T11:04:36+08:00" />
 <meta itemprop="name" content="摸鱼划水">
-<meta itemprop="description" content="记录代码, 记录生活"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="记录代码, 记录生活">
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="摸鱼划水"/>
 <meta name="twitter:description" content="记录代码, 记录生活"/>
 
@@ -116,6 +117,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/lumen-dd/">lumen5.3正常使用dd()函数</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-11-15 </span>
+      <div class="post-category">
+          <a href="/categories/laravel/"> laravel </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      主用laravel的已经习惯了dd函数的方便， 但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码 1 2 3 4 5 6 7 8 9 10
+    </div>
+    <div class="read-more">
+      <a href="/post/lumen-dd/" class="read-more-link"></a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/qiniujs-demo/">七牛云javascriptSDK的demo</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2016-11-12 </span>
@@ -130,7 +152,7 @@
       使用oss的话碰到用户上传的场景建议优先使用的js上传到oss，不需要经过服务端，也算减轻了服务器的压力，缺点就是有的sdk不支持文件类型的
     </div>
     <div class="read-more">
-      <a href="/post/qiniujs-demo/" class="read-more-link">阅读更多</a>
+      <a href="/post/qiniujs-demo/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -151,7 +173,7 @@
       由上篇博客可以了解小程序运行的一个大体过程,首先app.json进行配置路由和基本的样式调整,其次可以在对应的路由指向的目录下添加 .wxml .wxss .js 这三
     </div>
     <div class="read-more">
-      <a href="/post/wxcx-2/" class="read-more-link">阅读更多</a>
+      <a href="/post/wxcx-2/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -172,7 +194,7 @@
       1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 $testArr = [ [&#39;id&#39;=&gt;1,&#39;msg&#39;=&gt;&#39;aaa&#39;], [&#39;id&#39;=&gt;2,&#39;msg&#39;=&gt;&#39;bbb&#39;], [&#39;id&#39;=&gt;3,&#39;msg&#39;=&gt;&#39;ccc&#39;], [&#39;id&#39;=&gt;4,&#39;msg&#39;=&gt;&#39;ddd&#39;], ]; $roler = [2,1,3,4]; usort($testArr,function($a,$b) use($roler){ return (array_search($a[&#39;id&#39;], $roler) &lt; array_search($b[&#39;id&#39;], $roler)) ? -1 : 1; }); var_dump($testArr); die(); 输出结果：反正成功了 还有就是 第一层要是索引数组
     </div>
     <div class="read-more">
-      <a href="/post/php-array-1/" class="read-more-link">阅读更多</a>
+      <a href="/post/php-array-1/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -193,7 +215,7 @@
       首先git clone一个git库， 其次在本地新建一个分支 1 git checkout -b devlocal 然后设置本地git文件，将本地分支和远程分支关联起来 （我有个远程分支叫做d
     </div>
     <div class="read-more">
-      <a href="/post/git-pull/" class="read-more-link">阅读更多</a>
+      <a href="/post/git-pull/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -214,7 +236,7 @@
       yii2 关于 apache 和 nginx 的路由重写配置 apache路由重写 1 2 3 4 5 6 7 8 9 10 Options +FollowSymLinks IndexIgnore */* RewriteEngine on # if a directory or a file exists, use it directly RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d # otherwise forward it to index.php RewriteRule . index.php 从yiic
     </div>
     <div class="read-more">
-      <a href="/post/yii-rewrite/" class="read-more-link">阅读更多</a>
+      <a href="/post/yii-rewrite/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -233,7 +255,7 @@
       刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i
     </div>
     <div class="read-more">
-      <a href="/post/wxcx/" class="read-more-link">阅读更多</a>
+      <a href="/post/wxcx/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -252,7 +274,7 @@
       用代码说话 相关命令： 创建迁移文件 php artisan make:migration Pate_table 进行迁移 php artisan migrate 创建模型文件 php artisan make:model Page 把如下文件内容复制到对应的文件下，就可以按照注释进行测试了。控制器
     </div>
     <div class="read-more">
-      <a href="/post/laravel-orm/" class="read-more-link">阅读更多</a>
+      <a href="/post/laravel-orm/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -273,7 +295,7 @@
       通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把
     </div>
     <div class="read-more">
-      <a href="/post/webupload-demo/" class="read-more-link">阅读更多</a>
+      <a href="/post/webupload-demo/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -295,28 +317,7 @@
       js获取api的一系列API接口 1 2 3 4 5 window.location.host document.domain(vue下会发生错误) //全地址 window.location.href 补充: 获取当前域名信息 代码如下 1
     </div>
     <div class="read-more">
-      <a href="/post/js-href/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/laravel-cron/">laravel的定时任务</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-10-09 </span>
-      <div class="post-category">
-          <a href="/categories/laravel/"> laravel </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      了解下 laravel 定时任务是怎么使用的 首先在linux上创建一个crontab命令. crontab -e 第一次用的时候会选择编辑器,默认nano 然后在crontab文
-    </div>
-    <div class="read-more">
-      <a href="/post/laravel-cron/" class="read-more-link">阅读更多</a>
+      <a href="/post/js-href/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -326,10 +327,10 @@
   <nav class="pagination">
     <a class="prev" href="/page/16/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
+        <span class="prev-text"></span>
       </a>
     <a class="next" href="/page/18/">
-        <span class="next-text">下一页</span>
+        <span class="next-text"></span>
         <i class="iconfont icon-right"></i>
       </a>
   </nav>
@@ -348,11 +349,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -361,13 +362,10 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -388,7 +386,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

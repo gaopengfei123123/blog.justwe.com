@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,9 +45,10 @@
 <meta property="og:description" content="记录代码, 记录生活" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://blog.justwe.site/" />
-<meta property="og:updated_time" content="2017-08-20T21:38:52+08:00" />
+<meta property="og:updated_time" content="2020-11-24T11:04:36+08:00" />
 <meta itemprop="name" content="摸鱼划水">
-<meta itemprop="description" content="记录代码, 记录生活"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="记录代码, 记录生活">
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="摸鱼划水"/>
 <meta name="twitter:description" content="记录代码, 记录生活"/>
 
@@ -116,6 +117,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git-rebase/">通过git rebase来合并commit提交记录</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-12-25 </span>
+      <div class="post-category">
+          <a href="/categories/git/"> git </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版
+    </div>
+    <div class="read-more">
+      <a href="/post/git-rebase/" class="read-more-link"></a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/laravel-facade/">再来个facade吧</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2016-12-19 </span>
@@ -130,7 +152,7 @@
       参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor
     </div>
     <div class="read-more">
-      <a href="/post/laravel-facade/" class="read-more-link">阅读更多</a>
+      <a href="/post/laravel-facade/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -151,7 +173,7 @@
       windows 安装 node 其实很简单 原文地址 第一步 到官网下载页下载nodejs，并默认安装，安装成功后打开cmd， 运行node -v即可查看当前node.js版
     </div>
     <div class="read-more">
-      <a href="/post/win-node-npm/" class="read-more-link">阅读更多</a>
+      <a href="/post/win-node-npm/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -172,7 +194,7 @@
       websocket文档 原文出处 后端代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 //websocket.php &lt;?php $server = new swoole_websocket_server(&#34;0.0.0.0&#34;, 9501); $server-&gt;on(&#39;open&#39;, function (swoole_websocket_server $server, $request) { file_put_contents( __DIR__ .&#39;/log.txt&#39; , $request-&gt;fd); }); $server-&gt;on(&#39;message&#39;, function (swoole_websocket_server $server, $frame) { global
     </div>
     <div class="read-more">
-      <a href="/post/websocket-demo/" class="read-more-link">阅读更多</a>
+      <a href="/post/websocket-demo/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -193,7 +215,7 @@
       源码地址 因为swoole已经加入官方扩展包中，可以直接用pecl安装 1 pecl install swoole 也可以通过源码安装： 首先确认php的安装路径 1 which php 这个大部分都是
     </div>
     <div class="read-more">
-      <a href="/post/php-swoole/" class="read-more-link">阅读更多</a>
+      <a href="/post/php-swoole/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -214,7 +236,7 @@
       centos自带的git版本太低了,安装个新吧 安装依赖环境 1 2 3 4 5 6 7 &gt;# yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc &gt;# yum install gcc perl-ExtUtils-MakeMaker error: ```/utf8.c:463: undefined reference to `libiconv&#39;``` &gt;# wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz &gt;# tar zxvf libiconv-1.14.tar.gz &gt;# cd libiconv-1.14 &gt;# ./configure --prefix=/usr/local/libiconv &gt;#
     </div>
     <div class="read-more">
-      <a href="/post/centos-install-git/" class="read-more-link">阅读更多</a>
+      <a href="/post/centos-install-git/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -235,7 +257,7 @@
       将git已经提交的文件移除出库（针对的就是 .idea 和 .DS_Store） 1 2 3 4 5 6 7 8 git rm -r --cache .idea/ git rm --cache .DS_Store 在 .gitignore 文件中添加相应禁止的东西 git commit -m &#39;we didnt want
     </div>
     <div class="read-more">
-      <a href="/post/git-rm-cache/" class="read-more-link">阅读更多</a>
+      <a href="/post/git-rm-cache/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -256,7 +278,7 @@
       关键就是移除本地的远程连接路径，替换成我们需要传到的路径 将本地库的远程地址更改 1 git remote set-url origin nideyuanchengdizhi 接下来正常推送就好
     </div>
     <div class="read-more">
-      <a href="/post/git-remote/" class="read-more-link">阅读更多</a>
+      <a href="/post/git-remote/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -277,7 +299,7 @@
       本地新建库和多远程库的操作 新建本地库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #初始化 git init git add -A git commit -m &#39;init it&#39; #删除本地远程连接 git remote rm origin git remote add origin https://git.oschina.net/gaofeifps/laravel53.git #自动合并远
     </div>
     <div class="read-more">
-      <a href="/post/git-push/" class="read-more-link">阅读更多</a>
+      <a href="/post/git-push/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -298,28 +320,7 @@
       5.7版本有了一些新的变动，首先就是密码部分和之前有了较大的区别。它对数据的安全性方面做了较大的提升。其次的是数据对json的支持，数据库添
     </div>
     <div class="read-more">
-      <a href="/post/mysql57-config/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/lumen-dd/">lumen5.3正常使用dd()函数</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-11-15 </span>
-      <div class="post-category">
-          <a href="/categories/laravel/"> laravel </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      主用laravel的已经习惯了dd函数的方便， 但是放到lumen5.3的时候就变成了悲催的var_dump,查看了下源码 1 2 3 4 5 6 7 8 9 10
-    </div>
-    <div class="read-more">
-      <a href="/post/lumen-dd/" class="read-more-link">阅读更多</a>
+      <a href="/post/mysql57-config/" class="read-more-link"></a>
     </div>
   </div>
 </article>
@@ -329,10 +330,10 @@
   <nav class="pagination">
     <a class="prev" href="/page/15/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
+        <span class="prev-text"></span>
       </a>
     <a class="next" href="/page/17/">
-        <span class="next-text">下一页</span>
+        <span class="next-text"></span>
         <i class="iconfont icon-right"></i>
       </a>
   </nav>
@@ -351,11 +352,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -364,13 +365,10 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -391,7 +389,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">

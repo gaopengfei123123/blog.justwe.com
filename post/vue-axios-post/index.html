@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/vue-axios-post/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,13 +47,14 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="使用 axios-post 提交数据">
 <meta itemprop="description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A">
-<meta itemprop="datePublished" content="2017-05-02T16:45:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
+<meta itemprop="datePublished" content="2017-05-02T16:45:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="wordCount" content="787">
 
 
 
-<meta itemprop="keywords" content="vue,axios," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="vue,axios," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 axios-post 提交数据"/>
 <meta name="twitter:description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A"/>
 
@@ -134,7 +135,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -147,7 +148,7 @@
 </div>
   <div class="post-outdated">
     <div class="hint">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-10T18:00:55" title="December 10, 2019">December 10, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
+      <p><span class="timeago" datetime="2019-12-10T18:00:55" title="December 10, 2019">December 10, 2019</span></p>
     </div>
   </div>
     <div class="post-content">
@@ -211,11 +212,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">function requestPayload(){
-    $request_payload = file_get_contents(&#39;php://input&#39;);
-    return json_decode($request_payload,true);
-}
-print_r(requestPayload());
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">function</span> <span class="nf">requestPayload</span><span class="p">(){</span>
+    <span class="nv">$request_payload</span> <span class="o">=</span> <span class="nx">file_get_contents</span><span class="p">(</span><span class="s1">&#39;php://input&#39;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$request_payload</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">print_r</span><span class="p">(</span><span class="nx">requestPayload</span><span class="p">());</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这样做的缺点就是获取请求都是自己去实现,而不是通过框架的 request 类去处理
@@ -260,11 +261,11 @@ print_r(requestPayload());
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title"></span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title"></span>
     <span class="item-content">
         2019-12-10
         <a href="#ZgotmplZ/commit/77997d9684dbb242bcd479ff5862ea066461d79f" title="加一批关键词">(77997d9)</a>
@@ -282,11 +283,11 @@ print_r(requestPayload());
         <a class="prev" href="/post/vue-transition/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">vue-transition</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-mobile"></span>
           </a>
         <a class="next" href="/post/jquery-this/">
             <span class="next-text nav-default">jquery 中$(this) 和 this 的区别</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-mobile"></span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -326,11 +327,11 @@ print_r(requestPayload());
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+     - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -339,13 +340,10 @@ print_r(requestPayload());
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -366,7 +364,7 @@ print_r(requestPayload());
 
 
 
-<script type="text/javascript" src="/js/main.cddea96674a99fd8cea50d36fb19d9c91f497feea4af5ce4596afd2dbaab9202.js"></script>
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
 
 <script type="application/javascript">
