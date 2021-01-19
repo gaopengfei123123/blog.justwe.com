@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 24 Nov 2020 10:42:15 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jan 2021 10:34:40 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【转】Centos6 国内镜像替代</title>
+      <link>https://blog.justwe.site/post/linux-centos6-mirror/</link>
+      <pubDate>Tue, 19 Jan 2021 10:34:40 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/linux-centos6-mirror/</guid>
+      <description>&lt;p&gt;由于 centos6 与2020年11月30日不再有官方维护, 因此国内镜像源也可以说失效了, 现在需要换个源去处理&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>[转] 基于mysql实现group by取各分组最新一条数据</title>
       <link>https://blog.justwe.site/post/mysql-group-by-latest/</link>
