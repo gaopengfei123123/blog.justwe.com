@@ -1143,20 +1143,6 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/shadowsocks/</loc>
-    <lastmod>2019-12-10T18:00:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/post/vultr-shadowsocks/</loc>
-    <lastmod>2019-12-10T18:00:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justwe.site/tags/elementui/</loc>
     <lastmod>2019-11-18T11:12:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1817,13 +1803,6 @@
   <url>
     <loc>https://blog.justwe.site/post/composer-debug/</loc>
     <lastmod>2019-12-02T11:55:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/post/shadowssocks/</loc>
-    <lastmod>2019-12-06T10:41:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

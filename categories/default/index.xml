@@ -109,15 +109,6 @@
     </item>
     
     <item>
-      <title>科学上网shadowsocks</title>
-      <link>https://blog.justwe.site/post/shadowssocks/</link>
-      <pubDate>Thu, 09 Feb 2017 07:56:00 +0000</pubDate>
-      
-      <guid>https://blog.justwe.site/post/shadowssocks/</guid>
-      <description>首先找个国外的服务器，比如 AWS 搬瓦工 这样的，然后开始安装 shadowsocks： 安装shadowsocks依赖 1 2 3 4 5 6 1. sudo -s // 获取超级管理</description>
-    </item>
-    
-    <item>
       <title>swoole构建聊天室demo</title>
       <link>https://blog.justwe.site/post/websocket-demo/</link>
       <pubDate>Sat, 10 Dec 2016 11:40:00 +0000</pubDate>

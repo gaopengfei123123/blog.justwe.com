@@ -54,15 +54,6 @@
     </item>
     
     <item>
-      <title>使用vultr来搭建梯子</title>
-      <link>https://blog.justwe.site/post/vultr-shadowsocks/</link>
-      <pubDate>Wed, 20 Sep 2017 14:16:47 +0000</pubDate>
-      
-      <guid>https://blog.justwe.site/post/vultr-shadowsocks/</guid>
-      <description>因为坑爹的GFW某些问题,导致一些浏览器的默认搜索长期404,为了解决这个问题之前试过lantern 也试过一些 vpn,但是都不好用啊,vpn</description>
-    </item>
-    
-    <item>
       <title>Vue的一个拖动插件</title>
       <link>https://blog.justwe.site/post/vue-dnd/</link>
       <pubDate>Mon, 21 Aug 2017 17:11:28 +0000</pubDate>

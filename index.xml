@@ -771,15 +771,6 @@
     </item>
     
     <item>
-      <title>使用vultr来搭建梯子</title>
-      <link>https://blog.justwe.site/post/vultr-shadowsocks/</link>
-      <pubDate>Wed, 20 Sep 2017 14:16:47 +0000</pubDate>
-      
-      <guid>https://blog.justwe.site/post/vultr-shadowsocks/</guid>
-      <description>因为坑爹的GFW某些问题,导致一些浏览器的默认搜索长期404,为了解决这个问题之前试过lantern 也试过一些 vpn,但是都不好用啊,vpn</description>
-    </item>
-    
-    <item>
       <title>关于 elementUI 中的 intput 框的enter 事件</title>
       <link>https://blog.justwe.site/post/elementui-form-event/</link>
       <pubDate>Fri, 15 Sep 2017 11:42:23 +0000</pubDate>
@@ -1344,15 +1335,6 @@
       
       <guid>https://blog.justwe.site/post/composer-debug/</guid>
       <description>当环境中同时安装xdebug和composer的时候，会产生一个报错 1 You are running composer with xdebug enabled. This has a major impact on runtime performance. See Https://getcomposer.org/xdebug 其实作为开发环境来说，并没有太大的影</description>
-    </item>
-    
-    <item>
-      <title>科学上网shadowsocks</title>
-      <link>https://blog.justwe.site/post/shadowssocks/</link>
-      <pubDate>Thu, 09 Feb 2017 07:56:00 +0000</pubDate>
-      
-      <guid>https://blog.justwe.site/post/shadowssocks/</guid>
-      <description>首先找个国外的服务器，比如 AWS 搬瓦工 这样的，然后开始安装 shadowsocks： 安装shadowsocks依赖 1 2 3 4 5 6 1. sudo -s // 获取超级管理</description>
     </item>
     
     <item>
