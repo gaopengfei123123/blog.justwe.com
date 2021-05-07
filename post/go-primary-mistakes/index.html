@@ -49,7 +49,7 @@
 <meta itemprop="description" content="平时碰到的一些小问题, 记一下 assignment to entry in nil map, map 赋值问题 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 //">
 <meta itemprop="datePublished" content="2018-09-25T10:57:02+00:00" />
 <meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
-<meta itemprop="wordCount" content="400">
+<meta itemprop="wordCount" content="635">
 
 
 
@@ -269,6 +269,73 @@
 <p>通常json 转成 <code>map[string]interface{}</code> 时,数字类型就是<code>float64</code>的,</p>
 <p>比如:想把它转成<code>int</code>类型使用就要<code>auth.Sys = int(sys.(float64))</code>这样(sys 就是一个 interface{} 类型的数字), 而不是<code>auth.Sys = sys.(int)</code>, 后一种写法会有 painc 错误</p>
 <h4 id="xxxtype-只能用在-switch-当中-不想这么写就用-reflecttypeofxxx">xxx.(type) 只能用在 switch 当中, 不想这么写就用 reflect.Typeof(xxx)</h4>
+<h4 id="passes-lock-by-value-使用-mutex-经常碰到">passes lock by value 使用 mutex 经常碰到</h4>
+<p>如果传参包含<code>mutex</code>的时候, 就不能直接传值进去了, 在代码静态检测的时候就会给标出来, 直接值拷贝, 代码在实际运行时也会出现死锁的情况
+以下是<strong>错误示范</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">demo</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">wg</span> <span class="o">:=</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">{}</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="c1">// 直接把 mutex 值拷贝传入函数中 打咩
+</span><span class="c1"></span>	<span class="k">go</span> <span class="nf">demo2</span><span class="p">(</span><span class="nx">wg</span><span class="p">)</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">demo2</span><span class="p">(</span><span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// xxx
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>应该做的:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">demo</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">wg</span> <span class="o">:=</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">{}</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="c1">// 传递变量地址, 共用同一个 channel
+</span><span class="c1"></span>	<span class="k">go</span> <span class="nf">demo2</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">wg</span><span class="p">)</span>
+	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">demo2</span><span class="p">(</span><span class="nx">wg</span> <span class="o">*</span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// xxx
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://pkg.go.dev/sync#pkg-overview">sync 文档</a> 第一段就直说了</p>
+<blockquote>
+<p>Package sync provides basic synchronization primitives such as mutual exclusion locks. Other than the Once and WaitGroup types, most are intended for use by low-level library routines. Higher-level synchronization is better done via channels and communication.</p>
+</blockquote>
+<blockquote>
+<p>Values containing the types defined in this package should not be copied.</p>
+</blockquote>
 
     </div>
 
