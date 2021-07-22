@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go高性能编程概览(1/2) - 摸鱼划水</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="针对 golang 字符串,切片,反射,空结构,内容对齐,迭代器的一些可优化的点" /><meta name="keywords" content="golang, 高性能编程, 编程语言, 编程优化as" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
+
+
+<link rel="canonical" href="https://blog.justwe.site/post/go-high-performance-step1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go高性能编程概览(1/2)" />
+<meta property="og:description" content="针对 golang 字符串,切片,反射,空结构,内容对齐,迭代器的一些可优化的点" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-high-performance-step1/" />
+<meta property="article:published_time" content="2021-07-21T14:26:14+08:00" />
+<meta property="article:modified_time" content="2021-07-21T14:26:14+08:00" />
+<meta itemprop="name" content="Go高性能编程概览(1/2)">
+<meta itemprop="description" content="针对 golang 字符串,切片,反射,空结构,内容对齐,迭代器的一些可优化的点">
+<meta itemprop="datePublished" content="2021-07-21T14:26:14+08:00" />
+<meta itemprop="dateModified" content="2021-07-21T14:26:14+08:00" />
+<meta itemprop="wordCount" content="1250">
+
+
+
+<meta itemprop="keywords" content="go," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go高性能编程概览(1/2)"/>
+<meta name="twitter:description" content="针对 golang 字符串,切片,反射,空结构,内容对齐,迭代器的一些可优化的点"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go高性能编程概览(1/2)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-07-21 </span>
+        <div class="post-category">
+            <a href="/categories/go/"> go </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>这篇博客是对 <a href="https://geektutu.com/post/hpg-string-concat.html">&lt;Go 语言高性能编程&gt;</a>的读后总结, 原文中会有 demo 代码, 会有 benchmark 分析, 这里会尽可能的简短的去表达</p>
+<h1 id="字符串-string">字符串 string</h1>
+<p>临时拼接短的字符串, 可以用 <code>+</code> 的方式, 用 <code>fmt.Sprintf()</code> 都行, 但是因为<strong>字符串不可变</strong>,这些拼接都是生成一个新的字符串对象, 因此会占用 2N 体积的内存</p>
+<p>针对大文本的字符串操作, 必须使用 <code>strings.Builder</code>, <code>bytes.Buffer</code>, <code>[]byte</code> 这种切片拼接的方式</p>
+<h1 id="切片-slice">切片 slice</h1>
+<p>切片和数组类似, 区别就是会动态扩容, 1,2,4,8&hellip;..直到 1024 后按1.25的系数扩充</p>
+<p>且切片拼接/向后追加是 O(N) 的时间复杂度, 随机插入/删除 的时间复杂度是 O(N), 增删比较频繁的还是建议使用链表</p>
+<p><strong>最大的大坑</strong>就是<strong>从同一个切片中出来的子切片是共享同一片内存的</strong>, 这就意味着:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">arrA</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+
+<span class="nx">arrB</span> <span class="p">=</span> <span class="nx">arrA</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>此时如果 <code>arrB</code> 一直在使用中, 或者发生内存逃逸, 那么是整块 <code>arrA</code> 的内存进行变动, 如果你不确定这块内存什么时候会被释放, 就使<code>copy</code>来处理切片</p>
+<h1 id="for-和-range-性能比较">for 和 range 性能比较</h1>
+<p>由于 <code>range</code> 的特性,  它迭代的过程中是会进行&lt;值拷贝&gt;, 因此针对复杂结构的切片来说, <code>for</code>是更好的选择, 或者只用<code>range</code>迭代下标</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">m</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span>
+    <span class="s">&#34;one&#34;</span><span class="p">:</span>   <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&#34;two&#34;</span><span class="p">:</span>   <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&#34;three&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">m</span> <span class="p">{</span>
+    <span class="nb">delete</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">k</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果被迭代的对象是 <code>int</code>, <code>byte</code>, 指针 这种固定内存大小的数据,  <code>for</code>和<code>range</code>其实相差不大</p>
+<h1 id="反射-relect">反射 relect</h1>
+<p>反射能让静态语言有一些动态的写法在里面, 但是非必要情况尽量少用反射,</p>
+<p>一是因为逻辑不直观, 不利于后续维护;</p>
+<p>二是性能略有损耗, 同时 <code>reflect.New(typ).Elem().Field(0).SetString(&quot;name&quot;)</code> 和 <code>reflect.New(typ).Elem().FieldByName(&quot;Name&quot;).SetString(&quot;name&quot;)</code> 相比, 前者按下标来读取值位置, 要不根据 key 名读取性能高数倍, 因为 后者会遍历所有 key 名比对后找到对应下标再做更改</p>
+<p>优化一下上述的问题,就使用临时缓存, 如示例:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">BenchmarkReflect_FieldByNameCacheSet</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">typ</span> <span class="o">:=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="nx">Config</span><span class="p">{})</span>
+	<span class="nx">cache</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">typ</span><span class="p">.</span><span class="nf">NumField</span><span class="p">();</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">cache</span><span class="p">[</span><span class="nx">typ</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">Name</span><span class="p">]</span> <span class="p">=</span> <span class="nx">i</span>
+	<span class="p">}</span>
+	<span class="nx">ins</span> <span class="o">:=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">typ</span><span class="p">).</span><span class="nf">Elem</span><span class="p">()</span>
+	<span class="nx">b</span><span class="p">.</span><span class="nf">ResetTimer</span><span class="p">()</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">ins</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">cache</span><span class="p">[</span><span class="s">&#34;Name&#34;</span><span class="p">]).</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">)</span>
+		<span class="nx">ins</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">cache</span><span class="p">[</span><span class="s">&#34;IP&#34;</span><span class="p">]).</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;ip&#34;</span><span class="p">)</span>
+		<span class="nx">ins</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">cache</span><span class="p">[</span><span class="s">&#34;URL&#34;</span><span class="p">]).</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">)</span>
+		<span class="nx">ins</span><span class="p">.</span><span class="nf">Field</span><span class="p">(</span><span class="nx">cache</span><span class="p">[</span><span class="s">&#34;Timeout&#34;</span><span class="p">]).</span><span class="nf">SetString</span><span class="p">(</span><span class="s">&#34;timeout&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="空结构-struct">空结构 struct</h1>
+<p>空结构体的这个特性真的很不错, 因为<code>struct{}</code>是 不-占-内-存 的! 这个特性用来当占位符是再好不过了, 举个例子就是使用 <code>map</code> 来做集合:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mp</span> <span class="o">:=</span> <span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">struct</span><span class="p">{}{</span>
+    <span class="s">&#34;a&#34;</span><span class="p">:</span> <span class="kd">struct</span><span class="p">{}{},</span>
+    <span class="s">&#34;b&#34;</span><span class="p">:</span> <span class="kd">struct</span><span class="p">{}{},</span>
+    <span class="s">&#34;c&#34;</span><span class="p">:</span> <span class="kd">struct</span><span class="p">{}{},</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这个特性配合内存对齐来说就很好</p>
+<h1 id="内存对齐">内存对齐</h1>
+<p>cpu从内存中读取对象时并不是逐个访问字节, 而是按字长来一块一块的读取, golang的<a href="https://golang.org/ref/spec#Size_and_alignment_guarantees">官方文档</a>内存对齐规则是:</p>
+<ul>
+<li>对于任意类型的变量 x ，unsafe.Alignof(x) 至少为 1。</li>
+<li>对于 struct 结构体类型的变量 x，计算 x 每一个字段 f 的 unsafe.Alignof(x.f)，unsafe.Alignof(x) 等于其中的最大值。</li>
+<li>对于 array 数组类型的变量 x，unsafe.Alignof(x) 等于构成数组的元素类型的对齐倍数。</li>
+<li>没有任何字段的空 struct{} 和没有任何元素的 array 占据的内存空间大小为 0，不同的大小为 0 的变量可能指向同一块地址。</li>
+</ul>
+<p>举例来说:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">demo1</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">a</span> <span class="kt">int8</span>
+	<span class="nx">b</span> <span class="kt">int16</span>
+	<span class="nx">c</span> <span class="kt">int32</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">demo2</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">a</span> <span class="kt">int8</span>
+	<span class="nx">c</span> <span class="kt">int32</span>
+	<span class="nx">b</span> <span class="kt">int16</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Sizeof</span><span class="p">(</span><span class="nx">demo1</span><span class="p">{}))</span> <span class="c1">// 8
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Sizeof</span><span class="p">(</span><span class="nx">demo2</span><span class="p">{}))</span> <span class="c1">// 12
+</span><span class="c1"></span><span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>一句话总结就是: 对象的类型定义要像金字塔一样, 字段类型的尺寸从上到下依次增大, 这样内存对齐时不会浪费空间(话说这个可以在编译阶段优化一下吧?)</p>
+</blockquote>
+<p>这时的<code>struct{}</code> 这个类型也需要小小的注意一下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">demo3</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">c</span> <span class="kt">int32</span>
+	<span class="nx">a</span> <span class="kd">struct</span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">demo4</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">a</span> <span class="kd">struct</span><span class="p">{}</span>
+	<span class="nx">c</span> <span class="kt">int32</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Sizeof</span><span class="p">(</span><span class="nx">demo3</span><span class="p">{}))</span> <span class="c1">// 8
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Sizeof</span><span class="p">(</span><span class="nx">demo4</span><span class="p">{}))</span> <span class="c1">// 4
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        2021-07-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/go/">go</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-json-unmarshal/">
+            <span class="next-text nav-default">Go Json Unmarshal 出现的一些问题</span>
+            <span class="next-text nav-mobile"></span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.justwe.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+     - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='http://www.beian.miit.gov.cn' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号-2</a></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>
