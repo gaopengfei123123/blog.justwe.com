@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 08 Nov 2021 16:30:33 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Jan 2022 17:11:18 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>default</title>
+      <link>https://blog.justwe.site/categories/default/</link>
+      <pubDate>Tue, 11 Jan 2022 17:11:18 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/categories/default/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>精选转载</title>
       <link>https://blog.justwe.site/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/</link>
@@ -50,15 +59,6 @@
       <pubDate>Thu, 13 Aug 2020 15:43:55 +0800</pubDate>
       
       <guid>https://blog.justwe.site/categories/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>default</title>
-      <link>https://blog.justwe.site/categories/default/</link>
-      <pubDate>Tue, 04 Aug 2020 21:24:00 +0800</pubDate>
-      
-      <guid>https://blog.justwe.site/categories/default/</guid>
       <description></description>
     </item>
     

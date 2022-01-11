@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 04 Aug 2020 21:24:00 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/categories/default/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Jan 2022 17:11:18 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/categories/default/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>简单图解一致性哈希实现</title>
+      <link>https://blog.justwe.site/post/consistent-hashing/</link>
+      <pubDate>Tue, 11 Jan 2022 17:11:18 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/consistent-hashing/</guid>
+      <description>&lt;p&gt;我们以分布式缓存这个场景来演示一致性哈希问题&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>同步,异步,阻塞,非阻塞IO</title>
       <link>https://blog.justwe.site/post/sync-async-block-no_block-io/</link>
