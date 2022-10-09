@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>debug on 摸鱼划水</title>
+    <title>debug on helloword啊</title>
     <link>https://blog.justwe.site/tags/debug/</link>
-    <description>Recent content in debug on 摸鱼划水</description>
+    <description>Recent content in debug on helloword啊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;http://www.beian.miit.gov.cn&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号-2&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 28 Feb 2019 10:30:23 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Feb 2019 10:30:23 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.justwe.site/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>php开发过程中不常碰到的error (2.28更新)</title>
       <link>https://blog.justwe.site/post/php-unsual-mistakes/</link>

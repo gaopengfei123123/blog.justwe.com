@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go 火焰图分析 - 摸鱼划水</title>
+  <title>go 火焰图分析 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-flame-graph/" />
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="name" content="go 火焰图分析">
 <meta itemprop="description" content="go version go1.11.1 darwin/amd64 安装: 1 2 3 $ go get github.com/uber/go-torch $ cd $GOPATH/src/github.com/uber/go-torch $ git clone https://github.com/brendangregg/FlameGraph.git 安装测试工具 1 2 3 $ go get github.com/Masterminds/glide $ cd $GOPATH/src/github.com/uber/go-torch $ glide install 性能分析工具 glide install如果出现 Update failed for golang.org/x/sys: Cannot detect VCS 这种报错,">
-<meta itemprop="datePublished" content="2018-11-01T17:03:33+00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="datePublished" content="2018-11-01T17:03:33&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
 <meta itemprop="wordCount" content="212">
 
 
 
-<meta itemprop="keywords" content="flame-graph,go," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="flame-graph,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go 火焰图分析"/>
 <meta name="twitter:description" content="go version go1.11.1 darwin/amd64 安装: 1 2 3 $ go get github.com/uber/go-torch $ cd $GOPATH/src/github.com/uber/go-torch $ git clone https://github.com/brendangregg/FlameGraph.git 安装测试工具 1 2 3 $ go get github.com/Masterminds/glide $ cd $GOPATH/src/github.com/uber/go-torch $ glide install 性能分析工具 glide install如果出现 Update failed for golang.org/x/sys: Cannot detect VCS 这种报错,"/>
 
@@ -145,14 +144,14 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents"></nav>
   </div>
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-02T11:55:09" title="December 2, 2019">December 2, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -228,11 +227,11 @@ Failed to execute dot. Is Graphviz installed? Error: exec: <span class="s2">&#34
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-12-02
         <a href="#ZgotmplZ/commit/521dbfe55fb3648ac43f2806e7fe9537f2a7ad1c" title="更新">(521dbfe)</a>
@@ -250,11 +249,11 @@ Failed to execute dot. Is Graphviz installed? Error: exec: <span class="s2">&#34
         <a class="prev" href="/post/go-nginx-docker/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">nginx转发到go服务当中</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/git-diff/">
             <span class="next-text nav-default">git-diff</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -294,11 +293,11 @@ Failed to execute dot. Is Graphviz installed? Error: exec: <span class="s2">&#34
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

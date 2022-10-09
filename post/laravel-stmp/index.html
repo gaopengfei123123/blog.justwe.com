@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>laravel5.1使用stmp邮箱服务 - 摸鱼划水</title>
+  <title>laravel5.1使用stmp邮箱服务 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-stmp/" />
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="laravel5.1使用stmp邮箱服务">
 <meta itemprop="description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5">
-<meta itemprop="datePublished" content="2016-10-09T14:51:00+00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
+<meta itemprop="datePublished" content="2016-10-09T14:51:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="455">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel5.1使用stmp邮箱服务"/>
 <meta name="twitter:description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5"/>
 
@@ -145,7 +144,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -160,7 +159,7 @@
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -211,11 +210,11 @@ MAIL_ENCRYPTION=ssl //安全协议
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"> <span class="nx">Mail</span><span class="o">::</span><span class="na">send</span><span class="p">(</span><span class="s1">&#39;emails.test&#39;</span><span class="p">,</span>
-<span class="p">[</span><span class="s1">&#39;testVar&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;LaravelAcademy.org&#39;</span><span class="p">],</span>
- <span class="k">function</span><span class="p">(</span><span class="nv">$message</span><span class="p">){</span>
- <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="s1">&#39;5173180@qq.com&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">subject</span><span class="p">(</span><span class="s1">&#39;测试邮件  &#39;</span><span class="p">);</span>
- <span class="p">});</span>
+<pre class="chroma"><code class="language-php" data-lang="php"> Mail::send(&#39;emails.test&#39;,
+[&#39;testVar&#39;=&gt;&#39;LaravelAcademy.org&#39;],
+ function($message){
+ $message-&gt;to(&#39;5173180@qq.com&#39;)-&gt;subject(&#39;测试邮件  &#39;);
+ });
 </code></pre></td></tr></table>
 </div>
 </div><p><code>send</code>的参数分别是发送过去的邮件视图，向邮件视图内绑定的参数，一个回调函数
@@ -238,19 +237,19 @@ MAIL_ENCRYPTION=ssl //安全协议
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">from</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">sender</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">cc</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">bcc</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">replyTo</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">subject</span><span class="p">(</span><span class="nv">$subject</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">priority</span><span class="p">(</span><span class="nv">$level</span><span class="p">);</span>
-<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$pathToFile</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="p">[]);</span>
-<span class="c1">// 从$data字符串追加文件...
-</span><span class="c1"></span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">attachData</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$name</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="p">[]);</span>
-<span class="c1">// 获取底层SwiftMailer消息实例...
-</span><span class="c1"></span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getSwiftMessage</span><span class="p">();</span>
+<pre class="chroma"><code class="language-php" data-lang="php">$message-&gt;from($address, $name = null);
+$message-&gt;sender($address, $name = null);
+$message-&gt;to($address, $name = null);
+$message-&gt;cc($address, $name = null);
+$message-&gt;bcc($address, $name = null);
+$message-&gt;replyTo($address, $name = null);
+$message-&gt;subject($subject);
+$message-&gt;priority($level);
+$message-&gt;attach($pathToFile, array $options = []);
+// 从$data字符串追加文件...
+$message-&gt;attachData($data, $name, array $options = []);
+// 获取底层SwiftMailer消息实例...
+$message-&gt;getSwiftMessage();
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -258,11 +257,11 @@ MAIL_ENCRYPTION=ssl //安全协议
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-12-06
         <a href="#ZgotmplZ/commit/7ba517e49d44f804f03c798ed38a227e7a8d7dd2" title="更新一批关键词">(7ba517e)</a>
@@ -277,11 +276,11 @@ MAIL_ENCRYPTION=ssl //安全协议
         <a class="prev" href="/post/vue-1/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">vue的初识</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/fuck-ie/">
             <span class="next-text nav-default">唉~被ie坑了一次又一次</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -321,11 +320,11 @@ MAIL_ENCRYPTION=ssl //安全协议
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>centos7 部署 k8s - 摸鱼划水</title>
+  <title>centos7 部署 k8s - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/k8s-install-centos7/" />
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="name" content="centos7 部署 k8s">
 <meta itemprop="description" content="都是走的国内镜像源 关闭 selinux 1 2 setenforce 0 #实时动态关闭 selinux sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/&#39; /etc/selinux/config #禁止重启后自动开启 关闭交换分区 1 2 swapoff -a #实时动态关闭交换分区 sed -i &#39;/ swap / s/^/#/&#39; /etc/fstab #禁止重">
-<meta itemprop="datePublished" content="2019-06-17T11:59:54+00:00" />
-<meta itemprop="dateModified" content="2019-12-03T14:20:28+08:00" />
+<meta itemprop="datePublished" content="2019-06-17T11:59:54&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
 <meta itemprop="wordCount" content="748">
 
 
 
-<meta itemprop="keywords" content="k8s," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="centos7 部署 k8s"/>
 <meta name="twitter:description" content="都是走的国内镜像源 关闭 selinux 1 2 setenforce 0 #实时动态关闭 selinux sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/&#39; /etc/selinux/config #禁止重启后自动开启 关闭交换分区 1 2 swapoff -a #实时动态关闭交换分区 sed -i &#39;/ swap / s/^/#/&#39; /etc/fstab #禁止重"/>
 
@@ -145,7 +144,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -170,7 +169,7 @@
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2019-12-03T14:20:28" title="December 3, 2019">December 3, 2019</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-03T14:20:28" title="December 3, 2019">December 3, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -488,11 +487,11 @@ rugi2c.bb97e7ney91bogbg   23h       2019-06-18T22:28:11+08:00   authentication,s
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-12-03
         <a href="#ZgotmplZ/commit/258792825e4ec1d2cbaeaf3e44e62d948265a53a" title="更新一批关键词">(2587928)</a>
@@ -509,11 +508,11 @@ rugi2c.bb97e7ney91bogbg   23h       2019-06-18T22:28:11+08:00   authentication,s
         <a class="prev" href="/post/go-context/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">golang 通过 context 控制并发的应用场景</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/k8s-minikube/">
             <span class="next-text nav-default">k8s 安装 minikube</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -553,11 +552,11 @@ rugi2c.bb97e7ney91bogbg   23h       2019-06-18T22:28:11+08:00   authentication,s
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

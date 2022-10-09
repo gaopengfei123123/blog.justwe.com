@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>转 json移除非法 utf8字符串 - 摸鱼划水</title>
+  <title>转 json移除非法 utf8字符串 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-json-error/" />
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="转 json移除非法 utf8字符串">
 <meta itemprop="description" content="当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判">
-<meta itemprop="datePublished" content="2017-11-08T11:17:21+00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
+<meta itemprop="datePublished" content="2017-11-08T11:17:21&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="398">
 
 
 
-<meta itemprop="keywords" content="json,php," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="json,php," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 json移除非法 utf8字符串"/>
 <meta name="twitter:description" content="当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判"/>
 
@@ -145,7 +144,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -161,7 +160,7 @@
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -196,24 +195,24 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"> <span class="c1">//  $json = &#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:&#34;Corwien&#34;}&#39;;
-</span><span class="c1"></span><span class="nv">$json</span> <span class="o">=</span> <span class="s1">&#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:}&#39;</span><span class="p">;</span>  <span class="c1">//错误的json格式
-</span><span class="c1"></span><span class="nv">$result</span> <span class="o">=</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$json</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
- <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$result</span><span class="p">)</span>
- <span class="p">{</span>
-       <span class="c1">//error handle ,错误处理
-</span><span class="c1"></span>       <span class="nv">$ret</span> <span class="o">=</span> <span class="nx">json_last_error</span><span class="p">();</span>
-       <span class="nx">print_r</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>   <span class="c1">//打印为： 4,查错误信息表，可知是语法错误
-</span><span class="c1"></span>
- <span class="p">}</span>   
+<pre class="chroma"><code class="language-php" data-lang="php"> //  $json = &#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:&#34;Corwien&#34;}&#39;;
+$json = &#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:}&#39;;  //错误的json格式
+$result = json_decode($json, true);
+ if(!$result)
+ {
+       //error handle ,错误处理
+       $ret = json_last_error();
+       print_r($ret);   //打印为： 4,查错误信息表，可知是语法错误
 
-<span class="nx">json_last_error错误msg对照表：</span>
-<span class="mi">0</span> <span class="o">=</span> <span class="nx">JSON_ERROR_NONE</span>
-<span class="mi">1</span> <span class="o">=</span> <span class="nx">JSON_ERROR_DEPTH</span>
-<span class="mi">2</span> <span class="o">=</span> <span class="nx">JSON_ERROR_STATE_MISMATCH</span>
-<span class="mi">3</span> <span class="o">=</span> <span class="nx">JSON_ERROR_CTRL_CHAR</span>
-<span class="mi">4</span> <span class="o">=</span> <span class="nx">JSON_ERROR_SYNTAX</span>
-<span class="mi">5</span> <span class="o">=</span> <span class="nx">JSON_ERROR_UTF8</span>
+ }   
+
+json_last_error错误msg对照表：
+0 = JSON_ERROR_NONE
+1 = JSON_ERROR_DEPTH
+2 = JSON_ERROR_STATE_MISMATCH
+3 = JSON_ERROR_CTRL_CHAR
+4 = JSON_ERROR_SYNTAX
+5 = JSON_ERROR_UTF8
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="如何处理json中的非法utf8字符">如何处理json中的非法utf8字符</h3>
@@ -235,17 +234,17 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">//reject overly long 2 byte sequences, as well as characters above U+10000 and replace with ?
-</span><span class="c1"></span><span class="nv">$some_string</span> <span class="o">=</span> <span class="nx">preg_replace</span><span class="p">(</span><span class="s1">&#39;/[\x00-\x08\x10\x0B\x0C\x0E-\x19\x7F]&#39;</span><span class="o">.</span>
- <span class="s1">&#39;|[\x00-\x7F][\x80-\xBF]+&#39;</span><span class="o">.</span>
- <span class="s1">&#39;|([\xC0\xC1]|[\xF0-\xFF])[\x80-\xBF]*&#39;</span><span class="o">.</span>
- <span class="s1">&#39;|[\xC2-\xDF]((?![\x80-\xBF])|[\x80-\xBF]{2,})&#39;</span><span class="o">.</span>
- <span class="s1">&#39;|[\xE0-\xEF](([\x80-\xBF](?![\x80-\xBF]))|(?![\x80-\xBF]{2})|[\x80-\xBF]{3,})/S&#39;</span><span class="p">,</span>
- <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="nv">$some_string</span> <span class="p">);</span>
+<pre class="chroma"><code class="language-php" data-lang="php">//reject overly long 2 byte sequences, as well as characters above U+10000 and replace with ?
+$some_string = preg_replace(&#39;/[\x00-\x08\x10\x0B\x0C\x0E-\x19\x7F]&#39;.
+ &#39;|[\x00-\x7F][\x80-\xBF]+&#39;.
+ &#39;|([\xC0\xC1]|[\xF0-\xFF])[\x80-\xBF]*&#39;.
+ &#39;|[\xC2-\xDF]((?![\x80-\xBF])|[\x80-\xBF]{2,})&#39;.
+ &#39;|[\xE0-\xEF](([\x80-\xBF](?![\x80-\xBF]))|(?![\x80-\xBF]{2})|[\x80-\xBF]{3,})/S&#39;,
+ &#39;?&#39;, $some_string );
 
-<span class="c1">//reject overly long 3 byte sequences and UTF-16 surrogates and replace with ?
-</span><span class="c1"></span><span class="nv">$some_string</span> <span class="o">=</span> <span class="nx">preg_replace</span><span class="p">(</span><span class="s1">&#39;/\xE0[\x80-\x9F][\x80-\xBF]&#39;</span><span class="o">.</span>
- <span class="s1">&#39;|\xED[\xA0-\xBF][\x80-\xBF]/S&#39;</span><span class="p">,</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="nv">$some_string</span> <span class="p">);</span>
+//reject overly long 3 byte sequences and UTF-16 surrogates and replace with ?
+$some_string = preg_replace(&#39;/\xE0[\x80-\x9F][\x80-\xBF]&#39;.
+ &#39;|\xED[\xA0-\xBF][\x80-\xBF]/S&#39;,&#39;?&#39;, $some_string );
 </code></pre></td></tr></table>
 </div>
 </div><p><a href="https://segmentfault.com/a/1190000006154011">原文</a>
@@ -255,11 +254,11 @@
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-12-06
         <a href="#ZgotmplZ/commit/7ba517e49d44f804f03c798ed38a227e7a8d7dd2" title="更新一批关键词">(7ba517e)</a>
@@ -277,11 +276,11 @@
         <a class="prev" href="/post/raspberry-pi3-install/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">转 烧录树莓派系统(新手版)</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/js-promise/">
             <span class="next-text nav-default">js promise 对象</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -321,11 +320,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

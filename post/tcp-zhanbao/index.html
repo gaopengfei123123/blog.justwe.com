@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>TCP &#39;粘包&#39;问题 - 摸鱼划水</title>
+  <title>TCP &#39;粘包&#39;问题 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/tcp-zhanbao/" />
@@ -51,14 +51,13 @@
 <meta itemprop="name" content="TCP &#39;粘包&#39;问题">
 <meta itemprop="description" content="有一次面试被问道TCP&quot;粘包&quot;问题, 当时还有点蒙, 这什么玩意? 啥是粘包?
 这其实是个人体验上感觉数据粘在一起了, 从这个现象上也反映出tcp的一些特性">
-<meta itemprop="datePublished" content="2020-06-11T17:50:27+08:00" />
-<meta itemprop="dateModified" content="2020-06-11T18:18:16+08:00" />
-<meta itemprop="wordCount" content="655">
+<meta itemprop="datePublished" content="2020-06-11T17:50:27&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-11T18:18:16&#43;08:00" />
+<meta itemprop="wordCount" content="657">
 
 
 
-<meta itemprop="keywords" content="tcp," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="tcp," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="TCP &#39;粘包&#39;问题"/>
 <meta name="twitter:description" content="有一次面试被问道TCP&quot;粘包&quot;问题, 当时还有点蒙, 这什么玩意? 啥是粘包?
 这其实是个人体验上感觉数据粘在一起了, 从这个现象上也反映出tcp的一些特性"/>
@@ -150,7 +149,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -165,7 +164,7 @@
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2020-06-11T18:18:16" title="June 11, 2020">June 11, 2020</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-06-11T18:18:16" title="June 11, 2020">June 11, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -174,7 +173,7 @@
 <h4 id="问题原因">问题原因</h4>
 <p>就不说老生常谈的三次握手,四次挥手的流程. 首先要明确一点就是tpc是一种&quot;流&quot;式协议, 就像水一样, 两边的水管对接好, 数据就吨吨吨得从水管中流过&hellip;</p>
 <p>而且由于是全双工的, 两端不中断就一直连着, 那两头的缓冲区就一直存在, 缓冲区的数据你不及时清理掉自然会有问题</p>
-<p>比如AB端建立连接后, A 第一次发送了 &ldquo;hello&rdquo;, 第二次发送了 &ldquo;world&rdquo;, 但是一二次之间没有push操作, 全在发送缓冲区里面屯着, 等到缓冲区满了自动发送, 那B接收的时候自然是一条&quot;helloworld&quot;, 没有明显的断点标识, 在B端就认为是一条数据了, 这就是所谓的&quot;粘包&quot;</p>
+<p>比如AB端建立连接后, A 第一次发送了 &ldquo;hello&rdquo;, 第二次发送了 &ldquo;world&rdquo;, 但是一二次之间没有push操作, 全在发送缓冲区里面屯着, 等到缓冲区满了自动发送, 那B接收的时候自然是一条&quot;helloworld&rdquo;, 没有明显的断点标识, 在B端就认为是一条数据了, 这就是所谓的&quot;粘包&rdquo;</p>
 <p>同理来说B端的接收端也一样, A连着发了两条数据, B因为在处理别的事情没忙过来, 等他反应过来的时候发现缓冲区躺着的就像一条数据一样&hellip;</p>
 <p>像基于tcp的http协议, 人家是发一次就关闭连接, 这自然就不会出现粘包的问题</p>
 <h4 id="如何避免">如何避免</h4>
@@ -193,11 +192,11 @@
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2020-06-11
         <a href="#ZgotmplZ/commit/ce4b354c26350eb4131e7fce3036985355097aaf" title="更新一篇文章">(ce4b354)</a>
@@ -214,11 +213,11 @@
         <a class="prev" href="/post/leetcode-trap/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">[leetcode] Trap</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/markdown-inline/">
             <span class="next-text nav-default">Markdown 使用内联ID</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -258,11 +257,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

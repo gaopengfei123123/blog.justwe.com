@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>自定义 gii 模板 - 摸鱼划水</title>
+  <title>自定义 gii 模板 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/yii-gii/" />
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="自定义 gii 模板">
 <meta itemprop="description" content="开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造 这里先拿 basic 版举例, advance版同理 1.修改配置文件 web.php 1 2">
-<meta itemprop="datePublished" content="2018-05-23T14:15:12+00:00" />
-<meta itemprop="dateModified" content="2019-12-10T18:00:55+08:00" />
-<meta itemprop="wordCount" content="2259">
+<meta itemprop="datePublished" content="2018-05-23T14:15:12&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
+<meta itemprop="wordCount" content="2260">
 
 
 
-<meta itemprop="keywords" content="php,gii,yii," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="php,gii,yii," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="自定义 gii 模板"/>
 <meta name="twitter:description" content="开发是需要用到 gii,但是 gii 并不是完全符合自己的开发需求,所以需要对他做一点改造 这里先拿 basic 版举例, advance版同理 1.修改配置文件 web.php 1 2"/>
 
@@ -145,7 +144,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -163,7 +162,7 @@
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2019-12-10T18:00:55" title="December 10, 2019">December 10, 2019</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-10T18:00:55" title="December 10, 2019">December 10, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -203,34 +202,34 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// file path: @app/config/web.php
-</span><span class="c1"></span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">YII_ENV_DEV</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// configuration adjustments for &#39;dev&#39; environment
-</span><span class="c1"></span>    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;debug&#39;</span><span class="p">;</span>
-    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;modules&#39;</span><span class="p">][</span><span class="s1">&#39;debug&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yii\debug\Module&#39;</span><span class="p">,</span>
-    <span class="p">];</span>
+<pre class="chroma"><code class="language-php" data-lang="php">// file path: @app/config/web.php
 
-    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;gii&#39;</span><span class="p">;</span>
-    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;modules&#39;</span><span class="p">][</span><span class="s1">&#39;gii&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yii\gii\Module&#39;</span><span class="p">,</span>
-        <span class="c1">// 这里把原来的 model generator 给覆盖成自己的
-</span><span class="c1"></span>        <span class="s1">&#39;generators&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="s1">&#39;model&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-                <span class="c1">// 自定义的模板生成器
-</span><span class="c1"></span>                <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;app\common\gii\model\Generator&#39;</span><span class="p">,</span>
-                <span class="c1">//设置我们自己的模板
-</span><span class="c1"></span>                <span class="s1">&#39;templates&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-                    <span class="c1">//模板名 =&gt; 模板路径
-</span><span class="c1"></span>                    <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span>  <span class="s1">&#39;@app/common/gii/model/default&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;original&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;@app/common/gii/model/original_tpl&#39;</span><span class="p">,</span>
-                <span class="p">]</span>
-            <span class="p">]</span>
-        <span class="p">],</span>
-    <span class="p">];</span>
+if (YII_ENV_DEV) {
+    // configuration adjustments for &#39;dev&#39; environment
+    $config[&#39;bootstrap&#39;][] = &#39;debug&#39;;
+    $config[&#39;modules&#39;][&#39;debug&#39;] = [
+        &#39;class&#39; =&gt; &#39;yii\debug\Module&#39;,
+    ];
 
-<span class="p">}</span>
+    $config[&#39;bootstrap&#39;][] = &#39;gii&#39;;
+    $config[&#39;modules&#39;][&#39;gii&#39;] = [
+        &#39;class&#39; =&gt; &#39;yii\gii\Module&#39;,
+        // 这里把原来的 model generator 给覆盖成自己的
+        &#39;generators&#39; =&gt; [
+            &#39;model&#39; =&gt; [
+                // 自定义的模板生成器
+                &#39;class&#39; =&gt; &#39;app\common\gii\model\Generator&#39;,
+                //设置我们自己的模板
+                &#39;templates&#39; =&gt; [
+                    //模板名 =&gt; 模板路径
+                    &#39;default&#39; =&gt;  &#39;@app/common/gii/model/default&#39;,
+                    &#39;original&#39; =&gt; &#39;@app/common/gii/model/original_tpl&#39;,
+                ]
+            ]
+        ],
+    ];
+
+}
 </code></pre></td></tr></table>
 </div>
 </div><p>现在在配置中指定了两种model 生成模板了</p>
@@ -402,11 +401,11 @@ class Generator extends \yii\gii\Generator{
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="s1">&#39;templates&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="c1">//模板名 =&gt; 模板路径
-</span><span class="c1"></span>            <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span>  <span class="s1">&#39;@app/common/gii/model/default&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;original&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;@app/common/gii/model/original_tpl&#39;</span><span class="p">,</span>
-        <span class="p">]</span>
+<pre class="chroma"><code class="language-php" data-lang="php">&#39;templates&#39; =&gt; [
+            //模板名 =&gt; 模板路径
+            &#39;default&#39; =&gt;  &#39;@app/common/gii/model/default&#39;,
+            &#39;original&#39; =&gt; &#39;@app/common/gii/model/original_tpl&#39;,
+        ]
 </code></pre></td></tr></table>
 </div>
 </div><p>这两个, 把 <code>default/</code> 复制一份叫 <code>original_tpl/</code> 这在 gii 页面端选模板的时候能看到这写别名,如果是<code>console</code>模式的话只能使用<code>default</code>模板了</p>
@@ -446,8 +445,8 @@ class Generator extends \yii\gii\Generator{
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// path: @app/common/gii/default/model.php
-</span><span class="c1"></span><span class="o">&lt;?</span><span class="nx">php</span>
+<pre class="chroma"><code class="language-php" data-lang="php">// path: @app/common/gii/default/model.php
+<span class="cp">&lt;?php</span>
 <span class="sd">/**
 </span><span class="sd"> * This is the template for generating the model class of a specified table.
 </span><span class="sd"> */</span>
@@ -466,19 +465,19 @@ class Generator extends \yii\gii\Generator{
 
 <span class="k">echo</span> <span class="s2">&#34;&lt;?php</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
 
-<span class="cp">?&gt;</span><span class="err">
-</span><span class="err">
-</span><span class="err">namespace &lt;?= $generator-&gt;ns ?&gt;;
-</span><span class="err">
-</span><span class="err">use Yii;
-</span><span class="err">
-</span><span class="err">/**
-</span><span class="err"> * This is the model class for table &#34;&lt;?= $generator-&gt;generateTableName($tableName) ?&gt;&#34;.
-</span><span class="err"> *
-</span><span class="err">&lt;?php foreach ($properties as $property =&gt; $data): ?&gt;
-</span><span class="err">
-</span><span class="err">...底下一些乱七八糟的代码....
-</span></code></pre></td></tr></table>
+<span class="cp">?&gt;</span>
+
+namespace <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">ns</span> <span class="cp">?&gt;</span>;
+
+use Yii;
+
+/**
+ * This is the model class for table &#34;<span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$generator</span><span class="o">-&gt;</span><span class="na">generateTableName</span><span class="p">(</span><span class="nv">$tableName</span><span class="p">)</span> <span class="cp">?&gt;</span>&#34;.
+ *
+<span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$properties</span> <span class="k">as</span> <span class="nv">$property</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+
+...底下一些乱七八糟的代码....
+</code></pre></td></tr></table>
 </div>
 </div><p>这里就看着办吧,就是正常的渲染模板</p>
 <p>因为在<code>generate()</code>中还设置了一个</p>
@@ -493,13 +492,13 @@ class Generator extends \yii\gii\Generator{
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// 同一个库中只生成一个 Model.php 之后的 model 都要继承这个 model
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nv">$index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$files</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CodeFile</span><span class="p">(</span>
-        <span class="nx">Yii</span><span class="o">::</span><span class="na">getAlias</span><span class="p">(</span><span class="s1">&#39;@&#39;</span> <span class="o">.</span> <span class="nx">str_replace</span><span class="p">(</span><span class="s1">&#39;\\&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ns</span><span class="p">))</span> <span class="o">.</span> <span class="s1">&#39;/Model.php&#39;</span><span class="p">,</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;cModel.php&#39;</span><span class="p">,</span> <span class="nv">$params</span><span class="p">)</span>
-    <span class="p">);</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-php" data-lang="php">// 同一个库中只生成一个 Model.php 之后的 model 都要继承这个 model
+if ($index == 0) {
+    $files[] = new CodeFile(
+        Yii::getAlias(&#39;@&#39; . str_replace(&#39;\\&#39;, &#39;/&#39;, $this-&gt;ns)) . &#39;/Model.php&#39;,
+        $this-&gt;render(&#39;cModel.php&#39;, $params)
+    );
+}
 </code></pre></td></tr></table>
 </div>
 </div><p>新增了一个<code>cModel.php</code>,这个是我自己的业务需求, 同库的 model 全部继承这个 model, 这里只是设置了一下<code>getDb()</code>方法</p>
@@ -563,7 +562,7 @@ class Generator extends \yii\gii\Generator{
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
 <span class="sd">/**
 </span><span class="sd"> * This is the template for generating the model class of a specified table.
 </span><span class="sd"> */</span>
@@ -618,8 +617,8 @@ class Generator extends \yii\gii\Generator{
 
 <span class="k">echo</span> <span class="nv">$model</span><span class="p">;</span>
 
-<span class="cp">?&gt;</span><span class="err">
-</span></code></pre></td></tr></table>
+<span class="cp">?&gt;</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>这样依赖 gii 的模板自定义就算是完事了</p>
 <h3 id="4-console-模式下的-gii">4. console 模式下的 gii</h3>
@@ -644,22 +643,22 @@ class Generator extends \yii\gii\Generator{
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">//path @app/console.php
-</span><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">YII_ENV_DEV</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// configuration adjustments for &#39;dev&#39; environment
-</span><span class="c1"></span>    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;bootstrap&#39;</span><span class="p">][]</span> <span class="o">=</span> <span class="s1">&#39;gii&#39;</span><span class="p">;</span>
-    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;modules&#39;</span><span class="p">][</span><span class="s1">&#39;gii&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;app\common\gii\Module&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;generators&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="s1">&#39;model&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
-                <span class="c1">// 自定义的模板生成器
-</span><span class="c1"></span>                <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;app\common\gii\model\Generator&#39;</span><span class="p">,</span>
-                <span class="c1">//设置我们自己的模板 console 默认就是 default 模板
-</span><span class="c1"></span>                <span class="s1">&#39;templates&#39;</span> <span class="o">=&gt;</span> <span class="p">[]</span>
-            <span class="p">]</span>
-        <span class="p">],</span>
-    <span class="p">];</span>
-<span class="p">}</span>
+<pre class="chroma"><code class="language-php" data-lang="php">//path @app/console.php
+if (YII_ENV_DEV) {
+    // configuration adjustments for &#39;dev&#39; environment
+    $config[&#39;bootstrap&#39;][] = &#39;gii&#39;;
+    $config[&#39;modules&#39;][&#39;gii&#39;] = [
+        &#39;class&#39; =&gt; &#39;app\common\gii\Module&#39;,
+        &#39;generators&#39; =&gt; [
+            &#39;model&#39; =&gt; [
+                // 自定义的模板生成器
+                &#39;class&#39; =&gt; &#39;app\common\gii\model\Generator&#39;,
+                //设置我们自己的模板 console 默认就是 default 模板
+                &#39;templates&#39; =&gt; []
+            ]
+        ],
+    ];
+}
 </code></pre></td></tr></table>
 </div>
 </div><p><code>generators</code> 和 之前的配置一样,区别就是 module 下的 class 设置成自己的 Module</p>
@@ -694,31 +693,31 @@ class Generator extends \yii\gii\Generator{
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// path: @app/common/gii/Module.php
-</span><span class="c1"></span>
-<span class="sd">/**
-</span><span class="sd">代码块
-</span><span class="sd">*/</span>
- <span class="k">public</span> <span class="k">function</span> <span class="nf">bootstrap</span><span class="p">(</span><span class="nv">$app</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$app</span> <span class="nx">instanceof</span> <span class="nx">\yii\web\Application</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">getUrlManager</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">addRules</span><span class="p">([</span>
-                <span class="p">[</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yii\web\UrlRule&#39;</span><span class="p">,</span> <span class="s1">&#39;pattern&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">,</span> <span class="s1">&#39;route&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">.</span> <span class="s1">&#39;/default/index&#39;</span><span class="p">],</span>
-                <span class="p">[</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yii\web\UrlRule&#39;</span><span class="p">,</span> <span class="s1">&#39;pattern&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">.</span> <span class="s1">&#39;/&lt;id:\w+&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;route&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">.</span> <span class="s1">&#39;/default/view&#39;</span><span class="p">],</span>
-                <span class="p">[</span><span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yii\web\UrlRule&#39;</span><span class="p">,</span> <span class="s1">&#39;pattern&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">.</span> <span class="s1">&#39;/&lt;controller:[\w\-]+&gt;/&lt;action:[\w\-]+&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;route&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span> <span class="o">.</span> <span class="s1">&#39;/&lt;controller&gt;/&lt;action&gt;&#39;</span><span class="p">],</span>
-            <span class="p">],</span> <span class="k">false</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span><span class="nv">$app</span> <span class="nx">instanceof</span> <span class="nx">\yii\console\Application</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">controllerMap</span><span class="p">[</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="c1">// 这里改成自己定制的 consoleController
-</span><span class="c1"></span>                <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;app\common\gii\console\GenerateController&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;generators&#39;</span> <span class="o">=&gt;</span> <span class="nx">array_merge</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">coreGenerators</span><span class="p">(),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">generators</span><span class="p">),</span>
-                <span class="s1">&#39;module&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="p">,</span>
-            <span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="sd">/**
-</span><span class="sd">代码块
-</span><span class="sd">*/</span>
+<pre class="chroma"><code class="language-php" data-lang="php">// path: @app/common/gii/Module.php
+
+/**
+代码块
+*/
+ public function bootstrap($app)
+    {
+        if ($app instanceof \yii\web\Application) {
+            $app-&gt;getUrlManager()-&gt;addRules([
+                [&#39;class&#39; =&gt; &#39;yii\web\UrlRule&#39;, &#39;pattern&#39; =&gt; $this-&gt;id, &#39;route&#39; =&gt; $this-&gt;id . &#39;/default/index&#39;],
+                [&#39;class&#39; =&gt; &#39;yii\web\UrlRule&#39;, &#39;pattern&#39; =&gt; $this-&gt;id . &#39;/<span class="p">&lt;</span><span class="nt">id:</span><span class="err">\</span><span class="na">w</span><span class="err">+</span><span class="p">&gt;</span>&#39;, &#39;route&#39; =&gt; $this-&gt;id . &#39;/default/view&#39;],
+                [&#39;class&#39; =&gt; &#39;yii\web\UrlRule&#39;, &#39;pattern&#39; =&gt; $this-&gt;id . &#39;/<span class="p">&lt;</span><span class="nt">controller:</span><span class="err">[\</span><span class="na">w</span><span class="err">\</span><span class="na">-</span><span class="err">]+</span><span class="p">&gt;</span>/<span class="p">&lt;</span><span class="nt">action:</span><span class="err">[\</span><span class="na">w</span><span class="err">\</span><span class="na">-</span><span class="err">]+</span><span class="p">&gt;</span>&#39;, &#39;route&#39; =&gt; $this-&gt;id . &#39;/<span class="p">&lt;</span><span class="nt">controller</span><span class="p">&gt;</span>/<span class="p">&lt;</span><span class="nt">action</span><span class="p">&gt;</span>&#39;],
+            ], false);
+        } elseif ($app instanceof \yii\console\Application) {
+            $app-&gt;controllerMap[$this-&gt;id] = [
+                // 这里改成自己定制的 consoleController
+                &#39;class&#39; =&gt; &#39;app\common\gii\console\GenerateController&#39;,
+                &#39;generators&#39; =&gt; array_merge($this-&gt;coreGenerators(), $this-&gt;generators),
+                &#39;module&#39; =&gt; $this,
+            ];
+        }
+    }
+/**
+代码块
+*/
 
 </code></pre></td></tr></table>
 </div>
@@ -748,26 +747,26 @@ class Generator extends \yii\gii\Generator{
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// path: @app/common/gii/console/GenerateController.php
-</span><span class="c1"></span> <span class="k">public</span> <span class="k">function</span> <span class="nf">actions</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$actions</span> <span class="o">=</span> <span class="p">[];</span>
-        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">generators</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$generator</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$actions</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;yii\gii\console\GenerateAction&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;generator&#39;</span> <span class="o">=&gt;</span> <span class="nv">$generator</span><span class="p">,</span>
-            <span class="p">];</span>
+<pre class="chroma"><code class="language-php" data-lang="php">// path: @app/common/gii/console/GenerateController.php
+ public function actions()
+    {
+        $actions = [];
+        foreach ($this-&gt;generators as $name =&gt; $generator) {
+            $actions[$name] = [
+                &#39;class&#39; =&gt; &#39;yii\gii\console\GenerateAction&#39;,
+                &#39;generator&#39; =&gt; $generator,
+            ];
 
-            <span class="c1">// 依赖model generator 重新定义一个 gii 命令
-</span><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="nv">$name</span> <span class="o">==</span> <span class="s1">&#39;model&#39;</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nv">$actions</span><span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                    <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;app\common\gii\console\GenerateAllAction&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;generator&#39;</span> <span class="o">=&gt;</span> <span class="nv">$generator</span><span class="p">,</span>
-                <span class="p">];</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="nv">$actions</span><span class="p">;</span>
-    <span class="p">}</span>
+            // 依赖model generator 重新定义一个 gii 命令
+            if($name == &#39;model&#39;) {
+                $actions[&#39;all&#39;] = [
+                    &#39;class&#39; =&gt; &#39;app\common\gii\console\GenerateAllAction&#39;,
+                    &#39;generator&#39; =&gt; $generator,
+                ];
+            }
+        }
+        return $actions;
+    }
 </code></pre></td></tr></table>
 </div>
 </div><p>因为所有的 Generator 都实现了 <code>getName()</code> 和 <code>generate()</code>这两个方法,action 也是只使用了这两个方法,可以自己翻下代码,这里就不详细讲了</p>
@@ -776,11 +775,11 @@ class Generator extends \yii\gii\Generator{
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-12-10
         <a href="#ZgotmplZ/commit/77997d9684dbb242bcd479ff5862ea066461d79f" title="加一批关键词">(77997d9)</a>
@@ -799,11 +798,11 @@ class Generator extends \yii\gii\Generator{
         <a class="prev" href="/post/git-sshcommand/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">git调整 ssh 登录参数</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/conversion-calculation/">
             <span class="next-text nav-default">十进制与二进制,八进制,十六进制的换算</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -843,11 +842,11 @@ class Generator extends \yii\gii\Generator{
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

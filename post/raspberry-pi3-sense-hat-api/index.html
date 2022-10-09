@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>sense-HAT api 文档 - 摸鱼划水</title>
+  <title>sense-HAT api 文档 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/raspberry-pi3-sense-hat-api/" />
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="name" content="sense-HAT api 文档">
 <meta itemprop="description" content="从官方给的 api 文档中硬翻的&hellip; LED 模型 set_rotation 设置翻转角度 这个函数可以设置 led 的旋转角度 参数 类型 可选参数 描述 r Integer 0,90,180,270 0指的是树莓派 HDMI 接口向下的">
-<meta itemprop="datePublished" content="2017-11-30T13:57:18+00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
+<meta itemprop="datePublished" content="2017-11-30T13:57:18&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
 <meta itemprop="wordCount" content="4417">
 
 
 
-<meta itemprop="keywords" content="Raspberry,MacOS," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Raspberry,MacOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="sense-HAT api 文档"/>
 <meta name="twitter:description" content="从官方给的 api 文档中硬翻的&hellip; LED 模型 set_rotation 设置翻转角度 这个函数可以设置 led 的旋转角度 参数 类型 可选参数 描述 r Integer 0,90,180,270 0指的是树莓派 HDMI 接口向下的"/>
 
@@ -145,7 +144,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -195,7 +194,7 @@
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-06T10:41:44" title="December 6, 2019">December 6, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -207,24 +206,24 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">r</td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center"><code>0</code>,<code>90</code>,<code>180</code>,<code>270</code></td>
-<td style="text-align:center"><code>0</code>指的是树莓派 HDMI 接口向下的方向</td>
+<td align="center">r</td>
+<td align="center">Integer</td>
+<td align="center"><code>0</code>,<code>90</code>,<code>180</code>,<code>270</code></td>
+<td align="center"><code>0</code>指的是树莓派 HDMI 接口向下的方向</td>
 </tr>
 <tr>
-<td style="text-align:center">redraw</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center"><code>TRUE</code>,<code>FALSE</code></td>
-<td style="text-align:center">默认为 <code>TRUE</code></td>
+<td align="center">redraw</td>
+<td align="center">Boolean</td>
+<td align="center"><code>TRUE</code>,<code>FALSE</code></td>
+<td align="center">默认为 <code>TRUE</code></td>
 </tr>
 </tbody>
 </table>
@@ -320,18 +319,18 @@ except KeyboardInterrupt:
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>pixel_list</code></td>
-<td style="text-align:center">List</td>
-<td style="text-align:center"><code>[[R, G, B] * 64]</code></td>
-<td style="text-align:center">需要提供 list 长度为64的二维数组, (r,g,b)为三原色的色值</td>
+<td align="center"><code>pixel_list</code></td>
+<td align="center">List</td>
+<td align="center"><code>[[R, G, B] * 64]</code></td>
+<td align="center">需要提供 list 长度为64的二维数组, (r,g,b)为三原色的色值</td>
 </tr>
 </tbody>
 </table>
@@ -340,17 +339,17 @@ except KeyboardInterrupt:
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">List</td>
-<td style="text-align:center">将当前的 led 屏上显示的图像转换成list</td>
+<td align="center">List</td>
+<td align="center">将当前的 led 屏上显示的图像转换成list</td>
 </tr>
 <tr>
-<td style="text-align:center">示例:</td>
+<td align="center">示例:</td>
 <td></td>
 </tr>
 </tbody>
@@ -418,60 +417,60 @@ get_pixels 就是显示像素在缓冲区内结束时的值</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>x</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center"><code>0-7</code></td>
-<td style="text-align:center">0为左 7为右</td>
+<td align="center"><code>x</code></td>
+<td align="center">Integer</td>
+<td align="center"><code>0-7</code></td>
+<td align="center">0为左 7为右</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>y</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center"><code>0-7</code></td>
-<td style="text-align:center">0为上 7为下</td>
+<td align="center"><code>y</code></td>
+<td align="center">Integer</td>
+<td align="center"><code>0-7</code></td>
+<td align="center">0为上 7为下</td>
 </tr>
 <tr>
-<td style="text-align:center">当只有三个参数的时候</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">当只有三个参数的时候</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>pixel</code></td>
-<td style="text-align:center">Tuple / List</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">(r, g, b)	数值</td>
+<td align="center"><code>pixel</code></td>
+<td align="center">Tuple / List</td>
+<td align="center">0-255</td>
+<td align="center">(r, g, b)	数值</td>
 </tr>
 <tr>
-<td style="text-align:center">当有五个参数的时候</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">当有五个参数的时候</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>r</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">红</td>
+<td align="center"><code>r</code></td>
+<td align="center">Integer</td>
+<td align="center">0-255</td>
+<td align="center">红</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>g</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">绿</td>
+<td align="center"><code>g</code></td>
+<td align="center">Integer</td>
+<td align="center">0-255</td>
+<td align="center">绿</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>b</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">蓝</td>
+<td align="center"><code>b</code></td>
+<td align="center">Integer</td>
+<td align="center">0-255</td>
+<td align="center">蓝</td>
 </tr>
 </tbody>
 </table>
@@ -523,38 +522,38 @@ sense.set_pixel(0, 0, blue)
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>x</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center"><code>0-7</code></td>
-<td style="text-align:center">0为左 7为右</td>
+<td align="center"><code>x</code></td>
+<td align="center">Integer</td>
+<td align="center"><code>0-7</code></td>
+<td align="center">0为左 7为右</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>y</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center"><code>0-7</code></td>
-<td style="text-align:center">0为上 7为下</td>
+<td align="center"><code>y</code></td>
+<td align="center">Integer</td>
+<td align="center"><code>0-7</code></td>
+<td align="center">0为上 7为下</td>
 </tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">List</td>
-<td style="text-align:center">[R,G,B] 组成的数组</td>
+<td align="center">List</td>
+<td align="center">[R,G,B] 组成的数组</td>
 </tr>
 </tbody>
 </table>
@@ -578,24 +577,24 @@ top_left_pixel = sense.get_pixel(0, 0)
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>file_path</code></td>
-<td style="text-align:center">String</td>
-<td style="text-align:center"><code>...</code></td>
-<td style="text-align:center">有效的图片路径</td>
+<td align="center"><code>file_path</code></td>
+<td align="center">String</td>
+<td align="center"><code>...</code></td>
+<td align="center">有效的图片路径</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>redraw</code></td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center"><code>TRUE</code>/<code>FALSE</code></td>
-<td style="text-align:center">是否重绘已加载的图像文件在LED矩阵上。默认值为True</td>
+<td align="center"><code>redraw</code></td>
+<td align="center">Boolean</td>
+<td align="center"><code>TRUE</code>/<code>FALSE</code></td>
+<td align="center">是否重绘已加载的图像文件在LED矩阵上。默认值为True</td>
 </tr>
 </tbody>
 </table>
@@ -617,14 +616,14 @@ sense.load_image(&#34;space_invader.png&#34;)
 </div><table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">List</td>
-<td style="text-align:center">[[R,G,B] * 64] 组成的数组</td>
+<td align="center">List</td>
+<td align="center">[[R,G,B] * 64] 组成的数组</td>
 </tr>
 </tbody>
 </table>
@@ -646,48 +645,48 @@ invader_pixels = sense.load_image(&#34;space_invader.png&#34;, redraw=False)
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">当只有一个参数的时候</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">当只有一个参数的时候</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>pixel</code></td>
-<td style="text-align:center">Tuple / List</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">(r, g, b)	数值,默认为<code>[0,0,0]</code></td>
+<td align="center"><code>pixel</code></td>
+<td align="center">Tuple / List</td>
+<td align="center">0-255</td>
+<td align="center">(r, g, b)	数值,默认为<code>[0,0,0]</code></td>
 </tr>
 <tr>
-<td style="text-align:center">当有三个参数的时候</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td align="center">当有三个参数的时候</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center"><code>r</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">红</td>
+<td align="center"><code>r</code></td>
+<td align="center">Integer</td>
+<td align="center">0-255</td>
+<td align="center">红</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>g</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">绿</td>
+<td align="center"><code>g</code></td>
+<td align="center">Integer</td>
+<td align="center">0-255</td>
+<td align="center">绿</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>b</code></td>
-<td style="text-align:center">Integer</td>
-<td style="text-align:center">0-255</td>
-<td style="text-align:center">蓝</td>
+<td align="center"><code>b</code></td>
+<td align="center">Integer</td>
+<td align="center">0-255</td>
+<td align="center">蓝</td>
 </tr>
 </tbody>
 </table>
@@ -727,36 +726,36 @@ sense.clear(255, 255, 255)  # passing in r, g and b values of a colour
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>text_string</code></td>
-<td style="text-align:center">String</td>
-<td style="text-align:center"><code>...</code></td>
-<td style="text-align:center">将要滚屏的字母</td>
+<td align="center"><code>text_string</code></td>
+<td align="center">String</td>
+<td align="center"><code>...</code></td>
+<td align="center">将要滚屏的字母</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>scroll_speed</code></td>
-<td style="text-align:center">Float</td>
-<td style="text-align:center">任意浮点数</td>
-<td style="text-align:center">滚屏速度,默认 0.1</td>
+<td align="center"><code>scroll_speed</code></td>
+<td align="center">Float</td>
+<td align="center">任意浮点数</td>
+<td align="center">滚屏速度,默认 0.1</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>text_colour</code></td>
-<td style="text-align:center">List</td>
-<td style="text-align:center">[R,G,B]]</td>
-<td style="text-align:center">文字颜色,默认[255,255,255]</td>
+<td align="center"><code>text_colour</code></td>
+<td align="center">List</td>
+<td align="center">[R,G,B]]</td>
+<td align="center">文字颜色,默认[255,255,255]</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>back_colour</code></td>
-<td style="text-align:center">List</td>
-<td style="text-align:center">[R,G,B]]</td>
-<td style="text-align:center">背景颜色,默认[0,0,0]</td>
+<td align="center"><code>back_colour</code></td>
+<td align="center">List</td>
+<td align="center">[R,G,B]]</td>
+<td align="center">背景颜色,默认[0,0,0]</td>
 </tr>
 </tbody>
 </table>
@@ -779,33 +778,33 @@ sense.show_message(&#34;One small step for Pi!&#34;, text_colour=[255, 0, 0])
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>s</code></td>
-<td style="text-align:center">String</td>
-<td style="text-align:center"><code>...</code></td>
-<td style="text-align:center">将要显示的字母</td>
+<td align="center"><code>s</code></td>
+<td align="center">String</td>
+<td align="center"><code>...</code></td>
+<td align="center">将要显示的字母</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>text_colour</code></td>
-<td style="text-align:center">List</td>
-<td style="text-align:center">[R,G,B]]</td>
-<td style="text-align:center">文字颜色,默认[255,255,255]</td>
+<td align="center"><code>text_colour</code></td>
+<td align="center">List</td>
+<td align="center">[R,G,B]]</td>
+<td align="center">文字颜色,默认[255,255,255]</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>back_colour</code></td>
-<td style="text-align:center">List</td>
-<td style="text-align:center">[R,G,B]]</td>
-<td style="text-align:center">背景颜色,默认[0,0,0]</td>
+<td align="center"><code>back_colour</code></td>
+<td align="center">List</td>
+<td align="center">[R,G,B]]</td>
+<td align="center">背景颜色,默认[0,0,0]</td>
 </tr>
 <tr>
-<td style="text-align:center">示例:</td>
+<td align="center">示例:</td>
 <td></td>
 <td></td>
 <td></td>
@@ -931,16 +930,16 @@ gamma属性允许您为使用的最后5位颜色指定一个伽马查找表。�
 <table>
 <thead>
 <tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">List</td>
-<td style="text-align:center">长度为32的元组或列表，包含0到31之间的整数</td>
-<td style="text-align:center">最后的5位颜色的查找表</td>
+<td align="center">List</td>
+<td align="center">长度为32的元组或列表，包含0到31之间的整数</td>
+<td align="center">最后的5位颜色的查找表</td>
 </tr>
 </tbody>
 </table>
@@ -1019,14 +1018,14 @@ sense.gamma_reset()
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Float</td>
-<td style="text-align:center">湿度的百分数</td>
+<td align="center">Float</td>
+<td align="center">湿度的百分数</td>
 </tr>
 </tbody>
 </table>
@@ -1127,17 +1126,17 @@ print(&#34;Temperature: %s C&#34; % temp)
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Float</td>
-<td style="text-align:center">单位为Millibars</td>
+<td align="center">Float</td>
+<td align="center">单位为Millibars</td>
 </tr>
 <tr>
-<td style="text-align:center">示例:</td>
+<td align="center">示例:</td>
 <td></td>
 </tr>
 </tbody>
@@ -1177,33 +1176,33 @@ print(sense.pressure)   # 1024.56738281
 <table>
 <thead>
 <tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">可选参数</th>
-<th style="text-align:center">描述</th>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">可选参数</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><code>compass_enabled</code></td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center"><code>TRUE</code>,<code>FALSE</code></td>
-<td style="text-align:center">是否启用指南针</td>
+<td align="center"><code>compass_enabled</code></td>
+<td align="center">Boolean</td>
+<td align="center"><code>TRUE</code>,<code>FALSE</code></td>
+<td align="center">是否启用指南针</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>gyro_enabled</code></td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center"><code>TRUE</code>,<code>FALSE</code></td>
-<td style="text-align:center">是否启用陀螺仪</td>
+<td align="center"><code>gyro_enabled</code></td>
+<td align="center">Boolean</td>
+<td align="center"><code>TRUE</code>,<code>FALSE</code></td>
+<td align="center">是否启用陀螺仪</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>accel_enabled</code></td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center"><code>TRUE</code>,<code>FALSE</code></td>
-<td style="text-align:center">是否启用加速度计</td>
+<td align="center"><code>accel_enabled</code></td>
+<td align="center">Boolean</td>
+<td align="center"><code>TRUE</code>,<code>FALSE</code></td>
+<td align="center">是否启用加速度计</td>
 </tr>
 <tr>
-<td style="text-align:center">示例:</td>
+<td align="center">示例:</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1231,17 +1230,17 @@ sense.set_imu_config(False, True, False)  # 只开启陀螺仪
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴弧度</td>
+<td align="center">Dictionary</td>
+<td align="center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴弧度</td>
 </tr>
 <tr>
-<td style="text-align:center">示例:</td>
+<td align="center">示例:</td>
 <td></td>
 </tr>
 </tbody>
@@ -1275,17 +1274,17 @@ print(sense.orientation_radians) # {&#39;yaw&#39;: 2.933598041534424, &#39;roll&
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴角度</td>
+<td align="center">Dictionary</td>
+<td align="center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴角度</td>
 </tr>
 <tr>
-<td style="text-align:center">示例:</td>
+<td align="center">示例:</td>
 <td></td>
 </tr>
 </tbody>
@@ -1357,14 +1356,14 @@ print(sense.compass) # 351.031626941
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">字典对象索引的字符串x,y和z。表示磁场强度的值浮动轴的microteslas(µT)。</td>
+<td align="center">Dictionary</td>
+<td align="center">字典对象索引的字符串x,y和z。表示磁场强度的值浮动轴的microteslas(µT)。</td>
 </tr>
 </tbody>
 </table>
@@ -1397,14 +1396,14 @@ print(sense.compass_raw) # {&#39;y&#39;: 0.4851621091365814, &#39;x&#39;: 5.6674
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴角度</td>
+<td align="center">Dictionary</td>
+<td align="center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴角度</td>
 </tr>
 </tbody>
 </table>
@@ -1437,14 +1436,14 @@ print(sense.gyroscope) # {&#39;yaw&#39;: 0.0604013305118731, &#39;roll&#39;: 359
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">一个由字符串x、y和z索引的字典对象。这些值是按每秒弧度表示轴的旋转强度的浮点数。</td>
+<td align="center">Dictionary</td>
+<td align="center">一个由字符串x、y和z索引的字典对象。这些值是按每秒弧度表示轴的旋转强度的浮点数。</td>
 </tr>
 </tbody>
 </table>
@@ -1487,14 +1486,14 @@ print(sense.gyroscope_raw)
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴角度</td>
+<td align="center">Dictionary</td>
+<td align="center">由俯仰角<code>pitch</code>,偏航角<code>yaw</code>,翻滚角<code>roll</code>组成的字典key 值,value 为轴角度</td>
 </tr>
 </tbody>
 </table>
@@ -1539,14 +1538,14 @@ print(sense.accelerometer)
 <table>
 <thead>
 <tr>
-<th style="text-align:center">返回类型</th>
-<th style="text-align:center">描述</th>
+<th align="center">返回类型</th>
+<th align="center">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">一个由字符串x、y和z索引的字典对象。这些值代表了在Gs中轴的加速度强度。</td>
+<td align="center">Dictionary</td>
+<td align="center">一个由字符串x、y和z索引的字典对象。这些值代表了在Gs中轴的加速度强度。</td>
 </tr>
 </tbody>
 </table>
@@ -1764,11 +1763,11 @@ pause()
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-12-06
         <a href="#ZgotmplZ/commit/7ba517e49d44f804f03c798ed38a227e7a8d7dd2" title="更新一批关键词">(7ba517e)</a>
@@ -1786,11 +1785,11 @@ pause()
         <a class="prev" href="/post/chrome-redirection-https/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">关于 chrome 浏览器会强制跳转到 https 的问题</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/raspberry-pi3-install-sense-hat/">
             <span class="next-text nav-default">树莓派3安装 sense HAT</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -1830,11 +1829,11 @@ pause()
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

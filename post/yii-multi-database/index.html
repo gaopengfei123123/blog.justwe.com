@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>yii-multi-database - 摸鱼划水</title>
+  <title>yii-multi-database - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.76.2 with theme even" />
+<meta name="generator" content="Hugo 0.68.0 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/yii-multi-database/" />
@@ -47,14 +47,13 @@
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="name" content="yii-multi-database">
 <meta itemprop="description" content="在项目中经常会碰到多个数据库的情况,在 yii 中也是可以快速设置的 演示的版本是 basic 版,但是原理很好理解 编辑配置文件 @app/config/web.php 1 2 3 4 ...... &#39;db&#39; =&gt; require(__DIR__ . &#39;/db.php&#39;), //框架提供">
-<meta itemprop="datePublished" content="2017-04-08T17:31:31+00:00" />
-<meta itemprop="dateModified" content="2019-12-10T18:00:55+08:00" />
+<meta itemprop="datePublished" content="2017-04-08T17:31:31&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
 <meta itemprop="wordCount" content="489">
 
 
 
-<meta itemprop="keywords" content="yii2," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="yii2," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="yii-multi-database"/>
 <meta name="twitter:description" content="在项目中经常会碰到多个数据库的情况,在 yii 中也是可以快速设置的 演示的版本是 basic 版,但是原理很好理解 编辑配置文件 @app/config/web.php 1 2 3 4 ...... &#39;db&#39; =&gt; require(__DIR__ . &#39;/db.php&#39;), //框架提供"/>
 
@@ -145,7 +144,7 @@
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title"></h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -157,7 +156,7 @@
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p><span class="timeago" datetime="2019-12-10T18:00:55" title="December 10, 2019">December 10, 2019</span></p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-10T18:00:55" title="December 10, 2019">December 10, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -173,10 +172,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">......</span>
-<span class="s1">&#39;db&#39;</span> <span class="o">=&gt;</span> <span class="k">require</span><span class="p">(</span><span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/db.php&#39;</span><span class="p">),</span> <span class="c1">//框架提供的一个默认连接
-</span><span class="c1"></span><span class="s1">&#39;localDb&#39;</span> <span class="o">=&gt;</span> <span class="k">require</span><span class="p">(</span><span class="no">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/db2.php&#39;</span><span class="p">),</span> <span class="c1">//这个是我们新加的一个连接配置
-</span><span class="c1"></span><span class="o">......</span>
+<pre class="chroma"><code class="language-php" data-lang="php">......
+&#39;db&#39; =&gt; require(__DIR__ . &#39;/db.php&#39;), //框架提供的一个默认连接
+&#39;localDb&#39; =&gt; require(__DIR__ . &#39;/db2.php&#39;), //这个是我们新加的一个连接配置
+......
 </code></pre></td></tr></table>
 </div>
 </div><p>在同目录下的 <code>db2.php</code> 内容格式和 <code>db.php</code> 格式一样,只是连接不同</p>
@@ -206,26 +205,26 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">Members</span> <span class="k">extends</span> <span class="nx">\yii\db\ActiveRecord</span>
-<span class="p">{</span>
-    <span class="sd">/**
-</span><span class="sd">     * @inheritdoc
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">tableName</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;members&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
+<pre class="chroma"><code class="language-php" data-lang="php">class Members extends \yii\db\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return &#39;members&#39;;
+    }
 
-    <span class="sd">/**
-</span><span class="sd">     * @return \yii\db\Connection the database connection used by this AR class.
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getDb</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">Yii</span><span class="o">::</span><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;localDb&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
+    /**
+     * @return \yii\db\Connection the database connection used by this AR class.
+     */
+    public static function getDb()
+    {
+        return Yii::$app-&gt;get(&#39;localDb&#39;);
+    }
 
-    <span class="o">......</span><span class="nx">some</span> <span class="nx">functions</span><span class="o">.................</span>
-<span class="p">}</span>
+    ......some functions.................
+}
 </code></pre></td></tr></table>
 </div>
 </div><p>这个 model 中我们使用了 <code>localDb</code> 的链接配置,可以追踪代码 <code>\yii\db\ActiveRecord</code>中的 <code>getDb()</code> 方法,</p>
@@ -247,18 +246,18 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">//in \yii\db\ActiveRecord
-</span><span class="c1"></span>
-<span class="sd">/**
-</span><span class="sd">    * Returns the database connection used by this AR class.
-</span><span class="sd">    * By default, the &#34;db&#34; application component is used as the database connection.
-</span><span class="sd">    * You may override this method if you want to use a different database connection.
-</span><span class="sd">    * @return Connection the database connection used by this AR class.
-</span><span class="sd">    */</span>
-   <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getDb</span><span class="p">()</span>
-   <span class="p">{</span>
-       <span class="k">return</span> <span class="nx">Yii</span><span class="o">::</span><span class="nv">$app</span><span class="o">-&gt;</span><span class="na">getDb</span><span class="p">();</span>
-   <span class="p">}</span>
+<pre class="chroma"><code class="language-php" data-lang="php">//in \yii\db\ActiveRecord
+
+/**
+    * Returns the database connection used by this AR class.
+    * By default, the &#34;db&#34; application component is used as the database connection.
+    * You may override this method if you want to use a different database connection.
+    * @return Connection the database connection used by this AR class.
+    */
+   public static function getDb()
+   {
+       return Yii::$app-&gt;getDb();
+   }
 
 
 </code></pre></td></tr></table>
@@ -270,11 +269,11 @@
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">GPF</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title"></span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2019-12-10
         <a href="#ZgotmplZ/commit/77997d9684dbb242bcd479ff5862ea066461d79f" title="加一批关键词">(77997d9)</a>
@@ -291,11 +290,11 @@
         <a class="prev" href="/post/brew-update/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">brew-update</span>
-            <span class="prev-text nav-mobile"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/json-format/">
             <span class="next-text nav-default">json-format</span>
-            <span class="next-text nav-mobile"></span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -335,11 +334,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    %!(EXTRA string=<a class="hexo-link" href="https://gohugo.io">Hugo</a>)
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-     - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
