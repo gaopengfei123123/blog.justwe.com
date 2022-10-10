@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>git-submodule - helloword啊哈</title>
+  <title>git-submodule - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-submodule/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="git-submodule" />
 <meta property="og:description" content="项目中经常会使用到第三方的 git 库,将三方库整合到项目中最简单的办法就是复制粘贴,但是如果这个库升级了一个很酷炫的功能,你要怎么整合进来呢? 这就" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/git-submodule/" />
+<meta property="og:url" content="https://blog.justwe.site/post/git-submodule/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-04-11T14:34:36+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="git-submodule">
-<meta itemprop="description" content="项目中经常会使用到第三方的 git 库,将三方库整合到项目中最简单的办法就是复制粘贴,但是如果这个库升级了一个很酷炫的功能,你要怎么整合进来呢? 这就">
-<meta itemprop="datePublished" content="2017-04-11T14:34:36&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1814">
-
-
-
+<meta itemprop="description" content="项目中经常会使用到第三方的 git 库,将三方库整合到项目中最简单的办法就是复制粘贴,但是如果这个库升级了一个很酷炫的功能,你要怎么整合进来呢? 这就"><meta itemprop="datePublished" content="2017-04-11T14:34:36+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="1813">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git-submodule"/>
 <meta name="twitter:description" content="项目中经常会使用到第三方的 git 库,将三方库整合到项目中最简单的办法就是复制粘贴,但是如果这个库升级了一个很酷炫的功能,你要怎么整合进来呢? 这就"/>
@@ -174,61 +171,59 @@
 <p>首先在本地的<code>body</code>库中添加<code>leg</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://git.oschina.net/gaofeifps/body.git
-cd body
-git submodule add https://git.oschina.net/gaofeifps/leg.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">clone</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//git.oschina.net/gaofeifps/body.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">cd</span> <span class="nv">body</span>
+</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">add</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//git.oschina.net/gaofeifps/leg.git
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这时查看下状态会多两个文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  body git:(master) ✗ git status
-On branch master
-Your branch is ahead of &#39;origin/master&#39; by 1 commit.
-  (use &#34;git push&#34; to publish your local commits)
-Changes to be committed:
-  (use &#34;git reset HEAD &lt;file&gt;...&#34; to unstage)
-
-       	new file:   .gitmodules
-       	new file:   leg
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">➜  body git:(master) ✗ git status
+</span></span><span class="line"><span class="cl">On branch master
+</span></span><span class="line"><span class="cl">Your branch is ahead of &#39;origin/master&#39; by 1 commit.
+</span></span><span class="line"><span class="cl">  (use &#34;git push&#34; to publish your local commits)
+</span></span><span class="line"><span class="cl">Changes to be committed:
+</span></span><span class="line"><span class="cl">  (use &#34;git reset HEAD &lt;file&gt;...&#34; to unstage)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       	new file:   .gitmodules
+</span></span><span class="line"><span class="cl">       	new file:   leg
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这就多了一个 <code>leg</code>的库,和一个<code>.gitmodules</code>的文件,现在提交一下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git commit -am &#34;add leg&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git commit -am &#34;add leg&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="在其他地方使用合并后的版本库">在其他地方使用合并后的版本库</h2>
 <p>本地提交了版本之后可以提交到远程试一下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git push
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这时去远程库中看的话库中的内容是这样的
 <img src="/images/git_module1.png" alt="img">
@@ -238,48 +233,48 @@ Changes to be committed:
 因为这个时候的 <code>body/leg</code>目录是空的需要多走一步,这时为什么呢?我们下面会讲到原因</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://git.oschina.net/gaofeifps/body.git
-git submodule init &amp;&amp; git submodule update
-
-#下面这一句的效果和上面三条命令的效果是一样的,多加了个参数  `--recursive`
-git clone https://git.oschina.net/gaofeifps/body.git --recursive
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">clone</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//git.oschina.net/gaofeifps/body.git
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">init</span> <span class="o">&amp;&amp;</span> <span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">update</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#下面这一句的效果和上面三条命令的效果是一样的,多加了个参数  `--recursive`</span>
+</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">clone</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//git.oschina.net/gaofeifps/body.git --recursive
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这时才是一个完整的库</p>
 <h2 id="将三方库同步到主线">将三方库同步到主线</h2>
 <p>之前的一些步骤其实还不完整,因为 <code>body/leg</code> 这个目录中的文件并没有和主线在一条线上,这也是为什么在远程库的 leg 目录是空的,因为在 master 分支里面它确实是空的,文件是在另一个分支上,我们先去看一下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd path/to/body/leg
-➜  leg git:(6dec2fa) git branch
-* (HEAD detached at 6dec2fa)
-  master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd path/to/body/leg
+</span></span><span class="line"><span class="cl">➜  leg git:(6dec2fa) git branch
+</span></span><span class="line"><span class="cl">* (HEAD detached at 6dec2fa)
+</span></span><span class="line"><span class="cl">  master
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>别的文件的分支都是 <code>master</code> 到这个文件的时候就是 <code>6dec2fa</code>分支了,其实这个值也是 <code>leg</code>库当前的 commitId
 而且如果不把第三方的库纳入自己的主线的话会非常的危险,因为你对项目中的三方库发生的任何改动都不会对主线产生任何影响,被主线遗忘了,因此我们还需要接下来的操作</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd path/to/body/leg
-git checkout master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd path/to/body/leg
+</span></span><span class="line"><span class="cl">git checkout master
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="更新第三方库">更新第三方库</h2>
 <p>这里有个问题就是如果<code>body/leg</code>发生了更新就首先在这个文件中提交一个<code>commit</code>,然后在<code>body</code>这个目录下再 <code>commit</code>一次
@@ -289,15 +284,15 @@ git checkout master
 <p>假设你的项目当中引入了100个第三方的库,你需要同步的时候难道还要每一个都要执行:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd module-dir/
-git checkout master
-git pull
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd module-dir/
+</span></span><span class="line"><span class="cl">git checkout master
+</span></span><span class="line"><span class="cl">git pull
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>是不是想起了小学被老师罚抄一百遍的恐惧当中了?
 少年,多看看文档准没错的,这些东西 git 早就帮你想好了
@@ -305,25 +300,25 @@ git pull
 不想看文档的就直接告诉你</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git submodule foreach &lt;command&gt;
-比如:
-git submodule foreach git checkout master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">foreach</span> <span class="p">&lt;</span><span class="nv">command</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nl">比如</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">foreach</span> <span class="nv">git</span> <span class="nv">checkout</span> <span class="nv">master</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这条命令就会按照 <code>.gitmodules</code>会根据<code>path</code>寻找所有的三方模块,并在每一个模块中都执行 <code>foreach</code> 后的命令,
 比如你想批量更新模块到最新的时候就:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git submodule foreach git submodule update
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">foreach</span> <span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">update</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="画个重点敲黑板">画个重点(敲黑板!)</h2>
 <p>如果像让你引入的第三方库<code>leg</code>符合你自己的定制,你在里面发生了一些修改,但是这些修改并不能提交到远程去,因为你的提交会让第三方库的作者产生困扰:我写的好好的一个轮子你给定制成这样,还怎么去给其他的人用?</p>
@@ -333,7 +328,7 @@ git submodule foreach git checkout master
 <p>首先是自己有一个 fork 的三方项目,然后在自己本地添加一个三方的源</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -347,37 +342,37 @@ git submodule foreach git checkout master
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd path/to/body/leg
-➜  leg git:(master) git remote -v
-origin 	https://git.oschina.net/gaofeifps/leg.git (fetch)
-origin 	https://git.oschina.net/gaofeifps/leg.git (push)
-
-#添加第三方包的源地址
-➜  leg git:(master) git remote add dist_source https://git.oschina.net/xxxx/leg.git
-➜  leg git:(master) git remote -v
-dist_source    	https://git.oschina.net/xxxx/leg.git (fetch) #这个是三方的源地址
-dist_source    	https://git.oschina.net/xxxx/leg.git (push)
-origin 	https://git.oschina.net/gaofeifps/leg.git (fetch)    #这个是你 fork 的项目地址
-origin 	https://git.oschina.net/gaofeifps/leg.git (push)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd path/to/body/leg
+</span></span><span class="line"><span class="cl">➜  leg git:(master) git remote -v
+</span></span><span class="line"><span class="cl">origin 	https://git.oschina.net/gaofeifps/leg.git (fetch)
+</span></span><span class="line"><span class="cl">origin 	https://git.oschina.net/gaofeifps/leg.git (push)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#添加第三方包的源地址
+</span></span><span class="line"><span class="cl">➜  leg git:(master) git remote add dist_source https://git.oschina.net/xxxx/leg.git
+</span></span><span class="line"><span class="cl">➜  leg git:(master) git remote -v
+</span></span><span class="line"><span class="cl">dist_source    	https://git.oschina.net/xxxx/leg.git (fetch) #这个是三方的源地址
+</span></span><span class="line"><span class="cl">dist_source    	https://git.oschina.net/xxxx/leg.git (push)
+</span></span><span class="line"><span class="cl">origin 	https://git.oschina.net/gaofeifps/leg.git (fetch)    #这个是你 fork 的项目地址
+</span></span><span class="line"><span class="cl">origin 	https://git.oschina.net/gaofeifps/leg.git (push)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样的话可以拉取源文件到本地并合并本地代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git pull dist_source master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git pull dist_source master
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>修复一下版本冲突的文件,确认没有问题之后提交到自己 fork 的库中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git push origin master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git push origin master
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样其他人就能正常使用了</p>
 <p>写了这么多忽然发现:还是复制粘贴比较省事啊!</p>
@@ -386,35 +381,35 @@ origin 	https://git.oschina.net/gaofeifps/leg.git (push)
 <p>在当前 git 版本<code>1.7.8</code>之前,删除指定的 submodule 的命令是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git rm &lt;submodule-name&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git rm &lt;submodule-name&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在新版的 git 下,则是运行以下命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git submodule deinit &lt;submodule-name&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nv">git</span> <span class="nv">submodule</span> <span class="nv">deinit</span> <span class="p">&lt;</span><span class="nv">submodule</span><span class="o">-</span><span class="nv">name</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>查看本地有哪些三方模块可以查看 <code>.gitmodules</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  body git:(master) cat .gitmodules
-[submodule &#34;leg&#34;]
-       	path = leg
-       	url = https://git.oschina.net/gaofeifps/leg.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="err">➜</span>  <span class="nv">body</span> <span class="nv">git</span><span class="p">:(</span><span class="nv">master</span><span class="p">)</span> <span class="nv">cat</span> <span class="p">.</span><span class="nv">gitmodules</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="na">submodule</span> <span class="p">&#34;</span><span class="s2">leg&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">       	<span class="nv">path</span> <span class="o">=</span> <span class="nv">leg</span>
+</span></span><span class="line"><span class="cl">       	<span class="nv">url</span> <span class="o">=</span> <span class="nv">https</span><span class="p">:</span><span class="c1">//git.oschina.net/gaofeifps/leg.git
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -523,7 +518,7 @@ origin 	https://git.oschina.net/gaofeifps/leg.git (push)
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

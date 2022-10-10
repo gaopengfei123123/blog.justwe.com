@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>树莓派3安装 sense HAT - helloword啊哈</title>
+  <title>树莓派3安装 sense HAT - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="树莓派3安装 sense HAT" />
 <meta property="og:description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: 官方提供的一个说明" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/" />
+<meta property="og:url" content="https://blog.justwe.site/post/raspberry-pi3-install-sense-hat/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-11-29T13:21:26+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="树莓派3安装 sense HAT">
-<meta itemprop="description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: 官方提供的一个说明">
-<meta itemprop="datePublished" content="2017-11-29T13:21:26&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: 官方提供的一个说明"><meta itemprop="datePublished" content="2017-11-29T13:21:26+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="455">
-
-
-
 <meta itemprop="keywords" content="Raspberry,MacOS," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="树莓派3安装 sense HAT"/>
 <meta name="twitter:description" content="因为感觉各种感应器的 GPIO 有点乱,干脆买了一个官方提供的集成板来玩,这样看着也整体一些&hellip; 英文不错的同学出门右转: 官方提供的一个说明"/>
@@ -171,23 +168,23 @@
 <h2 id="更新系统rasbian">更新系统(Rasbian)</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt update &amp;&amp; sudo apt upgrade -y
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo apt update &amp;&amp; sudo apt upgrade -y
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>可能得等一大会儿&hellip;.</p>
 <h2 id="安装扩展模块">安装扩展模块</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get install sense-hat
-$ sudo reboot
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo apt-get install sense-hat
+</span></span><span class="line"><span class="cl">$ sudo reboot
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行一个 demo,</p>
 <blockquote>
@@ -195,7 +192,7 @@ $ sudo reboot
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -237,52 +234,52 @@ $ sudo reboot
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-py" data-lang="py"><span class="ch">#!/usr/bin/python</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">sense_hat</span> <span class="kn">import</span> <span class="n">SenseHat</span>
-
-<span class="n">sense</span> <span class="o">=</span> <span class="n">SenseHat</span><span class="p">()</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="mi">255</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="n">msleep</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">next_colour</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">r</span>
-    <span class="k">global</span> <span class="n">g</span>
-    <span class="k">global</span> <span class="n">b</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">g</span> <span class="o">+=</span> <span class="mi">1</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">g</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">g</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">b</span> <span class="o">+=</span> <span class="mi">1</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">g</span> <span class="o">-=</span> <span class="mi">1</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">r</span> <span class="o">+=</span> <span class="mi">1</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">b</span> <span class="o">-=</span> <span class="mi">1</span>
-
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">sense</span><span class="o">.</span><span class="n">clear</span><span class="p">([</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
-    <span class="n">msleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">next_colour</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/python</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sense_hat</span> <span class="kn">import</span> <span class="n">SenseHat</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">sense</span> <span class="o">=</span> <span class="n">SenseHat</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">r</span> <span class="o">=</span> <span class="mi">255</span>
+</span></span><span class="line"><span class="cl"><span class="n">g</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">msleep</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">next_colour</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">r</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">g</span>
+</span></span><span class="line"><span class="cl">    <span class="k">global</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">g</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">r</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">g</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">r</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">==</span> <span class="mi">255</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">g</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sense</span><span class="o">.</span><span class="n">clear</span><span class="p">([</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">msleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">next_colour</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果运行是出现下列报错的话:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -291,31 +288,31 @@ $ sudo reboot
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Traceback (most recent call last):
-  File &#34;demo1.py&#34;, line 38, in &lt;module&gt;
-    sense.clear([r, g, b])
-  File &#34;/usr/lib/python2.7/dist-packages/sense_hat/sense_hat.py&#34;, line 413, in clear
-    self.set_pixels([colour] * 64)
-  File &#34;/usr/lib/python2.7/dist-packages/sense_hat/sense_hat.py&#34;, line 294, in set_pixels
-    f.seek(map[index // 8][index % 8] * 2)  # row, column
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Traceback (most recent call last):
+</span></span><span class="line"><span class="cl">  File &#34;demo1.py&#34;, line 38, in &lt;module&gt;
+</span></span><span class="line"><span class="cl">    sense.clear([r, g, b])
+</span></span><span class="line"><span class="cl">  File &#34;/usr/lib/python2.7/dist-packages/sense_hat/sense_hat.py&#34;, line 413, in clear
+</span></span><span class="line"><span class="cl">    self.set_pixels([colour] * 64)
+</span></span><span class="line"><span class="cl">  File &#34;/usr/lib/python2.7/dist-packages/sense_hat/sense_hat.py&#34;, line 294, in set_pixels
+</span></span><span class="line"><span class="cl">    f.seek(map[index // 8][index % 8] * 2)  # row, column
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>还是比较好解决的,更改配置就行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo vi /boot/config.txt
-//找到 dtoverlay 这一行修改成
-dtoverlay=rpi-sense
-//然后 wq 退出
-$ sudo reboot
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo vi /boot/config.txt
+</span></span><span class="line"><span class="cl">//找到 dtoverlay 这一行修改成
+</span></span><span class="line"><span class="cl">dtoverlay=rpi-sense
+</span></span><span class="line"><span class="cl">//然后 wq 退出
+</span></span><span class="line"><span class="cl">$ sudo reboot
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这是我第一次安装时碰到的问题</p>
 <blockquote>
@@ -429,7 +426,7 @@ $ sudo reboot
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

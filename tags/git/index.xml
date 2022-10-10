@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>git on helloword啊哈</title>
+    <title>git on helloword啊</title>
     <link>https://blog.justwe.site/tags/git/</link>
-    <description>Recent content in git on helloword啊哈</description>
+    <description>Recent content in git on helloword啊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 14 Nov 2019 16:44:42 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.justwe.site/tags/git/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 26 Oct 2018 15:01:51 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git-diff</title>
       <link>https://blog.justwe.site/post/git-diff/</link>
@@ -45,7 +41,7 @@
       <pubDate>Sat, 23 Jun 2018 23:39:17 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/git-sshcommand/</guid>
-      <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true</description>
+      <description>指定 ssh 命令使用时的签名文件 进入 app的.git/config 文件下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 Engine: [core] repositoryformatversion = 0 filemode = true bare = false logallrefupdates = true ignorecase = true precomposeunicode = true #</description>
     </item>
     
     <item>
@@ -153,7 +149,7 @@
       <pubDate>Tue, 29 Nov 2016 03:04:00 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/git-push/</guid>
-      <description>本地新建库和多远程库的操作 新建本地库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #初始化 git init git add -A git commit -m &amp;#39;init it&amp;#39; #删除本地远程连接 git remote rm origin git remote add origin https://git.oschina.net/gaofeifps/laravel53.git #自动合并远</description>
+      <description>本地新建库和多远程库的操作 新建本地库 1 2 3 4 5 6 7 8 9 10 11 12 13 #初始化 git init git add -A git commit -m &amp;#39;init it&amp;#39; #删除本地远程连接 git remote rm origin git remote add origin https://git.oschina.net/gaofeifps/laravel53.git #自动合并远程</description>
     </item>
     
     <item>

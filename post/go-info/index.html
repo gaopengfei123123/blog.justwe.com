@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go语言了解(1) - helloword啊哈</title>
+  <title>go语言了解(1) - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-info/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="go语言了解(1)" />
 <meta property="og:description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-info/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-info/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-03-08T06:42:24+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="go语言了解(1)">
-<meta itemprop="description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但">
-<meta itemprop="datePublished" content="2017-03-08T06:42:24&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但"><meta itemprop="datePublished" content="2017-03-08T06:42:24+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="780">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go语言了解(1)"/>
 <meta name="twitter:description" content="有人说go和php有很多相似的地方，用惯了弱语言的php是时候换换口味了 声明变量 go的声明变量的方式四种（茴香的茴有四种写法），开个玩笑，但"/>
@@ -182,7 +179,7 @@
 在多个包里用到再赋值有的时候不利于debug，可以直接把要赋值的都放到一起 比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -195,18 +192,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">const{
-      ENV := true
-      LOCAL := &#39;dev&#39;
-      DATE := 20170307
-}
-
-var{
-    i int
-    pi float32
-    name string
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">const{
+</span></span><span class="line"><span class="cl">      ENV := true
+</span></span><span class="line"><span class="cl">      LOCAL := &#39;dev&#39;
+</span></span><span class="line"><span class="cl">      DATE := 20170307
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">var{
+</span></span><span class="line"><span class="cl">    i int
+</span></span><span class="line"><span class="cl">    pi float32
+</span></span><span class="line"><span class="cl">    name string
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>##boolean类型
 <code>true</code> or <code>false</code> 默认为false</p>
@@ -221,32 +218,32 @@ go支持 <code>int</code>,<code>uint</code>可以定义的类型有<code>rune,in
 <p>字符串之间的拼接用 <code>+</code> 比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">a,b :=&#34;hello&#34;,&#34;world&#34;  
-
-c := a + b
-
-Printf(&#34;%s\n&#34;,c)  //输出 helloworld
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a,b :=&#34;hello&#34;,&#34;world&#34;  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">c := a + b
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Printf(&#34;%s\n&#34;,c)  //输出 helloworld
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>字符串的修改不能直接修改，可以用切片的方式实现例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">a := &#39;hello&#39;
-b := &#39;w&#39; + a[1:]
-//b 的值为 wello
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a := &#39;hello&#39;
+</span></span><span class="line"><span class="cl">b := &#39;w&#39; + a[1:]
+</span></span><span class="line"><span class="cl">//b 的值为 wello
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>什么是切片我们一会儿就会说到</p>
 
@@ -354,7 +351,7 @@ b := &#39;w&#39; + a[1:]
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

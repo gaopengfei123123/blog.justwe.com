@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>element-dialog - helloword啊哈</title>
+  <title>element-dialog - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 12 &amp;lt;el-dialog title=&amp;#3" /><meta name="keywords" content="vue, elementUI, dialog" />
+<meta name="author" content="GPF" /><meta name="description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 &amp;lt;el-dialog title=&amp;#34" /><meta name="keywords" content="vue, elementUI, dialog" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/element-dialog/" />
@@ -35,27 +35,24 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="element-dialog" />
-<meta property="og:description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&quot;dialogFormVisible&quot; 用 v-model=&quot;dialogFormVisible&quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 12 &lt;el-dialog title=&#3" />
+<meta property="og:description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&quot;dialogFormVisible&quot; 用 v-model=&quot;dialogFormVisible&quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 &lt;el-dialog title=&#34" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/element-dialog/" />
+<meta property="og:url" content="https://blog.justwe.site/post/element-dialog/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-07-11T19:50:33+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="element-dialog">
-<meta itemprop="description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&quot;dialogFormVisible&quot; 用 v-model=&quot;dialogFormVisible&quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 12 &lt;el-dialog title=&#3">
-<meta itemprop="datePublished" content="2017-07-11T19:50:33&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="203">
-
-
-
+<meta itemprop="description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&quot;dialogFormVisible&quot; 用 v-model=&quot;dialogFormVisible&quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 &lt;el-dialog title=&#34"><meta itemprop="datePublished" content="2017-07-11T19:50:33+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="202">
 <meta itemprop="keywords" content="element-ui,vuejs," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="element-dialog"/>
-<meta name="twitter:description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&quot;dialogFormVisible&quot; 用 v-model=&quot;dialogFormVisible&quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 12 &lt;el-dialog title=&#3"/>
+<meta name="twitter:description" content="使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&quot;dialogFormVisible&quot; 用 v-model=&quot;dialogFormVisible&quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 &lt;el-dialog title=&#34"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -160,7 +157,7 @@
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -171,22 +168,20 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">el-dialog</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;批量修改&#34;</span>  <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;dialogFormVisible&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;tiny&#34;</span> <span class="na">close-on-press-escape</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;border-radius: 5px;&#34;</span><span class="p">&gt;</span>
-       <span class="p">&lt;</span><span class="nt">el-form</span> <span class="na">:model</span><span class="o">=</span><span class="s">&#34;batch_form&#34;</span> <span class="na">label-position</span><span class="o">=</span><span class="s">&#34;left&#34;</span> <span class="na">:label-width</span><span class="o">=</span><span class="s">&#34;formLabelWidth&#34;</span><span class="p">&gt;</span>
-           <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">:label</span><span class="o">=</span><span class="s">&#34;batch_form.label&#34;</span> <span class="p">&gt;</span>
-               <span class="p">&lt;</span><span class="nt">el-input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;batch_form.value&#34;</span> <span class="na">auto-complete</span><span class="o">=</span><span class="s">&#34;off&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">el-input</span><span class="p">&gt;</span>
-           <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
-       <span class="p">&lt;/</span><span class="nt">el-form</span><span class="p">&gt;</span>
-       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">slot</span><span class="o">=</span><span class="s">&#34;footer&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;dialog-footer&#34;</span><span class="p">&gt;</span>
-           <span class="p">&lt;</span><span class="nt">el-button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;dialogFormVisible = false&#34;</span><span class="p">&gt;</span>取 消<span class="p">&lt;/</span><span class="nt">el-button</span><span class="p">&gt;</span>
-           <span class="p">&lt;</span><span class="nt">el-button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;batchChange()&#34;</span><span class="p">&gt;</span>修 改<span class="p">&lt;/</span><span class="nt">el-button</span><span class="p">&gt;</span>
-       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-   <span class="p">&lt;/</span><span class="nt">el-dialog</span><span class="p">&gt;</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">el-dialog</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;批量修改&#34;</span>  <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;dialogFormVisible&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;tiny&#34;</span> <span class="na">close-on-press-escape</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;border-radius: 5px;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">&lt;</span><span class="nt">el-form</span> <span class="na">:model</span><span class="o">=</span><span class="s">&#34;batch_form&#34;</span> <span class="na">label-position</span><span class="o">=</span><span class="s">&#34;left&#34;</span> <span class="na">:label-width</span><span class="o">=</span><span class="s">&#34;formLabelWidth&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">&lt;</span><span class="nt">el-form-item</span> <span class="na">:label</span><span class="o">=</span><span class="s">&#34;batch_form.label&#34;</span> <span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">               <span class="p">&lt;</span><span class="nt">el-input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;batch_form.value&#34;</span> <span class="na">auto-complete</span><span class="o">=</span><span class="s">&#34;off&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">el-input</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">&lt;/</span><span class="nt">el-form-item</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">&lt;/</span><span class="nt">el-form</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">slot</span><span class="o">=</span><span class="s">&#34;footer&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;dialog-footer&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">&lt;</span><span class="nt">el-button</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;dialogFormVisible = false&#34;</span><span class="p">&gt;</span>取 消<span class="p">&lt;/</span><span class="nt">el-button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">&lt;</span><span class="nt">el-button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;batchChange()&#34;</span><span class="p">&gt;</span>修 改<span class="p">&lt;/</span><span class="nt">el-button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">&lt;/</span><span class="nt">el-dialog</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其他的部分照常</p>
 
@@ -297,7 +292,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

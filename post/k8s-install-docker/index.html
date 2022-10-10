@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>docker for mac 部署 kubernetes - helloword啊哈</title>
+  <title>docker for mac 部署 kubernetes - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/k8s-install-docker/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="docker for mac 部署 kubernetes" />
 <meta property="og:description" content="docker for mac 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 gcr.io 这个域被墙了&hellip; 目前来看前辈们已经把坑给淌的差不多了" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/k8s-install-docker/" />
+<meta property="og:url" content="https://blog.justwe.site/post/k8s-install-docker/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-05-06T15:58:16+00:00" />
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
+
 <meta itemprop="name" content="docker for mac 部署 kubernetes">
-<meta itemprop="description" content="docker for mac 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 gcr.io 这个域被墙了&hellip; 目前来看前辈们已经把坑给淌的差不多了">
-<meta itemprop="datePublished" content="2019-05-06T15:58:16&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
-<meta itemprop="wordCount" content="617">
-
-
-
+<meta itemprop="description" content="docker for mac 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 gcr.io 这个域被墙了&hellip; 目前来看前辈们已经把坑给淌的差不多了"><meta itemprop="datePublished" content="2019-05-06T15:58:16+00:00" />
+<meta itemprop="dateModified" content="2019-12-03T14:20:28+08:00" />
+<meta itemprop="wordCount" content="619">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker for mac 部署 kubernetes"/>
 <meta name="twitter:description" content="docker for mac 安装kubernetes本来是很方便的, 但是国内玩家要折腾一下, 因为 gcr.io 这个域被墙了&hellip; 目前来看前辈们已经把坑给淌的差不多了"/>
@@ -171,41 +168,41 @@
 <p>首先安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install privoxy
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew install privoxy
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>添加配置:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">vi /usr/local/etc/privoxy/config
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vi /usr/local/etc/privoxy/config
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>配置内容:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-txt" data-lang="txt">listen-address 0.0.0.0:8118
-forward-socks5 / localhost:1080 .
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">listen-address 0.0.0.0:8118
+</span></span><span class="line"><span class="cl">forward-socks5 / localhost:1080 .
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>监听本地8118端口, 转发到 localhost:1080, 这也是ss的客户端的转发端口</p>
 <p>启动:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew services start privoxy
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew services start privoxy
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>转发部分完成, 接下来在 <code>docker for mac</code>配置</p>
 <p><code>docker for mac</code> &gt; <code>preferences</code> &gt; <code>Proxies</code> &gt; 点击 <code>Manual proxy configuration</code></p>
@@ -217,7 +214,7 @@ forward-socks5 / localhost:1080 .
 <p>找个目录, 新建 <code>images.properties</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -229,22 +226,22 @@ forward-socks5 / localhost:1080 .
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">k8s.gcr.io/pause-amd64:3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/pause-amd64:3.1
-k8s.gcr.io/kube-controller-manager-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager-amd64:v1.10.3
-k8s.gcr.io/kube-scheduler-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler-amd64:v1.10.3
-k8s.gcr.io/kube-proxy-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy-amd64:v1.10.3
-k8s.gcr.io/kube-apiserver-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver-amd64:v1.10.3
-k8s.gcr.io/etcd-amd64:3.1.12=registry.cn-hangzhou.aliyuncs.com/google_containers/etcd-amd64:3.1.12
-k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.8
-k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-kube-dns-amd64:1.14.8
-k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.8
-k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.8.3
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">k8s.gcr.io/pause-amd64:3.1=registry.cn-hangzhou.aliyuncs.com/google_containers/pause-amd64:3.1
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kube-controller-manager-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-controller-manager-amd64:v1.10.3
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kube-scheduler-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-scheduler-amd64:v1.10.3
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kube-proxy-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-proxy-amd64:v1.10.3
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kube-apiserver-amd64:v1.10.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kube-apiserver-amd64:v1.10.3
+</span></span><span class="line"><span class="cl">k8s.gcr.io/etcd-amd64:3.1.12=registry.cn-hangzhou.aliyuncs.com/google_containers/etcd-amd64:3.1.12
+</span></span><span class="line"><span class="cl">k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-sidecar-amd64:1.14.8
+</span></span><span class="line"><span class="cl">k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-kube-dns-amd64:1.14.8
+</span></span><span class="line"><span class="cl">k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.8=registry.cn-hangzhou.aliyuncs.com/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.8
+</span></span><span class="line"><span class="cl">k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3=registry.cn-hangzhou.aliyuncs.com/google_containers/kubernetes-dashboard-amd64:v1.8.3
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>新建脚本: <code>kubernetes.sh</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -265,26 +262,26 @@ k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3=registry.cn-hangzhou.aliyuncs.com/g
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#/bin/bash</span>
-
-<span class="nv">file</span><span class="o">=</span><span class="s2">&#34;./images.properties&#34;</span>
-
-<span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">]</span>
-<span class="k">then</span>
-  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2"> found.&#34;</span>
-
-  <span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span><span class="s1">&#39;=&#39;</span> <span class="nb">read</span> -r key value
-  <span class="k">do</span>
-    <span class="c1">#echo &#34;${key}=${value}&#34;</span>
-    docker pull <span class="si">${</span><span class="nv">value</span><span class="si">}</span>
-    docker tag <span class="si">${</span><span class="nv">value</span><span class="si">}</span> <span class="si">${</span><span class="nv">key</span><span class="si">}</span>
-    docker rmi <span class="si">${</span><span class="nv">value</span><span class="si">}</span>
-  <span class="k">done</span> &lt; <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
-
-<span class="k">else</span>
-  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2"> not found.&#34;</span>
-<span class="k">fi</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#/bin/bash</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">file</span><span class="o">=</span><span class="s2">&#34;./images.properties&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2"> found.&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span><span class="s1">&#39;=&#39;</span> <span class="nb">read</span> -r key value
+</span></span><span class="line"><span class="cl">  <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#echo &#34;${key}=${value}&#34;</span>
+</span></span><span class="line"><span class="cl">    docker pull <span class="si">${</span><span class="nv">value</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">    docker tag <span class="si">${</span><span class="nv">value</span><span class="si">}</span> <span class="si">${</span><span class="nv">key</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">    docker rmi <span class="si">${</span><span class="nv">value</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">done</span> &lt; <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2"> not found.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行就行</p>
 <p><a href="https://my.oschina.net/wubiaowpBlogShare/blog/1921180">教程来源</a>
@@ -401,7 +398,7 @@ k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3=registry.cn-hangzhou.aliyuncs.com/g
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

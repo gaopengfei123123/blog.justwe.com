@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>再来个facade吧 - helloword啊哈</title>
+  <title>再来个facade吧 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-facade/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="再来个facade吧" />
 <meta property="og:description" content="参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/laravel-facade/" />
+<meta property="og:url" content="https://blog.justwe.site/post/laravel-facade/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-12-19T15:48:00+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="再来个facade吧">
-<meta itemprop="description" content="参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor">
-<meta itemprop="datePublished" content="2016-12-19T15:48:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="462">
-
-
-
+<meta itemprop="description" content="参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor"><meta itemprop="datePublished" content="2016-12-19T15:48:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
+<meta itemprop="wordCount" content="461">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="再来个facade吧"/>
 <meta name="twitter:description" content="参照上一篇的文章laravel 的 Repository 模式 都已经注册了服务也可以使用 Facade了 首先创建一个 Facade文件，还是在 app/Repositor"/>
@@ -160,7 +157,7 @@
 <p>首先创建一个 <code>Facade</code>文件，还是在 <code>app/Repositories</code>这里，创建<code>HelloFacade.php</code> 名字无所谓，路径也是无所谓的，关键是能够正确引入文件就行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -181,31 +178,31 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="sd">/**
-</span><span class="sd"> * Created by PhpStorm.
-</span><span class="sd"> * User: gpf
-</span><span class="sd"> * Date: 2016/12/19
-</span><span class="sd"> * Time: 下午10:48
-</span><span class="sd"> */</span>
-
-<span class="k">namespace</span> <span class="nx">App\Repositories</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Facade</span><span class="p">;</span>
-<span class="k">class</span> <span class="nc">HelloFacade</span> <span class="k">extends</span> <span class="nx">Facade</span>
-<span class="p">{</span>
-    <span class="k">protected</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getFacadeAccessor</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="s1">&#39;Hello&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * Created by PhpStorm.
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * User: gpf
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * Date: 2016/12/19
+</span></span></span><span class="line"><span class="cl"><span class="sd"> * Time: 下午10:48
+</span></span></span><span class="line"><span class="cl"><span class="sd"> */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nx">App\Repositories</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">Illuminate\Support\Facades\Facade</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HelloFacade</span> <span class="k">extends</span> <span class="nx">Facade</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getFacadeAccessor</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="s1">&#39;Hello&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后再在之前创建的<code>namespace App\Providers\HelloProvider</code>中作出一些改动</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -238,50 +235,48 @@
 </span><span class="lnt">31
 </span><span class="lnt">32
 </span><span class="lnt">33
-</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
-
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use App\Repositories\Hello;
-use App\Repositories\HelloRepository;
-class HelloProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this-&gt;app-&gt;bind(&#39;App\Repositories\Hello&#39;,&#39;App\Repositories\HelloRepository&#39;);
-
-        $this-&gt;app-&gt;singleton(&#39;Hello&#39;,function(){
-            return new HelloRepository();
-        });
-    }
-}
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">namespace App\Providers;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">use Illuminate\Support\ServiceProvider;
+</span></span><span class="line"><span class="cl">use App\Repositories\Hello;
+</span></span><span class="line"><span class="cl">use App\Repositories\HelloRepository;
+</span></span><span class="line"><span class="cl">class HelloProvider extends ServiceProvider
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    /**
+</span></span><span class="line"><span class="cl">     * Bootstrap the application services.
+</span></span><span class="line"><span class="cl">     *
+</span></span><span class="line"><span class="cl">     * @return void
+</span></span><span class="line"><span class="cl">     */
+</span></span><span class="line"><span class="cl">    public function boot()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        //
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    /**
+</span></span><span class="line"><span class="cl">     * Register the application services.
+</span></span><span class="line"><span class="cl">     *
+</span></span><span class="line"><span class="cl">     * @return void
+</span></span><span class="line"><span class="cl">     */
+</span></span><span class="line"><span class="cl">    public function register()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        $this-&gt;app-&gt;bind(&#39;App\Repositories\Hello&#39;,&#39;App\Repositories\HelloRepository&#39;);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $this-&gt;app-&gt;singleton(&#39;Hello&#39;,function(){
+</span></span><span class="line"><span class="cl">            return new HelloRepository();
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>$this-&gt;app-&gt;singleton</code>就是为了去绑定facade 现在已经成功了一半了，接下来去配置文件中注册一下就能正常使用了</p>
 <p>在<code>config/app.php</code>中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -293,30 +288,30 @@ class HelloProvider extends ServiceProvider
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;providers&#39; =&gt; [
-    ....
-     App\Providers\HelloProvider::class,
-    ....
-],
-&#39;aliases&#39; =&gt; [
-    ...
-    &#39;Hello&#39; =&gt; \App\Repositories\HelloFacade::class,
-    ...
-]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#39;providers&#39; =&gt; [
+</span></span><span class="line"><span class="cl">    ....
+</span></span><span class="line"><span class="cl">     App\Providers\HelloProvider::class,
+</span></span><span class="line"><span class="cl">    ....
+</span></span><span class="line"><span class="cl">],
+</span></span><span class="line"><span class="cl">&#39;aliases&#39; =&gt; [
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    &#39;Hello&#39; =&gt; \App\Repositories\HelloFacade::class,
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样注册过后就能在文件中直接类似</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">use Hello;
-
-Hello::say();
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">use Hello;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hello::say();
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这一类的调用了</p>
 
@@ -424,7 +419,7 @@ Hello::say();
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go-mysql - helloword啊哈</title>
+  <title>go-mysql - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-mysql/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="go-mysql" />
 <meta property="og:description" content="这里写一个go 操作 mysql 的 curd 的 demo 表结构是这样的 1 2 3 4 5 6 create table test( id int primary key auto_increment, name varchar(20) default &#39;&#39;, age int default 0, created_at int default 0 ) go 的文件是: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-mysql/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-mysql/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-05-17T23:32:12+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="go-mysql">
-<meta itemprop="description" content="这里写一个go 操作 mysql 的 curd 的 demo 表结构是这样的 1 2 3 4 5 6 create table test( id int primary key auto_increment, name varchar(20) default &#39;&#39;, age int default 0, created_at int default 0 ) go 的文件是: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16">
-<meta itemprop="datePublished" content="2017-05-17T23:32:12&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="description" content="这里写一个go 操作 mysql 的 curd 的 demo 表结构是这样的 1 2 3 4 5 6 create table test( id int primary key auto_increment, name varchar(20) default &#39;&#39;, age int default 0, created_at int default 0 ) go 的文件是: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"><meta itemprop="datePublished" content="2017-05-17T23:32:12+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="621">
-
-
-
 <meta itemprop="keywords" content="mysql,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go-mysql"/>
 <meta name="twitter:description" content="这里写一个go 操作 mysql 的 curd 的 demo 表结构是这样的 1 2 3 4 5 6 create table test( id int primary key auto_increment, name varchar(20) default &#39;&#39;, age int default 0, created_at int default 0 ) go 的文件是: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16"/>
@@ -160,7 +157,7 @@
 <p>表结构是这样的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -168,18 +165,18 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">table</span> <span class="n">test</span><span class="p">(</span>
-	<span class="n">id</span> <span class="nb">int</span> <span class="k">primary</span> <span class="k">key</span> <span class="n">auto_increment</span><span class="p">,</span>
-	<span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">default</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-	<span class="n">age</span> <span class="nb">int</span> <span class="k">default</span> <span class="mi">0</span><span class="p">,</span>
-	<span class="n">created_at</span> <span class="nb">int</span> <span class="k">default</span> <span class="mi">0</span>
-<span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">auto_increment</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">age</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">created_at</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>go 的文件是:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -247,73 +244,73 @@
 </span><span class="lnt">66
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;database/sql&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;time&#34;</span>
-
-	<span class="nx">_</span> <span class="s">&#34;github.com/GO-SQL-Driver/MySQL&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">db</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">sql</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;mysql&#34;</span><span class="p">,</span> <span class="s">&#34;root:123123@tcp(localhost:33060)/go?charset=utf8&#34;</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-
-	<span class="c1">//insert
-</span><span class="c1"></span>	<span class="nx">stmt</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Prepare</span><span class="p">(</span><span class="s">&#34;INSERT test SET name=? , age=? , created_at=?&#34;</span><span class="p">)</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="s">&#34;gaopengfei&#34;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Unix</span><span class="p">())</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="c1">//获取插入数据的 id
-</span><span class="c1"></span>	<span class="nx">id</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">res</span><span class="p">.</span><span class="nf">LastInsertId</span><span class="p">()</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;insert id %d \n&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
-
-	<span class="c1">//update
-</span><span class="c1"></span>	<span class="nx">stmt</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Prepare</span><span class="p">(</span><span class="s">&#34;UPDATE test SET age=? WHERE id &lt; ?&#34;</span><span class="p">)</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="mi">233</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="c1">//输出受影响的条数
-</span><span class="c1"></span>	<span class="nx">affect</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">res</span><span class="p">.</span><span class="nf">RowsAffected</span><span class="p">()</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;affected num is %d \n&#34;</span><span class="p">,</span> <span class="nx">affect</span><span class="p">)</span>
-
-	<span class="c1">//select
-</span><span class="c1"></span>	<span class="nx">rows</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;SELECT * FROM test&#34;</span><span class="p">)</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
-		<span class="kd">var</span> <span class="nx">id</span> <span class="kt">int</span>
-		<span class="kd">var</span> <span class="nx">name</span> <span class="kt">string</span>
-		<span class="kd">var</span> <span class="nx">age</span> <span class="kt">int</span>
-		<span class="kd">var</span> <span class="nx">createdAt</span> <span class="kt">int</span> <span class="c1">//go 不让使用下划线的方式定义变量,如果字段是 created_at 需要写成 createdAt 驼峰命名法
-</span><span class="c1"></span>		<span class="nx">err</span> <span class="p">=</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Scan</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">id</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">age</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">createdAt</span><span class="p">)</span>
-		<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-		<span class="c1">//将int 转成 int64格式,方便格式化时间
-</span><span class="c1"></span>		<span class="kd">var</span> <span class="nx">tm64</span> <span class="kt">int64</span>
-		<span class="nx">tm64</span> <span class="p">=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">createdAt</span><span class="p">)</span>
-		<span class="nx">tm</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="nx">tm64</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;id is %d; name is %s; age is %d: created_at is %s \n&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">tm</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02 03:04:05 PM&#34;</span><span class="p">))</span>
-	<span class="p">}</span>
-
-	<span class="c1">//delete
-</span><span class="c1"></span>	<span class="nx">stmt</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Prepare</span><span class="p">(</span><span class="s">&#34;DELETE FROM test WHERE id=?&#34;</span><span class="p">)</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="nx">affect</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nf">RowsAffected</span><span class="p">()</span>
-	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;affected num is %d \n&#34;</span><span class="p">,</span> <span class="nx">affect</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;database/sql&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span> <span class="s">&#34;github.com/GO-SQL-Driver/MySQL&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">db</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">sql</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="s">&#34;mysql&#34;</span><span class="p">,</span> <span class="s">&#34;root:123123@tcp(localhost:33060)/go?charset=utf8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//insert
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">stmt</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Prepare</span><span class="p">(</span><span class="s">&#34;INSERT test SET name=? , age=? , created_at=?&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="s">&#34;gaopengfei&#34;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Unix</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//获取插入数据的 id
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">id</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">res</span><span class="p">.</span><span class="nf">LastInsertId</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;insert id %d \n&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//update
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">stmt</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Prepare</span><span class="p">(</span><span class="s">&#34;UPDATE test SET age=? WHERE id &lt; ?&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="mi">233</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//输出受影响的条数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">affect</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">res</span><span class="p">.</span><span class="nf">RowsAffected</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;affected num is %d \n&#34;</span><span class="p">,</span> <span class="nx">affect</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//select
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">rows</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Query</span><span class="p">(</span><span class="s">&#34;SELECT * FROM test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">id</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">age</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">createdAt</span> <span class="kt">int</span> <span class="c1">//go 不让使用下划线的方式定义变量,如果字段是 created_at 需要写成 createdAt 驼峰命名法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">err</span> <span class="p">=</span> <span class="nx">rows</span><span class="p">.</span><span class="nf">Scan</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">id</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">age</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">createdAt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">//将int 转成 int64格式,方便格式化时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kd">var</span> <span class="nx">tm64</span> <span class="kt">int64</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">tm64</span> <span class="p">=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">createdAt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">tm</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="nx">tm64</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;id is %d; name is %s; age is %d: created_at is %s \n&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">,</span> <span class="nx">tm</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02 03:04:05 PM&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//delete
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">stmt</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">db</span><span class="p">.</span><span class="nf">Prepare</span><span class="p">(</span><span class="s">&#34;DELETE FROM test WHERE id=?&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">res</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">stmt</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">affect</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">res</span><span class="p">.</span><span class="nf">RowsAffected</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">checkErr</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;affected num is %d \n&#34;</span><span class="p">,</span> <span class="nx">affect</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>这里使用了一个稳定的 mysql 包,因为 go 官方并没有实现 mysql 的实例,而是提供了数据操作的接口
@@ -324,32 +321,32 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">date(&#34;Y-m-d H:i:s&#34;,time())
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">date</span><span class="p">(</span><span class="s2">&#34;Y-m-d H:i:s&#34;</span><span class="p">,</span><span class="nx">time</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这边的是 &ldquo;Y-m-d H:i:s&rdquo; 啊!,一眼就看出来格式是什么了,但是 go 里的格式是这样的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">timestamp</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Unix</span><span class="p">()</span>
-<span class="nx">tm</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="nx">timer</span>  <span class="o">:=</span> <span class="nx">tm</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02 03:04:05 PM&#34;</span><span class="p">)</span>
-<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">timestamp</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Unix</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tm</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Unix</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">timer</span>  <span class="o">:=</span> <span class="nx">tm</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02 03:04:05 PM&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">timer</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>他的格式代表不是 Y,m,d,H,i,s 而是 2006,01,02,03,04,05 PM
 这个也好记,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -368,24 +365,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">月份 1,01,Jan,January
-
-日　 2,02,_2
-
-时　 3,03,15,PM,pm,AM,am
-
-分　 4,04
-
-秒　 5,05
-
-年　 06,2006
-
-周几 Mon,Monday
-
-时区时差表示 -07,-0700,Z0700,Z07:00,-07:00,MST
-
-时区字母缩写 MST
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">月份 1,01,Jan,January
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">日　 2,02,_2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">时　 3,03,15,PM,pm,AM,am
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">分　 4,04
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">秒　 5,05
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">年　 06,2006
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">周几 Mon,Monday
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">时区时差表示 -07,-0700,Z0700,Z07:00,-07:00,MST
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">时区字母缩写 MST
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -495,7 +492,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

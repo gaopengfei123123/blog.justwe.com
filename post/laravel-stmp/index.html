@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>laravel5.1使用stmp邮箱服务 - helloword啊哈</title>
+  <title>laravel5.1使用stmp邮箱服务 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-stmp/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="laravel5.1使用stmp邮箱服务" />
 <meta property="og:description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/laravel-stmp/" />
+<meta property="og:url" content="https://blog.justwe.site/post/laravel-stmp/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-10-09T14:51:00+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="laravel5.1使用stmp邮箱服务">
-<meta itemprop="description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5">
-<meta itemprop="datePublished" content="2016-10-09T14:51:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="455">
-
-
-
+<meta itemprop="description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5"><meta itemprop="datePublished" content="2016-10-09T14:51:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
+<meta itemprop="wordCount" content="454">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel5.1使用stmp邮箱服务"/>
 <meta name="twitter:description" content="这里主要使用的qq邮箱来举例 流程:登录qq邮箱-&gt;进入账户设置-&gt;开通stmp服务 laravel配置 .env文件当中： 1 2 3 4 5"/>
@@ -170,59 +167,57 @@
 <p><code>.env</code>文件当中：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">MAIL_DRIVER=smtp  //服务驱动
-MAIL_HOST=smtp.qq.com   //服务器地址
-MAIL_PORT=465           //端口
-MAIL_USERNAME=5173180@qq.com    //账户
-MAIL_PASSWORD=fgxhrahbayzvcai   //你账户的授权码，在开通stmp服务的时候获取到
-MAIL_ENCRYPTION=ssl //安全协议
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MAIL_DRIVER=smtp  //服务驱动
+</span></span><span class="line"><span class="cl">MAIL_HOST=smtp.qq.com   //服务器地址
+</span></span><span class="line"><span class="cl">MAIL_PORT=465           //端口
+</span></span><span class="line"><span class="cl">MAIL_USERNAME=5173180@qq.com    //账户
+</span></span><span class="line"><span class="cl">MAIL_PASSWORD=fgxhrahbayzvcai   //你账户的授权码，在开通stmp服务的时候获取到
+</span></span><span class="line"><span class="cl">MAIL_ENCRYPTION=ssl //安全协议
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>以上的内容如果不因环境变化可直接写入到<code>config/mail.php</code>文件内
 <code>config/mail.php</code>内要修改的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&#39;from&#39; =&gt; [&#39;address&#39; =&gt; &#39;5173180@qq.com&#39;, &#39;name&#39; =&gt; &#39;GsMail&#39;],
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#39;from&#39; =&gt; [&#39;address&#39; =&gt; &#39;5173180@qq.com&#39;, &#39;name&#39; =&gt; &#39;GsMail&#39;],
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样基本配置就算配置好了</p>
 <h4 id="测试一下">测试一下</h4>
 <p>使用 <code>php artisan tinker</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"> Mail::send(&#39;emails.test&#39;,
-[&#39;testVar&#39;=&gt;&#39;LaravelAcademy.org&#39;],
- function($message){
- $message-&gt;to(&#39;5173180@qq.com&#39;)-&gt;subject(&#39;测试邮件  &#39;);
- });
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"> <span class="nx">Mail</span><span class="o">::</span><span class="na">send</span><span class="p">(</span><span class="s1">&#39;emails.test&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="s1">&#39;testVar&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;LaravelAcademy.org&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl"> <span class="k">function</span><span class="p">(</span><span class="nv">$message</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl"> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="s1">&#39;5173180@qq.com&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">subject</span><span class="p">(</span><span class="s1">&#39;测试邮件  &#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>send</code>的参数分别是发送过去的邮件视图，向邮件视图内绑定的参数，一个回调函数
 <code>$message</code>变量在视图模板当中恒定存在
 相关<code>$message</code>的方法有：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -237,20 +232,20 @@ MAIL_ENCRYPTION=ssl //安全协议
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$message-&gt;from($address, $name = null);
-$message-&gt;sender($address, $name = null);
-$message-&gt;to($address, $name = null);
-$message-&gt;cc($address, $name = null);
-$message-&gt;bcc($address, $name = null);
-$message-&gt;replyTo($address, $name = null);
-$message-&gt;subject($subject);
-$message-&gt;priority($level);
-$message-&gt;attach($pathToFile, array $options = []);
-// 从$data字符串追加文件...
-$message-&gt;attachData($data, $name, array $options = []);
-// 获取底层SwiftMailer消息实例...
-$message-&gt;getSwiftMessage();
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">from</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">sender</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">cc</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">bcc</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">replyTo</span><span class="p">(</span><span class="nv">$address</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">subject</span><span class="p">(</span><span class="nv">$subject</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">priority</span><span class="p">(</span><span class="nv">$level</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$pathToFile</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 从$data字符串追加文件...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">attachData</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$name</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$options</span> <span class="o">=</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取底层SwiftMailer消息实例...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getSwiftMessage</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -357,7 +352,7 @@ $message-&gt;getSwiftMessage();
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

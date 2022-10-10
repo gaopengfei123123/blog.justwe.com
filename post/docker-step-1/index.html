@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>不正宗 docker 入门教程-启动一个容器(1/3) - helloword啊哈</title>
+  <title>不正宗 docker 入门教程-启动一个容器(1/3) - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-step-1/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="不正宗 docker 入门教程-启动一个容器(1/3)" />
 <meta property="og:description" content="从命名上就知道这是一篇简单粗暴的docker新手入门教程， 为什么要简单粗暴？ 我认为有自学能力的人帮他入门就够了， 不能自学的一时半会儿也教不会" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/docker-step-1/" />
+<meta property="og:url" content="https://blog.justwe.site/post/docker-step-1/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-07-06T18:25:44+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="不正宗 docker 入门教程-启动一个容器(1/3)">
-<meta itemprop="description" content="从命名上就知道这是一篇简单粗暴的docker新手入门教程， 为什么要简单粗暴？ 我认为有自学能力的人帮他入门就够了， 不能自学的一时半会儿也教不会">
-<meta itemprop="datePublished" content="2018-07-06T18:25:44&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="description" content="从命名上就知道这是一篇简单粗暴的docker新手入门教程， 为什么要简单粗暴？ 我认为有自学能力的人帮他入门就够了， 不能自学的一时半会儿也教不会"><meta itemprop="datePublished" content="2018-07-06T18:25:44+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="3026">
-
-
-
 <meta itemprop="keywords" content="docker入门," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="不正宗 docker 入门教程-启动一个容器(1/3)"/>
 <meta name="twitter:description" content="从命名上就知道这是一篇简单粗暴的docker新手入门教程， 为什么要简单粗暴？ 我认为有自学能力的人帮他入门就够了， 不能自学的一时半会儿也教不会"/>
@@ -185,11 +182,11 @@
 <p>安装完环境之后就启动一个镜像开开眼儿</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d -p 8080:80 --name local_nginx nginx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -p 8080:80 --name local_nginx nginx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后访问 <code>http://localhost:8080/</code> 就能看到 <code>nginx</code> 的初始界面了
 <img src="http://blog-image.onlyoneip.com/run-nginx.png" alt="run-image"></p>
@@ -204,29 +201,29 @@
 <p>现在可以查看一下本机都在运行着什么镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">PS D:<span class="se">\d</span>ocker_study&gt; docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-6732fa239270        nginx              <span class="s2">&#34;nginx -g &#39;daemon of…&#34;</span>   <span class="m">18</span> minutes ago      Up <span class="m">18</span> minutes       0.0.0.0:8080-&gt;80/tcp   local_nginx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">PS D:<span class="se">\d</span>ocker_study&gt; docker ps
+</span></span><span class="line"><span class="cl">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+</span></span><span class="line"><span class="cl">6732fa239270        nginx              <span class="s2">&#34;nginx -g &#39;daemon of…&#34;</span>   <span class="m">18</span> minutes ago      Up <span class="m">18</span> minutes       0.0.0.0:8080-&gt;80/tcp   local_nginx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>docker ps</code> 只能看到正在运行中的容器， 想看到全部的就是 <code>docker ps -a</code></p>
 <p><strong>进入这个容器的命令:</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker <span class="nb">exec</span> -it 6732fa239270 /bin/bash
-<span class="c1">#或</span>
-docker <span class="nb">exec</span> -it local_nginx /bin/bash
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it 6732fa239270 /bin/bash
+</span></span><span class="line"><span class="cl"><span class="c1">#或</span>
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it local_nginx /bin/bash
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>解释一下:</p>
 <ol>
@@ -240,11 +237,11 @@ docker <span class="nb">exec</span> -it local_nginx /bin/bash
 <p><strong>关闭容器</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker stop 6732fa239270 或 local_nginx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker stop 6732fa239270 或 local_nginx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="什么是容器什么是镜像">什么是容器？什么是镜像？</h3>
 <p><img src="http://blog-image.onlyoneip.com/image-container.jpg" alt="image-container"></p>
@@ -268,21 +265,21 @@ docker <span class="nb">exec</span> -it local_nginx /bin/bash
 <p>比如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -it --name local_nginx nginx:latest /bin/bash
-<span class="c1"># 或</span>
-docker <span class="nb">exec</span> -it local_nginx bin/bash
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -it --name local_nginx nginx:latest /bin/bash
+</span></span><span class="line"><span class="cl"><span class="c1"># 或</span>
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it local_nginx bin/bash
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="-p----用于宿主机和容器的端口绑定"><code>-p</code>    用于宿主机和容器的端口绑定</h4>
 <p>绑定多个端口就设置多个映射</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -291,38 +288,38 @@ docker <span class="nb">exec</span> -it local_nginx bin/bash
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d -p 8088:80 -p 4433:443 nginx:latest
-<span class="c1"># 或    不写本地端口, docker 将帮你自动分配</span>
-docker run -d -p :80 -p :443 nginx:latest
-<span class="c1"># 或    加上 ip 就绑本地指定的 ip</span>
-docker run -d -p 127.0.0.1:8088:80 -p :443 nginx:latest
-<span class="c1"># 或    照样不写本地端口就随机分配</span>
-docker run -d -p 127.0.0.1::80 -p :443 nginx:latest
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -p 8088:80 -p 4433:443 nginx:latest
+</span></span><span class="line"><span class="cl"><span class="c1"># 或    不写本地端口, docker 将帮你自动分配</span>
+</span></span><span class="line"><span class="cl">docker run -d -p :80 -p :443 nginx:latest
+</span></span><span class="line"><span class="cl"><span class="c1"># 或    加上 ip 就绑本地指定的 ip</span>
+</span></span><span class="line"><span class="cl">docker run -d -p 127.0.0.1:8088:80 -p :443 nginx:latest
+</span></span><span class="line"><span class="cl"><span class="c1"># 或    照样不写本地端口就随机分配</span>
+</span></span><span class="line"><span class="cl">docker run -d -p 127.0.0.1::80 -p :443 nginx:latest
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过 <code>docker ps</code> 可以看一下上面两行命令的执行状态</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">➜  <span class="nb">test</span> docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                                           NAMES
-57f65b46bd87        nginx:latest        <span class="s2">&#34;nginx -g &#39;daemon of…&#34;</span>   <span class="m">1</span> second ago         Up <span class="m">3</span> seconds        0.0.0.0:32769-&gt;80/tcp, 0.0.0.0:32768-&gt;443/tcp   happy_zhukovsky
-0c035ebabe44        nginx:latest        <span class="s2">&#34;nginx -g &#39;daemon of…&#34;</span>   About a minute ago   Up About a minute   0.0.0.0:8088-&gt;80/tcp, 0.0.0.0:4433-&gt;443/tcp     ecstatic_haibt
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">➜  <span class="nb">test</span> docker ps
+</span></span><span class="line"><span class="cl">CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                                           NAMES
+</span></span><span class="line"><span class="cl">57f65b46bd87        nginx:latest        <span class="s2">&#34;nginx -g &#39;daemon of…&#34;</span>   <span class="m">1</span> second ago         Up <span class="m">3</span> seconds        0.0.0.0:32769-&gt;80/tcp, 0.0.0.0:32768-&gt;443/tcp   happy_zhukovsky
+</span></span><span class="line"><span class="cl">0c035ebabe44        nginx:latest        <span class="s2">&#34;nginx -g &#39;daemon of…&#34;</span>   About a minute ago   Up About a minute   0.0.0.0:8088-&gt;80/tcp, 0.0.0.0:4433-&gt;443/tcp     ecstatic_haibt
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="-v-将宿主机的卷挂载到容器中的指定目录"><code>-v</code> 将宿主机的卷挂载到容器中的指定目录</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d -p 8088:80 -v /Users/gpf/Documents/docker_study/docker_test/www/:/usr/share/nginx/html/ nginx:latest
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -p 8088:80 -v /Users/gpf/Documents/docker_study/docker_test/www/:/usr/share/nginx/html/ nginx:latest
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里本地的目录要写绝对路径, 不然会报错, 这样一来, 本地的<code>/Users/gpf/Documents/docker_study/docker_test/www/</code> 就是容器中的<code>/usr/share/nginx/html/</code>, 就可以本地更改代码, 然后容器中运行</p>
 <h4 id="-d-后台运行"><code>-d</code> 后台运行</h4>
@@ -331,15 +328,15 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 <p>通常就是用来进入容器中搞七搞八的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker <span class="nb">exec</span> -it 57f65b46bd87 /bin/bash
-<span class="c1"># 或</span>
-docker exsec -it local_nginx /bin/bash
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it 57f65b46bd87 /bin/bash
+</span></span><span class="line"><span class="cl"><span class="c1"># 或</span>
+</span></span><span class="line"><span class="cl">docker exsec -it local_nginx /bin/bash
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里注意两点:</p>
 <ul>
@@ -352,39 +349,39 @@ docker exsec -it local_nginx /bin/bash
 <h4 id="docker-rm-containerid-或-name-删除指定未运行的容器-一个或多个"><code>docker rm [containerID 或 name]</code> 删除指定未运行的容器, 一个或多个</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker rm 6dee0a9b5232 582f708af9d3
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker rm 6dee0a9b5232 582f708af9d3
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="docker-rmi-imageid-或-tag-删除宿主机指定的镜像"><code>docker rmi [imageID 或 tag]</code> 删除宿主机指定的镜像</h4>
 <p>这里要注意如果这个镜像还有容器在使用就不能删除掉, 这个时候要先把对应的容器删掉才行
 删除指定镜像的容器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker stop <span class="k">$(</span>docker ps <span class="p">|</span> grep <span class="s1">&#39;这里写imageName&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1}&#39;</span><span class="k">)</span>
-docker rm <span class="k">$(</span>docker ps <span class="p">|</span> grep <span class="s1">&#39;这里写imageName&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1}&#39;</span><span class="k">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker stop <span class="k">$(</span>docker ps <span class="p">|</span> grep <span class="s1">&#39;这里写imageName&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1}&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">docker rm <span class="k">$(</span>docker ps <span class="p">|</span> grep <span class="s1">&#39;这里写imageName&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $1}&#39;</span><span class="k">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除临时构建的镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker rmi <span class="k">$(</span>docker images <span class="p">|</span> grep <span class="s1">&#39;&lt;none&gt;&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $3}&#39;</span><span class="k">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker rmi <span class="k">$(</span>docker images <span class="p">|</span> grep <span class="s1">&#39;&lt;none&gt;&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;{ print $3}&#39;</span><span class="k">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="prune-大杀器">prune 大杀器</h4>
 <p>这一手还是慎用,一些情况下可造成 <code>rm -rf /*</code> 的效果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -393,14 +390,14 @@ docker rm <span class="k">$(</span>docker ps <span class="p">|</span> grep <span
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#移除所有未使用的镜像</span>
-docker image prune
-<span class="c1">#移除所有未运行的容器</span>
-docker container prune
-<span class="c1">#移除所有未使用的本地卷</span>
-docker volume prune
-...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#移除所有未使用的镜像</span>
+</span></span><span class="line"><span class="cl">docker image prune
+</span></span><span class="line"><span class="cl"><span class="c1">#移除所有未运行的容器</span>
+</span></span><span class="line"><span class="cl">docker container prune
+</span></span><span class="line"><span class="cl"><span class="c1">#移除所有未使用的本地卷</span>
+</span></span><span class="line"><span class="cl">docker volume prune
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>PS: 因为有这一手, 所以可以看出官方的态度, 他们貌似也许可能没准大概差不多不建议把容器当成虚拟机一样把所有的东西都堆在一个镜像里面, 那样搞不止构建出来的镜像臃肿, 而且维护性移植性很差, 从目前网上的 docker 镜像资源来说, 基础镜像 alpine &gt; debian &gt; ubuntu &gt; centos, 优先使用最小的基础构建, 然后整个 image 只为一个服务而构建, 比如 redis 镜像里只要 redis, 没有什么 MySQL, memcache 什么的, 多个独立的 service 才组成一个 APP, 里面各个组件替换的话不用考虑其他组件的环境依赖什么的, 当然, 这个也是看业务的实际需要, 不能为了拆分而拆分, 在这之间能找到最合适自己的才是工具给我们带来的便利</p>
@@ -409,24 +406,24 @@ docker volume prune
 <p>如果只是在一个容器里搞来搞去就真的是虚拟机了, docker 的强大之处就是它内部维护一个网络, 处在相同网络的容器是可以互通的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 新建一个 docker 网络, -d bridge 是指定网络模式, 当前是桥接网络</span>
-docker network create -d bridge nginx_swarm
-<span class="c1"># 启动两个 nginx 容器, 分别命名 nginx_swarm_a nginx_swarm_b , 两者都加入了 nginx_swarm 这个网络  --rm 是当容器停止后自动删除</span>
-docker run -it --rm  --name nginx_swarm_a --network nginx_swarm  nginx /bin/bash
-docker run -it --rm  --name nginx_swarm_b --network nginx_swarm  nginx /bin/bash
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 新建一个 docker 网络, -d bridge 是指定网络模式, 当前是桥接网络</span>
+</span></span><span class="line"><span class="cl">docker network create -d bridge nginx_swarm
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动两个 nginx 容器, 分别命名 nginx_swarm_a nginx_swarm_b , 两者都加入了 nginx_swarm 这个网络  --rm 是当容器停止后自动删除</span>
+</span></span><span class="line"><span class="cl">docker run -it --rm  --name nginx_swarm_a --network nginx_swarm  nginx /bin/bash
+</span></span><span class="line"><span class="cl">docker run -it --rm  --name nginx_swarm_b --network nginx_swarm  nginx /bin/bash
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>注意, 我们并没把接口暴露出去, 现在随便在一个容器中 <code>ping</code> 另一个容器</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -438,17 +435,17 @@ docker run -it --rm  --name nginx_swarm_b --network nginx_swarm  nginx /bin/bash
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 这是在 nginx_swarm_a 中</span>
-<span class="c1"># 没有 ping 命令的先装一个 ping</span>
-<span class="c1"># apt-get update &amp;&amp; apt-get install -y iputils-ping</span>
-root@73d04107780f:/# ping -c <span class="m">3</span> nginx_swarm_b
-PING nginx_swarm_b <span class="o">(</span>172.18.0.3<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
-<span class="m">64</span> bytes from nginx_swarm_b.nginx_swarm <span class="o">(</span>172.18.0.3<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.084 ms
-<span class="m">64</span> bytes from nginx_swarm_b.nginx_swarm <span class="o">(</span>172.18.0.3<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.161 ms
-<span class="m">64</span> bytes from nginx_swarm_b.nginx_swarm <span class="o">(</span>172.18.0.3<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.146 ms
-
---- nginx_swarm_b ping statistics ---
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 这是在 nginx_swarm_a 中</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 没有 ping 命令的先装一个 ping</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># apt-get update &amp;&amp; apt-get install -y iputils-ping</span>
+</span></span><span class="line"><span class="cl">root@73d04107780f:/# ping -c <span class="m">3</span> nginx_swarm_b
+</span></span><span class="line"><span class="cl">PING nginx_swarm_b <span class="o">(</span>172.18.0.3<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from nginx_swarm_b.nginx_swarm <span class="o">(</span>172.18.0.3<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.084 ms
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from nginx_swarm_b.nginx_swarm <span class="o">(</span>172.18.0.3<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.161 ms
+</span></span><span class="line"><span class="cl"><span class="m">64</span> bytes from nginx_swarm_b.nginx_swarm <span class="o">(</span>172.18.0.3<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span>0.146 ms
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--- nginx_swarm_b ping statistics ---
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>docker 能自动的把 server name 转换成 ip, 我们只需要标明请求的是哪个容器, 而不是还要记住它的 ip 地址(当然 ip 地址也能设置)</p>
 <h3 id="总结">总结</h3>
@@ -577,7 +574,7 @@ PING nginx_swarm_b <span class="o">(</span>172.18.0.3<span class="o">)</span> 56
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>通过channel控制并发数量 - helloword啊哈</title>
+  <title>通过channel控制并发数量 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-channel-waitgroup/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="通过channel控制并发数量" />
 <meta property="og:description" content="使用 go 关键字有时候需要控制一下并发的数量, 但不至于去修改 runtime.GOMAXPROCS 这个数值, 这里就用到了缓冲channel的特性 demo: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-channel-waitgroup/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-channel-waitgroup/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-12-04T14:14:30+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="通过channel控制并发数量">
-<meta itemprop="description" content="使用 go 关键字有时候需要控制一下并发的数量, 但不至于去修改 runtime.GOMAXPROCS 这个数值, 这里就用到了缓冲channel的特性 demo: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17">
-<meta itemprop="datePublished" content="2018-12-04T14:14:30&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="397">
-
-
-
+<meta itemprop="description" content="使用 go 关键字有时候需要控制一下并发的数量, 但不至于去修改 runtime.GOMAXPROCS 这个数值, 这里就用到了缓冲channel的特性 demo: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17"><meta itemprop="datePublished" content="2018-12-04T14:14:30+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="396">
 <meta itemprop="keywords" content="go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过channel控制并发数量"/>
 <meta name="twitter:description" content="使用 go 关键字有时候需要控制一下并发的数量, 但不至于去修改 runtime.GOMAXPROCS 这个数值, 这里就用到了缓冲channel的特性 demo: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17"/>
@@ -160,7 +157,7 @@
 <p>demo:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -206,62 +203,60 @@
 </span><span class="lnt">44
 </span><span class="lnt">45
 </span><span class="lnt">46
-</span><span class="lnt">47
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go">
-<span class="kn">package</span> <span class="nx">pool</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;sync&#34;</span>
-<span class="p">)</span>
-
-<span class="c1">// WaitGroup 一个异步结构体
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">WaitGroup</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">workChan</span> <span class="kd">chan</span> <span class="kt">int</span>
-	<span class="nx">wg</span>       <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
-<span class="p">}</span>
-
-<span class="c1">// NewPool 生成一个工作池, coreNum 限制
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewPool</span><span class="p">(</span><span class="nx">coreNum</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">WaitGroup</span> <span class="p">{</span>
-	<span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">coreNum</span><span class="p">)</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">WaitGroup</span><span class="p">{</span>
-		<span class="nx">workChan</span><span class="p">:</span> <span class="nx">ch</span><span class="p">,</span>
-		<span class="nx">wg</span><span class="p">:</span>       <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">{},</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Add 添加
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ap</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="nx">ap</span><span class="p">.</span><span class="nx">workChan</span> <span class="o">&lt;-</span> <span class="nx">i</span>
-		<span class="nx">ap</span><span class="p">.</span><span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Done 完结
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ap</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="nf">Done</span><span class="p">()</span> <span class="p">{</span>
-<span class="nx">LOOP</span><span class="p">:</span>
-	<span class="k">for</span> <span class="p">{</span>
-		<span class="k">select</span> <span class="p">{</span>
-		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">ap</span><span class="p">.</span><span class="nx">workChan</span><span class="p">:</span>
-			<span class="k">break</span> <span class="nx">LOOP</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="nx">ap</span><span class="p">.</span><span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="c1">// Wait 等待
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ap</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="nf">Wait</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">ap</span><span class="p">.</span><span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">pool</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// WaitGroup 一个异步结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">WaitGroup</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">workChan</span> <span class="kd">chan</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">wg</span>       <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NewPool 生成一个工作池, coreNum 限制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewPool</span><span class="p">(</span><span class="nx">coreNum</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">WaitGroup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">coreNum</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">WaitGroup</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">workChan</span><span class="p">:</span> <span class="nx">ch</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">wg</span><span class="p">:</span>       <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">{},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Add 添加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ap</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ap</span><span class="p">.</span><span class="nx">workChan</span> <span class="o">&lt;-</span> <span class="nx">i</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ap</span><span class="p">.</span><span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Done 完结
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ap</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="nf">Done</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">LOOP</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">select</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">ap</span><span class="p">.</span><span class="nx">workChan</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">			<span class="k">break</span> <span class="nx">LOOP</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ap</span><span class="p">.</span><span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Wait 等待
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">ap</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="nf">Wait</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ap</span><span class="p">.</span><span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>test:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -290,39 +285,39 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">pool</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-	<span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestRun</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">work</span> <span class="o">:=</span> <span class="nf">NewPool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="nx">work</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-		<span class="k">go</span> <span class="nf">testFunc</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">work</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;waiting...&#34;</span><span class="p">)</span>
-	<span class="nx">work</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
-	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;done&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">testFunc</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">wg</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02T15:04:05Z07:00&#34;</span><span class="p">),</span> <span class="s">&#34;output: &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02T15:04:05Z07:00&#34;</span><span class="p">),</span> <span class="s">&#34;output: &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&#34;done&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">pool</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestRun</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">work</span> <span class="o">:=</span> <span class="nf">NewPool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">work</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">go</span> <span class="nf">testFunc</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">work</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;waiting...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">work</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;done&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">testFunc</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">wg</span> <span class="o">*</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02T15:04:05Z07:00&#34;</span><span class="p">),</span> <span class="s">&#34;output: &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Format</span><span class="p">(</span><span class="s">&#34;2006-01-02T15:04:05Z07:00&#34;</span><span class="p">),</span> <span class="s">&#34;output: &#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&#34;done&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -341,24 +336,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">2018-12-04T14:22:27+08:00 output:  <span class="m">3</span>
-2018-12-04T14:22:27+08:00 output:  <span class="m">1</span>
-2018-12-04T14:22:27+08:00 output:  <span class="m">0</span>
-2018-12-04T14:22:27+08:00 output:  <span class="m">2</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">3</span> <span class="k">done</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">0</span> <span class="k">done</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">1</span> <span class="k">done</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">5</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">6</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">2</span> <span class="k">done</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">7</span>
-2018-12-04T14:22:28+08:00 output:  <span class="m">4</span>
-2018-12-04T14:22:29+08:00 output:  <span class="m">4</span> <span class="k">done</span>
-2018-12-04T14:22:29+08:00 output:  <span class="m">8</span>
-2018-12-04T14:22:29+08:00 output:  <span class="m">7</span> <span class="k">done</span>
-2018-12-04T14:22:29+08:00 output:  <span class="m">6</span> <span class="k">done</span>
-.....
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2018-12-04T14:22:27+08:00 output:  <span class="m">3</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:27+08:00 output:  <span class="m">1</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:27+08:00 output:  <span class="m">0</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:27+08:00 output:  <span class="m">2</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">3</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">0</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">1</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">5</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">6</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">2</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">7</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:28+08:00 output:  <span class="m">4</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:29+08:00 output:  <span class="m">4</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:29+08:00 output:  <span class="m">8</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:29+08:00 output:  <span class="m">7</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">2018-12-04T14:22:29+08:00 output:  <span class="m">6</span> <span class="k">done</span>
+</span></span><span class="line"><span class="cl">.....
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里还是要带上 <code>sync.WaitGroup</code>, 保证最后一次循环时携程不会过早退出</p>
 
@@ -468,7 +463,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

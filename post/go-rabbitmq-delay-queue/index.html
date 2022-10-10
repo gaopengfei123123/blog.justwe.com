@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>基于rabbitmq实现的延时队列(golang版) - helloword啊哈</title>
+  <title>基于rabbitmq实现的延时队列(golang版) - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-rabbitmq-delay-queue/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="基于rabbitmq实现的延时队列(golang版)" />
 <meta property="og:description" content="虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-rabbitmq-delay-queue/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-rabbitmq-delay-queue/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-05-14T21:37:40+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="基于rabbitmq实现的延时队列(golang版)">
-<meta itemprop="description" content="虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发">
-<meta itemprop="datePublished" content="2018-05-14T21:37:40&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1142">
-
-
-
+<meta itemprop="description" content="虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发"><meta itemprop="datePublished" content="2018-05-14T21:37:40+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="1140">
 <meta itemprop="keywords" content="go,rabbitmq," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="基于rabbitmq实现的延时队列(golang版)"/>
 <meta name="twitter:description" content="虽然 rabbitmq 没有延时队列的功能,但是稍微变动一下也是可以实现的 实现延时队列的基本要素 存在一个倒计时机制:Time To Live(TTL) 当到达时间点的时候会触发一个发"/>
@@ -177,7 +174,7 @@
 <p>首先是消费者<code>comsumer.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -273,112 +270,110 @@
 </span><span class="lnt">94
 </span><span class="lnt">95
 </span><span class="lnt">96
-</span><span class="lnt">97
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;log&#34;</span>
-
-	<span class="s">&#34;github.com/streadway/amqp&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;%s: %s&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c1">// 建立链接
-</span><span class="c1"></span>	<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">amqp</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;amqp://guest:guest@localhost:5672/&#34;</span><span class="p">)</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to connect to RabbitMQ&#34;</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-
-	<span class="nx">ch</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Channel</span><span class="p">()</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to open a channel&#34;</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-
-	<span class="c1">// 声明一个主要使用的 exchange
-</span><span class="c1"></span>	<span class="nx">err</span> <span class="p">=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">ExchangeDeclare</span><span class="p">(</span>
-		<span class="s">&#34;logs&#34;</span><span class="p">,</span>   <span class="c1">// name
-</span><span class="c1"></span>		<span class="s">&#34;fanout&#34;</span><span class="p">,</span> <span class="c1">// type
-</span><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>     <span class="c1">// durable
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>    <span class="c1">// auto-deleted
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>    <span class="c1">// internal
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>    <span class="c1">// no-wait
-</span><span class="c1"></span>		<span class="kc">nil</span><span class="p">,</span>      <span class="c1">// arguments
-</span><span class="c1"></span>	<span class="p">)</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to declare an exchange&#34;</span><span class="p">)</span>
-
-	<span class="c1">// 声明一个常规的队列, 其实这个也没必要声明,因为 exchange 会默认绑定一个队列
-</span><span class="c1"></span>	<span class="nx">q</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">QueueDeclare</span><span class="p">(</span>
-		<span class="s">&#34;test_logs&#34;</span><span class="p">,</span>    <span class="c1">// name
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// durable
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// delete when unused
-</span><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>  <span class="c1">// exclusive
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// no-wait
-</span><span class="c1"></span>		<span class="kc">nil</span><span class="p">,</span>   <span class="c1">// arguments
-</span><span class="c1"></span>	<span class="p">)</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to declare a queue&#34;</span><span class="p">)</span>
-
-    <span class="cm">/**
-</span><span class="cm">     * 注意,这里是重点!!!!!
-</span><span class="cm">     * 声明一个延时队列, ß我们的延时消息就是要发送到这里
-</span><span class="cm">     */</span>
-	<span class="nx">_</span><span class="p">,</span> <span class="nx">errDelay</span> <span class="o">:=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">QueueDeclare</span><span class="p">(</span>
-		<span class="s">&#34;test_delay&#34;</span><span class="p">,</span>    <span class="c1">// name
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// durable
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// delete when unused
-</span><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>  <span class="c1">// exclusive
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// no-wait
-</span><span class="c1"></span>		<span class="nx">amqp</span><span class="p">.</span><span class="nx">Table</span><span class="p">{</span>
-			<span class="c1">// 当消息过期时把消息发送到 logs 这个 exchange
-</span><span class="c1"></span>			<span class="s">&#34;x-dead-letter-exchange&#34;</span><span class="p">:</span><span class="s">&#34;logs&#34;</span><span class="p">,</span>
-		<span class="p">},</span>   <span class="c1">// arguments
-</span><span class="c1"></span>	<span class="p">)</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">errDelay</span><span class="p">,</span> <span class="s">&#34;Failed to declare a delay_queue&#34;</span><span class="p">)</span>
-
-	<span class="nx">err</span> <span class="p">=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">QueueBind</span><span class="p">(</span>
-		<span class="nx">q</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="c1">// queue name, 这里指的是 test_logs
-</span><span class="c1"></span>		<span class="s">&#34;&#34;</span><span class="p">,</span>     <span class="c1">// routing key
-</span><span class="c1"></span>		<span class="s">&#34;logs&#34;</span><span class="p">,</span> <span class="c1">// exchange
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>
-		<span class="kc">nil</span><span class="p">)</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to bind a queue&#34;</span><span class="p">)</span>
-
-	<span class="c1">// 这里监听的是 test_logs
-</span><span class="c1"></span>	<span class="nx">msgs</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Consume</span><span class="p">(</span>
-		<span class="nx">q</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="c1">// queue name, 这里指的是 test_logs
-</span><span class="c1"></span>		<span class="s">&#34;&#34;</span><span class="p">,</span>     <span class="c1">// consumer
-</span><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>   <span class="c1">// auto-ack
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  <span class="c1">// exclusive
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  <span class="c1">// no-local
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  <span class="c1">// no-wait
-</span><span class="c1"></span>		<span class="kc">nil</span><span class="p">,</span>    <span class="c1">// args
-</span><span class="c1"></span>	<span class="p">)</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to register a consumer&#34;</span><span class="p">)</span>
-
-	<span class="nx">forever</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
-
-	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-		<span class="k">for</span> <span class="nx">d</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">msgs</span> <span class="p">{</span>
-			<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34; [x] %s&#34;</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
-		<span class="p">}</span>
-	<span class="p">}()</span>
-
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34; [*] Waiting for logs. To exit press CTRL+C&#34;</span><span class="p">)</span>
-	<span class="o">&lt;-</span><span class="nx">forever</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/streadway/amqp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;%s: %s&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 建立链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">amqp</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;amqp://guest:guest@localhost:5672/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to connect to RabbitMQ&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">ch</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Channel</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to open a channel&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 声明一个主要使用的 exchange
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">err</span> <span class="p">=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">ExchangeDeclare</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;logs&#34;</span><span class="p">,</span>   <span class="c1">// name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="s">&#34;fanout&#34;</span><span class="p">,</span> <span class="c1">// type
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>     <span class="c1">// durable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>    <span class="c1">// auto-deleted
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>    <span class="c1">// internal
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>    <span class="c1">// no-wait
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">nil</span><span class="p">,</span>      <span class="c1">// arguments
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to declare an exchange&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 声明一个常规的队列, 其实这个也没必要声明,因为 exchange 会默认绑定一个队列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">q</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">QueueDeclare</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;test_logs&#34;</span><span class="p">,</span>    <span class="c1">// name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// durable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// delete when unused
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>  <span class="c1">// exclusive
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// no-wait
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">nil</span><span class="p">,</span>   <span class="c1">// arguments
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to declare a queue&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 注意,这里是重点!!!!!
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 声明一个延时队列, ß我们的延时消息就是要发送到这里
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">errDelay</span> <span class="o">:=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">QueueDeclare</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;test_delay&#34;</span><span class="p">,</span>    <span class="c1">// name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// durable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// delete when unused
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>  <span class="c1">// exclusive
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span> <span class="c1">// no-wait
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">amqp</span><span class="p">.</span><span class="nx">Table</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 当消息过期时把消息发送到 logs 这个 exchange
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="s">&#34;x-dead-letter-exchange&#34;</span><span class="p">:</span><span class="s">&#34;logs&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>   <span class="c1">// arguments
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">errDelay</span><span class="p">,</span> <span class="s">&#34;Failed to declare a delay_queue&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="p">=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">QueueBind</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">q</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="c1">// queue name, 这里指的是 test_logs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="s">&#34;&#34;</span><span class="p">,</span>     <span class="c1">// routing key
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="s">&#34;logs&#34;</span><span class="p">,</span> <span class="c1">// exchange
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to bind a queue&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 这里监听的是 test_logs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">msgs</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Consume</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">q</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="c1">// queue name, 这里指的是 test_logs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="s">&#34;&#34;</span><span class="p">,</span>     <span class="c1">// consumer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">true</span><span class="p">,</span>   <span class="c1">// auto-ack
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  <span class="c1">// exclusive
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  <span class="c1">// no-local
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  <span class="c1">// no-wait
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">nil</span><span class="p">,</span>    <span class="c1">// args
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to register a consumer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">forever</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">d</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">msgs</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34; [x] %s&#34;</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34; [*] Waiting for logs. To exit press CTRL+C&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&lt;-</span><span class="nx">forever</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后是生产者<code>productor.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -429,73 +424,71 @@
 </span><span class="lnt">49
 </span><span class="lnt">50
 </span><span class="lnt">51
-</span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;log&#34;</span>
-	<span class="s">&#34;os&#34;</span>
-	<span class="s">&#34;strings&#34;</span>
-
-	<span class="s">&#34;github.com/streadway/amqp&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;%s: %s&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">amqp</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;amqp://guest:guest@localhost:5672/&#34;</span><span class="p">)</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to connect to RabbitMQ&#34;</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-
-	<span class="nx">ch</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Channel</span><span class="p">()</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to open a channel&#34;</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-
-	<span class="nx">body</span> <span class="o">:=</span> <span class="nf">bodyFrom</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">)</span>
-	<span class="c1">// 将消息发送到延时队列上
-</span><span class="c1"></span>	<span class="nx">err</span> <span class="p">=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Publish</span><span class="p">(</span>
-		<span class="s">&#34;&#34;</span><span class="p">,</span> 				<span class="c1">// exchange 这里为空则不选择 exchange
-</span><span class="c1"></span>		<span class="s">&#34;test_delay&#34;</span><span class="p">,</span>     	<span class="c1">// routing key
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  			<span class="c1">// mandatory
-</span><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  			<span class="c1">// immediate
-</span><span class="c1"></span>		<span class="nx">amqp</span><span class="p">.</span><span class="nx">Publishing</span><span class="p">{</span>
-			<span class="nx">ContentType</span><span class="p">:</span> <span class="s">&#34;text/plain&#34;</span><span class="p">,</span>
-			<span class="nx">Body</span><span class="p">:</span>        <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">body</span><span class="p">),</span>
-			<span class="nx">Expiration</span><span class="p">:</span> <span class="s">&#34;5000&#34;</span><span class="p">,</span>	<span class="c1">// 设置五秒的过期时间
-</span><span class="c1"></span>		<span class="p">})</span>
-	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to publish a message&#34;</span><span class="p">)</span>
-
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34; [x] Sent %s&#34;</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">bodyFrom</span><span class="p">(</span><span class="nx">args</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">s</span> <span class="kt">string</span>
-	<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">||</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
-		<span class="nx">s</span> <span class="p">=</span> <span class="s">&#34;hello&#34;</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-		<span class="nx">s</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">s</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/streadway/amqp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;%s: %s&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">amqp</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;amqp://guest:guest@localhost:5672/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to connect to RabbitMQ&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">ch</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Channel</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to open a channel&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">body</span> <span class="o">:=</span> <span class="nf">bodyFrom</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 将消息发送到延时队列上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">err</span> <span class="p">=</span> <span class="nx">ch</span><span class="p">.</span><span class="nf">Publish</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;&#34;</span><span class="p">,</span> 				<span class="c1">// exchange 这里为空则不选择 exchange
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="s">&#34;test_delay&#34;</span><span class="p">,</span>     	<span class="c1">// routing key
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  			<span class="c1">// mandatory
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="kc">false</span><span class="p">,</span>  			<span class="c1">// immediate
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">amqp</span><span class="p">.</span><span class="nx">Publishing</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">ContentType</span><span class="p">:</span> <span class="s">&#34;text/plain&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Body</span><span class="p">:</span>        <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">body</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Expiration</span><span class="p">:</span> <span class="s">&#34;5000&#34;</span><span class="p">,</span>	<span class="c1">// 设置五秒的过期时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">failOnError</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="s">&#34;Failed to publish a message&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34; [x] Sent %s&#34;</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">bodyFrom</span><span class="p">(</span><span class="nx">args</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">s</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">||</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">s</span> <span class="p">=</span> <span class="s">&#34;hello&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">s</span> <span class="p">=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>运行一下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">go run comsumer.go
-go run productor.go
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go run comsumer.go
+</span></span><span class="line"><span class="cl">go run productor.go
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>$~~~~~~$具体看代码和注释就行, 这里的关键点就是将要延时的消息发送到过期队列当中, 然后监听的是<strong>过期队列转发到的 exchange 下的队列</strong>
 正常情况就是始终监听一个队列,然后把过期消息发送到延时队列中,当消息到达时间后就把消息发到正在监听的队列</p>
@@ -608,7 +601,7 @@ go run productor.go
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

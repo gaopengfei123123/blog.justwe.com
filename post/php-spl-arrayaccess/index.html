@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>PHP标准类库系列 arrayAccess - helloword啊哈</title>
+  <title>PHP标准类库系列 arrayAccess - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-spl-arrayaccess/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="PHP标准类库系列 arrayAccess" />
 <meta property="og:description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/php-spl-arrayaccess/" />
+<meta property="og:url" content="https://blog.justwe.site/post/php-spl-arrayaccess/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-06-26T17:22:53+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="PHP标准类库系列 arrayAccess">
-<meta itemprop="description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p">
-<meta itemprop="datePublished" content="2017-06-26T17:22:53&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p"><meta itemprop="datePublished" content="2017-06-26T17:22:53+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="535">
-
-
-
 <meta itemprop="keywords" content="php,SPL," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="PHP标准类库系列 arrayAccess"/>
 <meta name="twitter:description" content="现在很多的 php 框架模型调取属性的时候可以按照数组的方式去调用,这是因为使用了arrayAccess这个接口 什么是 SPL? SPL 是 Standard PHP Library 的缩写,是官方在 p"/>
@@ -169,7 +166,7 @@
 <p>最好的学习就是使用啊,这是我写的一个 demo</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -274,115 +271,115 @@
 </span><span class="lnt">103
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-
-<span class="k">class</span> <span class="nc">Demo</span> <span class="k">implements</span> <span class="nx">\ArrayAccess</span><span class="p">{</span>
-
-    <span class="k">public</span> <span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;demo&#39;</span><span class="p">;</span>
-
-    <span class="k">protected</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[];</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * Demo constructor.
-</span><span class="sd">     * @param array $attribute
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$attribute</span> <span class="o">=</span> <span class="p">[])</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span> <span class="o">=</span> <span class="nv">$attribute</span><span class="p">;</span>
-
-    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * @param mixed $offset
-</span><span class="sd">     * @return bool
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetExists</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">});</span>
-    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * @param mixed $offset
-</span><span class="sd">     * @return mixed
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetGet</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">};</span>
-    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * @param mixed $offset
-</span><span class="sd">     * @param mixed $value
-</span><span class="sd">     * @return mixed
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetSet</span><span class="p">(</span><span class="nv">$offset</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * @param mixed $offset
-</span><span class="sd">     * @return bool
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetUnset</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$offset</span><span class="p">){</span>
-          <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$offset</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
-          <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
-      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-          <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * @param $name
-</span><span class="sd">     * @param $value
-</span><span class="sd">     * @return mixed
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * @param $name
-</span><span class="sd">     * @return mixed|null
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">array_key_exists</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">)</span><span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;height&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;180cm&#39;</span><span class="p">,</span>
-<span class="p">];</span>
-<span class="nv">$demo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$demo</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-
-<span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-
-<span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-
-<span class="c1">//删除
-</span><span class="c1"></span><span class="nx">unset</span><span class="p">(</span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]);</span>
-<span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]);</span>
-<span class="c1">//新增
-</span><span class="c1"></span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;man&#39;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nv">$demo</span><span class="o">-&gt;</span><span class="na">sex</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-<span class="c1">//修改
-</span><span class="c1"></span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2333cm&#39;</span><span class="p">;</span>
-<span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-
-<span class="c1">//打印这个类
-</span><span class="c1"></span><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Demo</span> <span class="k">implements</span> <span class="nx">\ArrayAccess</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="nv">$name</span> <span class="o">=</span> <span class="s1">&#39;demo&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * Demo constructor.
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param array $attribute
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">array</span> <span class="nv">$attribute</span> <span class="o">=</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span> <span class="o">=</span> <span class="nv">$attribute</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param mixed $offset
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return bool
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetExists</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param mixed $offset
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return mixed
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetGet</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param mixed $offset
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param mixed $value
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return mixed
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetSet</span><span class="p">(</span><span class="nv">$offset</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$offset</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param mixed $offset
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return bool
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">offsetUnset</span><span class="p">(</span><span class="nv">$offset</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$offset</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">          <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$offset</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param $name
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param $value
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return mixed
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param $name
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return mixed|null
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">array_key_exists</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">)</span><span class="o">?</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;height&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;180cm&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$demo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Demo</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$demo</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">unset</span><span class="p">(</span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//新增
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;man&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$demo</span><span class="o">-&gt;</span><span class="na">sex</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//修改
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2333cm&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$demo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//打印这个类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">var_dump</span><span class="p">(</span><span class="nv">$demo</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -401,24 +398,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">demo
-demo
-180cm
-NULL
-man
-2333cm
-object(Demo)#1 (2) {
-  [&#34;name&#34;]=&gt;
-  string(4) &#34;demo&#34;
-  [&#34;attributes&#34;:protected]=&gt;
-  array(2) {
-    [&#34;height&#34;]=&gt;
-    string(6) &#34;2333cm&#34;
-    [&#34;sex&#34;]=&gt;
-    string(3) &#34;man&#34;
-  }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">demo
+</span></span><span class="line"><span class="cl">demo
+</span></span><span class="line"><span class="cl">180cm
+</span></span><span class="line"><span class="cl">NULL
+</span></span><span class="line"><span class="cl">man
+</span></span><span class="line"><span class="cl">2333cm
+</span></span><span class="line"><span class="cl">object(Demo)#1 (2) {
+</span></span><span class="line"><span class="cl">  [&#34;name&#34;]=&gt;
+</span></span><span class="line"><span class="cl">  string(4) &#34;demo&#34;
+</span></span><span class="line"><span class="cl">  [&#34;attributes&#34;:protected]=&gt;
+</span></span><span class="line"><span class="cl">  array(2) {
+</span></span><span class="line"><span class="cl">    [&#34;height&#34;]=&gt;
+</span></span><span class="line"><span class="cl">    string(6) &#34;2333cm&#34;
+</span></span><span class="line"><span class="cl">    [&#34;sex&#34;]=&gt;
+</span></span><span class="line"><span class="cl">    string(3) &#34;man&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里还用了<code>__set</code>和<code>__get</code>,现在一些框架的关于数据模型的类也是类似的实现思路</p>
 
@@ -529,7 +526,7 @@ object(Demo)#1 (2) {
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

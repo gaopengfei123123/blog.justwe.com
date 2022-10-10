@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>小程序初次接触(1) - helloword啊哈</title>
+  <title>小程序初次接触(1) - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/wxcx/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="小程序初次接触(1)" />
 <meta property="og:description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/wxcx/" />
+<meta property="og:url" content="https://blog.justwe.site/post/wxcx/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-10-24T15:28:00+00:00" />
 <meta property="article:modified_time" content="2019-11-18T11:12:17+08:00" />
+
 <meta itemprop="name" content="小程序初次接触(1)">
-<meta itemprop="description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i">
-<meta itemprop="datePublished" content="2016-10-24T15:28:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-18T11:12:17&#43;08:00" />
+<meta itemprop="description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i"><meta itemprop="datePublished" content="2016-10-24T15:28:00+00:00" />
+<meta itemprop="dateModified" content="2019-11-18T11:12:17+08:00" />
 <meta itemprop="wordCount" content="750">
-
-
-
 <meta itemprop="keywords" content="xcx," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="小程序初次接触(1)"/>
 <meta name="twitter:description" content="刚开始接触vue.js没多久就收到小程序内侧的信息,看了看文档两者关联性很强,于是就两者一块学了 首先安装小程序的开发工具,虽然我们没有邀请i"/>
@@ -161,24 +158,24 @@
 <p>目录结构</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">app-
----image
----utils
----pages
----app.json
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">app-
+</span></span><span class="line"><span class="cl">---image
+</span></span><span class="line"><span class="cl">---utils
+</span></span><span class="line"><span class="cl">---pages
+</span></span><span class="line"><span class="cl">---app.json
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>首先必备的就是<code>app.json</code>文件,这是小程序的配置文件,里面配置了路由,底部菜单,窗口标题等等一些最重要的东西</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -207,34 +204,34 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
-  &#34;pages&#34;:[
-    &#34;pages/index/index&#34;,
-    &#34;pages/logs/logs&#34;
-  ],
-  &#34;window&#34;:{
-    &#34;backgroundTextStyle&#34;:&#34;light&#34;,
-    &#34;navigationBarBackgroundColor&#34;: &#34;#fff&#34;,
-    &#34;navigationBarTitleText&#34;: &#34;微信小练习&#34;,
-    &#34;navigationBarTextStyle&#34;:&#34;black&#34;
-  },
-  &#34;tabBar&#34;: {
-    &#34;backgroundColor&#34;:&#34;#000000&#34;,
-    &#34;list&#34;: [{
-      &#34;iconPath&#34;:&#34;image/wechat.png&#34;,
-      &#34;selectedIconPath&#34;:&#34;image/wechatHL.png&#34;,
-      &#34;pagePath&#34;: &#34;pages/index/index&#34;,
-      &#34;text&#34;: &#34;首页&#34;
-    }, {
-      &#34;iconPath&#34;:&#34;image/record.png&#34;,
-      &#34;selectedIconPath&#34;:&#34;image/play.png&#34;,
-      &#34;pagePath&#34;: &#34;pages/about/about&#34;,
-      &#34;text&#34;: &#34;我的&#34;
-    }]
-  },
-  &#34;debug&#34; : true
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">  &#34;pages&#34;:[
+</span></span><span class="line"><span class="cl">    &#34;pages/index/index&#34;,
+</span></span><span class="line"><span class="cl">    &#34;pages/logs/logs&#34;
+</span></span><span class="line"><span class="cl">  ],
+</span></span><span class="line"><span class="cl">  &#34;window&#34;:{
+</span></span><span class="line"><span class="cl">    &#34;backgroundTextStyle&#34;:&#34;light&#34;,
+</span></span><span class="line"><span class="cl">    &#34;navigationBarBackgroundColor&#34;: &#34;#fff&#34;,
+</span></span><span class="line"><span class="cl">    &#34;navigationBarTitleText&#34;: &#34;微信小练习&#34;,
+</span></span><span class="line"><span class="cl">    &#34;navigationBarTextStyle&#34;:&#34;black&#34;
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;tabBar&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;backgroundColor&#34;:&#34;#000000&#34;,
+</span></span><span class="line"><span class="cl">    &#34;list&#34;: [{
+</span></span><span class="line"><span class="cl">      &#34;iconPath&#34;:&#34;image/wechat.png&#34;,
+</span></span><span class="line"><span class="cl">      &#34;selectedIconPath&#34;:&#34;image/wechatHL.png&#34;,
+</span></span><span class="line"><span class="cl">      &#34;pagePath&#34;: &#34;pages/index/index&#34;,
+</span></span><span class="line"><span class="cl">      &#34;text&#34;: &#34;首页&#34;
+</span></span><span class="line"><span class="cl">    }, {
+</span></span><span class="line"><span class="cl">      &#34;iconPath&#34;:&#34;image/record.png&#34;,
+</span></span><span class="line"><span class="cl">      &#34;selectedIconPath&#34;:&#34;image/play.png&#34;,
+</span></span><span class="line"><span class="cl">      &#34;pagePath&#34;: &#34;pages/about/about&#34;,
+</span></span><span class="line"><span class="cl">      &#34;text&#34;: &#34;我的&#34;
+</span></span><span class="line"><span class="cl">    }]
+</span></span><span class="line"><span class="cl">  },
+</span></span><span class="line"><span class="cl">  &#34;debug&#34; : true
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个文件的内容可读性也是很不错,各个项目是做什么的让人一目了然, <code>pages</code>块的就是注册前端路由了,比如<code>pages/index/index</code>就是需要引用 pages/index 目录下的 index.wxml index.js index.wxss <strong>我们不需要指定后缀,这都是自动完成的</strong></p>
 <p>其他的关于引入文件路径的问题都和这个是一类的</p>
@@ -242,7 +239,7 @@
 在 <code>pages/index</code>目录下创建 <code>index.wxml</code>文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -260,29 +257,29 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!--文章列表模板 begin--&gt;
-&lt;template name=&#34;itmes&#34;&gt;
-    &lt;view class=&#34;imgs&#34;&gt;&lt;image src=&#34;{{imgURL}}&#34; class=&#34;in-img&#34; background-size=&#34;cover&#34; model=&#34;scaleToFill&#34;&gt;&lt;/image&gt;&lt;/view&gt;
-    &lt;view class=&#34;infos&#34;&gt;
-        &lt;view class=&#34;title&#34;&gt;{{title}}&lt;/view&gt;
-        &lt;view class=&#34;date&#34;&gt;{{time}}&lt;/view&gt;
-        &lt;view class=&#34;classification&#34;&gt;{{classification}}&lt;/view&gt;
-    &lt;/view&gt;
-    &lt;view&gt;hello world&lt;/view&gt;
-&lt;/template&gt;
-&lt;!--文章列表模板 begin--&gt;
-
-
-&lt;block wx:for=&#34;{{newList}}&#34;&gt;
-    &lt;template is=&#34;itmes&#34; data=&#34;{{...item}}&#34; /&gt;
-&lt;/block&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!--文章列表模板 begin--&gt;
+</span></span><span class="line"><span class="cl">&lt;template name=&#34;itmes&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;view class=&#34;imgs&#34;&gt;&lt;image src=&#34;{{imgURL}}&#34; class=&#34;in-img&#34; background-size=&#34;cover&#34; model=&#34;scaleToFill&#34;&gt;&lt;/image&gt;&lt;/view&gt;
+</span></span><span class="line"><span class="cl">    &lt;view class=&#34;infos&#34;&gt;
+</span></span><span class="line"><span class="cl">        &lt;view class=&#34;title&#34;&gt;{{title}}&lt;/view&gt;
+</span></span><span class="line"><span class="cl">        &lt;view class=&#34;date&#34;&gt;{{time}}&lt;/view&gt;
+</span></span><span class="line"><span class="cl">        &lt;view class=&#34;classification&#34;&gt;{{classification}}&lt;/view&gt;
+</span></span><span class="line"><span class="cl">    &lt;/view&gt;
+</span></span><span class="line"><span class="cl">    &lt;view&gt;hello world&lt;/view&gt;
+</span></span><span class="line"><span class="cl">&lt;/template&gt;
+</span></span><span class="line"><span class="cl">&lt;!--文章列表模板 begin--&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;block wx:for=&#34;{{newList}}&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;template is=&#34;itmes&#34; data=&#34;{{...item}}&#34; /&gt;
+</span></span><span class="line"><span class="cl">&lt;/block&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这里, <code>&lt;template&gt;</code>这标签块内的东西只是一个模板,而不会实际显示出来,真正显示的是下面 <code>&lt;block&gt;</code>这个标签对里的东西,他在这里调用了上面的 template 模板, 当然此时是没有东西的,因为我们指定的变量还没有建立</p>
 <p>赶紧在<strong>同级目录</strong>下创建 index.js</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -301,24 +298,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//获取应用实例
-var app = getApp()
-Page({
-    data: {
-        newList:[{url:&#34;baidu.com&#34;,title:&#34;111&#34;,classification:&#34;ss&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;222&#34;,classification:&#34;ss&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;333&#34;,classification:&#34;12&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;444&#34;,classification:&#34;333&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;555&#34;,classification:&#34;44&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;666&#34;,classification:&#34;44&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;777&#34;,classification:&#34;32&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;888&#34;,classification:&#34;123&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;999&#34;,classification:&#34;456&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
-            {url:&#34;baidu.com&#34;,title:&#34;000&#34;,classification:&#34;454&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;}
-        ]
-    },
-})
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//获取应用实例
+</span></span><span class="line"><span class="cl">var app = getApp()
+</span></span><span class="line"><span class="cl">Page({
+</span></span><span class="line"><span class="cl">    data: {
+</span></span><span class="line"><span class="cl">        newList:[{url:&#34;baidu.com&#34;,title:&#34;111&#34;,classification:&#34;ss&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;222&#34;,classification:&#34;ss&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;333&#34;,classification:&#34;12&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;444&#34;,classification:&#34;333&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;555&#34;,classification:&#34;44&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;666&#34;,classification:&#34;44&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;777&#34;,classification:&#34;32&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;888&#34;,classification:&#34;123&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;999&#34;,classification:&#34;456&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;},
+</span></span><span class="line"><span class="cl">            {url:&#34;baidu.com&#34;,title:&#34;000&#34;,classification:&#34;454&#34;,time:&#34;2016-10-17&#34;,imgURL:&#34;../../image/test.png&#34;}
+</span></span><span class="line"><span class="cl">        ]
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">})
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个时候重新解析一下调试界面就能看到效果了,这个时候我们还没用到 .wxss 的文件,所以样式还是裸奔状态</p>
 
@@ -428,7 +425,7 @@ Page({
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

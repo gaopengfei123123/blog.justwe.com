@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>十进制与二进制,八进制,十六进制的换算 - helloword啊哈</title>
+  <title>十进制与二进制,八进制,十六进制的换算 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/conversion-calculation/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="十进制与二进制,八进制,十六进制的换算" />
 <meta property="og:description" content="复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们 首先做一个定义： B(Binary)表示二进制，O(Octal)表示八进" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/conversion-calculation/" />
+<meta property="og:url" content="https://blog.justwe.site/post/conversion-calculation/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-05-23T10:58:29+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="十进制与二进制,八进制,十六进制的换算">
-<meta itemprop="description" content="复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们 首先做一个定义： B(Binary)表示二进制，O(Octal)表示八进">
-<meta itemprop="datePublished" content="2018-05-23T10:58:29&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="description" content="复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们 首先做一个定义： B(Binary)表示二进制，O(Octal)表示八进"><meta itemprop="datePublished" content="2018-05-23T10:58:29+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="547">
-
-
-
 <meta itemprop="keywords" content="binary," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="十进制与二进制,八进制,十六进制的换算"/>
 <meta name="twitter:description" content="复习一下二进制,八进制,十六进制之间的互相转换和怎么用十进制去转换它们 首先做一个定义： B(Binary)表示二进制，O(Octal)表示八进"/>
@@ -176,7 +173,7 @@
 <p>以十进制的(43)D为例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -185,50 +182,50 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">43/2=21%1
-21/2=10%1
-10/2=5 %0
-5 /2=2 %1
-2 /2=1 %0
-1 /2=0 %1
-以上把余数倒着排就是二进制的结果了，即101011
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">43/2=21%1
+</span></span><span class="line"><span class="cl">21/2=10%1
+</span></span><span class="line"><span class="cl">10/2=5 %0
+</span></span><span class="line"><span class="cl">5 /2=2 %1
+</span></span><span class="line"><span class="cl">2 /2=1 %0
+</span></span><span class="line"><span class="cl">1 /2=0 %1
+</span></span><span class="line"><span class="cl">以上把余数倒着排就是二进制的结果了，即101011
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="阶段相减法适合低次方的速算">阶段相减法（适合低次方的速算）</h4>
 <p>每次都减去最大的值，还是拿(42)D举例：42-32-8-2-1=0， 对应以下的表格为：</p>
 <table>
 <thead>
 <tr>
-<th align="center">64</th>
-<th align="center">32</th>
-<th align="center">16</th>
-<th align="center">8</th>
-<th align="center">4</th>
-<th align="center">2</th>
-<th align="center">1</th>
+<th style="text-align:center">64</th>
+<th style="text-align:center">32</th>
+<th style="text-align:center">16</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">1</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">2^6</td>
-<td align="center">2^5</td>
-<td align="center">2^4</td>
-<td align="center">2^3</td>
-<td align="center">2^2</td>
-<td align="center">2^1</td>
-<td align="center">2^0</td>
+<td style="text-align:center">2^6</td>
+<td style="text-align:center">2^5</td>
+<td style="text-align:center">2^4</td>
+<td style="text-align:center">2^3</td>
+<td style="text-align:center">2^2</td>
+<td style="text-align:center">2^1</td>
+<td style="text-align:center">2^0</td>
 </tr>
 <tr>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td align="center">结果就是： 101011</td>
+<td style="text-align:center">结果就是： 101011</td>
 <td></td>
 <td></td>
 <td></td>
@@ -242,11 +239,11 @@
 <p>以 (101011)B 举例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">1*2^0 + 1*2^1 + 1*2^3 + 1*2^5 = 43
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1*2^0 + 1*2^1 + 1*2^3 + 1*2^5 = 43
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="十进制转八进制和十六进制">十进制转八进制和十六进制</h3>
 <p>都是用的除8或16取余法，不做赘述了，有点区别就是16进制的9以后就是abcd&hellip;代替的
@@ -255,20 +252,20 @@
 <p>先复习一个等式: <code>2^0 * 2^1 * 2^2 = 2^3</code>， 那么二进制转八进制就是将二进制的数三个为一组合并一下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">101|011 =&gt; 53
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">101|011 =&gt; 53
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>同理， 二进制转16进制就是按四个为一组合并一下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">0010|1011 =&gt; 2b
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0010|1011 =&gt; 2b
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="十六进制和八进制之间转换">十六进制和八进制之间转换</h3>
 <p>都是先转换成二进制，然后再转成想要的进制</p>
@@ -379,7 +376,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

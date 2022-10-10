@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>laravel服务容器延迟加载 - helloword啊哈</title>
+  <title>laravel服务容器延迟加载 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-lazy-load/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="laravel服务容器延迟加载" />
 <meta property="og:description" content="laravel 注册的服务是可以延时加载的 很简单，在provider文件夹下指定的服务当中这样写 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/laravel-lazy-load/" />
+<meta property="og:url" content="https://blog.justwe.site/post/laravel-lazy-load/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-12-26T07:45:35+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="laravel服务容器延迟加载">
-<meta itemprop="description" content="laravel 注册的服务是可以延时加载的 很简单，在provider文件夹下指定的服务当中这样写 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29">
-<meta itemprop="datePublished" content="2016-12-26T07:45:35&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
-<meta itemprop="wordCount" content="247">
-
-
-
+<meta itemprop="description" content="laravel 注册的服务是可以延时加载的 很简单，在provider文件夹下指定的服务当中这样写 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29"><meta itemprop="datePublished" content="2016-12-26T07:45:35+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
+<meta itemprop="wordCount" content="246">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel服务容器延迟加载"/>
 <meta name="twitter:description" content="laravel 注册的服务是可以延时加载的 很简单，在provider文件夹下指定的服务当中这样写 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29"/>
@@ -160,7 +157,7 @@
 <p>很简单，在<code>provider</code>文件夹下指定的服务当中这样写</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -212,63 +209,61 @@
 </span><span class="lnt">50
 </span><span class="lnt">51
 </span><span class="lnt">52
-</span><span class="lnt">53
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-
-<span class="k">namespace</span> <span class="nx">App\Providers</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="nx">App\Repositories\RecommendRepository</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">Illuminate\Support\ServiceProvider</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">HotcastProvider</span> <span class="k">extends</span> <span class="nx">ServiceProvider</span>
-<span class="p">{</span>
-    <span class="sd">/**
-</span><span class="sd">     * 服务提供者加是否延迟加载.
-</span><span class="sd">     *
-</span><span class="sd">     * @var bool
-</span><span class="sd">     */</span>
-    <span class="k">protected</span> <span class="nv">$defer</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * Bootstrap the application services.
-</span><span class="sd">     *
-</span><span class="sd">     * @return void
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">boot</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="c1">//
-</span><span class="c1"></span>    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * Register the application services.
-</span><span class="sd">     *
-</span><span class="sd">     * @return void
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">register</span><span class="p">()</span>
-    <span class="p">{</span>
-
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">app</span><span class="o">-&gt;</span><span class="na">bind</span><span class="p">(</span><span class="s1">&#39;App\Repositories\Contract\RecommendInterface&#39;</span><span class="p">,</span><span class="s1">&#39;App\Repositories\RecommendRepository&#39;</span><span class="p">);</span>
-
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">app</span><span class="o">-&gt;</span><span class="na">singleton</span><span class="p">(</span><span class="s1">&#39;RecommendFacade&#39;</span><span class="p">,</span><span class="k">function</span> <span class="p">(){</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nx">RecommendRepository</span><span class="p">();</span>
-        <span class="p">});</span>
-
-    <span class="p">}</span>
-
-    <span class="sd">/**
-</span><span class="sd">     * 获取由提供者提供的服务.
-</span><span class="sd">     *
-</span><span class="sd">     * @return array
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">provides</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;RecommendFacade&#39;</span><span class="p">,</span><span class="s1">&#39;App\Repositories\Contract\RecommendInterface&#39;</span><span class="p">];</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nx">App\Providers</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">App\Repositories\RecommendRepository</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">Illuminate\Support\ServiceProvider</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">HotcastProvider</span> <span class="k">extends</span> <span class="nx">ServiceProvider</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * 服务提供者加是否延迟加载.
+</span></span></span><span class="line"><span class="cl"><span class="sd">     *
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @var bool
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="nv">$defer</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * Bootstrap the application services.
+</span></span></span><span class="line"><span class="cl"><span class="sd">     *
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return void
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">boot</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * Register the application services.
+</span></span></span><span class="line"><span class="cl"><span class="sd">     *
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return void
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">register</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">app</span><span class="o">-&gt;</span><span class="na">bind</span><span class="p">(</span><span class="s1">&#39;App\Repositories\Contract\RecommendInterface&#39;</span><span class="p">,</span><span class="s1">&#39;App\Repositories\RecommendRepository&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">app</span><span class="o">-&gt;</span><span class="na">singleton</span><span class="p">(</span><span class="s1">&#39;RecommendFacade&#39;</span><span class="p">,</span><span class="k">function</span> <span class="p">(){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">new</span> <span class="nx">RecommendRepository</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * 获取由提供者提供的服务.
+</span></span></span><span class="line"><span class="cl"><span class="sd">     *
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return array
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">provides</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;RecommendFacade&#39;</span><span class="p">,</span><span class="s1">&#39;App\Repositories\Contract\RecommendInterface&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>把 <code>defer</code> 改为 <code>true</code>， 添加一个 <code>provides</code>方法，然后命令行执行<code>php artisan clear-compiled</code> 重新编译一下服务文件就OK了</p>
 
@@ -376,7 +371,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

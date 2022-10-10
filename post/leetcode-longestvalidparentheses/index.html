@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>[leetcode] LongestValidParentheses - helloword啊哈</title>
+  <title>[leetcode] LongestValidParentheses - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/leetcode-longestvalidparentheses/" />
@@ -36,24 +36,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="[leetcode] LongestValidParentheses" />
 <meta property="og:description" content="疫情期间的摸鱼活动" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/leetcode-longestvalidparentheses/" />
+<meta property="og:url" content="https://blog.justwe.site/post/leetcode-longestvalidparentheses/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-02-20T18:39:13+08:00" />
 <meta property="article:modified_time" content="2020-02-24T19:00:52+08:00" />
+
 <meta itemprop="name" content="[leetcode] LongestValidParentheses">
-<meta itemprop="description" content="疫情期间的摸鱼活动">
-<meta itemprop="datePublished" content="2020-02-20T18:39:13&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-24T19:00:52&#43;08:00" />
-<meta itemprop="wordCount" content="1193">
-
-
-
+<meta itemprop="description" content="疫情期间的摸鱼活动"><meta itemprop="datePublished" content="2020-02-20T18:39:13+08:00" />
+<meta itemprop="dateModified" content="2020-02-24T19:00:52+08:00" />
+<meta itemprop="wordCount" content="1191">
 <meta itemprop="keywords" content="leetcode," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[leetcode] LongestValidParentheses"/>
 <meta name="twitter:description" content="疫情期间的摸鱼活动"/>
@@ -159,7 +156,7 @@
       <p>疫情期间的摸鱼活动</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -275,129 +272,125 @@
 </span><span class="lnt">114
 </span><span class="lnt">115
 </span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">leetcode</span>
-
-<span class="cm">/**
-</span><span class="cm">解题思路:
-</span><span class="cm">1. 利用括号成对的特性, 左右括号相等
-</span><span class="cm">	有一个 `(` 那必然会有一个 `)` , 计左右括号出现的次数, 次数相等的算作一次合并
-</span><span class="cm">	这个方法有局限性在如果出现 `(()` 这种情况单次遍历不能统计到,
-</span><span class="cm">	作为弥补就需要正反两次遍历, 取最大值
-</span><span class="cm">	时间复杂度 O(n), 空间复杂度 O(1)
-</span><span class="cm">
-</span><span class="cm">2. 采取动态规划的求解方式
-</span><span class="cm">	因为括号和套娃似的, 外层括号可以直接采用内层的处理结果, 不过要另建一个数组来缓存结果
-</span><span class="cm">	创建缓存数组dp,  比如:
-</span><span class="cm">	s = []string{&#34;(&#34;, &#34;(&#34;, &#34;)&#34;, &#34;(&#34;, &#34;)&#34;, &#34;)&#34;}
-</span><span class="cm">	dp = []int{0, 0, 2, 0, 4, 6}
-</span><span class="cm">	在合法括号中左括号的下标和dp映射, 合法括号的长度为对应下标的元素值
-</span><span class="cm">	那么上述例子中 下标3存在一个合法的括号, 长度为2, 这是 () 这种组合
-</span><span class="cm">	下标为4存在一个合法括号, 这也是一个()组合, 但是不会计算第一个括号了, 直接到下标3拿计算结果
-</span><span class="cm">
-</span><span class="cm">	到下标5时, 存在 )) 这种组合, 那么已知下标4是有值的(代表是一个合法括号) 那么到下标5就直接往前推 4 个长度
-</span><span class="cm">	得到下标 0 是 (, 下标5是 ), 括号成立,  因此内层括号+2 就是这个的括号长度
-</span><span class="cm">	时间复杂度 O(n), 空间复杂度 O(n)
-</span><span class="cm">
-</span><span class="cm">3. 使用栈
-</span><span class="cm">	栈的特性是后进先出, 括号也有类似的特性, 因此可以这么搞
-</span><span class="cm">	我们首先将 −1 放入栈顶。
-</span><span class="cm">	对于遇到的每个 ( ，我们将它的下标放入栈中。
-</span><span class="cm">	对于遇到的每个 ) ，我们弹出栈顶的元素并将当前元素的下标与弹出元素下标作差，得出当前有效括号字符串的长度。通过这种方法，我们继续计算有效子字符串的长度，并最终返回最长有效子字符串的长度。
-</span><span class="cm">	时间复杂度 O(n), 空间复杂度 O(n)
-</span><span class="cm">	作者：LeetCode
-</span><span class="cm">	链接：https://leetcode-cn.com/problems/longest-valid-parentheses/solution/zui-chang-you-xiao-gua-hao-by-leetcode/
-</span><span class="cm">	来源：力扣（LeetCode）
-</span><span class="cm">	著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-</span><span class="cm">*/</span>
-<span class="kd">func</span> <span class="nf">longestValidParentheses</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">2</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">0</span>
-	<span class="p">}</span>
-
-	<span class="nx">left</span> <span class="o">:=</span> <span class="nb">byte</span><span class="p">(</span><span class="sc">&#39;(&#39;</span><span class="p">)</span>
-
-	<span class="kd">var</span> <span class="nx">rCnt</span><span class="p">,</span> <span class="nx">lCnt</span><span class="p">,</span> <span class="nx">length</span> <span class="kt">int</span>
-
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span>
-			<span class="nx">lCnt</span><span class="o">++</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">rCnt</span><span class="o">++</span>
-		<span class="p">}</span>
-		<span class="k">if</span> <span class="nx">rCnt</span> <span class="p">&gt;</span> <span class="nx">lCnt</span> <span class="p">{</span> <span class="c1">// 从左往右必死的情况
-</span><span class="c1"></span>			<span class="nx">lCnt</span><span class="p">,</span> <span class="nx">rCnt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-		<span class="p">}</span>
-		<span class="k">if</span> <span class="nx">rCnt</span> <span class="o">==</span> <span class="nx">lCnt</span> <span class="o">&amp;&amp;</span> <span class="nx">rCnt</span><span class="o">*</span><span class="mi">2</span> <span class="p">&gt;</span> <span class="nx">length</span> <span class="p">{</span>
-			<span class="nx">length</span> <span class="p">=</span> <span class="nx">rCnt</span> <span class="o">*</span> <span class="mi">2</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="nx">lCnt</span><span class="p">,</span> <span class="nx">rCnt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span>
-			<span class="nx">lCnt</span><span class="o">++</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">rCnt</span><span class="o">++</span>
-		<span class="p">}</span>
-
-		<span class="k">if</span> <span class="nx">rCnt</span> <span class="p">&lt;</span> <span class="nx">lCnt</span> <span class="p">{</span> <span class="c1">// 从右往左必死的情况
-</span><span class="c1"></span>			<span class="nx">lCnt</span><span class="p">,</span> <span class="nx">rCnt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-		<span class="p">}</span>
-		<span class="k">if</span> <span class="nx">rCnt</span> <span class="o">==</span> <span class="nx">lCnt</span> <span class="o">&amp;&amp;</span> <span class="nx">rCnt</span><span class="o">*</span><span class="mi">2</span> <span class="p">&gt;</span> <span class="nx">length</span> <span class="p">{</span>
-			<span class="nx">length</span> <span class="p">=</span> <span class="nx">rCnt</span> <span class="o">*</span> <span class="mi">2</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">length</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">longestValidParenthesesV2</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">2</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">0</span>
-	<span class="p">}</span>
-	<span class="nx">dp</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
-	<span class="nx">left</span> <span class="o">:=</span> <span class="nb">byte</span><span class="p">(</span><span class="sc">&#39;(&#39;</span><span class="p">)</span>
-	<span class="nx">right</span> <span class="o">:=</span> <span class="nb">byte</span><span class="p">(</span><span class="sc">&#39;)&#39;</span><span class="p">)</span>
-
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">right</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span> <span class="c1">// 如 () 这样的情况
-</span><span class="c1"></span>				<span class="k">if</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="p">{</span>
-					<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span>
-				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-					<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="mi">2</span>
-				<span class="p">}</span>
-				<span class="k">continue</span>
-			<span class="p">}</span>
-
-			<span class="nx">pre</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-			<span class="k">if</span> <span class="p">(</span><span class="nx">i</span><span class="o">-</span><span class="nx">pre</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nx">right</span> <span class="p">{</span> <span class="c1">// 如 )) 这样的情况
-</span><span class="c1"></span>				<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">pre</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span>
-					<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span>
-					<span class="k">if</span> <span class="nx">i</span><span class="o">-</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span> <span class="c1">// 如果存在紧挨着的两个合法组合, 就拼起来
-</span><span class="c1"></span>						<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span>
-					<span class="p">}</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="c1">// fmt.Printf(&#34;\n %#+v \n&#34;, dp)
-</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">maxLen</span> <span class="kt">int</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">maxLen</span> <span class="p">&lt;</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
-			<span class="nx">maxLen</span> <span class="p">=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">maxLen</span>
-<span class="p">}</span>
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">leetcode</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">解题思路:
+</span></span></span><span class="line"><span class="cl"><span class="cm">1. 利用括号成对的特性, 左右括号相等
+</span></span></span><span class="line"><span class="cl"><span class="cm">	有一个 `(` 那必然会有一个 `)` , 计左右括号出现的次数, 次数相等的算作一次合并
+</span></span></span><span class="line"><span class="cl"><span class="cm">	这个方法有局限性在如果出现 `(()` 这种情况单次遍历不能统计到,
+</span></span></span><span class="line"><span class="cl"><span class="cm">	作为弥补就需要正反两次遍历, 取最大值
+</span></span></span><span class="line"><span class="cl"><span class="cm">	时间复杂度 O(n), 空间复杂度 O(1)
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">2. 采取动态规划的求解方式
+</span></span></span><span class="line"><span class="cl"><span class="cm">	因为括号和套娃似的, 外层括号可以直接采用内层的处理结果, 不过要另建一个数组来缓存结果
+</span></span></span><span class="line"><span class="cl"><span class="cm">	创建缓存数组dp,  比如:
+</span></span></span><span class="line"><span class="cl"><span class="cm">	s = []string{&#34;(&#34;, &#34;(&#34;, &#34;)&#34;, &#34;(&#34;, &#34;)&#34;, &#34;)&#34;}
+</span></span></span><span class="line"><span class="cl"><span class="cm">	dp = []int{0, 0, 2, 0, 4, 6}
+</span></span></span><span class="line"><span class="cl"><span class="cm">	在合法括号中左括号的下标和dp映射, 合法括号的长度为对应下标的元素值
+</span></span></span><span class="line"><span class="cl"><span class="cm">	那么上述例子中 下标3存在一个合法的括号, 长度为2, 这是 () 这种组合
+</span></span></span><span class="line"><span class="cl"><span class="cm">	下标为4存在一个合法括号, 这也是一个()组合, 但是不会计算第一个括号了, 直接到下标3拿计算结果
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">	到下标5时, 存在 )) 这种组合, 那么已知下标4是有值的(代表是一个合法括号) 那么到下标5就直接往前推 4 个长度
+</span></span></span><span class="line"><span class="cl"><span class="cm">	得到下标 0 是 (, 下标5是 ), 括号成立,  因此内层括号+2 就是这个的括号长度
+</span></span></span><span class="line"><span class="cl"><span class="cm">	时间复杂度 O(n), 空间复杂度 O(n)
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">3. 使用栈
+</span></span></span><span class="line"><span class="cl"><span class="cm">	栈的特性是后进先出, 括号也有类似的特性, 因此可以这么搞
+</span></span></span><span class="line"><span class="cl"><span class="cm">	我们首先将 −1 放入栈顶。
+</span></span></span><span class="line"><span class="cl"><span class="cm">	对于遇到的每个 ( ，我们将它的下标放入栈中。
+</span></span></span><span class="line"><span class="cl"><span class="cm">	对于遇到的每个 ) ，我们弹出栈顶的元素并将当前元素的下标与弹出元素下标作差，得出当前有效括号字符串的长度。通过这种方法，我们继续计算有效子字符串的长度，并最终返回最长有效子字符串的长度。
+</span></span></span><span class="line"><span class="cl"><span class="cm">	时间复杂度 O(n), 空间复杂度 O(n)
+</span></span></span><span class="line"><span class="cl"><span class="cm">	作者：LeetCode
+</span></span></span><span class="line"><span class="cl"><span class="cm">	链接：https://leetcode-cn.com/problems/longest-valid-parentheses/solution/zui-chang-you-xiao-gua-hao-by-leetcode/
+</span></span></span><span class="line"><span class="cl"><span class="cm">	来源：力扣（LeetCode）
+</span></span></span><span class="line"><span class="cl"><span class="cm">	著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">longestValidParentheses</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">left</span> <span class="o">:=</span> <span class="nb">byte</span><span class="p">(</span><span class="sc">&#39;(&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">rCnt</span><span class="p">,</span> <span class="nx">lCnt</span><span class="p">,</span> <span class="nx">length</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">lCnt</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">rCnt</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">rCnt</span> <span class="p">&gt;</span> <span class="nx">lCnt</span> <span class="p">{</span> <span class="c1">// 从左往右必死的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">lCnt</span><span class="p">,</span> <span class="nx">rCnt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">rCnt</span> <span class="o">==</span> <span class="nx">lCnt</span> <span class="o">&amp;&amp;</span> <span class="nx">rCnt</span><span class="o">*</span><span class="mi">2</span> <span class="p">&gt;</span> <span class="nx">length</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">length</span> <span class="p">=</span> <span class="nx">rCnt</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">lCnt</span><span class="p">,</span> <span class="nx">rCnt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">lCnt</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">rCnt</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">rCnt</span> <span class="p">&lt;</span> <span class="nx">lCnt</span> <span class="p">{</span> <span class="c1">// 从右往左必死的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">lCnt</span><span class="p">,</span> <span class="nx">rCnt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">rCnt</span> <span class="o">==</span> <span class="nx">lCnt</span> <span class="o">&amp;&amp;</span> <span class="nx">rCnt</span><span class="o">*</span><span class="mi">2</span> <span class="p">&gt;</span> <span class="nx">length</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">length</span> <span class="p">=</span> <span class="nx">rCnt</span> <span class="o">*</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">length</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">longestValidParenthesesV2</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">dp</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">left</span> <span class="o">:=</span> <span class="nb">byte</span><span class="p">(</span><span class="sc">&#39;(&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">right</span> <span class="o">:=</span> <span class="nb">byte</span><span class="p">(</span><span class="sc">&#39;)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">right</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span> <span class="c1">// 如 () 这样的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">pre</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="p">(</span><span class="nx">i</span><span class="o">-</span><span class="nx">pre</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nx">right</span> <span class="p">{</span> <span class="c1">// 如 )) 这样的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">pre</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nx">left</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="nx">i</span><span class="o">-</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span> <span class="c1">// 如果存在紧挨着的两个合法组合, 就拼起来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>						<span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// fmt.Printf(&#34;\n %#+v \n&#34;, dp)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">maxLen</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">maxLen</span> <span class="p">&lt;</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">maxLen</span> <span class="p">=</span> <span class="nx">dp</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">maxLen</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><a href="https://leetcode.com/problems/longest-valid-parentheses/">LongestValidParentheses</a></li>
@@ -509,7 +502,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

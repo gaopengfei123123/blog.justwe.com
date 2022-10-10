@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>&lt;转&gt; 关于 ssh 的 25 条实用命令 - helloword啊哈</title>
+  <title>&lt;转&gt; 关于 ssh 的 25 条实用命令 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/ssh-command/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="&lt;转&gt; 关于 ssh 的 25 条实用命令" />
 <meta property="og:description" content="OpenSSH是SSH连接工具的免费版本。telnet，rlogin和ftp用户可能还没意识到他们在互联网上传输的密码是未加密的，但SSH是" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/ssh-command/" />
+<meta property="og:url" content="https://blog.justwe.site/post/ssh-command/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-04-28T10:02:50+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="&lt;转&gt; 关于 ssh 的 25 条实用命令">
-<meta itemprop="description" content="OpenSSH是SSH连接工具的免费版本。telnet，rlogin和ftp用户可能还没意识到他们在互联网上传输的密码是未加密的，但SSH是">
-<meta itemprop="datePublished" content="2017-04-28T10:02:50&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="OpenSSH是SSH连接工具的免费版本。telnet，rlogin和ftp用户可能还没意识到他们在互联网上传输的密码是未加密的，但SSH是"><meta itemprop="datePublished" content="2017-04-28T10:02:50+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="2903">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="&lt;转&gt; 关于 ssh 的 25 条实用命令"/>
 <meta name="twitter:description" content="OpenSSH是SSH连接工具的免费版本。telnet，rlogin和ftp用户可能还没意识到他们在互联网上传输的密码是未加密的，但SSH是"/>
@@ -190,128 +187,128 @@
 <h2 id="复制ssh密钥到目标主机开启无密码ssh登录">复制SSH密钥到目标主机，开启无密码SSH登录</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-copy-id user@host
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-copy-id user@host
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果还没有密钥，请使用ssh-keygen命令生成。</p>
 <h2 id="从某主机的80端口开启到本地主机2001端口的隧道">从某主机的80端口开启到本地主机2001端口的隧道</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -N -L2001:localhost:80 somemachine
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -N -L2001:localhost:80 somemachine
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在你可以直接在浏览器中输入 http://localhost:2001访问这个网站。</p>
 <h2 id="将你的麦克风输出到远程计算机的扬声器">将你的麦克风输出到远程计算机的扬声器</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dd if=/dev/dsp | ssh -c arcfour -C username@host dd of=/dev/dsp
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样来自你麦克风端口的声音将在SSH目标计算机的扬声器端口输出，但遗憾的是，声音质量很差，你会听到很多嘶嘶声。</p>
 <h2 id="比较远程和本地文件">比较远程和本地文件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh user@host cat /path/to/remotefile | diff /path/to/localfile –
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh user@host cat /path/to/remotefile | diff /path/to/localfile –
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在比较本地文件和远程文件是否有差异时这个命令很管用。</p>
 <h2 id="通过ssh挂载目录文件系统">通过SSH挂载目录/文件系统</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sshfs name@server:/path/to/folder /path/to/mount/point
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sshfs name@server:/path/to/folder /path/to/mount/point
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从http://fuse.sourceforge.net/sshfs.html下载sshfs，它允许你跨网络安全挂载一个目录。</p>
 <h2 id="通过中间主机建立ssh连接">通过中间主机建立SSH连接</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -t reachable_host ssh unreachable_host
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -t reachable_host ssh unreachable_host
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Unreachable_host 表示从本地网络无法直接访问的主机，但可以从 reachable_host 所在网络访问，这个命令通过到 reachable_host 的“隐藏”连接，创建起到 unreachable_host 的连接。</p>
 <h2 id="将你的ssh公钥复制到远程主机开启无密码登录--简单的方法">将你的SSH公钥复制到远程主机，开启无密码登录 – 简单的方法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-copy-id username@hostname
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-copy-id username@hostname
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="直接连接到只能通过主机b连接的主机a">直接连接到只能通过主机B连接的主机A</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -t hostA ssh hostB
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -t hostA ssh hostB
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当然，你要能访问主机A才行。</p>
 <h2 id="创建到目标主机的持久化连接">创建到目标主机的持久化连接</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -MNf &lt;user&gt;@&lt;host&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -MNf &lt;user&gt;@&lt;host&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在后台创建到目标主机的持久化连接，将这个命令和你~/.ssh/config中的配置结合使用：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host host
-ControlPath ~/.ssh/master-%r@%h:%p
-ControlMaster no
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host host
+</span></span><span class="line"><span class="cl">ControlPath ~/.ssh/master-%r@%h:%p
+</span></span><span class="line"><span class="cl">ControlMaster no
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>所有到目标主机的SSH连接都将使用持久化SSH套接字，如果你使用SSH定期同步文件（使用rsync/sftp/cvs/svn），这个命令将非常有用，因为每次打开一个SSH连接时不会创建新的套接字。</p>
 <h2 id="通过ssh连接屏幕">通过SSH连接屏幕</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -t remote_host screen –r
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -t remote_host screen –r
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>直接连接到远程屏幕会话（节省了无用的父bash进程）。</p>
 <h2 id="端口检测敲门">端口检测（敲门）</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">knock &lt;host&gt; 3000 4000 5000 &amp;&amp; ssh -p &lt;port&gt; user@host &amp;&amp; knock &lt;host&gt; 5000 4000 3000
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">knock &lt;host&gt; 3000 4000 5000 &amp;&amp; ssh -p &lt;port&gt; user@host &amp;&amp; knock &lt;host&gt; 5000 4000 3000
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在一个端口上敲一下打开某个服务的端口（如SSH），再敲一下关闭该端口，需要先安装knockd，下面是一个配置文件示例。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -325,217 +322,217 @@ ControlMaster no
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[options]
-logfile = /var/log/knockd.log
-[openSSH]
-sequence = 3000,4000,5000
-seq_timeout = 5
-command = /sbin/iptables -A INPUT -i eth0 -s %IP% -p tcp –dport 22 -j ACCEPT
-tcpflags = syn
-[closeSSH]
-sequence = 5000,4000,3000
-seq_timeout = 5
-command = /sbin/iptables -D INPUT -i eth0 -s %IP% -p tcp –dport 22 -j ACCEPT
-tcpflags = syn
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[options]
+</span></span><span class="line"><span class="cl">logfile = /var/log/knockd.log
+</span></span><span class="line"><span class="cl">[openSSH]
+</span></span><span class="line"><span class="cl">sequence = 3000,4000,5000
+</span></span><span class="line"><span class="cl">seq_timeout = 5
+</span></span><span class="line"><span class="cl">command = /sbin/iptables -A INPUT -i eth0 -s %IP% -p tcp –dport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">tcpflags = syn
+</span></span><span class="line"><span class="cl">[closeSSH]
+</span></span><span class="line"><span class="cl">sequence = 5000,4000,3000
+</span></span><span class="line"><span class="cl">seq_timeout = 5
+</span></span><span class="line"><span class="cl">command = /sbin/iptables -D INPUT -i eth0 -s %IP% -p tcp –dport 22 -j ACCEPT
+</span></span><span class="line"><span class="cl">tcpflags = syn
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="删除文本文件中的一行内容有用的修复">删除文本文件中的一行内容，有用的修复</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -R &lt;the_offending_host&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen -R &lt;the_offending_host&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这种情况下，最好使用专业的工具。</p>
 <h2 id="通过ssh运行复杂的远程shell命令">通过SSH运行复杂的远程shell命令</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh host -l user $(&lt;cmd.txt)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh host -l user $(&lt;cmd.txt)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>更具移植性的版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh host -l user “`cat cmd.txt`”
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh host -l user “`cat cmd.txt`”
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="通过ssh将mysql数据库复制到新服务器">通过SSH将MySQL数据库复制到新服务器</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">mysqldump –add-drop-table –extended-insert –force –log-error=error.log -uUSER -pPASS OLD_DB_NAME | ssh -C user@newhost “mysql -uUSER -pPASS NEW_DB_NAME”
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mysqldump –add-drop-table –extended-insert –force –log-error=error.log -uUSER -pPASS OLD_DB_NAME | ssh -C user@newhost “mysql -uUSER -pPASS NEW_DB_NAME”
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过压缩的SSH隧道Dump一个MySQL数据库，将其作为输入传递给mysql命令，我认为这是迁移数据库到新服务器最快最好的方法。</p>
 <h2 id="删除文本文件中的一行修复ssh主机密钥更改的警告">删除文本文件中的一行，修复“SSH主机密钥更改”的警告</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sed -i 8d ~/.ssh/known_hosts
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sed -i 8d ~/.ssh/known_hosts
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="从一台没有ssh-copy-id命令的主机将你的ssh公钥复制到服务器">从一台没有SSH-COPY-ID命令的主机将你的SSH公钥复制到服务器</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cat ~/.ssh/id_rsa.pub | ssh user@machine “mkdir ~/.ssh; cat &gt;&gt; ~/.ssh/authorized_keys”
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub | ssh user@machine “mkdir ~/.ssh; cat &gt;&gt; ~/.ssh/authorized_keys”
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果你使用Mac OS X或其它没有ssh-copy-id命令的*nix变种，这个命令可以将你的公钥复制到远程主机，因此你照样可以实现无密码SSH登录。</p>
 <h2 id="实时ssh网络吞吐量测试">实时SSH网络吞吐量测试</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">yes | pv | ssh $host “cat &gt; /dev/null”
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yes | pv | ssh $host “cat &gt; /dev/null”
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过SSH连接到主机，显示实时的传输速度，将所有传输数据指向/dev/null，需要先安装pv。</p>
 <p>如果是Debian：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">apt-get install pv
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">apt-get install pv
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果是Fedora：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">yum install pv
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yum install pv
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>（可能需要启用额外的软件仓库）。</p>
 <h2 id="如果建立一个可以重新连接的远程gnu-screen">如果建立一个可以重新连接的远程GNU screen</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -t user@some.domain.com /usr/bin/screen –xRR
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -t user@some.domain.com /usr/bin/screen –xRR
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>人们总是喜欢在一个文本终端中打开许多shell，如果会话突然中断，或你按下了“Ctrl-a d”，远程主机上的shell不会受到丝毫影响，你可以重新连接，其它有用的screen命令有“Ctrl-a c”（打开新的shell）和“Ctrl-a a”（在shell之间来回切换），请访问阅读更多<a href="http://aperiodic.net/screen/quick_reference">关于screen命令的快速参考</a>。</p>
 <h2 id="继续scp大文件">继续SCP大文件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>它可以恢复失败的rsync命令，当你通过VPN传输大文件，如备份的数据库时这个命令非常有用，需要在两边的主机上安装rsync。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file local -&gt; remote
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rsync –partial –progress –rsh=ssh $file_source $user@$host:$destination_file local -&gt; remote
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>或</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">rsync –partial –progress –rsh=ssh $user@$host:$remote_file $destination_file remote -&gt; local
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rsync –partial –progress –rsh=ssh $user@$host:$remote_file $destination_file remote -&gt; local
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="通过ssh-w-wireshark分析流量">通过SSH W/ WIRESHARK分析流量</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh root@server.com ‘tshark -f “port !22″ -w -&#39; | wireshark -k -i –
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh root@server.com ‘tshark -f “port !22″ -w -&#39; | wireshark -k -i –
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用tshark捕捉远程主机上的网络通信，通过SSH连接发送原始pcap数据，并在wireshark中显示，按下Ctrl+C将停止捕捉，但也会关闭wireshark窗口，可以传递一个“-c #”参数给tshark，让它只捕捉“#”指定的数据包类型，或通过命名管道重定向数据，而不是直接通过SSH传输给wireshark，我建议你过滤数据包，以节约带宽，tshark可以使用tcpdump替代：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh root@example.com tcpdump -w – ‘port !22′ | wireshark -k -i –
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh root@example.com tcpdump -w – ‘port !22′ | wireshark -k -i –
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="保持ssh会话永久打开">保持SSH会话永久打开</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">autossh -M50000 -t server.example.com ‘screen -raAd mysession’
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">autossh -M50000 -t server.example.com ‘screen -raAd mysession’
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>打开一个SSH会话后，让其保持永久打开，对于使用笔记本电脑的用户，如果需要在Wi-Fi热点之间切换，可以保证切换后不会丢失连接。</p>
 <h2 id="更稳定更快更强的ssh客户端">更稳定，更快，更强的SSH客户端</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh -4 -C -c blowfish-cbc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh -4 -C -c blowfish-cbc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>强制使用IPv4，压缩数据流，使用Blowfish加密。</p>
 <h2 id="使用cstream控制带宽">使用cstream控制带宽</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">tar -cj /backup | cstream -t 777k | ssh host ‘tar -xj -C /backup’
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tar -cj /backup | cstream -t 777k | ssh host ‘tar -xj -C /backup’
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用bzip压缩文件夹，然后以777k bit/s速率向远程主机传输。Cstream还有更多的功能，请访问<a href="http://www.cons.org/cracauer/cstream.html#usage">了解详情</a>，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">echo w00t, i’m 733+ | cstream -b1 -t2
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo w00t, i’m 733+ | cstream -b1 -t2
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="一步将ssh公钥传输到另一台机器">一步将SSH公钥传输到另一台机器</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen; ssh-copy-id user@host; ssh user@host
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen; ssh-copy-id user@host; ssh user@host
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个命令组合允许你无密码SSH登录，注意，如果在本地机器的~/.ssh目录下已经有一个SSH密钥对，ssh-keygen命令生成的新密钥可能会覆盖它们，ssh-copy-id将密钥复制到远程主机，并追加到远程账号的~/.ssh/authorized_keys文件中，使用SSH连接时，如果你没有使用密钥口令，调用ssh user@host后不久就会显示远程shell。</p>
 <h2 id="将标准输入stdin复制到你的x11缓冲区">将标准输入（stdin）复制到你的X11缓冲区</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh user@host cat /path/to/some/file | xclip
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh user@host cat /path/to/some/file | xclip
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>你是否使用scp将文件复制到工作用电脑上，以便复制其内容到电子邮件中？xclip可以帮到你，它可以将标准输入复制到X11缓冲区，你需要做的就是点击鼠标中键粘贴缓冲区中的内容。</p>
 <p><a href="http://www.cnblogs.com/weafer/archive/2011/06/10/2077852.html">原文地址</a></p>
@@ -644,7 +641,7 @@ tcpflags = syn
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

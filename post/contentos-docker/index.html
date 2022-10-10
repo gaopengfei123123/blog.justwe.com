@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>centos65安装docker遇到的坑 - helloword啊哈</title>
+  <title>centos65安装docker遇到的坑 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/contentos-docker/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="centos65安装docker遇到的坑" />
 <meta property="og:description" content="在国内的云服务商提供的镜像内核都是2.6.*的，不能满足docker需要的3.1.*，因此首先需要升级一下内核 1 2 3 4 5 6 7 8 #导入publ" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/contentos-docker/" />
+<meta property="og:url" content="https://blog.justwe.site/post/contentos-docker/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-03-01T05:55:27+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="centos65安装docker遇到的坑">
-<meta itemprop="description" content="在国内的云服务商提供的镜像内核都是2.6.*的，不能满足docker需要的3.1.*，因此首先需要升级一下内核 1 2 3 4 5 6 7 8 #导入publ">
-<meta itemprop="datePublished" content="2017-03-01T05:55:27&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="description" content="在国内的云服务商提供的镜像内核都是2.6.*的，不能满足docker需要的3.1.*，因此首先需要升级一下内核 1 2 3 4 5 6 7 8 #导入publ"><meta itemprop="datePublished" content="2017-03-01T05:55:27+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="617">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="centos65安装docker遇到的坑"/>
 <meta name="twitter:description" content="在国内的云服务商提供的镜像内核都是2.6.*的，不能满足docker需要的3.1.*，因此首先需要升级一下内核 1 2 3 4 5 6 7 8 #导入publ"/>
@@ -163,7 +160,7 @@
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -173,31 +170,31 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#导入public key
-rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-
-#安装elrepo到内核为2.6.32的CentOS中
-rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
-
-#安装kernel-lt(long term support)长期支持版本
-yum --enablerepo=elrepo-kernel install kernel-lt -y
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#导入public key
+</span></span><span class="line"><span class="cl">rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#安装elrepo到内核为2.6.32的CentOS中
+</span></span><span class="line"><span class="cl">rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#安装kernel-lt(long term support)长期支持版本
+</span></span><span class="line"><span class="cl">yum --enablerepo=elrepo-kernel install kernel-lt -y
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果yum安装的慢，可以通过rpm安装<code>kernel-lt</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">访问http://elrepo.org/linux/kernel/el6/x86_64/RPMS/下载对应的rpm包，通过rpm方式安装：
-rpm -ivh kernel-lt-3.10.93-1.el6.elrepo.x86_64.rpm
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">访问http://elrepo.org/linux/kernel/el6/x86_64/RPMS/下载对应的rpm包，通过rpm方式安装：
+</span></span><span class="line"><span class="cl">rpm -ivh kernel-lt-3.10.93-1.el6.elrepo.x86_64.rpm
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装完毕后编辑配置文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -223,56 +220,56 @@ rpm -ivh kernel-lt-3.10.93-1.el6.elrepo.x86_64.rpm
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">vi /etc/grub.conf
-
-# grub.conf generated by anaconda
-#
-# Note that you do not have to rerun grub after making changes to this file
-# NOTICE:  You do not have a /boot partition.  This means that
-#          all kernel and initrd paths are relative to /, eg.
-#          root (hd0,0)
-#          kernel /boot/vmlinuz-version ro root=/dev/xvda1
-#          initrd /boot/initrd-[generic-]version.img
-#boot=/dev/xvda
-default=0
-timeout=5
-splashimage=(hd0,0)/boot/grub/splash.xpm.gz
-hiddenmenu
-title CentOS (3.10.105-1.el6.elrepo.x86_64)
-        root (hd0,0)
-        kernel /boot/vmlinuz-3.10.105-1.el6.elrepo.x86_64 ro root=UUID=94e4e384-0ace-437f-bc96-057dd64f42ee rd_NO_LUKS rd_NO_LVM LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet
-        initrd /boot/initramfs-3.10.105-1.el6.elrepo.x86_64.img
-title CentOS (2.6.32-573.22.1.el6.x86_64)
-        root (hd0,0)
-        kernel /boot/vmlinuz-2.6.32-573.22.1.el6.x86_64 ro root=UUID=94e4e384-0ace-437f-bc96-057dd64f42ee rd_NO_LUKS rd_NO_LVM LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet
-        initrd /boot/initramfs-2.6.32-573.22.1.el6.x86_64.img
-title CentOS (2.6.32-431.23.3.el6.x86_64)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vi /etc/grub.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># grub.conf generated by anaconda
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># Note that you do not have to rerun grub after making changes to this file
+</span></span><span class="line"><span class="cl"># NOTICE:  You do not have a /boot partition.  This means that
+</span></span><span class="line"><span class="cl">#          all kernel and initrd paths are relative to /, eg.
+</span></span><span class="line"><span class="cl">#          root (hd0,0)
+</span></span><span class="line"><span class="cl">#          kernel /boot/vmlinuz-version ro root=/dev/xvda1
+</span></span><span class="line"><span class="cl">#          initrd /boot/initrd-[generic-]version.img
+</span></span><span class="line"><span class="cl">#boot=/dev/xvda
+</span></span><span class="line"><span class="cl">default=0
+</span></span><span class="line"><span class="cl">timeout=5
+</span></span><span class="line"><span class="cl">splashimage=(hd0,0)/boot/grub/splash.xpm.gz
+</span></span><span class="line"><span class="cl">hiddenmenu
+</span></span><span class="line"><span class="cl">title CentOS (3.10.105-1.el6.elrepo.x86_64)
+</span></span><span class="line"><span class="cl">        root (hd0,0)
+</span></span><span class="line"><span class="cl">        kernel /boot/vmlinuz-3.10.105-1.el6.elrepo.x86_64 ro root=UUID=94e4e384-0ace-437f-bc96-057dd64f42ee rd_NO_LUKS rd_NO_LVM LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet
+</span></span><span class="line"><span class="cl">        initrd /boot/initramfs-3.10.105-1.el6.elrepo.x86_64.img
+</span></span><span class="line"><span class="cl">title CentOS (2.6.32-573.22.1.el6.x86_64)
+</span></span><span class="line"><span class="cl">        root (hd0,0)
+</span></span><span class="line"><span class="cl">        kernel /boot/vmlinuz-2.6.32-573.22.1.el6.x86_64 ro root=UUID=94e4e384-0ace-437f-bc96-057dd64f42ee rd_NO_LUKS rd_NO_LVM LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet
+</span></span><span class="line"><span class="cl">        initrd /boot/initramfs-2.6.32-573.22.1.el6.x86_64.img
+</span></span><span class="line"><span class="cl">title CentOS (2.6.32-431.23.3.el6.x86_64)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们用的 <code>CentOS (3.10.105-1.el6.elrepo.x86_64)</code>就排在第一个，因此改成 <code>default=0</code></p>
 <p>保存后重启系统</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">uname -a
-Linux iZm5eib1msf1eaxvrvhp60Z 3.10.105-1.el6.elrepo.x86_64 #1 SMP Fri Feb 10 10:48:08 EST 2017 x86_64 x86_64 x86_64 GNU/Linux
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">uname -a
+</span></span><span class="line"><span class="cl">Linux iZm5eib1msf1eaxvrvhp60Z 3.10.105-1.el6.elrepo.x86_64 #1 SMP Fri Feb 10 10:48:08 EST 2017 x86_64 x86_64 x86_64 GNU/Linux
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="安装docker">安装<code>docker</code></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">yum install -y docker-engine
-service docker start
-sudo docker version
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yum install -y docker-engine
+</span></span><span class="line"><span class="cl">service docker start
+</span></span><span class="line"><span class="cl">sudo docker version
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果出现 <code>Cannot connect to the Docker daemon. Is 'docker -d' running on this host?</code> 这种提示，按以下解决步骤：</p>
 <ol>
@@ -388,7 +385,7 @@ sudo docker version
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

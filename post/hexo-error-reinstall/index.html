@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>记一次 hexo 报错经历 - helloword啊哈</title>
+  <title>记一次 hexo 报错经历 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/hexo-error-reinstall/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="记一次 hexo 报错经历" />
 <meta property="og:description" content="就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&hellip;. 报错信息如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/hexo-error-reinstall/" />
+<meta property="og:url" content="https://blog.justwe.site/post/hexo-error-reinstall/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-06-29T15:49:58+00:00" />
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
+
 <meta itemprop="name" content="记一次 hexo 报错经历">
-<meta itemprop="description" content="就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&hellip;. 报错信息如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15">
-<meta itemprop="datePublished" content="2017-06-29T15:49:58&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
+<meta itemprop="description" content="就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&hellip;. 报错信息如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"><meta itemprop="datePublished" content="2017-06-29T15:49:58+00:00" />
+<meta itemprop="dateModified" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="wordCount" content="583">
-
-
-
 <meta itemprop="keywords" content="hexo,error," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="记一次 hexo 报错经历"/>
 <meta name="twitter:description" content="就在今天,吾心中忽有所感,心想不如升级一发环境版本?结果就立马受到了环境的制裁&hellip;. 报错信息如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"/>
@@ -158,7 +155,7 @@
 <p>报错信息如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -216,82 +213,82 @@
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Error: The module &#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;
-was compiled against a different Node.js version using
-NODE_MODULE_VERSION 51. This version of Node.js requires
-NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).
-    at Object.Module._extensions..node (module.js:598:18)
-    at Module.load (module.js:503:32)
-    at tryModuleLoad (module.js:466:12)
-    at Function.Module._load (module.js:458:3)
-    at Module.require (module.js:513:17)
-    at require (internal/module.js:11:18)
-    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/dtrace-provider.js:17:23)
-    at Module._compile (module.js:569:30)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:503:32)
-    at tryModuleLoad (module.js:466:12)
-    at Function.Module._load (module.js:458:3)
-    at Module.require (module.js:513:17)
-    at require (internal/module.js:11:18)
-    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo/node_modules/bunyan/lib/bunyan.js:79:18)
-    at Module._compile (module.js:569:30)
-{ Error: Cannot find module &#39;./build/default/DTraceProviderBindings&#39;
-    at Function.Module._resolveFilename (module.js:485:15)
-    at Function.Module._load (module.js:437:25)
-    at Module.require (module.js:513:17)
-    at require (internal/module.js:11:18)
-    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/dtrace-provider.js:17:23)
-    at Module._compile (module.js:569:30)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:503:32)
-    at tryModuleLoad (module.js:466:12)
-    at Function.Module._load (module.js:458:3)
-    at Module.require (module.js:513:17)
-    at require (internal/module.js:11:18)
-    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo/node_modules/bunyan/lib/bunyan.js:79:18)
-    at Module._compile (module.js:569:30)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:503:32) code: &#39;MODULE_NOT_FOUND&#39; }
-{ Error: Cannot find module &#39;./build/Debug/DTraceProviderBindings&#39;
-    at Function.Module._resolveFilename (module.js:485:15)
-    at Function.Module._load (module.js:437:25)
-    at Module.require (module.js:513:17)
-    at require (internal/module.js:11:18)
-    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/dtrace-provider.js:17:23)
-    at Module._compile (module.js:569:30)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:503:32)
-    at tryModuleLoad (module.js:466:12)
-    at Function.Module._load (module.js:458:3)
-    at Module.require (module.js:513:17)
-    at require (internal/module.js:11:18)
-    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/hexo/node_modules/bunyan/lib/bunyan.js:79:18)
-    at Module._compile (module.js:569:30)
-    at Object.Module._extensions..js (module.js:580:10)
-    at Module.load (module.js:503:32) code: &#39;MODULE_NOT_FOUND&#39; }
-(node:7992) [DEP0061] DeprecationWarning: fs.SyncWriteStream is deprecated.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nb">Error</span><span class="p">:</span> <span class="nc">The</span> <span class="kn">module</span> <span class="s1">&#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">was</span> <span class="nv">compiled</span> <span class="nv">against</span> <span class="nv">a</span> <span class="nv">different</span> <span class="nc">Node</span><span class="p">.</span><span class="nv">js</span> <span class="nv">version</span> <span class="nv">using</span>
+</span></span><span class="line"><span class="cl"><span class="nc">NODE_MODULE_VERSION</span> <span class="mi">51</span><span class="p">.</span> <span class="nc">This</span> <span class="nv">version</span> <span class="nv">of</span> <span class="nc">Node</span><span class="p">.</span><span class="nv">js</span> <span class="nv">requires</span>
+</span></span><span class="line"><span class="cl"><span class="nc">NODE_MODULE_VERSION</span> <span class="mi">57</span><span class="p">.</span> <span class="nc">Please</span> <span class="nv">try</span> <span class="nv">re</span><span class="o">-</span><span class="nv">compiling</span> <span class="k">or</span> <span class="nv">re</span><span class="o">-</span><span class="nv">installing</span>
+</span></span><span class="line"><span class="cl"><span class="nv">the</span> <span class="kn">module</span> <span class="p">(</span><span class="k">for</span> <span class="nv">instance</span><span class="p">,</span> <span class="nv">using</span> <span class="sc">`npm rebuild`</span> <span class="k">or</span> <span class="sc">`npm install`</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_extensions</span><span class="o">..</span><span class="nv">node</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">598</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">503</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">tryModuleLoad</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">466</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">458</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">require</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">513</span><span class="p">:</span><span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">require</span> <span class="p">(</span><span class="nv">internal</span><span class="o">/</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.&lt;</span><span class="nv">anonymous</span><span class="p">&gt;</span> <span class="p">(</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">hexo</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">dtrace</span><span class="o">-</span><span class="nv">provider</span><span class="o">/</span><span class="nv">dtrace</span><span class="o">-</span><span class="nv">provider</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">_compile</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">569</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_extensions</span><span class="o">..</span><span class="nv">js</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">580</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">503</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">tryModuleLoad</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">466</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">458</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">require</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">513</span><span class="p">:</span><span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">require</span> <span class="p">(</span><span class="nv">internal</span><span class="o">/</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.&lt;</span><span class="nv">anonymous</span><span class="p">&gt;</span> <span class="p">(</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">hexo</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">bunyan</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">bunyan</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">79</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">_compile</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">569</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="nb">Error</span><span class="p">:</span> <span class="nc">Cannot</span> <span class="nv">find</span> <span class="kn">module</span> <span class="s1">&#39;./build/default/DTraceProviderBindings&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_resolveFilename</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">485</span><span class="p">:</span><span class="mi">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">437</span><span class="p">:</span><span class="mi">25</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">require</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">513</span><span class="p">:</span><span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">require</span> <span class="p">(</span><span class="nv">internal</span><span class="o">/</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.&lt;</span><span class="nv">anonymous</span><span class="p">&gt;</span> <span class="p">(</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">hexo</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">dtrace</span><span class="o">-</span><span class="nv">provider</span><span class="o">/</span><span class="nv">dtrace</span><span class="o">-</span><span class="nv">provider</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">_compile</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">569</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_extensions</span><span class="o">..</span><span class="nv">js</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">580</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">503</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">tryModuleLoad</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">466</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">458</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">require</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">513</span><span class="p">:</span><span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">require</span> <span class="p">(</span><span class="nv">internal</span><span class="o">/</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.&lt;</span><span class="nv">anonymous</span><span class="p">&gt;</span> <span class="p">(</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">hexo</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">bunyan</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">bunyan</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">79</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">_compile</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">569</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_extensions</span><span class="o">..</span><span class="nv">js</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">580</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">503</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span> <span class="nv">code</span><span class="p">:</span> <span class="s1">&#39;MODULE_NOT_FOUND&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="nb">Error</span><span class="p">:</span> <span class="nc">Cannot</span> <span class="nv">find</span> <span class="kn">module</span> <span class="s1">&#39;./build/Debug/DTraceProviderBindings&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_resolveFilename</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">485</span><span class="p">:</span><span class="mi">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">437</span><span class="p">:</span><span class="mi">25</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">require</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">513</span><span class="p">:</span><span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">require</span> <span class="p">(</span><span class="nv">internal</span><span class="o">/</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.&lt;</span><span class="nv">anonymous</span><span class="p">&gt;</span> <span class="p">(</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">hexo</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">dtrace</span><span class="o">-</span><span class="nv">provider</span><span class="o">/</span><span class="nv">dtrace</span><span class="o">-</span><span class="nv">provider</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">_compile</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">569</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_extensions</span><span class="o">..</span><span class="nv">js</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">580</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">503</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">tryModuleLoad</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">466</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Function</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">458</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">require</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">513</span><span class="p">:</span><span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nv">require</span> <span class="p">(</span><span class="nv">internal</span><span class="o">/</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.&lt;</span><span class="nv">anonymous</span><span class="p">&gt;</span> <span class="p">(</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">hexo</span><span class="o">/</span><span class="nv">node_modules</span><span class="o">/</span><span class="nv">bunyan</span><span class="o">/</span><span class="nv">lib</span><span class="o">/</span><span class="nv">bunyan</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">79</span><span class="p">:</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">_compile</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">569</span><span class="p">:</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Object</span><span class="p">.</span><span class="nc">Module</span><span class="p">.</span><span class="nv">_extensions</span><span class="o">..</span><span class="nv">js</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">580</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">at</span> <span class="nc">Module</span><span class="p">.</span><span class="nv">load</span> <span class="p">(</span><span class="kn">module</span><span class="p">.</span><span class="nv">js</span><span class="p">:</span><span class="mi">503</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span> <span class="nv">code</span><span class="p">:</span> <span class="s1">&#39;MODULE_NOT_FOUND&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">node</span><span class="p">:</span><span class="mi">7992</span><span class="p">)</span> <span class="p">[</span><span class="nc">DEP0061</span><span class="p">]</span> <span class="nc">DeprecationWarning</span><span class="p">:</span> <span class="nv">fs</span><span class="p">.</span><span class="nc">SyncWriteStream</span> <span class="k">is</span> <span class="nv">deprecated</span><span class="p">.</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div><p>唔&hellip;之前报过<code>dtrace-provider</code>的错误,翻了一下以前的记录就直接无脑的<code>sudo npm install dtrace-provider</code> 但是该怎么报错还是怎么报错&hellip;.</p>
+</div><p>唔&hellip;之前报过<code>dtrace-provider</code>的错误,翻了一下以前的记录就直接无脑的<code>sudo npm install dtrace-provider </code> 但是该怎么报错还是怎么报错&hellip;.</p>
 <p>后来再粗暴点就删了<code>package-lock.json</code>和<code>node_modules</code>目录重新来了一遍<code>npm install</code>,结果还是不行&hellip;</p>
 <p>有点绝望的我在想:难道我以后就不能用新版本了吗? 后来开始仔细看一下报错信息:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Error: The module &#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;
-was compiled against a different Node.js version using
-NODE_MODULE_VERSION 51. This version of Node.js requires
-NODE_MODULE_VERSION 57. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-v" data-lang="v"><span class="line"><span class="cl"><span class="nb">Error</span><span class="p">:</span> <span class="nc">The</span> <span class="kn">module</span> <span class="s1">&#39;/usr/local/lib/node_modules/hexo/node_modules/dtrace-provider/build/Release/DTraceProviderBindings.node&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">was</span> <span class="nv">compiled</span> <span class="nv">against</span> <span class="nv">a</span> <span class="nv">different</span> <span class="nc">Node</span><span class="p">.</span><span class="nv">js</span> <span class="nv">version</span> <span class="nv">using</span>
+</span></span><span class="line"><span class="cl"><span class="nc">NODE_MODULE_VERSION</span> <span class="mi">51</span><span class="p">.</span> <span class="nc">This</span> <span class="nv">version</span> <span class="nv">of</span> <span class="nc">Node</span><span class="p">.</span><span class="nv">js</span> <span class="nv">requires</span>
+</span></span><span class="line"><span class="cl"><span class="nc">NODE_MODULE_VERSION</span> <span class="mi">57</span><span class="p">.</span> <span class="nc">Please</span> <span class="nv">try</span> <span class="nv">re</span><span class="o">-</span><span class="nv">compiling</span> <span class="k">or</span> <span class="nv">re</span><span class="o">-</span><span class="nv">installing</span>
+</span></span><span class="line"><span class="cl"><span class="nv">the</span> <span class="kn">module</span> <span class="p">(</span><span class="k">for</span> <span class="nv">instance</span><span class="p">,</span> <span class="nv">using</span> <span class="sc">`npm rebuild`</span> <span class="k">or</span> <span class="sc">`npm install`</span><span class="p">).</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>看到这我意识到之前<strong>全局安装的文件</strong>都没更新过!
 于是乎执行<code>sudo npm install -g hexo-cli</code> 好了,解决了</p>
@@ -403,7 +400,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Raspberry on helloword啊哈</title>
+    <title>Raspberry on helloword啊</title>
     <link>https://blog.justwe.site/tags/raspberry/</link>
-    <description>Recent content in Raspberry on helloword啊哈</description>
+    <description>Recent content in Raspberry on helloword啊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 30 Nov 2017 13:57:18 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.justwe.site/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 30 Nov 2017 13:57:18 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>sense-HAT api 文档</title>
       <link>https://blog.justwe.site/post/raspberry-pi3-sense-hat-api/</link>
@@ -36,7 +32,7 @@
       <pubDate>Tue, 28 Nov 2017 14:50:49 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/raspberry-pi3-local-lang/</guid>
-      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 13 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set</description>
+      <description>树莓派出现本地语言出现问题 1 2 3 4 5 6 7 8 9 10 11 12 perl: warning: Setting locale failed. perl: warning: Please check that your locale settings: LANGUAGE = &amp;#34;en_US.UTF-8&amp;#34;, LC_ALL = &amp;#34;en_US.UTF-8&amp;#34;, LC_CTYPE = &amp;#34;zh_CN.UTF-8&amp;#34;, LANG = &amp;#34;en_US.UTF-8&amp;#34; are supported and installed on your system. perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;). locale: Cannot set LC_CTYPE</description>
     </item>
     
     <item>

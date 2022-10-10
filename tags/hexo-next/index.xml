@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hexo-next on helloword啊哈</title>
+    <title>hexo-next on helloword啊</title>
     <link>https://blog.justwe.site/tags/hexo-next/</link>
-    <description>Recent content in hexo-next on helloword啊哈</description>
+    <description>Recent content in hexo-next on helloword啊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 07 Apr 2017 15:04:39 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.justwe.site/tags/hexo-next/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 07 Apr 2017 15:04:39 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/tags/hexo-next/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hexo-next-title</title>
       <link>https://blog.justwe.site/post/hexo-next-title/</link>

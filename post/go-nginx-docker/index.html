@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>nginx转发到go服务当中 - helloword啊哈</title>
+  <title>nginx转发到go服务当中 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-nginx-docker/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="nginx转发到go服务当中" />
 <meta property="og:description" content="通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-nginx-docker/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-nginx-docker/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-11-25T15:39:36+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="nginx转发到go服务当中">
-<meta itemprop="description" content="通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go">
-<meta itemprop="datePublished" content="2018-11-25T15:39:36&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="description" content="通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go"><meta itemprop="datePublished" content="2018-11-25T15:39:36+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="360">
-
-
-
 <meta itemprop="keywords" content="docker,nginx,go," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="nginx转发到go服务当中"/>
 <meta name="twitter:description" content="通过docker-compose编排的容器总是有一些奇怪的问题 问题核心就是go-server和nginx所属不同的容器, 需要外界能访问到go"/>
@@ -161,7 +158,7 @@
 <p>如果是在同一个容器中只需要:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -189,39 +186,39 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">server {
-    listen       80;
-    server_name  .a.com;
-
-    charset utf-8;
-    access_log  /home/a.com.access.log;
-
-    location /(css|js|fonts|img)/ {
-        access_log off;
-        expires 1d;
-
-        root &#34;/path/to/app_a/static&#34;;
-        try_files $uri @backend;
-    }
-
-    location / {
-        try_files /_not_exists_ @backend;
-    }
-
-    location @backend {
-        proxy_set_header X-Forwarded-For $remote_addr;
-        proxy_set_header Host            $http_host;
-
-        proxy_pass http://127.0.0.1:8080;
-    }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    listen       80;
+</span></span><span class="line"><span class="cl">    server_name  .a.com;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    charset utf-8;
+</span></span><span class="line"><span class="cl">    access_log  /home/a.com.access.log;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location /(css|js|fonts|img)/ {
+</span></span><span class="line"><span class="cl">        access_log off;
+</span></span><span class="line"><span class="cl">        expires 1d;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        root &#34;/path/to/app_a/static&#34;;
+</span></span><span class="line"><span class="cl">        try_files $uri @backend;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location / {
+</span></span><span class="line"><span class="cl">        try_files /_not_exists_ @backend;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location @backend {
+</span></span><span class="line"><span class="cl">        proxy_set_header X-Forwarded-For $remote_addr;
+</span></span><span class="line"><span class="cl">        proxy_set_header Host            $http_host;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        proxy_pass http://127.0.0.1:8080;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://beego.me/docs/deploy/nginx.md">beego-nginx部署</a></p>
 <p>那么如果是两个容器当中呢? 基于上面的例子, 我们需要用到<code>upstream</code>,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -256,40 +253,40 @@
 </span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
-upstream go_server_proxy {
-    # 这里的server 需要用到 容器名:端口 的形式
-    server go_server:9090;
-}
-
-server {
-    listen       80;
-    server_name  localhost;
-    root /var/www;
-    index index.html;
-
-    charset utf-8;
-    access_log  /var/log/nginx/def.access.log;
-
-    location /(css|js|fonts|img)/ {
-        access_log off;
-        expires 1d;
-
-        root &#34;/var/www/static&#34;;
-        try_files $uri @backend;
-    }
-
-    location / {
-        try_files /_not_exists_ @backend;
-    }
-
-    location @backend {
-        proxy_set_header X-Forwarded-For $remote_addr;
-        proxy_set_header Host            $http_host;
-        proxy_pass  http://go_server_proxy;
-    }
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">upstream go_server_proxy {
+</span></span><span class="line"><span class="cl">    # 这里的server 需要用到 容器名:端口 的形式
+</span></span><span class="line"><span class="cl">    server go_server:9090;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">    listen       80;
+</span></span><span class="line"><span class="cl">    server_name  localhost;
+</span></span><span class="line"><span class="cl">    root /var/www;
+</span></span><span class="line"><span class="cl">    index index.html;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    charset utf-8;
+</span></span><span class="line"><span class="cl">    access_log  /var/log/nginx/def.access.log;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location /(css|js|fonts|img)/ {
+</span></span><span class="line"><span class="cl">        access_log off;
+</span></span><span class="line"><span class="cl">        expires 1d;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        root &#34;/var/www/static&#34;;
+</span></span><span class="line"><span class="cl">        try_files $uri @backend;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location / {
+</span></span><span class="line"><span class="cl">        try_files /_not_exists_ @backend;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    location @backend {
+</span></span><span class="line"><span class="cl">        proxy_set_header X-Forwarded-For $remote_addr;
+</span></span><span class="line"><span class="cl">        proxy_set_header Host            $http_host;
+</span></span><span class="line"><span class="cl">        proxy_pass  http://go_server_proxy;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样做的原因是容器之间的ip并不固定, 使用容器名做host地址是更简单的选择</p>
 
@@ -401,7 +398,7 @@ server {
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

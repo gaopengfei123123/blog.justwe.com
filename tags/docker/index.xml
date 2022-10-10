@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on helloword啊哈</title>
+    <title>docker on helloword啊</title>
     <link>https://blog.justwe.site/tags/docker/</link>
-    <description>Recent content in docker on helloword啊哈</description>
+    <description>Recent content in docker on helloword啊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 13 Apr 2020 17:38:30 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.justwe.site/tags/docker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 13 Apr 2020 17:38:30 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于docker for mac 占用大量硬盘的问题</title>
       <link>https://blog.justwe.site/post/docker-for-mac-huge-disk/</link>
@@ -73,7 +69,7 @@
       <pubDate>Tue, 13 Feb 2018 13:24:30 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/docker-volume/</guid>
-      <description>这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version:&amp;#39;3&amp;#39;services:db:image:mysql:5.7volumes:- db_data:/var/lib/mysqlrestart:alwaysenvironment:MYSQL_ROOT_PASSWORD:gaofeifiyMYSQL_DATABASE:wordpressMYSQL_USER:wordpressMYSQL_PASSWORD:wordpressports:- 33060:3306wordpress:depends_on:- dbimage:wordpress:latestports:- &amp;#34;8080:80&amp;#34;restart:alwaysenvironment:WORDPRESS_DB_HOST:db:3306WORDPRESS_DB_USER:wordpressWORDPRESS_DB_PASSWORD:wordpressvolumes:db_data: 其中有一点</description>
+      <description>这里有一个使用 wordpress 的 docker-compose.yml的示例: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 version: &amp;#39;3&amp;#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart:</description>
     </item>
     
     <item>

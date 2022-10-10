@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>laravel-session - helloword啊哈</title>
+  <title>laravel-session - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-session/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="laravel-session" />
 <meta property="og:description" content="前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &#39;redis&#39; =&gt;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/laravel-session/" />
+<meta property="og:url" content="https://blog.justwe.site/post/laravel-session/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-06-01T20:56:16+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="laravel-session">
-<meta itemprop="description" content="前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &#39;redis&#39; =&gt;">
-<meta itemprop="datePublished" content="2016-06-01T20:56:16&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &#39;redis&#39; =&gt;"><meta itemprop="datePublished" content="2016-06-01T20:56:16+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="460">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel-session"/>
 <meta name="twitter:description" content="前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &#39;redis&#39; =&gt;"/>
@@ -167,32 +164,32 @@
 <!-- raw HTML omitted -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">composer require predis/predis 1.0.*
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">composer require predis/predis 1.0.*
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="文件配置">文件配置</h2>
 <p>在.env 文件下的app_key</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1
-
-CACHE_DRIVER=redis
-SESSION_DRIVER=redis
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CACHE_DRIVER=redis
+</span></span><span class="line"><span class="cl">SESSION_DRIVER=redis
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>config/database.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -208,26 +205,26 @@ SESSION_DRIVER=redis
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"> &#39;redis&#39; =&gt; [
-
-        &#39;cluster&#39; =&gt; false,
-
-        //...其它一些配置...//
-        &#39;session&#39; =&gt; [
-            &#39;host&#39;     =&gt; env(&#39;REDIS_HOST&#39;, &#39;8b9a53cd4dc044e7.redis.rds.aliyuncs.com&#39;),
-            &#39;port&#39;     =&gt; 6379,
-            &#39;database&#39; =&gt; 4,
-            &#39;password&#39; =&gt; env(&#39;REDIS_PASSWORD&#39;, &#39;Hotcast123&#39;),
-        ],
-
-
-    ],
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"> <span class="s1">&#39;redis&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;cluster&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//...其它一些配置...//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s1">&#39;session&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="nx">env</span><span class="p">(</span><span class="s1">&#39;REDIS_HOST&#39;</span><span class="p">,</span> <span class="s1">&#39;8b9a53cd4dc044e7.redis.rds.aliyuncs.com&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;port&#39;</span>     <span class="o">=&gt;</span> <span class="mi">6379</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="nx">env</span><span class="p">(</span><span class="s1">&#39;REDIS_PASSWORD&#39;</span><span class="p">,</span> <span class="s1">&#39;Hotcast123&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>config/session.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -236,37 +233,37 @@ SESSION_DRIVER=redis
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">&#39;driver&#39; =&gt; env(&#39;SESSION_DRIVER&#39;, &#39;file&#39;),
-
-//向指定当session驱动使用redis时指定redis的配置方案（就是上面的那个数组）
-&#39;connection&#39; =&gt; &#39;session&#39;,
-
-//必须指定共同的域名 否则session无法共享
-&#39;domain&#39; =&gt; &#39;.yourWebName.com&#39;,
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="s1">&#39;driver&#39;</span> <span class="o">=&gt;</span> <span class="nx">env</span><span class="p">(</span><span class="s1">&#39;SESSION_DRIVER&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//向指定当session驱动使用redis时指定redis的配置方案（就是上面的那个数组）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="s1">&#39;connection&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;session&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//必须指定共同的域名 否则session无法共享
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="s1">&#39;domain&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;.yourWebName.com&#39;</span><span class="p">,</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>config/cache.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">&#39;redis&#39; =&gt; [
-            &#39;driver&#39; =&gt; &#39;redis&#39;,
-            //这里就是将cache和session的redis配置共用
-            &#39;connection&#39; =&gt; &#39;session&#39;,
-        ],
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="s1">&#39;redis&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;driver&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//这里就是将cache和session的redis配置共用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="s1">&#39;connection&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;session&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="示例">示例</h2>
 <p>在 a.yourWebName.com 的route.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -276,20 +273,20 @@ SESSION_DRIVER=redis
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">Route::get(&#39;/test-set-cache-session&#39;,function(){
-	Cache::put(&#39;cache1&#39;,&#39;cache1-value&#39;,1);
-	Cache::put(&#39;cache2&#39;,&#39;cache2-value&#39;,1);
-	Session::put(&#39;session1&#39;,&#39;session1-value&#39;,1);
-	Session::put(&#39;session2&#39;,&#39;session2-value&#39;,1);
-	return Session::getId();
-});
-//此条路由分别用 Cache 设置两条数据和两条 Session 数据，最后返回 SessionId
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/test-set-cache-session&#39;</span><span class="p">,</span><span class="k">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Cache</span><span class="o">::</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;cache1&#39;</span><span class="p">,</span><span class="s1">&#39;cache1-value&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Cache</span><span class="o">::</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;cache2&#39;</span><span class="p">,</span><span class="s1">&#39;cache2-value&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Session</span><span class="o">::</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;session1&#39;</span><span class="p">,</span><span class="s1">&#39;session1-value&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Session</span><span class="o">::</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;session2&#39;</span><span class="p">,</span><span class="s1">&#39;session2-value&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">Session</span><span class="o">::</span><span class="na">getId</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//此条路由分别用 Cache 设置两条数据和两条 Session 数据，最后返回 SessionId
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>在 b.yourWebName.com 的route.php中</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -302,18 +299,18 @@ SESSION_DRIVER=redis
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">Route::get(&#39;/test-get-cache-session&#39;,function(){
-	$data = [
-		&#39;cache1&#39;=&gt;Cache::get(&#39;cache1&#39;),
-		&#39;cache2&#39;=&gt;Cache::get(&#39;cache2&#39;),
-		&#39;session1&#39;=&gt;Session::get(&#39;session1&#39;),
-		&#39;session2&#39;=&gt;Session::get(&#39;session2&#39;),
-		&#39;session_id&#39;=&gt;Session::getId()
-	];
-	return $data;
-});
-//此条路由分别获取获取两条 Cache 数据和两条 Session 数据及 SessionId ,最后返回数据
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">Route</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/test-get-cache-session&#39;</span><span class="p">,</span><span class="k">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">		<span class="s1">&#39;cache1&#39;</span><span class="o">=&gt;</span><span class="nx">Cache</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;cache1&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="s1">&#39;cache2&#39;</span><span class="o">=&gt;</span><span class="nx">Cache</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;cache2&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="s1">&#39;session1&#39;</span><span class="o">=&gt;</span><span class="nx">Session</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;session1&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="s1">&#39;session2&#39;</span><span class="o">=&gt;</span><span class="nx">Session</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;session2&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">		<span class="s1">&#39;session_id&#39;</span><span class="o">=&gt;</span><span class="nx">Session</span><span class="o">::</span><span class="na">getId</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">];</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//此条路由分别获取获取两条 Cache 数据和两条 Session 数据及 SessionId ,最后返回数据
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="总结">总结</h2>
 <p>同步session有以下关键点：</p>
@@ -427,7 +424,7 @@ SESSION_DRIVER=redis
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

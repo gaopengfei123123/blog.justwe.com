@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>安装swoole的记录 - helloword啊哈</title>
+  <title>安装swoole的记录 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-swoole/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="安装swoole的记录" />
 <meta property="og:description" content="源码地址 因为swoole已经加入官方扩展包中，可以直接用pecl安装 1 pecl install swoole 也可以通过源码安装： 首先确认php的安装路径 1 which php 这个大部分都是" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/php-swoole/" />
+<meta property="og:url" content="https://blog.justwe.site/post/php-swoole/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-12-10T05:43:14+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="安装swoole的记录">
-<meta itemprop="description" content="源码地址 因为swoole已经加入官方扩展包中，可以直接用pecl安装 1 pecl install swoole 也可以通过源码安装： 首先确认php的安装路径 1 which php 这个大部分都是">
-<meta itemprop="datePublished" content="2016-12-10T05:43:14&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="源码地址 因为swoole已经加入官方扩展包中，可以直接用pecl安装 1 pecl install swoole 也可以通过源码安装： 首先确认php的安装路径 1 which php 这个大部分都是"><meta itemprop="datePublished" content="2016-12-10T05:43:14+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="389">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安装swoole的记录"/>
 <meta name="twitter:description" content="源码地址 因为swoole已经加入官方扩展包中，可以直接用pecl安装 1 pecl install swoole 也可以通过源码安装： 首先确认php的安装路径 1 which php 这个大部分都是"/>
@@ -160,39 +157,39 @@
 <p>因为swoole已经加入官方扩展包中，可以直接用pecl安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pecl install swoole
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pecl install swoole
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>也可以通过源码安装：</p>
 <p>首先确认php的安装路径</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">which php
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">which php
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这个大部分都是指向的/usr/local/bin/php这个地址，但这些文件都是链接，顺着这个就能找到文件真正所在了</p>
 <p>去这里是为了找到 phpize 这个工具,在文件安装目录中的 bin 目录中找有没有 phpize 这个快捷方式
 如果没有的话，就运行如下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">yum install php-dev
-注意版本问题
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yum install php-dev
+</span></span><span class="line"><span class="cl">注意版本问题
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>之后有了 <code>phpize</code> 工具就好说了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -200,43 +197,43 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt-get install php5-dev
-git clone https://github.com/swoole/swoole-src.git
-cd swoole-src
-phpize
-./configure
-make &amp;&amp; make install
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo apt-get install php5-dev
+</span></span><span class="line"><span class="cl">git clone https://github.com/swoole/swoole-src.git
+</span></span><span class="line"><span class="cl">cd swoole-src
+</span></span><span class="line"><span class="cl">phpize
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl">make &amp;&amp; make install
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这一段是官方提供的安装命令，安装完毕后留意一下他的安装路径，或者指定路径 可以在编译前的 <code>./configure --help</code>查看，比如<code>----prefix=/your/wanted/path</code></p>
 <p>之后就是在运行的<code>php.ini</code>文件中添加配置了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#查看php运行的php.ini
-php -i | grep php.ini
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#查看php运行的php.ini
+</span></span><span class="line"><span class="cl">php -i | grep php.ini
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>编辑 <code>php.ini</code> 直接添加一行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">extension= swoole.so
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">extension= swoole.so
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>保存退出后</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">php -m | grep swoole
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">php -m | grep swoole
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>出现了就说明已经安装上了，high起来！</p>
 
@@ -344,7 +341,7 @@ php -i | grep php.ini
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>记一次 git revert 的经历 - helloword啊哈</title>
+  <title>记一次 git revert 的经历 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-revert/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="记一次 git revert 的经历" />
 <meta property="og:description" content="合作开发经常会提merge request嘛, 然后就提了一个不该提的, 还手抖给合并了&hellip;. 返现问题以后准备回退, 然后抬眼一看各分支" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/git-revert/" />
+<meta property="og:url" content="https://blog.justwe.site/post/git-revert/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-10-25T16:27:06+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="记一次 git revert 的经历">
-<meta itemprop="description" content="合作开发经常会提merge request嘛, 然后就提了一个不该提的, 还手抖给合并了&hellip;. 返现问题以后准备回退, 然后抬眼一看各分支">
-<meta itemprop="datePublished" content="2018-10-25T16:27:06&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="414">
-
-
-
+<meta itemprop="description" content="合作开发经常会提merge request嘛, 然后就提了一个不该提的, 还手抖给合并了&hellip;. 返现问题以后准备回退, 然后抬眼一看各分支"><meta itemprop="datePublished" content="2018-10-25T16:27:06+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="413">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="记一次 git revert 的经历"/>
 <meta name="twitter:description" content="合作开发经常会提merge request嘛, 然后就提了一个不该提的, 还手抖给合并了&hellip;. 返现问题以后准备回退, 然后抬眼一看各分支"/>
@@ -163,7 +160,7 @@
 <p>接下来分三步,先找到要回退的那次 mr, 通常是这样的:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -185,33 +182,31 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git log 
-
-commit 365ea982c24f2c60150df6159734ab73b74515bc <span class="o">(</span>origin/master, origin/HEAD<span class="o">)</span>
-Merge: 465fbfb8 f15b39ae
-Author: xxx &lt;xxx&gt;
-Date:   Thu Oct <span class="m">25</span> 15:41:10 <span class="m">2018</span> +0800
-
-    Merge branch <span class="s1">&#39;master&#39;</span> of xxxxxxxxxxxxxxx
-
-commit 465fbfb8084089f9d08516b4d75ba51ae5dcd5ce
-Author: xxx &lt;xxx&gt;
-Date:   Thu Oct <span class="m">25</span> 15:41:03 <span class="m">2018</span> +0800
-
-    merge
-
-commit 1e309ff40fd02d1c9c6e604c2649d8a94086a573
-Author: xxx &lt;zhangkaixuan&gt;
-Date:   Thu Oct <span class="m">25</span> 15:40:37 <span class="m">2018</span> +0800
-
-    merge
-
-...
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit 365ea982c24f2c60150df6159734ab73b74515bc <span class="o">(</span>origin/master, origin/HEAD<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Merge: 465fbfb8 f15b39ae
+</span></span><span class="line"><span class="cl">Author: xxx &lt;xxx&gt;
+</span></span><span class="line"><span class="cl">Date:   Thu Oct <span class="m">25</span> 15:41:10 <span class="m">2018</span> +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Merge branch <span class="s1">&#39;master&#39;</span> of xxxxxxxxxxxxxxx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit 465fbfb8084089f9d08516b4d75ba51ae5dcd5ce
+</span></span><span class="line"><span class="cl">Author: xxx &lt;xxx&gt;
+</span></span><span class="line"><span class="cl">Date:   Thu Oct <span class="m">25</span> 15:41:03 <span class="m">2018</span> +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    merge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit 1e309ff40fd02d1c9c6e604c2649d8a94086a573
+</span></span><span class="line"><span class="cl">Author: xxx &lt;zhangkaixuan&gt;
+</span></span><span class="line"><span class="cl">Date:   Thu Oct <span class="m">25</span> 15:40:37 <span class="m">2018</span> +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    merge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样的, 这只是 log 的中间的一部分, 假设 mr 之后后续又有很多 mr 已经合并了, 那么先找到我们要回退的 <code>commit id</code>, 这里就假设一个叫 <code>c76627674dedf4fc067cb0c5b2afbc123fd9c053</code></p>
 <ol>
@@ -333,7 +328,7 @@ Date:   Thu Oct <span class="m">25</span> 15:40:37 <span class="m">2018</span> +
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

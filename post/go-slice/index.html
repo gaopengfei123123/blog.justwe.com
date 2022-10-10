@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go语言了解(2)--切片 - helloword啊哈</title>
+  <title>go语言了解(2)--切片 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-slice/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="go语言了解(2)--切片" />
 <meta property="og:description" content="切片是一种复合类型，可以是数组也可以是字符串 接下来是一个简单切片使用示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-slice/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-slice/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-03-14T10:12:03+00:00" />
 <meta property="article:modified_time" content="2020-07-14T11:49:20+08:00" />
+
 <meta itemprop="name" content="go语言了解(2)--切片">
-<meta itemprop="description" content="切片是一种复合类型，可以是数组也可以是字符串 接下来是一个简单切片使用示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34">
-<meta itemprop="datePublished" content="2017-03-14T10:12:03&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-14T11:49:20&#43;08:00" />
+<meta itemprop="description" content="切片是一种复合类型，可以是数组也可以是字符串 接下来是一个简单切片使用示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34"><meta itemprop="datePublished" content="2017-03-14T10:12:03+00:00" />
+<meta itemprop="dateModified" content="2020-07-14T11:49:20+08:00" />
 <meta itemprop="wordCount" content="638">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go语言了解(2)--切片"/>
 <meta name="twitter:description" content="切片是一种复合类型，可以是数组也可以是字符串 接下来是一个简单切片使用示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34"/>
@@ -160,7 +157,7 @@
 <p>接下来是一个简单切片使用示例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -212,57 +209,57 @@
 </span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-
-<span class="kd">func</span> <span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">slience</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">str</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">,</span> <span class="nx">str</span><span class="p">,</span> <span class="s">&#34;的长度是:&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">slience</span><span class="p">))</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="s">&#34;的大小是:&#34;</span><span class="p">,</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">slience</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
-	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">slience</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="s">&#34;下标&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&#34;是&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c1">//定义一个数组
-</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">arr</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="kt">int</span> <span class="p">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
-
-	<span class="c1">//打印一下
-</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">arr</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;arr element is&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="c1">//获取数组 arr 从0 到下标为5（不包含下标5) 的一个切片
-</span><span class="c1"></span>	<span class="nx">mySlice</span> <span class="o">:=</span> <span class="nx">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">mySlice</span><span class="p">,</span> <span class="s">&#34;mySlice&#34;</span><span class="p">)</span>
-
-	<span class="c1">//声明一个包含5个元素的数组切片 此时会创建一个匿名数组
-</span><span class="c1"></span>	<span class="nx">elementSlience</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">elementSlience</span><span class="p">,</span> <span class="s">&#34;elementSlience&#34;</span><span class="p">)</span>
-
-	<span class="c1">//声明一个默认值0，长度5，预留长度10的切片
-</span><span class="c1"></span>	<span class="nx">emptySlience</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">emptySlience</span><span class="p">,</span> <span class="s">&#34;emptySlience&#34;</span><span class="p">)</span>
-
-	<span class="c1">//向切片中添加元素 这时数组的长度和占用内存是一致的
-</span><span class="c1"></span>	<span class="nx">emptySlience</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">emptySlience</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-	<span class="c1">//如果超过分配的内存，会动态分配足够的内存空间
-</span><span class="c1"></span>	<span class="c1">//	emptySlience = append(emptySlience, 1, 2, 3, 4, 5)
-</span><span class="c1"></span>	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">emptySlience</span><span class="p">,</span> <span class="s">&#34;emptySlience2&#34;</span><span class="p">)</span>
-
-	<span class="nx">mySlice</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">mySlice</span><span class="p">,</span> <span class="nx">emptySlience</span><span class="o">...</span><span class="p">)</span>
-	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">mySlice</span><span class="p">,</span> <span class="s">&#34;mySlice2&#34;</span><span class="p">)</span>
-
-  <span class="c1">//内容复制  
-</span><span class="c1"></span>	<span class="nx">slice1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
-	<span class="nx">slice2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
-	<span class="c1">//从slice2复制前三个元素到slice1当中，不同长度的按照较小的来
-</span><span class="c1"></span>	<span class="nb">copy</span><span class="p">(</span><span class="nx">slice1</span><span class="p">,</span> <span class="nx">slice2</span><span class="p">)</span>
-	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">slice2</span><span class="p">,</span> <span class="s">&#34;slice&#34;</span><span class="p">)</span>
-
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">slience</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">str</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">,</span> <span class="nx">str</span><span class="p">,</span> <span class="s">&#34;的长度是:&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">slience</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="s">&#34;的大小是:&#34;</span><span class="p">,</span> <span class="nb">cap</span><span class="p">(</span><span class="nx">slience</span><span class="p">),</span> <span class="s">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">slience</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="s">&#34;下标&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&#34;是&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//定义一个数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">arr</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="kt">int</span> <span class="p">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//打印一下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">arr</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;arr element is&#34;</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//获取数组 arr 从0 到下标为5（不包含下标5) 的一个切片
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">mySlice</span> <span class="o">:=</span> <span class="nx">arr</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">mySlice</span><span class="p">,</span> <span class="s">&#34;mySlice&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//声明一个包含5个元素的数组切片 此时会创建一个匿名数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">elementSlience</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">elementSlience</span><span class="p">,</span> <span class="s">&#34;elementSlience&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//声明一个默认值0，长度5，预留长度10的切片
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">emptySlience</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">emptySlience</span><span class="p">,</span> <span class="s">&#34;emptySlience&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">//向切片中添加元素 这时数组的长度和占用内存是一致的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">emptySlience</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">emptySlience</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//如果超过分配的内存，会动态分配足够的内存空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//	emptySlience = append(emptySlience, 1, 2, 3, 4, 5)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">emptySlience</span><span class="p">,</span> <span class="s">&#34;emptySlience2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">mySlice</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">mySlice</span><span class="p">,</span> <span class="nx">emptySlience</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">mySlice</span><span class="p">,</span> <span class="s">&#34;mySlice2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">//内容复制  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">slice1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">slice2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//从slice2复制前三个元素到slice1当中，不同长度的按照较小的来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nb">copy</span><span class="p">(</span><span class="nx">slice1</span><span class="p">,</span> <span class="nx">slice2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">slienceInfo</span><span class="p">(</span><span class="nx">slice2</span><span class="p">,</span> <span class="s">&#34;slice&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从示例中可以看出切片是动态分配内存大小的，我总结了一下几条规律</p>
 <ol>
@@ -376,7 +373,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

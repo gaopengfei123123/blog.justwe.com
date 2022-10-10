@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go-interface - helloword啊哈</title>
+  <title>go-interface - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-interface/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="go-interface" />
 <meta property="og:description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-interface/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-interface/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-04-19T23:43:41+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="go-interface">
-<meta itemprop="description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得">
-<meta itemprop="datePublished" content="2017-04-19T23:43:41&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="950">
-
-
-
+<meta itemprop="description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得"><meta itemprop="datePublished" content="2017-04-19T23:43:41+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="949">
 <meta itemprop="keywords" content="go,interface," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go-interface"/>
 <meta name="twitter:description" content="关于 go 语言接口的简单介绍 接口对于 go 实现面向对象来说非常重要,如果没有它 go 的结构体(struct)也就只能存储一些信息, 但是相关的方法将会变得"/>
@@ -171,23 +168,23 @@
 <p>比如我定义了一个接口</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">example</span> <span class="kd">interface</span><span class="p">{</span>
-  <span class="nf">a</span><span class="p">()</span>
-  <span class="nf">b</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">example</span> <span class="kd">interface</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">a</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">b</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>他定义了两个方法,只要有结构体中含有 <code>a()</code>,<code>b()</code>两个方法就能实现这个接口,通过接口来统一调用,
 如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -253,71 +250,71 @@
 </span><span class="lnt">64
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">//package main
-</span><span class="c1">//import &#34;fmt&#34;
-</span><span class="c1"></span>
-<span class="c1">//定义一个基本的类
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Human</span> <span class="kd">struct</span><span class="p">{</span>
-  <span class="nx">name</span>  <span class="kt">string</span>
-  <span class="nx">age</span>   <span class="kt">int</span>
-  <span class="nx">phone</span> <span class="kt">string</span>
-<span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">Student</span> <span class="kd">struct</span><span class="p">{</span>
-  <span class="nx">Human</span> <span class="c1">//继承 human 中的字段
-</span><span class="c1"></span>  <span class="nx">school</span> <span class="kt">string</span>
-  <span class="nx">loan</span>   <span class="kt">float32</span>
-<span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">Employee</span> <span class="kd">struct</span><span class="p">{</span>
-  <span class="nx">Human</span>
-  <span class="nx">company</span> <span class="kt">string</span>
-  <span class="nx">money</span>   <span class="kt">float32</span>
-<span class="p">}</span>
-
-<span class="c1">//Human 实现 Sayhi 方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">Sayhi</span><span class="p">(){</span>
-  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hi my name is %s and my phone is %s \n&#34;</span><span class="p">,</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="nx">h</span><span class="p">.</span><span class="nx">phone</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">//Human 实现 Sing 方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">Sing</span><span class="p">(</span><span class="nx">lyrics</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
-  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;galigaygay galigaygay ...&#34;</span><span class="p">,</span><span class="nx">lyrics</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">//student 复写 Sayhi 方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">sdt</span> <span class="nx">Student</span><span class="p">)</span> <span class="nf">Sayhi</span><span class="p">()</span>  <span class="p">{</span>
-  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;my name is %s and my school is %s \n&#34;</span><span class="p">,</span> <span class="nx">sdt</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="nx">sdt</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">//定义一个通用的接口
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Men</span> <span class="kd">interface</span><span class="p">{</span>
-  <span class="nf">Sayhi</span><span class="p">()</span>
-  <span class="nf">Sing</span><span class="p">(</span><span class="nx">lyrics</span> <span class="kt">string</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="c1">//实例化两种类
-</span><span class="c1"></span>  <span class="nx">mike</span> <span class="o">:=</span> <span class="nx">Student</span><span class="p">{</span><span class="nx">Human</span><span class="p">{</span><span class="s">&#34;mike&#34;</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="s">&#34;18333636999&#34;</span><span class="p">},</span><span class="s">&#34;MIT&#34;</span><span class="p">,</span><span class="mf">3.14</span><span class="p">}</span>
-  <span class="nx">jack</span> <span class="o">:=</span> <span class="nx">Employee</span><span class="p">{</span><span class="nx">Human</span><span class="p">{</span><span class="s">&#34;jack&#34;</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s">&#34;18333636998&#34;</span><span class="p">},</span><span class="s">&#34;hotcast&#34;</span><span class="p">,</span><span class="mi">20000</span><span class="p">}</span>
-
-  <span class="c1">//定义一个接口变量
-</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">i</span> <span class="nx">Men</span>
-
-  <span class="c1">//接口实现了 Student 类的方法
-</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;下面有请 mike 开始他的表演:&#34;</span><span class="p">)</span>
-  <span class="nx">i</span> <span class="p">=</span> <span class="nx">mike</span>
-  <span class="nx">i</span><span class="p">.</span><span class="nf">Sayhi</span><span class="p">();</span>
-  <span class="nx">i</span><span class="p">.</span><span class="nf">Sing</span><span class="p">(</span><span class="s">&#34;dongci daci&#34;</span><span class="p">)</span>
-
-
-  <span class="c1">//接口实现了 Employee 类的方法
-</span><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;下面有请 mike 开始他的表演:&#34;</span><span class="p">)</span>
-  <span class="nx">i</span> <span class="p">=</span> <span class="nx">jack</span>
-  <span class="nx">i</span><span class="p">.</span><span class="nf">Sayhi</span><span class="p">();</span>
-  <span class="nx">i</span><span class="p">.</span><span class="nf">Sing</span><span class="p">(</span><span class="s">&#34;haha haha haha&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">//package main
+</span></span></span><span class="line"><span class="cl"><span class="c1">//import &#34;fmt&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//定义一个基本的类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Human</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>  <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">age</span>   <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">phone</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Student</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Human</span> <span class="c1">//继承 human 中的字段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">school</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">loan</span>   <span class="kt">float32</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Employee</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Human</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">company</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">money</span>   <span class="kt">float32</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//Human 实现 Sayhi 方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">Sayhi</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;hi my name is %s and my phone is %s \n&#34;</span><span class="p">,</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="nx">h</span><span class="p">.</span><span class="nx">phone</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//Human 实现 Sing 方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">Sing</span><span class="p">(</span><span class="nx">lyrics</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;galigaygay galigaygay ...&#34;</span><span class="p">,</span><span class="nx">lyrics</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//student 复写 Sayhi 方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">sdt</span> <span class="nx">Student</span><span class="p">)</span> <span class="nf">Sayhi</span><span class="p">()</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;my name is %s and my school is %s \n&#34;</span><span class="p">,</span> <span class="nx">sdt</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="nx">sdt</span><span class="p">.</span><span class="nx">school</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//定义一个通用的接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Men</span> <span class="kd">interface</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">Sayhi</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">Sing</span><span class="p">(</span><span class="nx">lyrics</span> <span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//实例化两种类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">mike</span> <span class="o">:=</span> <span class="nx">Student</span><span class="p">{</span><span class="nx">Human</span><span class="p">{</span><span class="s">&#34;mike&#34;</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="s">&#34;18333636999&#34;</span><span class="p">},</span><span class="s">&#34;MIT&#34;</span><span class="p">,</span><span class="mf">3.14</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">jack</span> <span class="o">:=</span> <span class="nx">Employee</span><span class="p">{</span><span class="nx">Human</span><span class="p">{</span><span class="s">&#34;jack&#34;</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="s">&#34;18333636998&#34;</span><span class="p">},</span><span class="s">&#34;hotcast&#34;</span><span class="p">,</span><span class="mi">20000</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">//定义一个接口变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">var</span> <span class="nx">i</span> <span class="nx">Men</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">//接口实现了 Student 类的方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;下面有请 mike 开始他的表演:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">i</span> <span class="p">=</span> <span class="nx">mike</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">i</span><span class="p">.</span><span class="nf">Sayhi</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">i</span><span class="p">.</span><span class="nf">Sing</span><span class="p">(</span><span class="s">&#34;dongci daci&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">//接口实现了 Employee 类的方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;下面有请 mike 开始他的表演:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">i</span> <span class="p">=</span> <span class="nx">jack</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">i</span><span class="p">.</span><span class="nf">Sayhi</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">i</span><span class="p">.</span><span class="nf">Sing</span><span class="p">(</span><span class="s">&#34;haha haha haha&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里的 <code>Men</code> 接口被所有继承了<code>Human</code>的结构体的方法所实现,所以这些实例化的结构体可以赋值给
 <code>Men</code>的接口变量上,我们在 go 语言中的面向对象开发可以说就是面向接口在开发,由接口来组成一个个的
@@ -326,7 +323,7 @@
 指定的方法,比如</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -339,31 +336,29 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">interface Human{
-  function sayHi();
-  function sing();
-}
-
-class Student implements Human{
-  public function sayHi(){
-    // TODO:
-  }
-  public function sing(){
-    // TODO:
-  }
-}
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">interface</span> <span class="nx">Human</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">function</span> <span class="nf">sayHi</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">function</span> <span class="nf">sing</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="k">implements</span> <span class="nx">Human</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span> <span class="k">function</span> <span class="nf">sayHi</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// TODO:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span> <span class="k">function</span> <span class="nf">sing</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// TODO:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样子的, 每个类需要指定继承哪些接口才可以去实现接口,而 go 和 php 正好相反,是谁实现了我的规范
 谁就可以用我的接口,实现顺序正好倒过来了</p>
 <h2 id="再举一个接口的例子">再举一个接口的例子</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -387,46 +382,46 @@ class Student implements Human{
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;strconv&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">type</span> <span class="nx">Human</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">name</span>  <span class="kt">string</span>
-	<span class="nx">age</span>   <span class="kt">int</span>
-	<span class="nx">phone</span> <span class="kt">string</span>
-<span class="p">}</span>
-
-<span class="c1">// 这里需要把 int 类型转换成字符串,否则使用 + 来连接字符的时候报数据类型不匹配的错误
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="s">&#34;&lt;&#34;</span> <span class="o">+</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34;years old ,phone is &#34;</span> <span class="o">+</span> <span class="nx">h</span><span class="p">.</span><span class="nx">phone</span> <span class="o">+</span> <span class="s">&#34;/&gt;&#34;</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">Duck</span> <span class="o">:=</span> <span class="nx">Human</span><span class="p">{</span><span class="s">&#34;duck&#34;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="s">&#34;110-120-119&#34;</span><span class="p">}</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;this human is :&#34;</span><span class="p">,</span> <span class="nx">Duck</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strconv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Human</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span>  <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">age</span>   <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">phone</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 这里需要把 int 类型转换成字符串,否则使用 + 来连接字符的时候报数据类型不匹配的错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">Human</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="s">&#34;&lt;&#34;</span> <span class="o">+</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34;-&#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34;years old ,phone is &#34;</span> <span class="o">+</span> <span class="nx">h</span><span class="p">.</span><span class="nx">phone</span> <span class="o">+</span> <span class="s">&#34;/&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Duck</span> <span class="o">:=</span> <span class="nx">Human</span><span class="p">{</span><span class="s">&#34;duck&#34;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="s">&#34;110-120-119&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;this human is :&#34;</span><span class="p">,</span> <span class="nx">Duck</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上述例子当中我们实现了 <code>fmt.Println</code> 中的一个接口</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Stringer</span> <span class="kd">interface</span> <span class="p">{</span>
-  <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>
-<span class="p">}</span>
-
-<span class="nx">这样之后</span><span class="p">,</span><span class="nx">调用</span> <span class="s">`Human`</span> <span class="nx">的</span> <span class="nf">String</span><span class="p">()</span> <span class="nx">函数就能被</span> <span class="s">`fmt.Println()`</span> <span class="nx">所用了</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Stringer</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">这样之后</span><span class="p">,</span><span class="nx">调用</span> <span class="s">`Human`</span> <span class="nx">的</span> <span class="nf">String</span><span class="p">()</span> <span class="nx">函数就能被</span> <span class="s">`fmt.Println()`</span> <span class="nx">所用了</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -536,7 +531,7 @@ class Student implements Human{
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

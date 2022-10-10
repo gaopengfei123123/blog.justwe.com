@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>go 打包文件压缩 - helloword啊哈</title>
+  <title>go 打包文件压缩 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-build-compress/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="go 打包文件压缩" />
 <meta property="og:description" content="golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &ldquo;-s -w&rdquo; 参数来优化编" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-build-compress/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-build-compress/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-11-20T11:31:00+08:00" />
 <meta property="article:modified_time" content="2019-11-21T16:16:27+08:00" />
+
 <meta itemprop="name" content="go 打包文件压缩">
-<meta itemprop="description" content="golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &ldquo;-s -w&rdquo; 参数来优化编">
-<meta itemprop="datePublished" content="2019-11-20T11:31:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-21T16:16:27&#43;08:00" />
+<meta itemprop="description" content="golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &ldquo;-s -w&rdquo; 参数来优化编"><meta itemprop="datePublished" content="2019-11-20T11:31:00+08:00" />
+<meta itemprop="dateModified" content="2019-11-21T16:16:27+08:00" />
 <meta itemprop="wordCount" content="378">
-
-
-
 <meta itemprop="keywords" content="go,upx," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="go 打包文件压缩"/>
 <meta name="twitter:description" content="golang文件打包后默认体积还是不小, 通过参数以及三方工具可以缓解一下 命令行参数 -ldflags 在程序编译的时候可以加上-ldflags &ldquo;-s -w&rdquo; 参数来优化编"/>
@@ -176,29 +173,29 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">go build -ldflags -w main.go
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">go build -ldflags -w main.go
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>对比数据:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">-rwxr-xr-x <span class="m">1</span> root root  12M 11月 <span class="m">20</span> 11:56 example
--rwxr-xr-x <span class="m">1</span> root root  16M 11月 <span class="m">20</span> 11:56 example2
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">-rwxr-xr-x <span class="m">1</span> root root  12M 11月 <span class="m">20</span> 11:56 example
+</span></span><span class="line"><span class="cl">-rwxr-xr-x <span class="m">1</span> root root  16M 11月 <span class="m">20</span> 11:56 example2
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="使用upx">使用upx</h3>
 <p>打完包后还可以使用 <a href="https://github.com/upx/upx">upx</a> 给压缩一下, 可以用 <code>yum</code> <code>brew</code> 什么的下载, 也可以从github页面下载</p>
 <p>执行命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -212,30 +209,30 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">$ upx example
-
-
-                       Ultimate Packer <span class="k">for</span> eXecutables
-                          Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">1996</span> - <span class="m">2018</span>
-UPX 3.95        Markus Oberhumer, Laszlo Molnar <span class="p">&amp;</span> John Reiser   Aug 26th <span class="m">2018</span>
-
-        File size         Ratio      Format      Name
-   --------------------   ------   -----------   -----------
-  <span class="m">12083200</span> -&gt;   <span class="m">4603884</span>   38.10%   linux/amd64   example
-
-Packed <span class="m">1</span> file
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ upx example
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                       Ultimate Packer <span class="k">for</span> eXecutables
+</span></span><span class="line"><span class="cl">                          Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">1996</span> - <span class="m">2018</span>
+</span></span><span class="line"><span class="cl">UPX 3.95        Markus Oberhumer, Laszlo Molnar <span class="p">&amp;</span> John Reiser   Aug 26th <span class="m">2018</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        File size         Ratio      Format      Name
+</span></span><span class="line"><span class="cl">   --------------------   ------   -----------   -----------
+</span></span><span class="line"><span class="cl">  <span class="m">12083200</span> -&gt;   <span class="m">4603884</span>   38.10%   linux/amd64   example
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Packed <span class="m">1</span> file
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>压缩后</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">-rwxr-xr-x 1 root root 4.4M 11月 20 11:56 example
--rwxr-xr-x 1 root root  16M 11月 20 11:56 example2
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-rwxr-xr-x 1 root root 4.4M 11月 20 11:56 example
+</span></span><span class="line"><span class="cl">-rwxr-xr-x 1 root root  16M 11月 20 11:56 example2
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>和原包比对就能看到巨大差距</p>
 
@@ -346,7 +343,7 @@ Packed <span class="m">1</span> file
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

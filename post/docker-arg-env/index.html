@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>docker中 arg 和 env 的区别 - helloword啊哈</title>
+  <title>docker中 arg 和 env 的区别 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-arg-env/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="docker中 arg 和 env 的区别" />
 <meta property="og:description" content="在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/docker-arg-env/" />
+<meta property="og:url" content="https://blog.justwe.site/post/docker-arg-env/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-06-28T17:55:59+00:00" />
 <meta property="article:modified_time" content="2019-11-21T16:16:27+08:00" />
+
 <meta itemprop="name" content="docker中 arg 和 env 的区别">
-<meta itemprop="description" content="在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用">
-<meta itemprop="datePublished" content="2018-06-28T17:55:59&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-21T16:16:27&#43;08:00" />
-<meta itemprop="wordCount" content="458">
-
-
-
+<meta itemprop="description" content="在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用"><meta itemprop="datePublished" content="2018-06-28T17:55:59+00:00" />
+<meta itemprop="dateModified" content="2019-11-21T16:16:27+08:00" />
+<meta itemprop="wordCount" content="478">
 <meta itemprop="keywords" content="docker-composer,docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker中 arg 和 env 的区别"/>
 <meta name="twitter:description" content="在使用 docker-compoe 构建镜像的时候会感觉 ARG 和 ENV 的作用很相似, 但是这两个存在就肯定有它的原因 它们起作用的时机 arg 是在 build 的时候存在的, 可以在 Dockerfile 中当做变量来使用"/>
@@ -176,7 +173,7 @@
 <h3 id="拿一个具体的例子">拿一个具体的例子</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -189,50 +186,48 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="c"># Dockerfile</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> redis:3.2-alpine</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;GPF &lt;5173180@qq.com&gt;&#34;</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">ARG</span> <span class="nv">REDIS_SET_PASSWORD</span><span class="o">=</span>developer
-<span class="k">ENV</span> REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD</span><span class="si">}</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">VOLUME</span><span class="s"> /data</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 6379</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;sh&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="s2">&#34;exec redis-server --requirepass \&#34;$REDIS_PASSWORD\&#34;&#34;</span><span class="p">]</span><span class="err">
-</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="c"># Dockerfile</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> redis:3.2-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;GPF &lt;5173180@qq.com&gt;&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">REDIS_SET_PASSWORD</span><span class="o">=</span>developer
+</span></span><span class="line"><span class="cl"><span class="k">ENV</span> REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD</span><span class="si">}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">VOLUME</span><span class="s"> /data</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 6379</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;sh&#34;</span><span class="p">,</span> <span class="s2">&#34;-c&#34;</span><span class="p">,</span> <span class="s2">&#34;exec redis-server --requirepass \&#34;$REDIS_PASSWORD\&#34;&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这是一个构建 redis 的文件, 中间有这么一句</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">ARG <span class="nv">REDIS_SET_PASSWORD</span><span class="o">=</span>developer
-ENV REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD</span><span class="si">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ARG <span class="nv">REDIS_SET_PASSWORD</span><span class="o">=</span>developer
+</span></span><span class="line"><span class="cl">ENV REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>它是为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">CMD <span class="o">[</span><span class="s2">&#34;sh&#34;</span>, <span class="s2">&#34;-c&#34;</span>, <span class="s2">&#34;exec redis-server --requirepass \&#34;</span><span class="nv">$REDIS_PASSWORD</span><span class="s2">\&#34;&#34;</span><span class="o">]</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">CMD <span class="o">[</span><span class="s2">&#34;sh&#34;</span>, <span class="s2">&#34;-c&#34;</span>, <span class="s2">&#34;exec redis-server --requirepass \&#34;</span><span class="nv">$REDIS_PASSWORD</span><span class="s2">\&#34;&#34;</span><span class="o">]</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这一句服务的, 这句就是在启动 redis 的时候设置密码, 因为当执行 <code>CMD</code> 的时候,说明容器已经构建成功运行了起来,此时 <code>CMD</code>是在容器中执行容器中的命令, 因此 <code>CMD</code> 中的变量是用的环境变量而不是在 <code>Dockerfile</code> 中的变量,因此需要把 <code>ARG</code> 中的值在构建的时候赋值给 <code>ENV</code></p>
 <h3 id="另一个使用-arg-的例子">另一个使用 ARG 的例子</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -255,47 +250,45 @@ ENV REDIS_PASSWORD <span class="si">${</span><span class="nv">REDIS_SET_PASSWORD
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
-</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="k">FROM</span><span class="s"> nginx:1.13.1-alpine</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;GPF &lt;5173180@qq.com&gt;&#34;</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="c">#https://yeasy.gitbooks.io/docker_practice/content/image/build.html</span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> mkdir -p /etc/nginx/cert <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/conf.d <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/sites<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./nginx.conf /etc/ngixn/nginx.conf<span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./conf.d/ /etc/nginx/conf.d/<span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./cert/ /etc/nginx/cert/<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./sites /etc/nginx/sites/<span class="err">
-</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="o">=</span>php-fpm<span class="err">
-</span><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_PORT</span><span class="o">=</span><span class="m">9000</span>
-<span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&#34;/var/log/nginx&#34;</span><span class="p">,</span> <span class="s2">&#34;/var/www&#34;</span><span class="p">]</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/share/nginx/html</span><span class="err">
-</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> nginx:1.13.1-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;GPF &lt;5173180@qq.com&gt;&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#https://yeasy.gitbooks.io/docker_practice/content/image/build.html</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> mkdir -p /etc/nginx/cert <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/conf.d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/sites<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./nginx.conf /etc/ngixn/nginx.conf<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./conf.d/ /etc/nginx/conf.d/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./cert/ /etc/nginx/cert/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./sites /etc/nginx/sites/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="o">=</span>php-fpm<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_PORT</span><span class="o">=</span><span class="m">9000</span>
+</span></span><span class="line"><span class="cl"><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&#34;/var/log/nginx&#34;</span><span class="p">,</span> <span class="s2">&#34;/var/www&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/share/nginx/html</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里就只是用了<code>ARG</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">ARG <span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="o">=</span>php-fpm
-ARG <span class="nv">PHP_UPSTREAM_PORT</span><span class="o">=</span><span class="m">9000</span>
-RUN <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ARG <span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="o">=</span>php-fpm
+</span></span><span class="line"><span class="cl">ARG <span class="nv">PHP_UPSTREAM_PORT</span><span class="o">=</span><span class="m">9000</span>
+</span></span><span class="line"><span class="cl">RUN <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里的变量用的就是 <code>ARG</code> 而不是 <code>ENV</code>了,因为这条命令运行在 <code>Dockerfile</code> 当中的, 像这种临时使用一下的变量没必要存环境变量的值就很适合使用 <code>ARG</code></p>
 
@@ -406,7 +399,7 @@ RUN <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { s
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

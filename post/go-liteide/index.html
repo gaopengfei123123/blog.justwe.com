@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>安装LiteIde配置 - helloword啊哈</title>
+  <title>安装LiteIde配置 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-liteide/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="安装LiteIde配置" />
 <meta property="og:description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-liteide/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-liteide/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-03-07T05:49:56+00:00" />
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
+
 <meta itemprop="name" content="安装LiteIde配置">
-<meta itemprop="description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是">
-<meta itemprop="datePublished" content="2017-03-07T05:49:56&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
+<meta itemprop="description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是"><meta itemprop="datePublished" content="2017-03-07T05:49:56+00:00" />
+<meta itemprop="dateModified" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="wordCount" content="567">
-
-
-
 <meta itemprop="keywords" content="liteide," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="安装LiteIde配置"/>
 <meta name="twitter:description" content="这里设置 Liteide 的配置(环境macOS) Liteide 是一款专门为go开发的一款ide，省去了类似atom编辑器的一些麻烦的环境配置导致atom越来越臃肿，是"/>
@@ -163,11 +160,11 @@
 <p>1.安装go</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">brew install go
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew install go
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>下载Liteide</li>
@@ -182,7 +179,7 @@
 <p>列出我现在的环境</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -201,24 +198,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># native compiler darwin amd64
-
-GOROOT=/usr/local/Cellar/go/1.8/libexec
-GOPATH=$HOME/Documents/go
-GOBIN=
-GOARCH=amd64
-GOOS=darwin
-CGO_ENABLED=1
-
-PATH=$GOROOT/bin:$PATH
-
-LITEIDE_GDB=/usr/local/bin/gdb
-LITEIDE_MAKE=make
-LITEIDE_TERM=/usr/bin/open
-LITEIDE_TERMARGS=-a Terminal
-LITEIDE_EXEC=/usr/X11R6/bin/xterm
-LITEIDE_EXECOPT=-e
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># native compiler darwin amd64
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GOROOT=/usr/local/Cellar/go/1.8/libexec
+</span></span><span class="line"><span class="cl">GOPATH=$HOME/Documents/go
+</span></span><span class="line"><span class="cl">GOBIN=
+</span></span><span class="line"><span class="cl">GOARCH=amd64
+</span></span><span class="line"><span class="cl">GOOS=darwin
+</span></span><span class="line"><span class="cl">CGO_ENABLED=1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PATH=$GOROOT/bin:$PATH
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">LITEIDE_GDB=/usr/local/bin/gdb
+</span></span><span class="line"><span class="cl">LITEIDE_MAKE=make
+</span></span><span class="line"><span class="cl">LITEIDE_TERM=/usr/bin/open
+</span></span><span class="line"><span class="cl">LITEIDE_TERMARGS=-a Terminal
+</span></span><span class="line"><span class="cl">LITEIDE_EXEC=/usr/X11R6/bin/xterm
+</span></span><span class="line"><span class="cl">LITEIDE_EXECOPT=-e
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面这一块刚开始是注释掉的，需要我们自己填写，这个是每次运行编辑器的适合才会用到的配置，和安装时的系统配置不冲突</p>
 <p>需要注意区分的就是 <code>GOROOT</code> 和 <code>GOPATH</code> 这两个变量</p>
@@ -232,19 +229,19 @@ LITEIDE_EXECOPT=-e
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd $HOME/Documents/go/src
-mkdir hello &amp;&amp; cd hello
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd $HOME/Documents/go/src
+</span></span><span class="line"><span class="cl">mkdir hello &amp;&amp; cd hello
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过liteide编辑器打开目录，创建一个文件  main.go</p>
 <p>文件内容如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -253,14 +250,14 @@ mkdir hello &amp;&amp; cd hello
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello world!&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello world!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后点击编辑器右上角的 <code>BR(build and run)</code> 就能在编辑器下面的信息框中看到输出内容了</p>
 <p>ready go！</p>
@@ -377,7 +374,7 @@ mkdir hello &amp;&amp; cd hello
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

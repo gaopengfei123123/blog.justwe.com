@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yii2 on helloword啊哈</title>
+    <title>Yii2 on helloword啊</title>
     <link>https://blog.justwe.site/categories/yii2/</link>
-    <description>Recent content in Yii2 on helloword啊哈</description>
+    <description>Recent content in Yii2 on helloword啊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 19 Dec 2018 11:31:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.justwe.site/categories/yii2/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 19 Dec 2018 11:31:00 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/categories/yii2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>转 yii2 断线重连问题</title>
       <link>https://blog.justwe.site/post/yii-mysql/</link>
@@ -45,7 +41,7 @@
       <pubDate>Tue, 28 Feb 2017 07:42:34 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/yii-beforeaction/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 public function beforeAction($action) { if(condition){ Yii::$app-&amp;gt;response-&amp;gt;format = Response::FORMAT_JSON; Yii::$app-&amp;gt;response-&amp;gt;data = array( &amp;#39;status&amp;#39; =&amp;gt; -1, &amp;#39;message&amp;#39; =&amp;gt; &amp;#39;请先登录&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; \Yii::$app-&amp;gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响</description>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 public function beforeAction($action) { if(condition){ Yii::$app-&amp;gt;response-&amp;gt;format = Response::FORMAT_JSON; Yii::$app-&amp;gt;response-&amp;gt;data = array( &amp;#39;status&amp;#39; =&amp;gt; -1, &amp;#39;message&amp;#39; =&amp;gt; &amp;#39;请先登录&amp;#39;, &amp;#39;url&amp;#39; =&amp;gt; \Yii::$app-&amp;gt;getHomeUrl() ); return false; } return true; } 这个函数只返回bool值，响应</description>
     </item>
     
     <item>

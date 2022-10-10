@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>webuploader插件 - helloword啊哈</title>
+  <title>webuploader插件 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/webupload-demo/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="webuploader插件" />
 <meta property="og:description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/webupload-demo/" />
+<meta property="og:url" content="https://blog.justwe.site/post/webupload-demo/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-10-12T15:24:00+00:00" />
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
+
 <meta itemprop="name" content="webuploader插件">
-<meta itemprop="description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把">
-<meta itemprop="datePublished" content="2016-10-12T15:24:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
+<meta itemprop="description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把"><meta itemprop="datePublished" content="2016-10-12T15:24:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="wordCount" content="3055">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="webuploader插件"/>
 <meta name="twitter:description" content="通过这个插件让我感觉到大百度还仍然是技术公司 说了句废话,开始正题. 这里用的是插件提供的源码 插件官网传送门 demo就是拿的源码的 image-upload 示例,就是把"/>
@@ -172,7 +169,7 @@
 <h4 id="html代码">html代码</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -214,52 +211,52 @@
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html;charset=UTF-8&#34;&gt;
-    &lt;title&gt;WebUploader演示&lt;/title&gt;
-    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;{{ asset(&#39;webuploaderDemo/css/webuploader.css&#39;) }}&#34; /&gt;
-    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/style.css&#39;) }}&#34; /&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div id=&#34;wrapper&#34;&gt;
-    &lt;h1 id=&#34;stopBtn&#34;&gt;暂停&lt;/h1&gt;
-    &lt;h1 id=&#34;continueBtn&#34;&gt;继续&lt;/h1&gt;
-    &lt;h1 id=&#34;cancleBtn&#34; attr=&#34;&#34;&gt;取消&lt;/h1&gt;
-    &lt;div id=&#34;container&#34;&gt;
-        &lt;!--头部，相册选择和格式选择--&gt;
-
-        &lt;div id=&#34;uploader&#34;&gt;
-            &lt;div class=&#34;queueList&#34;&gt;
-                &lt;div id=&#34;dndArea&#34; class=&#34;placeholder&#34;&gt;
-                    &lt;div id=&#34;filePicker&#34;&gt;&lt;/div&gt;
-                    &lt;p&gt;或将文件拖动到这里,支持格式:mp4,rmvb,上限3个&lt;/p&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&#34;statusBar&#34; style=&#34;display:none;&#34;&gt;
-                &lt;div class=&#34;progress&#34;&gt;
-                    &lt;span class=&#34;text&#34;&gt;0%&lt;/span&gt;
-                    &lt;span class=&#34;percentage&#34;&gt;&lt;/span&gt;
-                &lt;/div&gt;&lt;div class=&#34;info&#34;&gt;&lt;/div&gt;
-                &lt;div class=&#34;btns&#34;&gt;
-                    &lt;div id=&#34;filePicker2&#34;&gt;&lt;/div&gt;&lt;div class=&#34;uploadBtn&#34;&gt;暂停&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/jquery.js&#39;) }}&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/dist/webuploader.js&#39;) }}&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/upload3.js&#39;) }}&#34;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 4.01//EN&#34; &#34;http://www.w3.org/TR/html4/strict.dtd&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;html lang=&#34;en&#34;&gt;
+</span></span><span class="line"><span class="cl">&lt;head&gt;
+</span></span><span class="line"><span class="cl">    &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html;charset=UTF-8&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;title&gt;WebUploader演示&lt;/title&gt;
+</span></span><span class="line"><span class="cl">    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;{{ asset(&#39;webuploaderDemo/css/webuploader.css&#39;) }}&#34; /&gt;
+</span></span><span class="line"><span class="cl">    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/style.css&#39;) }}&#34; /&gt;
+</span></span><span class="line"><span class="cl">&lt;/head&gt;
+</span></span><span class="line"><span class="cl">&lt;body&gt;
+</span></span><span class="line"><span class="cl">&lt;div id=&#34;wrapper&#34;&gt;
+</span></span><span class="line"><span class="cl">    &lt;h1 id=&#34;stopBtn&#34;&gt;暂停&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">    &lt;h1 id=&#34;continueBtn&#34;&gt;继续&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">    &lt;h1 id=&#34;cancleBtn&#34; attr=&#34;&#34;&gt;取消&lt;/h1&gt;
+</span></span><span class="line"><span class="cl">    &lt;div id=&#34;container&#34;&gt;
+</span></span><span class="line"><span class="cl">        &lt;!--头部，相册选择和格式选择--&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        &lt;div id=&#34;uploader&#34;&gt;
+</span></span><span class="line"><span class="cl">            &lt;div class=&#34;queueList&#34;&gt;
+</span></span><span class="line"><span class="cl">                &lt;div id=&#34;dndArea&#34; class=&#34;placeholder&#34;&gt;
+</span></span><span class="line"><span class="cl">                    &lt;div id=&#34;filePicker&#34;&gt;&lt;/div&gt;
+</span></span><span class="line"><span class="cl">                    &lt;p&gt;或将文件拖动到这里,支持格式:mp4,rmvb,上限3个&lt;/p&gt;
+</span></span><span class="line"><span class="cl">                &lt;/div&gt;
+</span></span><span class="line"><span class="cl">            &lt;/div&gt;
+</span></span><span class="line"><span class="cl">            &lt;div class=&#34;statusBar&#34; style=&#34;display:none;&#34;&gt;
+</span></span><span class="line"><span class="cl">                &lt;div class=&#34;progress&#34;&gt;
+</span></span><span class="line"><span class="cl">                    &lt;span class=&#34;text&#34;&gt;0%&lt;/span&gt;
+</span></span><span class="line"><span class="cl">                    &lt;span class=&#34;percentage&#34;&gt;&lt;/span&gt;
+</span></span><span class="line"><span class="cl">                &lt;/div&gt;&lt;div class=&#34;info&#34;&gt;&lt;/div&gt;
+</span></span><span class="line"><span class="cl">                &lt;div class=&#34;btns&#34;&gt;
+</span></span><span class="line"><span class="cl">                    &lt;div id=&#34;filePicker2&#34;&gt;&lt;/div&gt;&lt;div class=&#34;uploadBtn&#34;&gt;暂停&lt;/div&gt;
+</span></span><span class="line"><span class="cl">                &lt;/div&gt;
+</span></span><span class="line"><span class="cl">            &lt;/div&gt;
+</span></span><span class="line"><span class="cl">        &lt;/div&gt;
+</span></span><span class="line"><span class="cl">    &lt;/div&gt;
+</span></span><span class="line"><span class="cl">&lt;/div&gt;
+</span></span><span class="line"><span class="cl">&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/jquery.js&#39;) }}&#34;&gt;&lt;/script&gt;
+</span></span><span class="line"><span class="cl">&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/dist/webuploader.js&#39;) }}&#34;&gt;&lt;/script&gt;
+</span></span><span class="line"><span class="cl">&lt;script type=&#34;text/javascript&#34; src=&#34;{{ asset(&#39;webuploaderDemo/examples/image-upload/upload3.js&#39;) }}&#34;&gt;&lt;/script&gt;
+</span></span><span class="line"><span class="cl">&lt;/body&gt;
+</span></span><span class="line"><span class="cl">&lt;/html&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="js部分">js部分</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -515,266 +512,266 @@
 </span><span class="lnt">254
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">(function( $ ){
-    // 当domReady的时候开始初始化
-    $(function() {
-        var $wrap = $(&#39;#uploader&#39;),
-
-            // 图片容器
-            $queue = $( &#39;&lt;ul class=&#34;filelist&#34;&gt;&lt;/ul&gt;&#39; )
-                .appendTo( $wrap.find( &#39;.queueList&#39; ) ),
-
-            // 状态栏，包括进度和控制按钮
-            $statusBar = $wrap.find( &#39;.statusBar&#39; ),
-
-            // 文件总体选择信息。
-            $info = $statusBar.find( &#39;.info&#39; ),
-
-            // 上传按钮
-            $upload = $wrap.find( &#39;.uploadBtn&#39; ),
-
-            // 没选择文件之前的内容。
-            $placeHolder = $wrap.find( &#39;.placeholder&#39; ),
-
-            $progress = $statusBar.find( &#39;.progress&#39; ).hide(),
-
-            // 添加的文件数量
-            fileCount = 0,
-
-            // 添加的文件总大小
-            fileSize = 0,
-
-            // 优化retina, 在retina下这个值是2
-            ratio = window.devicePixelRatio || 1,
-
-            // 缩略图大小
-            thumbnailWidth = 110 * ratio,
-            thumbnailHeight = 110 * ratio,
-
-            // 可能有pedding, ready, uploading, confirm, done.
-            state = &#39;pedding&#39;,
-
-            // 所有文件的进度信息，key为file id
-            percentages = {},
-            // 判断浏览器是否支持图片的base64
-            isSupportBase64 = ( function() {
-                var data = new Image();
-                var support = true;
-                data.onload = data.onerror = function() {
-                    if( this.width != 1 || this.height != 1 ) {
-                        support = false;
-                    }
-                }
-                data.src = &#34;data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==&#34;;
-                return support;
-            } )(),
-
-            // 检测是否已经安装flash，检测flash的版本
-            flashVersion = ( function() {
-                var version;
-
-                try {
-                    version = navigator.plugins[ &#39;Shockwave Flash&#39; ];
-                    version = version.description;
-                } catch ( ex ) {
-                    try {
-                        version = new ActiveXObject(&#39;ShockwaveFlash.ShockwaveFlash&#39;)
-                                .GetVariable(&#39;$version&#39;);
-                    } catch ( ex2 ) {
-                        version = &#39;0.0&#39;;
-                    }
-                }
-                version = version.match( /\d+/g );
-                return parseFloat( version[ 0 ] + &#39;.&#39; + version[ 1 ], 10 );
-            } )(),
-
-            supportTransition = (function(){
-                var s = document.createElement(&#39;p&#39;).style,
-                    r = &#39;transition&#39; in s ||
-                            &#39;WebkitTransition&#39; in s ||
-                            &#39;MozTransition&#39; in s ||
-                            &#39;msTransition&#39; in s ||
-                            &#39;OTransition&#39; in s;
-                s = null;
-                return r;
-            })(),
-
-            // WebUploader实例
-            uploader;
-
-        if ( !WebUploader.Uploader.support(&#39;flash&#39;) &amp;&amp; WebUploader.browser.ie ) {
-
-            // flash 安装了但是版本过低。
-            if (flashVersion) {
-                (function(container) {
-                    window[&#39;expressinstallcallback&#39;] = function( state ) {
-                        switch(state) {
-                            case &#39;Download.Cancelled&#39;:
-                                alert(&#39;您取消了更新！&#39;)
-                                break;
-
-                            case &#39;Download.Failed&#39;:
-                                alert(&#39;安装失败&#39;)
-                                break;
-
-                            default:
-                                alert(&#39;安装已成功，请刷新！&#39;);
-                                break;
-                        }
-                        delete window[&#39;expressinstallcallback&#39;];
-                    };
-
-                    var swf = &#39;./expressInstall.swf&#39;;
-                    // insert flash object
-                    var html = &#39;&lt;object type=&#34;application/&#39; +
-                            &#39;x-shockwave-flash&#34; data=&#34;&#39; +  swf + &#39;&#34; &#39;;
-
-                    if (WebUploader.browser.ie) {
-                        html += &#39;classid=&#34;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&#34; &#39;;
-                    }
-
-                    html += &#39;width=&#34;100%&#34; height=&#34;100%&#34; style=&#34;outline:0&#34;&gt;&#39;  +
-                        &#39;&lt;param name=&#34;movie&#34; value=&#34;&#39; + swf + &#39;&#34; /&gt;&#39; +
-                        &#39;&lt;param name=&#34;wmode&#34; value=&#34;transparent&#34; /&gt;&#39; +
-                        &#39;&lt;param name=&#34;allowscriptaccess&#34; value=&#34;always&#34; /&gt;&#39; +
-                    &#39;&lt;/object&gt;&#39;;
-
-                    container.html(html);
-
-                })($wrap);
-
-            // 压根就没有安转。
-            } else {
-                $wrap.html(&#39;&lt;a href=&#34;http://www.adobe.com/go/getflashplayer&#34; target=&#34;_blank&#34; border=&#34;0&#34;&gt;&lt;img alt=&#34;get flash player&#34; src=&#34;http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg&#34; /&gt;&lt;/a&gt;&#39;);
-            }
-
-            return;
-        } else if (!WebUploader.Uploader.support()) {
-            alert( &#39;Web Uploader 不支持您的浏览器！&#39;);
-            return;
-        }
-
-        // 实例化
-        uploader = WebUploader.create({
-            auto: true,         //开启自动上传
-            pick: {             //点击选择文件按钮
-                id: &#39;#filePicker&#39;,
-                label: &#39;点击选择文件&#39;,
-                multiple : false //是否开起同时选择多个文件能力。
-            },
-            formData: {         //上传时的文本内容
-                uid: 5173180,
-                filename : &#39;filename_test&#39;
-            },
-            dnd: &#39;#dndArea&#39;,                    //文件可拖拽范围
-            paste: &#39;#uploader&#39;,                 //可通过粘贴添加到文件框内
-            swf: &#39;../../dist/Uploader.swf&#39;,     //flash文件
-            chunked: true,                      //开启分片上传
-            chunkSize: 512 * 1024,      //分片大小 512k
-            server : &#39;http://testlaravel/web/uploader&#39;, //后端处理函数
-            // runtimeOrder: &#39;flash&#39;,
-
-             accept: {      //限制文件类型
-                 title: &#39;Video&#39;,
-                 extensions: &#39;mp4,rmvb&#39;,
-                 mimeTypes: &#39;video/*&#39;
-             },
-
-            disableGlobalDnd: true,             // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
-            fileNumLimit: 1,                    //限制上传一个文件
-            fileSizeLimit: 1024 * 1024 * 1024,  // 1 G
-            fileSingleSizeLimit: 1024 * 1024 * 1024,    // 单个最大文件 1G
-            method : &#39;POST&#39;                     //指定上传方法
-        });
-
-
-        //// 拖拽时不接受 js, txt 文件。
-        uploader.on( &#39;dndAccept&#39;, function( items ) {
-            var denied = false,
-                len = items.length,
-                i = 0,
-                // 修改js类型
-                unAllowed = &#39;text/plain;application/javascript &#39;;
-
-            for ( ; i &lt; len; i++ ) {
-                // 如果在列表里面
-                if ( ~unAllowed.indexOf( items[ i ].type ) ) {
-                    denied = true;
-                    break;
-                }
-            }
-
-            return !denied;
-        });
-
-
-        var oldTime = new Date().getTime();
-
-        uploader.on( &#39;uploadProgress&#39;, function( file, percentage ) {
-            console.log(&#39;上传进度:&#39;+ percentage * 100 + &#39;%&#39;);
-
-            var currentTime = new Date().getTime();
-            var cha = currentTime - oldTime;
-
-            var chunkSize = 512;
-
-            //设置网速
-            var ws = (chunkSize/cha)*1000;
-
-
-            console.log(&#39;当前网速:&#39; + ws + &#39;kb/s&#39;);
-
-            oldTime = currentTime;
-
-        });
-
-        //接收服务器返回信息
-        //这里才是接收服务器信息的地方,如果有出错就 `return false` 来停止上传
-        uploader.on( &#39;uploadAccept&#39;, function( file, response ) {
-            var str = response._raw;
-            var info = eval(&#39;(&#39; + str + &#39;)&#39;);
-            console.log(info);
-            //if ( hasError ) {
-            //    // 通过return false来告诉组件，此文件上传有错。
-            //    return false;
-            //}
-        });
-
-        uploader.onFileQueued = function( file ) {
-            console.log(&#39;添加文件动作&#39;);
-            $(&#39;#cancleBtn&#39;).attr({&#39;attr&#39;: file.id});
-        };
-
-        uploader.onUploadFinished = function(){
-            console.log(&#39;完成上传&#39;);
-        }
-
-        $(&#39;#stopBtn&#39;).on( &#39;click&#39;, function() {
-            console.log(&#34;暂停上传...&#34;);
-            uploader.stop(true);
-        });
-
-        $(&#39;#continueBtn&#39;).on( &#39;click&#39;, function() {
-            console.log(&#34;继续&#34;);
-            uploader.upload();
-        });
-
-        $(&#39;#cancleBtn&#39;).on( &#39;click&#39;, function() {
-            console.log(&#34;取消上传&#34;);
-            var id = $(this).attr(&#39;attr&#39;);
-            //指定取消的文件id
-            uploader.cancelFile(id);
-        });
-
-
-    });
-})( jQuery );
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(function( $ ){
+</span></span><span class="line"><span class="cl">    // 当domReady的时候开始初始化
+</span></span><span class="line"><span class="cl">    $(function() {
+</span></span><span class="line"><span class="cl">        var $wrap = $(&#39;#uploader&#39;),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 图片容器
+</span></span><span class="line"><span class="cl">            $queue = $( &#39;&lt;ul class=&#34;filelist&#34;&gt;&lt;/ul&gt;&#39; )
+</span></span><span class="line"><span class="cl">                .appendTo( $wrap.find( &#39;.queueList&#39; ) ),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 状态栏，包括进度和控制按钮
+</span></span><span class="line"><span class="cl">            $statusBar = $wrap.find( &#39;.statusBar&#39; ),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 文件总体选择信息。
+</span></span><span class="line"><span class="cl">            $info = $statusBar.find( &#39;.info&#39; ),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 上传按钮
+</span></span><span class="line"><span class="cl">            $upload = $wrap.find( &#39;.uploadBtn&#39; ),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 没选择文件之前的内容。
+</span></span><span class="line"><span class="cl">            $placeHolder = $wrap.find( &#39;.placeholder&#39; ),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            $progress = $statusBar.find( &#39;.progress&#39; ).hide(),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 添加的文件数量
+</span></span><span class="line"><span class="cl">            fileCount = 0,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 添加的文件总大小
+</span></span><span class="line"><span class="cl">            fileSize = 0,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 优化retina, 在retina下这个值是2
+</span></span><span class="line"><span class="cl">            ratio = window.devicePixelRatio || 1,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 缩略图大小
+</span></span><span class="line"><span class="cl">            thumbnailWidth = 110 * ratio,
+</span></span><span class="line"><span class="cl">            thumbnailHeight = 110 * ratio,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 可能有pedding, ready, uploading, confirm, done.
+</span></span><span class="line"><span class="cl">            state = &#39;pedding&#39;,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 所有文件的进度信息，key为file id
+</span></span><span class="line"><span class="cl">            percentages = {},
+</span></span><span class="line"><span class="cl">            // 判断浏览器是否支持图片的base64
+</span></span><span class="line"><span class="cl">            isSupportBase64 = ( function() {
+</span></span><span class="line"><span class="cl">                var data = new Image();
+</span></span><span class="line"><span class="cl">                var support = true;
+</span></span><span class="line"><span class="cl">                data.onload = data.onerror = function() {
+</span></span><span class="line"><span class="cl">                    if( this.width != 1 || this.height != 1 ) {
+</span></span><span class="line"><span class="cl">                        support = false;
+</span></span><span class="line"><span class="cl">                    }
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">                data.src = &#34;data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==&#34;;
+</span></span><span class="line"><span class="cl">                return support;
+</span></span><span class="line"><span class="cl">            } )(),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 检测是否已经安装flash，检测flash的版本
+</span></span><span class="line"><span class="cl">            flashVersion = ( function() {
+</span></span><span class="line"><span class="cl">                var version;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                try {
+</span></span><span class="line"><span class="cl">                    version = navigator.plugins[ &#39;Shockwave Flash&#39; ];
+</span></span><span class="line"><span class="cl">                    version = version.description;
+</span></span><span class="line"><span class="cl">                } catch ( ex ) {
+</span></span><span class="line"><span class="cl">                    try {
+</span></span><span class="line"><span class="cl">                        version = new ActiveXObject(&#39;ShockwaveFlash.ShockwaveFlash&#39;)
+</span></span><span class="line"><span class="cl">                                .GetVariable(&#39;$version&#39;);
+</span></span><span class="line"><span class="cl">                    } catch ( ex2 ) {
+</span></span><span class="line"><span class="cl">                        version = &#39;0.0&#39;;
+</span></span><span class="line"><span class="cl">                    }
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">                version = version.match( /\d+/g );
+</span></span><span class="line"><span class="cl">                return parseFloat( version[ 0 ] + &#39;.&#39; + version[ 1 ], 10 );
+</span></span><span class="line"><span class="cl">            } )(),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            supportTransition = (function(){
+</span></span><span class="line"><span class="cl">                var s = document.createElement(&#39;p&#39;).style,
+</span></span><span class="line"><span class="cl">                    r = &#39;transition&#39; in s ||
+</span></span><span class="line"><span class="cl">                            &#39;WebkitTransition&#39; in s ||
+</span></span><span class="line"><span class="cl">                            &#39;MozTransition&#39; in s ||
+</span></span><span class="line"><span class="cl">                            &#39;msTransition&#39; in s ||
+</span></span><span class="line"><span class="cl">                            &#39;OTransition&#39; in s;
+</span></span><span class="line"><span class="cl">                s = null;
+</span></span><span class="line"><span class="cl">                return r;
+</span></span><span class="line"><span class="cl">            })(),
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // WebUploader实例
+</span></span><span class="line"><span class="cl">            uploader;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        if ( !WebUploader.Uploader.support(&#39;flash&#39;) &amp;&amp; WebUploader.browser.ie ) {
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // flash 安装了但是版本过低。
+</span></span><span class="line"><span class="cl">            if (flashVersion) {
+</span></span><span class="line"><span class="cl">                (function(container) {
+</span></span><span class="line"><span class="cl">                    window[&#39;expressinstallcallback&#39;] = function( state ) {
+</span></span><span class="line"><span class="cl">                        switch(state) {
+</span></span><span class="line"><span class="cl">                            case &#39;Download.Cancelled&#39;:
+</span></span><span class="line"><span class="cl">                                alert(&#39;您取消了更新！&#39;)
+</span></span><span class="line"><span class="cl">                                break;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            case &#39;Download.Failed&#39;:
+</span></span><span class="line"><span class="cl">                                alert(&#39;安装失败&#39;)
+</span></span><span class="line"><span class="cl">                                break;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            default:
+</span></span><span class="line"><span class="cl">                                alert(&#39;安装已成功，请刷新！&#39;);
+</span></span><span class="line"><span class="cl">                                break;
+</span></span><span class="line"><span class="cl">                        }
+</span></span><span class="line"><span class="cl">                        delete window[&#39;expressinstallcallback&#39;];
+</span></span><span class="line"><span class="cl">                    };
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    var swf = &#39;./expressInstall.swf&#39;;
+</span></span><span class="line"><span class="cl">                    // insert flash object
+</span></span><span class="line"><span class="cl">                    var html = &#39;&lt;object type=&#34;application/&#39; +
+</span></span><span class="line"><span class="cl">                            &#39;x-shockwave-flash&#34; data=&#34;&#39; +  swf + &#39;&#34; &#39;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    if (WebUploader.browser.ie) {
+</span></span><span class="line"><span class="cl">                        html += &#39;classid=&#34;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&#34; &#39;;
+</span></span><span class="line"><span class="cl">                    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    html += &#39;width=&#34;100%&#34; height=&#34;100%&#34; style=&#34;outline:0&#34;&gt;&#39;  +
+</span></span><span class="line"><span class="cl">                        &#39;&lt;param name=&#34;movie&#34; value=&#34;&#39; + swf + &#39;&#34; /&gt;&#39; +
+</span></span><span class="line"><span class="cl">                        &#39;&lt;param name=&#34;wmode&#34; value=&#34;transparent&#34; /&gt;&#39; +
+</span></span><span class="line"><span class="cl">                        &#39;&lt;param name=&#34;allowscriptaccess&#34; value=&#34;always&#34; /&gt;&#39; +
+</span></span><span class="line"><span class="cl">                    &#39;&lt;/object&gt;&#39;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    container.html(html);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                })($wrap);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // 压根就没有安转。
+</span></span><span class="line"><span class="cl">            } else {
+</span></span><span class="line"><span class="cl">                $wrap.html(&#39;&lt;a href=&#34;http://www.adobe.com/go/getflashplayer&#34; target=&#34;_blank&#34; border=&#34;0&#34;&gt;&lt;img alt=&#34;get flash player&#34; src=&#34;http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg&#34; /&gt;&lt;/a&gt;&#39;);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            return;
+</span></span><span class="line"><span class="cl">        } else if (!WebUploader.Uploader.support()) {
+</span></span><span class="line"><span class="cl">            alert( &#39;Web Uploader 不支持您的浏览器！&#39;);
+</span></span><span class="line"><span class="cl">            return;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        // 实例化
+</span></span><span class="line"><span class="cl">        uploader = WebUploader.create({
+</span></span><span class="line"><span class="cl">            auto: true,         //开启自动上传
+</span></span><span class="line"><span class="cl">            pick: {             //点击选择文件按钮
+</span></span><span class="line"><span class="cl">                id: &#39;#filePicker&#39;,
+</span></span><span class="line"><span class="cl">                label: &#39;点击选择文件&#39;,
+</span></span><span class="line"><span class="cl">                multiple : false //是否开起同时选择多个文件能力。
+</span></span><span class="line"><span class="cl">            },
+</span></span><span class="line"><span class="cl">            formData: {         //上传时的文本内容
+</span></span><span class="line"><span class="cl">                uid: 5173180,
+</span></span><span class="line"><span class="cl">                filename : &#39;filename_test&#39;
+</span></span><span class="line"><span class="cl">            },
+</span></span><span class="line"><span class="cl">            dnd: &#39;#dndArea&#39;,                    //文件可拖拽范围
+</span></span><span class="line"><span class="cl">            paste: &#39;#uploader&#39;,                 //可通过粘贴添加到文件框内
+</span></span><span class="line"><span class="cl">            swf: &#39;../../dist/Uploader.swf&#39;,     //flash文件
+</span></span><span class="line"><span class="cl">            chunked: true,                      //开启分片上传
+</span></span><span class="line"><span class="cl">            chunkSize: 512 * 1024,      //分片大小 512k
+</span></span><span class="line"><span class="cl">            server : &#39;http://testlaravel/web/uploader&#39;, //后端处理函数
+</span></span><span class="line"><span class="cl">            // runtimeOrder: &#39;flash&#39;,
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">             accept: {      //限制文件类型
+</span></span><span class="line"><span class="cl">                 title: &#39;Video&#39;,
+</span></span><span class="line"><span class="cl">                 extensions: &#39;mp4,rmvb&#39;,
+</span></span><span class="line"><span class="cl">                 mimeTypes: &#39;video/*&#39;
+</span></span><span class="line"><span class="cl">             },
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            disableGlobalDnd: true,             // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
+</span></span><span class="line"><span class="cl">            fileNumLimit: 1,                    //限制上传一个文件
+</span></span><span class="line"><span class="cl">            fileSizeLimit: 1024 * 1024 * 1024,  // 1 G
+</span></span><span class="line"><span class="cl">            fileSingleSizeLimit: 1024 * 1024 * 1024,    // 单个最大文件 1G
+</span></span><span class="line"><span class="cl">            method : &#39;POST&#39;                     //指定上传方法
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //// 拖拽时不接受 js, txt 文件。
+</span></span><span class="line"><span class="cl">        uploader.on( &#39;dndAccept&#39;, function( items ) {
+</span></span><span class="line"><span class="cl">            var denied = false,
+</span></span><span class="line"><span class="cl">                len = items.length,
+</span></span><span class="line"><span class="cl">                i = 0,
+</span></span><span class="line"><span class="cl">                // 修改js类型
+</span></span><span class="line"><span class="cl">                unAllowed = &#39;text/plain;application/javascript &#39;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            for ( ; i &lt; len; i++ ) {
+</span></span><span class="line"><span class="cl">                // 如果在列表里面
+</span></span><span class="line"><span class="cl">                if ( ~unAllowed.indexOf( items[ i ].type ) ) {
+</span></span><span class="line"><span class="cl">                    denied = true;
+</span></span><span class="line"><span class="cl">                    break;
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            return !denied;
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        var oldTime = new Date().getTime();
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        uploader.on( &#39;uploadProgress&#39;, function( file, percentage ) {
+</span></span><span class="line"><span class="cl">            console.log(&#39;上传进度:&#39;+ percentage * 100 + &#39;%&#39;);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            var currentTime = new Date().getTime();
+</span></span><span class="line"><span class="cl">            var cha = currentTime - oldTime;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            var chunkSize = 512;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            //设置网速
+</span></span><span class="line"><span class="cl">            var ws = (chunkSize/cha)*1000;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            console.log(&#39;当前网速:&#39; + ws + &#39;kb/s&#39;);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            oldTime = currentTime;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //接收服务器返回信息
+</span></span><span class="line"><span class="cl">        //这里才是接收服务器信息的地方,如果有出错就 `return false` 来停止上传
+</span></span><span class="line"><span class="cl">        uploader.on( &#39;uploadAccept&#39;, function( file, response ) {
+</span></span><span class="line"><span class="cl">            var str = response._raw;
+</span></span><span class="line"><span class="cl">            var info = eval(&#39;(&#39; + str + &#39;)&#39;);
+</span></span><span class="line"><span class="cl">            console.log(info);
+</span></span><span class="line"><span class="cl">            //if ( hasError ) {
+</span></span><span class="line"><span class="cl">            //    // 通过return false来告诉组件，此文件上传有错。
+</span></span><span class="line"><span class="cl">            //    return false;
+</span></span><span class="line"><span class="cl">            //}
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        uploader.onFileQueued = function( file ) {
+</span></span><span class="line"><span class="cl">            console.log(&#39;添加文件动作&#39;);
+</span></span><span class="line"><span class="cl">            $(&#39;#cancleBtn&#39;).attr({&#39;attr&#39;: file.id});
+</span></span><span class="line"><span class="cl">        };
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        uploader.onUploadFinished = function(){
+</span></span><span class="line"><span class="cl">            console.log(&#39;完成上传&#39;);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $(&#39;#stopBtn&#39;).on( &#39;click&#39;, function() {
+</span></span><span class="line"><span class="cl">            console.log(&#34;暂停上传...&#34;);
+</span></span><span class="line"><span class="cl">            uploader.stop(true);
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $(&#39;#continueBtn&#39;).on( &#39;click&#39;, function() {
+</span></span><span class="line"><span class="cl">            console.log(&#34;继续&#34;);
+</span></span><span class="line"><span class="cl">            uploader.upload();
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $(&#39;#cancleBtn&#39;).on( &#39;click&#39;, function() {
+</span></span><span class="line"><span class="cl">            console.log(&#34;取消上传&#34;);
+</span></span><span class="line"><span class="cl">            var id = $(this).attr(&#39;attr&#39;);
+</span></span><span class="line"><span class="cl">            //指定取消的文件id
+</span></span><span class="line"><span class="cl">            uploader.cancelFile(id);
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    });
+</span></span><span class="line"><span class="cl">})( jQuery );
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="后端php部分">后端php部分</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -942,173 +939,173 @@
 </span><span class="lnt">166
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">public function testSaveWebUploader(Request $request){
-        //强制浏览器不缓存
-        header(&#34;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#34;);
-        header(&#34;Last-Modified: &#34; . gmdate(&#34;D, d M Y H:i:s&#34;) . &#34; GMT&#34;);
-        header(&#34;Cache-Control: no-store, no-cache, must-revalidate&#34;);
-        header(&#34;Cache-Control: post-check=0, pre-check=0&#34;, false);
-        header(&#34;Pragma: no-cache&#34;);
-
-
-        //指定提交方式
-        if ($_SERVER[&#39;REQUEST_METHOD&#39;] == &#39;OPTIONS&#39;) {
-            exit; // finish preflight CORS requests here
-        }
-
-        //当出现debug判断服务器报错
-        if ( !empty($_REQUEST[ &#39;debug&#39; ]) ) {
-            $random = rand(0, intval($_REQUEST[ &#39;debug&#39; ]) );
-            if ( $random === 0 ) {
-                header(&#34;HTTP/1.0 500 Internal Server Error&#34;);
-                exit;
-            }
-        }
-
-
-        @set_time_limit(5 * 60);
-
-
-        //临时文件夹和存放文件的文件夹
-        $targetDir = &#39;upload_tmp&#39;;
-        $uploadDir = &#39;upload&#39;;
-
-        $cleanupTargetDir = true; // Remove old files
-        $maxFileAge = 5 * 3600; // Temp file age in seconds
-
-
-
-        // 检测文件夹是否存在
-        if (!file_exists($targetDir)) {
-            @mkdir($targetDir);
-        }
-
-        if (!file_exists($uploadDir)) {
-            @mkdir($uploadDir);
-        }
-
-
-        // 重新设置文件名
-        $fileName = $this-&gt;renameFile();
-
-        $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
-        $uploadPath = $uploadDir . DIRECTORY_SEPARATOR . $fileName;
-
-        // 是否分片
-        $chunk = isset($_REQUEST[&#34;chunk&#34;]) ? intval($_REQUEST[&#34;chunk&#34;]) : 0;
-        $chunks = isset($_REQUEST[&#34;chunks&#34;]) ? intval($_REQUEST[&#34;chunks&#34;]) : 1;
-
-
-        // 删除过期文件
-        if ($cleanupTargetDir) {
-            if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
-                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 100, &#34;message&#34;: &#34;Failed to open temp directory.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
-            }
-
-            while (($file = readdir($dir)) !== false) {
-                $tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
-
-                // 忽略当前临时文件
-                if ($tmpfilePath == &#34;{$filePath}_{$chunk}.part&#34; || $tmpfilePath == &#34;{$filePath}_{$chunk}.parttmp&#34;) {
-                    continue;
-                }
-
-                // 过期文件删除
-                if (preg_match(&#39;/\.(part|parttmp)$/&#39;, $file) &amp;&amp; (@filemtime($tmpfilePath) &lt; time() - $maxFileAge)) {
-                    @unlink($tmpfilePath);
-                }
-            }
-            closedir($dir);
-        }
-
-
-        // 打开缓存文件
-        if (!$out = @fopen(&#34;{$filePath}_{$chunk}.parttmp&#34;, &#34;wb&#34;)) {
-            die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 102, &#34;message&#34;: &#34;Failed to open output stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
-        }
-
-        if (!empty($_FILES)) {
-            if ($_FILES[&#34;file&#34;][&#34;error&#34;] || !is_uploaded_file($_FILES[&#34;file&#34;][&#34;tmp_name&#34;])) {
-                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 103, &#34;message&#34;: &#34;Failed to move uploaded file.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
-            }
-
-            // Read binary input stream and append it to temp file
-            if (!$in = @fopen($_FILES[&#34;file&#34;][&#34;tmp_name&#34;], &#34;rb&#34;)) {
-                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 101, &#34;message&#34;: &#34;Failed to open input stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
-            }
-        } else {
-            if (!$in = @fopen(&#34;php://input&#34;, &#34;rb&#34;)) {
-                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 101, &#34;message&#34;: &#34;Failed to open input stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
-            }
-        }
-
-        while ($buff = fread($in, 4096)) {
-            fwrite($out, $buff);
-        }
-
-        @fclose($out);
-        @fclose($in);
-
-        //重命名文件名
-        rename(&#34;{$filePath}_{$chunk}.parttmp&#34;, &#34;{$filePath}_{$chunk}.part&#34;);
-
-        $index = 0;
-        $done = true;
-        for( $index = 0; $index &lt; $chunks; $index++ ) {
-            if ( !file_exists(&#34;{$filePath}_{$index}.part&#34;) ) {
-                $done = false;
-                break;
-            }
-        }
-        if ( $done ) {
-            if (!$out = @fopen($uploadPath, &#34;wb&#34;)) {
-                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 102, &#34;message&#34;: &#34;Failed to open output stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
-            }
-
-            if ( flock($out, LOCK_EX) ) {
-                for( $index = 0; $index &lt; $chunks; $index++ ) {
-                    if (!$in = @fopen(&#34;{$filePath}_{$index}.part&#34;, &#34;rb&#34;)) {
-                        break;
-                    }
-
-                    while ($buff = fread($in, 4096)) {
-                        fwrite($out, $buff);
-                    }
-
-                    @fclose($in);
-                    @unlink(&#34;{$filePath}_{$index}.part&#34;);
-                }
-
-                flock($out, LOCK_UN);
-            }
-            @fclose($out);
-            die(&#34;{&#39;jsonrpc&#39; : &#39;2.0&#39;, &#39;result&#39; : &#39;done&#39;, &#39;chunk&#39; : &#39;{$chunk}&#39;, &#39;chunks&#39;: &#39;{$chunks}&#39;}&#34;);
-        }
-
-        // Return Success JSON-RPC response
-        die(&#34;{&#39;jsonrpc&#39; : &#39;2.0&#39;, &#39;result&#39; : &#39;success&#39;, &#39;chunk&#39; : &#39;{$chunk}&#39;, &#39;chunks&#39;: &#39;{$chunks}&#39;}&#34;);
-
-    }
-
-    protected function renameFile(){
-        //获取后缀
-        $ext = pathinfo($_FILES[&#34;file&#34;][&#34;name&#34;], PATHINFO_EXTENSION);
-        //文件名
-        if (isset($_REQUEST[&#34;name&#34;])) {
-            $fileName = isset($_REQUEST[&#34;filename&#34;]) ? $_REQUEST[&#34;filename&#34;] : $_REQUEST[&#34;name&#34;];
-        } elseif (!empty($_FILES)) {
-            $fileName = $_FILES[&#34;file&#34;][&#34;name&#34;];
-        } else {
-            $fileName = uniqid(&#34;file_&#34;);
-        }
-
-        $key = isset($_REQUEST[&#39;uid&#39;]) ? $_REQUEST[&#39;uid&#39;] : &#39;hotcast&#39;;
-
-        $fileName = md5($fileName.$key);
-
-        return $fileName.&#39;.&#39;.$ext;
-    }
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public function testSaveWebUploader(Request $request){
+</span></span><span class="line"><span class="cl">        //强制浏览器不缓存
+</span></span><span class="line"><span class="cl">        header(&#34;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#34;);
+</span></span><span class="line"><span class="cl">        header(&#34;Last-Modified: &#34; . gmdate(&#34;D, d M Y H:i:s&#34;) . &#34; GMT&#34;);
+</span></span><span class="line"><span class="cl">        header(&#34;Cache-Control: no-store, no-cache, must-revalidate&#34;);
+</span></span><span class="line"><span class="cl">        header(&#34;Cache-Control: post-check=0, pre-check=0&#34;, false);
+</span></span><span class="line"><span class="cl">        header(&#34;Pragma: no-cache&#34;);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //指定提交方式
+</span></span><span class="line"><span class="cl">        if ($_SERVER[&#39;REQUEST_METHOD&#39;] == &#39;OPTIONS&#39;) {
+</span></span><span class="line"><span class="cl">            exit; // finish preflight CORS requests here
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //当出现debug判断服务器报错
+</span></span><span class="line"><span class="cl">        if ( !empty($_REQUEST[ &#39;debug&#39; ]) ) {
+</span></span><span class="line"><span class="cl">            $random = rand(0, intval($_REQUEST[ &#39;debug&#39; ]) );
+</span></span><span class="line"><span class="cl">            if ( $random === 0 ) {
+</span></span><span class="line"><span class="cl">                header(&#34;HTTP/1.0 500 Internal Server Error&#34;);
+</span></span><span class="line"><span class="cl">                exit;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        @set_time_limit(5 * 60);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //临时文件夹和存放文件的文件夹
+</span></span><span class="line"><span class="cl">        $targetDir = &#39;upload_tmp&#39;;
+</span></span><span class="line"><span class="cl">        $uploadDir = &#39;upload&#39;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $cleanupTargetDir = true; // Remove old files
+</span></span><span class="line"><span class="cl">        $maxFileAge = 5 * 3600; // Temp file age in seconds
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        // 检测文件夹是否存在
+</span></span><span class="line"><span class="cl">        if (!file_exists($targetDir)) {
+</span></span><span class="line"><span class="cl">            @mkdir($targetDir);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        if (!file_exists($uploadDir)) {
+</span></span><span class="line"><span class="cl">            @mkdir($uploadDir);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        // 重新设置文件名
+</span></span><span class="line"><span class="cl">        $fileName = $this-&gt;renameFile();
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
+</span></span><span class="line"><span class="cl">        $uploadPath = $uploadDir . DIRECTORY_SEPARATOR . $fileName;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        // 是否分片
+</span></span><span class="line"><span class="cl">        $chunk = isset($_REQUEST[&#34;chunk&#34;]) ? intval($_REQUEST[&#34;chunk&#34;]) : 0;
+</span></span><span class="line"><span class="cl">        $chunks = isset($_REQUEST[&#34;chunks&#34;]) ? intval($_REQUEST[&#34;chunks&#34;]) : 1;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        // 删除过期文件
+</span></span><span class="line"><span class="cl">        if ($cleanupTargetDir) {
+</span></span><span class="line"><span class="cl">            if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
+</span></span><span class="line"><span class="cl">                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 100, &#34;message&#34;: &#34;Failed to open temp directory.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            while (($file = readdir($dir)) !== false) {
+</span></span><span class="line"><span class="cl">                $tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                // 忽略当前临时文件
+</span></span><span class="line"><span class="cl">                if ($tmpfilePath == &#34;{$filePath}_{$chunk}.part&#34; || $tmpfilePath == &#34;{$filePath}_{$chunk}.parttmp&#34;) {
+</span></span><span class="line"><span class="cl">                    continue;
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                // 过期文件删除
+</span></span><span class="line"><span class="cl">                if (preg_match(&#39;/\.(part|parttmp)$/&#39;, $file) &amp;&amp; (@filemtime($tmpfilePath) &lt; time() - $maxFileAge)) {
+</span></span><span class="line"><span class="cl">                    @unlink($tmpfilePath);
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            closedir($dir);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        // 打开缓存文件
+</span></span><span class="line"><span class="cl">        if (!$out = @fopen(&#34;{$filePath}_{$chunk}.parttmp&#34;, &#34;wb&#34;)) {
+</span></span><span class="line"><span class="cl">            die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 102, &#34;message&#34;: &#34;Failed to open output stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        if (!empty($_FILES)) {
+</span></span><span class="line"><span class="cl">            if ($_FILES[&#34;file&#34;][&#34;error&#34;] || !is_uploaded_file($_FILES[&#34;file&#34;][&#34;tmp_name&#34;])) {
+</span></span><span class="line"><span class="cl">                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 103, &#34;message&#34;: &#34;Failed to move uploaded file.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            // Read binary input stream and append it to temp file
+</span></span><span class="line"><span class="cl">            if (!$in = @fopen($_FILES[&#34;file&#34;][&#34;tmp_name&#34;], &#34;rb&#34;)) {
+</span></span><span class="line"><span class="cl">                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 101, &#34;message&#34;: &#34;Failed to open input stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        } else {
+</span></span><span class="line"><span class="cl">            if (!$in = @fopen(&#34;php://input&#34;, &#34;rb&#34;)) {
+</span></span><span class="line"><span class="cl">                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 101, &#34;message&#34;: &#34;Failed to open input stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        while ($buff = fread($in, 4096)) {
+</span></span><span class="line"><span class="cl">            fwrite($out, $buff);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        @fclose($out);
+</span></span><span class="line"><span class="cl">        @fclose($in);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        //重命名文件名
+</span></span><span class="line"><span class="cl">        rename(&#34;{$filePath}_{$chunk}.parttmp&#34;, &#34;{$filePath}_{$chunk}.part&#34;);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $index = 0;
+</span></span><span class="line"><span class="cl">        $done = true;
+</span></span><span class="line"><span class="cl">        for( $index = 0; $index &lt; $chunks; $index++ ) {
+</span></span><span class="line"><span class="cl">            if ( !file_exists(&#34;{$filePath}_{$index}.part&#34;) ) {
+</span></span><span class="line"><span class="cl">                $done = false;
+</span></span><span class="line"><span class="cl">                break;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        if ( $done ) {
+</span></span><span class="line"><span class="cl">            if (!$out = @fopen($uploadPath, &#34;wb&#34;)) {
+</span></span><span class="line"><span class="cl">                die(&#39;{&#34;jsonrpc&#34; : &#34;2.0&#34;, &#34;error&#34; : {&#34;code&#34;: 102, &#34;message&#34;: &#34;Failed to open output stream.&#34;}, &#34;id&#34; : &#34;id&#34;}&#39;);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            if ( flock($out, LOCK_EX) ) {
+</span></span><span class="line"><span class="cl">                for( $index = 0; $index &lt; $chunks; $index++ ) {
+</span></span><span class="line"><span class="cl">                    if (!$in = @fopen(&#34;{$filePath}_{$index}.part&#34;, &#34;rb&#34;)) {
+</span></span><span class="line"><span class="cl">                        break;
+</span></span><span class="line"><span class="cl">                    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    while ($buff = fread($in, 4096)) {
+</span></span><span class="line"><span class="cl">                        fwrite($out, $buff);
+</span></span><span class="line"><span class="cl">                    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    @fclose($in);
+</span></span><span class="line"><span class="cl">                    @unlink(&#34;{$filePath}_{$index}.part&#34;);
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                flock($out, LOCK_UN);
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            @fclose($out);
+</span></span><span class="line"><span class="cl">            die(&#34;{&#39;jsonrpc&#39; : &#39;2.0&#39;, &#39;result&#39; : &#39;done&#39;, &#39;chunk&#39; : &#39;{$chunk}&#39;, &#39;chunks&#39;: &#39;{$chunks}&#39;}&#34;);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        // Return Success JSON-RPC response
+</span></span><span class="line"><span class="cl">        die(&#34;{&#39;jsonrpc&#39; : &#39;2.0&#39;, &#39;result&#39; : &#39;success&#39;, &#39;chunk&#39; : &#39;{$chunk}&#39;, &#39;chunks&#39;: &#39;{$chunks}&#39;}&#34;);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    protected function renameFile(){
+</span></span><span class="line"><span class="cl">        //获取后缀
+</span></span><span class="line"><span class="cl">        $ext = pathinfo($_FILES[&#34;file&#34;][&#34;name&#34;], PATHINFO_EXTENSION);
+</span></span><span class="line"><span class="cl">        //文件名
+</span></span><span class="line"><span class="cl">        if (isset($_REQUEST[&#34;name&#34;])) {
+</span></span><span class="line"><span class="cl">            $fileName = isset($_REQUEST[&#34;filename&#34;]) ? $_REQUEST[&#34;filename&#34;] : $_REQUEST[&#34;name&#34;];
+</span></span><span class="line"><span class="cl">        } elseif (!empty($_FILES)) {
+</span></span><span class="line"><span class="cl">            $fileName = $_FILES[&#34;file&#34;][&#34;name&#34;];
+</span></span><span class="line"><span class="cl">        } else {
+</span></span><span class="line"><span class="cl">            $fileName = uniqid(&#34;file_&#34;);
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $key = isset($_REQUEST[&#39;uid&#39;]) ? $_REQUEST[&#39;uid&#39;] : &#39;hotcast&#39;;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        $fileName = md5($fileName.$key);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        return $fileName.&#39;.&#39;.$ext;
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="最后">最后</h2>
 <p>相关的代码已经贴出来了,事件调用在js部分找,后端处理的大体思路就是保存分片上传过来的文件,当文件上传完毕后就通过fwrite或者file_put_content这类的函数给按顺序怼到一个文件当中
@@ -1218,7 +1215,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

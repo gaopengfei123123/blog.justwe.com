@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>通过git rebase来合并commit提交记录 - helloword啊哈</title>
+  <title>通过git rebase来合并commit提交记录 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-rebase/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="通过git rebase来合并commit提交记录" />
 <meta property="og:description" content="多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/git-rebase/" />
+<meta property="og:url" content="https://blog.justwe.site/post/git-rebase/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2016-12-25T15:43:00+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="通过git rebase来合并commit提交记录">
-<meta itemprop="description" content="多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版">
-<meta itemprop="datePublished" content="2016-12-25T15:43:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="901">
-
-
-
+<meta itemprop="description" content="多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版"><meta itemprop="datePublished" content="2016-12-25T15:43:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="900">
 <meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="通过git rebase来合并commit提交记录"/>
 <meta name="twitter:description" content="多人合作开发的时候就会因为本地的多个版本提交的很多杂乱的信息，导致git log查看的时候并不能很快的从一堆无意义的提交记录中找到我们想要的版"/>
@@ -164,7 +161,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -184,25 +181,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">commit 53097de5638d371da51bc6fef74a90ca1420d967
-Author: GPF &lt;5173180@qq.com&gt;
-Date:   Sun Dec 25 22:46:13 2016 +0800
-
-    test3
-
-commit 830026adb43506d0bc1172432f84639f84dae087
-Author: GPF &lt;5173180@qq.com&gt;
-Date:   Sun Dec 25 22:45:56 2016 +0800
-
-    test2
-
-commit 646f5be02ec285e30626f5682e6e7e9437762ac5
-Author: GPF &lt;5173180@qq.com&gt;
-Date:   Sun Dec 25 22:45:43 2016 +0800
-
-    test1
-...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">commit 53097de5638d371da51bc6fef74a90ca1420d967
+</span></span><span class="line"><span class="cl">Author: GPF &lt;5173180@qq.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Sun Dec 25 22:46:13 2016 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    test3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit 830026adb43506d0bc1172432f84639f84dae087
+</span></span><span class="line"><span class="cl">Author: GPF &lt;5173180@qq.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Sun Dec 25 22:45:56 2016 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    test2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">commit 646f5be02ec285e30626f5682e6e7e9437762ac5
+</span></span><span class="line"><span class="cl">Author: GPF &lt;5173180@qq.com&gt;
+</span></span><span class="line"><span class="cl">Date:   Sun Dec 25 22:45:43 2016 +0800
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    test1
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>比如我们就合并这前三个提交记录</p>
 <ol start="2">
@@ -210,11 +207,11 @@ Date:   Sun Dec 25 22:45:43 2016 +0800
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git rebase -i HEAD~3
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git rebase -i HEAD~3
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>HEAD~3</code>的意思就是最近的san tiao三条提交信息</p>
 <ol start="3">
@@ -223,7 +220,7 @@ Date:   Sun Dec 25 22:45:43 2016 +0800
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -247,35 +244,35 @@ Date:   Sun Dec 25 22:45:43 2016 +0800
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pick 646f5be test1
-pick 830026a test2
-pick 53097de test3
-
-# Rebase dbaf38a..53097de onto dbaf38a (3 commands)
-#
-# Commands:
-# p, pick = use commit
-# r, reword = use commit, but edit the commit message
-# e, edit = use commit, but stop for amending
-# s, squash = use commit, but meld into previous commit
-# f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message
-# x, exec = run command (the rest of the line) using shell
-# d, drop = remove commit
-#
-# These lines can be re-ordered; they are executed from top to bottom.
-#
-# If you remove a line here THAT COMMIT WILL BE LOST.
-#
-# However, if you remove everything, the rebase will be aborted.
-#
-# Note that empty commits are commented out
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pick 646f5be test1
+</span></span><span class="line"><span class="cl">pick 830026a test2
+</span></span><span class="line"><span class="cl">pick 53097de test3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Rebase dbaf38a..53097de onto dbaf38a (3 commands)
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># Commands:
+</span></span><span class="line"><span class="cl"># p, pick = use commit
+</span></span><span class="line"><span class="cl"># r, reword = use commit, but edit the commit message
+</span></span><span class="line"><span class="cl"># e, edit = use commit, but stop for amending
+</span></span><span class="line"><span class="cl"># s, squash = use commit, but meld into previous commit
+</span></span><span class="line"><span class="cl"># f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message
+</span></span><span class="line"><span class="cl"># x, exec = run command (the rest of the line) using shell
+</span></span><span class="line"><span class="cl"># d, drop = remove commit
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># These lines can be re-ordered; they are executed from top to bottom.
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># If you remove a line here THAT COMMIT WILL BE LOST.
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># However, if you remove everything, the rebase will be aborted.
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># Note that empty commits are commented out
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>带#号的都是注释内容，这里提供了很多命令信息。最上面的三行就是我们要执行的命令，<code>pick</code> 查看注释是 <code>use commit</code> 可以简写成 <code>p</code> ， 而且你看排列commit记录的顺序是最早的排在最上面，我们这次是为了合并commit，因此我们要用的命令就是<code>squash</code> 简写成 <code>s</code>
 将脚本修改成这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -297,33 +294,31 @@ pick 53097de test3
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pick 646f5be test1
-s 830026a test2
-s 53097de test3
-
-# Rebase dbaf38a..53097de onto dbaf38a (3 commands)
-#
-# Commands:
-# p, pick = use commit
-# r, reword = use commit, but edit the commit message
-# e, edit = use commit, but stop for amending
-# s, squash = use commit, but meld into previous commit
-# f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message
-# x, exec = run command (the rest of the line) using shell
-# d, drop = remove commit
-#
-# These lines can be re-ordered; they are executed from top to bottom.
-#
-# If you remove a line here THAT COMMIT WILL BE LOST.
-#
-# However, if you remove everything, the rebase will be aborted.
-#
-# Note that empty commits are commented out
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pick 646f5be test1
+</span></span><span class="line"><span class="cl">s 830026a test2
+</span></span><span class="line"><span class="cl">s 53097de test3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Rebase dbaf38a..53097de onto dbaf38a (3 commands)
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># Commands:
+</span></span><span class="line"><span class="cl"># p, pick = use commit
+</span></span><span class="line"><span class="cl"># r, reword = use commit, but edit the commit message
+</span></span><span class="line"><span class="cl"># e, edit = use commit, but stop for amending
+</span></span><span class="line"><span class="cl"># s, squash = use commit, but meld into previous commit
+</span></span><span class="line"><span class="cl"># f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message
+</span></span><span class="line"><span class="cl"># x, exec = run command (the rest of the line) using shell
+</span></span><span class="line"><span class="cl"># d, drop = remove commit
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># These lines can be re-ordered; they are executed from top to bottom.
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># If you remove a line here THAT COMMIT WILL BE LOST.
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># However, if you remove everything, the rebase will be aborted.
+</span></span><span class="line"><span class="cl">#
+</span></span><span class="line"><span class="cl"># Note that empty commits are commented out
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们合并最早的两个到test1版本当中然后<code>:wq</code>退出，<strong>注意</strong>合并记录的时候，不能pick最近的一条，会产生报错，如果把报错的话就输入命令<code>git rebase --abort</code>终止这次执行就好</p>
 <ol start="4">
@@ -436,7 +431,7 @@ s 53097de test3
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>不正宗 docker 入门教程-使用 docker-compose (3/3) - helloword啊哈</title>
+  <title>不正宗 docker 入门教程-使用 docker-compose (3/3) - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-step-3/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="不正宗 docker 入门教程-使用 docker-compose (3/3)" />
 <meta property="og:description" content="本章通过一个具体的demo来了解 docker-compose docker-compose 是做什么的 在构建一个完整的服务时，我们通常启动一个容器， 一旦出现多个容器需要同时启动的时候手打是下下之策" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/docker-step-3/" />
+<meta property="og:url" content="https://blog.justwe.site/post/docker-step-3/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-07-20T11:11:07+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="不正宗 docker 入门教程-使用 docker-compose (3/3)">
-<meta itemprop="description" content="本章通过一个具体的demo来了解 docker-compose docker-compose 是做什么的 在构建一个完整的服务时，我们通常启动一个容器， 一旦出现多个容器需要同时启动的时候手打是下下之策">
-<meta itemprop="datePublished" content="2018-07-20T11:11:07&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="3093">
-
-
-
+<meta itemprop="description" content="本章通过一个具体的demo来了解 docker-compose docker-compose 是做什么的 在构建一个完整的服务时，我们通常启动一个容器， 一旦出现多个容器需要同时启动的时候手打是下下之策"><meta itemprop="datePublished" content="2018-07-20T11:11:07+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="2646">
 <meta itemprop="keywords" content="docker入门," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="不正宗 docker 入门教程-使用 docker-compose (3/3)"/>
 <meta name="twitter:description" content="本章通过一个具体的demo来了解 docker-compose docker-compose 是做什么的 在构建一个完整的服务时，我们通常启动一个容器， 一旦出现多个容器需要同时启动的时候手打是下下之策"/>
@@ -173,17 +170,17 @@
 <p>首先下载下来</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/gaopengfei123123/dnmp.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> dnmp
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/gaopengfei123123/dnmp.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> dnmp
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们第一件事就是先瞄一眼 <code>.env</code> 文件， 这里设置了很多常量，一会根据个人需求来调整</p>
 <p>第二步才是打开 <code>docker-compose.yml</code> 文件， 看后缀都能猜到这是一个配置文件， 另外 <code>docker-compose.yml</code> <strong>是根据缩进来进行分层的，注意书写格式</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -283,111 +280,109 @@
 </span><span class="lnt"> 98
 </span><span class="lnt"> 99
 </span><span class="lnt">100
-</span><span class="lnt">101
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="c"># docker-compose.yml</span><span class="w">
-</span><span class="w"></span><span class="c"># 语法版本( 3 和 2 区别有点大, 比如 3 取消了 volume_from 的相关语法)</span><span class="w">
-</span><span class="w"></span><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">frontend</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${NETWORKS_DRIVER}<span class="w">
-</span><span class="w">  </span><span class="k">backend</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${NETWORKS_DRIVER}<span class="w">
-</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">mysql_volume</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${VOLUMES_DRIVER}<span class="w">
-</span><span class="w">  </span><span class="k">redis_volume</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${VOLUMES_DRIVER}<span class="w">
-</span><span class="w">  </span><span class="k">rabbitmq_volume</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${VOLUMES_DRIVER}<span class="w">
-</span><span class="w"></span><span class="c"># 服务编排</span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># workspace:</span><span class="w">
-</span><span class="w">  </span><span class="c">#   image: tianon/true</span><span class="w">
-</span><span class="w">  </span><span class="c">#   container_name: dnmp-www</span><span class="w">
-</span><span class="w">  </span><span class="c">#   volumes:</span><span class="w">
-</span><span class="w">  </span><span class="c">#     - ./www:/usr/share/nginx/html</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c"># NGINX #############################################</span><span class="w">
-</span><span class="w">  </span><span class="k">nginx</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>dnmp-nginx<span class="w">
-</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w"> 
-</span><span class="w">      </span><span class="k">context</span><span class="p">:</span><span class="w"> </span>./nginx<span class="w">
-</span><span class="w">      </span><span class="k">args</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span>- PHP_UPSTREAM_CONTAINER=${NGINX_PHP_UPSTREAM_CONTAINER}<span class="w">
-</span><span class="w">          </span>- PHP_UPSTREAM_PORT=${NGINX_PHP_UPSTREAM_PORT}<span class="w">
-</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- php-fpm<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTP_PORT}:80&#34;</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTPS_PORT}:443&#34;</span><span class="w">
-</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="c"># 没必要把配置文件用卷来挂载, 不然就算配置更新了 nginx 也是要重启的</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span><span class="c"># 挂载运行代码目录</span><span class="w">
-</span><span class="w">      </span>- ${APP_CODE_PATH_HOST}<span class="p">:</span>/var/www<span class="w">
-</span><span class="w">      </span><span class="c"># 挂载日志目录</span><span class="w">
-</span><span class="w">      </span>- ${NGINX_HOST_LOG_PATH}<span class="p">:</span>/var/log/nginx<span class="w">
-</span><span class="w">    </span><span class="c"># 使用 networks 取代 links 在同一个网络模式下的服务是互通的</span><span class="w">
-</span><span class="w">    </span><span class="c"># 在service 中使用其他的 service 就直接调用 service 名就行, 不用管 ip 地址, docker 会自己维护一套</span><span class="w">
-</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- frontend<span class="w">
-</span><span class="w">      </span>- backend<span class="w">
-</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c"># PHP-FPM #############################################</span><span class="w">
-</span><span class="w">  </span><span class="k">php-fpm</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>dnmp-php-fpm<span class="w">
-</span><span class="w">    </span><span class="c"># 这里的args 是属于 build 下面的,用于构建./php-fpm/Dockerfile 文件中 ARG 参数指定 php 版本</span><span class="w">
-</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w"> 
-</span><span class="w">      </span><span class="k">context</span><span class="p">:</span><span class="w"> </span>./php-fpm<span class="w">
-</span><span class="w">      </span><span class="k">args</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>- PHP_VERSION=${PHP_VERSION}<span class="w">
-</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- ${APP_CODE_PATH_HOST}<span class="p">:</span>/var/www<span class="w">
-</span><span class="w">      </span>- ./php-fpm/php${PHP_VERSION}.ini<span class="p">:</span>/usr/local/etc/php/php.ini<span class="w">
-</span><span class="w">    </span><span class="k">expose</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;9000&#34;</span><span class="w">
-</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- backend<span class="w">
-</span><span class="w">    
-</span><span class="w">  </span><span class="k">redis</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>dnmp-redis<span class="w">
-</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">context</span><span class="p">:</span><span class="w"> </span>./redis<span class="w">
-</span><span class="w">      </span><span class="k">args</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span>- REDIS_SET_PASSWORD=${REDIS_SET_PASSWORD}<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- ${REDIS_HOST_PORT}<span class="p">:</span><span class="m">6379</span><span class="w">
-</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="c"># 这里卷挂载的是本地文件</span><span class="w">
-</span><span class="w">      </span><span class="c"># - ${DATA_PATH_HOST}/redis:/data</span><span class="w">
-</span><span class="w">      </span><span class="c"># 这里创建一个 redis_volume来存放数据</span><span class="w">
-</span><span class="w">      </span>- redis_volume<span class="p">:</span>/data<span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c"># Mysql #############################################</span><span class="w">
-</span><span class="w">  </span><span class="k">mysql</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>dnmp-mysql<span class="w">
-</span><span class="w">    </span><span class="c"># 镜像来源: https://github.com/docker-library/mysql/blob/fc3e856313423dc2d6a8d74cfd6b678582090fc7/5.7/Dockerfile</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>mysql<span class="p">:</span>${MYSQL_VERSION}<span class="w">
-</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="c"># - ${DATA_PATH_HOST}/mysql:/var/lib/mysql</span><span class="w">
-</span><span class="w">      </span>- mysql_volume<span class="p">:</span>/var/lib/mysql<span class="w">
-</span><span class="w">    </span><span class="c"># 容器只要停止就会重启</span><span class="w">
-</span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
-</span><span class="w">    </span><span class="k">environment</span><span class="p">:</span><span class="w"> 
-</span><span class="w">      </span><span class="k">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span>${MYSQL_ROOT_PASSWORD}<span class="w">
-</span><span class="w">      </span><span class="k">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span>${MYSQL_DATABASE}<span class="w">
-</span><span class="w">      </span><span class="k">MYSQL_USER</span><span class="p">:</span><span class="w"> </span>${MYSQL_USER}<span class="w">
-</span><span class="w">      </span><span class="k">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span>${MYSQL_PASSWORD}<span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- ${MYSQL_HOST_PORT}<span class="p">:</span><span class="m">3306</span><span class="w">
-</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># docker-compose.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 语法版本( 3 和 2 区别有点大, 比如 3 取消了 volume_from 的相关语法)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${NETWORKS_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${NETWORKS_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql_volume</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${VOLUMES_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis_volume</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${VOLUMES_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rabbitmq_volume</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${VOLUMES_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 服务编排</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># workspace:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#   image: tianon/true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#   container_name: dnmp-www</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#   volumes:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#     - ./www:/usr/share/nginx/html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># NGINX #############################################</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">dnmp-nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">./nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">PHP_UPSTREAM_CONTAINER=${NGINX_PHP_UPSTREAM_CONTAINER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">PHP_UPSTREAM_PORT=${NGINX_PHP_UPSTREAM_PORT}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">php-fpm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTP_PORT}:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTPS_PORT}:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 没必要把配置文件用卷来挂载, 不然就算配置更新了 nginx 也是要重启的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 挂载运行代码目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${APP_CODE_PATH_HOST}:/var/www</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 挂载日志目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${NGINX_HOST_LOG_PATH}:/var/log/nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 使用 networks 取代 links 在同一个网络模式下的服务是互通的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 在service 中使用其他的 service 就直接调用 service 名就行, 不用管 ip 地址, docker 会自己维护一套</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># PHP-FPM #############################################</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">php-fpm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">dnmp-php-fpm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 这里的args 是属于 build 下面的,用于构建./php-fpm/Dockerfile 文件中 ARG 参数指定 php 版本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">./php-fpm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">PHP_VERSION=${PHP_VERSION}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${APP_CODE_PATH_HOST}:/var/www</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./php-fpm/php${PHP_VERSION}.ini:/usr/local/etc/php/php.ini</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expose</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;9000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">dnmp-redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">./redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">REDIS_SET_PASSWORD=${REDIS_SET_PASSWORD}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${REDIS_HOST_PORT}:6379</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 这里卷挂载的是本地文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - ${DATA_PATH_HOST}/redis:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 这里创建一个 redis_volume来存放数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">redis_volume:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Mysql #############################################</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">dnmp-mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 镜像来源: https://github.com/docker-library/mysql/blob/fc3e856313423dc2d6a8d74cfd6b678582090fc7/5.7/Dockerfile</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:${MYSQL_VERSION}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - ${DATA_PATH_HOST}/mysql:/var/lib/mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">mysql_volume:/var/lib/mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 容器只要停止就会重启</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">${MYSQL_ROOT_PASSWORD}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l">${MYSQL_DATABASE}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l">${MYSQL_USER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">${MYSQL_PASSWORD}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${MYSQL_HOST_PORT}:3306</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>接下来看看它的关键词都起着什么作用：</p>
 <h5 id="version">version</h5>
@@ -395,21 +390,19 @@
 <h5 id="network">network</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">frontend</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${NETWORKS_DRIVER}<span class="w">
-</span><span class="w">  </span><span class="k">backend</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${NETWORKS_DRIVER}<span class="w">
-</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">frontend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${NETWORKS_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${NETWORKS_DRIVER}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>${NETWORKS_DRIVER}</code> 是从 <code>.env</code> 文件中取的值， 下面的同理</p>
 <p>这一块就相当于执行 <code>docker network create -d bridge frontend &amp;&amp; docker network create -d bridge backend</code>
@@ -419,7 +412,7 @@
 <h5 id="volume">volume</h5>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -428,14 +421,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">mysql_volume</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${VOLUMES_DRIVER}<span class="w">
-</span><span class="w">  </span><span class="k">redis_volume</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${VOLUMES_DRIVER}<span class="w">
-</span><span class="w">  </span><span class="k">rabbitmq_volume</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">driver</span><span class="p">:</span><span class="w"> </span>${VOLUMES_DRIVER}<span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql_volume</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${VOLUMES_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis_volume</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${VOLUMES_DRIVER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rabbitmq_volume</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">${VOLUMES_DRIVER}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>和 <code>network</code> 部分一样， 持久化的创建几个 <code>volume</code>, 相当于命令 <code>docker network create mysql_volume</code>等等</p>
 <p>这算是 v3 的一个新特性， 在 v2 的时候， 为了共享数据大家会创建一个什么镜像都不继承的image， 所有容器的 volume 都会和它连接， 现在有了 <code>volume</code> 就没必要这么搞了</p>
@@ -443,7 +436,7 @@
 <p>这个是本章的重点， 我们来看下面的例子中的注释， 按序号来</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -485,53 +478,53 @@
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="c">#1 创建一个服务叫做nginx服务</span><span class="w">
-</span><span class="w">  </span><span class="k">nginx</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="c">#2 为了显得个性化一点，我们指定这个容器的名字叫做 dnmp-nginx</span><span class="w">
-</span><span class="w">    </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>dnmp-nginx<span class="w">
-</span><span class="w">    </span><span class="c">#3 标明这个服务的 Dockerfile 的地址，用相对路径方便项目迁移</span><span class="w">
-</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w"> 
-</span><span class="w">      </span><span class="c">#3.1 相当于命令： </span><span class="w">
-</span><span class="w">      </span><span class="c"># docker build ./nginx -t dnmp-nginx \</span><span class="w">
-</span><span class="w">      </span><span class="c">#     --build-arg PHP_UPSTREAM_CONTAINER=xxx \</span><span class="w">
-</span><span class="w">      </span><span class="c">#     --build-arg PHP_UPSTREAM_PORT=zzz</span><span class="w">
-</span><span class="w">      </span><span class="k">context</span><span class="p">:</span><span class="w"> </span>./nginx<span class="w">
-</span><span class="w">      </span><span class="c">#3.2 这里 ${NGINX_PHP_UPSTREAM_PORT} 的值是从 .env 文件中取的， args 属于构建时传入的参数</span><span class="w">
-</span><span class="w">      </span><span class="k">args</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span>- PHP_UPSTREAM_CONTAINER=${NGINX_PHP_UPSTREAM_CONTAINER}<span class="w">
-</span><span class="w">          </span>- PHP_UPSTREAM_PORT=${NGINX_PHP_UPSTREAM_PORT}<span class="w">
-</span><span class="w">    </span><span class="c">#4  在启动这个容器之前先启动 php-fpm 这个容器 </span><span class="w">
-</span><span class="w">    </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- php-fpm<span class="w">
-</span><span class="w">    </span><span class="c">#5 将本地端口和容器端口绑定， 本地哪个端口就看 .env 里怎么写的</span><span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTP_PORT}:80&#34;</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTPS_PORT}:443&#34;</span><span class="w">
-</span><span class="w">    
-</span><span class="w">    </span><span class="c">#6 设置需要挂载的卷, 这里时将本地目录和容器绑定， 也可以像 services.redis 那样和创建好的卷绑定 </span><span class="w">
-</span><span class="w">    </span><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="c"># 没必要把配置文件用卷来挂载, 不然就算配置更新了 nginx 也是要重启的</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span><span class="c"># 挂载运行代码目录</span><span class="w">
-</span><span class="w">      </span>- ${APP_CODE_PATH_HOST}<span class="p">:</span>/var/www<span class="w">
-</span><span class="w">      </span><span class="c"># 挂载日志目录</span><span class="w">
-</span><span class="w">      </span>- ${NGINX_HOST_LOG_PATH}<span class="p">:</span>/var/log/nginx<span class="w">
-</span><span class="w">    </span><span class="c"># 使用 networks 取代 links 在同一个网络模式下的服务是互通的</span><span class="w">
-</span><span class="w">    </span><span class="c"># 在service 中使用其他的 service 就直接调用 service 名就行, 不用管 ip 地址, docker 会自己维护一套</span><span class="w">
-</span><span class="w">    
-</span><span class="w">    </span><span class="c">#7 设置容器从属的网络， 同一个网络下可互相访问</span><span class="w">
-</span><span class="w">    </span><span class="k">networks</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- frontend<span class="w">
-</span><span class="w">      </span>- backend<span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#1 创建一个服务叫做nginx服务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#2 为了显得个性化一点，我们指定这个容器的名字叫做 dnmp-nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">dnmp-nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#3 标明这个服务的 Dockerfile 的地址，用相对路径方便项目迁移</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#3.1 相当于命令： </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># docker build ./nginx -t dnmp-nginx \</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#     --build-arg PHP_UPSTREAM_CONTAINER=xxx \</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#     --build-arg PHP_UPSTREAM_PORT=zzz</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">./nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#3.2 这里 ${NGINX_PHP_UPSTREAM_PORT} 的值是从 .env 文件中取的， args 属于构建时传入的参数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">PHP_UPSTREAM_CONTAINER=${NGINX_PHP_UPSTREAM_CONTAINER}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">PHP_UPSTREAM_PORT=${NGINX_PHP_UPSTREAM_PORT}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#4  在启动这个容器之前先启动 php-fpm 这个容器 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">php-fpm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#5 将本地端口和容器端口绑定， 本地哪个端口就看 .env 里怎么写的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTP_PORT}:80&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;${NGINX_HOST_HTTPS_PORT}:443&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#6 设置需要挂载的卷, 这里时将本地目录和容器绑定， 也可以像 services.redis 那样和创建好的卷绑定 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 没必要把配置文件用卷来挂载, 不然就算配置更新了 nginx 也是要重启的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 挂载运行代码目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${APP_CODE_PATH_HOST}:/var/www</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 挂载日志目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">${NGINX_HOST_LOG_PATH}:/var/log/nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 使用 networks 取代 links 在同一个网络模式下的服务是互通的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 在service 中使用其他的 service 就直接调用 service 名就行, 不用管 ip 地址, docker 会自己维护一套</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#7 设置容器从属的网络， 同一个网络下可互相访问</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">frontend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">backend</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>在上文的 <code>#3</code> 步骤看其他的service也有直接使用<code>image</code>的， 这是直接从远程获取镜像的方式</p>
 <p>配置文件写完了， 我们看下nginx的构建文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -562,42 +555,40 @@
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
-</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="c"># in file ./nginx/Dockerfile</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="c">#1 选择继承的镜像</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> nginx:1.13.1-alpine</span><span class="err">
-</span><span class="err"></span><span class="c">#2 各种标签</span><span class="err">
-</span><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;GPF &lt;5173180@qq.com&gt;&#34;</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="c">#3 容器中执行命令， 且把本地的配置文件添加进去</span><span class="err">
-</span><span class="err"></span><span class="c">#https://yeasy.gitbooks.io/docker_practice/content/image/build.html</span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> mkdir -p /etc/nginx/cert <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/conf.d <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/sites<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./nginx.conf /etc/ngixn/nginx.conf<span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./conf.d/ /etc/nginx/conf.d/<span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./cert/ /etc/nginx/cert/<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./sites /etc/nginx/sites/<span class="err">
-</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="c">#4 这里也是设置构建参数， 不过相同 key 值会被 docker-compose 中的给覆盖掉</span><span class="err">
-</span><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="o">=</span>php-fpm<span class="err">
-</span><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_PORT</span><span class="o">=</span><span class="m">9000</span>
-<span class="c">#5 ${PHP_UPSTREAM_CONTAINER} 就在构建时的参数使用方式</span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="c">#6 设置挂载的目录， 该目录下文件变化不会影响到容器</span><span class="err">
-</span><span class="err"></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&#34;/var/log/nginx&#34;</span><span class="p">,</span> <span class="s2">&#34;/var/www&#34;</span><span class="p">]</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="c">#7 设置目录运行时所处在容器中的目录地址</span><span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/share/nginx/html</span><span class="err">
-</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="c"># in file ./nginx/Dockerfile</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#1 选择继承的镜像</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> nginx:1.13.1-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#2 各种标签</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;GPF &lt;5173180@qq.com&gt;&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#3 容器中执行命令， 且把本地的配置文件添加进去</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#https://yeasy.gitbooks.io/docker_practice/content/image/build.html</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> mkdir -p /etc/nginx/cert <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/conf.d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> mkdir -p /etc/nginx/sites<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./nginx.conf /etc/ngixn/nginx.conf<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./conf.d/ /etc/nginx/conf.d/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./cert/ /etc/nginx/cert/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./sites /etc/nginx/sites/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#4 这里也是设置构建参数， 不过相同 key 值会被 docker-compose 中的给覆盖掉</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="o">=</span>php-fpm<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> <span class="nv">PHP_UPSTREAM_PORT</span><span class="o">=</span><span class="m">9000</span>
+</span></span><span class="line"><span class="cl"><span class="c">#5 ${PHP_UPSTREAM_CONTAINER} 就在构建时的参数使用方式</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;upstream php-upstream { server </span><span class="si">${</span><span class="nv">PHP_UPSTREAM_CONTAINER</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PHP_UPSTREAM_PORT</span><span class="si">}</span><span class="s2">; }&#34;</span> &gt; /etc/nginx/conf.d/upstream.conf<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#6 设置挂载的目录， 该目录下文件变化不会影响到容器</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&#34;/var/log/nginx&#34;</span><span class="p">,</span> <span class="s2">&#34;/var/www&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#7 设置目录运行时所处在容器中的目录地址</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/share/nginx/html</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>#5</code> 就是显示了在 nginx 容器中怎么去访问 php-fpm 这个容器, 直接调用 service 名称就行</p>
 <p>这里需要注意的时 <code>ARG</code> 和 <code>ENV</code> 的区别， 参考这篇文章： <a href="http://blog.justwe.site/2018/06/28/docker-arg-env/">Docker中 Arg 和 Env 的区别</a></p>
@@ -605,29 +596,29 @@
 <p>在配置好 <code>.env</code> 文件和 <code>docker-compose.yml</code> 配置文件后就可以启动它了， 命令也很简单，在同级目录下运行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker-compose up -d
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose up -d
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>它会自动创建<code>volume</code>，<code>network</code>，<code>services</code>， 而且相关的运行参数都是按着配置文件来的， 这样一来每个完整<code>docker-compose.yml</code>中的service就相当于时一个整体，每个服务又属于各自的容器，这样操控是不是节省了很多代码呢？</p>
 <p>查看这些容器的运行状况也很是简单</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker-compose ps
-<span class="c1"># 或者使用更方便的一个工具： ctop ， github地址： https://github.com/bcicen/ctop</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker-compose ps
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者使用更方便的一个工具： ctop ， github地址： https://github.com/bcicen/ctop</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>可操控单一容器一样， 但是它会把这一组容器都囊括了进去，操控起来只需要知道操控哪个服务，而一些参数就写在配置文件当中已经默认添加了</p>
 <p>一些常用的命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -643,21 +634,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 终止整个服务集合</span>
-docker-compose stop
-
-<span class="c1"># 终止指定的服务 （这有个点就是启动的时候会先启动 depond_on 中的容器，关闭的时候不会影响到 depond_on 中的）</span>
-docker-compose stop nginx
-
-<span class="c1"># 查看容器的输出日志</span>
-docker-compose logs -f <span class="o">[</span>services...<span class="o">]</span>
-
-<span class="c1"># 构建镜像时不使用缓存（能避免很多因为缓存造成的问题）</span>
-docker-compose build --no-cache --force-rm
-
-<span class="c1"># 移除指定的容器</span>
-docker-compose rm nginx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 终止整个服务集合</span>
+</span></span><span class="line"><span class="cl">docker-compose stop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 终止指定的服务 （这有个点就是启动的时候会先启动 depond_on 中的容器，关闭的时候不会影响到 depond_on 中的）</span>
+</span></span><span class="line"><span class="cl">docker-compose stop nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看容器的输出日志</span>
+</span></span><span class="line"><span class="cl">docker-compose logs -f <span class="o">[</span>services...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 构建镜像时不使用缓存（能避免很多因为缓存造成的问题）</span>
+</span></span><span class="line"><span class="cl">docker-compose build --no-cache --force-rm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 移除指定的容器</span>
+</span></span><span class="line"><span class="cl">docker-compose rm nginx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>本来熟悉命令的最好方式就是 用-&gt;犯错-&gt;排错-&gt;用 这种循环, 有什么不懂的 谷歌bing 都能查到, 直接 <code>docker-compose --help</code> 也能猜出命令的大概作用, 这里就不细说了</p>
@@ -776,7 +767,7 @@ docker-compose rm nginx
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>__callstatic - helloword啊哈</title>
+  <title>__callstatic - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-callstatic/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="__callstatic" />
 <meta property="og:description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/php-callstatic/" />
+<meta property="og:url" content="https://blog.justwe.site/post/php-callstatic/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-06-23T16:50:15+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="__callstatic">
-<meta itemprop="description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分">
-<meta itemprop="datePublished" content="2017-06-23T16:50:15&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分"><meta itemprop="datePublished" content="2017-06-23T16:50:15+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="705">
-
-
-
 <meta itemprop="keywords" content="php,laravel," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="__callstatic"/>
 <meta name="twitter:description" content="现在很多框架中调用方法都是Foo::bar()这种格式的,但是他们真的是静态方法吗? 这种情况在 larave 中尤其常见,但是开发过程中很明显这些有一部分"/>
@@ -161,7 +158,7 @@
 <p>举个栗子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -181,31 +178,31 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="k">class</span> <span class="nc">Test</span><span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;this is __call&#39;</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;this is __callStatic:&#39;</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
-<span class="nv">$test</span><span class="o">-&gt;</span><span class="na">hello</span><span class="p">();</span>
-<span class="nv">$test</span><span class="o">::</span><span class="na">hi</span><span class="p">();</span>
-<span class="c1">//this is __call:hello
-</span><span class="c1">//this is __callStatic:hi
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Test</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="s1">&#39;this is __call&#39;</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="s1">&#39;this is __callStatic:&#39;</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$test</span><span class="o">-&gt;</span><span class="na">hello</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$test</span><span class="o">::</span><span class="na">hi</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//this is __call:hello
+</span></span></span><span class="line"><span class="cl"><span class="c1">//this is __callStatic:hi
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>当然魔术方法也是很耗性能的一种方式,每次调用的时候后回先扫一遍<code>class</code>没找到方法时才会调用它,而为了代码的整洁和抽象这个方法也能给很大的帮助,在这之间去要有个权衡</p>
 <p>下面实现的 <code>log</code> 类,采用的就是这种方法,将方法解耦出来,只要符合规定的接口就能调用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -259,64 +256,64 @@
 </span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">{</span>
-    <span class="c1">//获取 logger 的实体
-</span><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$logger</span><span class="p">;</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getLogger</span><span class="p">(){</span>
-        <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span><span class="o">?:</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">createLogger</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">createLogger</span><span class="p">(){</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">setLogger</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">){</span>
-        <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
-    <span class="p">}</span>
-
-
-    <span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">call_user_func_array</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">getLogger</span><span class="p">(),</span><span class="nv">$name</span><span class="p">],</span><span class="nv">$arguments</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nx">forward_static_call_array</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">getLogger</span><span class="p">(),</span><span class="nv">$name</span><span class="p">],</span><span class="nv">$arguments</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">interface</span> <span class="nx">LoggerInterface</span><span class="p">{</span>
-    <span class="k">function</span> <span class="nf">info</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span><span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[]);</span>
-    <span class="k">function</span> <span class="nf">alert</span><span class="p">(</span><span class="nv">$messge</span><span class="p">,</span><span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[]);</span>
-<span class="p">}</span>
-
-<span class="k">class</span> <span class="nc">Logger</span> <span class="k">implements</span> <span class="nx">LoggerInterface</span> <span class="p">{</span>
-    <span class="k">function</span> <span class="nf">info</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[])</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;this is Log method info&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-        <span class="nx">var_dump</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">function</span> <span class="nf">alert</span><span class="p">(</span><span class="nv">$messge</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[])</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">&#39;this is Log method alert: &#39;</span><span class="o">.</span> <span class="nv">$messge</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="nx">Test</span><span class="o">::</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;喊个口号:&#39;</span><span class="p">,[</span><span class="s1">&#39;好好&#39;</span><span class="p">,</span><span class="s1">&#39;学习&#39;</span><span class="p">,</span><span class="s1">&#39;天天&#39;</span><span class="p">,</span><span class="s1">&#39;向上&#39;</span><span class="p">]);</span>
-<span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
-<span class="nv">$test</span><span class="o">-&gt;</span><span class="na">alert</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Test</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//获取 logger 的实体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$logger</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getLogger</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span><span class="o">?:</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">createLogger</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">createLogger</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">setLogger</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">self</span><span class="o">::</span><span class="nv">$logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__call</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">call_user_func_array</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">getLogger</span><span class="p">(),</span><span class="nv">$name</span><span class="p">],</span><span class="nv">$arguments</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="fm">__callStatic</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">forward_static_call_array</span><span class="p">([</span><span class="nx">self</span><span class="o">::</span><span class="na">getLogger</span><span class="p">(),</span><span class="nv">$name</span><span class="p">],</span><span class="nv">$arguments</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">interface</span> <span class="nx">LoggerInterface</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">function</span> <span class="nf">info</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span><span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">function</span> <span class="nf">alert</span><span class="p">(</span><span class="nv">$messge</span><span class="p">,</span><span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Logger</span> <span class="k">implements</span> <span class="nx">LoggerInterface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">function</span> <span class="nf">info</span><span class="p">(</span><span class="nv">$message</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="s1">&#39;this is Log method info&#39;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">var_dump</span><span class="p">(</span><span class="nv">$content</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">function</span> <span class="nf">alert</span><span class="p">(</span><span class="nv">$messge</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$content</span> <span class="o">=</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">echo</span> <span class="s1">&#39;this is Log method alert: &#39;</span><span class="o">.</span> <span class="nv">$messge</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">Test</span><span class="o">::</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;喊个口号:&#39;</span><span class="p">,[</span><span class="s1">&#39;好好&#39;</span><span class="p">,</span><span class="s1">&#39;学习&#39;</span><span class="p">,</span><span class="s1">&#39;天天&#39;</span><span class="p">,</span><span class="s1">&#39;向上&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$test</span><span class="o">-&gt;</span><span class="na">alert</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -330,19 +327,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">this is Log method info
-array(4) {
-  [0]=&gt;
-  string(6) &#34;好好&#34;
-  [1]=&gt;
-  string(6) &#34;学习&#34;
-  [2]=&gt;
-  string(6) &#34;天天&#34;
-  [3]=&gt;
-  string(6) &#34;向上&#34;
-}
-this is Log method alert: hello
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">this is Log method info
+</span></span><span class="line"><span class="cl">array(4) {
+</span></span><span class="line"><span class="cl">  [0]=&gt;
+</span></span><span class="line"><span class="cl">  string(6) &#34;好好&#34;
+</span></span><span class="line"><span class="cl">  [1]=&gt;
+</span></span><span class="line"><span class="cl">  string(6) &#34;学习&#34;
+</span></span><span class="line"><span class="cl">  [2]=&gt;
+</span></span><span class="line"><span class="cl">  string(6) &#34;天天&#34;
+</span></span><span class="line"><span class="cl">  [3]=&gt;
+</span></span><span class="line"><span class="cl">  string(6) &#34;向上&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">this is Log method alert: hello
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>也许有的小伙伴已经看出来了,没错!这段代码就是仿照(抄)的 <code>EasyWechat</code>的日志部分,<a href="https://github.com/overtrue/wechat/blob/master/src/Support/Log.php">代码片段</a></p>
 
@@ -453,7 +450,7 @@ this is Log method alert: hello
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

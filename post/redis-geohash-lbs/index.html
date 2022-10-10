@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>LBS使用redis的解决方案--GEOHASH - helloword啊哈</title>
+  <title>LBS使用redis的解决方案--GEOHASH - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/redis-geohash-lbs/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="LBS使用redis的解决方案--GEOHASH" />
 <meta property="og:description" content="最近需要用到LBS距离测绘方面的东西，用于搜索附近的人， 在网上搜了一下有一个比较通用的方案，就是采用 GEOHASH 算法 相关的参考资料 这套算法在 mongoDB 当中已经" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/redis-geohash-lbs/" />
+<meta property="og:url" content="https://blog.justwe.site/post/redis-geohash-lbs/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-03-10T10:53:00+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="LBS使用redis的解决方案--GEOHASH">
-<meta itemprop="description" content="最近需要用到LBS距离测绘方面的东西，用于搜索附近的人， 在网上搜了一下有一个比较通用的方案，就是采用 GEOHASH 算法 相关的参考资料 这套算法在 mongoDB 当中已经">
-<meta itemprop="datePublished" content="2017-03-10T10:53:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="最近需要用到LBS距离测绘方面的东西，用于搜索附近的人， 在网上搜了一下有一个比较通用的方案，就是采用 GEOHASH 算法 相关的参考资料 这套算法在 mongoDB 当中已经"><meta itemprop="datePublished" content="2017-03-10T10:53:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="820">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LBS使用redis的解决方案--GEOHASH"/>
 <meta name="twitter:description" content="最近需要用到LBS距离测绘方面的东西，用于搜索附近的人， 在网上搜了一下有一个比较通用的方案，就是采用 GEOHASH 算法 相关的参考资料 这套算法在 mongoDB 当中已经"/>
@@ -165,11 +162,11 @@
 <p>首先是添加命令 <code>GEOADD</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOADD key long lat name [long lat name1,long lat name2,long lat name3...]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEOADD key long lat name [long lat name1,long lat name2,long lat name3...]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>key  <code>GEOSET</code>的名字</li>
@@ -181,19 +178,19 @@
 <p>举个栗子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOADD chaoyangqu 116.43620200729366 39.916880160714435 &#34;yabaolu&#34; 116.4356870231628 39.908560377800676 &#34;jianguomen&#34; 116.4345336732864 39.924466658329585 &#34;chaoyangmen&#34; 116.4335788068771 39.921372916981106 &#34;yinhesoho&#34; 116.43564410781856 39.92024564137184 &#34;zhongliang&#34;
-(integer) 5
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEOADD chaoyangqu 116.43620200729366 39.916880160714435 &#34;yabaolu&#34; 116.4356870231628 39.908560377800676 &#34;jianguomen&#34; 116.4345336732864 39.924466658329585 &#34;chaoyangmen&#34; 116.4335788068771 39.921372916981106 &#34;yinhesoho&#34; 116.43564410781856 39.92024564137184 &#34;zhongliang&#34;
+</span></span><span class="line"><span class="cl">(integer) 5
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>返回值为1 说明是新添，返回0 说明是更新 错误的话就报错了</p>
 <p>查看当前插入的内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -201,23 +198,23 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">zrange chaoyangqu 0 -1
-1) &#34;jianguomen&#34;
-2) &#34;yabaolu&#34;
-3) &#34;zhongliang&#34;
-4) &#34;yinhesoho&#34;
-5) &#34;chaoyangmen&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">zrange chaoyangqu 0 -1
+</span></span><span class="line"><span class="cl">1) &#34;jianguomen&#34;
+</span></span><span class="line"><span class="cl">2) &#34;yabaolu&#34;
+</span></span><span class="line"><span class="cl">3) &#34;zhongliang&#34;
+</span></span><span class="line"><span class="cl">4) &#34;yinhesoho&#34;
+</span></span><span class="line"><span class="cl">5) &#34;chaoyangmen&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从这条命令也可以看出来 geoset 是属于有序集合</p>
 <p>命令 <code>GEORADIUS</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUS key long lat radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEORADIUS key long lat radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>key 集合的名字</li>
@@ -228,41 +225,41 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m
-1) &#34;zhongliang&#34;
-2) &#34;yabaolu&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m
+</span></span><span class="line"><span class="cl">1) &#34;zhongliang&#34;
+</span></span><span class="line"><span class="cl">2) &#34;yabaolu&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>带上参数可以显示更多位置信息，通常业务需要显示下距离和进行排序，添加 <code>WITHDIST</code> <code>ASC</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m WITHDIST ASC
-1) 1) &#34;yabaolu&#34;
-   2) &#34;162.8454&#34;
-2) 1) &#34;zhongliang&#34;
-   2) &#34;239.7758&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEORADIUS chaoyangqu 116.435182767868 39.91811857809279 300 m WITHDIST ASC
+</span></span><span class="line"><span class="cl">1) 1) &#34;yabaolu&#34;
+</span></span><span class="line"><span class="cl">   2) &#34;162.8454&#34;
+</span></span><span class="line"><span class="cl">2) 1) &#34;zhongliang&#34;
+</span></span><span class="line"><span class="cl">   2) &#34;239.7758&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>命令<code>GEORADIUSBYMEMBER</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUSBYMEMBER key member radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEORADIUSBYMEMBER key member radius unit [WITHDIST] [WITHHASH] [WITHCOORD] [ASC|DESC] [COUNT count]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>key 集合的名字</li>
@@ -275,7 +272,7 @@
 栗子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -283,29 +280,29 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
-GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
-1) 1) &#34;yinhesoho&#34;
-   2) &#34;0.0000&#34;
-2) 1) &#34;zhongliang&#34;
-   2) &#34;216.2817&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
+</span></span><span class="line"><span class="cl">GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
+</span></span><span class="line"><span class="cl">1) 1) &#34;yinhesoho&#34;
+</span></span><span class="line"><span class="cl">   2) &#34;0.0000&#34;
+</span></span><span class="line"><span class="cl">2) 1) &#34;zhongliang&#34;
+</span></span><span class="line"><span class="cl">   2) &#34;216.2817&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>排在第一位的肯定是自己啊，而且需要确定你要搜寻的名字已经存在集合中，否则会报错</p>
 <p>命令<code>GEOPOS</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOPOS key elem1 elem2 ... elemN
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEOPOS key elem1 elem2 ... elemN
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>列出集合中指定name的坐标
 栗子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -313,37 +310,37 @@ GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEOPOS chaoyangqu yabaolu yinhesoho xxx
-1) 1) &#34;116.43620342016220093&#34;
-   2) &#34;39.9168813345921123&#34;
-2) 1) &#34;116.43358021974563599&#34;
-   2) &#34;39.92137286048646416&#34;
-3) (nil)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEOPOS chaoyangqu yabaolu yinhesoho xxx
+</span></span><span class="line"><span class="cl">1) 1) &#34;116.43620342016220093&#34;
+</span></span><span class="line"><span class="cl">   2) &#34;39.9168813345921123&#34;
+</span></span><span class="line"><span class="cl">2) 1) &#34;116.43358021974563599&#34;
+</span></span><span class="line"><span class="cl">   2) &#34;39.92137286048646416&#34;
+</span></span><span class="line"><span class="cl">3) (nil)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>说明如果 name 不存在set中就会返回nil</p>
 <p>命令<code>GEODIST</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEODIST key elem1 elem2 [unit]
-1. unit 单位可以说m lm ft mi
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEODIST key elem1 elem2 [unit]
+</span></span><span class="line"><span class="cl">1. unit 单位可以说m lm ft mi
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>只能是两个元素之间的啊，不然三个元素就是语法错误，两个元素中有一个不存在则返回 <code>nil</code>
 栗子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">GEODIST chaoyangqu yabaolu yinhesoho m
-&#34;547.4030&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">GEODIST chaoyangqu yabaolu yinhesoho m
+</span></span><span class="line"><span class="cl">&#34;547.4030&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>下面的几个命令做个了解，平时不常用到</p>
 <ul>
@@ -454,7 +451,7 @@ GEORADIUSBYMEMBER chaoyangqu yinhesoho 300 m WITHDIST ASC
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

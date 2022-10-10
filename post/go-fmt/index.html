@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>[转] golang fmt格式“占位符” - helloword啊哈</title>
+  <title>[转] golang fmt格式“占位符” - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-fmt/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="[转] golang fmt格式“占位符”" />
 <meta property="og:description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&#34;%v&#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&#34;%&#43;v&#34;," />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-fmt/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-fmt/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-12-19T14:11:01+08:00" />
 <meta property="article:modified_time" content="2019-12-19T14:23:09+08:00" />
+
 <meta itemprop="name" content="[转] golang fmt格式“占位符”">
-<meta itemprop="description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&#34;%v&#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&#34;%&#43;v&#34;,">
-<meta itemprop="datePublished" content="2019-12-19T14:11:01&#43;08:00" />
-<meta itemprop="dateModified" content="2019-12-19T14:23:09&#43;08:00" />
+<meta itemprop="description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&#34;%v&#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&#34;%&#43;v&#34;,"><meta itemprop="datePublished" content="2019-12-19T14:11:01+08:00" />
+<meta itemprop="dateModified" content="2019-12-19T14:23:09+08:00" />
 <meta itemprop="wordCount" content="1287">
-
-
-
 <meta itemprop="keywords" content="go,fmt," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[转] golang fmt格式“占位符”"/>
 <meta name="twitter:description" content="golang fmt占位符的备注: 1 2 3 4 5 6 7 普通占位符 占位符 说明 举例 输出 %v 相应值的默认格式。 Printf(&#34;%v&#34;, people) {zhangsan}， %&#43;v 打印结构体时，会添加字段名 Printf(&#34;%&#43;v&#34;,"/>
@@ -158,7 +155,7 @@
       <p>golang fmt占位符的备注:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -167,30 +164,30 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">普通占位符
-占位符     说明                           举例                   输出
-%v      相应值的默认格式。            Printf(&#34;%v&#34;, people)   {zhangsan}，
-%+v     打印结构体时，会添加字段名     Printf(&#34;%+v&#34;, people)  {Name:zhangsan}
-%#v     相应值的Go语法表示            Printf(&#34;#v&#34;, people)   main.Human{Name:&#34;zhangsan&#34;}
-%T      相应值的类型的Go语法表示       Printf(&#34;%T&#34;, people)   main.Human
-%%      字面上的百分号，并非值的占位符  Printf(&#34;%%&#34;)            %
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">普通占位符
+</span></span><span class="line"><span class="cl">占位符     说明                           举例                   输出
+</span></span><span class="line"><span class="cl">%v      相应值的默认格式。            Printf(&#34;%v&#34;, people)   {zhangsan}，
+</span></span><span class="line"><span class="cl">%+v     打印结构体时，会添加字段名     Printf(&#34;%+v&#34;, people)  {Name:zhangsan}
+</span></span><span class="line"><span class="cl">%#v     相应值的Go语法表示            Printf(&#34;#v&#34;, people)   main.Human{Name:&#34;zhangsan&#34;}
+</span></span><span class="line"><span class="cl">%T      相应值的类型的Go语法表示       Printf(&#34;%T&#34;, people)   main.Human
+</span></span><span class="line"><span class="cl">%%      字面上的百分号，并非值的占位符  Printf(&#34;%%&#34;)            %
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">布尔占位符
-占位符       说明                举例                     输出
-%t          true 或 false。     Printf(&#34;%t&#34;, true)       true
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">布尔占位符
+</span></span><span class="line"><span class="cl">占位符       说明                举例                     输出
+</span></span><span class="line"><span class="cl">%t          true 或 false。     Printf(&#34;%t&#34;, true)       true
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -202,21 +199,21 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">整数占位符
-占位符     说明                                  举例                       输出
-%b      二进制表示                             Printf(&#34;%b&#34;, 5)             101
-%c      相应Unicode码点所表示的字符              Printf(&#34;%c&#34;, 0x4E2D)        中
-%d      十进制表示                             Printf(&#34;%d&#34;, 0x12)          18
-%o      八进制表示                             Printf(&#34;%d&#34;, 10)            12
-%q      单引号围绕的字符字面值，由Go语法安全地转义 Printf(&#34;%q&#34;, 0x4E2D)        &#39;中&#39;
-%x      十六进制表示，字母形式为小写 a-f         Printf(&#34;%x&#34;, 13)             d
-%X      十六进制表示，字母形式为大写 A-F         Printf(&#34;%x&#34;, 13)             D
-%U      Unicode格式：U+1234，等同于 &#34;U+%04X&#34;   Printf(&#34;%U&#34;, 0x4E2D)         U+4E2D
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">整数占位符
+</span></span><span class="line"><span class="cl">占位符     说明                                  举例                       输出
+</span></span><span class="line"><span class="cl">%b      二进制表示                             Printf(&#34;%b&#34;, 5)             101
+</span></span><span class="line"><span class="cl">%c      相应Unicode码点所表示的字符              Printf(&#34;%c&#34;, 0x4E2D)        中
+</span></span><span class="line"><span class="cl">%d      十进制表示                             Printf(&#34;%d&#34;, 0x12)          18
+</span></span><span class="line"><span class="cl">%o      八进制表示                             Printf(&#34;%d&#34;, 10)            12
+</span></span><span class="line"><span class="cl">%q      单引号围绕的字符字面值，由Go语法安全地转义 Printf(&#34;%q&#34;, 0x4E2D)        &#39;中&#39;
+</span></span><span class="line"><span class="cl">%x      十六进制表示，字母形式为小写 a-f         Printf(&#34;%x&#34;, 13)             d
+</span></span><span class="line"><span class="cl">%X      十六进制表示，字母形式为大写 A-F         Printf(&#34;%x&#34;, 13)             D
+</span></span><span class="line"><span class="cl">%U      Unicode格式：U+1234，等同于 &#34;U+%04X&#34;   Printf(&#34;%U&#34;, 0x4E2D)         U+4E2D
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -227,20 +224,20 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">浮点数和复数的组成部分（实部和虚部）
-占位符     说明                              举例            输出
-%b      无小数部分的，指数为二的幂的科学计数法，
-        与 strconv.FormatFloat 的 &#39;b&#39; 转换格式一致。例如 -123456p-78
-%e      科学计数法，例如 -1234.456e+78        Printf(&#34;%e&#34;, 10.2)     1.020000e+01
-%E      科学计数法，例如 -1234.456E+78        Printf(&#34;%e&#34;, 10.2)     1.020000E+01
-%f      有小数点而无指数，例如 123.456        Printf(&#34;%f&#34;, 10.2)     10.200000
-%g      根据情况选择 %e 或 %f 以产生更紧凑的（无末尾的0）输出 Printf(&#34;%g&#34;, 10.20)   10.2
-%G      根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0）输出 Printf(&#34;%G&#34;, 10.20+2i) (10.2+2i)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">浮点数和复数的组成部分（实部和虚部）
+</span></span><span class="line"><span class="cl">占位符     说明                              举例            输出
+</span></span><span class="line"><span class="cl">%b      无小数部分的，指数为二的幂的科学计数法，
+</span></span><span class="line"><span class="cl">        与 strconv.FormatFloat 的 &#39;b&#39; 转换格式一致。例如 -123456p-78
+</span></span><span class="line"><span class="cl">%e      科学计数法，例如 -1234.456e+78        Printf(&#34;%e&#34;, 10.2)     1.020000e+01
+</span></span><span class="line"><span class="cl">%E      科学计数法，例如 -1234.456E+78        Printf(&#34;%e&#34;, 10.2)     1.020000E+01
+</span></span><span class="line"><span class="cl">%f      有小数点而无指数，例如 123.456        Printf(&#34;%f&#34;, 10.2)     10.200000
+</span></span><span class="line"><span class="cl">%g      根据情况选择 %e 或 %f 以产生更紧凑的（无末尾的0）输出 Printf(&#34;%g&#34;, 10.20)   10.2
+</span></span><span class="line"><span class="cl">%G      根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0）输出 Printf(&#34;%G&#34;, 10.20+2i) (10.2+2i)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -248,29 +245,29 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">字符串与字节切片
-占位符     说明                              举例                           输出
-%s      输出字符串表示（string类型或[]byte)   Printf(&#34;%s&#34;, []byte(&#34;Go语言&#34;))  Go语言
-%q      双引号围绕的字符串，由Go语法安全地转义  Printf(&#34;%q&#34;, &#34;Go语言&#34;)         &#34;Go语言&#34;
-%x      十六进制，小写字母，每字节两个字符      Printf(&#34;%x&#34;, &#34;golang&#34;)         676f6c616e67
-%X      十六进制，大写字母，每字节两个字符      Printf(&#34;%X&#34;, &#34;golang&#34;)         676F6C616E67
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">字符串与字节切片
+</span></span><span class="line"><span class="cl">占位符     说明                              举例                           输出
+</span></span><span class="line"><span class="cl">%s      输出字符串表示（string类型或[]byte)   Printf(&#34;%s&#34;, []byte(&#34;Go语言&#34;))  Go语言
+</span></span><span class="line"><span class="cl">%q      双引号围绕的字符串，由Go语法安全地转义  Printf(&#34;%q&#34;, &#34;Go语言&#34;)         &#34;Go语言&#34;
+</span></span><span class="line"><span class="cl">%x      十六进制，小写字母，每字节两个字符      Printf(&#34;%x&#34;, &#34;golang&#34;)         676f6c616e67
+</span></span><span class="line"><span class="cl">%X      十六进制，大写字母，每字节两个字符      Printf(&#34;%X&#34;, &#34;golang&#34;)         676F6C616E67
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">指针
-占位符         说明                      举例                             输出
-%p      十六进制表示，前缀 0x          Printf(&#34;%p&#34;, &amp;people)             0x4f57f0
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">指针
+</span></span><span class="line"><span class="cl">占位符         说明                      举例                             输出
+</span></span><span class="line"><span class="cl">%p      十六进制表示，前缀 0x          Printf(&#34;%p&#34;, &amp;people)             0x4f57f0
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -285,20 +282,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">其它标记
-占位符      说明                             举例          输出
-+      总打印数值的正负号；对于%q（%+q）保证只输出ASCII编码的字符。 
-                                           Printf(&#34;%+q&#34;, &#34;中文&#34;)  &#34;\u4e2d\u6587&#34;
--      在右侧而非左侧填充空格（左对齐该区域）
-#      备用格式：为八进制添加前导 0（%#o）      Printf(&#34;%#U&#34;, &#39;中&#39;)      U+4E2D
-       为十六进制添加前导 0x（%#x）或 0X（%#X），为 %p（%#p）去掉前导 0x；
-       如果可能的话，%q（%#q）会打印原始 （即反引号围绕的）字符串；
-       如果是可打印字符，%U（%#U）会写出该字符的
-       Unicode 编码形式（如字符 x 会被打印成 U+0078 &#39;x&#39;）。
-&#39; &#39;    (空格)为数值中省略的正负号留出空白（% d）；
-       以十六进制（% x, % X）打印字符串或切片时，在字节之间用空格隔开
-0      填充前导的0而非空格；对于数字，这会将填充移到正负号之后
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">其它标记
+</span></span><span class="line"><span class="cl">占位符      说明                             举例          输出
+</span></span><span class="line"><span class="cl">+      总打印数值的正负号；对于%q（%+q）保证只输出ASCII编码的字符。 
+</span></span><span class="line"><span class="cl">                                           Printf(&#34;%+q&#34;, &#34;中文&#34;)  &#34;\u4e2d\u6587&#34;
+</span></span><span class="line"><span class="cl">-      在右侧而非左侧填充空格（左对齐该区域）
+</span></span><span class="line"><span class="cl">#      备用格式：为八进制添加前导 0（%#o）      Printf(&#34;%#U&#34;, &#39;中&#39;)      U+4E2D
+</span></span><span class="line"><span class="cl">       为十六进制添加前导 0x（%#x）或 0X（%#X），为 %p（%#p）去掉前导 0x；
+</span></span><span class="line"><span class="cl">       如果可能的话，%q（%#q）会打印原始 （即反引号围绕的）字符串；
+</span></span><span class="line"><span class="cl">       如果是可打印字符，%U（%#U）会写出该字符的
+</span></span><span class="line"><span class="cl">       Unicode 编码形式（如字符 x 会被打印成 U+0078 &#39;x&#39;）。
+</span></span><span class="line"><span class="cl">&#39; &#39;    (空格)为数值中省略的正负号留出空白（% d）；
+</span></span><span class="line"><span class="cl">       以十六进制（% x, % X）打印字符串或切片时，在字节之间用空格隔开
+</span></span><span class="line"><span class="cl">0      填充前导的0而非空格；对于数字，这会将填充移到正负号之后
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>golang没有 &lsquo;%u&rsquo; 点位符，若整数为无符号类型，默认就会被打印成无符号的。</p>
 <p>宽度与精度的控制格式以Unicode码点为单位。宽度为该数值占用区域的最小宽度；精度为小数点之后的位数。
@@ -416,7 +413,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

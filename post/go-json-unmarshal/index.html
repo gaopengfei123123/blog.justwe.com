@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Go Json Unmarshal 出现的一些问题 - helloword啊哈</title>
+  <title>Go Json Unmarshal 出现的一些问题 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-json-unmarshal/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Go Json Unmarshal 出现的一些问题" />
 <meta property="og:description" content="一次偶然的情况， 使用encoding/json的 Unmarshal 处理 int 类型字段时会被处理成 float64，且使用科学记数法展示 我们先组一个数据： 1 2 3 4 5" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-json-unmarshal/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-json-unmarshal/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-09T21:17:46+08:00" />
 <meta property="article:modified_time" content="2021-04-19T11:07:06+08:00" />
+
 <meta itemprop="name" content="Go Json Unmarshal 出现的一些问题">
-<meta itemprop="description" content="一次偶然的情况， 使用encoding/json的 Unmarshal 处理 int 类型字段时会被处理成 float64，且使用科学记数法展示 我们先组一个数据： 1 2 3 4 5">
-<meta itemprop="datePublished" content="2021-04-09T21:17:46&#43;08:00" />
-<meta itemprop="dateModified" content="2021-04-19T11:07:06&#43;08:00" />
+<meta itemprop="description" content="一次偶然的情况， 使用encoding/json的 Unmarshal 处理 int 类型字段时会被处理成 float64，且使用科学记数法展示 我们先组一个数据： 1 2 3 4 5"><meta itemprop="datePublished" content="2021-04-09T21:17:46+08:00" />
+<meta itemprop="dateModified" content="2021-04-19T11:07:06+08:00" />
 <meta itemprop="wordCount" content="611">
-
-
-
 <meta itemprop="keywords" content="go,json," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go Json Unmarshal 出现的一些问题"/>
 <meta name="twitter:description" content="一次偶然的情况， 使用encoding/json的 Unmarshal 处理 int 类型字段时会被处理成 float64，且使用科学记数法展示 我们先组一个数据： 1 2 3 4 5"/>
@@ -160,7 +157,7 @@
 <p>我们先组一个数据：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -168,18 +165,18 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="mi">14625461</span><span class="p">,</span>
-    <span class="nt">&#34;ad_type&#34;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
-    <span class="nt">&#34;sys&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nt">&#34;hospital_id&#34;</span><span class="p">:</span> <span class="s2">&#34;108720&#34;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="mi">14625461</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;ad_type&#34;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;sys&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;hospital_id&#34;</span><span class="p">:</span> <span class="s2">&#34;108720&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>直接使用 <code>Unmarshal</code> 处理</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -208,48 +205,48 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-golang" data-lang="golang">
-<span class="c1">// JsonDecode 通用的 json 解析方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">raw</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">tpl</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">useNumber</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">useNumber</span> <span class="p">{</span>
-		<span class="nx">d</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">)))</span>
-		<span class="nx">d</span><span class="p">.</span><span class="nf">UseNumber</span><span class="p">()</span>
-		<span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nf">Decode</span><span class="p">(</span><span class="nx">tpl</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">)</span>
-<span class="p">}</span>
-
-
-<span class="kd">func</span> <span class="nf">TestDemo</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;start&#34;</span><span class="p">)</span>
-	<span class="nx">data</span> <span class="o">:=</span> <span class="s">`
-</span><span class="s">{
-</span><span class="s">    &#34;uid&#34;: 14625461,
-</span><span class="s">    &#34;ad_type&#34;: 21,
-</span><span class="s">    &#34;sys&#34;: 1,
-</span><span class="s">    &#34;hospital_id&#34;: &#34;108720&#34;
-</span><span class="s">}
-</span><span class="s">`</span>
-	<span class="nx">tpl</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{}</span>
-	<span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
-	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%#+v \n&#34;</span><span class="p">,</span> <span class="nx">tpl</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// JsonDecode 通用的 json 解析方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">raw</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">tpl</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">useNumber</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">useNumber</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">d</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">d</span><span class="p">.</span><span class="nf">UseNumber</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nf">Decode</span><span class="p">(</span><span class="nx">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestDemo</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;start&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">data</span> <span class="o">:=</span> <span class="s">`
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;uid&#34;: 14625461,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;ad_type&#34;: 21,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;sys&#34;: 1,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;hospital_id&#34;: &#34;108720&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">tpl</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%#+v \n&#34;</span><span class="p">,</span> <span class="nx">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这时候输出：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">map<span class="o">[</span>string<span class="o">]</span>interface <span class="o">{}{</span><span class="s2">&#34;ad_type&#34;</span>:21, <span class="s2">&#34;hospital_id&#34;</span>:<span class="s2">&#34;108720&#34;</span>, <span class="s2">&#34;sys&#34;</span>:1, <span class="s2">&#34;uid&#34;</span>:1.4625461e+07<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">map<span class="o">[</span>string<span class="o">]</span>interface <span class="o">{}{</span><span class="s2">&#34;ad_type&#34;</span>:21, <span class="s2">&#34;hospital_id&#34;</span>:<span class="s2">&#34;108720&#34;</span>, <span class="s2">&#34;sys&#34;</span>:1, <span class="s2">&#34;uid&#34;</span>:1.4625461e+07<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>本来应该正常显示的 uid 解析后的值变成了 <code>1.4625461e+07</code>, 这种数据格式明细不符合我们的预期， 因此需要特殊处理一下， 按上面的例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -278,65 +275,65 @@
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-golang" data-lang="golang">
-<span class="c1">// JsonDecode 通用的 json 解析方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">raw</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">tpl</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">useNumber</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">useNumber</span> <span class="p">{</span>
-		<span class="nx">d</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">)))</span>
-		<span class="nx">d</span><span class="p">.</span><span class="nf">UseNumber</span><span class="p">()</span>
-		<span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nf">Decode</span><span class="p">(</span><span class="nx">tpl</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">)</span>
-<span class="p">}</span>
-
-
-<span class="kd">func</span> <span class="nf">TestDemo</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;start&#34;</span><span class="p">)</span>
-	<span class="nx">data</span> <span class="o">:=</span> <span class="s">`
-</span><span class="s">{
-</span><span class="s">    &#34;uid&#34;: 14625461,
-</span><span class="s">    &#34;ad_type&#34;: 21,
-</span><span class="s">    &#34;sys&#34;: 1,
-</span><span class="s">    &#34;hospital_id&#34;: &#34;108720&#34;
-</span><span class="s">}
-</span><span class="s">`</span>
-	<span class="nx">tpl</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{}</span>
-	<span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
-	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%#+v \n&#34;</span><span class="p">,</span> <span class="nx">tpl</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// JsonDecode 通用的 json 解析方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">raw</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">tpl</span> <span class="kd">interface</span><span class="p">{},</span> <span class="nx">useNumber</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">useNumber</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">d</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">d</span><span class="p">.</span><span class="nf">UseNumber</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nf">Decode</span><span class="p">(</span><span class="nx">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestDemo</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;start&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">data</span> <span class="o">:=</span> <span class="s">`
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;uid&#34;: 14625461,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;ad_type&#34;: 21,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;sys&#34;: 1,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;hospital_id&#34;: &#34;108720&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">tpl</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">JsonDecode</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">tpl</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;%#+v \n&#34;</span><span class="p">,</span> <span class="nx">tpl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>此时输出：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh">map<span class="o">[</span>string<span class="o">]</span>interface <span class="o">{}{</span><span class="s2">&#34;ad_type&#34;</span>:<span class="s2">&#34;21&#34;</span>, <span class="s2">&#34;hospital_id&#34;</span>:<span class="s2">&#34;108720&#34;</span>, <span class="s2">&#34;sys&#34;</span>:<span class="s2">&#34;1&#34;</span>, <span class="s2">&#34;uid&#34;</span>:<span class="s2">&#34;14625461&#34;</span><span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">map<span class="o">[</span>string<span class="o">]</span>interface <span class="o">{}{</span><span class="s2">&#34;ad_type&#34;</span>:<span class="s2">&#34;21&#34;</span>, <span class="s2">&#34;hospital_id&#34;</span>:<span class="s2">&#34;108720&#34;</span>, <span class="s2">&#34;sys&#34;</span>:<span class="s2">&#34;1&#34;</span>, <span class="s2">&#34;uid&#34;</span>:<span class="s2">&#34;14625461&#34;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>关键代码就在：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-golang" data-lang="golang">	<span class="nx">d</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">)))</span>
-    <span class="c1">// UseNumber causes the Decoder to unmarshal a number into an interface{} as a
-</span><span class="c1"></span>    <span class="c1">// Number instead of as a float64.
-</span><span class="c1"></span>    <span class="nx">d</span><span class="p">.</span><span class="nf">UseNumber</span><span class="p">()</span> <span class="c1">// 这里是关键
-</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nf">Decode</span><span class="p">(</span><span class="nx">tpl</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl">	<span class="nx">d</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">NewDecoder</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">raw</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// UseNumber causes the Decoder to unmarshal a number into an interface{} as a
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// Number instead of as a float64.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">d</span><span class="p">.</span><span class="nf">UseNumber</span><span class="p">()</span> <span class="c1">// 这里是关键
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nf">Decode</span><span class="p">(</span><span class="nx">tpl</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里再追一下上层代码， 发现到这个函数里面：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -350,31 +347,31 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-golang" data-lang="golang"><span class="c1">// convertNumber converts the number literal s to a float64 or a Number
-</span><span class="c1">// depending on the setting of d.useNumber.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">decodeState</span><span class="p">)</span> <span class="nf">convertNumber</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">d</span><span class="p">.</span><span class="nx">useNumber</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nf">Number</span><span class="p">(</span><span class="nx">s</span><span class="p">),</span> <span class="kc">nil</span>
-	<span class="p">}</span>
-	<span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">ParseFloat</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">UnmarshalTypeError</span><span class="p">{</span><span class="nx">Value</span><span class="p">:</span> <span class="s">&#34;number &#34;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">Type</span><span class="p">:</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="nx">Offset</span><span class="p">:</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">off</span><span class="p">)}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">f</span><span class="p">,</span> <span class="kc">nil</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl"><span class="c1">// convertNumber converts the number literal s to a float64 or a Number
+</span></span></span><span class="line"><span class="cl"><span class="c1">// depending on the setting of d.useNumber.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">decodeState</span><span class="p">)</span> <span class="nf">convertNumber</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">d</span><span class="p">.</span><span class="nx">useNumber</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nf">Number</span><span class="p">(</span><span class="nx">s</span><span class="p">),</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">ParseFloat</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">UnmarshalTypeError</span><span class="p">{</span><span class="nx">Value</span><span class="p">:</span> <span class="s">&#34;number &#34;</span> <span class="o">+</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">Type</span><span class="p">:</span> <span class="nx">reflect</span><span class="p">.</span><span class="nf">TypeOf</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span> <span class="nx">Offset</span><span class="p">:</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">off</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">f</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里如果不设置<code>d.UseNumber()</code>将会把数字类型转换成 <code>float64</code> 格式的， 如果设置了， 就变成了 <code>json.Number</code>格式的， 底层是 string 类型</p>
 <p>基于这个情况，在处理 json 数据时需要多一层考虑，使用 <code>str := rawValue.(json.Number).String()</code> 把 <code>interface{}</code> 的转成 <code>string</code> 类型， 然后再考虑是否转成 <code>int</code> 类型， 代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-golang" data-lang="golang">	<span class="nx">str</span> <span class="o">:=</span> <span class="nx">rawValue</span><span class="p">.(</span><span class="nx">json</span><span class="p">.</span><span class="nx">Number</span><span class="p">).</span><span class="nf">String</span><span class="p">()</span>
-	<span class="nx">intValue</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="line"><span class="cl">	<span class="nx">str</span> <span class="o">:=</span> <span class="nx">rawValue</span><span class="p">.(</span><span class="nx">json</span><span class="p">.</span><span class="nx">Number</span><span class="p">).</span><span class="nf">String</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">intValue</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -484,7 +481,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

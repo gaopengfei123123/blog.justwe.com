@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>使用 go 进行 jwt 验证 - helloword啊哈</title>
+  <title>使用 go 进行 jwt 验证 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/go-jwt/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="使用 go 进行 jwt 验证" />
 <meta property="og:description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/go-jwt/" />
+<meta property="og:url" content="https://blog.justwe.site/post/go-jwt/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-01-22T14:04:26+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="使用 go 进行 jwt 验证">
-<meta itemprop="description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这">
-<meta itemprop="datePublished" content="2018-01-22T14:04:26&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
+<meta itemprop="description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这"><meta itemprop="datePublished" content="2018-01-22T14:04:26+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
 <meta itemprop="wordCount" content="854">
-
-
-
 <meta itemprop="keywords" content="go,json,jwt," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 go 进行 jwt 验证"/>
 <meta name="twitter:description" content="对于使用负载均衡的服务器来说,使用 JWT(JSON WEB TOKEN) 是一个更优的选择,session受到单台服务器的限制,一个用户登录过后就只能分配到 这一台服务器上,这"/>
@@ -176,19 +173,19 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;HS256&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;JWT&#34;</span>
-<span class="p">}</span>
-<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJhbGciOiJIUzI</span><span class="mi">1</span><span class="err">NiIsInR</span><span class="mi">5</span><span class="err">cCI</span><span class="mi">6</span><span class="err">IkpXVCJ</span><span class="mi">9</span><span class="err">`</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;HS256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;typ&#34;</span><span class="p">:</span> <span class="s2">&#34;JWT&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// base64编码的字符串`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里规定了加密算法,hash256</p>
 <ul>
@@ -196,7 +193,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -204,13 +201,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;1234567890&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;admin&#34;</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">}</span>
-<span class="err">//</span> <span class="err">base</span><span class="mi">64</span><span class="err">编码的字符串`eyJzdWIiOiIxMjM</span><span class="mi">0</span><span class="err">NTY</span><span class="mi">3</span><span class="err">ODkwIiwibmFtZSI</span><span class="mi">6</span><span class="err">IkpvaG</span><span class="mi">4</span><span class="err">gRG</span><span class="mi">9</span><span class="err">lIiwiYWRtaW</span><span class="mi">4</span><span class="err">iOnRydWV</span><span class="mi">9</span><span class="err">`</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sub&#34;</span><span class="p">:</span> <span class="s2">&#34;1234567890&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;John Doe&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;admin&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// base64编码的字符串`eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9`
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><pre><code>这里的内容没有强制要求,因为 paylaod 就是为了承载内容而存在的,不过想用规范的话也可以参考下面的
 * iss: jwt签发者
@@ -227,27 +224,27 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">HMACSHA256(
-  base64UrlEncode(header) + &#34;.&#34; +
-  base64UrlEncode(payload),
-  secret)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HMACSHA256(
+</span></span><span class="line"><span class="cl">  base64UrlEncode(header) + &#34;.&#34; +
+</span></span><span class="line"><span class="cl">  base64UrlEncode(payload),
+</span></span><span class="line"><span class="cl">  secret)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里 <code>secret</code>就是自己定义的一个随机字符串,这一个过程只能发生在 server 端,会随机生成一个 hash 值</p>
 <p>这样组合起来之后就是一个完整的 jwt 了:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.4c9540f793ab33b13670169bdf444c1eb1c37047f18e861981e14e34587b1e04
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.4c9540f793ab33b13670169bdf444c1eb1c37047f18e861981e14e34587b1e04
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里有一个<a href="https://github.com/gaopengfei123123/go_study/tree/master/code/jwt">用 go 加密和验证 jwt 的 demo</a></p>
 <h2 id="总结">总结</h2>
@@ -375,7 +372,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

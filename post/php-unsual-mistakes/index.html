@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>php开发过程中不常碰到的error (2.28更新) - helloword啊哈</title>
+  <title>php开发过程中不常碰到的error (2.28更新) - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-unsual-mistakes/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="php开发过程中不常碰到的error (2.28更新)" />
 <meta property="og:description" content="这里做一些备注,以防再次碰到 url 当中的参数有 &amp;timestamp=1234567890这样的字段会被转义成xtamp=12345678" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/php-unsual-mistakes/" />
+<meta property="og:url" content="https://blog.justwe.site/post/php-unsual-mistakes/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-02-28T10:30:23+00:00" />
 <meta property="article:modified_time" content="2020-08-04T11:48:23+08:00" />
+
 <meta itemprop="name" content="php开发过程中不常碰到的error (2.28更新)">
-<meta itemprop="description" content="这里做一些备注,以防再次碰到 url 当中的参数有 &amp;timestamp=1234567890这样的字段会被转义成xtamp=12345678">
-<meta itemprop="datePublished" content="2019-02-28T10:30:23&#43;00:00" />
-<meta itemprop="dateModified" content="2020-08-04T11:48:23&#43;08:00" />
-<meta itemprop="wordCount" content="3781">
-
-
-
+<meta itemprop="description" content="这里做一些备注,以防再次碰到 url 当中的参数有 &amp;timestamp=1234567890这样的字段会被转义成xtamp=12345678"><meta itemprop="datePublished" content="2019-02-28T10:30:23+00:00" />
+<meta itemprop="dateModified" content="2020-08-04T11:48:23+08:00" />
+<meta itemprop="wordCount" content="3791">
 <meta itemprop="keywords" content="php,debug," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="php开发过程中不常碰到的error (2.28更新)"/>
 <meta name="twitter:description" content="这里做一些备注,以防再次碰到 url 当中的参数有 &amp;timestamp=1234567890这样的字段会被转义成xtamp=12345678"/>
@@ -221,13 +218,13 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mysql&gt; <span class="nb">set</span> global <span class="nv">wait_timeout</span><span class="o">=</span>10<span class="p">;</span>
-mysql&gt; show global variables like <span class="s1">&#39;wait_timeout&#39;</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mysql&gt; <span class="nb">set</span> global <span class="nv">wait_timeout</span><span class="o">=</span>10<span class="p">;</span>
+</span></span><span class="line"><span class="cl">mysql&gt; show global variables like <span class="s1">&#39;wait_timeout&#39;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>使用 mysql 之前需要 mysql_ping() 一下, 如果出现断开的错误就启动重连机制</li>
@@ -237,27 +234,27 @@ mysql&gt; show global variables like <span class="s1">&#39;wait_timeout&#39;</sp
 在 php 端 urlencode 的值为:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">orderid%3D21111111110001954%26pid%3D257742%26reason%3D%E4%B8%AA%E4%BA%BA%E6%96%B9%E9%9D%A2%E5%8E%9F%E5%9B%A0_%E4%BD%BF%E7%94%A8%E7%BA%A2%E5%8C%85%E9%87%8D%E6%96%B0%E4%B8%8B%E5%8D%95%26token%3D041d9e5575f480b7bfd58b09bd14ab1c7ee9e9594f2fcdb9f0e3e39fc634b48f
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">orderid%3D21111111110001954%26pid%3D257742%26reason%3D%E4%B8%AA%E4%BA%BA%E6%96%B9%E9%9D%A2%E5%8E%9F%E5%9B%A0_%E4%BD%BF%E7%94%A8%E7%BA%A2%E5%8C%85%E9%87%8D%E6%96%B0%E4%B8%8B%E5%8D%95%26token%3D041d9e5575f480b7bfd58b09bd14ab1c7ee9e9594f2fcdb9f0e3e39fc634b48f
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>需要 urldecode 一次</p>
 <p>而在 js 端的结果是:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">orderid%3D21111111110002170%26pid%3D257742%26reason%3D%25E4%25B8%25AA%25E4%25BA%25BA%25E6%2596%25B9%25E9%259D%25A2%25E5%258E%259F%25E5%259B%25A0_%25E4%25B8%25AA%25E4%25BA%25BA%25E8%25BA%25AB%25E4%25BD%2593%25E5%258E%259F%25E5%259B%25A0%26token%3D041d9e5575f480b7bfd58b09bd14ab1c7ee9e9594f2fcdb9f0e3e39fc634b48f
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">orderid%3D21111111110002170%26pid%3D257742%26reason%3D%25E4%25B8%25AA%25E4%25BA%25BA%25E6%2596%25B9%25E9%259D%25A2%25E5%258E%259F%25E5%259B%25A0_%25E4%25B8%25AA%25E4%25BA%25BA%25E8%25BA%25AB%25E4%25BD%2593%25E5%258E%259F%25E5%259B%25A0%26token%3D041d9e5575f480b7bfd58b09bd14ab1c7ee9e9594f2fcdb9f0e3e39fc634b48f
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>需要 urldecode 两次</p>
 <p>查阅资料后:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -270,30 +267,28 @@ mysql&gt; show global variables like <span class="s1">&#39;wait_timeout&#39;</sp
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">在后端是PHP程序的情况下，保持前端Javascript和PHP之间传值的统一编码可以使用以下函数进行处理：
- 
-WEB前端JavaScript
- 
-编码：escape(encodeURI(string))
- 
-解码：unescape(decodeURI(string))
- 
-WEB后端Php
- 
-编码：urlencode(string)
- 
-解码：urldecode(urldecode(string))
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">在后端是PHP程序的情况下，保持前端Javascript和PHP之间传值的统一编码可以使用以下函数进行处理：
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">WEB前端JavaScript
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">编码：escape(encodeURI(string))
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">解码：unescape(decodeURI(string))
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">WEB后端Php
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">编码：urlencode(string)
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">解码：urldecode(urldecode(string))
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://bbs.csdn.net/topics/330072196">为什么要encodeURI(url)两次才不会出现乱码？</a></p>
 <h3 id="php中rawurlencode和urlencodejs中encodeuri与encodeuricomponent-的区别">PHP中rawurlencode和urlencode、JS中encodeURI与encodeURIComponent 的区别</h3>
 <p>rawurlencode遵守是94年国际标准备忘录RFC 1738</p>
-<p>urlencode实现的是传统做法，和上者的主要区别是对空格的转义是'+'而不是&rsquo;%20&rsquo;
-javascript的encodeURL也是94年标准，而javascript的escape是另一种用&rdquo;%xxx&quot;标记unicode编码的方法。
+<p>urlencode实现的是传统做法，和上者的主要区别是对空格的转义是&rsquo;+&lsquo;而不是&rsquo;%20&rsquo;
+javascript的encodeURL也是94年标准，而javascript的escape是另一种用&quot;%xxx&quot;标记unicode编码的方法。
 推荐在PHP中使用用rawurlencode。弃用urlencode</p>
 <p>样例
 source:
@@ -310,13 +305,13 @@ source:
 <p>在前端还有个问题就是, js 的 <code>encodeURIComponent</code> 和 <code>encodeURI</code> 都不会转换 <code>_-.!~*'()#</code> 这些保留字符, 而在后端的<code>rawurlencode</code> 则是会转换的, 因此需要前端单独把这几个给拎出来, 如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;*&#34;</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// 42
-</span><span class="c1"></span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1">// *
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s2">&#34;*&#34;</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">// 42
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="c1">// *
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里有张图说的很明白
 <img src="http://blog-image.onlyoneip.com/urlencode.jpeg" alt="">
@@ -330,15 +325,15 @@ source:
 <p>替换这种编码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$value = str_replace(&#34;\xe2\x80\x8b&#34;, &#39;&#39;, $value);
-$value = str_replace(&#34;\xe2\x80\x8c&#34;, &#39;&#39;, $value);
-$value = str_replace(&#34;\xe2\x80\x8d&#34;, &#39;&#39;, $value);
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$value</span> <span class="o">=</span> <span class="nx">str_replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\xe2\x80\x8b</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$value</span> <span class="o">=</span> <span class="nx">str_replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\xe2\x80\x8c</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$value</span> <span class="o">=</span> <span class="nx">str_replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\xe2\x80\x8d</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>编码对照如下:
 <img src="http://blog-image.onlyoneip.com/zero-width-space-2.png" alt=""></p>
@@ -346,17 +341,17 @@ $value = str_replace(&#34;\xe2\x80\x8d&#34;, &#39;&#39;, $value);
 <p>输入以下命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span>vim
-sudo touch /etc/crontab
-crontab -e
-crontab -l
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span>vim
+</span></span><span class="line"><span class="cl">sudo touch /etc/crontab
+</span></span><span class="line"><span class="cl">crontab -e
+</span></span><span class="line"><span class="cl">crontab -l
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>把默认编辑器从 vi 改成 vim</p>
 <p><a href="https://segmentfault.com/a/1190000013774374">原文</a></p>
@@ -369,7 +364,7 @@ crontab -l
 配置文件: config/web.php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -388,24 +383,24 @@ crontab -l
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">...
- &#39;components&#39; =&gt; [
-     ...
-        //静态资源
-        &#39;assetManager&#39; =&gt; [
-            ...
-            &#39;assetMap&#39; =&gt; [
-                &#39;jquery.js&#39; =&gt; &#39;https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js&#39;, // 
-                &#39;jquery.min.js&#39; =&gt; &#39;https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js&#39;,
-//                &#39;jquery.js&#39; =&gt; &#39;@web/js/jquery/jquery.js&#39;,
-//                &#39;jquery.min.js&#39; =&gt; &#39;@web/js/jquery/jquery.js&#39;,
-            ],
-            ...
-        ],
-    ...
- ]
-...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;components&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">     <span class="o">...</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//静态资源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s1">&#39;assetManager&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="o">...</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;assetMap&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;jquery.js&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js&#39;</span><span class="p">,</span> <span class="c1">// 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="s1">&#39;jquery.min.js&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//                &#39;jquery.js&#39; =&gt; &#39;@web/js/jquery/jquery.js&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="c1">//                &#39;jquery.min.js&#39; =&gt; &#39;@web/js/jquery/jquery.js&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="o">...</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>把相应的 jquery 替换成 <code>v2.2.4</code> 解决
 <a href="https://stackoverflow.com/questions/37914869/jquery-ui-error-f-getclientrects-is-not-a-function">问题来源</a></p>
@@ -414,61 +409,61 @@ crontab -l
 安装php</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">brew install php@7.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install php@7.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>按提示把</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/php@7.1/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
-<span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/php@7.1/sbin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/php@7.1/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/php@7.1/sbin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这些放到你本地命令行配置里面, 然后生成一个软链</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">brew link php@7.1 --force
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew link php@7.1 --force
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装扩展就得使用pecl工具了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /usr/local/opt/php@7.1       <span class="c1"># 执行完 brew link 之后就按软链的来, 这样的好处就是不用记小版本号, 路径短</span>
-pecl install swoole             <span class="c1"># 提示 &#39;openssl/ssl.h&#39; file not found 就是你安装的时候别选 ssl支持就行</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/opt/php@7.1       <span class="c1"># 执行完 brew link 之后就按软链的来, 这样的好处就是不用记小版本号, 路径短</span>
+</span></span><span class="line"><span class="cl">pecl install swoole             <span class="c1"># 提示 &#39;openssl/ssl.h&#39; file not found 就是你安装的时候别选 ssl支持就行</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果提示 <code>No releases available for package “pecl.php.net/swoole”</code>
 参考 <a href="https://blog.joefom.com/archives/137">执行 ‘pecl install swoole’之后，遇到的一些坑</a> , 按提示一步步走应该没问题</p>
 <p>安装完毕之后需要变一下配置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">php -i <span class="p">|</span> grep .ini
-...
-Loaded Configuration <span class="nv">File</span> <span class="o">=</span>&gt; /usr/local/etc/php/7.1/php.ini     //当前加载的配置文件路径
-...
-<span class="nb">cd</span> /usr/local/etc/php/7.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php -i <span class="p">|</span> grep .ini
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">Loaded Configuration <span class="nv">File</span> <span class="o">=</span>&gt; /usr/local/etc/php/7.1/php.ini     //当前加载的配置文件路径
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/etc/php/7.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>先删除 php.ini 里面第一行的 <code>extension=swoole.so</code> 改成这个so文件的真实路径, 推荐放到隔壁的 conf.d 目录底下
 然后<code>php -m | grep sw</code> 可以看一下了
@@ -489,7 +484,7 @@ Loaded Configuration <span class="nv">File</span> <span class="o">=</span>&gt; /
 <p>php正则匹配中文字符的时候, 使用 <code>/^[\u4e00-\u9fa5]+$/</code> 这一条就会报上面的错误, 正确的写法应该是:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -497,13 +492,13 @@ Loaded Configuration <span class="nv">File</span> <span class="o">=</span>&gt; /
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$str = &#34;php编程&#34;;
-if (preg_match(&#34;/^[\x{4e00}-\x{9fa5}]+$/u&#34;,$str)) {
-print(&#34;该字符串全部是中文&#34;);
-} else {
-print(&#34;该字符串不全部是中文&#34;);
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$str</span> <span class="o">=</span> <span class="s2">&#34;php编程&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">preg_match</span><span class="p">(</span><span class="s2">&#34;/^[\x{4e00}-\x{9fa5}]+$/u&#34;</span><span class="p">,</span><span class="nv">$str</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">print</span><span class="p">(</span><span class="s2">&#34;该字符串全部是中文&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">print</span><span class="p">(</span><span class="s2">&#34;该字符串不全部是中文&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://www.cnblogs.com/seanxyh/archive/2013/04/03/2998596.html">php preg_match 正则匹配中文</a></p>
 <h3 id="php匹配-utf-8-with-dom-的字符">php匹配 UTF-8 with DOM 的字符</h3>
@@ -511,7 +506,7 @@ print(&#34;该字符串不全部是中文&#34;);
 解决办法也简单, 去掉就行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -520,14 +515,14 @@ print(&#34;该字符串不全部是中文&#34;);
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">// 简单的将win上的txt文件转成utf-8格式
-function toUTF8($str){
-        $type = mb_detect_encoding($str, array(&#34;ASCII&#34;,&#34;UTF-8&#34;,&#34;GB2312&#34;,&#34;GBK&#34;,&#34;BIG5&#34;));
-        $result = iconv($type, &#39;UTF-8//IGNORE&#39;, $str);
-        // 防止UTF-8 with BOM 的情况
-        return trim($result, &#34;\xEF\xBB\xBF&#34;);
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">// 简单的将win上的txt文件转成utf-8格式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">function</span> <span class="nf">toUTF8</span><span class="p">(</span><span class="nv">$str</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$type</span> <span class="o">=</span> <span class="nx">mb_detect_encoding</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s2">&#34;ASCII&#34;</span><span class="p">,</span><span class="s2">&#34;UTF-8&#34;</span><span class="p">,</span><span class="s2">&#34;GB2312&#34;</span><span class="p">,</span><span class="s2">&#34;GBK&#34;</span><span class="p">,</span><span class="s2">&#34;BIG5&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="o">=</span> <span class="nx">iconv</span><span class="p">(</span><span class="nv">$type</span><span class="p">,</span> <span class="s1">&#39;UTF-8//IGNORE&#39;</span><span class="p">,</span> <span class="nv">$str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 防止UTF-8 with BOM 的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nx">trim</span><span class="p">(</span><span class="nv">$result</span><span class="p">,</span> <span class="s2">&#34;</span><span class="se">\xEF\xBB\xBF</span><span class="s2">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>不过 <code>utf-8 with dom</code> 对php来说是个隐患, 因为php没有对这块的处理, 会出现<code>ZERO WIDTH NO-BREAK SPACE</code>这样的问题, 有数据但是不会在页面输出</p>
 <p>参考:
@@ -655,7 +650,7 @@ function toUTF8($str){
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

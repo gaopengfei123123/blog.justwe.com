@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>转 在 vue-cli 中使用 svg 做 icon - helloword啊哈</title>
+  <title>转 在 vue-cli 中使用 svg 做 icon - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/vue-svg-icon/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="转 在 vue-cli 中使用 svg 做 icon" />
 <meta property="og:description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/vue-svg-icon/" />
+<meta property="og:url" content="https://blog.justwe.site/post/vue-svg-icon/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-12-26T17:03:55+00:00" />
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
+
 <meta itemprop="name" content="转 在 vue-cli 中使用 svg 做 icon">
-<meta itemprop="description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了">
-<meta itemprop="datePublished" content="2017-12-26T17:03:55&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
-<meta itemprop="wordCount" content="1075">
-
-
-
+<meta itemprop="description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了"><meta itemprop="datePublished" content="2017-12-26T17:03:55+00:00" />
+<meta itemprop="dateModified" content="2019-12-10T18:00:55+08:00" />
+<meta itemprop="wordCount" content="1074">
 <meta itemprop="keywords" content="vue,js," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 在 vue-cli 中使用 svg 做 icon"/>
 <meta name="twitter:description" content="之前都是用的image sprite或者使用的 Font Awesome这类的开源库 现在咱们已经走进了现代浏览器的年代(ie9&#43;),可以玩点新鲜的东西了"/>
@@ -179,7 +176,7 @@
 <p>在 vue-cli 生成的 vue 脚手架中添加组件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -217,54 +214,52 @@
 </span><span class="lnt">36
 </span><span class="lnt">37
 </span><span class="lnt">38
-</span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// path: @/components/SvgIcon/index.vue
-</span><span class="c1"></span><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;svg-icon&#34;</span> <span class="nx">aria</span><span class="o">-</span><span class="nx">hidden</span><span class="o">=</span><span class="s2">&#34;true&#34;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="nx">use</span> <span class="o">:</span><span class="nx">xlink</span><span class="o">:</span><span class="nx">href</span><span class="o">=</span><span class="s2">&#34;iconName&#34;</span><span class="o">&gt;&lt;</span><span class="err">/use&gt;</span>
-  <span class="o">&lt;</span><span class="err">/svg&gt;</span>
-<span class="o">&lt;</span><span class="err">/template&gt;</span>
-
-<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;icon-svg&#39;</span><span class="p">,</span>
-  <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">iconClass</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
-      <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">iconName</span><span class="p">()</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="sb">`#icon-</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">iconClass</span><span class="si">}</span><span class="sb">`</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-
-<span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
-<span class="p">.</span><span class="nx">svg</span><span class="o">-</span><span class="nx">icon</span> <span class="p">{</span>
-  <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span><span class="nx">em</span><span class="p">;</span>
-  <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="nx">em</span><span class="p">;</span>
-  <span class="nx">vertical</span><span class="o">-</span><span class="nx">align</span><span class="o">:</span> <span class="o">-</span><span class="mf">0.15</span><span class="nx">em</span><span class="p">;</span>
-  <span class="nx">fill</span><span class="o">:</span> <span class="nx">currentColor</span><span class="p">;</span>
-  <span class="nx">overflow</span><span class="o">:</span> <span class="nx">hidden</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/style&gt;</span>
-
-<span class="nx">作者</span><span class="err">：</span><span class="nx">花裤衩</span>
-<span class="nx">链接</span><span class="err">：</span><span class="nx">https</span><span class="o">:</span><span class="c1">//juejin.im/post/59bb864b5188257e7a427c09
-</span><span class="c1"></span><span class="nx">来源</span><span class="err">：</span><span class="nx">掘金</span>
-<span class="nx">著作权归作者所有</span><span class="err">。</span><span class="nx">商业转载请联系作者获得授权</span><span class="err">，</span><span class="nx">非商业转载请注明出处</span><span class="err">。</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// path: @/components/SvgIcon/index.vue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="nx">svg</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;svg-icon&#34;</span> <span class="nx">aria</span><span class="o">-</span><span class="nx">hidden</span><span class="o">=</span><span class="s2">&#34;true&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">use</span> <span class="o">:</span><span class="nx">xlink</span><span class="o">:</span><span class="nx">href</span><span class="o">=</span><span class="s2">&#34;iconName&#34;</span><span class="o">&gt;&lt;</span><span class="err">/use&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="err">/svg&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/template&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;icon-svg&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">props</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iconClass</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">iconName</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="sb">`#icon-</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">iconClass</span><span class="si">}</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nx">svg</span><span class="o">-</span><span class="nx">icon</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">width</span><span class="o">:</span> <span class="mi">1</span><span class="nx">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">height</span><span class="o">:</span> <span class="mi">1</span><span class="nx">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">vertical</span><span class="o">-</span><span class="nx">align</span><span class="o">:</span> <span class="o">-</span><span class="mf">0.15</span><span class="nx">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fill</span><span class="o">:</span> <span class="nx">currentColor</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">overflow</span><span class="o">:</span> <span class="nx">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/style&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">作者</span><span class="err">：</span><span class="nx">花裤衩</span>
+</span></span><span class="line"><span class="cl"><span class="nx">链接</span><span class="err">：</span><span class="nx">https</span><span class="o">:</span><span class="c1">//juejin.im/post/59bb864b5188257e7a427c09
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">来源</span><span class="err">：</span><span class="nx">掘金</span>
+</span></span><span class="line"><span class="cl"><span class="nx">著作权归作者所有</span><span class="err">。</span><span class="nx">商业转载请联系作者获得授权</span><span class="err">，</span><span class="nx">非商业转载请注明出处</span><span class="err">。</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -279,20 +274,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//引入svg组件
-import IconSvg from &#39;@/components/IconSvg&#39;
-
-//全局注册icon-svg
-Vue.component(&#39;icon-svg&#39;, IconSvg)
-
-//在代码中使用
-&lt;icon-svg icon-class=&#34;password&#34; /&gt;
-
-作者：花裤衩
-链接：https://juejin.im/post/59bb864b5188257e7a427c09
-来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//引入svg组件
+</span></span><span class="line"><span class="cl">import IconSvg from &#39;@/components/IconSvg&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//全局注册icon-svg
+</span></span><span class="line"><span class="cl">Vue.component(&#39;icon-svg&#39;, IconSvg)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//在代码中使用
+</span></span><span class="line"><span class="cl">&lt;icon-svg icon-class=&#34;password&#34; /&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">作者：花裤衩
+</span></span><span class="line"><span class="cl">链接：https://juejin.im/post/59bb864b5188257e7a427c09
+</span></span><span class="line"><span class="cl">来源：掘金
+</span></span><span class="line"><span class="cl">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在组件有了,svg 去哪里搞?</p>
 <h2 id="使用-svg-sprite-loader">使用 svg-sprite-loader</h2>
@@ -301,7 +296,7 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
 重新设置一下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -325,38 +320,38 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//path: app-project/build/webpack.base.conf.js
-</span><span class="c1"></span>     <span class="p">...</span>
-     <span class="c1">// [新增]当引用图标 svg 的时候引入指定目录下的文件
-</span><span class="c1"></span>     <span class="p">{</span>
-       <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.svg$/</span><span class="p">,</span>
-       <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;svg-sprite-loader&#39;</span><span class="p">,</span>
-       <span class="nx">include</span><span class="o">:</span> <span class="p">[</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;src/icons&#39;</span><span class="p">)],</span>
-       <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-         <span class="nx">symbolId</span><span class="o">:</span> <span class="s1">&#39;icon-[name]&#39;</span>
-       <span class="p">}</span>
-     <span class="p">},</span>
-     <span class="c1">// [修改]这里 exclude 来忽略常规的 svg 引入
-</span><span class="c1"></span>     <span class="p">{</span>
-       <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span><span class="p">,</span>
-       <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;url-loader&#39;</span><span class="p">,</span>
-       <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;src/icons&#39;</span><span class="p">)],</span>   <span class="c1">// 这一步必不可少
-</span><span class="c1"></span>       <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-         <span class="nx">limit</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
-         <span class="nx">name</span><span class="o">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">assetsPath</span><span class="p">(</span><span class="s1">&#39;img/[name].[hash:7].[ext]&#39;</span><span class="p">)</span>
-       <span class="p">}</span>
-     <span class="p">},</span>
-     <span class="p">...</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">//path: app-project/build/webpack.base.conf.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="p">...</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// [新增]当引用图标 svg 的时候引入指定目录下的文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.svg$/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;svg-sprite-loader&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">include</span><span class="o">:</span> <span class="p">[</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;src/icons&#39;</span><span class="p">)],</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">symbolId</span><span class="o">:</span> <span class="s1">&#39;icon-[name]&#39;</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">     <span class="p">},</span>
+</span></span><span class="line"><span class="cl">     <span class="c1">// [修改]这里 exclude 来忽略常规的 svg 引入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;url-loader&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">exclude</span><span class="o">:</span> <span class="p">[</span><span class="nx">resolve</span><span class="p">(</span><span class="s1">&#39;src/icons&#39;</span><span class="p">)],</span>   <span class="c1">// 这一步必不可少
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">limit</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">         <span class="nx">name</span><span class="o">:</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">assetsPath</span><span class="p">(</span><span class="s1">&#39;img/[name].[hash:7].[ext]&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="p">}</span>
+</span></span><span class="line"><span class="cl">     <span class="p">},</span>
+</span></span><span class="line"><span class="cl">     <span class="p">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>接下来需要使用 webpack 的<code>require.context</code>函数</p>
 <blockquote>
-<p>require.context(&quot;./test&rdquo;, false, /.test.js$/);这行代码就会去 test 文件夹（不包含子目录）下面的找所有文件名以 .test.js 结尾的文件能被 require 的文件。更直白的说就是 我们可以通过正则匹配引入相应的文件模块。</p>
+<p>require.context(&quot;./test&quot;, false, /.test.js$/);这行代码就会去 test 文件夹（不包含子目录）下面的找所有文件名以 .test.js 结尾的文件能被 require 的文件。更直白的说就是 我们可以通过正则匹配引入相应的文件模块。</p>
 </blockquote>
 <p>为了拆卸方便就把这些都放在了<code>icons</code>目录下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -370,34 +365,34 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// path: app-project/src/icons.index.js
-</span><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
-<span class="kr">import</span> <span class="nx">SvgIcon</span> <span class="nx">from</span> <span class="s1">&#39;@/components/SvgIcon&#39;</span><span class="c1">// svg组件
-</span><span class="c1"></span>
-<span class="c1">// 全局注册组件
-</span><span class="c1"></span><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;svg-icon&#39;</span><span class="p">,</span> <span class="nx">SvgIcon</span><span class="p">)</span>
-
-<span class="c1">// 定义一个加载目录的函数
-</span><span class="c1"></span><span class="kr">const</span> <span class="nx">requireAll</span> <span class="o">=</span> <span class="nx">requireContext</span> <span class="p">=&gt;</span> <span class="nx">requireContext</span><span class="p">.</span><span class="nx">keys</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="nx">requireContext</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">require</span><span class="p">.</span><span class="nx">context</span><span class="p">(</span><span class="s1">&#39;./svg&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="sr">/\.svg$/</span><span class="p">)</span>
-<span class="c1">// 加载目录下的所有 svg 文件
-</span><span class="c1"></span><span class="nx">requireAll</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// path: app-project/src/icons.index.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="nx">Vue</span> <span class="nx">from</span> <span class="s1">&#39;vue&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">SvgIcon</span> <span class="nx">from</span> <span class="s1">&#39;@/components/SvgIcon&#39;</span><span class="c1">// svg组件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 全局注册组件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">&#39;svg-icon&#39;</span><span class="p">,</span> <span class="nx">SvgIcon</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义一个加载目录的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">requireAll</span> <span class="o">=</span> <span class="nx">requireContext</span> <span class="p">=&gt;</span> <span class="nx">requireContext</span><span class="p">.</span><span class="nx">keys</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="nx">requireContext</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">require</span><span class="p">.</span><span class="nx">context</span><span class="p">(</span><span class="s1">&#39;./svg&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="sr">/\.svg$/</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 加载目录下的所有 svg 文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">requireAll</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后只需要在 <code>main.js</code> 文件中引入这个组件就可以了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// path: app-project/src/main.js
-</span><span class="c1"></span><span class="p">...</span>
-<span class="kr">import</span> <span class="s1">&#39;./icons&#39;</span> <span class="c1">// 引入图标文件
-</span><span class="c1"></span><span class="p">...</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// path: app-project/src/main.js
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="s1">&#39;./icons&#39;</span> <span class="c1">// 引入图标文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>具体代码可以参考 <a href="https://github.com/gaopengfei123123/tadmin/commit/32735b2998290ca7558a1bfe0ec8b9c368893703">这个地址链接</a></p>
 <h2 id="压缩-svg-内容">压缩 svg 内容</h2>
@@ -512,7 +507,7 @@ Vue.component(&#39;icon-svg&#39;, IconSvg)
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

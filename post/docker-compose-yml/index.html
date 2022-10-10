@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>docker-compose.yml 常用命令 - helloword啊哈</title>
+  <title>docker-compose.yml 常用命令 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/docker-compose-yml/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="docker-compose.yml 常用命令" />
 <meta property="og:description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] --force-rm 删除构建时的临时容器 --no-cache 构建不使用 cache --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up [options] [service...] 直" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/docker-compose-yml/" />
+<meta property="og:url" content="https://blog.justwe.site/post/docker-compose-yml/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-02-12T10:36:50+00:00" />
 <meta property="article:modified_time" content="2019-12-02T11:55:09+08:00" />
+
 <meta itemprop="name" content="docker-compose.yml 常用命令">
-<meta itemprop="description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] --force-rm 删除构建时的临时容器 --no-cache 构建不使用 cache --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up [options] [service...] 直">
-<meta itemprop="datePublished" content="2018-02-12T10:36:50&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-02T11:55:09&#43;08:00" />
-<meta itemprop="wordCount" content="1055">
-
-
-
+<meta itemprop="description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] --force-rm 删除构建时的临时容器 --no-cache 构建不使用 cache --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up [options] [service...] 直"><meta itemprop="datePublished" content="2018-02-12T10:36:50+00:00" />
+<meta itemprop="dateModified" content="2019-12-02T11:55:09+08:00" />
+<meta itemprop="wordCount" content="1105">
 <meta itemprop="keywords" content="docker-composer,docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker-compose.yml 常用命令"/>
 <meta name="twitter:description" content="常用命令备注 build 构建(重构)服务容器 格式为: docker-compose build [options] [service...] --force-rm 删除构建时的临时容器 --no-cache 构建不使用 cache --pull 始终尝试 pull 最新的镜像 up (这个才是最常用的) docker-compose up [options] [service...] 直"/>
@@ -213,7 +210,7 @@
 <p>一个简单的示例,具体代码参考 <a href="https://github.com/gaopengfei123123/docker_study/tree/master/docker_compose_demo">这里</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -224,16 +221,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">web</span><span class="p">:</span><span class="w">                          </span><span class="c"># 一个 service 的名字</span><span class="w">
-</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w"> </span>.<span class="w">                    </span><span class="c"># 指出 Dockerfile 所在文件夹的路径, 而且每个 service 中必须有 build 或者 image</span><span class="w">
-</span><span class="w">    </span><span class="k">ports</span><span class="p">:</span><span class="w">                      </span><span class="c"># 将容器内的接口绑定到宿主机上</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;5000:5000&#34;</span><span class="w">
-</span><span class="w">  </span><span class="k">redis</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;redis:alpine&#34;</span><span class="w">       </span><span class="c"># 这就是使用的远程镜像</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w">                          </span><span class="c"># 一个 service 的名字</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">.                   </span><span class="w"> </span><span class="c"># 指出 Dockerfile 所在文件夹的路径, 而且每个 service 中必须有 build 或者 image</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">                      </span><span class="c"># 将容器内的接口绑定到宿主机上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;5000:5000&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;redis:alpine&#34;</span><span class="w">       </span><span class="c"># 这就是使用的远程镜像</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>下面列出来几个常用的参数命令:</p>
 <ul>
@@ -241,23 +238,21 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">web</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">build</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">context</span><span class="p">:</span><span class="w"> </span>./dir<span class="w">
-</span><span class="w">        </span><span class="k">dockerfile</span><span class="p">:</span><span class="w"> </span>./other-dir<span class="w">
-</span><span class="w">        </span><span class="k">arg</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span><span class="k">buildno</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> 
-</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l">./dir</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l">./other-dir</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">arg</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">buildno</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> 
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -269,42 +264,42 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">command</span><span class="p">:</span><span class="w"> </span>echo<span class="w"> </span><span class="s2">&#34;hello world&#34;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;hello world&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>container_name</code> 指定 <code>service</code> 容器的名字,如果没设置的话就是 容器_序号 这样, 比如 <code>web_1</code>,<code>db_1</code> 这样的</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>web-container<span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">web-container</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>devices</code> 指定设备映射关系</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">devices</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="s2">&#34;/dev/ttyUSB1:/dev/ttyUSB0&#34;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">devices</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;/dev/ttyUSB1:/dev/ttyUSB0&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>depends_on</code> 指定容器依赖关系,会优先构建依赖的容器,比如:</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -318,19 +313,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">
-</span><span class="w"></span><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">web</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">build</span><span class="p">:</span><span class="w"> </span>.<span class="w">
-</span><span class="w">        </span><span class="k">depends_on</span><span class="p">:</span><span class="w">
-</span><span class="w">            </span>- db<span class="w">
-</span><span class="w">            </span>- redis<span class="w">
-</span><span class="w">    </span><span class="k">redis</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>redis<span class="w">
-</span><span class="w">    </span><span class="k">db</span><span class="p">:</span><span class="w"> 
-</span><span class="w">        </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>mysql<span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l">.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">db</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">db</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>会先构建 <code>db</code>,<code>redis</code>再构建<code>web</code></p>
 <ul>
@@ -338,70 +333,68 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">dns</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="m">8.8.8.8</span><span class="w">
-</span><span class="w">    </span>- <span class="m">114.114.114.114</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">dns</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">8.8.8.8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">114.114.114.114</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>env_file</code> 从文件中提取环境变量,同变量名的会被最后的变量覆盖</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">env_file</span><span class="p">:</span><span class="w"> </span>.env<span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">env_file</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- .env1<span class="w">
-</span><span class="w">    </span>- .env2<span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l">.env</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env_file</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">.env1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">.env2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>格式必须是可以被 <code>#</code>注释的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">PRO_ENV</span><span class="o">=</span><span class="s">product</span>
-<span class="na">APP_NAME</span><span class="o">=</span><span class="s">hahaha</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">PRO_ENV</span><span class="o">=</span><span class="s">product</span>
+</span></span><span class="line"><span class="cl"><span class="na">APP_NAME</span><span class="o">=</span><span class="s">hahaha</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>environment</code> 设置环境变量,可以是<code>KEY=VALUE</code> 也可以只给出变量名,这将调取 <code>docker</code> 宿主机的环境变量</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">ROCK_ENV</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;development&#39;</span><span class="w">
-</span><span class="w">    </span><span class="k">SESSION_SECRET</span><span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- ROCK_ENV=development<span class="w">
-</span><span class="w">    </span>- SESSION_SECRET<span class="w">
-</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ROCK_ENV</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;development&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">SESSION_SECRET</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">ROCK_ENV=development</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">SESSION_SECRET</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -414,34 +407,34 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- /var/lib/mysql<span class="w">                </span><span class="c"># 同路径挂载</span><span class="w">
-</span><span class="w">    </span>- cache/<span class="p">:</span>/tmp/cache<span class="w">
-</span><span class="w">    </span>- ~/configs<span class="p">:</span>/etc/configs<span class="p">:</span>/ro<span class="w">    </span><span class="c"># 支持相对路径, 支持访问模式</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/var/lib/mysql               </span><span class="w"> </span><span class="c"># 同路径挂载</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">cache/:/tmp/cache</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">~/configs:/etc/configs:/ro   </span><span class="w"> </span><span class="c"># 支持相对路径, 支持访问模式</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>读取变量: compose会读取宿主机的环境变量和当前目录下的<code>.env</code>文件中的变量 比如:</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">db</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>&#34;mongodb<span class="p">:</span>($MONGO_VERSION)<span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">&#34;mongodb:($MONGO_VERSION)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这在启动的时候就会根据环境变量来调整要拉取的镜像</p>
 
@@ -552,7 +545,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

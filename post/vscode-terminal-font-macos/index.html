@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>转 vscode 设置终端字体 - helloword啊哈</title>
+  <title>转 vscode 设置终端字体 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/vscode-terminal-font-macos/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="转 vscode 设置终端字体" />
 <meta property="og:description" content="mac 上设置vscode终端样式(尤其是想用 powershell 主题的) Mac下配置vscode终端字体： 在Mac 10.13.6下的解决方案（亲测可用），其他版本" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/vscode-terminal-font-macos/" />
+<meta property="og:url" content="https://blog.justwe.site/post/vscode-terminal-font-macos/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-10-16T15:50:28+00:00" />
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
+
 <meta itemprop="name" content="转 vscode 设置终端字体">
-<meta itemprop="description" content="mac 上设置vscode终端样式(尤其是想用 powershell 主题的) Mac下配置vscode终端字体： 在Mac 10.13.6下的解决方案（亲测可用），其他版本">
-<meta itemprop="datePublished" content="2018-10-16T15:50:28&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
+<meta itemprop="description" content="mac 上设置vscode终端样式(尤其是想用 powershell 主题的) Mac下配置vscode终端字体： 在Mac 10.13.6下的解决方案（亲测可用），其他版本"><meta itemprop="datePublished" content="2018-10-16T15:50:28+00:00" />
+<meta itemprop="dateModified" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="wordCount" content="224">
-
-
-
 <meta itemprop="keywords" content="tools," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 vscode 设置终端字体"/>
 <meta name="twitter:description" content="mac 上设置vscode终端样式(尤其是想用 powershell 主题的) Mac下配置vscode终端字体： 在Mac 10.13.6下的解决方案（亲测可用），其他版本"/>
@@ -170,67 +167,67 @@
 <p>在Mac 10.13.6下的解决方案（亲测可用），其他版本做参考。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">下载安装字体
-<span class="nv">$cd</span> /Library/Fonts
-<span class="nv">$sudo</span> git clone https://github.com/abertsch/Menlo-for-Powerline.git
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">下载安装字体
+</span></span><span class="line"><span class="cl"><span class="nv">$cd</span> /Library/Fonts
+</span></span><span class="line"><span class="cl"><span class="nv">$sudo</span> git clone https://github.com/abertsch/Menlo-for-Powerline.git
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>config.json 位置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">Windows %APPDATA%<span class="se">\C</span>ode<span class="se">\U</span>ser<span class="se">\s</span>ettings.json
-Mac <span class="nv">$HOME</span>/Library/Application Support/Code/User/settings.json
-Linux <span class="nv">$HOME</span>/.config/Code/User/settings.json
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Windows %APPDATA%<span class="se">\C</span>ode<span class="se">\U</span>ser<span class="se">\s</span>ettings.json
+</span></span><span class="line"><span class="cl">Mac <span class="nv">$HOME</span>/Library/Application Support/Code/User/settings.json
+</span></span><span class="line"><span class="cl">Linux <span class="nv">$HOME</span>/.config/Code/User/settings.json
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在 vscode 配置中设置字体：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="nv">$HOME</span>/Library/Application Support/Code/User/settings.json
-<span class="c1"># 文件内指定字体主题</span>
-<span class="s2">&#34;terminal.integrated.fontFamily&#34;</span>: <span class="s2">&#34;Menlo for Powerline&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> <span class="nv">$HOME</span>/Library/Application Support/Code/User/settings.json
+</span></span><span class="line"><span class="cl"><span class="c1"># 文件内指定字体主题</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;terminal.integrated.fontFamily&#34;</span>: <span class="s2">&#34;Menlo for Powerline&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="在ubuntu-18041lts-下的解决方案亲测可用其他版本linux做参考">在Ubuntu 18.04.1LTS 下的解决方案（亲测可用），其他版本linux做参考。</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">下载安装字体
-<span class="nv">$cd</span> /usr/share/fonts/truetype/
-<span class="nv">$sudo</span> git clone https://github.com/abertsch/Menlo-for-Powerline.git
-刷新字体
-<span class="nv">$sudo</span> fc-cache -f -v
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">下载安装字体
+</span></span><span class="line"><span class="cl"><span class="nv">$cd</span> /usr/share/fonts/truetype/
+</span></span><span class="line"><span class="cl"><span class="nv">$sudo</span> git clone https://github.com/abertsch/Menlo-for-Powerline.git
+</span></span><span class="line"><span class="cl">刷新字体
+</span></span><span class="line"><span class="cl"><span class="nv">$sudo</span> fc-cache -f -v
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>回到  Vs Code的用户设置.json  中加入以下代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;terminal.integrated.fontFamily&#34;</span><span class="err">:</span> <span class="s2">&#34;Menlo for Powerline&#34;</span><span class="err">,</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;terminal.integrated.fontFamily&#34;</span><span class="err">:</span> <span class="s2">&#34;Menlo for Powerline&#34;</span><span class="err">,</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://blog.csdn.net/chenghai37/article/details/81417293">文章来源</a></p>
 
@@ -340,7 +337,7 @@ Linux <span class="nv">$HOME</span>/.config/Code/User/settings.json
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

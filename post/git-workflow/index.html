@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>关于使用 git 的操作流程 - helloword啊哈</title>
+  <title>关于使用 git 的操作流程 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/git-workflow/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="关于使用 git 的操作流程" />
 <meta property="og:description" content="老夫的毕生功力都在这了&hellip; 通常我们工作时是这样操作 说一下使用 git 做版本控制的时候的工作流程 1 2 3 4 git add -A #需要添加到版本库中的文件" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/git-workflow/" />
+<meta property="og:url" content="https://blog.justwe.site/post/git-workflow/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-05-27T13:24:32+00:00" />
 <meta property="article:modified_time" content="2019-11-21T16:16:27+08:00" />
+
 <meta itemprop="name" content="关于使用 git 的操作流程">
-<meta itemprop="description" content="老夫的毕生功力都在这了&hellip; 通常我们工作时是这样操作 说一下使用 git 做版本控制的时候的工作流程 1 2 3 4 git add -A #需要添加到版本库中的文件">
-<meta itemprop="datePublished" content="2017-05-27T13:24:32&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-21T16:16:27&#43;08:00" />
+<meta itemprop="description" content="老夫的毕生功力都在这了&hellip; 通常我们工作时是这样操作 说一下使用 git 做版本控制的时候的工作流程 1 2 3 4 git add -A #需要添加到版本库中的文件"><meta itemprop="datePublished" content="2017-05-27T13:24:32+00:00" />
+<meta itemprop="dateModified" content="2019-11-21T16:16:27+08:00" />
 <meta itemprop="wordCount" content="2125">
-
-
-
 <meta itemprop="keywords" content="git,workflow," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于使用 git 的操作流程"/>
 <meta name="twitter:description" content="老夫的毕生功力都在这了&hellip; 通常我们工作时是这样操作 说一下使用 git 做版本控制的时候的工作流程 1 2 3 4 git add -A #需要添加到版本库中的文件"/>
@@ -169,17 +166,17 @@
 <p>说一下使用 <code>git</code> 做版本控制的时候的工作流程</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git add -A           #需要添加到版本库中的文件 -A 就代表着所有文件(除开了 .gitignore忽略掉的文件)
-git commit -m &#39;本次提交的备注&#39;
-git pull            #将远程的库和本地的库版本同步一下,因为远程库可能发生了修改(多人合作开发时)
-git push          
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git add -A           #需要添加到版本库中的文件 -A 就代表着所有文件(除开了 .gitignore忽略掉的文件)
+</span></span><span class="line"><span class="cl">git commit -m &#39;本次提交的备注&#39;
+</span></span><span class="line"><span class="cl">git pull            #将远程的库和本地的库版本同步一下,因为远程库可能发生了修改(多人合作开发时)
+</span></span><span class="line"><span class="cl">git push          
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样操作的前提是本地远程都是同一个 <code>master</code> 分支上</p>
 <h2 id="最可能会碰到的问题">最可能会碰到的问题</h2>
@@ -214,11 +211,11 @@ git 是根据文件每行发生的修改进行的判定的,如果同时对同一
 <p>有一个很有用的命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git status
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git status
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="/images/git/git-status.png" alt="">
 标红的文件都给你了,而且还给你了需要执行的命令,<strong>你别假装看不到啊!</strong>
@@ -236,11 +233,11 @@ git 是根据文件每行发生的修改进行的判定的,如果同时对同一
 要查看这到底是谁和我的代码冲突了就执行下面的命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git log 779833d952d8a6557b2e8eba3bd192ede5cb6ca0
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git log 779833d952d8a6557b2e8eba3bd192ede5cb6ca0
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>第一行就是你要的结果,
 如果直接<code>git log -p</code> 就是列出所有的提交记录 -p 就是显示出修改的地方</p>
@@ -265,22 +262,22 @@ git 是根据文件每行发生的修改进行的判定的,如果同时对同一
 <p>比如我有两个分支</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">* alpha
-  dev
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">* alpha
+</span></span><span class="line"><span class="cl">  dev
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我只要 dev 中的某几个文件, 比如 README.md 和 LICENSE.md, 那么我就</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout dev /path/to/README.md /path/to/LICENSE.md
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout dev /path/to/README.md /path/to/LICENSE.md
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>就会拉取 dev 分支中的这几个文件覆盖到 alpha 分支上, 注意拉取的文件会<strong>强制覆盖</strong>, 然后你 <code>git diff</code> 一下这几个文件看有没有问题, 直接<code>git commit &amp;&amp; git pull &amp;&amp; git push</code> 一套带走就行</p>
 
@@ -391,7 +388,7 @@ git 是根据文件每行发生的修改进行的判定的,如果同时对同一
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

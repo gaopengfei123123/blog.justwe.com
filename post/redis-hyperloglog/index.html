@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Redis 统计uv - helloword啊哈</title>
+  <title>Redis 统计uv - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/redis-hyperloglog/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Redis 统计uv" />
 <meta property="og:description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/redis-hyperloglog/" />
+<meta property="og:url" content="https://blog.justwe.site/post/redis-hyperloglog/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-12-31T16:27:10+08:00" />
 <meta property="article:modified_time" content="2020-01-03T10:37:52+08:00" />
+
 <meta itemprop="name" content="Redis 统计uv">
-<meta itemprop="description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后">
-<meta itemprop="datePublished" content="2019-12-31T16:27:10&#43;08:00" />
-<meta itemprop="dateModified" content="2020-01-03T10:37:52&#43;08:00" />
+<meta itemprop="description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后"><meta itemprop="datePublished" content="2019-12-31T16:27:10+08:00" />
+<meta itemprop="dateModified" content="2020-01-03T10:37:52+08:00" />
 <meta itemprop="wordCount" content="824">
-
-
-
 <meta itemprop="keywords" content="redis,cache,uv," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Redis 统计uv"/>
 <meta name="twitter:description" content="日常接需求的时候, PM提出来一个需要统计页面UV/PV的需求你怎么做? 场景 下面有三个选择: 甩给公司的大数据部门, 让他们搞去 开始记录ip ,然后"/>
@@ -192,7 +189,7 @@
 <p>使用的命令如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -204,17 +201,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">127.0.0.1:6379&gt; PFADD test_uv id1 id2 id3 id4 id1
-(integer) 1
-127.0.0.1:6379&gt; PFCOUNT test_uv
-(integer) 4
-127.0.0.1:6379&gt; PFADD test_uv2 id1 id2 id5
-(integer) 1
-127.0.0.1:6379&gt; PFMERGE test_uv3 test_uv test_uv2
-OK
-127.0.0.1:6379&gt; PFCOUNT test_uv3
-(integer) 5
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">127.0.0.1:6379&gt; PFADD test_uv id1 id2 id3 id4 id1
+</span></span><span class="line"><span class="cl">(integer) 1
+</span></span><span class="line"><span class="cl">127.0.0.1:6379&gt; PFCOUNT test_uv
+</span></span><span class="line"><span class="cl">(integer) 4
+</span></span><span class="line"><span class="cl">127.0.0.1:6379&gt; PFADD test_uv2 id1 id2 id5
+</span></span><span class="line"><span class="cl">(integer) 1
+</span></span><span class="line"><span class="cl">127.0.0.1:6379&gt; PFMERGE test_uv3 test_uv test_uv2
+</span></span><span class="line"><span class="cl">OK
+</span></span><span class="line"><span class="cl">127.0.0.1:6379&gt; PFCOUNT test_uv3
+</span></span><span class="line"><span class="cl">(integer) 5
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>PFADD 添加基数</p>
 <p>PFCOUNT 统计个数</p>
@@ -335,7 +332,7 @@ OK
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

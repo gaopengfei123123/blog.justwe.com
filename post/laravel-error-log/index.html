@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>laravel-error-log - helloword啊哈</title>
+  <title>laravel-error-log - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/laravel-error-log/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="laravel-error-log" />
 <meta property="og:description" content="laravel有一套方便的错误采集和报错机制，如果是开发api的时候我们不需要报错页面显示的那么详细，只想返回一些错误信息，而不用把所有的响" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/laravel-error-log/" />
+<meta property="og:url" content="https://blog.justwe.site/post/laravel-error-log/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-04-01T20:51:06+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:43:01+08:00" />
+
 <meta itemprop="name" content="laravel-error-log">
-<meta itemprop="description" content="laravel有一套方便的错误采集和报错机制，如果是开发api的时候我们不需要报错页面显示的那么详细，只想返回一些错误信息，而不用把所有的响">
-<meta itemprop="datePublished" content="2017-04-01T20:51:06&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:43:01&#43;08:00" />
+<meta itemprop="description" content="laravel有一套方便的错误采集和报错机制，如果是开发api的时候我们不需要报错页面显示的那么详细，只想返回一些错误信息，而不用把所有的响"><meta itemprop="datePublished" content="2017-04-01T20:51:06+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:43:01+08:00" />
 <meta itemprop="wordCount" content="529">
-
-
-
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="laravel-error-log"/>
 <meta name="twitter:description" content="laravel有一套方便的错误采集和报错机制，如果是开发api的时候我们不需要报错页面显示的那么详细，只想返回一些错误信息，而不用把所有的响"/>
@@ -160,17 +157,17 @@
 <p>之前的步骤是：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">router-&gt;beforeMiddlware-&gt;controller-&gt;someService-&gt;controller-&gt;afterMiddleware-&gt; yourInfo
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">router-&gt;beforeMiddlware-&gt;controller-&gt;someService-&gt;controller-&gt;afterMiddleware-&gt; yourInfo
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们想在这任何一个环节报错的时候都能停止掉运行流程直接返回信息 就需要接下来要说的一个类 <code>Exception</code>。</p>
 <p>我们自定义的错误文件也是都放在 <code>app/Exception</code> 当中，比如我自定义一个 <code>TestException</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -183,18 +180,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-
-<span class="k">namespace</span> <span class="nx">App\Exceptions</span><span class="p">;</span>
-
-<span class="k">class</span> <span class="nc">TestException</span> <span class="k">extends</span> <span class="nx">\Exception</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">responseJson</span><span class="p">(){</span>
-        <span class="nv">$msg</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;errors.user.&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
-        <span class="k">return</span> <span class="nx">\ApiResponse</span><span class="o">::</span><span class="na">error</span><span class="p">(</span><span class="nv">$msg</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nx">App\Exceptions</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TestException</span> <span class="k">extends</span> <span class="nx">\Exception</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">responseJson</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$msg</span> <span class="o">=</span> <span class="nx">config</span><span class="p">(</span><span class="s1">&#39;errors.user.&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">\ApiResponse</span><span class="o">::</span><span class="na">error</span><span class="p">(</span><span class="nv">$msg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里面我自定义了一个<code>responseJson()</code>的方法，为了处理我返回的信息</p>
 <p>然后我在同文件夹下的 <code>Handler.php</code> 我们返回的错误在这里集中处理</p>
@@ -202,7 +199,7 @@
 <p><code>report()</code>会优先执行，用于将错误发送到第三方服务中去，<code>render()</code>就是最终要返回的结果，我们的目标就是这个函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -218,32 +215,32 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/**
-     * Render an exception into an HTTP response.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
-     * @return \Illuminate\Http\Response
-     */
-    public function render($request, Exception $e)
-    {
-        if($e instanceof TestException){
-            return $e-&gt;responseJson();
-        }
-        return parent::render($request, $e);
-    }
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/**
+</span></span><span class="line"><span class="cl">     * Render an exception into an HTTP response.
+</span></span><span class="line"><span class="cl">     *
+</span></span><span class="line"><span class="cl">     * @param  \Illuminate\Http\Request  $request
+</span></span><span class="line"><span class="cl">     * @param  \Exception  $e
+</span></span><span class="line"><span class="cl">     * @return \Illuminate\Http\Response
+</span></span><span class="line"><span class="cl">     */
+</span></span><span class="line"><span class="cl">    public function render($request, Exception $e)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        if($e instanceof TestException){
+</span></span><span class="line"><span class="cl">            return $e-&gt;responseJson();
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        return parent::render($request, $e);
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里用了<code>instanceof</code>进行比较，如果是来自<code>TestException</code>的报错就会执行我们刚才自定义好的方法，内容当然也可以随便定义了</p>
 <p>怎么使用呢？</p>
 <p>只需要在控制器中任何你需要报错的地方</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">throw new TestException(&#39;system_busy&#39;);
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">throw new TestException(&#39;system_busy&#39;);
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>括号内的内容可以通过它的<code>getMessage()</code>方法获得</p>
 <p><a href="http://laravelacademy.org/post/465.html">参考文档</a></p>
@@ -352,7 +349,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

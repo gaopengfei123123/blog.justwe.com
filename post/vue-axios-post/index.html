@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>使用 axios-post 提交数据 - helloword啊哈</title>
+  <title>使用 axios-post 提交数据 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/vue-axios-post/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="使用 axios-post 提交数据" />
 <meta property="og:description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/vue-axios-post/" />
+<meta property="og:url" content="https://blog.justwe.site/post/vue-axios-post/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-05-02T16:45:00+00:00" />
 <meta property="article:modified_time" content="2019-12-10T18:00:55+08:00" />
+
 <meta itemprop="name" content="使用 axios-post 提交数据">
-<meta itemprop="description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A">
-<meta itemprop="datePublished" content="2017-05-02T16:45:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-10T18:00:55&#43;08:00" />
+<meta itemprop="description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A"><meta itemprop="datePublished" content="2017-05-02T16:45:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-10T18:00:55+08:00" />
 <meta itemprop="wordCount" content="787">
-
-
-
 <meta itemprop="keywords" content="vue,axios," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 axios-post 提交数据"/>
 <meta name="twitter:description" content="继 vue-resource 之后, axios 是 vue 官方首推的网络请求组件 axios简介 它的功能更强大,而且可以无痛迁移到新的项目当中,有尤大的原话就是: 最近团队讨论了一下，A"/>
@@ -180,7 +177,7 @@
 内容当中,比如这样提交的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -195,38 +192,38 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">postUrl</span> <span class="o">=</span> <span class="s1">&#39;/route/to/action&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">postData</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">id</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;xiaoming&#34;</span><span class="p">,</span>
-  <span class="nx">_csrf_token</span> <span class="o">:</span> <span class="s2">&#34;&lt;?= Yii::$app-&gt;request-&gt;csrfToken ?&gt;&#34;</span>
-<span class="p">}</span>
-<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">postUrl</span><span class="p">,</span><span class="nx">postData</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
-  <span class="p">})</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-  <span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">postUrl</span> <span class="o">=</span> <span class="s1">&#39;/route/to/action&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">postData</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;xiaoming&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">_csrf_token</span> <span class="o">:</span> <span class="s2">&#34;&lt;?= Yii::$app-&gt;request-&gt;csrfToken ?&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">postUrl</span><span class="p">,</span><span class="nx">postData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>但是这样的提交形式在 yii2.0 当中是接收不到提交的内容的,因为它的内容是存在了 <code>request payload</code>当中
 所以使用<code>Yii::$app-&gt;request-&gt;post()</code>是获取不到内容的,想要得到提交的内容需要这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">function requestPayload(){
-    $request_payload = file_get_contents(&#39;php://input&#39;);
-    return json_decode($request_payload,true);
-}
-print_r(requestPayload());
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="k">function</span> <span class="nf">requestPayload</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$request_payload</span> <span class="o">=</span> <span class="nx">file_get_contents</span><span class="p">(</span><span class="s1">&#39;php://input&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$request_payload</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print_r</span><span class="p">(</span><span class="nx">requestPayload</span><span class="p">());</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样做的缺点就是获取请求都是自己去实现,而不是通过框架的 request 类去处理
 这么做的前提还是关闭所提交 controller 的 csrf-token 验证,不安全啊同志们!</p>
@@ -234,7 +231,7 @@ print_r(requestPayload());
 <p>说了那么多废话终于到正题了,关键就是这个类了:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -249,20 +246,20 @@ print_r(requestPayload());
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">postUrl</span> <span class="o">=</span> <span class="s1">&#39;/route/to/action&#39;</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">postData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
-<span class="nx">postData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="s1">&#39;ADD&#39;</span><span class="p">);</span>
-<span class="nx">postData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;param&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="nx">postData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;?= Yii::$app-&gt;request-&gt;csrfToken ?&gt;&#39;</span><span class="p">);</span>
-
-<span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">postUrl</span><span class="p">,</span><span class="nx">postData</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
-  <span class="p">})</span>
-  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
-  <span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">postUrl</span> <span class="o">=</span> <span class="s1">&#39;/route/to/action&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">postData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">postData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="s1">&#39;ADD&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">postData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;param&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">postData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;_csrf_token&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;?= Yii::$app-&gt;request-&gt;csrfToken ?&gt;&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">postUrl</span><span class="p">,</span><span class="nx">postData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这之前 bb 了那么多也是想让自己的印象更清晰一点,边说边捋思路,这是当初找到答案的地方<a href="https://github.com/mzabriskie/axios/issues/318#issuecomment-218948420">github</a></p>
 
@@ -373,7 +370,7 @@ print_r(requestPayload());
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

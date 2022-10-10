@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>转 json移除非法 utf8字符串 - helloword啊哈</title>
+  <title>转 json移除非法 utf8字符串 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/php-json-error/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="转 json移除非法 utf8字符串" />
 <meta property="og:description" content="当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/php-json-error/" />
+<meta property="og:url" content="https://blog.justwe.site/post/php-json-error/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-11-08T11:17:21+00:00" />
 <meta property="article:modified_time" content="2019-12-06T10:41:44+08:00" />
+
 <meta itemprop="name" content="转 json移除非法 utf8字符串">
-<meta itemprop="description" content="当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判">
-<meta itemprop="datePublished" content="2017-11-08T11:17:21&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-06T10:41:44&#43;08:00" />
+<meta itemprop="description" content="当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判"><meta itemprop="datePublished" content="2017-11-08T11:17:21+00:00" />
+<meta itemprop="dateModified" content="2019-12-06T10:41:44+08:00" />
 <meta itemprop="wordCount" content="398">
-
-
-
 <meta itemprop="keywords" content="json,php," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 json移除非法 utf8字符串"/>
 <meta name="twitter:description" content="当 json_decode 解析为 null 的时候怎么处理 当 json 中出现非法 utf8 时怎么处理 失败时返回NULL 当返回 null 的时候,可以用json_last_error()根据返回码来判"/>
@@ -175,7 +172,7 @@
 这是示例:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -195,25 +192,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"> //  $json = &#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:&#34;Corwien&#34;}&#39;;
-$json = &#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:}&#39;;  //错误的json格式
-$result = json_decode($json, true);
- if(!$result)
- {
-       //error handle ,错误处理
-       $ret = json_last_error();
-       print_r($ret);   //打印为： 4,查错误信息表，可知是语法错误
-
- }   
-
-json_last_error错误msg对照表：
-0 = JSON_ERROR_NONE
-1 = JSON_ERROR_DEPTH
-2 = JSON_ERROR_STATE_MISMATCH
-3 = JSON_ERROR_CTRL_CHAR
-4 = JSON_ERROR_SYNTAX
-5 = JSON_ERROR_UTF8
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"> <span class="c1">//  $json = &#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:&#34;Corwien&#34;}&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$json</span> <span class="o">=</span> <span class="s1">&#39;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:3,&#34;d&#34;:4,&#34;e&#34;:5, &#34;name&#34;:}&#39;</span><span class="p">;</span>  <span class="c1">//错误的json格式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$result</span> <span class="o">=</span> <span class="nx">json_decode</span><span class="p">(</span><span class="nv">$json</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">//error handle ,错误处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nv">$ret</span> <span class="o">=</span> <span class="nx">json_last_error</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">       <span class="nx">print_r</span><span class="p">(</span><span class="nv">$ret</span><span class="p">);</span>   <span class="c1">//打印为： 4,查错误信息表，可知是语法错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"> <span class="p">}</span>   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">json_last_error错误msg对照表：</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span> <span class="o">=</span> <span class="nx">JSON_ERROR_NONE</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1</span> <span class="o">=</span> <span class="nx">JSON_ERROR_DEPTH</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span> <span class="o">=</span> <span class="nx">JSON_ERROR_STATE_MISMATCH</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span> <span class="o">=</span> <span class="nx">JSON_ERROR_CTRL_CHAR</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span> <span class="o">=</span> <span class="nx">JSON_ERROR_SYNTAX</span>
+</span></span><span class="line"><span class="cl"><span class="mi">5</span> <span class="o">=</span> <span class="nx">JSON_ERROR_UTF8</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="如何处理json中的非法utf8字符">如何处理json中的非法utf8字符</h3>
 <p>如果出现 <code>JSON_ERROR_SYNTAX</code> 这个错误码的时候,常见的要么是其中的双引号单引号问题,要么是
@@ -221,7 +218,7 @@ json_last_error错误msg对照表：
 <p>解决问题:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -234,18 +231,18 @@ json_last_error错误msg对照表：
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">//reject overly long 2 byte sequences, as well as characters above U+10000 and replace with ?
-$some_string = preg_replace(&#39;/[\x00-\x08\x10\x0B\x0C\x0E-\x19\x7F]&#39;.
- &#39;|[\x00-\x7F][\x80-\xBF]+&#39;.
- &#39;|([\xC0\xC1]|[\xF0-\xFF])[\x80-\xBF]*&#39;.
- &#39;|[\xC2-\xDF]((?![\x80-\xBF])|[\x80-\xBF]{2,})&#39;.
- &#39;|[\xE0-\xEF](([\x80-\xBF](?![\x80-\xBF]))|(?![\x80-\xBF]{2})|[\x80-\xBF]{3,})/S&#39;,
- &#39;?&#39;, $some_string );
-
-//reject overly long 3 byte sequences and UTF-16 surrogates and replace with ?
-$some_string = preg_replace(&#39;/\xE0[\x80-\x9F][\x80-\xBF]&#39;.
- &#39;|\xED[\xA0-\xBF][\x80-\xBF]/S&#39;,&#39;?&#39;, $some_string );
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="c1">//reject overly long 2 byte sequences, as well as characters above U+10000 and replace with ?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$some_string</span> <span class="o">=</span> <span class="nx">preg_replace</span><span class="p">(</span><span class="s1">&#39;/[\x00-\x08\x10\x0B\x0C\x0E-\x19\x7F]&#39;</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;|[\x00-\x7F][\x80-\xBF]+&#39;</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;|([\xC0\xC1]|[\xF0-\xFF])[\x80-\xBF]*&#39;</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;|[\xC2-\xDF]((?![\x80-\xBF])|[\x80-\xBF]{2,})&#39;</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;|[\xE0-\xEF](([\x80-\xBF](?![\x80-\xBF]))|(?![\x80-\xBF]{2})|[\x80-\xBF]{3,})/S&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="nv">$some_string</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//reject overly long 3 byte sequences and UTF-16 surrogates and replace with ?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$some_string</span> <span class="o">=</span> <span class="nx">preg_replace</span><span class="p">(</span><span class="s1">&#39;/\xE0[\x80-\x9F][\x80-\xBF]&#39;</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"> <span class="s1">&#39;|\xED[\xA0-\xBF][\x80-\xBF]/S&#39;</span><span class="p">,</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="nv">$some_string</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://segmentfault.com/a/1190000006154011">原文</a>
 <a href="https://magp.ie/2011/01/06/remove-non-utf8-characters-from-string-with-php/">utf8代码</a></p>
@@ -357,7 +354,7 @@ $some_string = preg_replace(&#39;/\xE0[\x80-\x9F][\x80-\xBF]&#39;.
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">

@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>js on helloword啊哈</title>
+    <title>js on helloword啊</title>
     <link>https://blog.justwe.site/categories/js/</link>
-    <description>Recent content in js on helloword啊哈</description>
+    <description>Recent content in js on helloword啊</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 31 Oct 2017 23:11:45 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.justwe.site/categories/js/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 31 Oct 2017 23:11:45 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/categories/js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>js promise 对象</title>
       <link>https://blog.justwe.site/post/js-promise/</link>
@@ -45,7 +41,7 @@
       <pubDate>Tue, 11 Jul 2017 19:50:33 +0000</pubDate>
       
       <guid>https://blog.justwe.site/post/element-dialog/</guid>
-      <description>使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 12 &amp;lt;el-dialog title=&amp;#3</description>
+      <description>使用 elementui 的对话框示例出现问题,esc 或者点击右上的 X 没反应,目前的规避方式就是把 :visible.sync=&amp;quot;dialogFormVisible&amp;quot; 用 v-model=&amp;quot;dialogFormVisible&amp;quot; 代替,如果下 1 2 3 4 5 6 7 8 9 10 11 &amp;lt;el-dialog title=&amp;#34</description>
     </item>
     
     <item>

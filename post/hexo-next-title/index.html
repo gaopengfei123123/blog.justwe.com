@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>hexo-next-title - helloword啊哈</title>
+  <title>hexo-next-title - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.68.0 with theme even" />
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
 <link rel="canonical" href="https://blog.justwe.site/post/hexo-next-title/" />
@@ -35,24 +35,21 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="hexo-next-title" />
 <meta property="og:description" content="hexo-next 是一个很完美的组合,这次我碰到的问题就是 title 不能显示&lt;hello-world/&gt; 这样的文本 比如你的网站配置文件_config.y" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/hexo-next-title/" />
+<meta property="og:url" content="https://blog.justwe.site/post/hexo-next-title/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2017-04-07T15:04:39+00:00" />
 <meta property="article:modified_time" content="2019-12-03T14:20:28+08:00" />
+
 <meta itemprop="name" content="hexo-next-title">
-<meta itemprop="description" content="hexo-next 是一个很完美的组合,这次我碰到的问题就是 title 不能显示&lt;hello-world/&gt; 这样的文本 比如你的网站配置文件_config.y">
-<meta itemprop="datePublished" content="2017-04-07T15:04:39&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-03T14:20:28&#43;08:00" />
+<meta itemprop="description" content="hexo-next 是一个很完美的组合,这次我碰到的问题就是 title 不能显示&lt;hello-world/&gt; 这样的文本 比如你的网站配置文件_config.y"><meta itemprop="datePublished" content="2017-04-07T15:04:39+00:00" />
+<meta itemprop="dateModified" content="2019-12-03T14:20:28+08:00" />
 <meta itemprop="wordCount" content="442">
-
-
-
 <meta itemprop="keywords" content="hexo-next," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hexo-next-title"/>
 <meta name="twitter:description" content="hexo-next 是一个很完美的组合,这次我碰到的问题就是 title 不能显示&lt;hello-world/&gt; 这样的文本 比如你的网站配置文件_config.y"/>
@@ -158,7 +155,7 @@
 <p>比如你的网站配置文件<code>_config.yml</code>的内容是这样的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -166,35 +163,35 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Site
-title:  &lt;hello-world/&gt;
-subtitle: 代码改变世界
-description: hey
-author: GPF
-language: zh-Hans
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Site
+</span></span><span class="line"><span class="cl">title:  &lt;hello-world/&gt;
+</span></span><span class="line"><span class="cl">subtitle: 代码改变世界
+</span></span><span class="line"><span class="cl">description: hey
+</span></span><span class="line"><span class="cl">author: GPF
+</span></span><span class="line"><span class="cl">language: zh-Hans
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果这么写的话是根本不会正常输出出来的,于是我转换成实体格式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># Site
-title: &amp;lt;hello-world/&amp;gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Site
+</span></span><span class="line"><span class="cl">title: &amp;lt;hello-world/&amp;gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里出现的问题是左边的不能正常显示出 <code>&lt;</code>而右边的可以正常显示<code>&gt;</code>,发现 <code>title:</code> 后不能出现<code>&amp;</code>特殊字符,看的比较匆暂时没理解是什么原因,但是这样写对于自己的感官上也不怎么好,于是就看了下模板的代码,原来是 <code>swig</code> 的模板引擎,<em>虽然我擅长的是 php,但是我也是用过模板引擎的人!</em> 这样就可以做很多事情了,再说 symfony 也是用的 swig.</p>
 <p>于是乎进行一下操作:</p>
 <p>打开<code>@app/themes/next/layout/_partials/header.swig</code>,找到 <code>class=&quot;site-title&quot;</code>,把这个标签改成这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;span class=&#34;site-title&#34;&gt;{{ config.title | escape }}&lt;/span&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;span class=&#34;site-title&#34;&gt;{{ config.title | escape }}&lt;/span&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样就行了</p>
 <p><em>注意</em>,如果是本地修改的 <code>_config.yml</code>文件需要重启 hexo server 才能显示效果</p>
@@ -305,7 +302,7 @@ title: &amp;lt;hello-world/&amp;gt;
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
 
 
 <script type="application/javascript">
