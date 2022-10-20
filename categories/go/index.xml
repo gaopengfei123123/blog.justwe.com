@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 21 Jul 2021 14:26:14 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Oct 2022 15:55:55 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go mysql canal demo测试</title>
+      <link>https://blog.justwe.site/post/go-mysql-canal/</link>
+      <pubDate>Thu, 20 Oct 2022 15:55:55 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/go-mysql-canal/</guid>
+      <description>&lt;p&gt;这里记录一下使用 &lt;code&gt;go-mysql&lt;/code&gt; 里的示例时遇到的问题&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Go高性能编程概览(1/2)</title>
       <link>https://blog.justwe.site/post/go-high-performance-step1/</link>

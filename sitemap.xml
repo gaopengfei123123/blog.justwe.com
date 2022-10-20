@@ -9,8 +9,64 @@
   </url>
   
   <url>
+    <loc>https://blog.justwe.site/tags/canal/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.justwe.site/categories/</loc>
-    <lastmod>2022-01-11T17:54:34+08:00</lastmod>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/go/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/categories/go/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/go-mysql-canal/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/mysql/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/</loc>
+    <lastmod>2022-10-20T15:55:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,27 +80,6 @@
   
   <url>
     <loc>https://blog.justwe.site/categories/default/</loc>
-    <lastmod>2022-01-11T17:54:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/</loc>
-    <lastmod>2022-01-11T17:54:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/post/</loc>
-    <lastmod>2022-01-11T17:54:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/tags/</loc>
     <lastmod>2022-01-11T17:54:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -65,13 +100,6 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/tags/go/</loc>
-    <lastmod>2022-01-11T17:54:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justwe.site/tags/pdf/</loc>
     <lastmod>2022-01-11T17:54:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -81,13 +109,6 @@
   <url>
     <loc>https://blog.justwe.site/categories/%E7%B2%BE%E9%80%89%E8%BD%AC%E8%BD%BD/</loc>
     <lastmod>2022-01-11T17:54:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/categories/go/</loc>
-    <lastmod>2021-07-22T21:48:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -143,13 +164,6 @@
   
   <url>
     <loc>https://blog.justwe.site/categories/db/</loc>
-    <lastmod>2020-11-24T11:04:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/tags/mysql/</loc>
     <lastmod>2020-11-24T11:04:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

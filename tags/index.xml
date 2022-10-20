@@ -7,22 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 11 Jan 2022 17:11:18 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Oct 2022 15:55:55 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>default</title>
-      <link>https://blog.justwe.site/tags/default/</link>
-      <pubDate>Tue, 11 Jan 2022 17:11:18 +0800</pubDate>
+      <title>canal</title>
+      <link>https://blog.justwe.site/tags/canal/</link>
+      <pubDate>Thu, 20 Oct 2022 15:55:55 +0800</pubDate>
       
-      <guid>https://blog.justwe.site/tags/default/</guid>
+      <guid>https://blog.justwe.site/tags/canal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
       <link>https://blog.justwe.site/tags/go/</link>
-      <pubDate>Mon, 08 Nov 2021 16:30:33 +0800</pubDate>
+      <pubDate>Thu, 20 Oct 2022 15:55:55 +0800</pubDate>
       
       <guid>https://blog.justwe.site/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://blog.justwe.site/tags/mysql/</link>
+      <pubDate>Thu, 20 Oct 2022 15:55:55 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>default</title>
+      <link>https://blog.justwe.site/tags/default/</link>
+      <pubDate>Tue, 11 Jan 2022 17:11:18 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/tags/default/</guid>
       <description></description>
     </item>
     
@@ -50,15 +68,6 @@
       <pubDate>Tue, 19 Jan 2021 10:34:40 +0800</pubDate>
       
       <guid>https://blog.justwe.site/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mysql</title>
-      <link>https://blog.justwe.site/tags/mysql/</link>
-      <pubDate>Tue, 24 Nov 2020 10:42:15 +0800</pubDate>
-      
-      <guid>https://blog.justwe.site/tags/mysql/</guid>
       <description></description>
     </item>
     
