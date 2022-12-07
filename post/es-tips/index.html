@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>helloword啊</title>
+  <title>关于 elasticsearch 一些不错的文章 - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="记录代码, 记录生活" /><meta name="keywords" content="golang, blog, php, 编程, 博客, 学习笔记" />
+<meta name="author" content="GPF" /><meta name="description" content="关于 elasticsearch 一些不错的文章, 开发中常用的知识点文章收集" /><meta name="keywords" content="elasticsearch, es, 搜索" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
-<link rel="canonical" href="https://blog.justwe.site/" />
-  <link href="https://blog.justwe.site/index.xml" rel="alternate" type="application/rss+xml" title="helloword啊" />
-  <link href="https://blog.justwe.site/index.xml" rel="feed" type="application/rss+xml" title="helloword啊" />
+<link rel="canonical" href="https://blog.justwe.site/post/es-tips/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +39,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="helloword啊" />
-<meta property="og:description" content="记录代码, 记录生活" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.justwe.site/" />
+<meta property="og:title" content="关于 elasticsearch 一些不错的文章" />
+<meta property="og:description" content="关于 elasticsearch 一些不错的文章, 开发中常用的知识点文章收集" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/es-tips/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-11-09T10:32:03+08:00" />
+<meta property="article:modified_time" content="2022-12-07T17:59:56+08:00" />
 
-<meta itemprop="name" content="helloword啊">
-<meta itemprop="description" content="记录代码, 记录生活"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="helloword啊"/>
-<meta name="twitter:description" content="记录代码, 记录生活"/>
+<meta itemprop="name" content="关于 elasticsearch 一些不错的文章">
+<meta itemprop="description" content="关于 elasticsearch 一些不错的文章, 开发中常用的知识点文章收集"><meta itemprop="datePublished" content="2022-11-09T10:32:03+08:00" />
+<meta itemprop="dateModified" content="2022-12-07T17:59:56+08:00" />
+<meta itemprop="wordCount" content="368">
+<meta itemprop="keywords" content="elasticsearch," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于 elasticsearch 一些不错的文章"/>
+<meta name="twitter:description" content="关于 elasticsearch 一些不错的文章, 开发中常用的知识点文章收集"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -123,81 +126,102 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/hello-world-2/">hello world</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-10-07 </span>
-      <div class="post-category">
-          <a href="/categories/default/"> default </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      接触编程输出的第一句话就是hello world,这是信仰; 终于决定整个博客写点东西了,这里的主要用处就是发牢骚和记录点日常收获;向着大牛匍匐
-    </div>
-    <div class="read-more">
-      <a href="/post/hello-world-2/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/laravel-session/">laravel-session</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-06-01 </span>
-      <div class="post-category">
-          <a href="/categories/laravel/"> laravel </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      前置条件 首先需要有redis的支持 session_driver=database 的另说 1 composer require predis/predis 1.0.* 文件配置 在.env 文件下的app_key 1 2 3 4 APP_KEY=Lajq5EFWYq1COgmgltYM5TlSfRaTxLq1 CACHE_DRIVER=redis SESSION_DRIVER=redis config/database.php 1 2 3 4 5 6 7 8 9 10 11 12 13 14 &#39;redis&#39; =&gt;
-    </div>
-    <div class="read-more">
-      <a href="/post/laravel-session/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/laravel-repository/">laravel-repository</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-04-01 </span>
-      <div class="post-category">
-          <a href="/categories/laravel/"> laravel </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      laravel版本5.1+ 首先创建测试文件 1 php artisan make:controller TestController 修改路由文件route.php或者routes/web.php 1 Route::get(&#39;test&#39;, &#39;TestController@index&#39;); 创建服务提供者文件,
-    </div>
-    <div class="read-more">
-      <a href="/post/laravel-repository/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/18/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
-      </a>
+          <article class="post">
     
-  </nav>
+    <header class="post-header">
+      <h1 class="post-title">关于 elasticsearch 一些不错的文章</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-11-09 </span>
+        <div class="post-category">
+            <a href="/categories/default/"> default </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#es-update_by_query-基础httpsblog51ctocomu_153163943215836"><a href="https://blog.51cto.com/u_15316394/3215836">es update_by_query 基础</a></a></li>
+    <li><a href="#es-nested类型详解httpsblogcsdnnetlaoyang360articledetails82950393"><a href="https://blog.csdn.net/laoyang360/article/details/82950393">es nested类型详解</a></a></li>
+    <li><a href="#es集群cpu占用高问题总结httpswwwjianshucompb6e88027b70b"><a href="https://www.jianshu.com/p/b6e88027b70b">ES集群CPU占用高问题总结</a></a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>开发中常用到的知识点文章收集, 注意有一些字段可以直接跳转到文章上哦</p>
+<p>格式有点乱, 随手记一下, 哪天用到了再翻</p>
+<h2 id="es-update_by_query-基础httpsblog51ctocomu_153163943215836"><a href="https://blog.51cto.com/u_15316394/3215836">es update_by_query 基础</a></h2>
+<p>有些更新命令 _update 照顾不到的, 就用这个, 而且通常是配合着 <code>painless</code> 脚本一起使用的</p>
+<p><a href="https://blog.csdn.net/weixin_44993313/article/details/106890083">es painless 脚本应用</a></p>
+<p><a href="https://blog.51cto.com/ghostwritten/5345637">Elasticsearch Painless Script详解</a></p>
+<h2 id="es-nested类型详解httpsblogcsdnnetlaoyang360articledetails82950393"><a href="https://blog.csdn.net/laoyang360/article/details/82950393">es nested类型详解</a></h2>
+<p>给自己业务采用 <code>nested</code> 类型数据之前一定要考虑后续的业务场景是什么, 因为有关<code>nested</code>数据类型的<strong>查询</strong>,<strong>聚合</strong>, <strong>更新</strong>都存在一些改动
+比如, <strong>聚合</strong>时八成需要用到 <code>reverse_nested</code> <a href="https://doc.codingdict.com/elasticsearch/160/">reverse_nested</a>, 更新的时候, 要么全量覆盖更新对应的 <code>nested</code>字段, 要么就只能通过 <code>painless</code>脚本去进行部分更新</p>
+<h2 id="es集群cpu占用高问题总结httpswwwjianshucompb6e88027b70b"><a href="https://www.jianshu.com/p/b6e88027b70b">ES集群CPU占用高问题总结</a></h2>
+<p>有时候也需要排查下什么原因导致的 cpu 占用过高, 以下俩 query 用处就很大了:</p>
+<p><code>/_nodes/hot_threads</code> 查询当前占用资源线程</p>
+<p><code>/_tasks?pretty</code> 查询es 当前执行中的任务</p>
+<p><code>POST http://0.0.0.0:9200/_tasks/LT5iTUgNQEWnQxY08JiVgw:1147634419/_cancel</code> 取消指定的task</p>
+<p>通过<code>kibana</code> 查看集群的监控
+<code>{kibanahost}/app/monitoring#/elasticsearch/nodes</code></p>
+<p><a href="https://blog.csdn.net/harleylau/article/details/84109053">Kibana和Marval中的Search Rate表示什么</a></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-12-07
+        <a href="#ZgotmplZ/commit/b55f789329edcf5f2e6200bd074afd53c16da388" title="新增一篇文章">(b55f789)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/elasticsearch/">elasticsearch</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/go-mysql-canal/">
+            <span class="next-text nav-default">go mysql canal demo测试</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
 
       </div>
     </main>

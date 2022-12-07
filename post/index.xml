@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 20 Oct 2022 15:55:55 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Nov 2022 10:32:03 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于 elasticsearch 一些不错的文章</title>
+      <link>https://blog.justwe.site/post/es-tips/</link>
+      <pubDate>Wed, 09 Nov 2022 10:32:03 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/es-tips/</guid>
+      <description>&lt;p&gt;开发中常用到的知识点文章收集, 注意有一些字段可以直接跳转到文章上哦&lt;/p&gt;
+&lt;p&gt;格式有点乱, 随手记一下, 哪天用到了再翻&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>go mysql canal demo测试</title>
       <link>https://blog.justwe.site/post/go-mysql-canal/</link>
