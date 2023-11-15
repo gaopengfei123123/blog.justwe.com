@@ -44,12 +44,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.justwe.site/post/go-50-tips/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2019-01-31T10:18:33+00:00" />
-<meta property="article:modified_time" content="2019-12-13T17:27:19+08:00" />
+<meta property="article:modified_time" content="2023-11-15T14:57:45+08:00" />
 
 <meta itemprop="name" content="转 Golang 需要避免踩的 50 个坑">
 <meta itemprop="description" content="Golang 需要避免踩的 50 个坑 以下是全文 前言 Go 是一门简单有趣的编程语言，与其他语言一样，在使用时不免会遇到很多坑，不过它们大多不是 Go 本身的设计缺陷。如"><meta itemprop="datePublished" content="2019-01-31T10:18:33+00:00" />
-<meta itemprop="dateModified" content="2019-12-13T17:27:19+08:00" />
-<meta itemprop="wordCount" content="15774">
+<meta itemprop="dateModified" content="2023-11-15T14:57:45+08:00" />
+<meta itemprop="wordCount" content="16172">
 <meta itemprop="keywords" content="go,tips," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转 Golang 需要避免踩的 50 个坑"/>
 <meta name="twitter:description" content="Golang 需要避免踩的 50 个坑 以下是全文 前言 Go 是一门简单有趣的编程语言，与其他语言一样，在使用时不免会遇到很多坑，不过它们大多不是 Go 本身的设计缺陷。如"/>
@@ -216,16 +216,12 @@
         <li><a href="#57-优先调度">57. 优先调度</a></li>
       </ul>
     </li>
+    <li><a href="#补充-byte-和-string-转换解析">补充 []byte 和 string 转换解析</a></li>
     <li><a href="#总结">总结</a></li>
   </ul>
 </nav>
   </div>
 </div>
-  <div class="post-outdated">
-    <div class="warn">
-      <p>【注意】最后更新于 <span class="timeago" datetime="2019-12-13T17:27:19" title="December 13, 2019">December 13, 2019</span>，文中内容可能已过时，请谨慎使用。</p>
-    </div>
-  </div>
     <div class="post-content">
       <p><a href="https://github.com/wuYin/blog/blob/master/golang/50-shades-of-golang-traps-gotchas-mistakes.md">Golang 需要避免踩的 50 个坑</a></p>
 <blockquote>
@@ -4295,6 +4291,85 @@ cannot take the address of m[&ldquo;x&rdquo;]</p>
 </div>
 </div><p>运行效果：</p>
 <p><img src="https://contents.yinzige.com/gosched.png" alt=""></p>
+<h2 id="补充-byte-和-string-转换解析">补充 []byte 和 string 转换解析</h2>
+<p><a href="https://blog.csdn.net/slphahaha/article/details/109405685#comments_25766178">原文链接-Golang中[]byte与string转换全解析</a></p>
+<p>常规转换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// string to []byte
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="nx">s1</span> <span class="o">:=</span> <span class="s">&#34;hello&#34;</span>
+</span></span><span class="line"><span class="cl">   <span class="nx">b</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="c1">// []byte to string
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="nx">s2</span> <span class="o">:=</span> <span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>强制转换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">String2Bytes</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sh</span> <span class="o">:=</span> <span class="p">(</span><span class="o">*</span><span class="nx">reflect</span><span class="p">.</span><span class="nx">StringHeader</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">s</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">bh</span> <span class="o">:=</span> <span class="nx">reflect</span><span class="p">.</span><span class="nx">SliceHeader</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Data</span><span class="p">:</span> <span class="nx">sh</span><span class="p">.</span><span class="nx">Data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Len</span><span class="p">:</span>  <span class="nx">sh</span><span class="p">.</span><span class="nx">Len</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Cap</span><span class="p">:</span>  <span class="nx">sh</span><span class="p">.</span><span class="nx">Len</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="p">[]</span><span class="kt">byte</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">bh</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Bytes2String</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="kt">string</span><span class="p">)(</span><span class="nx">unsafe</span><span class="p">.</span><span class="nf">Pointer</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">b</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>性能比对简单来说, 就是32个字节下没差距, 32字节以上, 常规转换会发生一次内存分配, 性能变慢但是官方推荐这种方式, 为什么? 说一下原因:</p>
+<p>首先, string 和 []byte 底层结构非常相近, []byte 也就多了一个 cap 属性</p>
+<p>然后, 强制转换时, 是直接变更了内存指针指向, 因此没发生内存分配, 常规转换是开了一块新的内存, 然后拷贝过去的</p>
+<p>最后, 为什么不推荐使用强制转换? string 底层虽然是数组, 但是这个数组是<strong>只读</strong>的, 因此字符串只能被替换, 但是不能被修改, 如果sting强制转换成[]byte , 则不能对它进行替换操作, 例如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="s">&#34;hello&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">:=</span> <span class="nf">String2Bytes</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;H&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">unexpected</span> <span class="nx">fault</span> <span class="nx">address</span> <span class="mh">0x10b6139</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fatal</span> <span class="kt">error</span><span class="p">:</span> <span class="nx">fault</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">signal</span> <span class="nx">SIGBUS</span><span class="p">:</span> <span class="nx">bus</span> <span class="kt">error</span> <span class="nx">code</span><span class="p">=</span><span class="mh">0x2</span> <span class="nx">addr</span><span class="p">=</span><span class="mh">0x10b6139</span> <span class="nx">pc</span><span class="p">=</span><span class="mh">0x1088f2c</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>因为是对底层数组的修改, 这种通过 defer+recover 也不能捕获</p>
 <h2 id="总结">总结</h2>
 <p>感谢原作者 <a href="https://twitter.com/kcqon">kcqon</a> 总结的这篇博客，让我受益匪浅。</p>
 <p>由于译者水平有限，不免出现理解失误，望读者在下评论区指出，不胜感激。</p>
@@ -4310,8 +4385,8 @@ cannot take the address of m[&ldquo;x&rdquo;]</p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-12-13
-        <a href="#ZgotmplZ/commit/65e29966f2eab3960833f07039b5fb2c1a564e0d" title="更新">(65e2996)</a>
+        2023-11-15
+        <a href="#ZgotmplZ/commit/a4612fd8fdd13fdb4c80d7c9beda6763a612f7b3" title="add new">(a4612fd)</a>
     </span>
   </p>
   
@@ -4383,7 +4458,7 @@ cannot take the address of m[&ldquo;x&rdquo;]</p>
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='https://beian.miit.gov.cn/' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号</a></span>
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='https://beian.miit.gov.cn/' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号</a></span>
   </span>
 </div>
 
