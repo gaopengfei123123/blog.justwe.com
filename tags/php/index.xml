@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 28 Feb 2019 10:30:23 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Dec 2023 18:50:52 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数字和 ABC 互相转换</title>
+      <link>https://blog.justwe.site/post/php-int-to-abc/</link>
+      <pubDate>Thu, 21 Dec 2023 18:50:52 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/php-int-to-abc/</guid>
+      <description>&lt;p&gt;生成excel 数据的时候, 需要计算数据的列, 例如 1 -&amp;gt; A , 2-&amp;gt;B, 27 -&amp;gt; AA, 现在做一个简单的小工具实现&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>php开发过程中不常碰到的error (2.28更新)</title>
       <link>https://blog.justwe.site/post/php-unsual-mistakes/</link>
