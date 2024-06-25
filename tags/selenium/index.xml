@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>selenium on helloword啊</title>
+    <link>https://blog.justwe.site/tags/selenium/</link>
+    <description>Recent content in selenium on helloword啊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 24 Feb 2022 10:43:26 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/tags/selenium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Selenium 爬虫初体验</title>
+      <link>https://blog.justwe.site/post/python-selenium/</link>
+      <pubDate>Thu, 24 Feb 2022 10:43:26 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/python-selenium/</guid>
+      <description>最近有个作业有用到爬虫的需求, 于是乎就了解了一下这方面的玩意. 前言 最开始的时候, 我用的是 scrapy 这个爬虫框架, 不过对于简单需求来说, 没必要这么兴师</description>
+    </item>
+    
+  </channel>
+</rss>

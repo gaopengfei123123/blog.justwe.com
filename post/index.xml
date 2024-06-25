@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 21 Dec 2023 18:50:52 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jun 2024 19:21:36 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>.env一个不易发掘的坑</title>
+      <link>https://blog.justwe.site/post/other-env-bug/</link>
+      <pubDate>Tue, 25 Jun 2024 19:21:36 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/other-env-bug/</guid>
+      <description>&lt;p&gt;最近开发的时候有一个不易察觉到的问题, 有关 &lt;code&gt;.env&lt;/code&gt; 的&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>数字和 ABC 互相转换</title>
       <link>https://blog.justwe.site/post/php-int-to-abc/</link>
@@ -34,6 +43,15 @@
       
       <guid>https://blog.justwe.site/post/go-mysql-canal/</guid>
       <description>&lt;p&gt;这里记录一下使用 &lt;code&gt;go-mysql&lt;/code&gt; 里的示例时遇到的问题&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python Selenium 爬虫初体验</title>
+      <link>https://blog.justwe.site/post/python-selenium/</link>
+      <pubDate>Thu, 24 Feb 2022 10:43:26 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/python-selenium/</guid>
+      <description>最近有个作业有用到爬虫的需求, 于是乎就了解了一下这方面的玩意. 前言 最开始的时候, 我用的是 scrapy 这个爬虫框架, 不过对于简单需求来说, 没必要这么兴师</description>
     </item>
     
     <item>

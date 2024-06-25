@@ -126,6 +126,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/other-env-bug/">.env一个不易发掘的坑</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2024-06-25 </span>
+      <div class="post-category">
+          <a href="/categories/other/"> other </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近开发的时候有一个不易察觉到的问题, 有关 <code>.env</code> 的</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/other-env-bug/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/php-int-to-abc/">数字和 ABC 互相转换</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2023-12-21 </span>
@@ -184,6 +205,27 @@
     </div>
     <div class="read-more">
       <a href="/post/go-mysql-canal/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python-selenium/">Python Selenium 爬虫初体验</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-02-24 </span>
+      <div class="post-category">
+          <a href="/categories/tools/"> tools </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      最近有个作业有用到爬虫的需求, 于是乎就了解了一下这方面的玩意. 前言 最开始的时候, 我用的是 scrapy 这个爬虫框架, 不过对于简单需求来说, 没必要这么兴师
+    </div>
+    <div class="read-more">
+      <a href="/post/python-selenium/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -293,49 +335,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mysql-group-by-latest/">[转] 基于mysql实现group by取各分组最新一条数据</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-11-24 </span>
-      <div class="post-category">
-          <a href="/categories/db/"> DB </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>mysql group by 时获取最新的数据</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/mysql-group-by-latest/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tcp-mqtt/">golang 使用mqtt的简单演示</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-08-13 </span>
-      <div class="post-category">
-          <a href="/categories/tools/"> tools </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>我有个毛病就是碰到一个陌生的东西感兴趣的时候, 先研究怎么开启&amp;关闭, 然后跑起来再看效果, 中间碰到什么问题再说. 用最快的速度先用上, 然后优化的事情随着使用熟练度上升自然也清楚瓶颈在哪里了</p>
-<p>那么这篇文章也是这样, 就是使用go怎么使用mqtt通信, 不涉及原理, 文章止步于能跑起来一个demo, 后续怎么开发, 怎么使用就看个人体验了, 也不是一篇文章能记录下来的</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/tcp-mqtt/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -373,7 +372,7 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='https://beian.miit.gov.cn/' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号</a></span>
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='https://beian.miit.gov.cn/' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号</a></span>
   </span>
 </div>
 
@@ -403,14 +402,15 @@
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-92777740-2', 'auto');
 	ga('set', 'anonymizeIp', true);
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
 
 <script id="baidu_push">
   (function(){
