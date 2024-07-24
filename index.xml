@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 25 Jun 2024 19:21:36 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jul 2024 17:55:00 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于我</title>
       <link>https://blog.justwe.site/about/</link>
@@ -15,6 +15,15 @@
       
       <guid>https://blog.justwe.site/about/</guid>
       <description>会点 php,会点 js,会点 go,还有一些乱七八糟的东西 目前学的比较杂乱,需要整理一番,慢慢来吧.. 如果加微信, 麻烦标明 justwe 来的, 不然一律当做卖</description>
+    </item>
+    
+    <item>
+      <title>git拉取私有库时的异常</title>
+      <link>https://blog.justwe.site/post/git-url-fatal/</link>
+      <pubDate>Tue, 23 Jul 2024 17:55:00 +0000</pubDate>
+      
+      <guid>https://blog.justwe.site/post/git-url-fatal/</guid>
+      <description>更新一个新的项目时报的错误: 1 2 3 fatal: could not read Username for &amp;#39;https://git.xxx.com&amp;#39;: terminal prompts disabled Confirm the import path was entered correctly. If this is a private repository, see https://golang.org/doc/faq#git_https for additional information. 造成错误的原因是这是让 golang 拉取一个私有库里的 package, 因为用</description>
     </item>
     
     <item>

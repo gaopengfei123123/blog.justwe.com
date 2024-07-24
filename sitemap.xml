@@ -9,50 +9,71 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/post/other-env-bug/</loc>
-    <lastmod>2024-06-25T19:21:36+08:00</lastmod>
+    <loc>https://blog.justwe.site/categories/</loc>
+    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/categories/</loc>
-    <lastmod>2024-06-25T19:21:36+08:00</lastmod>
+    <loc>https://blog.justwe.site/tags/git/</loc>
+    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/categories/git/</loc>
+    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/git-url-fatal/</loc>
+    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/</loc>
-    <lastmod>2024-06-25T19:21:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/tags/other/</loc>
-    <lastmod>2024-06-25T19:21:36+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/categories/other/</loc>
-    <lastmod>2024-06-25T19:21:36+08:00</lastmod>
+    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/post/</loc>
-    <lastmod>2024-06-25T19:21:36+08:00</lastmod>
+    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/tags/</loc>
-    <lastmod>2024-06-25T19:21:36+08:00</lastmod>
+    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/other-env-bug/</loc>
+    <lastmod>2024-06-25T20:00:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/other/</loc>
+    <lastmod>2024-06-25T20:00:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/categories/other/</loc>
+    <lastmod>2024-06-25T20:00:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -136,21 +157,21 @@
   
   <url>
     <loc>https://blog.justwe.site/post/python-selenium/</loc>
-    <lastmod>2022-02-24T10:43:26+08:00</lastmod>
+    <lastmod>2024-06-25T20:00:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/tags/selenium/</loc>
-    <lastmod>2022-02-24T10:43:26+08:00</lastmod>
+    <lastmod>2024-06-25T20:00:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://blog.justwe.site/categories/tools/</loc>
-    <lastmod>2022-02-24T10:43:26+08:00</lastmod>
+    <lastmod>2024-06-25T20:00:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -843,20 +864,6 @@
   
   <url>
     <loc>https://blog.justwe.site/post/go-flame-graph/</loc>
-    <lastmod>2019-12-02T11:55:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/tags/git/</loc>
-    <lastmod>2019-12-02T11:55:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/categories/git/</loc>
     <lastmod>2019-12-02T11:55:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

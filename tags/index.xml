@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 25 Jun 2024 19:21:36 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jul 2024 17:55:00 +0000</lastBuildDate><atom:link href="https://blog.justwe.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git</title>
+      <link>https://blog.justwe.site/tags/git/</link>
+      <pubDate>Tue, 23 Jul 2024 17:55:00 +0000</pubDate>
+      
+      <guid>https://blog.justwe.site/tags/git/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>other</title>
       <link>https://blog.justwe.site/tags/other/</link>
@@ -419,15 +428,6 @@
       <pubDate>Thu, 01 Nov 2018 17:03:33 +0000</pubDate>
       
       <guid>https://blog.justwe.site/tags/flame-graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://blog.justwe.site/tags/git/</link>
-      <pubDate>Fri, 26 Oct 2018 15:01:51 +0000</pubDate>
-      
-      <guid>https://blog.justwe.site/tags/git/</guid>
       <description></description>
     </item>
     
