@@ -10,7 +10,49 @@
   
   <url>
     <loc>https://blog.justwe.site/categories/</loc>
-    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
+    <lastmod>2024-08-02T18:33:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/categories/default/</loc>
+    <lastmod>2024-08-02T18:33:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/</loc>
+    <lastmod>2024-08-02T18:33:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/</loc>
+    <lastmod>2024-08-02T18:33:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/protobuf/</loc>
+    <lastmod>2024-08-02T18:33:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/</loc>
+    <lastmod>2024-08-02T18:33:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/proto-validator-error/</loc>
+    <lastmod>2024-08-02T18:33:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,27 +73,6 @@
   
   <url>
     <loc>https://blog.justwe.site/post/git-url-fatal/</loc>
-    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/</loc>
-    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/post/</loc>
-    <lastmod>2024-07-24T09:56:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/tags/</loc>
     <lastmod>2024-07-24T09:56:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -95,13 +116,6 @@
   <url>
     <loc>https://blog.justwe.site/post/php-int-to-abc/</loc>
     <lastmod>2023-12-21T19:03:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/categories/default/</loc>
-    <lastmod>2022-12-12T15:33:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

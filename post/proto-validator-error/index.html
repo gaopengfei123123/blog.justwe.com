@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>git拉取私有库时的异常 - helloword啊</title>
+  <title>validator.proto Error - helloword啊</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="GPF" /><meta name="description" content="更新一个新的项目时报的错误: 1 2 3 fatal: could not read Username for &amp;#39;https://git.xxx.com&amp;#39;: terminal prompts disabled Confirm the import path was entered correctly. If this is a private repository, see https://golang.org/doc/faq#git_https for additional information. 造成错误的原因是这是让 golang 拉取一个私有库里的 package, 因为用" /><meta name="keywords" content="git, git教程, git异常" />
+<meta name="author" content="GPF" /><meta name="description" content="生成 protobuf 文件时报错:
+1 2 github.com/mwitkow/go-proto-validators/validator.proto: File not found. Import &amp;#34;github.com/mwitkow/go-proto-validators/validator.proto&amp;#34; was not found or had errors. " /><meta name="keywords" content="validator.proto:" />
 
 
 
@@ -26,7 +27,7 @@
 <meta name="generator" content="Hugo 0.103.1 with theme even" />
 
 
-<link rel="canonical" href="https://blog.justwe.site/post/git-url-fatal/" />
+<link rel="canonical" href="https://blog.justwe.site/post/proto-validator-error/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,20 +40,53 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="git拉取私有库时的异常" />
-<meta property="og:description" content="更新一个新的项目时报的错误: 1 2 3 fatal: could not read Username for &#39;https://git.xxx.com&#39;: terminal prompts disabled Confirm the import path was entered correctly. If this is a private repository, see https://golang.org/doc/faq#git_https for additional information. 造成错误的原因是这是让 golang 拉取一个私有库里的 package, 因为用" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.justwe.site/post/git-url-fatal/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2024-07-23T17:55:00+00:00" />
-<meta property="article:modified_time" content="2024-07-24T09:56:53+08:00" />
+<meta property="og:title" content="validator.proto Error" />
+<meta property="og:description" content="生成 protobuf 文件时报错:
 
-<meta itemprop="name" content="git拉取私有库时的异常">
-<meta itemprop="description" content="更新一个新的项目时报的错误: 1 2 3 fatal: could not read Username for &#39;https://git.xxx.com&#39;: terminal prompts disabled Confirm the import path was entered correctly. If this is a private repository, see https://golang.org/doc/faq#git_https for additional information. 造成错误的原因是这是让 golang 拉取一个私有库里的 package, 因为用"><meta itemprop="datePublished" content="2024-07-23T17:55:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-24T09:56:53+08:00" />
-<meta itemprop="wordCount" content="274">
-<meta itemprop="keywords" content="git," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="git拉取私有库时的异常"/>
-<meta name="twitter:description" content="更新一个新的项目时报的错误: 1 2 3 fatal: could not read Username for &#39;https://git.xxx.com&#39;: terminal prompts disabled Confirm the import path was entered correctly. If this is a private repository, see https://golang.org/doc/faq#git_https for additional information. 造成错误的原因是这是让 golang 拉取一个私有库里的 package, 因为用"/>
+
+1
+2
+
+
+github.com/mwitkow/go-proto-validators/validator.proto: File not found.
+Import &#34;github.com/mwitkow/go-proto-validators/validator.proto&#34; was not found or had errors.
+
+
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/proto-validator-error/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-08-02T18:24:14+08:00" />
+<meta property="article:modified_time" content="2024-08-02T18:33:50+08:00" />
+
+<meta itemprop="name" content="validator.proto Error">
+<meta itemprop="description" content="生成 protobuf 文件时报错:
+
+
+1
+2
+
+
+github.com/mwitkow/go-proto-validators/validator.proto: File not found.
+Import &#34;github.com/mwitkow/go-proto-validators/validator.proto&#34; was not found or had errors.
+
+
+"><meta itemprop="datePublished" content="2024-08-02T18:24:14+08:00" />
+<meta itemprop="dateModified" content="2024-08-02T18:33:50+08:00" />
+<meta itemprop="wordCount" content="152">
+<meta itemprop="keywords" content="protobuf," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="validator.proto Error"/>
+<meta name="twitter:description" content="生成 protobuf 文件时报错:
+
+
+1
+2
+
+
+github.com/mwitkow/go-proto-validators/validator.proto: File not found.
+Import &#34;github.com/mwitkow/go-proto-validators/validator.proto&#34; was not found or had errors.
+
+
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,12 +163,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">git拉取私有库时的异常</h1>
+      <h1 class="post-title">validator.proto Error</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2024-07-23 </span>
+        <span class="post-time"> 2024-08-02 </span>
         <div class="post-category">
-            <a href="/categories/git/"> git </a>
+            <a href="/categories/default/"> default </a>
             </div>
         
       </div>
@@ -147,58 +181,60 @@
   </div>
 </div>
     <div class="post-content">
-      <p>更新一个新的项目时报的错误:</p>
+      <p>生成 protobuf 文件时报错:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">fatal: could not <span class="nb">read</span> Username <span class="k">for</span> <span class="s1">&#39;https://git.xxx.com&#39;</span>: terminal prompts disabled
-</span></span><span class="line"><span class="cl">Confirm the import path was entered correctly.
-</span></span><span class="line"><span class="cl">If this is a private repository, see https://golang.org/doc/faq#git_https <span class="k">for</span> additional information.
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">github.com/mwitkow/go-proto-validators/validator.proto: File not found.
+</span></span><span class="line"><span class="cl">Import <span class="s2">&#34;github.com/mwitkow/go-proto-validators/validator.proto&#34;</span> was not found or had errors.
 </span></span></code></pre></td></tr></table>
 </div>
-</div><!-- raw HTML omitted -->
-<p>造成错误的原因是这是让 golang 拉取一个私有库里的 package, 因为用的地址是 <code>https://https://git.xxx.com</code>, 那么就会被代码库给拦截掉</p>
-<p>解决方法也简单, 就是拉取的时候带上鉴权方式</p>
-<p>第一种, 全局设置密码 <em><strong>这个非常不推荐</strong></em></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git credential-manager-core config --global credential.username <span class="s1">&#39;你的用户名&#39;</span> --global credential.password <span class="s1">&#39;你的密码&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>第二种, 请求时把 <code>https://git.xxx.com</code> 转成ssh 请求 <code>git@git.xxx.com</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git config --global url.<span class="s2">&#34;git@github.com:&#34;</span>.insteadOf <span class="s2">&#34;https://github.com&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>输入后, 可以查看全局配置文件中多了一行配置</p>
+</div><p>解决问题分两步</p>
+<ol>
+<li>拷贝 <code>https://github.com/protocolbuffers/protobuf</code> 这个文件中的 <code>src</code> 下的 <code>google/protobuf</code> 目录到 <code>$GOPATH/src</code>下</li>
+<li>把 <code>github.com/mwitkow/go-proto-validators</code> 这个包也拷贝到 <code>$GOPATH/src</code> 下, 目录结构:</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat ~/.gitconfig
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span>url <span class="s2">&#34;git@git.xxx.com:&#34;</span><span class="o">]</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">insteadOf</span> <span class="o">=</span> https://git.xxx.com/
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">-gopath
+</span></span><span class="line"><span class="cl">      -src
+</span></span><span class="line"><span class="cl">          -google
+</span></span><span class="line"><span class="cl">                  -protobuf
+</span></span><span class="line"><span class="cl">                        -descriptor.proto
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>之后就恢复正常了</p>
-<p><a href="https://blog.clarence.tw/2021/02/15/use-go-get-or-go-mod-download-to-encounter-fatal-could-not-read-username-for-https-github-com-terminal-prompts-disabled/">参考: 使用 go get 或 go mod download 在私人儲存庫遇到 fatal: could not read Username for ‘https://github.com’: terminal prompts disabled</a></p>
-
+</div><p>之后执行命令时带上一个<code>--proto_path=${GOPATH}/src</code> 即可, 例如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">protoc  <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --proto_path<span class="o">=</span><span class="si">${</span><span class="nv">GOPATH</span><span class="si">}</span>/src <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --proto_path<span class="o">=</span>./proto <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --go_out<span class="o">=</span>. <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --govalidators_out<span class="o">=</span>. <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --go-grpc_out<span class="o">=</span><span class="nv">require_unimplemented_servers</span><span class="o">=</span>false,paths<span class="o">=</span>source_relative:. <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  ./proto/*.proto
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://www.cnblogs.com/binHome/p/13061407.html">参考链接</a></p>
     </div>
 
     <div class="post-copyright">
@@ -209,8 +245,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2024-07-24
-        <a href="#ZgotmplZ/commit/d4b2dc7fec53dc903f426349b6feaea45b278035" title="更新">(d4b2dc7)</a>
+        2024-08-02
+        <a href="#ZgotmplZ/commit/7817f6b6d760b832bb8b6ab260d855f389d6265a" title="新增一条文档">(7817f6b)</a>
     </span>
   </p>
   
@@ -218,16 +254,12 @@
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/git/">git</a>
+          <a href="/tags/protobuf/">protobuf</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/proto-validator-error/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">validator.proto Error</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/other-env-bug/">
-            <span class="next-text nav-default">.env一个不易发掘的坑</span>
+        
+        <a class="next" href="/post/git-url-fatal/">
+            <span class="next-text nav-default">git拉取私有库时的异常</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
