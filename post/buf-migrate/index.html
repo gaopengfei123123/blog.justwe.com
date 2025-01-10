@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Buf 迁移老项目时遇到的问题 - helloword啊</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="Buf 迁移老项目时遇到的问题" /><meta name="keywords" content="buf, protobuf, mwitkow/go-proto-validators" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.justwe.site/post/buf-migrate/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2a3766884c406c389d3a4ca20b300e80e434d78f1c08825bbdf164a13f4a4235.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Buf 迁移老项目时遇到的问题" />
+<meta property="og:description" content="Buf 迁移老项目时遇到的问题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/buf-migrate/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2025-01-10T16:27:37+08:00" />
+<meta property="article:modified_time" content="2025-01-10T16:44:11+08:00" />
+
+<meta itemprop="name" content="Buf 迁移老项目时遇到的问题">
+<meta itemprop="description" content="Buf 迁移老项目时遇到的问题"><meta itemprop="datePublished" content="2025-01-10T16:27:37+08:00" />
+<meta itemprop="dateModified" content="2025-01-10T16:44:11+08:00" />
+<meta itemprop="wordCount" content="796">
+<meta itemprop="keywords" content="buf,protobuf," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Buf 迁移老项目时遇到的问题"/>
+<meta name="twitter:description" content="Buf 迁移老项目时遇到的问题"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Buf 迁移老项目时遇到的问题</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2025-01-10 </span>
+        <div class="post-category">
+            <a href="/categories/default/"> default </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-buf">安装 buf</a></li>
+    <li><a href="#报错-googleprotobufwrappersproto1229symbol-googleprotobufbytesvaluevalue-already-defined-at-githubcomgogo_bakprotobufv132protobufgoogleprotobufwrappersproto1229">报错: google/protobuf/wrappers.proto:122:9:symbol &ldquo;google.protobuf.BytesValue.value&rdquo; already defined at <a href="mailto:github.com/gogo_bak/protobuf@v1.3.2">github.com/gogo_bak/protobuf@v1.3.2</a>/protobuf/google/protobuf/wrappers.proto:122:9</a></li>
+    <li><a href="#问题-import-githubcommwitkowgo-proto-validatorsvalidatorproto-file-does-not-exist">问题: import &ldquo;github.com/mwitkow/go-proto-validators/validator.proto&rdquo;: file does not exist</a></li>
+    <li><a href="#贴一下当前用的配置信息">贴一下当前用的配置信息</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>最近接手了一个19年的老项目, 项目里的 protobuf 版本老而且编译是基于本地环境, 多人开发时就因为各自的<code>protoc</code>版本不同,
+导致生成的文件也是乱七八糟的, 所以决定使用 <code>buf</code> 来迁移项目, 但是遇到了一些问题, 记录一下</p>
+<h2 id="安装-buf">安装 buf</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install buf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>buf.gen.yaml</code> 配置文档: <a href="https://buf.build/docs/configuration/v2/buf-gen-yaml/">https://buf.build/docs/configuration/v2/buf-gen-yaml/</a></p>
+<p>buf 文档地址 <a href="https://buf.build/docs/">https://buf.build/docs/</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 1. 初始化buf 配置文件  buf.yaml</span>
+</span></span><span class="line"><span class="cl">buf init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. 自己编辑生成 buf.gen.yaml 文件</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. 执行命令生成 buf.lock 文件, 这一步是把构建时用到的依赖都下载下来</span>
+</span></span><span class="line"><span class="cl">buf dep update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. 编译 protobuf 文件, 输出到 api 中</span>
+</span></span><span class="line"><span class="cl">buf generate
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="报错-googleprotobufwrappersproto1229symbol-googleprotobufbytesvaluevalue-already-defined-at-githubcomgogo_bakprotobufv132protobufgoogleprotobufwrappersproto1229">报错: google/protobuf/wrappers.proto:122:9:symbol &ldquo;google.protobuf.BytesValue.value&rdquo; already defined at <a href="mailto:github.com/gogo_bak/protobuf@v1.3.2">github.com/gogo_bak/protobuf@v1.3.2</a>/protobuf/google/protobuf/wrappers.proto:122:9</h2>
+<p>原因是protoc_path 重复引入了, 或者引入的路径是  <code>protoc_path=A/B/C;B/C</code> 这种存在包含关系的路径, 也会报错</p>
+<p>在buf 中的检查项:</p>
+<p>检查 <code>buf.gen.yaml</code> 中的 <code>input</code> 配置</p>
+<p>buf input配置描述官方文档:  <a href="https://buf.build/docs/reference/inputs/">https://buf.build/docs/reference/inputs/</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># buf.gen.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">inputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="l">proto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  - directory: /Users/gpf/go/pkg/mod   # 这么写就是把 /Users/gpf/go/pkg/mod 放到 proto_path 中</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="问题-import-githubcommwitkowgo-proto-validatorsvalidatorproto-file-does-not-exist">问题: import &ldquo;github.com/mwitkow/go-proto-validators/validator.proto&rdquo;: file does not exist</h2>
+<p>这个包在 buf里面好像是没对应的plugins, 而且包作者好久没维护了, 个人还是建议还是把它替换成 <code>buf.build/bufbuild/validate-go:v1.1.0</code>
+起码有一个组织在一直维护它</p>
+<p>老项目里迁移到 buf 时, 如果业务代码里没用到validate, 又懒得改, 就这么办:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 1. 在 buf.yaml 里dep 新增配置, 如下</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">deps</span><span class="p">:</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">buf.build/torq/go-proto-validators </span><span class="w"> </span><span class="c"># 引入这个包后, 构建时, 不会因为 github.com/mwitkow 报错</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 2. 在 buf.gen.yaml 里添加配置:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">managed</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">override</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">file_option</span><span class="p">:</span><span class="w"> </span><span class="l">go_package_prefix  </span><span class="w"> </span><span class="c"># 标记包前缀为 xxx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">xxx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">disable</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">buf.build/torq/go-proto-validators </span><span class="w"> </span><span class="c"># 在这里禁用掉, 这样生成的文件不会出现类似 import xxx/github.com/mwitkow/go-proto-validators/validator  这种代码</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种只是一个折中的办法, 一劳永逸的还是换包, 换 validator 的配置写法</p>
+<h2 id="贴一下当前用的配置信息">贴一下当前用的配置信息</h2>
+<p>buf.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">lint</span><span class="p">:</span><span class="w"> </span><span class="c"># 标记 lint 配置标准, 通常不用变</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">use</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">STANDARD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">modules</span><span class="p">:</span><span class="w">   </span><span class="c"># 标记 proto 文件所在目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">proto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">deps</span><span class="p">:</span><span class="w">   </span><span class="c"># 标记依赖</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">buf.build/envoyproxy/protoc-gen-validate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">buf.build/torq/go-proto-validators</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">breaking</span><span class="p">:</span><span class="w">  </span><span class="c"># 生成的文件按 proto 下目录进行分组</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">use</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">FILE</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>buf.gen.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">managed</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">override</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">file_option</span><span class="p">:</span><span class="w"> </span><span class="l">go_package_prefix  </span><span class="w"> </span><span class="c"># 标记包前缀为 map_data_train_rpc/api</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">map_data_train_rpc/api</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">disable</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">buf.build/torq/go-proto-validators</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">buf.build/envoyproxy/protoc-gen-validate </span><span class="w"> </span><span class="c"># 标记与这个 dep 相关的包不被覆盖包前缀</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">inputs</span><span class="p">:</span><span class="w"> </span><span class="c"># 编译时会引入到 protoc_path 的目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="l">proto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#  - directory: /go/pkg/mod   # 这么写就是把 /go/pkg/mod 放到 proto_path 中</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l">buf.build/grpc/go:v1.2.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">out</span><span class="p">:</span><span class="w"> </span><span class="l">api</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">opt</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">paths=source_relative,require_unimplemented_servers=false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># dependencies 扩展依赖</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l">buf.build/protocolbuffers/go:v1.28.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">out</span><span class="p">:</span><span class="w"> </span><span class="l">api</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">opt</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">paths=source_relative</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">remote</span><span class="p">:</span><span class="w"> </span><span class="l">buf.build/bufbuild/validate-go:v1.1.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">out</span><span class="p">:</span><span class="w"> </span><span class="l">api</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">opt</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">paths=source_relative</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2025-01-10
+        <a href="#ZgotmplZ/commit/3322f958598133524b396607be650509d9051e5a" title="新增文章">(3322f95)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/buf/">buf</a>
+          <a href="/tags/protobuf/">protobuf</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/proto-validator-error/">
+            <span class="next-text nav-default">validator.proto Error</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.justwe.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='https://beian.miit.gov.cn/' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号</a></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function createCopyButton(highlightDiv) {
+    const div = document.createElement("div");
+    div.className = "copy-code";
+    div.innerText = "Copy";
+    div.addEventListener("click", () =>
+      copyCodeToClipboard(div, highlightDiv)
+    );
+    addCopyButtonToDom(div, highlightDiv);
+  }
+
+  async function copyCodeToClipboard(button, highlightDiv) {
+    const codeToCopy = highlightDiv.querySelector(":last-child > .chroma > code")
+      .innerText;
+    await navigator.clipboard.writeText(codeToCopy);
+    button.blur();
+    button.innerText = "Copied!";
+    setTimeout(() => button.innerText = "Copy", 2000);
+  }
+
+  function addCopyButtonToDom(button, highlightDiv) {
+    highlightDiv.insertBefore(button, highlightDiv.firstChild);
+    const wrapper = document.createElement("div");
+    wrapper.className = "highlight-wrapper";
+    highlightDiv.parentNode.insertBefore(wrapper, highlightDiv);
+    wrapper.appendChild(highlightDiv);
+  }
+
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if(!isMobile){
+     document.querySelectorAll(".highlight").forEach((highlightDiv) => createCopyButton(highlightDiv));
+  }
+</script>  
+
+
+</body>
+</html>

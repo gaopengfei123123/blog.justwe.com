@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a rel=&#39;icp&#39; href=&#39;https://beian.miit.gov.cn/&#39; target=&#39;_blank&#39;&gt;justwe.site 版权所有 ICP证:京ICP备16053557号&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 02 Aug 2024 18:24:14 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jan 2025 16:27:37 +0800</lastBuildDate><atom:link href="https://blog.justwe.site/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buf 迁移老项目时遇到的问题</title>
+      <link>https://blog.justwe.site/post/buf-migrate/</link>
+      <pubDate>Fri, 10 Jan 2025 16:27:37 +0800</pubDate>
+      
+      <guid>https://blog.justwe.site/post/buf-migrate/</guid>
+      <description>&lt;p&gt;最近接手了一个19年的老项目, 项目里的 protobuf 版本老而且编译是基于本地环境, 多人开发时就因为各自的&lt;code&gt;protoc&lt;/code&gt;版本不同,
+导致生成的文件也是乱七八糟的, 所以决定使用 &lt;code&gt;buf&lt;/code&gt; 来迁移项目, 但是遇到了一些问题, 记录一下&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>validator.proto Error</title>
       <link>https://blog.justwe.site/post/proto-validator-error/</link>
