@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>golang 的序列化中选 json 还是 gob? - helloword啊</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="GPF" /><meta name="description" content="为什么 gob 序列化后的内容比 json序列化的还要大, 中间多了什么" /><meta name="keywords" content="golang, json, gob" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.103.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.justwe.site/post/json-or-gob/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2a3766884c406c389d3a4ca20b300e80e434d78f1c08825bbdf164a13f4a4235.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="golang 的序列化中选 json 还是 gob?" />
+<meta property="og:description" content="为什么 gob 序列化后的内容比 json序列化的还要大, 中间多了什么" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.justwe.site/post/json-or-gob/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2025-09-19T10:17:01+08:00" />
+<meta property="article:modified_time" content="2025-09-19T10:28:13+08:00" />
+
+<meta itemprop="name" content="golang 的序列化中选 json 还是 gob?">
+<meta itemprop="description" content="为什么 gob 序列化后的内容比 json序列化的还要大, 中间多了什么"><meta itemprop="datePublished" content="2025-09-19T10:17:01+08:00" />
+<meta itemprop="dateModified" content="2025-09-19T10:28:13+08:00" />
+<meta itemprop="wordCount" content="4039">
+<meta itemprop="keywords" content="golang," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="golang 的序列化中选 json 还是 gob?"/>
+<meta name="twitter:description" content="为什么 gob 序列化后的内容比 json序列化的还要大, 中间多了什么"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">文章</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">&lt;Hello world /&gt; 啊哈</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">文章</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">golang 的序列化中选 json 还是 gob?</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2025-09-19 </span>
+        <div class="post-category">
+            <a href="/categories/golang/"> golang </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#测试脚本">测试脚本</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>为什么 gob 序列化后的内容比 json序列化的还要大, 中间多了什么?</p>
+<p>以下内容由 ai 生成并产生分析结果</p>
+<h2 id="测试脚本">测试脚本</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;encoding/gob&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;encoding/json&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 测试用的结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">TestData</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ID</span>       <span class="kt">int</span>                    <span class="s">`json:&#34;id&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>     <span class="kt">string</span>                 <span class="s">`json:&#34;name&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Email</span>    <span class="kt">string</span>                 <span class="s">`json:&#34;email&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Age</span>      <span class="kt">int</span>                    <span class="s">`json:&#34;age&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Active</span>   <span class="kt">bool</span>                   <span class="s">`json:&#34;active&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Tags</span>     <span class="p">[]</span><span class="kt">string</span>               <span class="s">`json:&#34;tags&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Metadata</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span> <span class="s">`json:&#34;metadata&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 创建测试数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">testData</span> <span class="o">:=</span> <span class="nx">TestData</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ID</span><span class="p">:</span>     <span class="mi">12345</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Name</span><span class="p">:</span>   <span class="s">&#34;张三&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Email</span><span class="p">:</span>  <span class="s">&#34;zhangsan@example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Age</span><span class="p">:</span>    <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Active</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Tags</span><span class="p">:</span>   <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;golang&#34;</span><span class="p">,</span> <span class="s">&#34;backend&#34;</span><span class="p">,</span> <span class="s">&#34;developer&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Metadata</span><span class="p">:</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}{</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;department&#34;</span><span class="p">:</span> <span class="s">&#34;技术部&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;level&#34;</span><span class="p">:</span>      <span class="s">&#34;高级工程师&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;salary&#34;</span><span class="p">:</span>     <span class="mf">50000.0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="s">&#34;projects&#34;</span><span class="p">:</span>   <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;项目A&#34;</span><span class="p">,</span> <span class="s">&#34;项目B&#34;</span><span class="p">,</span> <span class="s">&#34;项目C&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// JSON 序列化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">jsonData</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">testData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;JSON 序列化失败:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// gob 序列化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">gobBuffer</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gobEncoder</span> <span class="o">:=</span> <span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobBuffer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="p">=</span> <span class="nx">gobEncoder</span><span class="p">.</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">testData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;gob 序列化失败:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gobData</span> <span class="o">:=</span> <span class="nx">gobBuffer</span><span class="p">.</span><span class="nf">Bytes</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 输出结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;=== 序列化大小比较 ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;JSON 序列化大小: %d 字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;gob 序列化大小:  %d 字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">gobData</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;gob 比 JSON 大: %d 字节 (%.2f%%)\n&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">		<span class="nb">len</span><span class="p">(</span><span class="nx">gobData</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">		<span class="nb">float64</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">gobData</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span><span class="o">/</span><span class="nb">float64</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n=== JSON 序列化内容 ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;JSON: %s\n&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n=== gob 序列化内容 (十六进制) ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;gob (hex): %x\n&#34;</span><span class="p">,</span> <span class="nx">gobData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n=== gob 序列化内容 (可打印字符) ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">printableGob</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">gobData</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">gobData</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">b</span> <span class="o">&gt;=</span> <span class="mi">32</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span> <span class="o">&lt;=</span> <span class="mi">126</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">printableGob</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">printableGob</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;.&#39;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;gob (printable): %s\n&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">printableGob</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 分析 gob 格式的额外开销
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">analyzeGobOverhead</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">analyzeGobOverhead</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n=== gob 序列化额外开销分析 ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 测试简单数据类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">testSimpleTypes</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 测试复杂数据类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">testComplexTypes</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">testSimpleTypes</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n--- 简单数据类型比较 ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 整数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">intVal</span> <span class="o">:=</span> <span class="mi">12345</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonInt</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">intVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobIntBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobIntBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">intVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;整数 %d: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nx">intVal</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonInt</span><span class="p">),</span> <span class="nx">gobIntBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">strVal</span> <span class="o">:=</span> <span class="s">&#34;Hello World&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonStr</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">strVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobStrBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobStrBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">strVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;字符串 \&#34;%s\&#34;: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nx">strVal</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonStr</span><span class="p">),</span> <span class="nx">gobStrBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 布尔值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">boolVal</span> <span class="o">:=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonBool</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobBoolBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobBoolBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">boolVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;布尔值 %t: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nx">boolVal</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonBool</span><span class="p">),</span> <span class="nx">gobBoolBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">testComplexTypes</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n--- 复杂数据类型比较 ---&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">arrVal</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonArr</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">arrVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobArrBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobArrBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">arrVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;整数数组: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonArr</span><span class="p">),</span> <span class="nx">gobArrBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// Map
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">mapVal</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#34;c&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonMap</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">mapVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobMapBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobMapBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">mapVal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;字符串到整数的映射: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonMap</span><span class="p">),</span> <span class="nx">gobMapBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="o">==</span><span class="p">=</span> <span class="nx">序列化大小比较</span> <span class="o">==</span><span class="p">=</span>
+</span></span><span class="line"><span class="cl"><span class="nx">JSON</span> <span class="nx">序列化大小</span><span class="p">:</span> <span class="mi">244</span> <span class="nx">字节</span>
+</span></span><span class="line"><span class="cl"><span class="nx">gob</span> <span class="nx">序列化大小</span><span class="p">:</span>  <span class="mi">358</span> <span class="nx">字节</span>
+</span></span><span class="line"><span class="cl"><span class="nx">gob</span> <span class="nx">比</span> <span class="nx">JSON</span> <span class="nx">大</span><span class="p">:</span> <span class="mi">114</span> <span class="nx">字节</span> <span class="p">(</span><span class="mf">46.72</span><span class="o">%</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="p">=</span> <span class="nx">JSON</span> <span class="nx">序列化内容</span> <span class="o">==</span><span class="p">=</span>
+</span></span><span class="line"><span class="cl"><span class="nx">JSON</span><span class="p">:</span> <span class="p">{</span><span class="s">&#34;id&#34;</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="s">&#34;name&#34;</span><span class="p">:</span><span class="s">&#34;张三&#34;</span><span class="p">,</span><span class="s">&#34;email&#34;</span><span class="p">:</span><span class="s">&#34;zhangsan@example.com&#34;</span><span class="p">,</span><span class="s">&#34;age&#34;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="s">&#34;active&#34;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s">&#34;tags&#34;</span><span class="p">:[</span><span class="s">&#34;golang&#34;</span><span class="p">,</span><span class="s">&#34;backend&#34;</span><span class="p">,</span><span class="s">&#34;developer&#34;</span><span class="p">],</span><span class="s">&#34;metadata&#34;</span><span class="p">:{</span><span class="s">&#34;department&#34;</span><span class="p">:</span><span class="s">&#34;技术部&#34;</span><span class="p">,</span><span class="s">&#34;level&#34;</span><span class="p">:</span><span class="s">&#34;高级工程师&#34;</span><span class="p">,</span><span class="s">&#34;projects&#34;</span><span class="p">:[</span><span class="s">&#34;项目A&#34;</span><span class="p">,</span><span class="s">&#34;项目B&#34;</span><span class="p">,</span><span class="s">&#34;项目C&#34;</span><span class="p">],</span><span class="s">&#34;salary&#34;</span><span class="p">:</span><span class="mi">50000</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="p">=</span> <span class="nx">gob</span> <span class="nx">序列化内容</span> <span class="p">(</span><span class="nx">十六进制</span><span class="p">)</span> <span class="o">==</span><span class="p">=</span>
+</span></span><span class="line"><span class="cl"><span class="nf">gob</span> <span class="p">(</span><span class="nx">hex</span><span class="p">):</span> <span class="mi">5</span><span class="nx">a7f03010108546573744461746101ff800001070102494401040001044e616d65010c000105456d61696c010c000103416765010400010641637469766501020001045461677301ff820001084d6574616461746101ff8400000016ff81020101085b5d737472696e6701ff8200010c000027ff83040101176d61705b737472696e675d696e74657266616365207b7d01ff8400010c01100000ffcaff8001fe60720106e5bca0e4b88901147a68616e6773616e406578616d706c652e636f6d013c0101010306676f6c616e67076261636b656e6409646576656c6f7065720104056c6576656c06737472696e670c11000fe9ab98e7baa7e5b7a5e7a88be5b8880673616c61727907666c6f61743634080500fd6ae8400870726f6a65637473085b5d737472696e67ff821a000307e9a1b9e79bae4107e9a1b9e79bae4207e9a1b9e79bae430a6465706172746d656e7406737472696e670c0b0009e68a80e69cafe983a800</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="p">=</span> <span class="nx">gob</span> <span class="nx">序列化内容</span> <span class="p">(</span><span class="nx">可打印字符</span><span class="p">)</span> <span class="o">==</span><span class="p">=</span>
+</span></span><span class="line"><span class="cl"><span class="nf">gob</span> <span class="p">(</span><span class="nx">printable</span><span class="p">):</span> <span class="nx">Z</span><span class="o">...</span><span class="p">..</span><span class="nx">TestData</span><span class="o">......</span><span class="p">..</span><span class="nx">ID</span><span class="o">...</span><span class="p">..</span><span class="nx">Name</span><span class="o">...</span><span class="p">..</span><span class="nx">Email</span><span class="o">...</span><span class="p">..</span><span class="nx">Age</span><span class="o">...</span><span class="p">..</span><span class="nx">Active</span><span class="o">...</span><span class="p">..</span><span class="nx">Tags</span><span class="o">......</span><span class="nx">Metadata</span><span class="o">............</span><span class="p">.[]</span><span class="kt">string</span><span class="o">......</span><span class="p">..</span><span class="err">&#39;</span><span class="o">......</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span> <span class="p">{}</span><span class="o">...............</span><span class="p">.</span><span class="err">`</span><span class="nx">r</span><span class="o">.........</span><span class="p">.</span><span class="nx">zhangsan</span><span class="err">@</span><span class="nx">example</span><span class="p">.</span><span class="nx">com</span><span class="p">.&lt;</span><span class="o">...</span><span class="p">..</span><span class="nx">golang</span><span class="p">.</span><span class="nx">backend</span><span class="p">.</span><span class="nx">developer</span><span class="o">...</span><span class="nx">level</span><span class="p">.</span><span class="kt">string</span><span class="o">..................</span><span class="p">..</span><span class="nx">salary</span><span class="p">.</span><span class="kt">float64</span><span class="o">...</span><span class="p">.</span><span class="nx">j</span><span class="p">.</span><span class="err">@</span><span class="p">.</span><span class="nx">projects</span><span class="p">.[]</span><span class="kt">string</span><span class="o">............</span><span class="nx">A</span><span class="o">......</span><span class="p">.</span><span class="nx">B</span><span class="o">......</span><span class="p">.</span><span class="nx">C</span><span class="p">.</span><span class="nx">department</span><span class="p">.</span><span class="kt">string</span><span class="o">............</span><span class="p">..</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">==</span><span class="p">=</span> <span class="nx">gob</span> <span class="nx">序列化额外开销分析</span> <span class="o">==</span><span class="p">=</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">简单数据类型比较</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nx">整数</span> <span class="mi">12345</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">=</span><span class="mi">5</span><span class="nx">字节</span><span class="p">,</span> <span class="nx">gob</span><span class="p">=</span><span class="mi">6</span><span class="nx">字节</span>
+</span></span><span class="line"><span class="cl"><span class="nx">字符串</span> <span class="s">&#34;Hello World&#34;</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">=</span><span class="mi">13</span><span class="nx">字节</span><span class="p">,</span> <span class="nx">gob</span><span class="p">=</span><span class="mi">15</span><span class="nx">字节</span>
+</span></span><span class="line"><span class="cl"><span class="nx">布尔值</span> <span class="kc">true</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">=</span><span class="mi">4</span><span class="nx">字节</span><span class="p">,</span> <span class="nx">gob</span><span class="p">=</span><span class="mi">4</span><span class="nx">字节</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">复杂数据类型比较</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nx">整数数组</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">=</span><span class="mi">11</span><span class="nx">字节</span><span class="p">,</span> <span class="nx">gob</span><span class="p">=</span><span class="mi">23</span><span class="nx">字节</span>
+</span></span><span class="line"><span class="cl"><span class="nx">字符串到整数的映射</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">=</span><span class="mi">19</span><span class="nx">字节</span><span class="p">,</span> <span class="nx">gob</span><span class="p">=</span><span class="mi">29</span><span class="nx">字节</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>分析一下gob格式的内部结构</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;encoding/gob&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;encoding/json&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;=== gob 序列化比 JSON 大的原因分析 ===\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 1. 类型信息开销
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">analyzeTypeInformation</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 2. 字段名存储
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">analyzeFieldNames</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 3. 编码格式差异
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">analyzeEncodingFormat</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 4. 实际案例分析
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">realWorldExample</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">analyzeTypeInformation</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;1. 类型信息开销&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;   gob 需要在序列化数据中包含完整的类型定义信息&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="kd">type</span> <span class="nx">SimpleStruct</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Age</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">data</span> <span class="o">:=</span> <span class="nx">SimpleStruct</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;test&#34;</span><span class="p">,</span> <span class="nx">Age</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// JSON 序列化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">jsonData</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// gob 序列化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">gobBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   简单结构体: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">),</span> <span class="nx">gobBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   JSON内容: %s\n&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   gob包含类型定义: SimpleStruct, Name string, Age int\n\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">analyzeFieldNames</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;2. 字段名存储方式&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;   gob 存储完整的字段名，而 JSON 在每个对象中重复字段名&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FirstName</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">LastName</span>  <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Email</span>     <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 单个对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">single</span> <span class="o">:=</span> <span class="nx">Person</span><span class="p">{</span><span class="nx">FirstName</span><span class="p">:</span> <span class="s">&#34;John&#34;</span><span class="p">,</span> <span class="nx">LastName</span><span class="p">:</span> <span class="s">&#34;Doe&#34;</span><span class="p">,</span> <span class="nx">Email</span><span class="p">:</span> <span class="s">&#34;john@example.com&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonSingle</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">single</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobSingle</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobSingle</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">single</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   单个对象: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonSingle</span><span class="p">),</span> <span class="nx">gobSingle</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 多个对象数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">multiple</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">Person</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span><span class="nx">FirstName</span><span class="p">:</span> <span class="s">&#34;John&#34;</span><span class="p">,</span> <span class="nx">LastName</span><span class="p">:</span> <span class="s">&#34;Doe&#34;</span><span class="p">,</span> <span class="nx">Email</span><span class="p">:</span> <span class="s">&#34;john@example.com&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span><span class="nx">FirstName</span><span class="p">:</span> <span class="s">&#34;Jane&#34;</span><span class="p">,</span> <span class="nx">LastName</span><span class="p">:</span> <span class="s">&#34;Smith&#34;</span><span class="p">,</span> <span class="nx">Email</span><span class="p">:</span> <span class="s">&#34;jane@example.com&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">{</span><span class="nx">FirstName</span><span class="p">:</span> <span class="s">&#34;Bob&#34;</span><span class="p">,</span> <span class="nx">LastName</span><span class="p">:</span> <span class="s">&#34;Johnson&#34;</span><span class="p">,</span> <span class="nx">Email</span><span class="p">:</span> <span class="s">&#34;bob@example.com&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonMultiple</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">multiple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobMultiple</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobMultiple</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">multiple</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   三个对象: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonMultiple</span><span class="p">),</span> <span class="nx">gobMultiple</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   JSON 重复字段名，gob 只存储一次类型定义\n\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">analyzeEncodingFormat</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;3. 编码格式差异&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 整数编码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;   整数编码:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">numbers</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">65535</span><span class="p">,</span> <span class="mi">65536</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">num</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">numbers</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">jsonData</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">gobBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;     %d: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">),</span> <span class="nx">gobBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 字符串编码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;   字符串编码:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">strings</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;a&#34;</span><span class="p">,</span> <span class="s">&#34;hello&#34;</span><span class="p">,</span> <span class="s">&#34;这是中文&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">str</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">strings</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">jsonData</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="kd">var</span> <span class="nx">gobBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;     \&#34;%s\&#34;: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nx">str</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">),</span> <span class="nx">gobBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">realWorldExample</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;4. 实际案例分析&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 模拟你的测试文件中的数据结构
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">type</span> <span class="nx">PLineData</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ID</span>                 <span class="kt">int</span>    <span class="s">`json:&#34;id&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">BusinessCode</span>       <span class="kt">string</span> <span class="s">`json:&#34;business_code&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">BusinessName</span>       <span class="kt">string</span> <span class="s">`json:&#34;business_name&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FactorCode</span>         <span class="kt">string</span> <span class="s">`json:&#34;factor_code&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FactorName</span>         <span class="kt">string</span> <span class="s">`json:&#34;factor_name&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PlatformName</span>       <span class="kt">string</span> <span class="s">`json:&#34;platform_name&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">WorkType</span>           <span class="kt">int</span>    <span class="s">`json:&#34;work_type&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PCode</span>              <span class="kt">string</span> <span class="s">`json:&#34;p_code&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PName</span>              <span class="kt">string</span> <span class="s">`json:&#34;p_name&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ProductionLineCode</span> <span class="kt">string</span> <span class="s">`json:&#34;production_line_code&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ProductionLineName</span> <span class="kt">string</span> <span class="s">`json:&#34;production_line_name&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">IsEnable</span>           <span class="kt">int</span>    <span class="s">`json:&#34;is_enable&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">IsDelete</span>           <span class="kt">int</span>    <span class="s">`json:&#34;is_delete&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">CreateTime</span>         <span class="kt">string</span> <span class="s">`json:&#34;create_time&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">UpdateTime</span>         <span class="kt">string</span> <span class="s">`json:&#34;update_time&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PlineStatus</span>        <span class="kt">int</span>    <span class="s">`json:&#34;pline_status&#34;`</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PlatformCode</span>       <span class="kt">string</span> <span class="s">`json:&#34;platform_code&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 创建测试数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">data</span> <span class="o">:=</span> <span class="nx">PLineData</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ID</span><span class="p">:</span>                 <span class="mi">389</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">BusinessCode</span><span class="p">:</span>       <span class="s">&#34;P&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">BusinessName</span><span class="p">:</span>       <span class="s">&#34;POI&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FactorCode</span><span class="p">:</span>         <span class="s">&#34;P_1003&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">FactorName</span><span class="p">:</span>         <span class="s">&#34;上车点_区域型&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PlatformName</span><span class="p">:</span>       <span class="s">&#34;xx平台&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">WorkType</span><span class="p">:</span>           <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PCode</span><span class="p">:</span>              <span class="s">&#34;P_110093&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PName</span><span class="p">:</span>              <span class="s">&#34;POI上车点区域型&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ProductionLineCode</span><span class="p">:</span> <span class="s">&#34;101_688_1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ProductionLineName</span><span class="p">:</span> <span class="s">&#34;打车上车点产线-打车上车点产线1-区域型上车点&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">IsEnable</span><span class="p">:</span>           <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">IsDelete</span><span class="p">:</span>           <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">CreateTime</span><span class="p">:</span>         <span class="s">&#34;2025-01-20 18:42:15&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">UpdateTime</span><span class="p">:</span>         <span class="s">&#34;2025-01-20 18:42:15&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PlineStatus</span><span class="p">:</span>        <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">PlatformCode</span><span class="p">:</span>       <span class="s">&#34;11&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">jsonData</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">gobBuf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gob</span><span class="p">.</span><span class="nf">NewEncoder</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">gobBuf</span><span class="p">).</span><span class="nf">Encode</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   产线数据结构: JSON=%d字节, gob=%d字节\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">),</span> <span class="nx">gobBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;   gob 额外开销: %d字节 (%.1f%%)\n&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">		<span class="nx">gobBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">()</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">		<span class="nb">float64</span><span class="p">(</span><span class="nx">gobBuf</span><span class="p">.</span><span class="nf">Len</span><span class="p">()</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span><span class="o">/</span><span class="nb">float64</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">jsonData</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n=== gob 额外开销的组成 ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;1. 类型定义信息: 包含结构体名称和所有字段的类型信息&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;2. 字段名称: 完整的字段名存储&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;3. 类型标识符: 用于标识不同的数据类型&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;4. 长度前缀: 变长编码的长度信息&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;5. 版本信息: gob 格式的版本标识&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n=== 何时 gob 更有优势 ===&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;1. 大量相同结构的数据: 类型信息只需存储一次&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;2. 复杂嵌套结构: gob 的二进制格式更紧凑&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;3. Go 程序间通信: 无需解析，直接反序列化&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;4. 保持类型安全: 编译时类型检查&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">=== gob 序列化比 JSON 大的原因分析 ===
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. 类型信息开销
+</span></span><span class="line"><span class="cl">   gob 需要在序列化数据中包含完整的类型定义信息
+</span></span><span class="line"><span class="cl">   简单结构体: JSON=24字节, gob=55字节
+</span></span><span class="line"><span class="cl">   JSON内容: {&#34;Name&#34;:&#34;test&#34;,&#34;Age&#34;:25}
+</span></span><span class="line"><span class="cl">   gob包含类型定义: SimpleStruct, Name string, Age int
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2. 字段名存储方式
+</span></span><span class="line"><span class="cl">   gob 存储完整的字段名，而 JSON 在每个对象中重复字段名
+</span></span><span class="line"><span class="cl">   单个对象: JSON=64字节, gob=91字节
+</span></span><span class="line"><span class="cl">   三个对象: JSON=200字节, gob=171字节
+</span></span><span class="line"><span class="cl">   JSON 重复字段名，gob 只存储一次类型定义
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3. 编码格式差异
+</span></span><span class="line"><span class="cl">   整数编码:
+</span></span><span class="line"><span class="cl">     0: JSON=1字节, gob=4字节
+</span></span><span class="line"><span class="cl">     1: JSON=1字节, gob=4字节
+</span></span><span class="line"><span class="cl">     127: JSON=3字节, gob=5字节
+</span></span><span class="line"><span class="cl">     128: JSON=3字节, gob=6字节
+</span></span><span class="line"><span class="cl">     255: JSON=3字节, gob=6字节
+</span></span><span class="line"><span class="cl">     256: JSON=3字节, gob=6字节
+</span></span><span class="line"><span class="cl">     65535: JSON=5字节, gob=7字节
+</span></span><span class="line"><span class="cl">     65536: JSON=5字节, gob=7字节
+</span></span><span class="line"><span class="cl">   字符串编码:
+</span></span><span class="line"><span class="cl">     &#34;&#34;: JSON=2字节, gob=4字节
+</span></span><span class="line"><span class="cl">     &#34;a&#34;: JSON=3字节, gob=5字节
+</span></span><span class="line"><span class="cl">     &#34;hello&#34;: JSON=7字节, gob=9字节
+</span></span><span class="line"><span class="cl">     &#34;这是中文&#34;: JSON=14字节, gob=16字节
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4. 实际案例分析
+</span></span><span class="line"><span class="cl">   产线数据结构: JSON=471字节, gob=503字节
+</span></span><span class="line"><span class="cl">   gob 额外开销: 32字节 (6.8%)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=== gob 额外开销的组成 ===
+</span></span><span class="line"><span class="cl">1. 类型定义信息: 包含结构体名称和所有字段的类型信息
+</span></span><span class="line"><span class="cl">2. 字段名称: 完整的字段名存储
+</span></span><span class="line"><span class="cl">3. 类型标识符: 用于标识不同的数据类型
+</span></span><span class="line"><span class="cl">4. 长度前缀: 变长编码的长度信息
+</span></span><span class="line"><span class="cl">5. 版本信息: gob 格式的版本标识
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">=== 何时 gob 更有优势 ===
+</span></span><span class="line"><span class="cl">1. 大量相同结构的数据: 类型信息只需存储一次
+</span></span><span class="line"><span class="cl">2. 复杂嵌套结构: gob 的二进制格式更紧凑
+</span></span><span class="line"><span class="cl">3. Go 程序间通信: 无需解析，直接反序列化
+</span></span><span class="line"><span class="cl">4. 保持类型安全: 编译时类型检查
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>通过实际测试和分析，我发现 gob 序列化后的内容比 JSON 序列化的大 主要有以下几个原因：</p>
+<ol>
+<li>类型信息开销
+gob 需要在序列化数据中包含完整的类型定义信息，包括：
+结构体名称
+每个字段的名称和类型
+类型标识符和版本信息
+JSON 只存储数据值，不包含类型信息</li>
+<li>编码格式差异
+gob 使用二进制格式，但包含额外的元数据：
+长度前缀（变长编码）
+类型标识符
+字段映射信息
+JSON 使用文本格式，相对简洁</li>
+<li>字段名存储方式
+gob 在类型定义中存储完整的字段名
+JSON 在每个对象中重复字段名</li>
+<li>实际测试结果
+从测试结果可以看出：
+简单数据：gob 比 JSON 大 46.72%
+复杂结构：gob 比 JSON 大 6.8%
+多个相同结构对象：gob 可能比 JSON 更小（因为类型信息只存储一次）</li>
+<li>gob 的优势场景
+虽然 gob 通常更大，但在以下情况下更有优势：
+大量相同结构的数据：类型信息只需存储一次
+Go 程序间通信：无需解析，直接反序列化，性能更好
+类型安全：编译时类型检查
+复杂嵌套结构：在某些情况下二进制格式更紧凑</li>
+<li>建议
+如果主要关注存储空间和跨语言兼容性，使用 JSON
+如果主要关注性能和类型安全（Go 程序间通信），使用 gob
+对于大量相同结构的数据，gob 可能更有优势</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">GPF</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2025-09-19
+        <a href="#ZgotmplZ/commit/b4b76f7c789c8280328552aee921125f60e70227" title="新增一篇文章">(b4b76f7)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/golang/">golang</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/buf-migrate/">
+            <span class="next-text nav-default">Buf 迁移老项目时遇到的问题</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'VJnd89VyHmFPThDMO5zcnpqI-gzGzoHsz',
+        appKey: 'VNttckiEwr7AC9In6lw3BXnf',
+        notify:  false ,
+        verify:  false ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/gaopengfei123123" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.justwe.site/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025<span class="heart"><i class="iconfont icon-heart"></i></span><span><a rel='icp' href='https://beian.miit.gov.cn/' target='_blank'>justwe.site 版权所有 ICP证:京ICP备16053557号</a></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-92777740-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+
+<script>
+  function createCopyButton(highlightDiv) {
+    const div = document.createElement("div");
+    div.className = "copy-code";
+    div.innerText = "Copy";
+    div.addEventListener("click", () =>
+      copyCodeToClipboard(div, highlightDiv)
+    );
+    addCopyButtonToDom(div, highlightDiv);
+  }
+
+  async function copyCodeToClipboard(button, highlightDiv) {
+    const codeToCopy = highlightDiv.querySelector(":last-child > .chroma > code")
+      .innerText;
+    await navigator.clipboard.writeText(codeToCopy);
+    button.blur();
+    button.innerText = "Copied!";
+    setTimeout(() => button.innerText = "Copy", 2000);
+  }
+
+  function addCopyButtonToDom(button, highlightDiv) {
+    highlightDiv.insertBefore(button, highlightDiv.firstChild);
+    const wrapper = document.createElement("div");
+    wrapper.className = "highlight-wrapper";
+    highlightDiv.parentNode.insertBefore(wrapper, highlightDiv);
+    wrapper.appendChild(highlightDiv);
+  }
+
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if(!isMobile){
+     document.querySelectorAll(".highlight").forEach((highlightDiv) => createCopyButton(highlightDiv));
+  }
+</script>  
+
+
+</body>
+</html>

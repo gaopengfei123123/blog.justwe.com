@@ -9,6 +9,55 @@
   </url>
   
   <url>
+    <loc>https://blog.justwe.site/categories/</loc>
+    <lastmod>2025-09-19T10:28:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/golang/</loc>
+    <lastmod>2025-09-19T10:28:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/categories/golang/</loc>
+    <lastmod>2025-09-19T10:28:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/json-or-gob/</loc>
+    <lastmod>2025-09-19T10:28:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/</loc>
+    <lastmod>2025-09-19T10:28:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/post/</loc>
+    <lastmod>2025-09-19T10:28:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.justwe.site/tags/</loc>
+    <lastmod>2025-09-19T10:28:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.justwe.site/tags/buf/</loc>
     <lastmod>2025-01-10T16:44:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/categories/</loc>
-    <lastmod>2025-01-10T16:44:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justwe.site/categories/default/</loc>
     <lastmod>2025-01-10T16:44:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -37,28 +79,7 @@
   </url>
   
   <url>
-    <loc>https://blog.justwe.site/</loc>
-    <lastmod>2025-01-10T16:44:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/post/</loc>
-    <lastmod>2025-01-10T16:44:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.justwe.site/tags/protobuf/</loc>
-    <lastmod>2025-01-10T16:44:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.justwe.site/tags/</loc>
     <lastmod>2025-01-10T16:44:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

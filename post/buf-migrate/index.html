@@ -153,6 +153,11 @@
 </nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2025-01-10T16:44:11" title="January 10, 2025">January 10, 2025</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
     <div class="post-content">
       <p>最近接手了一个19年的老项目, 项目里的 protobuf 版本老而且编译是基于本地环境, 多人开发时就因为各自的<code>protoc</code>版本不同,
 导致生成的文件也是乱七八糟的, 所以决定使用 <code>buf</code> 来迁移项目, 但是遇到了一些问题, 记录一下</p>
@@ -368,7 +373,11 @@
           <a href="/tags/protobuf/">protobuf</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/json-or-gob/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">golang 的序列化中选 json 还是 gob?</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/proto-validator-error/">
             <span class="next-text nav-default">validator.proto Error</span>
             <span class="next-text nav-mobile">下一篇</span>
